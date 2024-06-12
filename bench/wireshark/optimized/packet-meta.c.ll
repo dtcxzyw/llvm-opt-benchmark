@@ -367,7 +367,7 @@ define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 95:                                               ; preds = %93
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   store i8 9, ptr %33, align 1
   br label %105
 
@@ -384,7 +384,7 @@ define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2
 100:                                              ; preds = %93
   %101 = load ptr, ptr @sscf_nni_handle, align 8
   store ptr %101, ptr %.0.i.us.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   store i8 10, ptr %33, align 1
   br label %105
 

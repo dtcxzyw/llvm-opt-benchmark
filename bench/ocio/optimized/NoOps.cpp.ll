@@ -1224,7 +1224,7 @@ while.body.i:                                     ; preds = %if.end13.i, %while.
   br i1 %8, label %if.end13.i, label %dynamic_cast.end.i.i.i.i
 
 dynamic_cast.end.i.i.i.i:                         ; preds = %while.body.i
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call10.val.i, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpE, i64 0) #19, !noalias !11
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %call10.val.i, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpE, i64 0) #19, !noalias !11
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %if.end13.i, label %if.then.i.i.i.i
 

@@ -28,7 +28,7 @@ define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2b
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %4, i8 -1, i64 256, i1 false), !alias.scope !4, !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %4, i8 -1, i64 256, i1 false), !alias.scope !4, !noalias !7
   br label %5
 
 5:                                                ; preds = %5, %3

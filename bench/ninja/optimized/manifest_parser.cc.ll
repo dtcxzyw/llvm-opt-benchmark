@@ -3256,7 +3256,7 @@ _ZN5Lexer8ReadPathEP10EvalStringPNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV14ManifestParser, i64 16), ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 %.sroa.0.0.copyload, ptr %23, align 8

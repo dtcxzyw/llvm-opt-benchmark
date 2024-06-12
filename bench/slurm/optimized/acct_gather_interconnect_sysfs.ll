@@ -446,7 +446,7 @@ define noundef i32 @acct_gather_interconnect_p_get_data(ptr noundef %0) local_un
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr @interfaces, align 8
   %14 = tail call i32 @slurm_list_for_each(ptr noundef %13, ptr noundef nonnull @_get_data, ptr noundef nonnull %11) #9
   br label %15

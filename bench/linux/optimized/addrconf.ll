@@ -10917,7 +10917,7 @@ snmp6_fill_stats.exit:                            ; preds = %267
   %274 = add nuw nsw i64 %262, 4294967240
   %275 = getelementptr i8, ptr %256, i64 60
   %276 = and i64 %274, 4294967295
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %275, i8 0, i64 %276, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %275, i8 0, i64 %276, i1 false)
   %277 = call ptr @nla_reserve(ptr noundef %0, i32 noundef 7, i32 noundef 16) #20
   %278 = icmp eq ptr %277, null
   br i1 %278, label %297, label %279
@@ -14801,7 +14801,7 @@ ipv6_get_lladdr.exit.thread:                      ; preds = %33
 
 .critedge:                                        ; preds = %49
   %54 = getelementptr i8, ptr %43, i64 -200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %2, ptr noundef align 8 dereferenceable(16) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef align 8 dereferenceable(16) %54, i64 16, i1 false)
   tail call void @_raw_read_unlock_bh(ptr noundef %38) #20
   tail call void @__rcu_read_unlock() #20
   call void @ndisc_send_rs(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull @in6addr_linklocal_allrouters) #20

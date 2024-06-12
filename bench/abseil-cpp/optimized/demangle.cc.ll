@@ -221,7 +221,7 @@ if.end.i:
   %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
   %prev_name_length.i = getelementptr inbounds i8, ptr %state, i64 40
   %0 = getelementptr inbounds i8, ptr %state, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   store i32 -65536, ptr %prev_name_length.i, align 8
   store i32 1, ptr %recursion_depth.i, align 4
   %steps.i.i = getelementptr inbounds i8, ptr %state, i64 24
@@ -332,7 +332,7 @@ while.body.i.i.i:                                 ; preds = %if.then18.i, %while
   br i1 %cmp.not.i.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i
-  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly %arrayidx.i.i, i64 noundef %inc.i.i.i)
+  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %arrayidx.i.i, i64 noundef %inc.i.i.i)
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.cond.i.i, %if.then3.i, %if.then18.i, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
@@ -1091,7 +1091,7 @@ if.then3:                                         ; preds = %call1.i.noexc
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then3
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.177, i64 noundef 2)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.177, i64 noundef 2)
   br label %cleanup
 
 lpad.loopexit:                                    ; preds = %while.cond.i
@@ -1966,7 +1966,7 @@ if.then2:                                         ; preds = %land.lhs.true.i
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then2
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.4, i64 noundef 1)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.4, i64 noundef 1)
   br label %cleanup
 
 if.end5:                                          ; preds = %land.lhs.true.i, %if.end.i, %if.end
@@ -2055,7 +2055,7 @@ if.then13:                                        ; preds = %if.end.i61
   br i1 %tobool.not.i73, label %cleanup, label %while.body.i.i75.preheader
 
 while.body.i.i75.preheader:                       ; preds = %if.then13
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.4, i64 noundef 1)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.4, i64 noundef 1)
   br label %cleanup
 
 if.end16:                                         ; preds = %land.lhs.true10, %if.end.i61, %if.end.i49, %land.lhs.true, %for.end.i, %if.end5, %if.end.i37
@@ -2110,7 +2110,7 @@ if.then32:                                        ; preds = %for.body
   br i1 %tobool.not.i103, label %invoke.cont33, label %while.body.i.i105.preheader
 
 while.body.i.i105.preheader:                      ; preds = %if.then32
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.189, i64 noundef 3)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.189, i64 noundef 3)
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %while.body.i.i105.preheader, %if.then32
@@ -2126,7 +2126,7 @@ if.then38:                                        ; preds = %invoke.cont33
   br i1 %tobool.not.i116, label %if.end44, label %while.body.i.i118.preheader
 
 while.body.i.i118.preheader:                      ; preds = %if.then38
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.2, i64 noundef 2)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.2, i64 noundef 2)
   %bf.load.i128.pr = load i32, ptr %append.i101, align 4
   %tobool.not.i129 = icmp sgt i32 %bf.load.i128.pr, -1
   br i1 %tobool.not.i129, label %if.end44, label %if.then.i130
@@ -2147,7 +2147,7 @@ while.body.i.i131:                                ; preds = %if.then.i130, %whil
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i137: ; preds = %while.body.i.i131, %if.then.i130
   %len.0.lcssa.i.i = phi i64 [ 0, %if.then.i130 ], [ %inc.i.i135, %while.body.i.i131 ]
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly %19, i64 noundef %len.0.lcssa.i.i)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %19, i64 noundef %len.0.lcssa.i.i)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then38, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i137, %while.body.i.i118.preheader, %invoke.cont33
@@ -2267,7 +2267,7 @@ if.then8:                                         ; preds = %if.end.i25
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then8
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.204, i64 noundef 2)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.204, i64 noundef 2)
   br label %cleanup
 
 lpad.loopexit:                                    ; preds = %while.cond.i
@@ -2380,7 +2380,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %land.lhs.true
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.205, i64 noundef 5)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.205, i64 noundef 5)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %land.lhs.true, %while.body.i.i.preheader
@@ -2561,7 +2561,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit, label %while.body.i.i.preheader.i
 
 while.body.i.i.preheader.i:                       ; preds = %while.cond
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.2, i64 noundef 2)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.2, i64 noundef 2)
   br label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit
 
 _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds = %while.cond, %while.body.i.i.preheader.i
@@ -2803,7 +2803,7 @@ if.then2:                                         ; preds = %land.lhs.true.i
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then2
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.4, i64 noundef 1)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.4, i64 noundef 1)
   br label %cleanup
 
 if.end5:                                          ; preds = %land.lhs.true.i, %if.end.i, %if.end
@@ -2903,7 +2903,7 @@ if.then13:                                        ; preds = %if.end.i49
   br i1 %tobool.not.i61, label %cleanup, label %while.body.i.i63.preheader
 
 while.body.i.i63.preheader:                       ; preds = %if.then13
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.4, i64 noundef 1)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.4, i64 noundef 1)
   br label %cleanup
 
 if.end16:                                         ; preds = %land.lhs.true10, %if.end.i49, %invoke.cont.i, %land.lhs.true, %if.end5, %if.end.i24
@@ -3070,7 +3070,7 @@ invoke.cont12.thread:                             ; preds = %if.then11
   br label %invoke.cont14.thread
 
 invoke.cont12:                                    ; preds = %if.then11
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.6, i64 noundef 14)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.6, i64 noundef 14)
   %bf.load.i55.pre = load i32, ptr %copy.sroa.3.0.parse_state.sroa_idx, align 4
   %16 = icmp sgt i32 %bf.load.i55.pre, -1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf.i)
@@ -3162,7 +3162,7 @@ invoke.cont14:                                    ; preds = %if.then14.i.i, %for
   br i1 %tobool.not.i68, label %cleanup, label %while.body.i.i70.preheader
 
 while.body.i.i70.preheader:                       ; preds = %invoke.cont14
-  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.7, i64 noundef 1)
+  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.7, i64 noundef 1)
   br label %cleanup
 
 lpad.loopexit:                                    ; preds = %while.cond.i
@@ -3888,7 +3888,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i, %while
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i, %if.then.i.i
   %len.0.lcssa.i.i.i = phi i64 [ 0, %if.then.i.i ], [ %inc.i.i22.i, %while.body.i.i.i ]
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly %24, i64 noundef %len.0.lcssa.i.i.i)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %24, i64 noundef %len.0.lcssa.i.i.i)
   br label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread
 
 if.else.i:                                        ; preds = %for.body.i86
@@ -3949,7 +3949,7 @@ while.body.i.i42.i:                               ; preds = %if.then.i40.i, %whi
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i48.i: ; preds = %while.body.i.i42.i, %if.then.i40.i
   %len.0.lcssa.i.i49.i = phi i64 [ 0, %if.then.i40.i ], [ %inc.i.i46.i, %while.body.i.i42.i ]
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly %32, i64 noundef %len.0.lcssa.i.i49.i)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %32, i64 noundef %len.0.lcssa.i.i49.i)
   br label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread
 
 for.inc.sink.split.i:                             ; preds = %land.lhs.true.i.i, %if.end.i32.i, %land.lhs.true.i89, %if.end.i.i94, %if.then3.i90
@@ -4904,7 +4904,7 @@ if.then8.i21:                                     ; preds = %invoke.cont6.i
   br i1 %tobool.not.i.i, label %invoke.cont2, label %while.body.i.i23.preheader.i
 
 while.body.i.i23.preheader.i:                     ; preds = %if.then8.i21
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.13, i64 noundef 21)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.13, i64 noundef 21)
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont6.i, %if.end5.i, %if.end.i16
@@ -6801,7 +6801,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %land.lhs.true
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.91, i64 noundef 9)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.91, i64 noundef 9)
   %bf.load.i57.pre = load i32, ptr %copy.sroa.3.0.parse_state.sroa_idx, align 4
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
@@ -7323,7 +7323,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.end
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.2, i64 noundef 2)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.2, i64 noundef 2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %if.end, %while.body.i.i.preheader
@@ -7975,7 +7975,7 @@ if.then26.i:                                      ; preds = %for.body.i
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then26.i
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.111, i64 noundef 1)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.111, i64 noundef 1)
   %bf.load37.i.pre = load i32, ptr %append.i, align 4
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
@@ -8134,7 +8134,7 @@ while.body.i:                                     ; preds = %if.end.i.i24
   br i1 %tobool.not.i.i, label %invoke.cont2.i, label %while.body.i.i.preheader.i
 
 while.body.i.i.preheader.i:                       ; preds = %while.body.i
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.209, i64 noundef 5)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.209, i64 noundef 5)
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %while.body.i.i.preheader.i, %while.body.i
@@ -8152,7 +8152,7 @@ if.end8.i:                                        ; preds = %invoke.cont2.i
   br i1 %tobool.not.i18.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit28.i, label %while.body.i.i20.preheader.i
 
 while.body.i.i20.preheader.i:                     ; preds = %if.end8.i
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull readonly @.str.210, i64 noundef 1)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.210, i64 noundef 1)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit28.i
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit28.i: ; preds = %while.body.i.i20.preheader.i, %if.end8.i

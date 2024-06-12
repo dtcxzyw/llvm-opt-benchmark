@@ -1290,13 +1290,13 @@ create_graphs.exit22.i:                           ; preds = %._crit_edge.i20.i, 
 
 596:                                              ; preds = %593
   %597 = load ptr, ptr %473, align 8
-  %598 = tail call fastcc i32 @add_p_edges(ptr noundef %597, ptr noundef nonnull readonly %27)
+  %598 = tail call fastcc i32 @add_p_edges(ptr noundef %597, ptr noundef nonnull %27)
   %.not11.i = icmp eq i32 %598, 0
   br i1 %.not11.i, label %599, label %assignTracks.exit.thread
 
 599:                                              ; preds = %596
   %600 = load ptr, ptr %535, align 8
-  %601 = tail call fastcc i32 @add_p_edges(ptr noundef %600, ptr noundef nonnull readonly %27)
+  %601 = tail call fastcc i32 @add_p_edges(ptr noundef %600, ptr noundef nonnull %27)
   %.not12.i = icmp eq i32 %601, 0
   br i1 %.not12.i, label %602, label %assignTracks.exit.thread
 
@@ -2545,11 +2545,11 @@ define internal fastcc range(i32 -1, 1) i32 @add_np_edges(ptr noundef %0) unname
   br i1 %21, label %32, label %34
 
 32:                                               ; preds = %31
-  %33 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %19, i32 noundef 4, i32 noundef 2)
+  %33 = tail call fastcc i32 @segCmp(ptr noundef nonnull %17, ptr noundef nonnull %19, i32 noundef 4, i32 noundef 2)
   br label %36
 
 34:                                               ; preds = %31
-  %35 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %19, i32 noundef 3, i32 noundef 1)
+  %35 = tail call fastcc i32 @segCmp(ptr noundef nonnull %17, ptr noundef nonnull %19, i32 noundef 3, i32 noundef 1)
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -2788,11 +2788,11 @@ is_parallel.exit.i46:                             ; preds = %81
   br i1 %95, label %106, label %108
 
 106:                                              ; preds = %105
-  %107 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i24, ptr noundef nonnull readonly %.0.i37.i28, i32 noundef 4, i32 noundef 2)
+  %107 = tail call fastcc i32 @segCmp(ptr noundef nonnull %.0.i54.i24, ptr noundef nonnull %.0.i37.i28, i32 noundef 4, i32 noundef 2)
   br label %110
 
 108:                                              ; preds = %105
-  %109 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i24, ptr noundef nonnull readonly %.0.i37.i28, i32 noundef 3, i32 noundef 1)
+  %109 = tail call fastcc i32 @segCmp(ptr noundef nonnull %.0.i54.i24, ptr noundef nonnull %.0.i37.i28, i32 noundef 3, i32 noundef 1)
   br label %110
 
 110:                                              ; preds = %108, %106
@@ -2937,11 +2937,11 @@ is_parallel.exit.i16:                             ; preds = %155
   br i1 %169, label %180, label %182
 
 180:                                              ; preds = %179
-  %181 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i, ptr noundef nonnull readonly %.0.i37.i, i32 noundef 4, i32 noundef 2)
+  %181 = tail call fastcc i32 @segCmp(ptr noundef nonnull %.0.i54.i, ptr noundef nonnull %.0.i37.i, i32 noundef 4, i32 noundef 2)
   br label %184
 
 182:                                              ; preds = %179
-  %183 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i, ptr noundef nonnull readonly %.0.i37.i, i32 noundef 3, i32 noundef 1)
+  %183 = tail call fastcc i32 @segCmp(ptr noundef nonnull %.0.i54.i, ptr noundef nonnull %.0.i37.i, i32 noundef 3, i32 noundef 1)
   br label %184
 
 184:                                              ; preds = %182, %180
@@ -3012,10 +3012,10 @@ is_parallel.exit.i16:                             ; preds = %155
   ]
 
 215:                                              ; preds = %.loopexit
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.5.ph, ptr noundef %1)
   %216 = load ptr, ptr %28, align 8
   %217 = load ptr, ptr %19, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %216, ptr noundef %217, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %216, ptr noundef %217, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.6.ph, ptr noundef %1)
   %218 = icmp eq i32 %.sroa.6.6.ph, 1
   br i1 %218, label %219, label %is_parallel.exit.thread.i
 
@@ -3104,31 +3104,31 @@ removeEdge.exit.i:                                ; preds = %244, %is_parallel.e
   ]
 
 269:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.5.ph, ptr noundef %1)
   %270 = load ptr, ptr %28, align 8
   %271 = load ptr, ptr %19, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %270, ptr noundef %271, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %270, ptr noundef %271, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.6.ph, ptr noundef %1)
   br label %is_parallel.exit.thread.i
 
 272:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef %1)
   %273 = load ptr, ptr %19, align 8
   %274 = load ptr, ptr %28, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %273, ptr noundef %274, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %273, ptr noundef %274, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef %1)
   br label %is_parallel.exit.thread.i
 
 275:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef %1)
   %276 = load ptr, ptr %19, align 8
   %277 = load ptr, ptr %28, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %276, ptr noundef %277, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %276, ptr noundef %277, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef %1)
   br label %is_parallel.exit.thread.i
 
 278:                                              ; preds = %.loopexit
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef %1)
   %279 = load ptr, ptr %19, align 8
   %280 = load ptr, ptr %28, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %279, ptr noundef %280, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %279, ptr noundef %280, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef %1)
   %281 = icmp eq i32 %.sroa.6.6.ph, -1
   br i1 %281, label %282, label %is_parallel.exit.thread.i
 

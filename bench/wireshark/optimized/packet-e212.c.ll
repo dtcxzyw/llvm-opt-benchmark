@@ -2424,13 +2424,13 @@ define ptr @dissect_e212_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %13, label %is_imsi_string_valid.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #4
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #4
   %16 = add i64 %15, -16
   %or.cond.i = icmp ult i64 %16, -11
   br i1 %or.cond.i, label %is_imsi_string_valid.exit.thread, label %is_imsi_string_valid.exit
 
 is_imsi_string_valid.exit:                        ; preds = %14
-  %17 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 63) #4
+  %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 63) #4
   %.not.i.not = icmp eq ptr %17, null
   br i1 %.not.i.not, label %19, label %is_imsi_string_valid.exit.thread
 
@@ -2552,13 +2552,13 @@ define noundef ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %11, label %is_imsi_string_valid.exit.thread, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #4
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #4
   %14 = add i64 %13, -16
   %or.cond.i = icmp ult i64 %14, -11
   br i1 %or.cond.i, label %is_imsi_string_valid.exit.thread, label %is_imsi_string_valid.exit
 
 is_imsi_string_valid.exit:                        ; preds = %12
-  %15 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %8, i32 noundef 63) #4
+  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 63) #4
   %.not.i.not = icmp eq ptr %15, null
   br i1 %.not.i.not, label %17, label %is_imsi_string_valid.exit.thread
 

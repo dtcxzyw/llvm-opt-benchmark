@@ -116,7 +116,7 @@ fmap_readn.exit.i:                                ; preds = %.lr.ph
   br i1 %.not26.i28.i, label %fmap_readn.exit30.thread.i, label %fmap_readn.exit30.i
 
 fmap_readn.exit30.i:                              ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %4, ptr nonnull align 1 %44, i64 %spec.select.i27.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4, ptr nonnull align 1 %44, i64 %spec.select.i27.i, i1 false)
   %.not24.i = icmp ugt i64 %42, 3
   br i1 %.not24.i, label %53, label %fmap_readn.exit30.thread.i.split.loop.exit
 
@@ -166,7 +166,7 @@ fmap_readn.exit30.thread.thread.i:                ; preds = %38
   br i1 %.not26.i33.i, label %.loopexit176, label %fmap_readn.exit35.i
 
 fmap_readn.exit35.i:                              ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %4, ptr nonnull align 1 %61, i64 %spec.select.i32.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4, ptr nonnull align 1 %61, i64 %spec.select.i32.i, i1 false)
   %.not25.i = icmp ugt i64 %59, 3
   br i1 %.not25.i, label %62, label %.loopexit176
 
@@ -285,7 +285,7 @@ tnef_message.exit.thread:                         ; preds = %77
   br i1 %.not26.i.i58, label %fmap_readn.exit.i59, label %100
 
 100:                                              ; preds = %95
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %86, ptr nonnull align 1 %99, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %99, i64 %spec.select.i.i, i1 false)
   %101 = trunc nuw nsw i64 %spec.select.i.i to i32
   br label %fmap_readn.exit.i59
 
@@ -353,7 +353,7 @@ fmap_readn.exit.i59:                              ; preds = %100, %95, %93, %89
   br i1 %.not26.i74.i, label %fmap_readn.exit76.thread.i, label %fmap_readn.exit76.i
 
 fmap_readn.exit76.i:                              ; preds = %120
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %125, i64 %spec.select.i73.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %125, i64 %spec.select.i73.i, i1 false)
   %126 = add nsw i64 %spec.select.i73.i, %.3107
   %127 = call i32 @fileblobAddData(ptr noundef nonnull %.2110, ptr noundef nonnull %3, i64 noundef %spec.select.i73.i) #7
   %128 = trunc nuw nsw i64 %spec.select.i73.i to i32
@@ -438,7 +438,7 @@ tnef_attachment.exit:                             ; preds = %132
   br i1 %.not26.i62, label %161, label %158
 
 158:                                              ; preds = %153
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 1 %157, i64 %spec.select.i61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %157, i64 %spec.select.i61, i1 false)
   br label %fmap_readn.exit64
 
 fmap_readn.exit64:                                ; preds = %158, %147

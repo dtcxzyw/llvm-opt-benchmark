@@ -259,7 +259,7 @@ ROBJECT_IVPTR.exit32:                             ; preds = %53
   %61 = zext i32 %59 to i64
   %62 = shl nuw nsw i64 %61, 3
   %63 = getelementptr inbounds i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %63, ptr nonnull readonly align 1 %.0, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %.0, i64 %62, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit32, %60

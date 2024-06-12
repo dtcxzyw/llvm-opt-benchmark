@@ -269,7 +269,7 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %for.body88.i
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %res.i, ptr noundef nonnull %res.i) #8
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %res.i, ptr noundef nonnull %res.i) #8
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %res.i, ptr noundef nonnull %res.i, ptr noundef nonnull %point_z) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %z_inv3, ptr noundef nonnull align 16 dereferenceable(32) %res.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %z_inv3, ptr noundef nonnull align 16 dereferenceable(32) %res.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %p2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %p4.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %p8.i)

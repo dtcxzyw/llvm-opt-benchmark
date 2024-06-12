@@ -1299,7 +1299,7 @@ if.then6:                                         ; preds = %land.lhs.true
   %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 0, ptr %union_.sroa.5.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !43
   %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
   %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8, !alias.scope !43
   br label %return
@@ -1377,7 +1377,7 @@ if.then4:                                         ; preds = %if.end
   %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 1, ptr %union_.sroa.5.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !46
   %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
   %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8, !alias.scope !46
   br label %return
@@ -1428,7 +1428,7 @@ if.then4:                                         ; preds = %if.end
   %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 1, ptr %union_.sroa.5.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !49
   %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
   %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8, !alias.scope !49
   br label %return

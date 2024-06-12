@@ -794,7 +794,7 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
 
 277:                                              ; preds = %272, %274
   %.1291 = phi ptr [ %276, %274 ], [ @.str, %272 ]
-  %278 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.1291, ptr noundef nonnull dereferenceable(8) @.str.1) #15
+  %278 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1291, ptr noundef nonnull dereferenceable(8) @.str.1) #15
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %280, label %287
 

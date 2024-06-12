@@ -628,7 +628,7 @@ declare ptr @lxb_dom_attr_data_by_local_name(ptr noundef, ptr noundef, i64 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @lxb_html_token_clean_noi(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }
 

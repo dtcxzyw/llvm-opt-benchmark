@@ -423,14 +423,14 @@ lor.lhs.false9.i:                                 ; preds = %lor.lhs.false5.i
 lor.lhs.false13.i:                                ; preds = %lor.lhs.false9.i
   %extra.i = getelementptr inbounds i8, ptr %call, i64 24
   %extra14.i = getelementptr inbounds i8, ptr %4, i64 24
-  %call15.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull readonly %extra.i, ptr noundef nonnull readonly %extra14.i)
+  %call15.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull %extra.i, ptr noundef nonnull %extra14.i)
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   %resume_extra.i = getelementptr inbounds i8, ptr %call, i64 224
   %resume_extra18.i = getelementptr inbounds i8, ptr %4, i64 224
-  %call19.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull readonly %resume_extra.i, ptr noundef nonnull readonly %resume_extra18.i)
+  %call19.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull %resume_extra.i, ptr noundef nonnull %resume_extra18.i)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false21.i
 

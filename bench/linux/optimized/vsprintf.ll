@@ -3922,7 +3922,7 @@ widen_string.exit.thread.i45:                     ; preds = %940
   br i1 %1020, label %1021, label %.preheader
 
 1021:                                             ; preds = %1017
-  %1022 = call fastcc ptr @ip6_compressed_string(ptr noundef nonnull %13, ptr noundef readonly %3)
+  %1022 = call fastcc ptr @ip6_compressed_string(ptr noundef nonnull %13, ptr noundef %3)
   br label %1063
 
 1023:                                             ; preds = %.preheader, %1059
@@ -4096,7 +4096,7 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
   %.val7.i = load i8, ptr %1124, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !5
-  %1125 = call fastcc ptr @ip4_string(ptr noundef nonnull %12, ptr noundef readonly %3, i8 %18, i8 %.val7.i)
+  %1125 = call fastcc ptr @ip4_string(ptr noundef nonnull %12, ptr noundef %3, i8 %18, i8 %.val7.i)
   %1126 = ashr i64 %4, 48
   %1127 = trunc nsw i64 %1126 to i32
   %1128 = icmp ult i64 %4, 281474976710656
@@ -4229,7 +4229,7 @@ ip4_addr_string.exit.i:                           ; preds = %1181, %1174, %.thre
   br i1 %1196, label %.thread.i23.i, label %.preheader.i16.i
 
 .thread.i23.i:                                    ; preds = %1187
-  %1197 = call fastcc ptr @ip4_string(ptr noundef nonnull %11, ptr noundef readonly %1189, i8 %18, i8 0)
+  %1197 = call fastcc ptr @ip4_string(ptr noundef nonnull %11, ptr noundef %1189, i8 %18, i8 0)
   br label %1228
 
 .preheader.i16.i:                                 ; preds = %1187, %1207
@@ -4269,7 +4269,7 @@ ip4_addr_string.exit.i:                           ; preds = %1181, %1174, %.thre
 1217:                                             ; preds = %1207
   %1218 = and i8 %1209, 1
   %1219 = icmp eq i8 %1218, 0
-  %1220 = call fastcc ptr @ip4_string(ptr noundef nonnull %11, ptr noundef readonly %1189, i8 %18, i8 %1208)
+  %1220 = call fastcc ptr @ip4_string(ptr noundef nonnull %11, ptr noundef %1189, i8 %18, i8 %1208)
   br i1 %1219, label %1228, label %1221
 
 1221:                                             ; preds = %1217
@@ -4555,7 +4555,7 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1285, %1278, %.thre
   br i1 %1397, label %ip6_string.exit.i34.i, label %.preheader.split.us.i.i, !llvm.loop !41
 
 1398:                                             ; preds = %1338
-  %1399 = call fastcc ptr @ip6_compressed_string(ptr noundef %.sroa.phi.i.i, ptr noundef readonly %1291)
+  %1399 = call fastcc ptr @ip6_compressed_string(ptr noundef %.sroa.phi.i.i, ptr noundef %1291)
   br label %1432
 
 .preheader.split.i.i:                             ; preds = %.preheader.split.i.i, %.preheader.split.i.preheader.i
@@ -6458,7 +6458,7 @@ widen_string.exit.thread.i105:                    ; preds = %2446
   ]
 
 2527:                                             ; preds = %2524
-  %2528 = tail call fastcc ptr @rtc_str(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, ptr noundef readonly %0)
+  %2528 = tail call fastcc ptr @rtc_str(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, ptr noundef %0)
   br label %hex_string.exit
 
 2529:                                             ; preds = %2524
@@ -6500,7 +6500,7 @@ widen_string.exit.thread.i105:                    ; preds = %2446
   store i32 %2552, ptr %2553, align 4
   %2554 = getelementptr inbounds i8, ptr %6, i64 32
   store i32 0, ptr %2554, align 4
-  %2555 = call fastcc ptr @rtc_str(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i64 %4, ptr noundef readonly %0)
+  %2555 = call fastcc ptr @rtc_str(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i64 %4, ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #16
   br label %hex_string.exit

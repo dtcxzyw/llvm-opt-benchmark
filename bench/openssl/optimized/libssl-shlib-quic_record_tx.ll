@@ -755,7 +755,7 @@ if.end42.i:                                       ; preds = %if.end42thread-pre-
   store ptr %62, ptr %cur.i, align 8
   store i64 %63, ptr %num_iovec2.i.i, align 8
   %cmp4.not.i.i.i = icmp eq i64 %63, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %idx.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %idx.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp4.not.i.i.i, label %err.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end42.i, %for.body.i.i.i

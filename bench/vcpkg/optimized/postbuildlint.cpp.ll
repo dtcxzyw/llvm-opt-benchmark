@@ -8554,7 +8554,7 @@ _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.i876: ; preds = %_ZSt8_Des
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   invoke void @_ZNK5vcpkg4Path16lexically_normalEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %248)
           to label %2557 unwind label %2598
 
@@ -9946,7 +9946,7 @@ _ZNSt12_Vector_baseISt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iter
   %3003 = ptrtoint ptr %3002 to i64
   %3004 = ptrtoint ptr %3001 to i64
   %3005 = sub i64 %3003, %3004
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(2048) %12, i8 0, i64 2048, i1 false), !alias.scope !176, !noalias !173
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %12, i8 0, i64 2048, i1 false), !alias.scope !176, !noalias !173
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i963
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i963:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i963, %2997

@@ -140,14 +140,14 @@ setYInvert.exit:                                  ; preds = %4, %22
   %47 = getelementptr inbounds i8, ptr %44, i64 40
   %48 = load double, ptr %47, align 8
   %49 = fdiv double %46, 7.200000e+01
-  tail call fastcc void @printdouble(ptr noundef readonly %15, ptr noundef %2, ptr noundef nonnull @.str.1, double noundef %49)
+  tail call fastcc void @printdouble(ptr noundef %15, ptr noundef %2, ptr noundef nonnull @.str.1, double noundef %49)
   %50 = load i8, ptr @Y_invert, align 1
   %51 = trunc i8 %50 to i1
   %52 = load double, ptr @Y_off, align 8
   %53 = fsub double %52, %48
   %54 = select i1 %51, double %53, double %48
   %55 = fdiv double %54, 7.200000e+01
-  tail call fastcc void @printdouble(ptr noundef readonly %15, ptr noundef %2, ptr noundef nonnull @.str.1, double noundef %55)
+  tail call fastcc void @printdouble(ptr noundef %15, ptr noundef %2, ptr noundef nonnull @.str.1, double noundef %55)
   %56 = load ptr, ptr %34, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8
@@ -2924,7 +2924,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #18
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -2984,7 +2984,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #18
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #18
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

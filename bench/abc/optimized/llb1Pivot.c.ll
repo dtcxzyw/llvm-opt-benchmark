@@ -416,7 +416,7 @@ define void @Llb_ManMarkInternalPivots(ptr noundef %0) local_unnamed_addr #1 {
   %33 = ptrtoint ptr %.val20.i to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
-  tail call void @Llb_ManLabelLiCones_rec(ptr noundef nonnull readonly %0, ptr noundef %35)
+  tail call void @Llb_ManLabelLiCones_rec(ptr noundef nonnull %0, ptr noundef %35)
   %36 = add nuw nsw i32 %.125.i, 1
   %.val18.i = load i32, ptr %11, align 8
   %37 = icmp slt i32 %36, %.val18.i

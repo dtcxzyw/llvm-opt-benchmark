@@ -1834,7 +1834,7 @@ define internal fastcc void @_terminate_job(ptr noundef %0) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
@@ -1866,7 +1866,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %22 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_proc_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i2 = icmp eq ptr %25, null
@@ -2126,7 +2126,7 @@ define internal fastcc void @check_send_notification(ptr noundef %0, ptr noundef
   %81 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %82, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, i8 0, i64 64, i1 false)
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_signature_t_class, i64 40), align 8
   %84 = load ptr, ptr %83, align 8
   %.not6.i = icmp eq ptr %84, null

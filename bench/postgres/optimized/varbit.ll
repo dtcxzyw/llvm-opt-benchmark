@@ -1292,7 +1292,7 @@ define dso_local range(i64 0, 2) i64 @bitlt(ptr nocapture noundef readonly %0) l
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1356,7 +1356,7 @@ define dso_local range(i64 0, 2) i64 @bitle(ptr nocapture noundef readonly %0) l
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1420,7 +1420,7 @@ define dso_local range(i64 0, 2) i64 @bitgt(ptr nocapture noundef readonly %0) l
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1484,7 +1484,7 @@ define dso_local range(i64 0, 2) i64 @bitge(ptr nocapture noundef readonly %0) l
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1548,7 +1548,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitcmp(ptr nocapture no
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 

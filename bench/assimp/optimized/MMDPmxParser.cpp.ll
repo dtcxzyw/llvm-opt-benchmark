@@ -4444,7 +4444,7 @@ for.body188:                                      ; preds = %_ZNSt10unique_ptrIA
   %joint_type.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 64
   %call5.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_type.i, i64 noundef 1)
   %param.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 68
-  call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param.i, ptr noundef nonnull %stream, ptr noundef nonnull readonly %setting)
+  call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1

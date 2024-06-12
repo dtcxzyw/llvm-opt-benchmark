@@ -1936,7 +1936,7 @@ land.lhs.true64:                                  ; preds = %land.lhs.true
 
 for.body.preheader.i201:                          ; preds = %land.lhs.true64
   %umax.i202 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i199, i64 1)
-  %call2.i206219 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef 0, i64 noundef %t)
+  %call2.i206219 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef 0, i64 noundef %t)
   br i1 %call2.i206219, label %land.end, label %for.cond.i207
 
 for.cond.i207:                                    ; preds = %for.body.preheader.i201, %for.body.i203
@@ -1946,7 +1946,7 @@ for.cond.i207:                                    ; preds = %for.body.preheader.
   br i1 %exitcond.not.i210, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212, label %for.body.i203, !llvm.loop !10
 
 for.body.i203:                                    ; preds = %for.cond.i207
-  %call2.i206 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef %inc.i208, i64 noundef %t)
+  %call2.i206 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %inc.i208, i64 noundef %t)
   br i1 %call2.i206, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212, label %for.cond.i207, !llvm.loop !10
 
 _ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212: ; preds = %for.body.i203, %for.cond.i207

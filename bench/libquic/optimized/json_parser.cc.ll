@@ -1251,7 +1251,7 @@ lpad7:                                            ; preds = %invoke.cont5
   br label %ehcleanup66
 
 invoke.cont18:                                    ; preds = %while.cond
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %key, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key, i8 0, i64 24, i1 false)
   %call21 = invoke noundef zeroext i1 @_ZN4base8internal10JSONParser16ConsumeStringRawEPNS1_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull %key)
           to label %invoke.cont20 unwind label %lpad19
 
@@ -1809,7 +1809,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %retval.i = alloca %"class.base::BasicStringPiece", align 8
   %string = alloca %"class.base::internal::JSONParser::StringBuilder", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %string, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %string, i8 0, i64 24, i1 false)
   %call = invoke noundef zeroext i1 @_ZN4base8internal10JSONParser16ConsumeStringRawEPNS1_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull %string)
           to label %invoke.cont unwind label %lpad
 
@@ -2270,7 +2270,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kTrueLiteral, i64 noundef 4) #19
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kTrueLiteral, i64 noundef 4) #19
   %cmp.i1 = icmp eq i32 %call.i, 0
   br i1 %cmp.i1, label %if.end, label %if.then
 
@@ -2325,7 +2325,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp.i10.not, label %if.then11, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %sw.bb5
-  %call.i11 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(6) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kFalseLiteral, i64 noundef 5) #19
+  %call.i11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kFalseLiteral, i64 noundef 5) #19
   %cmp.i12 = icmp eq i32 %call.i11, 0
   br i1 %cmp.i12, label %if.end12, label %if.then11
 
@@ -2374,7 +2374,7 @@ sw.bb15:                                          ; preds = %entry
   br i1 %cmp.i37.not, label %if.then21, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %sw.bb15
-  %call.i38 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kNullLiteral, i64 noundef 4) #19
+  %call.i38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @__const._ZN4base8internal10JSONParser14ConsumeLiteralEv.kNullLiteral, i64 noundef 4) #19
   %cmp.i39 = icmp eq i32 %call.i38, 0
   br i1 %cmp.i39, label %if.end22, label %if.then21
 
@@ -2470,7 +2470,7 @@ if.end:                                           ; preds = %entry
   store ptr %incdec.ptr.i, ptr %pos_, align 8
   store ptr %incdec.ptr.i, ptr %string, align 8
   %length_.i = getelementptr inbounds i8, ptr %string, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i, i8 0, i64 16, i1 false)
   %end_pos_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %end_pos_, align 8
   %start_pos_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -110,7 +110,7 @@ define dso_local i32 @register_shallow(ptr noundef %r, ptr noundef %oid) local_u
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 40) #12
   %call1 = tail call ptr @lookup_commit(ptr noundef %r, ptr noundef %oid) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -186,7 +186,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw nsw i64 %conv, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr nonnull readonly align 1 %add.ptr8, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr8, i64 %mul.i.i, i1 false)
   %.pre = load ptr, ptr @the_repository, align 8
   %parsed_objects13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre5 = load ptr, ptr %parsed_objects13.phi.trans.insert, align 8
@@ -285,7 +285,7 @@ if.then26:                                        ; preds = %while.body
 if.end28:                                         ; preds = %while.body
   %call.i = call ptr @xmalloc(i64 noundef 40) #12
   %call1.i = call ptr @lookup_commit(ptr noundef %r, ptr noundef nonnull %oid) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %9 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %9, ptr %algo3.i.i, align 4

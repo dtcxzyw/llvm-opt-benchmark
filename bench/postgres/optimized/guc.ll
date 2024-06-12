@@ -888,7 +888,7 @@ guc_name_compare.exit.thread:                     ; preds = %19, %guc_name_compa
 
 guc_malloc.exit.i:                                ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %45, i8 0, i64 208, i1 false)
-  %52 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %43) #29
+  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #29
   %53 = add i64 %52, 1
   %54 = load ptr, ptr @GUCMemoryContext, align 8
   %55 = call ptr @MemoryContextAllocExtended(ptr noundef %54, i64 noundef %53, i32 noundef 2) #28
@@ -911,7 +911,7 @@ guc_free.exit.i:                                  ; preds = %59, %57
   br label %add_placeholder_variable.exit
 
 62:                                               ; preds = %guc_malloc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr readonly align 1 %43, i64 %53, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %43, i64 %53, i1 false)
   store ptr %55, ptr %45, align 8
   %63 = getelementptr inbounds i8, ptr %45, i64 8
   store i32 6, ptr %63, align 8
@@ -1248,7 +1248,7 @@ define internal fastcc void @set_config_sourcefile(ptr noundef %0, ptr nocapture
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #29
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %11 = add i64 %10, 1
   %12 = load ptr, ptr @GUCMemoryContext, align 8
   %13 = tail call ptr @MemoryContextAllocExtended(ptr noundef %12, i64 noundef %11, i32 noundef 2) #28
@@ -1266,7 +1266,7 @@ define internal fastcc void @set_config_sourcefile(ptr noundef %0, ptr nocapture
   br label %guc_strdup.exit
 
 guc_malloc.exit.i:                                ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr readonly align 1 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %1, i64 %11, i1 false)
   br label %guc_strdup.exit
 
 guc_strdup.exit:                                  ; preds = %15, %17, %guc_malloc.exit.i
@@ -2278,7 +2278,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   br i1 %.not69, label %guc_strdup.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %87) #29
+  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #29
   %90 = add i64 %89, 1
   %91 = load ptr, ptr @GUCMemoryContext, align 8
   %92 = tail call ptr @MemoryContextAllocExtended(ptr noundef %91, i64 noundef %90, i32 noundef 2) #28
@@ -2294,7 +2294,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   unreachable
 
 guc_malloc.exit.i:                                ; preds = %88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull readonly align 1 %87, i64 %90, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %87, i64 %90, i1 false)
   br label %guc_strdup.exit
 
 guc_strdup.exit:                                  ; preds = %guc_malloc.exit.i, %85
@@ -4817,7 +4817,7 @@ define internal fastcc void @ReportGUCOption(ptr nocapture noundef %0) unnamed_a
   br label %guc_free.exit
 
 guc_free.exit:                                    ; preds = %9, %12
-  %13 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %14 = add i64 %13, 1
   %15 = load ptr, ptr @GUCMemoryContext, align 8
   %16 = call ptr @MemoryContextAllocExtended(ptr noundef %15, i64 noundef %14, i32 noundef 2) #28
@@ -4835,7 +4835,7 @@ guc_free.exit:                                    ; preds = %9, %12
   br label %guc_strdup.exit
 
 guc_malloc.exit.i:                                ; preds = %guc_free.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %3, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %3, i64 %14, i1 false)
   br label %guc_strdup.exit
 
 guc_strdup.exit:                                  ; preds = %18, %20, %guc_malloc.exit.i
@@ -7380,7 +7380,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
   br i1 %94, label %141, label %142
 
 95:                                               ; preds = %7
-  %96 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #29
+  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
   %97 = add i64 %96, 1
   %98 = load ptr, ptr @GUCMemoryContext, align 8
   %99 = tail call ptr @MemoryContextAllocExtended(ptr noundef %98, i64 noundef %97, i32 noundef 2) #28
@@ -7402,7 +7402,7 @@ guc_strdup.exit.thread:                           ; preds = %101, %103
   br label %142
 
 106:                                              ; preds = %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr readonly align 1 %2, i64 %97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr align 1 %2, i64 %97, i1 false)
   store ptr %99, ptr %5, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 32
   %108 = load i32, ptr %107, align 8
@@ -8774,7 +8774,7 @@ define internal fastcc ptr @init_custom_variable(ptr nocapture noundef readonly 
 
 guc_malloc.exit:                                  ; preds = %.thread23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %6, i1 false)
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %38 = add i64 %37, 1
   %39 = load ptr, ptr @GUCMemoryContext, align 8
   %40 = tail call ptr @MemoryContextAllocExtended(ptr noundef %39, i64 noundef %38, i32 noundef 2) #28
@@ -8790,7 +8790,7 @@ guc_malloc.exit:                                  ; preds = %.thread23
   unreachable
 
 guc_malloc.exit.i:                                ; preds = %guc_malloc.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr readonly align 1 %0, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %0, i64 %38, i1 false)
   store ptr %40, ptr %31, align 8
   %46 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %.0, ptr %46, align 8

@@ -37,7 +37,7 @@ entry:
   %st.i = alloca %struct.poly1305_state_internal_t, align 64
   %correct = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %st.i)
-  call fastcc void @poly1305_init_ext(ptr noundef nonnull %st.i, ptr noundef readonly %k, i64 noundef %inlen)
+  call fastcc void @poly1305_init_ext(ptr noundef nonnull %st.i, ptr noundef %k, i64 noundef %inlen)
   %and.i = and i64 %inlen, -32
   %cmp.not.i = icmp eq i64 %and.i, 0
   br i1 %cmp.not.i, label %crypto_onetimeauth_poly1305_sse2.exit, label %if.then.i
@@ -51,7 +51,7 @@ if.then.i:                                        ; preds = %entry
 crypto_onetimeauth_poly1305_sse2.exit:            ; preds = %entry, %if.then.i
   %inlen.addr.0.i = phi i64 [ %sub.i, %if.then.i ], [ %inlen, %entry ]
   %m.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %in, %entry ]
-  call fastcc void @poly1305_finish_ext(ptr noundef nonnull %st.i, ptr noundef %m.addr.0.i, i64 noundef %inlen.addr.0.i, ptr noundef nonnull writeonly %correct)
+  call fastcc void @poly1305_finish_ext(ptr noundef nonnull %st.i, ptr noundef %m.addr.0.i, i64 noundef %inlen.addr.0.i, ptr noundef nonnull %correct)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %st.i)
   %call2 = call i32 @crypto_verify_16(ptr noundef %h, ptr noundef nonnull %correct) #10
   ret i32 %call2
@@ -164,7 +164,7 @@ entry:
   %buffer.i = getelementptr inbounds i8, ptr %state, i64 136
   %leftover.i = getelementptr inbounds i8, ptr %state, i64 128
   %0 = load i64, ptr %leftover.i, align 8
-  tail call fastcc void @poly1305_finish_ext(ptr noundef %state, ptr noundef nonnull %buffer.i, i64 noundef %0, ptr noundef writeonly %out)
+  tail call fastcc void @poly1305_finish_ext(ptr noundef %state, ptr noundef nonnull %buffer.i, i64 noundef %0, ptr noundef %out)
   ret i32 0
 }
 

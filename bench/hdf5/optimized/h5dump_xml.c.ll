@@ -3941,7 +3941,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 229:                                              ; preds = %226, %220
   %230 = call i32 @H5Otoken_to_str(i64 noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %231 = load ptr, ptr %6, align 8
-  %232 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %17, i64 noundef 100, ptr noundef nonnull @.str.92, ptr noundef %231) #13
+  %232 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 100, ptr noundef nonnull @.str.92, ptr noundef %231) #13
   %.sink.i = load ptr, ptr %6, align 8
   %233 = call i32 @H5free_memory(ptr noundef %.sink.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)

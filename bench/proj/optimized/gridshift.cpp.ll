@@ -2571,7 +2571,7 @@ _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridEN12_GLOBAL__N_18GridInfoESt4lessIS4_E
   %187 = getelementptr inbounds i8, ptr %18, i64 13
   %188 = getelementptr inbounds i8, ptr %18, i64 16
   %189 = getelementptr inbounds i8, ptr %18, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %188, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %188, i8 0, i64 25, i1 false)
   %190 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #19
           to label %191 unwind label %179
 
@@ -2664,7 +2664,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIfSaIf
   %230 = getelementptr inbounds i8, ptr %229, i64 32
   store ptr %6, ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %229, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %231, ptr noundef nonnull align 8 dereferenceable(14) %18, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %231, ptr noundef nonnull align 8 dereferenceable(14) %18, i64 14, i1 false)
   %232 = getelementptr inbounds i8, ptr %229, i64 56
   store ptr %217, ptr %232, align 8
   %233 = getelementptr inbounds i8, ptr %229, i64 64

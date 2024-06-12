@@ -224,7 +224,7 @@ define noundef i64 @_ZN5faiss25fvec_L2sqr_ny_nearest_refEPfPKfS2_mm(ptr nocaptur
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i.i: ; preds = %.lr.ph.i.i
   %6 = shl nuw i64 %4, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %0, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %6, i1 false)
   br label %.lr.ph.preheader
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph.i.i, %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i.i
@@ -286,7 +286,7 @@ define void @_ZN5faiss13fvec_L2sqr_nyEPfPKfS2_mm(ptr nocapture noundef writeonly
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i: ; preds = %.lr.ph.i
   %6 = shl nuw i64 %4, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %0, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %6, i1 false)
   br label %_ZN5faiss17fvec_L2sqr_ny_refEPfPKfS2_mm.exit
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i
@@ -705,7 +705,7 @@ define noundef i64 @_ZN5faiss21fvec_L2sqr_ny_nearestEPfPKfS2_mm(ptr nocapture no
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i.i.i: ; preds = %.lr.ph.i.i.i
   %6 = shl nuw i64 %4, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %0, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %6, i1 false)
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %.lr.ph.i.i.i, %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i.i.i
@@ -851,7 +851,7 @@ define void @_ZN5faiss22fvec_inner_products_nyEPfPKfS2_mm(ptr nocapture noundef 
 
 _ZN5faiss18fvec_inner_productEPKfS1_m.exit.us.preheader.i: ; preds = %.lr.ph.i
   %6 = shl nuw i64 %4, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %0, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %6, i1 false)
   br label %_ZN5faiss26fvec_inner_products_ny_refEPfPKfS2_mm.exit
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit.i
@@ -1102,7 +1102,7 @@ define void @_ZN5faiss27compute_PQ_dis_tables_dsub2EmmPKfmS1_bPf(i64 noundef %0,
 .lr.ph.preheader.i.us:                            ; preds = %121
   %122 = mul i64 %.0110.us, %0
   %gep112.us = getelementptr float, ptr %invariant.gep111.us, i64 %122
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %20, ptr readonly align 4 %gep112.us, i64 %118, i1 false), !noalias !24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %20, ptr align 4 %gep112.us, i64 %118, i1 false), !noalias !24
   br label %_ZN5faiss12_GLOBAL__N_125load_simd8float32_partialEPKfi.exit.us
 
 _ZN5faiss12_GLOBAL__N_125load_simd8float32_partialEPKfi.exit.us: ; preds = %.lr.ph.preheader.i.us, %121

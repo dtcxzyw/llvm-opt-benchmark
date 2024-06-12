@@ -22255,7 +22255,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
 650:                                              ; preds = %633
   %651 = getelementptr inbounds i8, ptr %.0989.i, i64 8
   %652 = load ptr, ptr %651, align 8
-  %653 = call fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef %.0987.i, ptr noundef nonnull readonly %40, ptr noundef %652, ptr noundef %.0981.i, ptr noundef nonnull %.0989.i)
+  %653 = call fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef %.0987.i, ptr noundef nonnull %40, ptr noundef %652, ptr noundef %.0981.i, ptr noundef nonnull %.0989.i)
   br i1 %653, label %654, label %672
 
 654:                                              ; preds = %650
@@ -22327,7 +22327,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %689 = load i32, ptr %688, align 4
   %690 = getelementptr inbounds i8, ptr %.0981.i, i64 24
   %691 = load i32, ptr %690, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %673, i32 noundef %689, i32 noundef %691, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %673, i32 noundef %689, i32 noundef %691, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %692 = getelementptr inbounds i8, ptr %652, i64 29
   %693 = load i8, ptr %692, align 1
   %.not1100.i = icmp eq i8 %693, 8
@@ -22410,7 +22410,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %725 = load i32, ptr %724, align 4
   %726 = getelementptr inbounds i8, ptr %.0981.i, i64 28
   %727 = load i32, ptr %726, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %710, i32 noundef %725, i32 noundef %727, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %710, i32 noundef %725, i32 noundef %727, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %728 = getelementptr inbounds i8, ptr %652, i64 30
   %729 = load i8, ptr %728, align 2
   %.not1105.i = icmp eq i8 %729, 8
@@ -22476,7 +22476,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %755 = load i32, ptr %754, align 4
   %756 = getelementptr inbounds i8, ptr %.0981.i, i64 32
   %757 = load i32, ptr %756, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %738, i32 noundef %755, i32 noundef %757, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %738, i32 noundef %755, i32 noundef %757, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   br label %.critedge1149.i
 
 .critedge1149.i:                                  ; preds = %.critedge1147.i, %751, %749, %744, %742, %740, %736
@@ -23106,7 +23106,7 @@ zend_jit_var_supports_reg.exit1239.thread.i:      ; preds = %.preheader42.i1228.
   %1061 = load i32, ptr %1060, align 4
   %1062 = getelementptr inbounds i8, ptr %.0981.i, i64 60
   %1063 = load i32, ptr %1062, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %1047, i32 noundef %1061, i32 noundef %1063, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %1047, i32 noundef %1061, i32 noundef %1063, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %1064 = getelementptr inbounds i8, ptr %652, i64 61
   %1065 = load i8, ptr %1064, align 1
   %.not1129.i = icmp eq i8 %1065, 8
@@ -49637,7 +49637,7 @@ jit_set_Z_TYPE_INFO.exit.sink.split.i:            ; preds = %17173, %17163, %171
   %17195 = lshr exact i64 %17194, 5
   %17196 = trunc i64 %17195 to i32
   %17197 = trunc nuw i64 %indvars.iv13205 to i32
-  %17198 = call fastcc i32 @zend_jit_find_ssa_var(ptr noundef nonnull readonly %.09768, i32 noundef %17196, i32 noundef %17197)
+  %17198 = call fastcc i32 @zend_jit_find_ssa_var(ptr noundef nonnull %.09768, i32 noundef %17196, i32 noundef %17197)
   %17199 = icmp sgt i32 %17198, -1
   br i1 %17199, label %17200, label %17208
 

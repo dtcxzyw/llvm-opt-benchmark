@@ -1375,7 +1375,7 @@ land.end.i.i:                                     ; preds = %strbuf_setlen.exit.
   br i1 %cmp.not.i.i, label %if.then.i.i71, label %if.end.i.i
 
 if.then.i.i71:                                    ; preds = %land.end.i.i, %strbuf_setlen.exit.i29
-  call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull readonly %arrayidx, i64 noundef 0, i32 noundef %lnot.ext.i, ptr noundef nonnull %buf.i24)
+  call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull %arrayidx, i64 noundef 0, i32 noundef %lnot.ext.i, ptr noundef nonnull %buf.i24)
   br label %render_diff_header.exit.i
 
 if.end.i.i:                                       ; preds = %land.end.i.i
@@ -3107,7 +3107,7 @@ if.then4.i.i54.i.i:                               ; preds = %recount_edited_hunk
   br label %strbuf_setlen.exit.i55.i.i
 
 strbuf_setlen.exit.i55.i.i:                       ; preds = %if.then4.i.i54.i.i, %recount_edited_hunk.exit.i.i
-  call fastcc void @reassemble_patch(ptr noundef nonnull %s, ptr noundef readonly %arrayidx, i32 noundef 1, ptr noundef nonnull %buf.i24)
+  call fastcc void @reassemble_patch(ptr noundef nonnull %s, ptr noundef %arrayidx, i32 noundef 1, ptr noundef nonnull %buf.i24)
   call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef nonnull %cp.i.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.135, ptr noundef null)
   %337 = load ptr, ptr %mode58, align 8
   %apply_check_args.i.i.i = getelementptr inbounds i8, ptr %337, i64 64
@@ -4190,7 +4190,7 @@ land.end.i:                                       ; preds = %entry
   br i1 %cmp.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.end.i, %entry
-  tail call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull readonly %file_diff, i64 noundef 0, i32 noundef 0, ptr noundef %out)
+  tail call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull %file_diff, i64 noundef 0, i32 noundef 0, ptr noundef %out)
   br label %render_diff_header.exit
 
 if.end.i:                                         ; preds = %land.end.i

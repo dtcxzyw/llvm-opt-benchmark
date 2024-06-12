@@ -802,7 +802,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %or.cond.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false), !alias.scope !14
   br label %grpc_auth_context_find_properties_by_name.exit
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -1062,7 +1062,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end2
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !20
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -1218,7 +1218,7 @@ _ZN17grpc_auth_context15ensure_capacityEv.exit.i: ; preds = %if.then.i.i, %entry
   br i1 %cmp.not.i, label %_ZN17grpc_auth_context12add_propertyEPKcS1_m.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN17grpc_auth_context15ensure_capacityEv.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i, ptr nonnull readonly align 1 %value, i64 %value_length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i, ptr nonnull align 1 %value, i64 %value_length, i1 false)
   %.pre10.i = load ptr, ptr %value5.i, align 8
   br label %_ZN17grpc_auth_context12add_propertyEPKcS1_m.exit
 

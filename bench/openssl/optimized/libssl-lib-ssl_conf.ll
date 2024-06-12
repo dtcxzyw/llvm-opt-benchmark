@@ -1323,7 +1323,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.e
   %i.04.i.i = phi i64 [ 0, %if.end7.i ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [8 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %value) #9
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %value) #9
   %cmp1.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp1.i.i, label %protocol_from_string.exit.i, label %for.cond.i.i
 
@@ -1381,7 +1381,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.e
   %i.04.i.i = phi i64 [ 0, %if.end7.i ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [8 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %value) #9
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %value) #9
   %cmp1.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp1.i.i, label %protocol_from_string.exit.i, label %for.cond.i.i
 

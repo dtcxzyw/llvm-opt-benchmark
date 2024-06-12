@@ -3995,7 +3995,7 @@ define internal i32 @dissect_pfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %132 = load i32, ptr %121, align 8
   %133 = load i32, ptr %123, align 4
   %134 = load ptr, ptr %124, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
   store i32 %132, ptr %131, align 8
   %135 = icmp eq i32 %133, 0
   br i1 %135, label %copy_address_wmem.exit.i.i, label %136
@@ -6552,7 +6552,7 @@ pfcp_ip_exists.exit:                              ; preds = %92, %80
   %100 = load i32, ptr %.068, align 8
   %101 = load i32, ptr %.06878.sroa.4.0..068.sroa_idx, align 4
   %102 = load ptr, ptr %.06878.sroa.5.0..068.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   store i32 %100, ptr %99, align 8
   %103 = icmp eq i32 %101, 0
   br i1 %103, label %copy_address_wmem.exit, label %104
@@ -6649,7 +6649,7 @@ pfcp_ip_exists.exit90:                            ; preds = %133, %121
   %141 = load i32, ptr %.069, align 8
   %142 = load i32, ptr %.06981.sroa.4.0..069.sroa_idx, align 4
   %143 = load ptr, ptr %.06981.sroa.5.0..069.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
   store i32 %141, ptr %140, align 8
   %144 = icmp eq i32 %142, 0
   br i1 %144, label %copy_address_wmem.exit91, label %145

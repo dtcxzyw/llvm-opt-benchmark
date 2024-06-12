@@ -5833,7 +5833,7 @@ glad_gl_get_extensions.exit.thread:               ; preds = %4, %7, %14, %12
   br i1 %33, label %glad_gl_has_extension.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %31
-  %34 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) @.str.747) #56
+  %34 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.747) #56
   %35 = icmp eq ptr %34, null
   br i1 %35, label %glad_gl_has_extension.exit.thread, label %.lr.ph35.i
 
@@ -5858,7 +5858,7 @@ glad_gl_get_extensions.exit.thread:               ; preds = %4, %7, %14, %12
   ]
 
 45:                                               ; preds = %43, %39
-  %46 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) @.str.747) #56
+  %46 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.747) #56
   %47 = icmp eq ptr %46, null
   br i1 %47, label %glad_gl_has_extension.exit, label %.lr.ph35.i
 
@@ -5871,7 +5871,7 @@ glad_gl_get_extensions.exit.thread:               ; preds = %4, %7, %14, %12
   %indvars.iv.i120 = phi i64 [ %indvars.iv.next.i121, %48 ], [ 0, %.preheader28.i ]
   %49 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i120
   %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(25) @.str.747) #56
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(25) @.str.747) #56
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %glad_gl_has_extension.exit, label %48
 
@@ -5903,7 +5903,7 @@ glad_gl_has_extension.exit:                       ; preds = %48, %.lr.ph.i119, %
   br i1 %54, label %glad_gl_has_extension.exit137.thread, label %.preheader.i134
 
 .preheader.i134:                                  ; preds = %53
-  %55 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042121, ptr noundef nonnull readonly dereferenceable(1) @.str.748) #56
+  %55 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042121, ptr noundef nonnull dereferenceable(1) @.str.748) #56
   %56 = icmp eq ptr %55, null
   br i1 %56, label %glad_gl_has_extension.exit137.thread, label %.lr.ph35.i135
 
@@ -5928,7 +5928,7 @@ glad_gl_has_extension.exit:                       ; preds = %48, %.lr.ph.i119, %
   ]
 
 66:                                               ; preds = %64, %60
-  %67 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) @.str.748) #56
+  %67 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.748) #56
   %68 = icmp eq ptr %67, null
   br i1 %68, label %glad_gl_has_extension.exit137, label %.lr.ph35.i135
 
@@ -5941,7 +5941,7 @@ glad_gl_has_extension.exit:                       ; preds = %48, %.lr.ph.i119, %
   %indvars.iv.i129 = phi i64 [ 0, %.lr.ph.preheader.i126 ], [ %indvars.iv.next.i130, %69 ]
   %70 = getelementptr inbounds ptr, ptr %.020912107, i64 %indvars.iv.i129
   %71 = load ptr, ptr %70, align 8
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(27) @.str.748) #56
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(27) @.str.748) #56
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %glad_gl_has_extension.exit137, label %69
 
@@ -5978,7 +5978,7 @@ glad_gl_has_extension.exit137:                    ; preds = %69, %.lr.ph.i128, %
   br i1 %75, label %glad_gl_has_extension.exit151.thread, label %.preheader.i148
 
 .preheader.i148:                                  ; preds = %74
-  %76 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222139, ptr noundef nonnull readonly dereferenceable(1) @.str.749) #56
+  %76 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222139, ptr noundef nonnull dereferenceable(1) @.str.749) #56
   %77 = icmp eq ptr %76, null
   br i1 %77, label %glad_gl_has_extension.exit151.thread, label %.lr.ph35.i149
 
@@ -6003,7 +6003,7 @@ glad_gl_has_extension.exit137:                    ; preds = %69, %.lr.ph.i128, %
   ]
 
 87:                                               ; preds = %85, %81
-  %88 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) @.str.749) #56
+  %88 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) @.str.749) #56
   %89 = icmp eq ptr %88, null
   br i1 %89, label %glad_gl_has_extension.exit151, label %.lr.ph35.i149
 
@@ -6016,7 +6016,7 @@ glad_gl_has_extension.exit137:                    ; preds = %69, %.lr.ph.i128, %
   %indvars.iv.i143 = phi i64 [ 0, %.lr.ph.preheader.i140 ], [ %indvars.iv.next.i144, %90 ]
   %91 = getelementptr inbounds ptr, ptr %.0209121072117, i64 %indvars.iv.i143
   %92 = load ptr, ptr %91, align 8
-  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(27) @.str.749) #56
+  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(27) @.str.749) #56
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %glad_gl_has_extension.exit151, label %90
 
@@ -6053,7 +6053,7 @@ glad_gl_has_extension.exit151:                    ; preds = %90, %.lr.ph.i142, %
   br i1 %96, label %glad_gl_has_extension.exit165.thread, label %.preheader.i162
 
 .preheader.i162:                                  ; preds = %95
-  %97 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402166, ptr noundef nonnull readonly dereferenceable(1) @.str.750) #56
+  %97 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402166, ptr noundef nonnull dereferenceable(1) @.str.750) #56
   %98 = icmp eq ptr %97, null
   br i1 %98, label %glad_gl_has_extension.exit165.thread, label %.lr.ph35.i163
 
@@ -6078,7 +6078,7 @@ glad_gl_has_extension.exit151:                    ; preds = %90, %.lr.ph.i142, %
   ]
 
 108:                                              ; preds = %106, %102
-  %109 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull readonly dereferenceable(1) @.str.750) #56
+  %109 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.750) #56
   %110 = icmp eq ptr %109, null
   br i1 %110, label %glad_gl_has_extension.exit165, label %.lr.ph35.i163
 
@@ -6091,7 +6091,7 @@ glad_gl_has_extension.exit151:                    ; preds = %90, %.lr.ph.i142, %
   %indvars.iv.i157 = phi i64 [ 0, %.lr.ph.preheader.i154 ], [ %indvars.iv.next.i158, %111 ]
   %112 = getelementptr inbounds ptr, ptr %.02091210721172143, i64 %indvars.iv.i157
   %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(25) @.str.750) #56
+  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(25) @.str.750) #56
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %glad_gl_has_extension.exit165, label %111
 
@@ -6128,7 +6128,7 @@ glad_gl_has_extension.exit165:                    ; preds = %111, %.lr.ph.i156, 
   br i1 %117, label %glad_gl_has_extension.exit179.thread, label %.preheader.i176
 
 .preheader.i176:                                  ; preds = %116
-  %118 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672185, ptr noundef nonnull readonly dereferenceable(1) @.str.751) #56
+  %118 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672185, ptr noundef nonnull dereferenceable(1) @.str.751) #56
   %119 = icmp eq ptr %118, null
   br i1 %119, label %glad_gl_has_extension.exit179.thread, label %.lr.ph35.i177
 
@@ -6153,7 +6153,7 @@ glad_gl_has_extension.exit165:                    ; preds = %111, %.lr.ph.i156, 
   ]
 
 129:                                              ; preds = %127, %123
-  %130 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(1) @.str.751) #56
+  %130 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(1) @.str.751) #56
   %131 = icmp eq ptr %130, null
   br i1 %131, label %glad_gl_has_extension.exit179, label %.lr.ph35.i177
 
@@ -6166,7 +6166,7 @@ glad_gl_has_extension.exit165:                    ; preds = %111, %.lr.ph.i156, 
   %indvars.iv.i171 = phi i64 [ 0, %.lr.ph.preheader.i168 ], [ %indvars.iv.next.i172, %132 ]
   %133 = getelementptr inbounds ptr, ptr %.020912107211721432162, i64 %indvars.iv.i171
   %134 = load ptr, ptr %133, align 8
-  %135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull readonly dereferenceable(27) @.str.751) #56
+  %135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull dereferenceable(27) @.str.751) #56
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %glad_gl_has_extension.exit179, label %132
 
@@ -6203,7 +6203,7 @@ glad_gl_has_extension.exit179:                    ; preds = %132, %.lr.ph.i170, 
   br i1 %138, label %glad_gl_has_extension.exit193.thread, label %.preheader.i190
 
 .preheader.i190:                                  ; preds = %137
-  %139 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862212, ptr noundef nonnull readonly dereferenceable(1) @.str.752) #56
+  %139 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862212, ptr noundef nonnull dereferenceable(1) @.str.752) #56
   %140 = icmp eq ptr %139, null
   br i1 %140, label %glad_gl_has_extension.exit193.thread, label %.lr.ph35.i191
 
@@ -6228,7 +6228,7 @@ glad_gl_has_extension.exit179:                    ; preds = %132, %.lr.ph.i170, 
   ]
 
 150:                                              ; preds = %148, %144
-  %151 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull readonly dereferenceable(1) @.str.752) #56
+  %151 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(1) @.str.752) #56
   %152 = icmp eq ptr %151, null
   br i1 %152, label %glad_gl_has_extension.exit193, label %.lr.ph35.i191
 
@@ -6241,7 +6241,7 @@ glad_gl_has_extension.exit179:                    ; preds = %132, %.lr.ph.i170, 
   %indvars.iv.i185 = phi i64 [ 0, %.lr.ph.preheader.i182 ], [ %indvars.iv.next.i186, %153 ]
   %154 = getelementptr inbounds ptr, ptr %.0209121072117214321622189, i64 %indvars.iv.i185
   %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull readonly dereferenceable(22) @.str.752) #56
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(22) @.str.752) #56
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %glad_gl_has_extension.exit193, label %153
 
@@ -6278,7 +6278,7 @@ glad_gl_has_extension.exit193:                    ; preds = %153, %.lr.ph.i184, 
   br i1 %159, label %glad_gl_has_extension.exit207.thread, label %.preheader.i204
 
 .preheader.i204:                                  ; preds = %158
-  %160 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132231, ptr noundef nonnull readonly dereferenceable(1) @.str.753) #56
+  %160 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132231, ptr noundef nonnull dereferenceable(1) @.str.753) #56
   %161 = icmp eq ptr %160, null
   br i1 %161, label %glad_gl_has_extension.exit207.thread, label %.lr.ph35.i205
 
@@ -6303,7 +6303,7 @@ glad_gl_has_extension.exit193:                    ; preds = %153, %.lr.ph.i184, 
   ]
 
 171:                                              ; preds = %169, %165
-  %172 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(1) @.str.753) #56
+  %172 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.753) #56
   %173 = icmp eq ptr %172, null
   br i1 %173, label %glad_gl_has_extension.exit207, label %.lr.ph35.i205
 
@@ -6316,7 +6316,7 @@ glad_gl_has_extension.exit193:                    ; preds = %153, %.lr.ph.i184, 
   %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.preheader.i196 ], [ %indvars.iv.next.i200, %174 ]
   %175 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208, i64 %indvars.iv.i199
   %176 = load ptr, ptr %175, align 8
-  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(27) @.str.753) #56
+  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(27) @.str.753) #56
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %glad_gl_has_extension.exit207, label %174
 
@@ -6353,7 +6353,7 @@ glad_gl_has_extension.exit207:                    ; preds = %174, %.lr.ph.i198, 
   br i1 %180, label %glad_gl_has_extension.exit221.thread, label %.preheader.i218
 
 .preheader.i218:                                  ; preds = %179
-  %181 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322258, ptr noundef nonnull readonly dereferenceable(1) @.str.754) #56
+  %181 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322258, ptr noundef nonnull dereferenceable(1) @.str.754) #56
   %182 = icmp eq ptr %181, null
   br i1 %182, label %glad_gl_has_extension.exit221.thread, label %.lr.ph35.i219
 
@@ -6378,7 +6378,7 @@ glad_gl_has_extension.exit207:                    ; preds = %174, %.lr.ph.i198, 
   ]
 
 192:                                              ; preds = %190, %186
-  %193 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull readonly dereferenceable(1) @.str.754) #56
+  %193 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(1) @.str.754) #56
   %194 = icmp eq ptr %193, null
   br i1 %194, label %glad_gl_has_extension.exit221, label %.lr.ph35.i219
 
@@ -6391,7 +6391,7 @@ glad_gl_has_extension.exit207:                    ; preds = %174, %.lr.ph.i198, 
   %indvars.iv.i213 = phi i64 [ 0, %.lr.ph.preheader.i210 ], [ %indvars.iv.next.i214, %195 ]
   %196 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235, i64 %indvars.iv.i213
   %197 = load ptr, ptr %196, align 8
-  %198 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull readonly dereferenceable(21) @.str.754) #56
+  %198 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull dereferenceable(21) @.str.754) #56
   %199 = icmp eq i32 %198, 0
   br i1 %199, label %glad_gl_has_extension.exit221, label %195
 
@@ -6428,7 +6428,7 @@ glad_gl_has_extension.exit221:                    ; preds = %195, %.lr.ph.i212, 
   br i1 %201, label %glad_gl_has_extension.exit235.thread, label %.preheader.i232
 
 .preheader.i232:                                  ; preds = %200
-  %202 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592277, ptr noundef nonnull readonly dereferenceable(1) @.str.755) #56
+  %202 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592277, ptr noundef nonnull dereferenceable(1) @.str.755) #56
   %203 = icmp eq ptr %202, null
   br i1 %203, label %glad_gl_has_extension.exit235.thread, label %.lr.ph35.i233
 
@@ -6453,7 +6453,7 @@ glad_gl_has_extension.exit221:                    ; preds = %195, %.lr.ph.i212, 
   ]
 
 213:                                              ; preds = %211, %207
-  %214 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull readonly dereferenceable(1) @.str.755) #56
+  %214 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(1) @.str.755) #56
   %215 = icmp eq ptr %214, null
   br i1 %215, label %glad_gl_has_extension.exit235, label %.lr.ph35.i233
 
@@ -6466,7 +6466,7 @@ glad_gl_has_extension.exit221:                    ; preds = %195, %.lr.ph.i212, 
   %indvars.iv.i227 = phi i64 [ 0, %.lr.ph.preheader.i224 ], [ %indvars.iv.next.i228, %216 ]
   %217 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254, i64 %indvars.iv.i227
   %218 = load ptr, ptr %217, align 8
-  %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %218, ptr noundef nonnull readonly dereferenceable(26) @.str.755) #56
+  %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %218, ptr noundef nonnull dereferenceable(26) @.str.755) #56
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %glad_gl_has_extension.exit235, label %216
 
@@ -6503,7 +6503,7 @@ glad_gl_has_extension.exit235:                    ; preds = %216, %.lr.ph.i226, 
   br i1 %222, label %glad_gl_has_extension.exit249.thread, label %.preheader.i246
 
 .preheader.i246:                                  ; preds = %221
-  %223 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782304, ptr noundef nonnull readonly dereferenceable(1) @.str.756) #56
+  %223 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782304, ptr noundef nonnull dereferenceable(1) @.str.756) #56
   %224 = icmp eq ptr %223, null
   br i1 %224, label %glad_gl_has_extension.exit249.thread, label %.lr.ph35.i247
 
@@ -6528,7 +6528,7 @@ glad_gl_has_extension.exit235:                    ; preds = %216, %.lr.ph.i226, 
   ]
 
 234:                                              ; preds = %232, %228
-  %235 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull readonly dereferenceable(1) @.str.756) #56
+  %235 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(1) @.str.756) #56
   %236 = icmp eq ptr %235, null
   br i1 %236, label %glad_gl_has_extension.exit249, label %.lr.ph35.i247
 
@@ -6541,7 +6541,7 @@ glad_gl_has_extension.exit235:                    ; preds = %216, %.lr.ph.i226, 
   %indvars.iv.i241 = phi i64 [ 0, %.lr.ph.preheader.i238 ], [ %indvars.iv.next.i242, %237 ]
   %238 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281, i64 %indvars.iv.i241
   %239 = load ptr, ptr %238, align 8
-  %240 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %239, ptr noundef nonnull readonly dereferenceable(21) @.str.756) #56
+  %240 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %239, ptr noundef nonnull dereferenceable(21) @.str.756) #56
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %glad_gl_has_extension.exit249, label %237
 
@@ -6578,7 +6578,7 @@ glad_gl_has_extension.exit249:                    ; preds = %237, %.lr.ph.i240, 
   br i1 %243, label %glad_gl_has_extension.exit263.thread, label %.preheader.i260
 
 .preheader.i260:                                  ; preds = %242
-  %244 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052323, ptr noundef nonnull readonly dereferenceable(1) @.str.757) #56
+  %244 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052323, ptr noundef nonnull dereferenceable(1) @.str.757) #56
   %245 = icmp eq ptr %244, null
   br i1 %245, label %glad_gl_has_extension.exit263.thread, label %.lr.ph35.i261
 
@@ -6603,7 +6603,7 @@ glad_gl_has_extension.exit249:                    ; preds = %237, %.lr.ph.i240, 
   ]
 
 255:                                              ; preds = %253, %249
-  %256 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %247, ptr noundef nonnull readonly dereferenceable(1) @.str.757) #56
+  %256 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %247, ptr noundef nonnull dereferenceable(1) @.str.757) #56
   %257 = icmp eq ptr %256, null
   br i1 %257, label %glad_gl_has_extension.exit263, label %.lr.ph35.i261
 
@@ -6616,7 +6616,7 @@ glad_gl_has_extension.exit249:                    ; preds = %237, %.lr.ph.i240, 
   %indvars.iv.i255 = phi i64 [ 0, %.lr.ph.preheader.i252 ], [ %indvars.iv.next.i256, %258 ]
   %259 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300, i64 %indvars.iv.i255
   %260 = load ptr, ptr %259, align 8
-  %261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %260, ptr noundef nonnull readonly dereferenceable(40) @.str.757) #56
+  %261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %260, ptr noundef nonnull dereferenceable(40) @.str.757) #56
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %glad_gl_has_extension.exit263, label %258
 
@@ -6653,7 +6653,7 @@ glad_gl_has_extension.exit263:                    ; preds = %258, %.lr.ph.i254, 
   br i1 %264, label %glad_gl_has_extension.exit277.thread, label %.preheader.i274
 
 .preheader.i274:                                  ; preds = %263
-  %265 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242350, ptr noundef nonnull readonly dereferenceable(1) @.str.758) #56
+  %265 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242350, ptr noundef nonnull dereferenceable(1) @.str.758) #56
   %266 = icmp eq ptr %265, null
   br i1 %266, label %glad_gl_has_extension.exit277.thread, label %.lr.ph35.i275
 
@@ -6678,7 +6678,7 @@ glad_gl_has_extension.exit263:                    ; preds = %258, %.lr.ph.i254, 
   ]
 
 276:                                              ; preds = %274, %270
-  %277 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %268, ptr noundef nonnull readonly dereferenceable(1) @.str.758) #56
+  %277 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %268, ptr noundef nonnull dereferenceable(1) @.str.758) #56
   %278 = icmp eq ptr %277, null
   br i1 %278, label %glad_gl_has_extension.exit277, label %.lr.ph35.i275
 
@@ -6691,7 +6691,7 @@ glad_gl_has_extension.exit263:                    ; preds = %258, %.lr.ph.i254, 
   %indvars.iv.i269 = phi i64 [ 0, %.lr.ph.preheader.i266 ], [ %indvars.iv.next.i270, %279 ]
   %280 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327, i64 %indvars.iv.i269
   %281 = load ptr, ptr %280, align 8
-  %282 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull readonly dereferenceable(22) @.str.758) #56
+  %282 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull dereferenceable(22) @.str.758) #56
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %glad_gl_has_extension.exit277, label %279
 
@@ -6728,7 +6728,7 @@ glad_gl_has_extension.exit277:                    ; preds = %279, %.lr.ph.i268, 
   br i1 %285, label %glad_gl_has_extension.exit291.thread, label %.preheader.i288
 
 .preheader.i288:                                  ; preds = %284
-  %286 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512369, ptr noundef nonnull readonly dereferenceable(1) @.str.759) #56
+  %286 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512369, ptr noundef nonnull dereferenceable(1) @.str.759) #56
   %287 = icmp eq ptr %286, null
   br i1 %287, label %glad_gl_has_extension.exit291.thread, label %.lr.ph35.i289
 
@@ -6753,7 +6753,7 @@ glad_gl_has_extension.exit277:                    ; preds = %279, %.lr.ph.i268, 
   ]
 
 297:                                              ; preds = %295, %291
-  %298 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %289, ptr noundef nonnull readonly dereferenceable(1) @.str.759) #56
+  %298 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %289, ptr noundef nonnull dereferenceable(1) @.str.759) #56
   %299 = icmp eq ptr %298, null
   br i1 %299, label %glad_gl_has_extension.exit291, label %.lr.ph35.i289
 
@@ -6766,7 +6766,7 @@ glad_gl_has_extension.exit277:                    ; preds = %279, %.lr.ph.i268, 
   %indvars.iv.i283 = phi i64 [ 0, %.lr.ph.preheader.i280 ], [ %indvars.iv.next.i284, %300 ]
   %301 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346, i64 %indvars.iv.i283
   %302 = load ptr, ptr %301, align 8
-  %303 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %302, ptr noundef nonnull readonly dereferenceable(35) @.str.759) #56
+  %303 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %302, ptr noundef nonnull dereferenceable(35) @.str.759) #56
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %glad_gl_has_extension.exit291, label %300
 
@@ -6803,7 +6803,7 @@ glad_gl_has_extension.exit291:                    ; preds = %300, %.lr.ph.i282, 
   br i1 %306, label %glad_gl_has_extension.exit305.thread, label %.preheader.i302
 
 .preheader.i302:                                  ; preds = %305
-  %307 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702396, ptr noundef nonnull readonly dereferenceable(1) @.str.760) #56
+  %307 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702396, ptr noundef nonnull dereferenceable(1) @.str.760) #56
   %308 = icmp eq ptr %307, null
   br i1 %308, label %glad_gl_has_extension.exit305.thread, label %.lr.ph35.i303
 
@@ -6828,7 +6828,7 @@ glad_gl_has_extension.exit291:                    ; preds = %300, %.lr.ph.i282, 
   ]
 
 318:                                              ; preds = %316, %312
-  %319 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %310, ptr noundef nonnull readonly dereferenceable(1) @.str.760) #56
+  %319 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %310, ptr noundef nonnull dereferenceable(1) @.str.760) #56
   %320 = icmp eq ptr %319, null
   br i1 %320, label %glad_gl_has_extension.exit305, label %.lr.ph35.i303
 
@@ -6841,7 +6841,7 @@ glad_gl_has_extension.exit291:                    ; preds = %300, %.lr.ph.i282, 
   %indvars.iv.i297 = phi i64 [ 0, %.lr.ph.preheader.i294 ], [ %indvars.iv.next.i298, %321 ]
   %322 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373, i64 %indvars.iv.i297
   %323 = load ptr, ptr %322, align 8
-  %324 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %323, ptr noundef nonnull readonly dereferenceable(19) @.str.760) #56
+  %324 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %323, ptr noundef nonnull dereferenceable(19) @.str.760) #56
   %325 = icmp eq i32 %324, 0
   br i1 %325, label %glad_gl_has_extension.exit305, label %321
 
@@ -6878,7 +6878,7 @@ glad_gl_has_extension.exit305:                    ; preds = %321, %.lr.ph.i296, 
   br i1 %327, label %glad_gl_has_extension.exit319.thread, label %.preheader.i316
 
 .preheader.i316:                                  ; preds = %326
-  %328 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972415, ptr noundef nonnull readonly dereferenceable(1) @.str.761) #56
+  %328 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972415, ptr noundef nonnull dereferenceable(1) @.str.761) #56
   %329 = icmp eq ptr %328, null
   br i1 %329, label %glad_gl_has_extension.exit319.thread, label %.lr.ph35.i317
 
@@ -6903,7 +6903,7 @@ glad_gl_has_extension.exit305:                    ; preds = %321, %.lr.ph.i296, 
   ]
 
 339:                                              ; preds = %337, %333
-  %340 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %331, ptr noundef nonnull readonly dereferenceable(1) @.str.761) #56
+  %340 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %331, ptr noundef nonnull dereferenceable(1) @.str.761) #56
   %341 = icmp eq ptr %340, null
   br i1 %341, label %glad_gl_has_extension.exit319, label %.lr.ph35.i317
 
@@ -6916,7 +6916,7 @@ glad_gl_has_extension.exit305:                    ; preds = %321, %.lr.ph.i296, 
   %indvars.iv.i311 = phi i64 [ 0, %.lr.ph.preheader.i308 ], [ %indvars.iv.next.i312, %342 ]
   %343 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392, i64 %indvars.iv.i311
   %344 = load ptr, ptr %343, align 8
-  %345 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %344, ptr noundef nonnull readonly dereferenceable(18) @.str.761) #56
+  %345 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %344, ptr noundef nonnull dereferenceable(18) @.str.761) #56
   %346 = icmp eq i32 %345, 0
   br i1 %346, label %glad_gl_has_extension.exit319, label %342
 
@@ -6953,7 +6953,7 @@ glad_gl_has_extension.exit319:                    ; preds = %342, %.lr.ph.i310, 
   br i1 %348, label %glad_gl_has_extension.exit333.thread, label %.preheader.i330
 
 .preheader.i330:                                  ; preds = %347
-  %349 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162442, ptr noundef nonnull readonly dereferenceable(1) @.str.762) #56
+  %349 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162442, ptr noundef nonnull dereferenceable(1) @.str.762) #56
   %350 = icmp eq ptr %349, null
   br i1 %350, label %glad_gl_has_extension.exit333.thread, label %.lr.ph35.i331
 
@@ -6978,7 +6978,7 @@ glad_gl_has_extension.exit319:                    ; preds = %342, %.lr.ph.i310, 
   ]
 
 360:                                              ; preds = %358, %354
-  %361 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull readonly dereferenceable(1) @.str.762) #56
+  %361 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(1) @.str.762) #56
   %362 = icmp eq ptr %361, null
   br i1 %362, label %glad_gl_has_extension.exit333, label %.lr.ph35.i331
 
@@ -6991,7 +6991,7 @@ glad_gl_has_extension.exit319:                    ; preds = %342, %.lr.ph.i310, 
   %indvars.iv.i325 = phi i64 [ 0, %.lr.ph.preheader.i322 ], [ %indvars.iv.next.i326, %363 ]
   %364 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419, i64 %indvars.iv.i325
   %365 = load ptr, ptr %364, align 8
-  %366 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %365, ptr noundef nonnull readonly dereferenceable(20) @.str.762) #56
+  %366 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %365, ptr noundef nonnull dereferenceable(20) @.str.762) #56
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %glad_gl_has_extension.exit333, label %363
 
@@ -7028,7 +7028,7 @@ glad_gl_has_extension.exit333:                    ; preds = %363, %.lr.ph.i324, 
   br i1 %369, label %glad_gl_has_extension.exit347.thread, label %.preheader.i344
 
 .preheader.i344:                                  ; preds = %368
-  %370 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432461, ptr noundef nonnull readonly dereferenceable(1) @.str.763) #56
+  %370 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432461, ptr noundef nonnull dereferenceable(1) @.str.763) #56
   %371 = icmp eq ptr %370, null
   br i1 %371, label %glad_gl_has_extension.exit347.thread, label %.lr.ph35.i345
 
@@ -7053,7 +7053,7 @@ glad_gl_has_extension.exit333:                    ; preds = %363, %.lr.ph.i324, 
   ]
 
 381:                                              ; preds = %379, %375
-  %382 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %373, ptr noundef nonnull readonly dereferenceable(1) @.str.763) #56
+  %382 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %373, ptr noundef nonnull dereferenceable(1) @.str.763) #56
   %383 = icmp eq ptr %382, null
   br i1 %383, label %glad_gl_has_extension.exit347, label %.lr.ph35.i345
 
@@ -7066,7 +7066,7 @@ glad_gl_has_extension.exit333:                    ; preds = %363, %.lr.ph.i324, 
   %indvars.iv.i339 = phi i64 [ 0, %.lr.ph.preheader.i336 ], [ %indvars.iv.next.i340, %384 ]
   %385 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438, i64 %indvars.iv.i339
   %386 = load ptr, ptr %385, align 8
-  %387 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %386, ptr noundef nonnull readonly dereferenceable(26) @.str.763) #56
+  %387 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %386, ptr noundef nonnull dereferenceable(26) @.str.763) #56
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %glad_gl_has_extension.exit347, label %384
 
@@ -7103,7 +7103,7 @@ glad_gl_has_extension.exit347:                    ; preds = %384, %.lr.ph.i338, 
   br i1 %390, label %glad_gl_has_extension.exit361.thread, label %.preheader.i358
 
 .preheader.i358:                                  ; preds = %389
-  %391 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622488, ptr noundef nonnull readonly dereferenceable(1) @.str.764) #56
+  %391 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622488, ptr noundef nonnull dereferenceable(1) @.str.764) #56
   %392 = icmp eq ptr %391, null
   br i1 %392, label %glad_gl_has_extension.exit361.thread, label %.lr.ph35.i359
 
@@ -7128,7 +7128,7 @@ glad_gl_has_extension.exit347:                    ; preds = %384, %.lr.ph.i338, 
   ]
 
 402:                                              ; preds = %400, %396
-  %403 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %394, ptr noundef nonnull readonly dereferenceable(1) @.str.764) #56
+  %403 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %394, ptr noundef nonnull dereferenceable(1) @.str.764) #56
   %404 = icmp eq ptr %403, null
   br i1 %404, label %glad_gl_has_extension.exit361, label %.lr.ph35.i359
 
@@ -7141,7 +7141,7 @@ glad_gl_has_extension.exit347:                    ; preds = %384, %.lr.ph.i338, 
   %indvars.iv.i353 = phi i64 [ 0, %.lr.ph.preheader.i350 ], [ %indvars.iv.next.i354, %405 ]
   %406 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465, i64 %indvars.iv.i353
   %407 = load ptr, ptr %406, align 8
-  %408 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %407, ptr noundef nonnull readonly dereferenceable(19) @.str.764) #56
+  %408 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %407, ptr noundef nonnull dereferenceable(19) @.str.764) #56
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %glad_gl_has_extension.exit361, label %405
 
@@ -7178,7 +7178,7 @@ glad_gl_has_extension.exit361:                    ; preds = %405, %.lr.ph.i352, 
   br i1 %411, label %glad_gl_has_extension.exit375.thread, label %.preheader.i372
 
 .preheader.i372:                                  ; preds = %410
-  %412 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892507, ptr noundef nonnull readonly dereferenceable(1) @.str.765) #56
+  %412 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892507, ptr noundef nonnull dereferenceable(1) @.str.765) #56
   %413 = icmp eq ptr %412, null
   br i1 %413, label %glad_gl_has_extension.exit375.thread, label %.lr.ph35.i373
 
@@ -7203,7 +7203,7 @@ glad_gl_has_extension.exit361:                    ; preds = %405, %.lr.ph.i352, 
   ]
 
 423:                                              ; preds = %421, %417
-  %424 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %415, ptr noundef nonnull readonly dereferenceable(1) @.str.765) #56
+  %424 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %415, ptr noundef nonnull dereferenceable(1) @.str.765) #56
   %425 = icmp eq ptr %424, null
   br i1 %425, label %glad_gl_has_extension.exit375, label %.lr.ph35.i373
 
@@ -7216,7 +7216,7 @@ glad_gl_has_extension.exit361:                    ; preds = %405, %.lr.ph.i352, 
   %indvars.iv.i367 = phi i64 [ 0, %.lr.ph.preheader.i364 ], [ %indvars.iv.next.i368, %426 ]
   %427 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484, i64 %indvars.iv.i367
   %428 = load ptr, ptr %427, align 8
-  %429 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %428, ptr noundef nonnull readonly dereferenceable(21) @.str.765) #56
+  %429 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %428, ptr noundef nonnull dereferenceable(21) @.str.765) #56
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %glad_gl_has_extension.exit375, label %426
 
@@ -7253,7 +7253,7 @@ glad_gl_has_extension.exit375:                    ; preds = %426, %.lr.ph.i366, 
   br i1 %432, label %glad_gl_has_extension.exit389.thread, label %.preheader.i386
 
 .preheader.i386:                                  ; preds = %431
-  %433 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082534, ptr noundef nonnull readonly dereferenceable(1) @.str.766) #56
+  %433 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082534, ptr noundef nonnull dereferenceable(1) @.str.766) #56
   %434 = icmp eq ptr %433, null
   br i1 %434, label %glad_gl_has_extension.exit389.thread, label %.lr.ph35.i387
 
@@ -7278,7 +7278,7 @@ glad_gl_has_extension.exit375:                    ; preds = %426, %.lr.ph.i366, 
   ]
 
 444:                                              ; preds = %442, %438
-  %445 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %436, ptr noundef nonnull readonly dereferenceable(1) @.str.766) #56
+  %445 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %436, ptr noundef nonnull dereferenceable(1) @.str.766) #56
   %446 = icmp eq ptr %445, null
   br i1 %446, label %glad_gl_has_extension.exit389, label %.lr.ph35.i387
 
@@ -7291,7 +7291,7 @@ glad_gl_has_extension.exit375:                    ; preds = %426, %.lr.ph.i366, 
   %indvars.iv.i381 = phi i64 [ 0, %.lr.ph.preheader.i378 ], [ %indvars.iv.next.i382, %447 ]
   %448 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511, i64 %indvars.iv.i381
   %449 = load ptr, ptr %448, align 8
-  %450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %449, ptr noundef nonnull readonly dereferenceable(27) @.str.766) #56
+  %450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %449, ptr noundef nonnull dereferenceable(27) @.str.766) #56
   %451 = icmp eq i32 %450, 0
   br i1 %451, label %glad_gl_has_extension.exit389, label %447
 
@@ -7328,7 +7328,7 @@ glad_gl_has_extension.exit389:                    ; preds = %447, %.lr.ph.i380, 
   br i1 %453, label %glad_gl_has_extension.exit403.thread, label %.preheader.i400
 
 .preheader.i400:                                  ; preds = %452
-  %454 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352553, ptr noundef nonnull readonly dereferenceable(1) @.str.767) #56
+  %454 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352553, ptr noundef nonnull dereferenceable(1) @.str.767) #56
   %455 = icmp eq ptr %454, null
   br i1 %455, label %glad_gl_has_extension.exit403.thread, label %.lr.ph35.i401
 
@@ -7353,7 +7353,7 @@ glad_gl_has_extension.exit389:                    ; preds = %447, %.lr.ph.i380, 
   ]
 
 465:                                              ; preds = %463, %459
-  %466 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %457, ptr noundef nonnull readonly dereferenceable(1) @.str.767) #56
+  %466 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %457, ptr noundef nonnull dereferenceable(1) @.str.767) #56
   %467 = icmp eq ptr %466, null
   br i1 %467, label %glad_gl_has_extension.exit403, label %.lr.ph35.i401
 
@@ -7366,7 +7366,7 @@ glad_gl_has_extension.exit389:                    ; preds = %447, %.lr.ph.i380, 
   %indvars.iv.i395 = phi i64 [ 0, %.lr.ph.preheader.i392 ], [ %indvars.iv.next.i396, %468 ]
   %469 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530, i64 %indvars.iv.i395
   %470 = load ptr, ptr %469, align 8
-  %471 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %470, ptr noundef nonnull readonly dereferenceable(20) @.str.767) #56
+  %471 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %470, ptr noundef nonnull dereferenceable(20) @.str.767) #56
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %glad_gl_has_extension.exit403, label %468
 
@@ -7403,7 +7403,7 @@ glad_gl_has_extension.exit403:                    ; preds = %468, %.lr.ph.i394, 
   br i1 %474, label %glad_gl_has_extension.exit417.thread, label %.preheader.i414
 
 .preheader.i414:                                  ; preds = %473
-  %475 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542580, ptr noundef nonnull readonly dereferenceable(1) @.str.768) #56
+  %475 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542580, ptr noundef nonnull dereferenceable(1) @.str.768) #56
   %476 = icmp eq ptr %475, null
   br i1 %476, label %glad_gl_has_extension.exit417.thread, label %.lr.ph35.i415
 
@@ -7428,7 +7428,7 @@ glad_gl_has_extension.exit403:                    ; preds = %468, %.lr.ph.i394, 
   ]
 
 486:                                              ; preds = %484, %480
-  %487 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull readonly dereferenceable(1) @.str.768) #56
+  %487 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(1) @.str.768) #56
   %488 = icmp eq ptr %487, null
   br i1 %488, label %glad_gl_has_extension.exit417, label %.lr.ph35.i415
 
@@ -7441,7 +7441,7 @@ glad_gl_has_extension.exit403:                    ; preds = %468, %.lr.ph.i394, 
   %indvars.iv.i409 = phi i64 [ 0, %.lr.ph.preheader.i406 ], [ %indvars.iv.next.i410, %489 ]
   %490 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557, i64 %indvars.iv.i409
   %491 = load ptr, ptr %490, align 8
-  %492 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %491, ptr noundef nonnull readonly dereferenceable(26) @.str.768) #56
+  %492 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %491, ptr noundef nonnull dereferenceable(26) @.str.768) #56
   %493 = icmp eq i32 %492, 0
   br i1 %493, label %glad_gl_has_extension.exit417, label %489
 
@@ -7478,7 +7478,7 @@ glad_gl_has_extension.exit417:                    ; preds = %489, %.lr.ph.i408, 
   br i1 %495, label %glad_gl_has_extension.exit431.thread, label %.preheader.i428
 
 .preheader.i428:                                  ; preds = %494
-  %496 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812599, ptr noundef nonnull readonly dereferenceable(1) @.str.769) #56
+  %496 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812599, ptr noundef nonnull dereferenceable(1) @.str.769) #56
   %497 = icmp eq ptr %496, null
   br i1 %497, label %glad_gl_has_extension.exit431.thread, label %.lr.ph35.i429
 
@@ -7503,7 +7503,7 @@ glad_gl_has_extension.exit417:                    ; preds = %489, %.lr.ph.i408, 
   ]
 
 507:                                              ; preds = %505, %501
-  %508 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %499, ptr noundef nonnull readonly dereferenceable(1) @.str.769) #56
+  %508 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %499, ptr noundef nonnull dereferenceable(1) @.str.769) #56
   %509 = icmp eq ptr %508, null
   br i1 %509, label %glad_gl_has_extension.exit431, label %.lr.ph35.i429
 
@@ -7516,7 +7516,7 @@ glad_gl_has_extension.exit417:                    ; preds = %489, %.lr.ph.i408, 
   %indvars.iv.i423 = phi i64 [ 0, %.lr.ph.preheader.i420 ], [ %indvars.iv.next.i424, %510 ]
   %511 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576, i64 %indvars.iv.i423
   %512 = load ptr, ptr %511, align 8
-  %513 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %512, ptr noundef nonnull readonly dereferenceable(33) @.str.769) #56
+  %513 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %512, ptr noundef nonnull dereferenceable(33) @.str.769) #56
   %514 = icmp eq i32 %513, 0
   br i1 %514, label %glad_gl_has_extension.exit431, label %510
 
@@ -7553,7 +7553,7 @@ glad_gl_has_extension.exit431:                    ; preds = %510, %.lr.ph.i422, 
   br i1 %516, label %glad_gl_has_extension.exit445.thread, label %.preheader.i442
 
 .preheader.i442:                                  ; preds = %515
-  %517 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002626, ptr noundef nonnull readonly dereferenceable(1) @.str.770) #56
+  %517 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002626, ptr noundef nonnull dereferenceable(1) @.str.770) #56
   %518 = icmp eq ptr %517, null
   br i1 %518, label %glad_gl_has_extension.exit445.thread, label %.lr.ph35.i443
 
@@ -7578,7 +7578,7 @@ glad_gl_has_extension.exit431:                    ; preds = %510, %.lr.ph.i422, 
   ]
 
 528:                                              ; preds = %526, %522
-  %529 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %520, ptr noundef nonnull readonly dereferenceable(1) @.str.770) #56
+  %529 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %520, ptr noundef nonnull dereferenceable(1) @.str.770) #56
   %530 = icmp eq ptr %529, null
   br i1 %530, label %glad_gl_has_extension.exit445, label %.lr.ph35.i443
 
@@ -7591,7 +7591,7 @@ glad_gl_has_extension.exit431:                    ; preds = %510, %.lr.ph.i422, 
   %indvars.iv.i437 = phi i64 [ 0, %.lr.ph.preheader.i434 ], [ %indvars.iv.next.i438, %531 ]
   %532 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603, i64 %indvars.iv.i437
   %533 = load ptr, ptr %532, align 8
-  %534 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %533, ptr noundef nonnull readonly dereferenceable(21) @.str.770) #56
+  %534 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %533, ptr noundef nonnull dereferenceable(21) @.str.770) #56
   %535 = icmp eq i32 %534, 0
   br i1 %535, label %glad_gl_has_extension.exit445, label %531
 
@@ -7628,7 +7628,7 @@ glad_gl_has_extension.exit445:                    ; preds = %531, %.lr.ph.i436, 
   br i1 %537, label %glad_gl_has_extension.exit459.thread, label %.preheader.i456
 
 .preheader.i456:                                  ; preds = %536
-  %538 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272645, ptr noundef nonnull readonly dereferenceable(1) @.str.771) #56
+  %538 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272645, ptr noundef nonnull dereferenceable(1) @.str.771) #56
   %539 = icmp eq ptr %538, null
   br i1 %539, label %glad_gl_has_extension.exit459.thread, label %.lr.ph35.i457
 
@@ -7653,7 +7653,7 @@ glad_gl_has_extension.exit445:                    ; preds = %531, %.lr.ph.i436, 
   ]
 
 549:                                              ; preds = %547, %543
-  %550 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %541, ptr noundef nonnull readonly dereferenceable(1) @.str.771) #56
+  %550 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %541, ptr noundef nonnull dereferenceable(1) @.str.771) #56
   %551 = icmp eq ptr %550, null
   br i1 %551, label %glad_gl_has_extension.exit459, label %.lr.ph35.i457
 
@@ -7666,7 +7666,7 @@ glad_gl_has_extension.exit445:                    ; preds = %531, %.lr.ph.i436, 
   %indvars.iv.i451 = phi i64 [ 0, %.lr.ph.preheader.i448 ], [ %indvars.iv.next.i452, %552 ]
   %553 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622, i64 %indvars.iv.i451
   %554 = load ptr, ptr %553, align 8
-  %555 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(22) @.str.771) #56
+  %555 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(22) @.str.771) #56
   %556 = icmp eq i32 %555, 0
   br i1 %556, label %glad_gl_has_extension.exit459, label %552
 
@@ -7703,7 +7703,7 @@ glad_gl_has_extension.exit459:                    ; preds = %552, %.lr.ph.i450, 
   br i1 %558, label %glad_gl_has_extension.exit473.thread, label %.preheader.i470
 
 .preheader.i470:                                  ; preds = %557
-  %559 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462672, ptr noundef nonnull readonly dereferenceable(1) @.str.772) #56
+  %559 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462672, ptr noundef nonnull dereferenceable(1) @.str.772) #56
   %560 = icmp eq ptr %559, null
   br i1 %560, label %glad_gl_has_extension.exit473.thread, label %.lr.ph35.i471
 
@@ -7728,7 +7728,7 @@ glad_gl_has_extension.exit459:                    ; preds = %552, %.lr.ph.i450, 
   ]
 
 570:                                              ; preds = %568, %564
-  %571 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %562, ptr noundef nonnull readonly dereferenceable(1) @.str.772) #56
+  %571 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %562, ptr noundef nonnull dereferenceable(1) @.str.772) #56
   %572 = icmp eq ptr %571, null
   br i1 %572, label %glad_gl_has_extension.exit473, label %.lr.ph35.i471
 
@@ -7741,7 +7741,7 @@ glad_gl_has_extension.exit459:                    ; preds = %552, %.lr.ph.i450, 
   %indvars.iv.i465 = phi i64 [ 0, %.lr.ph.preheader.i462 ], [ %indvars.iv.next.i466, %573 ]
   %574 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649, i64 %indvars.iv.i465
   %575 = load ptr, ptr %574, align 8
-  %576 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull readonly dereferenceable(24) @.str.772) #56
+  %576 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(24) @.str.772) #56
   %577 = icmp eq i32 %576, 0
   br i1 %577, label %glad_gl_has_extension.exit473, label %573
 
@@ -7778,7 +7778,7 @@ glad_gl_has_extension.exit473:                    ; preds = %573, %.lr.ph.i464, 
   br i1 %579, label %glad_gl_has_extension.exit487.thread, label %.preheader.i484
 
 .preheader.i484:                                  ; preds = %578
-  %580 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732691, ptr noundef nonnull readonly dereferenceable(1) @.str.773) #56
+  %580 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732691, ptr noundef nonnull dereferenceable(1) @.str.773) #56
   %581 = icmp eq ptr %580, null
   br i1 %581, label %glad_gl_has_extension.exit487.thread, label %.lr.ph35.i485
 
@@ -7803,7 +7803,7 @@ glad_gl_has_extension.exit473:                    ; preds = %573, %.lr.ph.i464, 
   ]
 
 591:                                              ; preds = %589, %585
-  %592 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull readonly dereferenceable(1) @.str.773) #56
+  %592 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(1) @.str.773) #56
   %593 = icmp eq ptr %592, null
   br i1 %593, label %glad_gl_has_extension.exit487, label %.lr.ph35.i485
 
@@ -7816,7 +7816,7 @@ glad_gl_has_extension.exit473:                    ; preds = %573, %.lr.ph.i464, 
   %indvars.iv.i479 = phi i64 [ 0, %.lr.ph.preheader.i476 ], [ %indvars.iv.next.i480, %594 ]
   %595 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668, i64 %indvars.iv.i479
   %596 = load ptr, ptr %595, align 8
-  %597 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %596, ptr noundef nonnull readonly dereferenceable(32) @.str.773) #56
+  %597 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %596, ptr noundef nonnull dereferenceable(32) @.str.773) #56
   %598 = icmp eq i32 %597, 0
   br i1 %598, label %glad_gl_has_extension.exit487, label %594
 
@@ -7853,7 +7853,7 @@ glad_gl_has_extension.exit487:                    ; preds = %594, %.lr.ph.i478, 
   br i1 %600, label %glad_gl_has_extension.exit501.thread, label %.preheader.i498
 
 .preheader.i498:                                  ; preds = %599
-  %601 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922718, ptr noundef nonnull readonly dereferenceable(1) @.str.774) #56
+  %601 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922718, ptr noundef nonnull dereferenceable(1) @.str.774) #56
   %602 = icmp eq ptr %601, null
   br i1 %602, label %glad_gl_has_extension.exit501.thread, label %.lr.ph35.i499
 
@@ -7878,7 +7878,7 @@ glad_gl_has_extension.exit487:                    ; preds = %594, %.lr.ph.i478, 
   ]
 
 612:                                              ; preds = %610, %606
-  %613 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %604, ptr noundef nonnull readonly dereferenceable(1) @.str.774) #56
+  %613 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %604, ptr noundef nonnull dereferenceable(1) @.str.774) #56
   %614 = icmp eq ptr %613, null
   br i1 %614, label %glad_gl_has_extension.exit501, label %.lr.ph35.i499
 
@@ -7891,7 +7891,7 @@ glad_gl_has_extension.exit487:                    ; preds = %594, %.lr.ph.i478, 
   %indvars.iv.i493 = phi i64 [ 0, %.lr.ph.preheader.i490 ], [ %indvars.iv.next.i494, %615 ]
   %616 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695, i64 %indvars.iv.i493
   %617 = load ptr, ptr %616, align 8
-  %618 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %617, ptr noundef nonnull readonly dereferenceable(33) @.str.774) #56
+  %618 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %617, ptr noundef nonnull dereferenceable(33) @.str.774) #56
   %619 = icmp eq i32 %618, 0
   br i1 %619, label %glad_gl_has_extension.exit501, label %615
 
@@ -7928,7 +7928,7 @@ glad_gl_has_extension.exit501:                    ; preds = %615, %.lr.ph.i492, 
   br i1 %621, label %glad_gl_has_extension.exit515.thread, label %.preheader.i512
 
 .preheader.i512:                                  ; preds = %620
-  %622 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192737, ptr noundef nonnull readonly dereferenceable(1) @.str.775) #56
+  %622 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192737, ptr noundef nonnull dereferenceable(1) @.str.775) #56
   %623 = icmp eq ptr %622, null
   br i1 %623, label %glad_gl_has_extension.exit515.thread, label %.lr.ph35.i513
 
@@ -7953,7 +7953,7 @@ glad_gl_has_extension.exit501:                    ; preds = %615, %.lr.ph.i492, 
   ]
 
 633:                                              ; preds = %631, %627
-  %634 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %625, ptr noundef nonnull readonly dereferenceable(1) @.str.775) #56
+  %634 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %625, ptr noundef nonnull dereferenceable(1) @.str.775) #56
   %635 = icmp eq ptr %634, null
   br i1 %635, label %glad_gl_has_extension.exit515, label %.lr.ph35.i513
 
@@ -7966,7 +7966,7 @@ glad_gl_has_extension.exit501:                    ; preds = %615, %.lr.ph.i492, 
   %indvars.iv.i507 = phi i64 [ 0, %.lr.ph.preheader.i504 ], [ %indvars.iv.next.i508, %636 ]
   %637 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714, i64 %indvars.iv.i507
   %638 = load ptr, ptr %637, align 8
-  %639 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %638, ptr noundef nonnull readonly dereferenceable(34) @.str.775) #56
+  %639 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %638, ptr noundef nonnull dereferenceable(34) @.str.775) #56
   %640 = icmp eq i32 %639, 0
   br i1 %640, label %glad_gl_has_extension.exit515, label %636
 
@@ -8003,7 +8003,7 @@ glad_gl_has_extension.exit515:                    ; preds = %636, %.lr.ph.i506, 
   br i1 %642, label %glad_gl_has_extension.exit529.thread, label %.preheader.i526
 
 .preheader.i526:                                  ; preds = %641
-  %643 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382764, ptr noundef nonnull readonly dereferenceable(1) @.str.776) #56
+  %643 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382764, ptr noundef nonnull dereferenceable(1) @.str.776) #56
   %644 = icmp eq ptr %643, null
   br i1 %644, label %glad_gl_has_extension.exit529.thread, label %.lr.ph35.i527
 
@@ -8028,7 +8028,7 @@ glad_gl_has_extension.exit515:                    ; preds = %636, %.lr.ph.i506, 
   ]
 
 654:                                              ; preds = %652, %648
-  %655 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %646, ptr noundef nonnull readonly dereferenceable(1) @.str.776) #56
+  %655 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %646, ptr noundef nonnull dereferenceable(1) @.str.776) #56
   %656 = icmp eq ptr %655, null
   br i1 %656, label %glad_gl_has_extension.exit529, label %.lr.ph35.i527
 
@@ -8041,7 +8041,7 @@ glad_gl_has_extension.exit515:                    ; preds = %636, %.lr.ph.i506, 
   %indvars.iv.i521 = phi i64 [ 0, %.lr.ph.preheader.i518 ], [ %indvars.iv.next.i522, %657 ]
   %658 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741, i64 %indvars.iv.i521
   %659 = load ptr, ptr %658, align 8
-  %660 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %659, ptr noundef nonnull readonly dereferenceable(31) @.str.776) #56
+  %660 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %659, ptr noundef nonnull dereferenceable(31) @.str.776) #56
   %661 = icmp eq i32 %660, 0
   br i1 %661, label %glad_gl_has_extension.exit529, label %657
 
@@ -8078,7 +8078,7 @@ glad_gl_has_extension.exit529:                    ; preds = %657, %.lr.ph.i520, 
   br i1 %663, label %glad_gl_has_extension.exit543.thread, label %.preheader.i540
 
 .preheader.i540:                                  ; preds = %662
-  %664 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652783, ptr noundef nonnull readonly dereferenceable(1) @.str.777) #56
+  %664 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652783, ptr noundef nonnull dereferenceable(1) @.str.777) #56
   %665 = icmp eq ptr %664, null
   br i1 %665, label %glad_gl_has_extension.exit543.thread, label %.lr.ph35.i541
 
@@ -8103,7 +8103,7 @@ glad_gl_has_extension.exit529:                    ; preds = %657, %.lr.ph.i520, 
   ]
 
 675:                                              ; preds = %673, %669
-  %676 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %667, ptr noundef nonnull readonly dereferenceable(1) @.str.777) #56
+  %676 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %667, ptr noundef nonnull dereferenceable(1) @.str.777) #56
   %677 = icmp eq ptr %676, null
   br i1 %677, label %glad_gl_has_extension.exit543, label %.lr.ph35.i541
 
@@ -8116,7 +8116,7 @@ glad_gl_has_extension.exit529:                    ; preds = %657, %.lr.ph.i520, 
   %indvars.iv.i535 = phi i64 [ 0, %.lr.ph.preheader.i532 ], [ %indvars.iv.next.i536, %678 ]
   %679 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760, i64 %indvars.iv.i535
   %680 = load ptr, ptr %679, align 8
-  %681 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %680, ptr noundef nonnull readonly dereferenceable(24) @.str.777) #56
+  %681 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %680, ptr noundef nonnull dereferenceable(24) @.str.777) #56
   %682 = icmp eq i32 %681, 0
   br i1 %682, label %glad_gl_has_extension.exit543, label %678
 
@@ -8153,7 +8153,7 @@ glad_gl_has_extension.exit543:                    ; preds = %678, %.lr.ph.i534, 
   br i1 %684, label %glad_gl_has_extension.exit557.thread, label %.preheader.i554
 
 .preheader.i554:                                  ; preds = %683
-  %685 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842810, ptr noundef nonnull readonly dereferenceable(1) @.str.778) #56
+  %685 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842810, ptr noundef nonnull dereferenceable(1) @.str.778) #56
   %686 = icmp eq ptr %685, null
   br i1 %686, label %glad_gl_has_extension.exit557.thread, label %.lr.ph35.i555
 
@@ -8178,7 +8178,7 @@ glad_gl_has_extension.exit543:                    ; preds = %678, %.lr.ph.i534, 
   ]
 
 696:                                              ; preds = %694, %690
-  %697 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %688, ptr noundef nonnull readonly dereferenceable(1) @.str.778) #56
+  %697 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %688, ptr noundef nonnull dereferenceable(1) @.str.778) #56
   %698 = icmp eq ptr %697, null
   br i1 %698, label %glad_gl_has_extension.exit557, label %.lr.ph35.i555
 
@@ -8191,7 +8191,7 @@ glad_gl_has_extension.exit543:                    ; preds = %678, %.lr.ph.i534, 
   %indvars.iv.i549 = phi i64 [ 0, %.lr.ph.preheader.i546 ], [ %indvars.iv.next.i550, %699 ]
   %700 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787, i64 %indvars.iv.i549
   %701 = load ptr, ptr %700, align 8
-  %702 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull readonly dereferenceable(31) @.str.778) #56
+  %702 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull dereferenceable(31) @.str.778) #56
   %703 = icmp eq i32 %702, 0
   br i1 %703, label %glad_gl_has_extension.exit557, label %699
 
@@ -8228,7 +8228,7 @@ glad_gl_has_extension.exit557:                    ; preds = %699, %.lr.ph.i548, 
   br i1 %705, label %glad_gl_has_extension.exit571.thread, label %.preheader.i568
 
 .preheader.i568:                                  ; preds = %704
-  %706 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112829, ptr noundef nonnull readonly dereferenceable(1) @.str.779) #56
+  %706 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112829, ptr noundef nonnull dereferenceable(1) @.str.779) #56
   %707 = icmp eq ptr %706, null
   br i1 %707, label %glad_gl_has_extension.exit571.thread, label %.lr.ph35.i569
 
@@ -8253,7 +8253,7 @@ glad_gl_has_extension.exit557:                    ; preds = %699, %.lr.ph.i548, 
   ]
 
 717:                                              ; preds = %715, %711
-  %718 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %709, ptr noundef nonnull readonly dereferenceable(1) @.str.779) #56
+  %718 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %709, ptr noundef nonnull dereferenceable(1) @.str.779) #56
   %719 = icmp eq ptr %718, null
   br i1 %719, label %glad_gl_has_extension.exit571, label %.lr.ph35.i569
 
@@ -8266,7 +8266,7 @@ glad_gl_has_extension.exit557:                    ; preds = %699, %.lr.ph.i548, 
   %indvars.iv.i563 = phi i64 [ 0, %.lr.ph.preheader.i560 ], [ %indvars.iv.next.i564, %720 ]
   %721 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806, i64 %indvars.iv.i563
   %722 = load ptr, ptr %721, align 8
-  %723 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %722, ptr noundef nonnull readonly dereferenceable(23) @.str.779) #56
+  %723 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %722, ptr noundef nonnull dereferenceable(23) @.str.779) #56
   %724 = icmp eq i32 %723, 0
   br i1 %724, label %glad_gl_has_extension.exit571, label %720
 
@@ -8303,7 +8303,7 @@ glad_gl_has_extension.exit571:                    ; preds = %720, %.lr.ph.i562, 
   br i1 %726, label %glad_gl_has_extension.exit585.thread, label %.preheader.i582
 
 .preheader.i582:                                  ; preds = %725
-  %727 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302856, ptr noundef nonnull readonly dereferenceable(1) @.str.780) #56
+  %727 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302856, ptr noundef nonnull dereferenceable(1) @.str.780) #56
   %728 = icmp eq ptr %727, null
   br i1 %728, label %glad_gl_has_extension.exit585.thread, label %.lr.ph35.i583
 
@@ -8328,7 +8328,7 @@ glad_gl_has_extension.exit571:                    ; preds = %720, %.lr.ph.i562, 
   ]
 
 738:                                              ; preds = %736, %732
-  %739 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %730, ptr noundef nonnull readonly dereferenceable(1) @.str.780) #56
+  %739 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %730, ptr noundef nonnull dereferenceable(1) @.str.780) #56
   %740 = icmp eq ptr %739, null
   br i1 %740, label %glad_gl_has_extension.exit585, label %.lr.ph35.i583
 
@@ -8341,7 +8341,7 @@ glad_gl_has_extension.exit571:                    ; preds = %720, %.lr.ph.i562, 
   %indvars.iv.i577 = phi i64 [ 0, %.lr.ph.preheader.i574 ], [ %indvars.iv.next.i578, %741 ]
   %742 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833, i64 %indvars.iv.i577
   %743 = load ptr, ptr %742, align 8
-  %744 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %743, ptr noundef nonnull readonly dereferenceable(33) @.str.780) #56
+  %744 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %743, ptr noundef nonnull dereferenceable(33) @.str.780) #56
   %745 = icmp eq i32 %744, 0
   br i1 %745, label %glad_gl_has_extension.exit585, label %741
 
@@ -8378,7 +8378,7 @@ glad_gl_has_extension.exit585:                    ; preds = %741, %.lr.ph.i576, 
   br i1 %747, label %glad_gl_has_extension.exit599.thread, label %.preheader.i596
 
 .preheader.i596:                                  ; preds = %746
-  %748 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572875, ptr noundef nonnull readonly dereferenceable(1) @.str.781) #56
+  %748 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572875, ptr noundef nonnull dereferenceable(1) @.str.781) #56
   %749 = icmp eq ptr %748, null
   br i1 %749, label %glad_gl_has_extension.exit599.thread, label %.lr.ph35.i597
 
@@ -8403,7 +8403,7 @@ glad_gl_has_extension.exit585:                    ; preds = %741, %.lr.ph.i576, 
   ]
 
 759:                                              ; preds = %757, %753
-  %760 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %751, ptr noundef nonnull readonly dereferenceable(1) @.str.781) #56
+  %760 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %751, ptr noundef nonnull dereferenceable(1) @.str.781) #56
   %761 = icmp eq ptr %760, null
   br i1 %761, label %glad_gl_has_extension.exit599, label %.lr.ph35.i597
 
@@ -8416,7 +8416,7 @@ glad_gl_has_extension.exit585:                    ; preds = %741, %.lr.ph.i576, 
   %indvars.iv.i591 = phi i64 [ 0, %.lr.ph.preheader.i588 ], [ %indvars.iv.next.i592, %762 ]
   %763 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852, i64 %indvars.iv.i591
   %764 = load ptr, ptr %763, align 8
-  %765 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %764, ptr noundef nonnull readonly dereferenceable(34) @.str.781) #56
+  %765 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %764, ptr noundef nonnull dereferenceable(34) @.str.781) #56
   %766 = icmp eq i32 %765, 0
   br i1 %766, label %glad_gl_has_extension.exit599, label %762
 
@@ -8453,7 +8453,7 @@ glad_gl_has_extension.exit599:                    ; preds = %762, %.lr.ph.i590, 
   br i1 %768, label %glad_gl_has_extension.exit613.thread, label %.preheader.i610
 
 .preheader.i610:                                  ; preds = %767
-  %769 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762902, ptr noundef nonnull readonly dereferenceable(1) @.str.782) #56
+  %769 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762902, ptr noundef nonnull dereferenceable(1) @.str.782) #56
   %770 = icmp eq ptr %769, null
   br i1 %770, label %glad_gl_has_extension.exit613.thread, label %.lr.ph35.i611
 
@@ -8478,7 +8478,7 @@ glad_gl_has_extension.exit599:                    ; preds = %762, %.lr.ph.i590, 
   ]
 
 780:                                              ; preds = %778, %774
-  %781 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %772, ptr noundef nonnull readonly dereferenceable(1) @.str.782) #56
+  %781 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %772, ptr noundef nonnull dereferenceable(1) @.str.782) #56
   %782 = icmp eq ptr %781, null
   br i1 %782, label %glad_gl_has_extension.exit613, label %.lr.ph35.i611
 
@@ -8491,7 +8491,7 @@ glad_gl_has_extension.exit599:                    ; preds = %762, %.lr.ph.i590, 
   %indvars.iv.i605 = phi i64 [ 0, %.lr.ph.preheader.i602 ], [ %indvars.iv.next.i606, %783 ]
   %784 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879, i64 %indvars.iv.i605
   %785 = load ptr, ptr %784, align 8
-  %786 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %785, ptr noundef nonnull readonly dereferenceable(26) @.str.782) #56
+  %786 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %785, ptr noundef nonnull dereferenceable(26) @.str.782) #56
   %787 = icmp eq i32 %786, 0
   br i1 %787, label %glad_gl_has_extension.exit613, label %783
 
@@ -8528,7 +8528,7 @@ glad_gl_has_extension.exit613:                    ; preds = %783, %.lr.ph.i604, 
   br i1 %789, label %glad_gl_has_extension.exit627.thread, label %.preheader.i624
 
 .preheader.i624:                                  ; preds = %788
-  %790 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032921, ptr noundef nonnull readonly dereferenceable(1) @.str.783) #56
+  %790 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032921, ptr noundef nonnull dereferenceable(1) @.str.783) #56
   %791 = icmp eq ptr %790, null
   br i1 %791, label %glad_gl_has_extension.exit627.thread, label %.lr.ph35.i625
 
@@ -8553,7 +8553,7 @@ glad_gl_has_extension.exit613:                    ; preds = %783, %.lr.ph.i604, 
   ]
 
 801:                                              ; preds = %799, %795
-  %802 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %793, ptr noundef nonnull readonly dereferenceable(1) @.str.783) #56
+  %802 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %793, ptr noundef nonnull dereferenceable(1) @.str.783) #56
   %803 = icmp eq ptr %802, null
   br i1 %803, label %glad_gl_has_extension.exit627, label %.lr.ph35.i625
 
@@ -8566,7 +8566,7 @@ glad_gl_has_extension.exit613:                    ; preds = %783, %.lr.ph.i604, 
   %indvars.iv.i619 = phi i64 [ 0, %.lr.ph.preheader.i616 ], [ %indvars.iv.next.i620, %804 ]
   %805 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898, i64 %indvars.iv.i619
   %806 = load ptr, ptr %805, align 8
-  %807 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %806, ptr noundef nonnull readonly dereferenceable(24) @.str.783) #56
+  %807 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %806, ptr noundef nonnull dereferenceable(24) @.str.783) #56
   %808 = icmp eq i32 %807, 0
   br i1 %808, label %glad_gl_has_extension.exit627, label %804
 
@@ -8603,7 +8603,7 @@ glad_gl_has_extension.exit627:                    ; preds = %804, %.lr.ph.i618, 
   br i1 %810, label %glad_gl_has_extension.exit641.thread, label %.preheader.i638
 
 .preheader.i638:                                  ; preds = %809
-  %811 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222948, ptr noundef nonnull readonly dereferenceable(1) @.str.784) #56
+  %811 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222948, ptr noundef nonnull dereferenceable(1) @.str.784) #56
   %812 = icmp eq ptr %811, null
   br i1 %812, label %glad_gl_has_extension.exit641.thread, label %.lr.ph35.i639
 
@@ -8628,7 +8628,7 @@ glad_gl_has_extension.exit627:                    ; preds = %804, %.lr.ph.i618, 
   ]
 
 822:                                              ; preds = %820, %816
-  %823 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %814, ptr noundef nonnull readonly dereferenceable(1) @.str.784) #56
+  %823 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %814, ptr noundef nonnull dereferenceable(1) @.str.784) #56
   %824 = icmp eq ptr %823, null
   br i1 %824, label %glad_gl_has_extension.exit641, label %.lr.ph35.i639
 
@@ -8641,7 +8641,7 @@ glad_gl_has_extension.exit627:                    ; preds = %804, %.lr.ph.i618, 
   %indvars.iv.i633 = phi i64 [ 0, %.lr.ph.preheader.i630 ], [ %indvars.iv.next.i634, %825 ]
   %826 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925, i64 %indvars.iv.i633
   %827 = load ptr, ptr %826, align 8
-  %828 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %827, ptr noundef nonnull readonly dereferenceable(24) @.str.784) #56
+  %828 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %827, ptr noundef nonnull dereferenceable(24) @.str.784) #56
   %829 = icmp eq i32 %828, 0
   br i1 %829, label %glad_gl_has_extension.exit641, label %825
 
@@ -8678,7 +8678,7 @@ glad_gl_has_extension.exit641:                    ; preds = %825, %.lr.ph.i632, 
   br i1 %831, label %glad_gl_has_extension.exit655.thread, label %.preheader.i652
 
 .preheader.i652:                                  ; preds = %830
-  %832 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492967, ptr noundef nonnull readonly dereferenceable(1) @.str.785) #56
+  %832 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492967, ptr noundef nonnull dereferenceable(1) @.str.785) #56
   %833 = icmp eq ptr %832, null
   br i1 %833, label %glad_gl_has_extension.exit655.thread, label %.lr.ph35.i653
 
@@ -8703,7 +8703,7 @@ glad_gl_has_extension.exit641:                    ; preds = %825, %.lr.ph.i632, 
   ]
 
 843:                                              ; preds = %841, %837
-  %844 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %835, ptr noundef nonnull readonly dereferenceable(1) @.str.785) #56
+  %844 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %835, ptr noundef nonnull dereferenceable(1) @.str.785) #56
   %845 = icmp eq ptr %844, null
   br i1 %845, label %glad_gl_has_extension.exit655, label %.lr.ph35.i653
 
@@ -8716,7 +8716,7 @@ glad_gl_has_extension.exit641:                    ; preds = %825, %.lr.ph.i632, 
   %indvars.iv.i647 = phi i64 [ 0, %.lr.ph.preheader.i644 ], [ %indvars.iv.next.i648, %846 ]
   %847 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944, i64 %indvars.iv.i647
   %848 = load ptr, ptr %847, align 8
-  %849 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %848, ptr noundef nonnull readonly dereferenceable(26) @.str.785) #56
+  %849 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %848, ptr noundef nonnull dereferenceable(26) @.str.785) #56
   %850 = icmp eq i32 %849, 0
   br i1 %850, label %glad_gl_has_extension.exit655, label %846
 
@@ -8753,7 +8753,7 @@ glad_gl_has_extension.exit655:                    ; preds = %846, %.lr.ph.i646, 
   br i1 %852, label %glad_gl_has_extension.exit669.thread, label %.preheader.i666
 
 .preheader.i666:                                  ; preds = %851
-  %853 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682994, ptr noundef nonnull readonly dereferenceable(1) @.str.786) #56
+  %853 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682994, ptr noundef nonnull dereferenceable(1) @.str.786) #56
   %854 = icmp eq ptr %853, null
   br i1 %854, label %glad_gl_has_extension.exit669.thread, label %.lr.ph35.i667
 
@@ -8778,7 +8778,7 @@ glad_gl_has_extension.exit655:                    ; preds = %846, %.lr.ph.i646, 
   ]
 
 864:                                              ; preds = %862, %858
-  %865 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %856, ptr noundef nonnull readonly dereferenceable(1) @.str.786) #56
+  %865 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %856, ptr noundef nonnull dereferenceable(1) @.str.786) #56
   %866 = icmp eq ptr %865, null
   br i1 %866, label %glad_gl_has_extension.exit669, label %.lr.ph35.i667
 
@@ -8791,7 +8791,7 @@ glad_gl_has_extension.exit655:                    ; preds = %846, %.lr.ph.i646, 
   %indvars.iv.i661 = phi i64 [ 0, %.lr.ph.preheader.i658 ], [ %indvars.iv.next.i662, %867 ]
   %868 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971, i64 %indvars.iv.i661
   %869 = load ptr, ptr %868, align 8
-  %870 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %869, ptr noundef nonnull readonly dereferenceable(29) @.str.786) #56
+  %870 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %869, ptr noundef nonnull dereferenceable(29) @.str.786) #56
   %871 = icmp eq i32 %870, 0
   br i1 %871, label %glad_gl_has_extension.exit669, label %867
 
@@ -8828,7 +8828,7 @@ glad_gl_has_extension.exit669:                    ; preds = %867, %.lr.ph.i660, 
   br i1 %873, label %glad_gl_has_extension.exit683.thread, label %.preheader.i680
 
 .preheader.i680:                                  ; preds = %872
-  %874 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953013, ptr noundef nonnull readonly dereferenceable(1) @.str.787) #56
+  %874 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953013, ptr noundef nonnull dereferenceable(1) @.str.787) #56
   %875 = icmp eq ptr %874, null
   br i1 %875, label %glad_gl_has_extension.exit683.thread, label %.lr.ph35.i681
 
@@ -8853,7 +8853,7 @@ glad_gl_has_extension.exit669:                    ; preds = %867, %.lr.ph.i660, 
   ]
 
 885:                                              ; preds = %883, %879
-  %886 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %877, ptr noundef nonnull readonly dereferenceable(1) @.str.787) #56
+  %886 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %877, ptr noundef nonnull dereferenceable(1) @.str.787) #56
   %887 = icmp eq ptr %886, null
   br i1 %887, label %glad_gl_has_extension.exit683, label %.lr.ph35.i681
 
@@ -8866,7 +8866,7 @@ glad_gl_has_extension.exit669:                    ; preds = %867, %.lr.ph.i660, 
   %indvars.iv.i675 = phi i64 [ 0, %.lr.ph.preheader.i672 ], [ %indvars.iv.next.i676, %888 ]
   %889 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990, i64 %indvars.iv.i675
   %890 = load ptr, ptr %889, align 8
-  %891 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %890, ptr noundef nonnull readonly dereferenceable(16) @.str.787) #56
+  %891 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %890, ptr noundef nonnull dereferenceable(16) @.str.787) #56
   %892 = icmp eq i32 %891, 0
   br i1 %892, label %glad_gl_has_extension.exit683, label %888
 
@@ -8903,7 +8903,7 @@ glad_gl_has_extension.exit683:                    ; preds = %888, %.lr.ph.i674, 
   br i1 %894, label %glad_gl_has_extension.exit697.thread, label %.preheader.i694
 
 .preheader.i694:                                  ; preds = %893
-  %895 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143040, ptr noundef nonnull readonly dereferenceable(1) @.str.788) #56
+  %895 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143040, ptr noundef nonnull dereferenceable(1) @.str.788) #56
   %896 = icmp eq ptr %895, null
   br i1 %896, label %glad_gl_has_extension.exit697.thread, label %.lr.ph35.i695
 
@@ -8928,7 +8928,7 @@ glad_gl_has_extension.exit683:                    ; preds = %888, %.lr.ph.i674, 
   ]
 
 906:                                              ; preds = %904, %900
-  %907 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %898, ptr noundef nonnull readonly dereferenceable(1) @.str.788) #56
+  %907 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %898, ptr noundef nonnull dereferenceable(1) @.str.788) #56
   %908 = icmp eq ptr %907, null
   br i1 %908, label %glad_gl_has_extension.exit697, label %.lr.ph35.i695
 
@@ -8941,7 +8941,7 @@ glad_gl_has_extension.exit683:                    ; preds = %888, %.lr.ph.i674, 
   %indvars.iv.i689 = phi i64 [ 0, %.lr.ph.preheader.i686 ], [ %indvars.iv.next.i690, %909 ]
   %910 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017, i64 %indvars.iv.i689
   %911 = load ptr, ptr %910, align 8
-  %912 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %911, ptr noundef nonnull readonly dereferenceable(19) @.str.788) #56
+  %912 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %911, ptr noundef nonnull dereferenceable(19) @.str.788) #56
   %913 = icmp eq i32 %912, 0
   br i1 %913, label %glad_gl_has_extension.exit697, label %909
 
@@ -8978,7 +8978,7 @@ glad_gl_has_extension.exit697:                    ; preds = %909, %.lr.ph.i688, 
   br i1 %915, label %glad_gl_has_extension.exit711.thread, label %.preheader.i708
 
 .preheader.i708:                                  ; preds = %914
-  %916 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413059, ptr noundef nonnull readonly dereferenceable(1) @.str.789) #56
+  %916 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413059, ptr noundef nonnull dereferenceable(1) @.str.789) #56
   %917 = icmp eq ptr %916, null
   br i1 %917, label %glad_gl_has_extension.exit711.thread, label %.lr.ph35.i709
 
@@ -9003,7 +9003,7 @@ glad_gl_has_extension.exit697:                    ; preds = %909, %.lr.ph.i688, 
   ]
 
 927:                                              ; preds = %925, %921
-  %928 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %919, ptr noundef nonnull readonly dereferenceable(1) @.str.789) #56
+  %928 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %919, ptr noundef nonnull dereferenceable(1) @.str.789) #56
   %929 = icmp eq ptr %928, null
   br i1 %929, label %glad_gl_has_extension.exit711, label %.lr.ph35.i709
 
@@ -9016,7 +9016,7 @@ glad_gl_has_extension.exit697:                    ; preds = %909, %.lr.ph.i688, 
   %indvars.iv.i703 = phi i64 [ 0, %.lr.ph.preheader.i700 ], [ %indvars.iv.next.i704, %930 ]
   %931 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036, i64 %indvars.iv.i703
   %932 = load ptr, ptr %931, align 8
-  %933 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %932, ptr noundef nonnull readonly dereferenceable(23) @.str.789) #56
+  %933 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %932, ptr noundef nonnull dereferenceable(23) @.str.789) #56
   %934 = icmp eq i32 %933, 0
   br i1 %934, label %glad_gl_has_extension.exit711, label %930
 
@@ -9053,7 +9053,7 @@ glad_gl_has_extension.exit711:                    ; preds = %930, %.lr.ph.i702, 
   br i1 %936, label %glad_gl_has_extension.exit725.thread, label %.preheader.i722
 
 .preheader.i722:                                  ; preds = %935
-  %937 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603086, ptr noundef nonnull readonly dereferenceable(1) @.str.790) #56
+  %937 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603086, ptr noundef nonnull dereferenceable(1) @.str.790) #56
   %938 = icmp eq ptr %937, null
   br i1 %938, label %glad_gl_has_extension.exit725.thread, label %.lr.ph35.i723
 
@@ -9078,7 +9078,7 @@ glad_gl_has_extension.exit711:                    ; preds = %930, %.lr.ph.i702, 
   ]
 
 948:                                              ; preds = %946, %942
-  %949 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %940, ptr noundef nonnull readonly dereferenceable(1) @.str.790) #56
+  %949 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %940, ptr noundef nonnull dereferenceable(1) @.str.790) #56
   %950 = icmp eq ptr %949, null
   br i1 %950, label %glad_gl_has_extension.exit725, label %.lr.ph35.i723
 
@@ -9091,7 +9091,7 @@ glad_gl_has_extension.exit711:                    ; preds = %930, %.lr.ph.i702, 
   %indvars.iv.i717 = phi i64 [ 0, %.lr.ph.preheader.i714 ], [ %indvars.iv.next.i718, %951 ]
   %952 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063, i64 %indvars.iv.i717
   %953 = load ptr, ptr %952, align 8
-  %954 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %953, ptr noundef nonnull readonly dereferenceable(24) @.str.790) #56
+  %954 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %953, ptr noundef nonnull dereferenceable(24) @.str.790) #56
   %955 = icmp eq i32 %954, 0
   br i1 %955, label %glad_gl_has_extension.exit725, label %951
 
@@ -9128,7 +9128,7 @@ glad_gl_has_extension.exit725:                    ; preds = %951, %.lr.ph.i716, 
   br i1 %957, label %glad_gl_has_extension.exit739.thread, label %.preheader.i736
 
 .preheader.i736:                                  ; preds = %956
-  %958 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873105, ptr noundef nonnull readonly dereferenceable(1) @.str.791) #56
+  %958 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873105, ptr noundef nonnull dereferenceable(1) @.str.791) #56
   %959 = icmp eq ptr %958, null
   br i1 %959, label %glad_gl_has_extension.exit739.thread, label %.lr.ph35.i737
 
@@ -9153,7 +9153,7 @@ glad_gl_has_extension.exit725:                    ; preds = %951, %.lr.ph.i716, 
   ]
 
 969:                                              ; preds = %967, %963
-  %970 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %961, ptr noundef nonnull readonly dereferenceable(1) @.str.791) #56
+  %970 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %961, ptr noundef nonnull dereferenceable(1) @.str.791) #56
   %971 = icmp eq ptr %970, null
   br i1 %971, label %glad_gl_has_extension.exit739, label %.lr.ph35.i737
 
@@ -9166,7 +9166,7 @@ glad_gl_has_extension.exit725:                    ; preds = %951, %.lr.ph.i716, 
   %indvars.iv.i731 = phi i64 [ 0, %.lr.ph.preheader.i728 ], [ %indvars.iv.next.i732, %972 ]
   %973 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082, i64 %indvars.iv.i731
   %974 = load ptr, ptr %973, align 8
-  %975 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %974, ptr noundef nonnull readonly dereferenceable(24) @.str.791) #56
+  %975 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %974, ptr noundef nonnull dereferenceable(24) @.str.791) #56
   %976 = icmp eq i32 %975, 0
   br i1 %976, label %glad_gl_has_extension.exit739, label %972
 
@@ -9203,7 +9203,7 @@ glad_gl_has_extension.exit739:                    ; preds = %972, %.lr.ph.i730, 
   br i1 %978, label %glad_gl_has_extension.exit753.thread, label %.preheader.i750
 
 .preheader.i750:                                  ; preds = %977
-  %979 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063132, ptr noundef nonnull readonly dereferenceable(1) @.str.792) #56
+  %979 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063132, ptr noundef nonnull dereferenceable(1) @.str.792) #56
   %980 = icmp eq ptr %979, null
   br i1 %980, label %glad_gl_has_extension.exit753.thread, label %.lr.ph35.i751
 
@@ -9228,7 +9228,7 @@ glad_gl_has_extension.exit739:                    ; preds = %972, %.lr.ph.i730, 
   ]
 
 990:                                              ; preds = %988, %984
-  %991 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %982, ptr noundef nonnull readonly dereferenceable(1) @.str.792) #56
+  %991 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %982, ptr noundef nonnull dereferenceable(1) @.str.792) #56
   %992 = icmp eq ptr %991, null
   br i1 %992, label %glad_gl_has_extension.exit753, label %.lr.ph35.i751
 
@@ -9241,7 +9241,7 @@ glad_gl_has_extension.exit739:                    ; preds = %972, %.lr.ph.i730, 
   %indvars.iv.i745 = phi i64 [ 0, %.lr.ph.preheader.i742 ], [ %indvars.iv.next.i746, %993 ]
   %994 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109, i64 %indvars.iv.i745
   %995 = load ptr, ptr %994, align 8
-  %996 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %995, ptr noundef nonnull readonly dereferenceable(25) @.str.792) #56
+  %996 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %995, ptr noundef nonnull dereferenceable(25) @.str.792) #56
   %997 = icmp eq i32 %996, 0
   br i1 %997, label %glad_gl_has_extension.exit753, label %993
 
@@ -9278,7 +9278,7 @@ glad_gl_has_extension.exit753:                    ; preds = %993, %.lr.ph.i744, 
   br i1 %999, label %glad_gl_has_extension.exit767.thread, label %.preheader.i764
 
 .preheader.i764:                                  ; preds = %998
-  %1000 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333151, ptr noundef nonnull readonly dereferenceable(1) @.str.793) #56
+  %1000 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333151, ptr noundef nonnull dereferenceable(1) @.str.793) #56
   %1001 = icmp eq ptr %1000, null
   br i1 %1001, label %glad_gl_has_extension.exit767.thread, label %.lr.ph35.i765
 
@@ -9303,7 +9303,7 @@ glad_gl_has_extension.exit753:                    ; preds = %993, %.lr.ph.i744, 
   ]
 
 1011:                                             ; preds = %1009, %1005
-  %1012 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1003, ptr noundef nonnull readonly dereferenceable(1) @.str.793) #56
+  %1012 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1003, ptr noundef nonnull dereferenceable(1) @.str.793) #56
   %1013 = icmp eq ptr %1012, null
   br i1 %1013, label %glad_gl_has_extension.exit767, label %.lr.ph35.i765
 
@@ -9316,7 +9316,7 @@ glad_gl_has_extension.exit753:                    ; preds = %993, %.lr.ph.i744, 
   %indvars.iv.i759 = phi i64 [ 0, %.lr.ph.preheader.i756 ], [ %indvars.iv.next.i760, %1014 ]
   %1015 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128, i64 %indvars.iv.i759
   %1016 = load ptr, ptr %1015, align 8
-  %1017 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1016, ptr noundef nonnull readonly dereferenceable(24) @.str.793) #56
+  %1017 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1016, ptr noundef nonnull dereferenceable(24) @.str.793) #56
   %1018 = icmp eq i32 %1017, 0
   br i1 %1018, label %glad_gl_has_extension.exit767, label %1014
 
@@ -9353,7 +9353,7 @@ glad_gl_has_extension.exit767:                    ; preds = %1014, %.lr.ph.i758,
   br i1 %1020, label %glad_gl_has_extension.exit781.thread, label %.preheader.i778
 
 .preheader.i778:                                  ; preds = %1019
-  %1021 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523178, ptr noundef nonnull readonly dereferenceable(1) @.str.794) #56
+  %1021 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523178, ptr noundef nonnull dereferenceable(1) @.str.794) #56
   %1022 = icmp eq ptr %1021, null
   br i1 %1022, label %glad_gl_has_extension.exit781.thread, label %.lr.ph35.i779
 
@@ -9378,7 +9378,7 @@ glad_gl_has_extension.exit767:                    ; preds = %1014, %.lr.ph.i758,
   ]
 
 1032:                                             ; preds = %1030, %1026
-  %1033 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1024, ptr noundef nonnull readonly dereferenceable(1) @.str.794) #56
+  %1033 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1024, ptr noundef nonnull dereferenceable(1) @.str.794) #56
   %1034 = icmp eq ptr %1033, null
   br i1 %1034, label %glad_gl_has_extension.exit781, label %.lr.ph35.i779
 
@@ -9391,7 +9391,7 @@ glad_gl_has_extension.exit767:                    ; preds = %1014, %.lr.ph.i758,
   %indvars.iv.i773 = phi i64 [ 0, %.lr.ph.preheader.i770 ], [ %indvars.iv.next.i774, %1035 ]
   %1036 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155, i64 %indvars.iv.i773
   %1037 = load ptr, ptr %1036, align 8
-  %1038 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1037, ptr noundef nonnull readonly dereferenceable(28) @.str.794) #56
+  %1038 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1037, ptr noundef nonnull dereferenceable(28) @.str.794) #56
   %1039 = icmp eq i32 %1038, 0
   br i1 %1039, label %glad_gl_has_extension.exit781, label %1035
 
@@ -9428,7 +9428,7 @@ glad_gl_has_extension.exit781:                    ; preds = %1035, %.lr.ph.i772,
   br i1 %1041, label %glad_gl_has_extension.exit795.thread, label %.preheader.i792
 
 .preheader.i792:                                  ; preds = %1040
-  %1042 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793197, ptr noundef nonnull readonly dereferenceable(1) @.str.795) #56
+  %1042 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793197, ptr noundef nonnull dereferenceable(1) @.str.795) #56
   %1043 = icmp eq ptr %1042, null
   br i1 %1043, label %glad_gl_has_extension.exit795.thread, label %.lr.ph35.i793
 
@@ -9453,7 +9453,7 @@ glad_gl_has_extension.exit781:                    ; preds = %1035, %.lr.ph.i772,
   ]
 
 1053:                                             ; preds = %1051, %1047
-  %1054 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1045, ptr noundef nonnull readonly dereferenceable(1) @.str.795) #56
+  %1054 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1045, ptr noundef nonnull dereferenceable(1) @.str.795) #56
   %1055 = icmp eq ptr %1054, null
   br i1 %1055, label %glad_gl_has_extension.exit795, label %.lr.ph35.i793
 
@@ -9466,7 +9466,7 @@ glad_gl_has_extension.exit781:                    ; preds = %1035, %.lr.ph.i772,
   %indvars.iv.i787 = phi i64 [ 0, %.lr.ph.preheader.i784 ], [ %indvars.iv.next.i788, %1056 ]
   %1057 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174, i64 %indvars.iv.i787
   %1058 = load ptr, ptr %1057, align 8
-  %1059 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1058, ptr noundef nonnull readonly dereferenceable(29) @.str.795) #56
+  %1059 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1058, ptr noundef nonnull dereferenceable(29) @.str.795) #56
   %1060 = icmp eq i32 %1059, 0
   br i1 %1060, label %glad_gl_has_extension.exit795, label %1056
 
@@ -9503,7 +9503,7 @@ glad_gl_has_extension.exit795:                    ; preds = %1056, %.lr.ph.i786,
   br i1 %1062, label %glad_gl_has_extension.exit809.thread, label %.preheader.i806
 
 .preheader.i806:                                  ; preds = %1061
-  %1063 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983224, ptr noundef nonnull readonly dereferenceable(1) @.str.796) #56
+  %1063 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983224, ptr noundef nonnull dereferenceable(1) @.str.796) #56
   %1064 = icmp eq ptr %1063, null
   br i1 %1064, label %glad_gl_has_extension.exit809.thread, label %.lr.ph35.i807
 
@@ -9528,7 +9528,7 @@ glad_gl_has_extension.exit795:                    ; preds = %1056, %.lr.ph.i786,
   ]
 
 1074:                                             ; preds = %1072, %1068
-  %1075 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1066, ptr noundef nonnull readonly dereferenceable(1) @.str.796) #56
+  %1075 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1066, ptr noundef nonnull dereferenceable(1) @.str.796) #56
   %1076 = icmp eq ptr %1075, null
   br i1 %1076, label %glad_gl_has_extension.exit809, label %.lr.ph35.i807
 
@@ -9541,7 +9541,7 @@ glad_gl_has_extension.exit795:                    ; preds = %1056, %.lr.ph.i786,
   %indvars.iv.i801 = phi i64 [ 0, %.lr.ph.preheader.i798 ], [ %indvars.iv.next.i802, %1077 ]
   %1078 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201, i64 %indvars.iv.i801
   %1079 = load ptr, ptr %1078, align 8
-  %1080 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1079, ptr noundef nonnull readonly dereferenceable(24) @.str.796) #56
+  %1080 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1079, ptr noundef nonnull dereferenceable(24) @.str.796) #56
   %1081 = icmp eq i32 %1080, 0
   br i1 %1081, label %glad_gl_has_extension.exit809, label %1077
 
@@ -9578,7 +9578,7 @@ glad_gl_has_extension.exit809:                    ; preds = %1077, %.lr.ph.i800,
   br i1 %1083, label %glad_gl_has_extension.exit823.thread, label %.preheader.i820
 
 .preheader.i820:                                  ; preds = %1082
-  %1084 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253243, ptr noundef nonnull readonly dereferenceable(1) @.str.797) #56
+  %1084 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253243, ptr noundef nonnull dereferenceable(1) @.str.797) #56
   %1085 = icmp eq ptr %1084, null
   br i1 %1085, label %glad_gl_has_extension.exit823.thread, label %.lr.ph35.i821
 
@@ -9603,7 +9603,7 @@ glad_gl_has_extension.exit809:                    ; preds = %1077, %.lr.ph.i800,
   ]
 
 1095:                                             ; preds = %1093, %1089
-  %1096 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1087, ptr noundef nonnull readonly dereferenceable(1) @.str.797) #56
+  %1096 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1087, ptr noundef nonnull dereferenceable(1) @.str.797) #56
   %1097 = icmp eq ptr %1096, null
   br i1 %1097, label %glad_gl_has_extension.exit823, label %.lr.ph35.i821
 
@@ -9616,7 +9616,7 @@ glad_gl_has_extension.exit809:                    ; preds = %1077, %.lr.ph.i800,
   %indvars.iv.i815 = phi i64 [ 0, %.lr.ph.preheader.i812 ], [ %indvars.iv.next.i816, %1098 ]
   %1099 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220, i64 %indvars.iv.i815
   %1100 = load ptr, ptr %1099, align 8
-  %1101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1100, ptr noundef nonnull readonly dereferenceable(18) @.str.797) #56
+  %1101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1100, ptr noundef nonnull dereferenceable(18) @.str.797) #56
   %1102 = icmp eq i32 %1101, 0
   br i1 %1102, label %glad_gl_has_extension.exit823, label %1098
 
@@ -9653,7 +9653,7 @@ glad_gl_has_extension.exit823:                    ; preds = %1098, %.lr.ph.i814,
   br i1 %1104, label %glad_gl_has_extension.exit837.thread, label %.preheader.i834
 
 .preheader.i834:                                  ; preds = %1103
-  %1105 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443270, ptr noundef nonnull readonly dereferenceable(1) @.str.798) #56
+  %1105 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443270, ptr noundef nonnull dereferenceable(1) @.str.798) #56
   %1106 = icmp eq ptr %1105, null
   br i1 %1106, label %glad_gl_has_extension.exit837.thread, label %.lr.ph35.i835
 
@@ -9678,7 +9678,7 @@ glad_gl_has_extension.exit823:                    ; preds = %1098, %.lr.ph.i814,
   ]
 
 1116:                                             ; preds = %1114, %1110
-  %1117 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1108, ptr noundef nonnull readonly dereferenceable(1) @.str.798) #56
+  %1117 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1108, ptr noundef nonnull dereferenceable(1) @.str.798) #56
   %1118 = icmp eq ptr %1117, null
   br i1 %1118, label %glad_gl_has_extension.exit837, label %.lr.ph35.i835
 
@@ -9691,7 +9691,7 @@ glad_gl_has_extension.exit823:                    ; preds = %1098, %.lr.ph.i814,
   %indvars.iv.i829 = phi i64 [ 0, %.lr.ph.preheader.i826 ], [ %indvars.iv.next.i830, %1119 ]
   %1120 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247, i64 %indvars.iv.i829
   %1121 = load ptr, ptr %1120, align 8
-  %1122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1121, ptr noundef nonnull readonly dereferenceable(27) @.str.798) #56
+  %1122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1121, ptr noundef nonnull dereferenceable(27) @.str.798) #56
   %1123 = icmp eq i32 %1122, 0
   br i1 %1123, label %glad_gl_has_extension.exit837, label %1119
 
@@ -9728,7 +9728,7 @@ glad_gl_has_extension.exit837:                    ; preds = %1119, %.lr.ph.i828,
   br i1 %1125, label %glad_gl_has_extension.exit851.thread, label %.preheader.i848
 
 .preheader.i848:                                  ; preds = %1124
-  %1126 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713289, ptr noundef nonnull readonly dereferenceable(1) @.str.799) #56
+  %1126 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713289, ptr noundef nonnull dereferenceable(1) @.str.799) #56
   %1127 = icmp eq ptr %1126, null
   br i1 %1127, label %glad_gl_has_extension.exit851.thread, label %.lr.ph35.i849
 
@@ -9753,7 +9753,7 @@ glad_gl_has_extension.exit837:                    ; preds = %1119, %.lr.ph.i828,
   ]
 
 1137:                                             ; preds = %1135, %1131
-  %1138 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1129, ptr noundef nonnull readonly dereferenceable(1) @.str.799) #56
+  %1138 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1129, ptr noundef nonnull dereferenceable(1) @.str.799) #56
   %1139 = icmp eq ptr %1138, null
   br i1 %1139, label %glad_gl_has_extension.exit851, label %.lr.ph35.i849
 
@@ -9766,7 +9766,7 @@ glad_gl_has_extension.exit837:                    ; preds = %1119, %.lr.ph.i828,
   %indvars.iv.i843 = phi i64 [ 0, %.lr.ph.preheader.i840 ], [ %indvars.iv.next.i844, %1140 ]
   %1141 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266, i64 %indvars.iv.i843
   %1142 = load ptr, ptr %1141, align 8
-  %1143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1142, ptr noundef nonnull readonly dereferenceable(19) @.str.799) #56
+  %1143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1142, ptr noundef nonnull dereferenceable(19) @.str.799) #56
   %1144 = icmp eq i32 %1143, 0
   br i1 %1144, label %glad_gl_has_extension.exit851, label %1140
 
@@ -9803,7 +9803,7 @@ glad_gl_has_extension.exit851:                    ; preds = %1140, %.lr.ph.i842,
   br i1 %1146, label %glad_gl_has_extension.exit865.thread, label %.preheader.i862
 
 .preheader.i862:                                  ; preds = %1145
-  %1147 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903316, ptr noundef nonnull readonly dereferenceable(1) @.str.800) #56
+  %1147 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903316, ptr noundef nonnull dereferenceable(1) @.str.800) #56
   %1148 = icmp eq ptr %1147, null
   br i1 %1148, label %glad_gl_has_extension.exit865.thread, label %.lr.ph35.i863
 
@@ -9828,7 +9828,7 @@ glad_gl_has_extension.exit851:                    ; preds = %1140, %.lr.ph.i842,
   ]
 
 1158:                                             ; preds = %1156, %1152
-  %1159 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1150, ptr noundef nonnull readonly dereferenceable(1) @.str.800) #56
+  %1159 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1150, ptr noundef nonnull dereferenceable(1) @.str.800) #56
   %1160 = icmp eq ptr %1159, null
   br i1 %1160, label %glad_gl_has_extension.exit865, label %.lr.ph35.i863
 
@@ -9841,7 +9841,7 @@ glad_gl_has_extension.exit851:                    ; preds = %1140, %.lr.ph.i842,
   %indvars.iv.i857 = phi i64 [ 0, %.lr.ph.preheader.i854 ], [ %indvars.iv.next.i858, %1161 ]
   %1162 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293, i64 %indvars.iv.i857
   %1163 = load ptr, ptr %1162, align 8
-  %1164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1163, ptr noundef nonnull readonly dereferenceable(20) @.str.800) #56
+  %1164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1163, ptr noundef nonnull dereferenceable(20) @.str.800) #56
   %1165 = icmp eq i32 %1164, 0
   br i1 %1165, label %glad_gl_has_extension.exit865, label %1161
 
@@ -9878,7 +9878,7 @@ glad_gl_has_extension.exit865:                    ; preds = %1161, %.lr.ph.i856,
   br i1 %1167, label %glad_gl_has_extension.exit879.thread, label %.preheader.i876
 
 .preheader.i876:                                  ; preds = %1166
-  %1168 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173335, ptr noundef nonnull readonly dereferenceable(1) @.str.801) #56
+  %1168 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173335, ptr noundef nonnull dereferenceable(1) @.str.801) #56
   %1169 = icmp eq ptr %1168, null
   br i1 %1169, label %glad_gl_has_extension.exit879.thread, label %.lr.ph35.i877
 
@@ -9903,7 +9903,7 @@ glad_gl_has_extension.exit865:                    ; preds = %1161, %.lr.ph.i856,
   ]
 
 1179:                                             ; preds = %1177, %1173
-  %1180 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1171, ptr noundef nonnull readonly dereferenceable(1) @.str.801) #56
+  %1180 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1171, ptr noundef nonnull dereferenceable(1) @.str.801) #56
   %1181 = icmp eq ptr %1180, null
   br i1 %1181, label %glad_gl_has_extension.exit879, label %.lr.ph35.i877
 
@@ -9916,7 +9916,7 @@ glad_gl_has_extension.exit865:                    ; preds = %1161, %.lr.ph.i856,
   %indvars.iv.i871 = phi i64 [ 0, %.lr.ph.preheader.i868 ], [ %indvars.iv.next.i872, %1182 ]
   %1183 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312, i64 %indvars.iv.i871
   %1184 = load ptr, ptr %1183, align 8
-  %1185 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1184, ptr noundef nonnull readonly dereferenceable(23) @.str.801) #56
+  %1185 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1184, ptr noundef nonnull dereferenceable(23) @.str.801) #56
   %1186 = icmp eq i32 %1185, 0
   br i1 %1186, label %glad_gl_has_extension.exit879, label %1182
 
@@ -9953,7 +9953,7 @@ glad_gl_has_extension.exit879:                    ; preds = %1182, %.lr.ph.i870,
   br i1 %1188, label %glad_gl_has_extension.exit893.thread, label %.preheader.i890
 
 .preheader.i890:                                  ; preds = %1187
-  %1189 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363362, ptr noundef nonnull readonly dereferenceable(1) @.str.802) #56
+  %1189 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363362, ptr noundef nonnull dereferenceable(1) @.str.802) #56
   %1190 = icmp eq ptr %1189, null
   br i1 %1190, label %glad_gl_has_extension.exit893.thread, label %.lr.ph35.i891
 
@@ -9978,7 +9978,7 @@ glad_gl_has_extension.exit879:                    ; preds = %1182, %.lr.ph.i870,
   ]
 
 1200:                                             ; preds = %1198, %1194
-  %1201 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1192, ptr noundef nonnull readonly dereferenceable(1) @.str.802) #56
+  %1201 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1192, ptr noundef nonnull dereferenceable(1) @.str.802) #56
   %1202 = icmp eq ptr %1201, null
   br i1 %1202, label %glad_gl_has_extension.exit893, label %.lr.ph35.i891
 
@@ -9991,7 +9991,7 @@ glad_gl_has_extension.exit879:                    ; preds = %1182, %.lr.ph.i870,
   %indvars.iv.i885 = phi i64 [ 0, %.lr.ph.preheader.i882 ], [ %indvars.iv.next.i886, %1203 ]
   %1204 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339, i64 %indvars.iv.i885
   %1205 = load ptr, ptr %1204, align 8
-  %1206 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1205, ptr noundef nonnull readonly dereferenceable(24) @.str.802) #56
+  %1206 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1205, ptr noundef nonnull dereferenceable(24) @.str.802) #56
   %1207 = icmp eq i32 %1206, 0
   br i1 %1207, label %glad_gl_has_extension.exit893, label %1203
 
@@ -10028,7 +10028,7 @@ glad_gl_has_extension.exit893:                    ; preds = %1203, %.lr.ph.i884,
   br i1 %1209, label %glad_gl_has_extension.exit907.thread, label %.preheader.i904
 
 .preheader.i904:                                  ; preds = %1208
-  %1210 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633381, ptr noundef nonnull readonly dereferenceable(1) @.str.803) #56
+  %1210 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633381, ptr noundef nonnull dereferenceable(1) @.str.803) #56
   %1211 = icmp eq ptr %1210, null
   br i1 %1211, label %glad_gl_has_extension.exit907.thread, label %.lr.ph35.i905
 
@@ -10053,7 +10053,7 @@ glad_gl_has_extension.exit893:                    ; preds = %1203, %.lr.ph.i884,
   ]
 
 1221:                                             ; preds = %1219, %1215
-  %1222 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1213, ptr noundef nonnull readonly dereferenceable(1) @.str.803) #56
+  %1222 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1213, ptr noundef nonnull dereferenceable(1) @.str.803) #56
   %1223 = icmp eq ptr %1222, null
   br i1 %1223, label %glad_gl_has_extension.exit907, label %.lr.ph35.i905
 
@@ -10066,7 +10066,7 @@ glad_gl_has_extension.exit893:                    ; preds = %1203, %.lr.ph.i884,
   %indvars.iv.i899 = phi i64 [ 0, %.lr.ph.preheader.i896 ], [ %indvars.iv.next.i900, %1224 ]
   %1225 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358, i64 %indvars.iv.i899
   %1226 = load ptr, ptr %1225, align 8
-  %1227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1226, ptr noundef nonnull readonly dereferenceable(33) @.str.803) #56
+  %1227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1226, ptr noundef nonnull dereferenceable(33) @.str.803) #56
   %1228 = icmp eq i32 %1227, 0
   br i1 %1228, label %glad_gl_has_extension.exit907, label %1224
 
@@ -10103,7 +10103,7 @@ glad_gl_has_extension.exit907:                    ; preds = %1224, %.lr.ph.i898,
   br i1 %1230, label %glad_gl_has_extension.exit921.thread, label %.preheader.i918
 
 .preheader.i918:                                  ; preds = %1229
-  %1231 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823408, ptr noundef nonnull readonly dereferenceable(1) @.str.804) #56
+  %1231 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823408, ptr noundef nonnull dereferenceable(1) @.str.804) #56
   %1232 = icmp eq ptr %1231, null
   br i1 %1232, label %glad_gl_has_extension.exit921.thread, label %.lr.ph35.i919
 
@@ -10128,7 +10128,7 @@ glad_gl_has_extension.exit907:                    ; preds = %1224, %.lr.ph.i898,
   ]
 
 1242:                                             ; preds = %1240, %1236
-  %1243 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1234, ptr noundef nonnull readonly dereferenceable(1) @.str.804) #56
+  %1243 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1234, ptr noundef nonnull dereferenceable(1) @.str.804) #56
   %1244 = icmp eq ptr %1243, null
   br i1 %1244, label %glad_gl_has_extension.exit921, label %.lr.ph35.i919
 
@@ -10141,7 +10141,7 @@ glad_gl_has_extension.exit907:                    ; preds = %1224, %.lr.ph.i898,
   %indvars.iv.i913 = phi i64 [ 0, %.lr.ph.preheader.i910 ], [ %indvars.iv.next.i914, %1245 ]
   %1246 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385, i64 %indvars.iv.i913
   %1247 = load ptr, ptr %1246, align 8
-  %1248 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1247, ptr noundef nonnull readonly dereferenceable(27) @.str.804) #56
+  %1248 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1247, ptr noundef nonnull dereferenceable(27) @.str.804) #56
   %1249 = icmp eq i32 %1248, 0
   br i1 %1249, label %glad_gl_has_extension.exit921, label %1245
 
@@ -10178,7 +10178,7 @@ glad_gl_has_extension.exit921:                    ; preds = %1245, %.lr.ph.i912,
   br i1 %1251, label %glad_gl_has_extension.exit935.thread, label %.preheader.i932
 
 .preheader.i932:                                  ; preds = %1250
-  %1252 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093427, ptr noundef nonnull readonly dereferenceable(1) @.str.805) #56
+  %1252 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093427, ptr noundef nonnull dereferenceable(1) @.str.805) #56
   %1253 = icmp eq ptr %1252, null
   br i1 %1253, label %glad_gl_has_extension.exit935.thread, label %.lr.ph35.i933
 
@@ -10203,7 +10203,7 @@ glad_gl_has_extension.exit921:                    ; preds = %1245, %.lr.ph.i912,
   ]
 
 1263:                                             ; preds = %1261, %1257
-  %1264 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1255, ptr noundef nonnull readonly dereferenceable(1) @.str.805) #56
+  %1264 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1255, ptr noundef nonnull dereferenceable(1) @.str.805) #56
   %1265 = icmp eq ptr %1264, null
   br i1 %1265, label %glad_gl_has_extension.exit935, label %.lr.ph35.i933
 
@@ -10216,7 +10216,7 @@ glad_gl_has_extension.exit921:                    ; preds = %1245, %.lr.ph.i912,
   %indvars.iv.i927 = phi i64 [ 0, %.lr.ph.preheader.i924 ], [ %indvars.iv.next.i928, %1266 ]
   %1267 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404, i64 %indvars.iv.i927
   %1268 = load ptr, ptr %1267, align 8
-  %1269 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1268, ptr noundef nonnull readonly dereferenceable(24) @.str.805) #56
+  %1269 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1268, ptr noundef nonnull dereferenceable(24) @.str.805) #56
   %1270 = icmp eq i32 %1269, 0
   br i1 %1270, label %glad_gl_has_extension.exit935, label %1266
 
@@ -10253,7 +10253,7 @@ glad_gl_has_extension.exit935:                    ; preds = %1266, %.lr.ph.i926,
   br i1 %1272, label %glad_gl_has_extension.exit949.thread, label %.preheader.i946
 
 .preheader.i946:                                  ; preds = %1271
-  %1273 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283454, ptr noundef nonnull readonly dereferenceable(1) @.str.806) #56
+  %1273 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283454, ptr noundef nonnull dereferenceable(1) @.str.806) #56
   %1274 = icmp eq ptr %1273, null
   br i1 %1274, label %glad_gl_has_extension.exit949.thread, label %.lr.ph35.i947
 
@@ -10278,7 +10278,7 @@ glad_gl_has_extension.exit935:                    ; preds = %1266, %.lr.ph.i926,
   ]
 
 1284:                                             ; preds = %1282, %1278
-  %1285 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1276, ptr noundef nonnull readonly dereferenceable(1) @.str.806) #56
+  %1285 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1276, ptr noundef nonnull dereferenceable(1) @.str.806) #56
   %1286 = icmp eq ptr %1285, null
   br i1 %1286, label %glad_gl_has_extension.exit949, label %.lr.ph35.i947
 
@@ -10291,7 +10291,7 @@ glad_gl_has_extension.exit935:                    ; preds = %1266, %.lr.ph.i926,
   %indvars.iv.i941 = phi i64 [ 0, %.lr.ph.preheader.i938 ], [ %indvars.iv.next.i942, %1287 ]
   %1288 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431, i64 %indvars.iv.i941
   %1289 = load ptr, ptr %1288, align 8
-  %1290 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1289, ptr noundef nonnull readonly dereferenceable(22) @.str.806) #56
+  %1290 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1289, ptr noundef nonnull dereferenceable(22) @.str.806) #56
   %1291 = icmp eq i32 %1290, 0
   br i1 %1291, label %glad_gl_has_extension.exit949, label %1287
 
@@ -10328,7 +10328,7 @@ glad_gl_has_extension.exit949:                    ; preds = %1287, %.lr.ph.i940,
   br i1 %1293, label %glad_gl_has_extension.exit963.thread, label %.preheader.i960
 
 .preheader.i960:                                  ; preds = %1292
-  %1294 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553473, ptr noundef nonnull readonly dereferenceable(1) @.str.807) #56
+  %1294 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553473, ptr noundef nonnull dereferenceable(1) @.str.807) #56
   %1295 = icmp eq ptr %1294, null
   br i1 %1295, label %glad_gl_has_extension.exit963.thread, label %.lr.ph35.i961
 
@@ -10353,7 +10353,7 @@ glad_gl_has_extension.exit949:                    ; preds = %1287, %.lr.ph.i940,
   ]
 
 1305:                                             ; preds = %1303, %1299
-  %1306 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1297, ptr noundef nonnull readonly dereferenceable(1) @.str.807) #56
+  %1306 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1297, ptr noundef nonnull dereferenceable(1) @.str.807) #56
   %1307 = icmp eq ptr %1306, null
   br i1 %1307, label %glad_gl_has_extension.exit963, label %.lr.ph35.i961
 
@@ -10366,7 +10366,7 @@ glad_gl_has_extension.exit949:                    ; preds = %1287, %.lr.ph.i940,
   %indvars.iv.i955 = phi i64 [ 0, %.lr.ph.preheader.i952 ], [ %indvars.iv.next.i956, %1308 ]
   %1309 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450, i64 %indvars.iv.i955
   %1310 = load ptr, ptr %1309, align 8
-  %1311 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1310, ptr noundef nonnull readonly dereferenceable(25) @.str.807) #56
+  %1311 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1310, ptr noundef nonnull dereferenceable(25) @.str.807) #56
   %1312 = icmp eq i32 %1311, 0
   br i1 %1312, label %glad_gl_has_extension.exit963, label %1308
 
@@ -10403,7 +10403,7 @@ glad_gl_has_extension.exit963:                    ; preds = %1308, %.lr.ph.i954,
   br i1 %1314, label %glad_gl_has_extension.exit977.thread, label %.preheader.i974
 
 .preheader.i974:                                  ; preds = %1313
-  %1315 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743500, ptr noundef nonnull readonly dereferenceable(1) @.str.808) #56
+  %1315 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743500, ptr noundef nonnull dereferenceable(1) @.str.808) #56
   %1316 = icmp eq ptr %1315, null
   br i1 %1316, label %glad_gl_has_extension.exit977.thread, label %.lr.ph35.i975
 
@@ -10428,7 +10428,7 @@ glad_gl_has_extension.exit963:                    ; preds = %1308, %.lr.ph.i954,
   ]
 
 1326:                                             ; preds = %1324, %1320
-  %1327 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1318, ptr noundef nonnull readonly dereferenceable(1) @.str.808) #56
+  %1327 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1318, ptr noundef nonnull dereferenceable(1) @.str.808) #56
   %1328 = icmp eq ptr %1327, null
   br i1 %1328, label %glad_gl_has_extension.exit977, label %.lr.ph35.i975
 
@@ -10441,7 +10441,7 @@ glad_gl_has_extension.exit963:                    ; preds = %1308, %.lr.ph.i954,
   %indvars.iv.i969 = phi i64 [ 0, %.lr.ph.preheader.i966 ], [ %indvars.iv.next.i970, %1329 ]
   %1330 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477, i64 %indvars.iv.i969
   %1331 = load ptr, ptr %1330, align 8
-  %1332 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1331, ptr noundef nonnull readonly dereferenceable(36) @.str.808) #56
+  %1332 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1331, ptr noundef nonnull dereferenceable(36) @.str.808) #56
   %1333 = icmp eq i32 %1332, 0
   br i1 %1333, label %glad_gl_has_extension.exit977, label %1329
 
@@ -10478,7 +10478,7 @@ glad_gl_has_extension.exit977:                    ; preds = %1329, %.lr.ph.i968,
   br i1 %1335, label %glad_gl_has_extension.exit991.thread, label %.preheader.i988
 
 .preheader.i988:                                  ; preds = %1334
-  %1336 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013519, ptr noundef nonnull readonly dereferenceable(1) @.str.809) #56
+  %1336 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013519, ptr noundef nonnull dereferenceable(1) @.str.809) #56
   %1337 = icmp eq ptr %1336, null
   br i1 %1337, label %glad_gl_has_extension.exit991.thread, label %.lr.ph35.i989
 
@@ -10503,7 +10503,7 @@ glad_gl_has_extension.exit977:                    ; preds = %1329, %.lr.ph.i968,
   ]
 
 1347:                                             ; preds = %1345, %1341
-  %1348 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1339, ptr noundef nonnull readonly dereferenceable(1) @.str.809) #56
+  %1348 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1339, ptr noundef nonnull dereferenceable(1) @.str.809) #56
   %1349 = icmp eq ptr %1348, null
   br i1 %1349, label %glad_gl_has_extension.exit991, label %.lr.ph35.i989
 
@@ -10516,7 +10516,7 @@ glad_gl_has_extension.exit977:                    ; preds = %1329, %.lr.ph.i968,
   %indvars.iv.i983 = phi i64 [ 0, %.lr.ph.preheader.i980 ], [ %indvars.iv.next.i984, %1350 ]
   %1351 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496, i64 %indvars.iv.i983
   %1352 = load ptr, ptr %1351, align 8
-  %1353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1352, ptr noundef nonnull readonly dereferenceable(33) @.str.809) #56
+  %1353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1352, ptr noundef nonnull dereferenceable(33) @.str.809) #56
   %1354 = icmp eq i32 %1353, 0
   br i1 %1354, label %glad_gl_has_extension.exit991, label %1350
 
@@ -10553,7 +10553,7 @@ glad_gl_has_extension.exit991:                    ; preds = %1350, %.lr.ph.i982,
   br i1 %1356, label %glad_gl_has_extension.exit1005.thread, label %.preheader.i1002
 
 .preheader.i1002:                                 ; preds = %1355
-  %1357 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203546, ptr noundef nonnull readonly dereferenceable(1) @.str.810) #56
+  %1357 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203546, ptr noundef nonnull dereferenceable(1) @.str.810) #56
   %1358 = icmp eq ptr %1357, null
   br i1 %1358, label %glad_gl_has_extension.exit1005.thread, label %.lr.ph35.i1003
 
@@ -10578,7 +10578,7 @@ glad_gl_has_extension.exit991:                    ; preds = %1350, %.lr.ph.i982,
   ]
 
 1368:                                             ; preds = %1366, %1362
-  %1369 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1360, ptr noundef nonnull readonly dereferenceable(1) @.str.810) #56
+  %1369 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1360, ptr noundef nonnull dereferenceable(1) @.str.810) #56
   %1370 = icmp eq ptr %1369, null
   br i1 %1370, label %glad_gl_has_extension.exit1005, label %.lr.ph35.i1003
 
@@ -10591,7 +10591,7 @@ glad_gl_has_extension.exit991:                    ; preds = %1350, %.lr.ph.i982,
   %indvars.iv.i997 = phi i64 [ 0, %.lr.ph.preheader.i994 ], [ %indvars.iv.next.i998, %1371 ]
   %1372 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523, i64 %indvars.iv.i997
   %1373 = load ptr, ptr %1372, align 8
-  %1374 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1373, ptr noundef nonnull readonly dereferenceable(30) @.str.810) #56
+  %1374 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1373, ptr noundef nonnull dereferenceable(30) @.str.810) #56
   %1375 = icmp eq i32 %1374, 0
   br i1 %1375, label %glad_gl_has_extension.exit1005, label %1371
 
@@ -10628,7 +10628,7 @@ glad_gl_has_extension.exit1005:                   ; preds = %1371, %.lr.ph.i996,
   br i1 %1377, label %glad_gl_has_extension.exit1019.thread, label %.preheader.i1016
 
 .preheader.i1016:                                 ; preds = %1376
-  %1378 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473565, ptr noundef nonnull readonly dereferenceable(1) @.str.811) #56
+  %1378 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473565, ptr noundef nonnull dereferenceable(1) @.str.811) #56
   %1379 = icmp eq ptr %1378, null
   br i1 %1379, label %glad_gl_has_extension.exit1019.thread, label %.lr.ph35.i1017
 
@@ -10653,7 +10653,7 @@ glad_gl_has_extension.exit1005:                   ; preds = %1371, %.lr.ph.i996,
   ]
 
 1389:                                             ; preds = %1387, %1383
-  %1390 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1381, ptr noundef nonnull readonly dereferenceable(1) @.str.811) #56
+  %1390 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1381, ptr noundef nonnull dereferenceable(1) @.str.811) #56
   %1391 = icmp eq ptr %1390, null
   br i1 %1391, label %glad_gl_has_extension.exit1019, label %.lr.ph35.i1017
 
@@ -10666,7 +10666,7 @@ glad_gl_has_extension.exit1005:                   ; preds = %1371, %.lr.ph.i996,
   %indvars.iv.i1011 = phi i64 [ 0, %.lr.ph.preheader.i1008 ], [ %indvars.iv.next.i1012, %1392 ]
   %1393 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542, i64 %indvars.iv.i1011
   %1394 = load ptr, ptr %1393, align 8
-  %1395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1394, ptr noundef nonnull readonly dereferenceable(27) @.str.811) #56
+  %1395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1394, ptr noundef nonnull dereferenceable(27) @.str.811) #56
   %1396 = icmp eq i32 %1395, 0
   br i1 %1396, label %glad_gl_has_extension.exit1019, label %1392
 
@@ -10703,7 +10703,7 @@ glad_gl_has_extension.exit1019:                   ; preds = %1392, %.lr.ph.i1010
   br i1 %1398, label %glad_gl_has_extension.exit1033.thread, label %.preheader.i1030
 
 .preheader.i1030:                                 ; preds = %1397
-  %1399 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663592, ptr noundef nonnull readonly dereferenceable(1) @.str.812) #56
+  %1399 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663592, ptr noundef nonnull dereferenceable(1) @.str.812) #56
   %1400 = icmp eq ptr %1399, null
   br i1 %1400, label %glad_gl_has_extension.exit1033.thread, label %.lr.ph35.i1031
 
@@ -10728,7 +10728,7 @@ glad_gl_has_extension.exit1019:                   ; preds = %1392, %.lr.ph.i1010
   ]
 
 1410:                                             ; preds = %1408, %1404
-  %1411 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1402, ptr noundef nonnull readonly dereferenceable(1) @.str.812) #56
+  %1411 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1402, ptr noundef nonnull dereferenceable(1) @.str.812) #56
   %1412 = icmp eq ptr %1411, null
   br i1 %1412, label %glad_gl_has_extension.exit1033, label %.lr.ph35.i1031
 
@@ -10741,7 +10741,7 @@ glad_gl_has_extension.exit1019:                   ; preds = %1392, %.lr.ph.i1010
   %indvars.iv.i1025 = phi i64 [ 0, %.lr.ph.preheader.i1022 ], [ %indvars.iv.next.i1026, %1413 ]
   %1414 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569, i64 %indvars.iv.i1025
   %1415 = load ptr, ptr %1414, align 8
-  %1416 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1415, ptr noundef nonnull readonly dereferenceable(20) @.str.812) #56
+  %1416 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1415, ptr noundef nonnull dereferenceable(20) @.str.812) #56
   %1417 = icmp eq i32 %1416, 0
   br i1 %1417, label %glad_gl_has_extension.exit1033, label %1413
 
@@ -10778,7 +10778,7 @@ glad_gl_has_extension.exit1033:                   ; preds = %1413, %.lr.ph.i1024
   br i1 %1419, label %glad_gl_has_extension.exit1047.thread, label %.preheader.i1044
 
 .preheader.i1044:                                 ; preds = %1418
-  %1420 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933611, ptr noundef nonnull readonly dereferenceable(1) @.str.813) #56
+  %1420 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933611, ptr noundef nonnull dereferenceable(1) @.str.813) #56
   %1421 = icmp eq ptr %1420, null
   br i1 %1421, label %glad_gl_has_extension.exit1047.thread, label %.lr.ph35.i1045
 
@@ -10803,7 +10803,7 @@ glad_gl_has_extension.exit1033:                   ; preds = %1413, %.lr.ph.i1024
   ]
 
 1431:                                             ; preds = %1429, %1425
-  %1432 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1423, ptr noundef nonnull readonly dereferenceable(1) @.str.813) #56
+  %1432 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1423, ptr noundef nonnull dereferenceable(1) @.str.813) #56
   %1433 = icmp eq ptr %1432, null
   br i1 %1433, label %glad_gl_has_extension.exit1047, label %.lr.ph35.i1045
 
@@ -10816,7 +10816,7 @@ glad_gl_has_extension.exit1033:                   ; preds = %1413, %.lr.ph.i1024
   %indvars.iv.i1039 = phi i64 [ 0, %.lr.ph.preheader.i1036 ], [ %indvars.iv.next.i1040, %1434 ]
   %1435 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588, i64 %indvars.iv.i1039
   %1436 = load ptr, ptr %1435, align 8
-  %1437 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1436, ptr noundef nonnull readonly dereferenceable(31) @.str.813) #56
+  %1437 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1436, ptr noundef nonnull dereferenceable(31) @.str.813) #56
   %1438 = icmp eq i32 %1437, 0
   br i1 %1438, label %glad_gl_has_extension.exit1047, label %1434
 
@@ -10853,7 +10853,7 @@ glad_gl_has_extension.exit1047:                   ; preds = %1434, %.lr.ph.i1038
   br i1 %1440, label %glad_gl_has_extension.exit1061.thread, label %.preheader.i1058
 
 .preheader.i1058:                                 ; preds = %1439
-  %1441 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123638, ptr noundef nonnull readonly dereferenceable(1) @.str.814) #56
+  %1441 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123638, ptr noundef nonnull dereferenceable(1) @.str.814) #56
   %1442 = icmp eq ptr %1441, null
   br i1 %1442, label %glad_gl_has_extension.exit1061.thread, label %.lr.ph35.i1059
 
@@ -10878,7 +10878,7 @@ glad_gl_has_extension.exit1047:                   ; preds = %1434, %.lr.ph.i1038
   ]
 
 1452:                                             ; preds = %1450, %1446
-  %1453 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1444, ptr noundef nonnull readonly dereferenceable(1) @.str.814) #56
+  %1453 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1444, ptr noundef nonnull dereferenceable(1) @.str.814) #56
   %1454 = icmp eq ptr %1453, null
   br i1 %1454, label %glad_gl_has_extension.exit1061, label %.lr.ph35.i1059
 
@@ -10891,7 +10891,7 @@ glad_gl_has_extension.exit1047:                   ; preds = %1434, %.lr.ph.i1038
   %indvars.iv.i1053 = phi i64 [ 0, %.lr.ph.preheader.i1050 ], [ %indvars.iv.next.i1054, %1455 ]
   %1456 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615, i64 %indvars.iv.i1053
   %1457 = load ptr, ptr %1456, align 8
-  %1458 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1457, ptr noundef nonnull readonly dereferenceable(25) @.str.814) #56
+  %1458 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1457, ptr noundef nonnull dereferenceable(25) @.str.814) #56
   %1459 = icmp eq i32 %1458, 0
   br i1 %1459, label %glad_gl_has_extension.exit1061, label %1455
 
@@ -10928,7 +10928,7 @@ glad_gl_has_extension.exit1061:                   ; preds = %1455, %.lr.ph.i1052
   br i1 %1461, label %glad_gl_has_extension.exit1075.thread, label %.preheader.i1072
 
 .preheader.i1072:                                 ; preds = %1460
-  %1462 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393657, ptr noundef nonnull readonly dereferenceable(1) @.str.815) #56
+  %1462 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393657, ptr noundef nonnull dereferenceable(1) @.str.815) #56
   %1463 = icmp eq ptr %1462, null
   br i1 %1463, label %glad_gl_has_extension.exit1075.thread, label %.lr.ph35.i1073
 
@@ -10953,7 +10953,7 @@ glad_gl_has_extension.exit1061:                   ; preds = %1455, %.lr.ph.i1052
   ]
 
 1473:                                             ; preds = %1471, %1467
-  %1474 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1465, ptr noundef nonnull readonly dereferenceable(1) @.str.815) #56
+  %1474 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1465, ptr noundef nonnull dereferenceable(1) @.str.815) #56
   %1475 = icmp eq ptr %1474, null
   br i1 %1475, label %glad_gl_has_extension.exit1075, label %.lr.ph35.i1073
 
@@ -10966,7 +10966,7 @@ glad_gl_has_extension.exit1061:                   ; preds = %1455, %.lr.ph.i1052
   %indvars.iv.i1067 = phi i64 [ 0, %.lr.ph.preheader.i1064 ], [ %indvars.iv.next.i1068, %1476 ]
   %1477 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634, i64 %indvars.iv.i1067
   %1478 = load ptr, ptr %1477, align 8
-  %1479 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1478, ptr noundef nonnull readonly dereferenceable(22) @.str.815) #56
+  %1479 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1478, ptr noundef nonnull dereferenceable(22) @.str.815) #56
   %1480 = icmp eq i32 %1479, 0
   br i1 %1480, label %glad_gl_has_extension.exit1075, label %1476
 
@@ -11003,7 +11003,7 @@ glad_gl_has_extension.exit1075:                   ; preds = %1476, %.lr.ph.i1066
   br i1 %1482, label %glad_gl_has_extension.exit1089.thread, label %.preheader.i1086
 
 .preheader.i1086:                                 ; preds = %1481
-  %1483 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583684, ptr noundef nonnull readonly dereferenceable(1) @.str.816) #56
+  %1483 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583684, ptr noundef nonnull dereferenceable(1) @.str.816) #56
   %1484 = icmp eq ptr %1483, null
   br i1 %1484, label %glad_gl_has_extension.exit1089.thread, label %.lr.ph35.i1087
 
@@ -11028,7 +11028,7 @@ glad_gl_has_extension.exit1075:                   ; preds = %1476, %.lr.ph.i1066
   ]
 
 1494:                                             ; preds = %1492, %1488
-  %1495 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1486, ptr noundef nonnull readonly dereferenceable(1) @.str.816) #56
+  %1495 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1486, ptr noundef nonnull dereferenceable(1) @.str.816) #56
   %1496 = icmp eq ptr %1495, null
   br i1 %1496, label %glad_gl_has_extension.exit1089, label %.lr.ph35.i1087
 
@@ -11041,7 +11041,7 @@ glad_gl_has_extension.exit1075:                   ; preds = %1476, %.lr.ph.i1066
   %indvars.iv.i1081 = phi i64 [ 0, %.lr.ph.preheader.i1078 ], [ %indvars.iv.next.i1082, %1497 ]
   %1498 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661, i64 %indvars.iv.i1081
   %1499 = load ptr, ptr %1498, align 8
-  %1500 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1499, ptr noundef nonnull readonly dereferenceable(36) @.str.816) #56
+  %1500 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1499, ptr noundef nonnull dereferenceable(36) @.str.816) #56
   %1501 = icmp eq i32 %1500, 0
   br i1 %1501, label %glad_gl_has_extension.exit1089, label %1497
 
@@ -11078,7 +11078,7 @@ glad_gl_has_extension.exit1089:                   ; preds = %1497, %.lr.ph.i1080
   br i1 %1503, label %glad_gl_has_extension.exit1103.thread, label %.preheader.i1100
 
 .preheader.i1100:                                 ; preds = %1502
-  %1504 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853703, ptr noundef nonnull readonly dereferenceable(1) @.str.817) #56
+  %1504 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853703, ptr noundef nonnull dereferenceable(1) @.str.817) #56
   %1505 = icmp eq ptr %1504, null
   br i1 %1505, label %glad_gl_has_extension.exit1103.thread, label %.lr.ph35.i1101
 
@@ -11103,7 +11103,7 @@ glad_gl_has_extension.exit1089:                   ; preds = %1497, %.lr.ph.i1080
   ]
 
 1515:                                             ; preds = %1513, %1509
-  %1516 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1507, ptr noundef nonnull readonly dereferenceable(1) @.str.817) #56
+  %1516 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1507, ptr noundef nonnull dereferenceable(1) @.str.817) #56
   %1517 = icmp eq ptr %1516, null
   br i1 %1517, label %glad_gl_has_extension.exit1103, label %.lr.ph35.i1101
 
@@ -11116,7 +11116,7 @@ glad_gl_has_extension.exit1089:                   ; preds = %1497, %.lr.ph.i1080
   %indvars.iv.i1095 = phi i64 [ 0, %.lr.ph.preheader.i1092 ], [ %indvars.iv.next.i1096, %1518 ]
   %1519 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680, i64 %indvars.iv.i1095
   %1520 = load ptr, ptr %1519, align 8
-  %1521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1520, ptr noundef nonnull readonly dereferenceable(26) @.str.817) #56
+  %1521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1520, ptr noundef nonnull dereferenceable(26) @.str.817) #56
   %1522 = icmp eq i32 %1521, 0
   br i1 %1522, label %glad_gl_has_extension.exit1103, label %1518
 
@@ -11153,7 +11153,7 @@ glad_gl_has_extension.exit1103:                   ; preds = %1518, %.lr.ph.i1094
   br i1 %1524, label %glad_gl_has_extension.exit1117.thread, label %.preheader.i1114
 
 .preheader.i1114:                                 ; preds = %1523
-  %1525 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043730, ptr noundef nonnull readonly dereferenceable(1) @.str.818) #56
+  %1525 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043730, ptr noundef nonnull dereferenceable(1) @.str.818) #56
   %1526 = icmp eq ptr %1525, null
   br i1 %1526, label %glad_gl_has_extension.exit1117.thread, label %.lr.ph35.i1115
 
@@ -11178,7 +11178,7 @@ glad_gl_has_extension.exit1103:                   ; preds = %1518, %.lr.ph.i1094
   ]
 
 1536:                                             ; preds = %1534, %1530
-  %1537 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1528, ptr noundef nonnull readonly dereferenceable(1) @.str.818) #56
+  %1537 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1528, ptr noundef nonnull dereferenceable(1) @.str.818) #56
   %1538 = icmp eq ptr %1537, null
   br i1 %1538, label %glad_gl_has_extension.exit1117, label %.lr.ph35.i1115
 
@@ -11191,7 +11191,7 @@ glad_gl_has_extension.exit1103:                   ; preds = %1518, %.lr.ph.i1094
   %indvars.iv.i1109 = phi i64 [ 0, %.lr.ph.preheader.i1106 ], [ %indvars.iv.next.i1110, %1539 ]
   %1540 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707, i64 %indvars.iv.i1109
   %1541 = load ptr, ptr %1540, align 8
-  %1542 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1541, ptr noundef nonnull readonly dereferenceable(28) @.str.818) #56
+  %1542 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1541, ptr noundef nonnull dereferenceable(28) @.str.818) #56
   %1543 = icmp eq i32 %1542, 0
   br i1 %1543, label %glad_gl_has_extension.exit1117, label %1539
 
@@ -11228,7 +11228,7 @@ glad_gl_has_extension.exit1117:                   ; preds = %1539, %.lr.ph.i1108
   br i1 %1545, label %glad_gl_has_extension.exit1131.thread, label %.preheader.i1128
 
 .preheader.i1128:                                 ; preds = %1544
-  %1546 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313749, ptr noundef nonnull readonly dereferenceable(1) @.str.819) #56
+  %1546 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313749, ptr noundef nonnull dereferenceable(1) @.str.819) #56
   %1547 = icmp eq ptr %1546, null
   br i1 %1547, label %glad_gl_has_extension.exit1131.thread, label %.lr.ph35.i1129
 
@@ -11253,7 +11253,7 @@ glad_gl_has_extension.exit1117:                   ; preds = %1539, %.lr.ph.i1108
   ]
 
 1557:                                             ; preds = %1555, %1551
-  %1558 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1549, ptr noundef nonnull readonly dereferenceable(1) @.str.819) #56
+  %1558 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1549, ptr noundef nonnull dereferenceable(1) @.str.819) #56
   %1559 = icmp eq ptr %1558, null
   br i1 %1559, label %glad_gl_has_extension.exit1131, label %.lr.ph35.i1129
 
@@ -11266,7 +11266,7 @@ glad_gl_has_extension.exit1117:                   ; preds = %1539, %.lr.ph.i1108
   %indvars.iv.i1123 = phi i64 [ 0, %.lr.ph.preheader.i1120 ], [ %indvars.iv.next.i1124, %1560 ]
   %1561 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726, i64 %indvars.iv.i1123
   %1562 = load ptr, ptr %1561, align 8
-  %1563 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1562, ptr noundef nonnull readonly dereferenceable(32) @.str.819) #56
+  %1563 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1562, ptr noundef nonnull dereferenceable(32) @.str.819) #56
   %1564 = icmp eq i32 %1563, 0
   br i1 %1564, label %glad_gl_has_extension.exit1131, label %1560
 
@@ -11303,7 +11303,7 @@ glad_gl_has_extension.exit1131:                   ; preds = %1560, %.lr.ph.i1122
   br i1 %1566, label %glad_gl_has_extension.exit1145.thread, label %.preheader.i1142
 
 .preheader.i1142:                                 ; preds = %1565
-  %1567 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503776, ptr noundef nonnull readonly dereferenceable(1) @.str.820) #56
+  %1567 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503776, ptr noundef nonnull dereferenceable(1) @.str.820) #56
   %1568 = icmp eq ptr %1567, null
   br i1 %1568, label %glad_gl_has_extension.exit1145.thread, label %.lr.ph35.i1143
 
@@ -11328,7 +11328,7 @@ glad_gl_has_extension.exit1131:                   ; preds = %1560, %.lr.ph.i1122
   ]
 
 1578:                                             ; preds = %1576, %1572
-  %1579 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1570, ptr noundef nonnull readonly dereferenceable(1) @.str.820) #56
+  %1579 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1570, ptr noundef nonnull dereferenceable(1) @.str.820) #56
   %1580 = icmp eq ptr %1579, null
   br i1 %1580, label %glad_gl_has_extension.exit1145, label %.lr.ph35.i1143
 
@@ -11341,7 +11341,7 @@ glad_gl_has_extension.exit1131:                   ; preds = %1560, %.lr.ph.i1122
   %indvars.iv.i1137 = phi i64 [ 0, %.lr.ph.preheader.i1134 ], [ %indvars.iv.next.i1138, %1581 ]
   %1582 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753, i64 %indvars.iv.i1137
   %1583 = load ptr, ptr %1582, align 8
-  %1584 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1583, ptr noundef nonnull readonly dereferenceable(32) @.str.820) #56
+  %1584 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1583, ptr noundef nonnull dereferenceable(32) @.str.820) #56
   %1585 = icmp eq i32 %1584, 0
   br i1 %1585, label %glad_gl_has_extension.exit1145, label %1581
 
@@ -11378,7 +11378,7 @@ glad_gl_has_extension.exit1145:                   ; preds = %1581, %.lr.ph.i1136
   br i1 %1587, label %glad_gl_has_extension.exit1159.thread, label %.preheader.i1156
 
 .preheader.i1156:                                 ; preds = %1586
-  %1588 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773795, ptr noundef nonnull readonly dereferenceable(1) @.str.821) #56
+  %1588 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773795, ptr noundef nonnull dereferenceable(1) @.str.821) #56
   %1589 = icmp eq ptr %1588, null
   br i1 %1589, label %glad_gl_has_extension.exit1159.thread, label %.lr.ph35.i1157
 
@@ -11403,7 +11403,7 @@ glad_gl_has_extension.exit1145:                   ; preds = %1581, %.lr.ph.i1136
   ]
 
 1599:                                             ; preds = %1597, %1593
-  %1600 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1591, ptr noundef nonnull readonly dereferenceable(1) @.str.821) #56
+  %1600 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1591, ptr noundef nonnull dereferenceable(1) @.str.821) #56
   %1601 = icmp eq ptr %1600, null
   br i1 %1601, label %glad_gl_has_extension.exit1159, label %.lr.ph35.i1157
 
@@ -11416,7 +11416,7 @@ glad_gl_has_extension.exit1145:                   ; preds = %1581, %.lr.ph.i1136
   %indvars.iv.i1151 = phi i64 [ 0, %.lr.ph.preheader.i1148 ], [ %indvars.iv.next.i1152, %1602 ]
   %1603 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772, i64 %indvars.iv.i1151
   %1604 = load ptr, ptr %1603, align 8
-  %1605 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1604, ptr noundef nonnull readonly dereferenceable(32) @.str.821) #56
+  %1605 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1604, ptr noundef nonnull dereferenceable(32) @.str.821) #56
   %1606 = icmp eq i32 %1605, 0
   br i1 %1606, label %glad_gl_has_extension.exit1159, label %1602
 
@@ -11453,7 +11453,7 @@ glad_gl_has_extension.exit1159:                   ; preds = %1602, %.lr.ph.i1150
   br i1 %1608, label %glad_gl_has_extension.exit1173.thread, label %.preheader.i1170
 
 .preheader.i1170:                                 ; preds = %1607
-  %1609 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963822, ptr noundef nonnull readonly dereferenceable(1) @.str.822) #56
+  %1609 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963822, ptr noundef nonnull dereferenceable(1) @.str.822) #56
   %1610 = icmp eq ptr %1609, null
   br i1 %1610, label %glad_gl_has_extension.exit1173.thread, label %.lr.ph35.i1171
 
@@ -11478,7 +11478,7 @@ glad_gl_has_extension.exit1159:                   ; preds = %1602, %.lr.ph.i1150
   ]
 
 1620:                                             ; preds = %1618, %1614
-  %1621 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1612, ptr noundef nonnull readonly dereferenceable(1) @.str.822) #56
+  %1621 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1612, ptr noundef nonnull dereferenceable(1) @.str.822) #56
   %1622 = icmp eq ptr %1621, null
   br i1 %1622, label %glad_gl_has_extension.exit1173, label %.lr.ph35.i1171
 
@@ -11491,7 +11491,7 @@ glad_gl_has_extension.exit1159:                   ; preds = %1602, %.lr.ph.i1150
   %indvars.iv.i1165 = phi i64 [ 0, %.lr.ph.preheader.i1162 ], [ %indvars.iv.next.i1166, %1623 ]
   %1624 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799, i64 %indvars.iv.i1165
   %1625 = load ptr, ptr %1624, align 8
-  %1626 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1625, ptr noundef nonnull readonly dereferenceable(24) @.str.822) #56
+  %1626 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1625, ptr noundef nonnull dereferenceable(24) @.str.822) #56
   %1627 = icmp eq i32 %1626, 0
   br i1 %1627, label %glad_gl_has_extension.exit1173, label %1623
 
@@ -11528,7 +11528,7 @@ glad_gl_has_extension.exit1173:                   ; preds = %1623, %.lr.ph.i1164
   br i1 %1629, label %glad_gl_has_extension.exit1187.thread, label %.preheader.i1184
 
 .preheader.i1184:                                 ; preds = %1628
-  %1630 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233841, ptr noundef nonnull readonly dereferenceable(1) @.str.823) #56
+  %1630 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233841, ptr noundef nonnull dereferenceable(1) @.str.823) #56
   %1631 = icmp eq ptr %1630, null
   br i1 %1631, label %glad_gl_has_extension.exit1187.thread, label %.lr.ph35.i1185
 
@@ -11553,7 +11553,7 @@ glad_gl_has_extension.exit1173:                   ; preds = %1623, %.lr.ph.i1164
   ]
 
 1641:                                             ; preds = %1639, %1635
-  %1642 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1633, ptr noundef nonnull readonly dereferenceable(1) @.str.823) #56
+  %1642 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1633, ptr noundef nonnull dereferenceable(1) @.str.823) #56
   %1643 = icmp eq ptr %1642, null
   br i1 %1643, label %glad_gl_has_extension.exit1187, label %.lr.ph35.i1185
 
@@ -11566,7 +11566,7 @@ glad_gl_has_extension.exit1173:                   ; preds = %1623, %.lr.ph.i1164
   %indvars.iv.i1179 = phi i64 [ 0, %.lr.ph.preheader.i1176 ], [ %indvars.iv.next.i1180, %1644 ]
   %1645 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818, i64 %indvars.iv.i1179
   %1646 = load ptr, ptr %1645, align 8
-  %1647 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1646, ptr noundef nonnull readonly dereferenceable(27) @.str.823) #56
+  %1647 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1646, ptr noundef nonnull dereferenceable(27) @.str.823) #56
   %1648 = icmp eq i32 %1647, 0
   br i1 %1648, label %glad_gl_has_extension.exit1187, label %1644
 
@@ -11603,7 +11603,7 @@ glad_gl_has_extension.exit1187:                   ; preds = %1644, %.lr.ph.i1178
   br i1 %1650, label %glad_gl_has_extension.exit1201.thread, label %.preheader.i1198
 
 .preheader.i1198:                                 ; preds = %1649
-  %1651 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423868, ptr noundef nonnull readonly dereferenceable(1) @.str.824) #56
+  %1651 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423868, ptr noundef nonnull dereferenceable(1) @.str.824) #56
   %1652 = icmp eq ptr %1651, null
   br i1 %1652, label %glad_gl_has_extension.exit1201.thread, label %.lr.ph35.i1199
 
@@ -11628,7 +11628,7 @@ glad_gl_has_extension.exit1187:                   ; preds = %1644, %.lr.ph.i1178
   ]
 
 1662:                                             ; preds = %1660, %1656
-  %1663 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1654, ptr noundef nonnull readonly dereferenceable(1) @.str.824) #56
+  %1663 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1654, ptr noundef nonnull dereferenceable(1) @.str.824) #56
   %1664 = icmp eq ptr %1663, null
   br i1 %1664, label %glad_gl_has_extension.exit1201, label %.lr.ph35.i1199
 
@@ -11641,7 +11641,7 @@ glad_gl_has_extension.exit1187:                   ; preds = %1644, %.lr.ph.i1178
   %indvars.iv.i1193 = phi i64 [ 0, %.lr.ph.preheader.i1190 ], [ %indvars.iv.next.i1194, %1665 ]
   %1666 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845, i64 %indvars.iv.i1193
   %1667 = load ptr, ptr %1666, align 8
-  %1668 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1667, ptr noundef nonnull readonly dereferenceable(28) @.str.824) #56
+  %1668 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1667, ptr noundef nonnull dereferenceable(28) @.str.824) #56
   %1669 = icmp eq i32 %1668, 0
   br i1 %1669, label %glad_gl_has_extension.exit1201, label %1665
 
@@ -11678,7 +11678,7 @@ glad_gl_has_extension.exit1201:                   ; preds = %1665, %.lr.ph.i1192
   br i1 %1671, label %glad_gl_has_extension.exit1215.thread, label %.preheader.i1212
 
 .preheader.i1212:                                 ; preds = %1670
-  %1672 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693887, ptr noundef nonnull readonly dereferenceable(1) @.str.825) #56
+  %1672 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693887, ptr noundef nonnull dereferenceable(1) @.str.825) #56
   %1673 = icmp eq ptr %1672, null
   br i1 %1673, label %glad_gl_has_extension.exit1215.thread, label %.lr.ph35.i1213
 
@@ -11703,7 +11703,7 @@ glad_gl_has_extension.exit1201:                   ; preds = %1665, %.lr.ph.i1192
   ]
 
 1683:                                             ; preds = %1681, %1677
-  %1684 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1675, ptr noundef nonnull readonly dereferenceable(1) @.str.825) #56
+  %1684 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1675, ptr noundef nonnull dereferenceable(1) @.str.825) #56
   %1685 = icmp eq ptr %1684, null
   br i1 %1685, label %glad_gl_has_extension.exit1215, label %.lr.ph35.i1213
 
@@ -11716,7 +11716,7 @@ glad_gl_has_extension.exit1201:                   ; preds = %1665, %.lr.ph.i1192
   %indvars.iv.i1207 = phi i64 [ 0, %.lr.ph.preheader.i1204 ], [ %indvars.iv.next.i1208, %1686 ]
   %1687 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864, i64 %indvars.iv.i1207
   %1688 = load ptr, ptr %1687, align 8
-  %1689 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1688, ptr noundef nonnull readonly dereferenceable(35) @.str.825) #56
+  %1689 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1688, ptr noundef nonnull dereferenceable(35) @.str.825) #56
   %1690 = icmp eq i32 %1689, 0
   br i1 %1690, label %glad_gl_has_extension.exit1215, label %1686
 
@@ -11753,7 +11753,7 @@ glad_gl_has_extension.exit1215:                   ; preds = %1686, %.lr.ph.i1206
   br i1 %1692, label %glad_gl_has_extension.exit1229.thread, label %.preheader.i1226
 
 .preheader.i1226:                                 ; preds = %1691
-  %1693 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883914, ptr noundef nonnull readonly dereferenceable(1) @.str.826) #56
+  %1693 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883914, ptr noundef nonnull dereferenceable(1) @.str.826) #56
   %1694 = icmp eq ptr %1693, null
   br i1 %1694, label %glad_gl_has_extension.exit1229.thread, label %.lr.ph35.i1227
 
@@ -11778,7 +11778,7 @@ glad_gl_has_extension.exit1215:                   ; preds = %1686, %.lr.ph.i1206
   ]
 
 1704:                                             ; preds = %1702, %1698
-  %1705 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1696, ptr noundef nonnull readonly dereferenceable(1) @.str.826) #56
+  %1705 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1696, ptr noundef nonnull dereferenceable(1) @.str.826) #56
   %1706 = icmp eq ptr %1705, null
   br i1 %1706, label %glad_gl_has_extension.exit1229, label %.lr.ph35.i1227
 
@@ -11791,7 +11791,7 @@ glad_gl_has_extension.exit1215:                   ; preds = %1686, %.lr.ph.i1206
   %indvars.iv.i1221 = phi i64 [ 0, %.lr.ph.preheader.i1218 ], [ %indvars.iv.next.i1222, %1707 ]
   %1708 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891, i64 %indvars.iv.i1221
   %1709 = load ptr, ptr %1708, align 8
-  %1710 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1709, ptr noundef nonnull readonly dereferenceable(27) @.str.826) #56
+  %1710 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1709, ptr noundef nonnull dereferenceable(27) @.str.826) #56
   %1711 = icmp eq i32 %1710, 0
   br i1 %1711, label %glad_gl_has_extension.exit1229, label %1707
 
@@ -11828,7 +11828,7 @@ glad_gl_has_extension.exit1229:                   ; preds = %1707, %.lr.ph.i1220
   br i1 %1713, label %glad_gl_has_extension.exit1243.thread, label %.preheader.i1240
 
 .preheader.i1240:                                 ; preds = %1712
-  %1714 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153933, ptr noundef nonnull readonly dereferenceable(1) @.str.827) #56
+  %1714 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153933, ptr noundef nonnull dereferenceable(1) @.str.827) #56
   %1715 = icmp eq ptr %1714, null
   br i1 %1715, label %glad_gl_has_extension.exit1243.thread, label %.lr.ph35.i1241
 
@@ -11853,7 +11853,7 @@ glad_gl_has_extension.exit1229:                   ; preds = %1707, %.lr.ph.i1220
   ]
 
 1725:                                             ; preds = %1723, %1719
-  %1726 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1717, ptr noundef nonnull readonly dereferenceable(1) @.str.827) #56
+  %1726 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1717, ptr noundef nonnull dereferenceable(1) @.str.827) #56
   %1727 = icmp eq ptr %1726, null
   br i1 %1727, label %glad_gl_has_extension.exit1243, label %.lr.ph35.i1241
 
@@ -11866,7 +11866,7 @@ glad_gl_has_extension.exit1229:                   ; preds = %1707, %.lr.ph.i1220
   %indvars.iv.i1235 = phi i64 [ 0, %.lr.ph.preheader.i1232 ], [ %indvars.iv.next.i1236, %1728 ]
   %1729 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910, i64 %indvars.iv.i1235
   %1730 = load ptr, ptr %1729, align 8
-  %1731 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1730, ptr noundef nonnull readonly dereferenceable(24) @.str.827) #56
+  %1731 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1730, ptr noundef nonnull dereferenceable(24) @.str.827) #56
   %1732 = icmp eq i32 %1731, 0
   br i1 %1732, label %glad_gl_has_extension.exit1243, label %1728
 
@@ -11903,7 +11903,7 @@ glad_gl_has_extension.exit1243:                   ; preds = %1728, %.lr.ph.i1234
   br i1 %1734, label %glad_gl_has_extension.exit1257.thread, label %.preheader.i1254
 
 .preheader.i1254:                                 ; preds = %1733
-  %1735 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343960, ptr noundef nonnull readonly dereferenceable(1) @.str.828) #56
+  %1735 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343960, ptr noundef nonnull dereferenceable(1) @.str.828) #56
   %1736 = icmp eq ptr %1735, null
   br i1 %1736, label %glad_gl_has_extension.exit1257.thread, label %.lr.ph35.i1255
 
@@ -11928,7 +11928,7 @@ glad_gl_has_extension.exit1243:                   ; preds = %1728, %.lr.ph.i1234
   ]
 
 1746:                                             ; preds = %1744, %1740
-  %1747 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1738, ptr noundef nonnull readonly dereferenceable(1) @.str.828) #56
+  %1747 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1738, ptr noundef nonnull dereferenceable(1) @.str.828) #56
   %1748 = icmp eq ptr %1747, null
   br i1 %1748, label %glad_gl_has_extension.exit1257, label %.lr.ph35.i1255
 
@@ -11941,7 +11941,7 @@ glad_gl_has_extension.exit1243:                   ; preds = %1728, %.lr.ph.i1234
   %indvars.iv.i1249 = phi i64 [ 0, %.lr.ph.preheader.i1246 ], [ %indvars.iv.next.i1250, %1749 ]
   %1750 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937, i64 %indvars.iv.i1249
   %1751 = load ptr, ptr %1750, align 8
-  %1752 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1751, ptr noundef nonnull readonly dereferenceable(30) @.str.828) #56
+  %1752 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1751, ptr noundef nonnull dereferenceable(30) @.str.828) #56
   %1753 = icmp eq i32 %1752, 0
   br i1 %1753, label %glad_gl_has_extension.exit1257, label %1749
 
@@ -11978,7 +11978,7 @@ glad_gl_has_extension.exit1257:                   ; preds = %1749, %.lr.ph.i1248
   br i1 %1755, label %glad_gl_has_extension.exit1271.thread, label %.preheader.i1268
 
 .preheader.i1268:                                 ; preds = %1754
-  %1756 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613979, ptr noundef nonnull readonly dereferenceable(1) @.str.829) #56
+  %1756 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613979, ptr noundef nonnull dereferenceable(1) @.str.829) #56
   %1757 = icmp eq ptr %1756, null
   br i1 %1757, label %glad_gl_has_extension.exit1271.thread, label %.lr.ph35.i1269
 
@@ -12003,7 +12003,7 @@ glad_gl_has_extension.exit1257:                   ; preds = %1749, %.lr.ph.i1248
   ]
 
 1767:                                             ; preds = %1765, %1761
-  %1768 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1759, ptr noundef nonnull readonly dereferenceable(1) @.str.829) #56
+  %1768 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1759, ptr noundef nonnull dereferenceable(1) @.str.829) #56
   %1769 = icmp eq ptr %1768, null
   br i1 %1769, label %glad_gl_has_extension.exit1271, label %.lr.ph35.i1269
 
@@ -12016,7 +12016,7 @@ glad_gl_has_extension.exit1257:                   ; preds = %1749, %.lr.ph.i1248
   %indvars.iv.i1263 = phi i64 [ 0, %.lr.ph.preheader.i1260 ], [ %indvars.iv.next.i1264, %1770 ]
   %1771 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956, i64 %indvars.iv.i1263
   %1772 = load ptr, ptr %1771, align 8
-  %1773 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1772, ptr noundef nonnull readonly dereferenceable(23) @.str.829) #56
+  %1773 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1772, ptr noundef nonnull dereferenceable(23) @.str.829) #56
   %1774 = icmp eq i32 %1773, 0
   br i1 %1774, label %glad_gl_has_extension.exit1271, label %1770
 
@@ -12053,7 +12053,7 @@ glad_gl_has_extension.exit1271:                   ; preds = %1770, %.lr.ph.i1262
   br i1 %1776, label %glad_gl_has_extension.exit1285.thread, label %.preheader.i1282
 
 .preheader.i1282:                                 ; preds = %1775
-  %1777 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804006, ptr noundef nonnull readonly dereferenceable(1) @.str.830) #56
+  %1777 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804006, ptr noundef nonnull dereferenceable(1) @.str.830) #56
   %1778 = icmp eq ptr %1777, null
   br i1 %1778, label %glad_gl_has_extension.exit1285.thread, label %.lr.ph35.i1283
 
@@ -12078,7 +12078,7 @@ glad_gl_has_extension.exit1271:                   ; preds = %1770, %.lr.ph.i1262
   ]
 
 1788:                                             ; preds = %1786, %1782
-  %1789 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1780, ptr noundef nonnull readonly dereferenceable(1) @.str.830) #56
+  %1789 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1780, ptr noundef nonnull dereferenceable(1) @.str.830) #56
   %1790 = icmp eq ptr %1789, null
   br i1 %1790, label %glad_gl_has_extension.exit1285, label %.lr.ph35.i1283
 
@@ -12091,7 +12091,7 @@ glad_gl_has_extension.exit1271:                   ; preds = %1770, %.lr.ph.i1262
   %indvars.iv.i1277 = phi i64 [ 0, %.lr.ph.preheader.i1274 ], [ %indvars.iv.next.i1278, %1791 ]
   %1792 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983, i64 %indvars.iv.i1277
   %1793 = load ptr, ptr %1792, align 8
-  %1794 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1793, ptr noundef nonnull readonly dereferenceable(34) @.str.830) #56
+  %1794 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1793, ptr noundef nonnull dereferenceable(34) @.str.830) #56
   %1795 = icmp eq i32 %1794, 0
   br i1 %1795, label %glad_gl_has_extension.exit1285, label %1791
 
@@ -12128,7 +12128,7 @@ glad_gl_has_extension.exit1285:                   ; preds = %1791, %.lr.ph.i1276
   br i1 %1797, label %glad_gl_has_extension.exit1299.thread, label %.preheader.i1296
 
 .preheader.i1296:                                 ; preds = %1796
-  %1798 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074025, ptr noundef nonnull readonly dereferenceable(1) @.str.831) #56
+  %1798 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074025, ptr noundef nonnull dereferenceable(1) @.str.831) #56
   %1799 = icmp eq ptr %1798, null
   br i1 %1799, label %glad_gl_has_extension.exit1299.thread, label %.lr.ph35.i1297
 
@@ -12153,7 +12153,7 @@ glad_gl_has_extension.exit1285:                   ; preds = %1791, %.lr.ph.i1276
   ]
 
 1809:                                             ; preds = %1807, %1803
-  %1810 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull readonly dereferenceable(1) @.str.831) #56
+  %1810 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull dereferenceable(1) @.str.831) #56
   %1811 = icmp eq ptr %1810, null
   br i1 %1811, label %glad_gl_has_extension.exit1299, label %.lr.ph35.i1297
 
@@ -12166,7 +12166,7 @@ glad_gl_has_extension.exit1285:                   ; preds = %1791, %.lr.ph.i1276
   %indvars.iv.i1291 = phi i64 [ 0, %.lr.ph.preheader.i1288 ], [ %indvars.iv.next.i1292, %1812 ]
   %1813 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002, i64 %indvars.iv.i1291
   %1814 = load ptr, ptr %1813, align 8
-  %1815 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1814, ptr noundef nonnull readonly dereferenceable(29) @.str.831) #56
+  %1815 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1814, ptr noundef nonnull dereferenceable(29) @.str.831) #56
   %1816 = icmp eq i32 %1815, 0
   br i1 %1816, label %glad_gl_has_extension.exit1299, label %1812
 
@@ -12203,7 +12203,7 @@ glad_gl_has_extension.exit1299:                   ; preds = %1812, %.lr.ph.i1290
   br i1 %1818, label %glad_gl_has_extension.exit1313.thread, label %.preheader.i1310
 
 .preheader.i1310:                                 ; preds = %1817
-  %1819 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264052, ptr noundef nonnull readonly dereferenceable(1) @.str.832) #56
+  %1819 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264052, ptr noundef nonnull dereferenceable(1) @.str.832) #56
   %1820 = icmp eq ptr %1819, null
   br i1 %1820, label %glad_gl_has_extension.exit1313.thread, label %.lr.ph35.i1311
 
@@ -12228,7 +12228,7 @@ glad_gl_has_extension.exit1299:                   ; preds = %1812, %.lr.ph.i1290
   ]
 
 1830:                                             ; preds = %1828, %1824
-  %1831 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1822, ptr noundef nonnull readonly dereferenceable(1) @.str.832) #56
+  %1831 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1822, ptr noundef nonnull dereferenceable(1) @.str.832) #56
   %1832 = icmp eq ptr %1831, null
   br i1 %1832, label %glad_gl_has_extension.exit1313, label %.lr.ph35.i1311
 
@@ -12241,7 +12241,7 @@ glad_gl_has_extension.exit1299:                   ; preds = %1812, %.lr.ph.i1290
   %indvars.iv.i1305 = phi i64 [ 0, %.lr.ph.preheader.i1302 ], [ %indvars.iv.next.i1306, %1833 ]
   %1834 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029, i64 %indvars.iv.i1305
   %1835 = load ptr, ptr %1834, align 8
-  %1836 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1835, ptr noundef nonnull readonly dereferenceable(21) @.str.832) #56
+  %1836 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1835, ptr noundef nonnull dereferenceable(21) @.str.832) #56
   %1837 = icmp eq i32 %1836, 0
   br i1 %1837, label %glad_gl_has_extension.exit1313, label %1833
 
@@ -12278,7 +12278,7 @@ glad_gl_has_extension.exit1313:                   ; preds = %1833, %.lr.ph.i1304
   br i1 %1839, label %glad_gl_has_extension.exit1327.thread, label %.preheader.i1324
 
 .preheader.i1324:                                 ; preds = %1838
-  %1840 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534071, ptr noundef nonnull readonly dereferenceable(1) @.str.833) #56
+  %1840 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534071, ptr noundef nonnull dereferenceable(1) @.str.833) #56
   %1841 = icmp eq ptr %1840, null
   br i1 %1841, label %glad_gl_has_extension.exit1327.thread, label %.lr.ph35.i1325
 
@@ -12303,7 +12303,7 @@ glad_gl_has_extension.exit1313:                   ; preds = %1833, %.lr.ph.i1304
   ]
 
 1851:                                             ; preds = %1849, %1845
-  %1852 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1843, ptr noundef nonnull readonly dereferenceable(1) @.str.833) #56
+  %1852 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1843, ptr noundef nonnull dereferenceable(1) @.str.833) #56
   %1853 = icmp eq ptr %1852, null
   br i1 %1853, label %glad_gl_has_extension.exit1327, label %.lr.ph35.i1325
 
@@ -12316,7 +12316,7 @@ glad_gl_has_extension.exit1313:                   ; preds = %1833, %.lr.ph.i1304
   %indvars.iv.i1319 = phi i64 [ 0, %.lr.ph.preheader.i1316 ], [ %indvars.iv.next.i1320, %1854 ]
   %1855 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048, i64 %indvars.iv.i1319
   %1856 = load ptr, ptr %1855, align 8
-  %1857 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1856, ptr noundef nonnull readonly dereferenceable(36) @.str.833) #56
+  %1857 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1856, ptr noundef nonnull dereferenceable(36) @.str.833) #56
   %1858 = icmp eq i32 %1857, 0
   br i1 %1858, label %glad_gl_has_extension.exit1327, label %1854
 
@@ -12353,7 +12353,7 @@ glad_gl_has_extension.exit1327:                   ; preds = %1854, %.lr.ph.i1318
   br i1 %1860, label %glad_gl_has_extension.exit1341.thread, label %.preheader.i1338
 
 .preheader.i1338:                                 ; preds = %1859
-  %1861 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724098, ptr noundef nonnull readonly dereferenceable(1) @.str.834) #56
+  %1861 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724098, ptr noundef nonnull dereferenceable(1) @.str.834) #56
   %1862 = icmp eq ptr %1861, null
   br i1 %1862, label %glad_gl_has_extension.exit1341.thread, label %.lr.ph35.i1339
 
@@ -12378,7 +12378,7 @@ glad_gl_has_extension.exit1327:                   ; preds = %1854, %.lr.ph.i1318
   ]
 
 1872:                                             ; preds = %1870, %1866
-  %1873 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1864, ptr noundef nonnull readonly dereferenceable(1) @.str.834) #56
+  %1873 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1864, ptr noundef nonnull dereferenceable(1) @.str.834) #56
   %1874 = icmp eq ptr %1873, null
   br i1 %1874, label %glad_gl_has_extension.exit1341, label %.lr.ph35.i1339
 
@@ -12391,7 +12391,7 @@ glad_gl_has_extension.exit1327:                   ; preds = %1854, %.lr.ph.i1318
   %indvars.iv.i1333 = phi i64 [ 0, %.lr.ph.preheader.i1330 ], [ %indvars.iv.next.i1334, %1875 ]
   %1876 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075, i64 %indvars.iv.i1333
   %1877 = load ptr, ptr %1876, align 8
-  %1878 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1877, ptr noundef nonnull readonly dereferenceable(31) @.str.834) #56
+  %1878 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1877, ptr noundef nonnull dereferenceable(31) @.str.834) #56
   %1879 = icmp eq i32 %1878, 0
   br i1 %1879, label %glad_gl_has_extension.exit1341, label %1875
 
@@ -12428,7 +12428,7 @@ glad_gl_has_extension.exit1341:                   ; preds = %1875, %.lr.ph.i1332
   br i1 %1881, label %glad_gl_has_extension.exit1355.thread, label %.preheader.i1352
 
 .preheader.i1352:                                 ; preds = %1880
-  %1882 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994117, ptr noundef nonnull readonly dereferenceable(1) @.str.835) #56
+  %1882 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994117, ptr noundef nonnull dereferenceable(1) @.str.835) #56
   %1883 = icmp eq ptr %1882, null
   br i1 %1883, label %glad_gl_has_extension.exit1355.thread, label %.lr.ph35.i1353
 
@@ -12453,7 +12453,7 @@ glad_gl_has_extension.exit1341:                   ; preds = %1875, %.lr.ph.i1332
   ]
 
 1893:                                             ; preds = %1891, %1887
-  %1894 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1885, ptr noundef nonnull readonly dereferenceable(1) @.str.835) #56
+  %1894 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1885, ptr noundef nonnull dereferenceable(1) @.str.835) #56
   %1895 = icmp eq ptr %1894, null
   br i1 %1895, label %glad_gl_has_extension.exit1355, label %.lr.ph35.i1353
 
@@ -12466,7 +12466,7 @@ glad_gl_has_extension.exit1341:                   ; preds = %1875, %.lr.ph.i1332
   %indvars.iv.i1347 = phi i64 [ 0, %.lr.ph.preheader.i1344 ], [ %indvars.iv.next.i1348, %1896 ]
   %1897 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094, i64 %indvars.iv.i1347
   %1898 = load ptr, ptr %1897, align 8
-  %1899 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1898, ptr noundef nonnull readonly dereferenceable(27) @.str.835) #56
+  %1899 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1898, ptr noundef nonnull dereferenceable(27) @.str.835) #56
   %1900 = icmp eq i32 %1899, 0
   br i1 %1900, label %glad_gl_has_extension.exit1355, label %1896
 
@@ -12503,7 +12503,7 @@ glad_gl_has_extension.exit1355:                   ; preds = %1896, %.lr.ph.i1346
   br i1 %1902, label %glad_gl_has_extension.exit1369.thread, label %.preheader.i1366
 
 .preheader.i1366:                                 ; preds = %1901
-  %1903 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184144, ptr noundef nonnull readonly dereferenceable(1) @.str.836) #56
+  %1903 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184144, ptr noundef nonnull dereferenceable(1) @.str.836) #56
   %1904 = icmp eq ptr %1903, null
   br i1 %1904, label %glad_gl_has_extension.exit1369.thread, label %.lr.ph35.i1367
 
@@ -12528,7 +12528,7 @@ glad_gl_has_extension.exit1355:                   ; preds = %1896, %.lr.ph.i1346
   ]
 
 1914:                                             ; preds = %1912, %1908
-  %1915 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1906, ptr noundef nonnull readonly dereferenceable(1) @.str.836) #56
+  %1915 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1906, ptr noundef nonnull dereferenceable(1) @.str.836) #56
   %1916 = icmp eq ptr %1915, null
   br i1 %1916, label %glad_gl_has_extension.exit1369, label %.lr.ph35.i1367
 
@@ -12541,7 +12541,7 @@ glad_gl_has_extension.exit1355:                   ; preds = %1896, %.lr.ph.i1346
   %indvars.iv.i1361 = phi i64 [ 0, %.lr.ph.preheader.i1358 ], [ %indvars.iv.next.i1362, %1917 ]
   %1918 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121, i64 %indvars.iv.i1361
   %1919 = load ptr, ptr %1918, align 8
-  %1920 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1919, ptr noundef nonnull readonly dereferenceable(32) @.str.836) #56
+  %1920 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1919, ptr noundef nonnull dereferenceable(32) @.str.836) #56
   %1921 = icmp eq i32 %1920, 0
   br i1 %1921, label %glad_gl_has_extension.exit1369, label %1917
 
@@ -12578,7 +12578,7 @@ glad_gl_has_extension.exit1369:                   ; preds = %1917, %.lr.ph.i1360
   br i1 %1923, label %glad_gl_has_extension.exit1383.thread, label %.preheader.i1380
 
 .preheader.i1380:                                 ; preds = %1922
-  %1924 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454163, ptr noundef nonnull readonly dereferenceable(1) @.str.837) #56
+  %1924 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454163, ptr noundef nonnull dereferenceable(1) @.str.837) #56
   %1925 = icmp eq ptr %1924, null
   br i1 %1925, label %glad_gl_has_extension.exit1383.thread, label %.lr.ph35.i1381
 
@@ -12603,7 +12603,7 @@ glad_gl_has_extension.exit1369:                   ; preds = %1917, %.lr.ph.i1360
   ]
 
 1935:                                             ; preds = %1933, %1929
-  %1936 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1927, ptr noundef nonnull readonly dereferenceable(1) @.str.837) #56
+  %1936 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1927, ptr noundef nonnull dereferenceable(1) @.str.837) #56
   %1937 = icmp eq ptr %1936, null
   br i1 %1937, label %glad_gl_has_extension.exit1383, label %.lr.ph35.i1381
 
@@ -12616,7 +12616,7 @@ glad_gl_has_extension.exit1369:                   ; preds = %1917, %.lr.ph.i1360
   %indvars.iv.i1375 = phi i64 [ 0, %.lr.ph.preheader.i1372 ], [ %indvars.iv.next.i1376, %1938 ]
   %1939 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140, i64 %indvars.iv.i1375
   %1940 = load ptr, ptr %1939, align 8
-  %1941 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1940, ptr noundef nonnull readonly dereferenceable(18) @.str.837) #56
+  %1941 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1940, ptr noundef nonnull dereferenceable(18) @.str.837) #56
   %1942 = icmp eq i32 %1941, 0
   br i1 %1942, label %glad_gl_has_extension.exit1383, label %1938
 
@@ -12653,7 +12653,7 @@ glad_gl_has_extension.exit1383:                   ; preds = %1938, %.lr.ph.i1374
   br i1 %1944, label %glad_gl_has_extension.exit1397.thread, label %.preheader.i1394
 
 .preheader.i1394:                                 ; preds = %1943
-  %1945 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644190, ptr noundef nonnull readonly dereferenceable(1) @.str.838) #56
+  %1945 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644190, ptr noundef nonnull dereferenceable(1) @.str.838) #56
   %1946 = icmp eq ptr %1945, null
   br i1 %1946, label %glad_gl_has_extension.exit1397.thread, label %.lr.ph35.i1395
 
@@ -12678,7 +12678,7 @@ glad_gl_has_extension.exit1383:                   ; preds = %1938, %.lr.ph.i1374
   ]
 
 1956:                                             ; preds = %1954, %1950
-  %1957 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1948, ptr noundef nonnull readonly dereferenceable(1) @.str.838) #56
+  %1957 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1948, ptr noundef nonnull dereferenceable(1) @.str.838) #56
   %1958 = icmp eq ptr %1957, null
   br i1 %1958, label %glad_gl_has_extension.exit1397, label %.lr.ph35.i1395
 
@@ -12691,7 +12691,7 @@ glad_gl_has_extension.exit1383:                   ; preds = %1938, %.lr.ph.i1374
   %indvars.iv.i1389 = phi i64 [ 0, %.lr.ph.preheader.i1386 ], [ %indvars.iv.next.i1390, %1959 ]
   %1960 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167, i64 %indvars.iv.i1389
   %1961 = load ptr, ptr %1960, align 8
-  %1962 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1961, ptr noundef nonnull readonly dereferenceable(23) @.str.838) #56
+  %1962 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1961, ptr noundef nonnull dereferenceable(23) @.str.838) #56
   %1963 = icmp eq i32 %1962, 0
   br i1 %1963, label %glad_gl_has_extension.exit1397, label %1959
 
@@ -12728,7 +12728,7 @@ glad_gl_has_extension.exit1397:                   ; preds = %1959, %.lr.ph.i1388
   br i1 %1965, label %glad_gl_has_extension.exit1411.thread, label %.preheader.i1408
 
 .preheader.i1408:                                 ; preds = %1964
-  %1966 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914209, ptr noundef nonnull readonly dereferenceable(1) @.str.839) #56
+  %1966 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914209, ptr noundef nonnull dereferenceable(1) @.str.839) #56
   %1967 = icmp eq ptr %1966, null
   br i1 %1967, label %glad_gl_has_extension.exit1411.thread, label %.lr.ph35.i1409
 
@@ -12753,7 +12753,7 @@ glad_gl_has_extension.exit1397:                   ; preds = %1959, %.lr.ph.i1388
   ]
 
 1977:                                             ; preds = %1975, %1971
-  %1978 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1969, ptr noundef nonnull readonly dereferenceable(1) @.str.839) #56
+  %1978 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1969, ptr noundef nonnull dereferenceable(1) @.str.839) #56
   %1979 = icmp eq ptr %1978, null
   br i1 %1979, label %glad_gl_has_extension.exit1411, label %.lr.ph35.i1409
 
@@ -12766,7 +12766,7 @@ glad_gl_has_extension.exit1397:                   ; preds = %1959, %.lr.ph.i1388
   %indvars.iv.i1403 = phi i64 [ 0, %.lr.ph.preheader.i1400 ], [ %indvars.iv.next.i1404, %1980 ]
   %1981 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186, i64 %indvars.iv.i1403
   %1982 = load ptr, ptr %1981, align 8
-  %1983 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1982, ptr noundef nonnull readonly dereferenceable(23) @.str.839) #56
+  %1983 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1982, ptr noundef nonnull dereferenceable(23) @.str.839) #56
   %1984 = icmp eq i32 %1983, 0
   br i1 %1984, label %glad_gl_has_extension.exit1411, label %1980
 
@@ -12803,7 +12803,7 @@ glad_gl_has_extension.exit1411:                   ; preds = %1980, %.lr.ph.i1402
   br i1 %1986, label %glad_gl_has_extension.exit1425.thread, label %.preheader.i1422
 
 .preheader.i1422:                                 ; preds = %1985
-  %1987 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104236, ptr noundef nonnull readonly dereferenceable(1) @.str.840) #56
+  %1987 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104236, ptr noundef nonnull dereferenceable(1) @.str.840) #56
   %1988 = icmp eq ptr %1987, null
   br i1 %1988, label %glad_gl_has_extension.exit1425.thread, label %.lr.ph35.i1423
 
@@ -12828,7 +12828,7 @@ glad_gl_has_extension.exit1411:                   ; preds = %1980, %.lr.ph.i1402
   ]
 
 1998:                                             ; preds = %1996, %1992
-  %1999 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1990, ptr noundef nonnull readonly dereferenceable(1) @.str.840) #56
+  %1999 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1990, ptr noundef nonnull dereferenceable(1) @.str.840) #56
   %2000 = icmp eq ptr %1999, null
   br i1 %2000, label %glad_gl_has_extension.exit1425, label %.lr.ph35.i1423
 
@@ -12841,7 +12841,7 @@ glad_gl_has_extension.exit1411:                   ; preds = %1980, %.lr.ph.i1402
   %indvars.iv.i1417 = phi i64 [ 0, %.lr.ph.preheader.i1414 ], [ %indvars.iv.next.i1418, %2001 ]
   %2002 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213, i64 %indvars.iv.i1417
   %2003 = load ptr, ptr %2002, align 8
-  %2004 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2003, ptr noundef nonnull readonly dereferenceable(20) @.str.840) #56
+  %2004 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2003, ptr noundef nonnull dereferenceable(20) @.str.840) #56
   %2005 = icmp eq i32 %2004, 0
   br i1 %2005, label %glad_gl_has_extension.exit1425, label %2001
 
@@ -12878,7 +12878,7 @@ glad_gl_has_extension.exit1425:                   ; preds = %2001, %.lr.ph.i1416
   br i1 %2007, label %glad_gl_has_extension.exit1439.thread, label %.preheader.i1436
 
 .preheader.i1436:                                 ; preds = %2006
-  %2008 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374255, ptr noundef nonnull readonly dereferenceable(1) @.str.841) #56
+  %2008 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374255, ptr noundef nonnull dereferenceable(1) @.str.841) #56
   %2009 = icmp eq ptr %2008, null
   br i1 %2009, label %glad_gl_has_extension.exit1439.thread, label %.lr.ph35.i1437
 
@@ -12903,7 +12903,7 @@ glad_gl_has_extension.exit1425:                   ; preds = %2001, %.lr.ph.i1416
   ]
 
 2019:                                             ; preds = %2017, %2013
-  %2020 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2011, ptr noundef nonnull readonly dereferenceable(1) @.str.841) #56
+  %2020 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2011, ptr noundef nonnull dereferenceable(1) @.str.841) #56
   %2021 = icmp eq ptr %2020, null
   br i1 %2021, label %glad_gl_has_extension.exit1439, label %.lr.ph35.i1437
 
@@ -12916,7 +12916,7 @@ glad_gl_has_extension.exit1425:                   ; preds = %2001, %.lr.ph.i1416
   %indvars.iv.i1431 = phi i64 [ 0, %.lr.ph.preheader.i1428 ], [ %indvars.iv.next.i1432, %2022 ]
   %2023 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232, i64 %indvars.iv.i1431
   %2024 = load ptr, ptr %2023, align 8
-  %2025 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2024, ptr noundef nonnull readonly dereferenceable(19) @.str.841) #56
+  %2025 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2024, ptr noundef nonnull dereferenceable(19) @.str.841) #56
   %2026 = icmp eq i32 %2025, 0
   br i1 %2026, label %glad_gl_has_extension.exit1439, label %2022
 
@@ -12953,7 +12953,7 @@ glad_gl_has_extension.exit1439:                   ; preds = %2022, %.lr.ph.i1430
   br i1 %2028, label %glad_gl_has_extension.exit1453.thread, label %.preheader.i1450
 
 .preheader.i1450:                                 ; preds = %2027
-  %2029 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564282, ptr noundef nonnull readonly dereferenceable(1) @.str.842) #56
+  %2029 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564282, ptr noundef nonnull dereferenceable(1) @.str.842) #56
   %2030 = icmp eq ptr %2029, null
   br i1 %2030, label %glad_gl_has_extension.exit1453.thread, label %.lr.ph35.i1451
 
@@ -12978,7 +12978,7 @@ glad_gl_has_extension.exit1439:                   ; preds = %2022, %.lr.ph.i1430
   ]
 
 2040:                                             ; preds = %2038, %2034
-  %2041 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2032, ptr noundef nonnull readonly dereferenceable(1) @.str.842) #56
+  %2041 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2032, ptr noundef nonnull dereferenceable(1) @.str.842) #56
   %2042 = icmp eq ptr %2041, null
   br i1 %2042, label %glad_gl_has_extension.exit1453, label %.lr.ph35.i1451
 
@@ -12991,7 +12991,7 @@ glad_gl_has_extension.exit1439:                   ; preds = %2022, %.lr.ph.i1430
   %indvars.iv.i1445 = phi i64 [ 0, %.lr.ph.preheader.i1442 ], [ %indvars.iv.next.i1446, %2043 ]
   %2044 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259, i64 %indvars.iv.i1445
   %2045 = load ptr, ptr %2044, align 8
-  %2046 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2045, ptr noundef nonnull readonly dereferenceable(24) @.str.842) #56
+  %2046 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2045, ptr noundef nonnull dereferenceable(24) @.str.842) #56
   %2047 = icmp eq i32 %2046, 0
   br i1 %2047, label %glad_gl_has_extension.exit1453, label %2043
 
@@ -13028,7 +13028,7 @@ glad_gl_has_extension.exit1453:                   ; preds = %2043, %.lr.ph.i1444
   br i1 %2049, label %glad_gl_has_extension.exit1467.thread, label %.preheader.i1464
 
 .preheader.i1464:                                 ; preds = %2048
-  %2050 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834301, ptr noundef nonnull readonly dereferenceable(1) @.str.843) #56
+  %2050 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834301, ptr noundef nonnull dereferenceable(1) @.str.843) #56
   %2051 = icmp eq ptr %2050, null
   br i1 %2051, label %glad_gl_has_extension.exit1467.thread, label %.lr.ph35.i1465
 
@@ -13053,7 +13053,7 @@ glad_gl_has_extension.exit1453:                   ; preds = %2043, %.lr.ph.i1444
   ]
 
 2061:                                             ; preds = %2059, %2055
-  %2062 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2053, ptr noundef nonnull readonly dereferenceable(1) @.str.843) #56
+  %2062 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2053, ptr noundef nonnull dereferenceable(1) @.str.843) #56
   %2063 = icmp eq ptr %2062, null
   br i1 %2063, label %glad_gl_has_extension.exit1467, label %.lr.ph35.i1465
 
@@ -13066,7 +13066,7 @@ glad_gl_has_extension.exit1453:                   ; preds = %2043, %.lr.ph.i1444
   %indvars.iv.i1459 = phi i64 [ 0, %.lr.ph.preheader.i1456 ], [ %indvars.iv.next.i1460, %2064 ]
   %2065 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278, i64 %indvars.iv.i1459
   %2066 = load ptr, ptr %2065, align 8
-  %2067 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2066, ptr noundef nonnull readonly dereferenceable(29) @.str.843) #56
+  %2067 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2066, ptr noundef nonnull dereferenceable(29) @.str.843) #56
   %2068 = icmp eq i32 %2067, 0
   br i1 %2068, label %glad_gl_has_extension.exit1467, label %2064
 
@@ -13103,7 +13103,7 @@ glad_gl_has_extension.exit1467:                   ; preds = %2064, %.lr.ph.i1458
   br i1 %2070, label %glad_gl_has_extension.exit1481.thread, label %.preheader.i1478
 
 .preheader.i1478:                                 ; preds = %2069
-  %2071 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024328, ptr noundef nonnull readonly dereferenceable(1) @.str.844) #56
+  %2071 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024328, ptr noundef nonnull dereferenceable(1) @.str.844) #56
   %2072 = icmp eq ptr %2071, null
   br i1 %2072, label %glad_gl_has_extension.exit1481.thread, label %.lr.ph35.i1479
 
@@ -13128,7 +13128,7 @@ glad_gl_has_extension.exit1467:                   ; preds = %2064, %.lr.ph.i1458
   ]
 
 2082:                                             ; preds = %2080, %2076
-  %2083 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2074, ptr noundef nonnull readonly dereferenceable(1) @.str.844) #56
+  %2083 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2074, ptr noundef nonnull dereferenceable(1) @.str.844) #56
   %2084 = icmp eq ptr %2083, null
   br i1 %2084, label %glad_gl_has_extension.exit1481, label %.lr.ph35.i1479
 
@@ -13141,7 +13141,7 @@ glad_gl_has_extension.exit1467:                   ; preds = %2064, %.lr.ph.i1458
   %indvars.iv.i1473 = phi i64 [ 0, %.lr.ph.preheader.i1470 ], [ %indvars.iv.next.i1474, %2085 ]
   %2086 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305, i64 %indvars.iv.i1473
   %2087 = load ptr, ptr %2086, align 8
-  %2088 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2087, ptr noundef nonnull readonly dereferenceable(25) @.str.844) #56
+  %2088 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2087, ptr noundef nonnull dereferenceable(25) @.str.844) #56
   %2089 = icmp eq i32 %2088, 0
   br i1 %2089, label %glad_gl_has_extension.exit1481, label %2085
 
@@ -13178,7 +13178,7 @@ glad_gl_has_extension.exit1481:                   ; preds = %2085, %.lr.ph.i1472
   br i1 %2091, label %glad_gl_has_extension.exit1495.thread, label %.preheader.i1492
 
 .preheader.i1492:                                 ; preds = %2090
-  %2092 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294347, ptr noundef nonnull readonly dereferenceable(1) @.str.845) #56
+  %2092 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294347, ptr noundef nonnull dereferenceable(1) @.str.845) #56
   %2093 = icmp eq ptr %2092, null
   br i1 %2093, label %glad_gl_has_extension.exit1495.thread, label %.lr.ph35.i1493
 
@@ -13203,7 +13203,7 @@ glad_gl_has_extension.exit1481:                   ; preds = %2085, %.lr.ph.i1472
   ]
 
 2103:                                             ; preds = %2101, %2097
-  %2104 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2095, ptr noundef nonnull readonly dereferenceable(1) @.str.845) #56
+  %2104 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2095, ptr noundef nonnull dereferenceable(1) @.str.845) #56
   %2105 = icmp eq ptr %2104, null
   br i1 %2105, label %glad_gl_has_extension.exit1495, label %.lr.ph35.i1493
 
@@ -13216,7 +13216,7 @@ glad_gl_has_extension.exit1481:                   ; preds = %2085, %.lr.ph.i1472
   %indvars.iv.i1487 = phi i64 [ 0, %.lr.ph.preheader.i1484 ], [ %indvars.iv.next.i1488, %2106 ]
   %2107 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259427843054324, i64 %indvars.iv.i1487
   %2108 = load ptr, ptr %2107, align 8
-  %2109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2108, ptr noundef nonnull readonly dereferenceable(27) @.str.845) #56
+  %2109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2108, ptr noundef nonnull dereferenceable(27) @.str.845) #56
   %2110 = icmp eq i32 %2109, 0
   br i1 %2110, label %glad_gl_has_extension.exit1495, label %2106
 
@@ -13253,7 +13253,7 @@ glad_gl_has_extension.exit1495:                   ; preds = %2106, %.lr.ph.i1486
   br i1 %2112, label %glad_gl_has_extension.exit1509.thread, label %.preheader.i1506
 
 .preheader.i1506:                                 ; preds = %2111
-  %2113 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484374, ptr noundef nonnull readonly dereferenceable(1) @.str.846) #56
+  %2113 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484374, ptr noundef nonnull dereferenceable(1) @.str.846) #56
   %2114 = icmp eq ptr %2113, null
   br i1 %2114, label %glad_gl_has_extension.exit1509.thread, label %.lr.ph35.i1507
 
@@ -13278,7 +13278,7 @@ glad_gl_has_extension.exit1495:                   ; preds = %2106, %.lr.ph.i1486
   ]
 
 2124:                                             ; preds = %2122, %2118
-  %2125 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2116, ptr noundef nonnull readonly dereferenceable(1) @.str.846) #56
+  %2125 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2116, ptr noundef nonnull dereferenceable(1) @.str.846) #56
   %2126 = icmp eq ptr %2125, null
   br i1 %2126, label %glad_gl_has_extension.exit1509, label %.lr.ph35.i1507
 
@@ -13291,7 +13291,7 @@ glad_gl_has_extension.exit1495:                   ; preds = %2106, %.lr.ph.i1486
   %indvars.iv.i1501 = phi i64 [ 0, %.lr.ph.preheader.i1498 ], [ %indvars.iv.next.i1502, %2127 ]
   %2128 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278430543244351, i64 %indvars.iv.i1501
   %2129 = load ptr, ptr %2128, align 8
-  %2130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2129, ptr noundef nonnull readonly dereferenceable(29) @.str.846) #56
+  %2130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2129, ptr noundef nonnull dereferenceable(29) @.str.846) #56
   %2131 = icmp eq i32 %2130, 0
   br i1 %2131, label %glad_gl_has_extension.exit1509, label %2127
 
@@ -13328,7 +13328,7 @@ glad_gl_has_extension.exit1509:                   ; preds = %2127, %.lr.ph.i1500
   br i1 %2133, label %glad_gl_has_extension.exit1523.thread, label %.preheader.i1520
 
 .preheader.i1520:                                 ; preds = %2132
-  %2134 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754393, ptr noundef nonnull readonly dereferenceable(1) @.str.847) #56
+  %2134 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754393, ptr noundef nonnull dereferenceable(1) @.str.847) #56
   %2135 = icmp eq ptr %2134, null
   br i1 %2135, label %glad_gl_has_extension.exit1523.thread, label %.lr.ph35.i1521
 
@@ -13353,7 +13353,7 @@ glad_gl_has_extension.exit1509:                   ; preds = %2127, %.lr.ph.i1500
   ]
 
 2145:                                             ; preds = %2143, %2139
-  %2146 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2137, ptr noundef nonnull readonly dereferenceable(1) @.str.847) #56
+  %2146 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2137, ptr noundef nonnull dereferenceable(1) @.str.847) #56
   %2147 = icmp eq ptr %2146, null
   br i1 %2147, label %glad_gl_has_extension.exit1523, label %.lr.ph35.i1521
 
@@ -13366,7 +13366,7 @@ glad_gl_has_extension.exit1509:                   ; preds = %2127, %.lr.ph.i1500
   %indvars.iv.i1515 = phi i64 [ 0, %.lr.ph.preheader.i1512 ], [ %indvars.iv.next.i1516, %2148 ]
   %2149 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305432443514370, i64 %indvars.iv.i1515
   %2150 = load ptr, ptr %2149, align 8
-  %2151 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2150, ptr noundef nonnull readonly dereferenceable(28) @.str.847) #56
+  %2151 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2150, ptr noundef nonnull dereferenceable(28) @.str.847) #56
   %2152 = icmp eq i32 %2151, 0
   br i1 %2152, label %glad_gl_has_extension.exit1523, label %2148
 
@@ -13403,7 +13403,7 @@ glad_gl_has_extension.exit1523:                   ; preds = %2148, %.lr.ph.i1514
   br i1 %2154, label %glad_gl_has_extension.exit1537.thread, label %.preheader.i1534
 
 .preheader.i1534:                                 ; preds = %2153
-  %2155 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944420, ptr noundef nonnull readonly dereferenceable(1) @.str.848) #56
+  %2155 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944420, ptr noundef nonnull dereferenceable(1) @.str.848) #56
   %2156 = icmp eq ptr %2155, null
   br i1 %2156, label %glad_gl_has_extension.exit1537.thread, label %.lr.ph35.i1535
 
@@ -13428,7 +13428,7 @@ glad_gl_has_extension.exit1523:                   ; preds = %2148, %.lr.ph.i1514
   ]
 
 2166:                                             ; preds = %2164, %2160
-  %2167 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2158, ptr noundef nonnull readonly dereferenceable(1) @.str.848) #56
+  %2167 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2158, ptr noundef nonnull dereferenceable(1) @.str.848) #56
   %2168 = icmp eq ptr %2167, null
   br i1 %2168, label %glad_gl_has_extension.exit1537, label %.lr.ph35.i1535
 
@@ -13441,7 +13441,7 @@ glad_gl_has_extension.exit1523:                   ; preds = %2148, %.lr.ph.i1514
   %indvars.iv.i1529 = phi i64 [ 0, %.lr.ph.preheader.i1526 ], [ %indvars.iv.next.i1530, %2169 ]
   %2170 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259427843054324435143704397, i64 %indvars.iv.i1529
   %2171 = load ptr, ptr %2170, align 8
-  %2172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2171, ptr noundef nonnull readonly dereferenceable(22) @.str.848) #56
+  %2172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2171, ptr noundef nonnull dereferenceable(22) @.str.848) #56
   %2173 = icmp eq i32 %2172, 0
   br i1 %2173, label %glad_gl_has_extension.exit1537, label %2169
 
@@ -13478,7 +13478,7 @@ glad_gl_has_extension.exit1537:                   ; preds = %2169, %.lr.ph.i1528
   br i1 %2175, label %glad_gl_has_extension.exit1551.thread, label %.preheader.i1548
 
 .preheader.i1548:                                 ; preds = %2174
-  %2176 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214439, ptr noundef nonnull readonly dereferenceable(1) @.str.849) #56
+  %2176 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214439, ptr noundef nonnull dereferenceable(1) @.str.849) #56
   %2177 = icmp eq ptr %2176, null
   br i1 %2177, label %glad_gl_has_extension.exit1551.thread, label %.lr.ph35.i1549
 
@@ -13503,7 +13503,7 @@ glad_gl_has_extension.exit1537:                   ; preds = %2169, %.lr.ph.i1528
   ]
 
 2187:                                             ; preds = %2185, %2181
-  %2188 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2179, ptr noundef nonnull readonly dereferenceable(1) @.str.849) #56
+  %2188 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2179, ptr noundef nonnull dereferenceable(1) @.str.849) #56
   %2189 = icmp eq ptr %2188, null
   br i1 %2189, label %glad_gl_has_extension.exit1551, label %.lr.ph35.i1549
 
@@ -13516,7 +13516,7 @@ glad_gl_has_extension.exit1537:                   ; preds = %2169, %.lr.ph.i1528
   %indvars.iv.i1543 = phi i64 [ 0, %.lr.ph.preheader.i1540 ], [ %indvars.iv.next.i1544, %2190 ]
   %2191 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278430543244351437043974416, i64 %indvars.iv.i1543
   %2192 = load ptr, ptr %2191, align 8
-  %2193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2192, ptr noundef nonnull readonly dereferenceable(21) @.str.849) #56
+  %2193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2192, ptr noundef nonnull dereferenceable(21) @.str.849) #56
   %2194 = icmp eq i32 %2193, 0
   br i1 %2194, label %glad_gl_has_extension.exit1551, label %2190
 
@@ -13553,7 +13553,7 @@ glad_gl_has_extension.exit1551:                   ; preds = %2190, %.lr.ph.i1542
   br i1 %2196, label %glad_gl_has_extension.exit1565.thread, label %.preheader.i1562
 
 .preheader.i1562:                                 ; preds = %2195
-  %2197 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404466, ptr noundef nonnull readonly dereferenceable(1) @.str.850) #56
+  %2197 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404466, ptr noundef nonnull dereferenceable(1) @.str.850) #56
   %2198 = icmp eq ptr %2197, null
   br i1 %2198, label %glad_gl_has_extension.exit1565.thread, label %.lr.ph35.i1563
 
@@ -13578,7 +13578,7 @@ glad_gl_has_extension.exit1551:                   ; preds = %2190, %.lr.ph.i1542
   ]
 
 2208:                                             ; preds = %2206, %2202
-  %2209 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2200, ptr noundef nonnull readonly dereferenceable(1) @.str.850) #56
+  %2209 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2200, ptr noundef nonnull dereferenceable(1) @.str.850) #56
   %2210 = icmp eq ptr %2209, null
   br i1 %2210, label %glad_gl_has_extension.exit1565, label %.lr.ph35.i1563
 
@@ -13591,7 +13591,7 @@ glad_gl_has_extension.exit1551:                   ; preds = %2190, %.lr.ph.i1542
   %indvars.iv.i1557 = phi i64 [ 0, %.lr.ph.preheader.i1554 ], [ %indvars.iv.next.i1558, %2211 ]
   %2212 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305432443514370439744164443, i64 %indvars.iv.i1557
   %2213 = load ptr, ptr %2212, align 8
-  %2214 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2213, ptr noundef nonnull readonly dereferenceable(22) @.str.850) #56
+  %2214 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2213, ptr noundef nonnull dereferenceable(22) @.str.850) #56
   %2215 = icmp eq i32 %2214, 0
   br i1 %2215, label %glad_gl_has_extension.exit1565, label %2211
 
@@ -13628,7 +13628,7 @@ glad_gl_has_extension.exit1565:                   ; preds = %2211, %.lr.ph.i1556
   br i1 %2217, label %glad_gl_has_extension.exit1579.thread, label %.preheader.i1576
 
 .preheader.i1576:                                 ; preds = %2216
-  %2218 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674485, ptr noundef nonnull readonly dereferenceable(1) @.str.851) #56
+  %2218 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674485, ptr noundef nonnull dereferenceable(1) @.str.851) #56
   %2219 = icmp eq ptr %2218, null
   br i1 %2219, label %glad_gl_has_extension.exit1579.thread, label %.lr.ph35.i1577
 
@@ -13653,7 +13653,7 @@ glad_gl_has_extension.exit1565:                   ; preds = %2211, %.lr.ph.i1556
   ]
 
 2229:                                             ; preds = %2227, %2223
-  %2230 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2221, ptr noundef nonnull readonly dereferenceable(1) @.str.851) #56
+  %2230 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2221, ptr noundef nonnull dereferenceable(1) @.str.851) #56
   %2231 = icmp eq ptr %2230, null
   br i1 %2231, label %glad_gl_has_extension.exit1579, label %.lr.ph35.i1577
 
@@ -13666,7 +13666,7 @@ glad_gl_has_extension.exit1565:                   ; preds = %2211, %.lr.ph.i1556
   %indvars.iv.i1571 = phi i64 [ 0, %.lr.ph.preheader.i1568 ], [ %indvars.iv.next.i1572, %2232 ]
   %2233 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259427843054324435143704397441644434462, i64 %indvars.iv.i1571
   %2234 = load ptr, ptr %2233, align 8
-  %2235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2234, ptr noundef nonnull readonly dereferenceable(17) @.str.851) #56
+  %2235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2234, ptr noundef nonnull dereferenceable(17) @.str.851) #56
   %2236 = icmp eq i32 %2235, 0
   br i1 %2236, label %glad_gl_has_extension.exit1579, label %2232
 
@@ -13703,7 +13703,7 @@ glad_gl_has_extension.exit1579:                   ; preds = %2232, %.lr.ph.i1570
   br i1 %2238, label %glad_gl_has_extension.exit1593.thread, label %.preheader.i1590
 
 .preheader.i1590:                                 ; preds = %2237
-  %2239 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864512, ptr noundef nonnull readonly dereferenceable(1) @.str.852) #56
+  %2239 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864512, ptr noundef nonnull dereferenceable(1) @.str.852) #56
   %2240 = icmp eq ptr %2239, null
   br i1 %2240, label %glad_gl_has_extension.exit1593.thread, label %.lr.ph35.i1591
 
@@ -13728,7 +13728,7 @@ glad_gl_has_extension.exit1579:                   ; preds = %2232, %.lr.ph.i1570
   ]
 
 2250:                                             ; preds = %2248, %2244
-  %2251 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2242, ptr noundef nonnull readonly dereferenceable(1) @.str.852) #56
+  %2251 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2242, ptr noundef nonnull dereferenceable(1) @.str.852) #56
   %2252 = icmp eq ptr %2251, null
   br i1 %2252, label %glad_gl_has_extension.exit1593, label %.lr.ph35.i1591
 
@@ -13741,7 +13741,7 @@ glad_gl_has_extension.exit1579:                   ; preds = %2232, %.lr.ph.i1570
   %indvars.iv.i1585 = phi i64 [ 0, %.lr.ph.preheader.i1582 ], [ %indvars.iv.next.i1586, %2253 ]
   %2254 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278430543244351437043974416444344624489, i64 %indvars.iv.i1585
   %2255 = load ptr, ptr %2254, align 8
-  %2256 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2255, ptr noundef nonnull readonly dereferenceable(24) @.str.852) #56
+  %2256 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2255, ptr noundef nonnull dereferenceable(24) @.str.852) #56
   %2257 = icmp eq i32 %2256, 0
   br i1 %2257, label %glad_gl_has_extension.exit1593, label %2253
 
@@ -13778,7 +13778,7 @@ glad_gl_has_extension.exit1593:                   ; preds = %2253, %.lr.ph.i1584
   br i1 %2259, label %glad_gl_has_extension.exit1607.thread, label %.preheader.i1604
 
 .preheader.i1604:                                 ; preds = %2258
-  %2260 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134531, ptr noundef nonnull readonly dereferenceable(1) @.str.853) #56
+  %2260 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134531, ptr noundef nonnull dereferenceable(1) @.str.853) #56
   %2261 = icmp eq ptr %2260, null
   br i1 %2261, label %glad_gl_has_extension.exit1607.thread, label %.lr.ph35.i1605
 
@@ -13803,7 +13803,7 @@ glad_gl_has_extension.exit1593:                   ; preds = %2253, %.lr.ph.i1584
   ]
 
 2271:                                             ; preds = %2269, %2265
-  %2272 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2263, ptr noundef nonnull readonly dereferenceable(1) @.str.853) #56
+  %2272 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2263, ptr noundef nonnull dereferenceable(1) @.str.853) #56
   %2273 = icmp eq ptr %2272, null
   br i1 %2273, label %glad_gl_has_extension.exit1607, label %.lr.ph35.i1605
 
@@ -13816,7 +13816,7 @@ glad_gl_has_extension.exit1593:                   ; preds = %2253, %.lr.ph.i1584
   %indvars.iv.i1599 = phi i64 [ 0, %.lr.ph.preheader.i1596 ], [ %indvars.iv.next.i1600, %2274 ]
   %2275 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305432443514370439744164443446244894508, i64 %indvars.iv.i1599
   %2276 = load ptr, ptr %2275, align 8
-  %2277 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2276, ptr noundef nonnull readonly dereferenceable(31) @.str.853) #56
+  %2277 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2276, ptr noundef nonnull dereferenceable(31) @.str.853) #56
   %2278 = icmp eq i32 %2277, 0
   br i1 %2278, label %glad_gl_has_extension.exit1607, label %2274
 
@@ -13853,7 +13853,7 @@ glad_gl_has_extension.exit1607:                   ; preds = %2274, %.lr.ph.i1598
   br i1 %2280, label %glad_gl_has_extension.exit1621.thread, label %.preheader.i1618
 
 .preheader.i1618:                                 ; preds = %2279
-  %2281 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674486451345324558, ptr noundef nonnull readonly dereferenceable(1) @.str.854) #56
+  %2281 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674486451345324558, ptr noundef nonnull dereferenceable(1) @.str.854) #56
   %2282 = icmp eq ptr %2281, null
   br i1 %2282, label %glad_gl_has_extension.exit1621.thread, label %.lr.ph35.i1619
 
@@ -13878,7 +13878,7 @@ glad_gl_has_extension.exit1607:                   ; preds = %2274, %.lr.ph.i1598
   ]
 
 2292:                                             ; preds = %2290, %2286
-  %2293 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2284, ptr noundef nonnull readonly dereferenceable(1) @.str.854) #56
+  %2293 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2284, ptr noundef nonnull dereferenceable(1) @.str.854) #56
   %2294 = icmp eq ptr %2293, null
   br i1 %2294, label %glad_gl_has_extension.exit1621, label %.lr.ph35.i1619
 
@@ -13891,7 +13891,7 @@ glad_gl_has_extension.exit1607:                   ; preds = %2274, %.lr.ph.i1598
   %indvars.iv.i1613 = phi i64 [ 0, %.lr.ph.preheader.i1610 ], [ %indvars.iv.next.i1614, %2295 ]
   %2296 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259427843054324435143704397441644434462448945084535, i64 %indvars.iv.i1613
   %2297 = load ptr, ptr %2296, align 8
-  %2298 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2297, ptr noundef nonnull readonly dereferenceable(26) @.str.854) #56
+  %2298 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2297, ptr noundef nonnull dereferenceable(26) @.str.854) #56
   %2299 = icmp eq i32 %2298, 0
   br i1 %2299, label %glad_gl_has_extension.exit1621, label %2295
 
@@ -13928,7 +13928,7 @@ glad_gl_has_extension.exit1621:                   ; preds = %2295, %.lr.ph.i1612
   br i1 %2301, label %glad_gl_has_extension.exit1635.thread, label %.preheader.i1632
 
 .preheader.i1632:                                 ; preds = %2300
-  %2302 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864513453245594577, ptr noundef nonnull readonly dereferenceable(1) @.str.855) #56
+  %2302 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864513453245594577, ptr noundef nonnull dereferenceable(1) @.str.855) #56
   %2303 = icmp eq ptr %2302, null
   br i1 %2303, label %glad_gl_has_extension.exit1635.thread, label %.lr.ph35.i1633
 
@@ -13953,7 +13953,7 @@ glad_gl_has_extension.exit1621:                   ; preds = %2295, %.lr.ph.i1612
   ]
 
 2313:                                             ; preds = %2311, %2307
-  %2314 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2305, ptr noundef nonnull readonly dereferenceable(1) @.str.855) #56
+  %2314 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2305, ptr noundef nonnull dereferenceable(1) @.str.855) #56
   %2315 = icmp eq ptr %2314, null
   br i1 %2315, label %glad_gl_has_extension.exit1635, label %.lr.ph35.i1633
 
@@ -13966,7 +13966,7 @@ glad_gl_has_extension.exit1621:                   ; preds = %2295, %.lr.ph.i1612
   %indvars.iv.i1627 = phi i64 [ 0, %.lr.ph.preheader.i1624 ], [ %indvars.iv.next.i1628, %2316 ]
   %2317 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278430543244351437043974416444344624489450845354554, i64 %indvars.iv.i1627
   %2318 = load ptr, ptr %2317, align 8
-  %2319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2318, ptr noundef nonnull readonly dereferenceable(24) @.str.855) #56
+  %2319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2318, ptr noundef nonnull dereferenceable(24) @.str.855) #56
   %2320 = icmp eq i32 %2319, 0
   br i1 %2320, label %glad_gl_has_extension.exit1635, label %2316
 
@@ -14003,7 +14003,7 @@ glad_gl_has_extension.exit1635:                   ; preds = %2316, %.lr.ph.i1626
   br i1 %2322, label %glad_gl_has_extension.exit1649.thread, label %.preheader.i1646
 
 .preheader.i1646:                                 ; preds = %2321
-  %2323 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134532455945784604, ptr noundef nonnull readonly dereferenceable(1) @.str.856) #56
+  %2323 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134532455945784604, ptr noundef nonnull dereferenceable(1) @.str.856) #56
   %2324 = icmp eq ptr %2323, null
   br i1 %2324, label %glad_gl_has_extension.exit1649.thread, label %.lr.ph35.i1647
 
@@ -14028,7 +14028,7 @@ glad_gl_has_extension.exit1635:                   ; preds = %2316, %.lr.ph.i1626
   ]
 
 2334:                                             ; preds = %2332, %2328
-  %2335 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2326, ptr noundef nonnull readonly dereferenceable(1) @.str.856) #56
+  %2335 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2326, ptr noundef nonnull dereferenceable(1) @.str.856) #56
   %2336 = icmp eq ptr %2335, null
   br i1 %2336, label %glad_gl_has_extension.exit1649, label %.lr.ph35.i1647
 
@@ -14041,7 +14041,7 @@ glad_gl_has_extension.exit1635:                   ; preds = %2316, %.lr.ph.i1626
   %indvars.iv.i1641 = phi i64 [ 0, %.lr.ph.preheader.i1638 ], [ %indvars.iv.next.i1642, %2337 ]
   %2338 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305432443514370439744164443446244894508453545544581, i64 %indvars.iv.i1641
   %2339 = load ptr, ptr %2338, align 8
-  %2340 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2339, ptr noundef nonnull readonly dereferenceable(32) @.str.856) #56
+  %2340 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2339, ptr noundef nonnull dereferenceable(32) @.str.856) #56
   %2341 = icmp eq i32 %2340, 0
   br i1 %2341, label %glad_gl_has_extension.exit1649, label %2337
 
@@ -14078,7 +14078,7 @@ glad_gl_has_extension.exit1649:                   ; preds = %2337, %.lr.ph.i1640
   br i1 %2343, label %glad_gl_has_extension.exit1663.thread, label %.preheader.i1660
 
 .preheader.i1660:                                 ; preds = %2342
-  %2344 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674486451345324559457846054623, ptr noundef nonnull readonly dereferenceable(1) @.str.857) #56
+  %2344 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674486451345324559457846054623, ptr noundef nonnull dereferenceable(1) @.str.857) #56
   %2345 = icmp eq ptr %2344, null
   br i1 %2345, label %glad_gl_has_extension.exit1663.thread, label %.lr.ph35.i1661
 
@@ -14103,7 +14103,7 @@ glad_gl_has_extension.exit1649:                   ; preds = %2337, %.lr.ph.i1640
   ]
 
 2355:                                             ; preds = %2353, %2349
-  %2356 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2347, ptr noundef nonnull readonly dereferenceable(1) @.str.857) #56
+  %2356 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2347, ptr noundef nonnull dereferenceable(1) @.str.857) #56
   %2357 = icmp eq ptr %2356, null
   br i1 %2357, label %glad_gl_has_extension.exit1663, label %.lr.ph35.i1661
 
@@ -14116,7 +14116,7 @@ glad_gl_has_extension.exit1649:                   ; preds = %2337, %.lr.ph.i1640
   %indvars.iv.i1655 = phi i64 [ 0, %.lr.ph.preheader.i1652 ], [ %indvars.iv.next.i1656, %2358 ]
   %2359 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259427843054324435143704397441644434462448945084535455445814600, i64 %indvars.iv.i1655
   %2360 = load ptr, ptr %2359, align 8
-  %2361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2360, ptr noundef nonnull readonly dereferenceable(34) @.str.857) #56
+  %2361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2360, ptr noundef nonnull dereferenceable(34) @.str.857) #56
   %2362 = icmp eq i32 %2361, 0
   br i1 %2362, label %glad_gl_has_extension.exit1663, label %2358
 
@@ -14153,7 +14153,7 @@ glad_gl_has_extension.exit1663:                   ; preds = %2358, %.lr.ph.i1654
   br i1 %2364, label %glad_gl_has_extension.exit1677.thread, label %.preheader.i1674
 
 .preheader.i1674:                                 ; preds = %2363
-  %2365 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864513453245594578460546244650, ptr noundef nonnull readonly dereferenceable(1) @.str.858) #56
+  %2365 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864513453245594578460546244650, ptr noundef nonnull dereferenceable(1) @.str.858) #56
   %2366 = icmp eq ptr %2365, null
   br i1 %2366, label %glad_gl_has_extension.exit1677.thread, label %.lr.ph35.i1675
 
@@ -14178,7 +14178,7 @@ glad_gl_has_extension.exit1663:                   ; preds = %2358, %.lr.ph.i1654
   ]
 
 2376:                                             ; preds = %2374, %2370
-  %2377 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2368, ptr noundef nonnull readonly dereferenceable(1) @.str.858) #56
+  %2377 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2368, ptr noundef nonnull dereferenceable(1) @.str.858) #56
   %2378 = icmp eq ptr %2377, null
   br i1 %2378, label %glad_gl_has_extension.exit1677, label %.lr.ph35.i1675
 
@@ -14191,7 +14191,7 @@ glad_gl_has_extension.exit1663:                   ; preds = %2358, %.lr.ph.i1654
   %indvars.iv.i1669 = phi i64 [ 0, %.lr.ph.preheader.i1666 ], [ %indvars.iv.next.i1670, %2379 ]
   %2380 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278430543244351437043974416444344624489450845354554458146004627, i64 %indvars.iv.i1669
   %2381 = load ptr, ptr %2380, align 8
-  %2382 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2381, ptr noundef nonnull readonly dereferenceable(28) @.str.858) #56
+  %2382 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2381, ptr noundef nonnull dereferenceable(28) @.str.858) #56
   %2383 = icmp eq i32 %2382, 0
   br i1 %2383, label %glad_gl_has_extension.exit1677, label %2379
 
@@ -14228,7 +14228,7 @@ glad_gl_has_extension.exit1677:                   ; preds = %2379, %.lr.ph.i1668
   br i1 %2385, label %glad_gl_has_extension.exit1691.thread, label %.preheader.i1688
 
 .preheader.i1688:                                 ; preds = %2384
-  %2386 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134532455945784605462446514669, ptr noundef nonnull readonly dereferenceable(1) @.str.859) #56
+  %2386 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134532455945784605462446514669, ptr noundef nonnull dereferenceable(1) @.str.859) #56
   %2387 = icmp eq ptr %2386, null
   br i1 %2387, label %glad_gl_has_extension.exit1691.thread, label %.lr.ph35.i1689
 
@@ -14253,7 +14253,7 @@ glad_gl_has_extension.exit1677:                   ; preds = %2379, %.lr.ph.i1668
   ]
 
 2397:                                             ; preds = %2395, %2391
-  %2398 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2389, ptr noundef nonnull readonly dereferenceable(1) @.str.859) #56
+  %2398 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2389, ptr noundef nonnull dereferenceable(1) @.str.859) #56
   %2399 = icmp eq ptr %2398, null
   br i1 %2399, label %glad_gl_has_extension.exit1691, label %.lr.ph35.i1689
 
@@ -14266,7 +14266,7 @@ glad_gl_has_extension.exit1677:                   ; preds = %2379, %.lr.ph.i1668
   %indvars.iv.i1683 = phi i64 [ 0, %.lr.ph.preheader.i1680 ], [ %indvars.iv.next.i1684, %2400 ]
   %2401 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305432443514370439744164443446244894508453545544581460046274646, i64 %indvars.iv.i1683
   %2402 = load ptr, ptr %2401, align 8
-  %2403 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2402, ptr noundef nonnull readonly dereferenceable(36) @.str.859) #56
+  %2403 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2402, ptr noundef nonnull dereferenceable(36) @.str.859) #56
   %2404 = icmp eq i32 %2403, 0
   br i1 %2404, label %glad_gl_has_extension.exit1691, label %2400
 
@@ -14303,7 +14303,7 @@ glad_gl_has_extension.exit1691:                   ; preds = %2400, %.lr.ph.i1682
   br i1 %2406, label %glad_gl_has_extension.exit1705.thread, label %.preheader.i1702
 
 .preheader.i1702:                                 ; preds = %2405
-  %2407 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674486451345324559457846054624465146704696, ptr noundef nonnull readonly dereferenceable(1) @.str.860) #56
+  %2407 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.02093210421222140216721862213223222592278230523242351237023972416244324622489250825352554258126002627264626732692271927382765278428112830285728762903292229492968299530143041306030873106313331523179319832253244327132903317333633633382340934283455347435013520354735663593361236393658368537043731375037773796382338423869388839153934396139804007402640534072409941184145416441914210423742564283430243294348437543944421444044674486451345324559457846054624465146704696, ptr noundef nonnull dereferenceable(1) @.str.860) #56
   %2408 = icmp eq ptr %2407, null
   br i1 %2408, label %glad_gl_has_extension.exit1705.thread, label %.lr.ph35.i1703
 
@@ -14328,7 +14328,7 @@ glad_gl_has_extension.exit1691:                   ; preds = %2400, %.lr.ph.i1682
   ]
 
 2418:                                             ; preds = %2416, %2412
-  %2419 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2410, ptr noundef nonnull readonly dereferenceable(1) @.str.860) #56
+  %2419 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2410, ptr noundef nonnull dereferenceable(1) @.str.860) #56
   %2420 = icmp eq ptr %2419, null
   br i1 %2420, label %glad_gl_has_extension.exit1705, label %.lr.ph35.i1703
 
@@ -14341,7 +14341,7 @@ glad_gl_has_extension.exit1691:                   ; preds = %2400, %.lr.ph.i1682
   %indvars.iv.i1697 = phi i64 [ 0, %.lr.ph.preheader.i1694 ], [ %indvars.iv.next.i1698, %2421 ]
   %2422 = getelementptr inbounds ptr, ptr %.0209121072117214321622189220822352254228123002327234623732392241924382465248425112530255725762603262226492668269527142741276027872806283328522879289829252944297129903017303630633082310931283155317432013220324732663293331233393358338534043431345034773496352335423569358836153634366136803707372637533772379938183845386438913910393739563983400240294048407540944121414041674186421342324259427843054324435143704397441644434462448945084535455445814600462746464673, i64 %indvars.iv.i1697
   %2423 = load ptr, ptr %2422, align 8
-  %2424 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2423, ptr noundef nonnull readonly dereferenceable(36) @.str.860) #56
+  %2424 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2423, ptr noundef nonnull dereferenceable(36) @.str.860) #56
   %2425 = icmp eq i32 %2424, 0
   br i1 %2425, label %glad_gl_has_extension.exit1705, label %2421
 
@@ -14378,7 +14378,7 @@ glad_gl_has_extension.exit1705:                   ; preds = %2421, %.lr.ph.i1696
   br i1 %2427, label %glad_gl_has_extension.exit1719.thread, label %.preheader.i1716
 
 .preheader.i1716:                                 ; preds = %2426
-  %2428 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864513453245594578460546244651467046974715, ptr noundef nonnull readonly dereferenceable(1) @.str.861) #56
+  %2428 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.020932104212221402167218622132232225922782305232423512370239724162443246224892508253525542581260026272646267326922719273827652784281128302857287629032922294929682995301430413060308731063133315231793198322532443271329033173336336333823409342834553474350135203547356635933612363936583685370437313750377737963823384238693888391539343961398040074026405340724099411841454164419142104237425642834302432943484375439444214440446744864513453245594578460546244651467046974715, ptr noundef nonnull dereferenceable(1) @.str.861) #56
   %2429 = icmp eq ptr %2428, null
   br i1 %2429, label %glad_gl_has_extension.exit1719.thread, label %.lr.ph35.i1717
 
@@ -14403,7 +14403,7 @@ glad_gl_has_extension.exit1705:                   ; preds = %2421, %.lr.ph.i1696
   ]
 
 2439:                                             ; preds = %2437, %2433
-  %2440 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2431, ptr noundef nonnull readonly dereferenceable(1) @.str.861) #56
+  %2440 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2431, ptr noundef nonnull dereferenceable(1) @.str.861) #56
   %2441 = icmp eq ptr %2440, null
   br i1 %2441, label %glad_gl_has_extension.exit1719, label %.lr.ph35.i1717
 
@@ -14416,7 +14416,7 @@ glad_gl_has_extension.exit1705:                   ; preds = %2421, %.lr.ph.i1696
   %indvars.iv.i1711 = phi i64 [ 0, %.lr.ph.preheader.i1708 ], [ %indvars.iv.next.i1712, %2442 ]
   %2443 = getelementptr inbounds ptr, ptr %.02091210721172143216221892208223522542281230023272346237323922419243824652484251125302557257626032622264926682695271427412760278728062833285228792898292529442971299030173036306330823109312831553174320132203247326632933312333933583385340434313450347734963523354235693588361536343661368037073726375337723799381838453864389139103937395639834002402940484075409441214140416741864213423242594278430543244351437043974416444344624489450845354554458146004627464646734692, i64 %indvars.iv.i1711
   %2444 = load ptr, ptr %2443, align 8
-  %2445 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2444, ptr noundef nonnull readonly dereferenceable(35) @.str.861) #56
+  %2445 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2444, ptr noundef nonnull dereferenceable(35) @.str.861) #56
   %2446 = icmp eq i32 %2445, 0
   br i1 %2446, label %glad_gl_has_extension.exit1719, label %2442
 
@@ -14453,7 +14453,7 @@ glad_gl_has_extension.exit1719:                   ; preds = %2442, %.lr.ph.i1710
   br i1 %2448, label %glad_gl_has_extension.exit1733, label %.preheader.i1730
 
 .preheader.i1730:                                 ; preds = %2447
-  %2449 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134532455945784605462446514670469747164742, ptr noundef nonnull readonly dereferenceable(1) @.str.862) #56
+  %2449 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0209321042122214021672186221322322259227823052324235123702397241624432462248925082535255425812600262726462673269227192738276527842811283028572876290329222949296829953014304130603087310631333152317931983225324432713290331733363363338234093428345534743501352035473566359336123639365836853704373137503777379638233842386938883915393439613980400740264053407240994118414541644191421042374256428343024329434843754394442144404467448645134532455945784605462446514670469747164742, ptr noundef nonnull dereferenceable(1) @.str.862) #56
   %2450 = icmp eq ptr %2449, null
   br i1 %2450, label %glad_gl_has_extension.exit1733, label %.lr.ph35.i1731
 
@@ -14478,7 +14478,7 @@ glad_gl_has_extension.exit1719:                   ; preds = %2442, %.lr.ph.i1710
   ]
 
 2460:                                             ; preds = %2458, %2454
-  %2461 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2452, ptr noundef nonnull readonly dereferenceable(1) @.str.862) #56
+  %2461 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2452, ptr noundef nonnull dereferenceable(1) @.str.862) #56
   %2462 = icmp eq ptr %2461, null
   br i1 %2462, label %glad_gl_has_extension.exit1733, label %.lr.ph35.i1731
 
@@ -14491,7 +14491,7 @@ glad_gl_has_extension.exit1719:                   ; preds = %2442, %.lr.ph.i1710
   %indvars.iv.i1725 = phi i64 [ 0, %.lr.ph.preheader.i1722 ], [ %indvars.iv.next.i1726, %2463 ]
   %2464 = getelementptr inbounds ptr, ptr %.020912107211721432162218922082235225422812300232723462373239224192438246524842511253025572576260326222649266826952714274127602787280628332852287928982925294429712990301730363063308231093128315531743201322032473266329333123339335833853404343134503477349635233542356935883615363436613680370737263753377237993818384538643891391039373956398340024029404840754094412141404167418642134232425942784305432443514370439744164443446244894508453545544581460046274646467346924719, i64 %indvars.iv.i1725
   %2465 = load ptr, ptr %2464, align 8
-  %2466 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2465, ptr noundef nonnull readonly dereferenceable(19) @.str.862) #56
+  %2466 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2465, ptr noundef nonnull dereferenceable(19) @.str.862) #56
   %2467 = icmp eq i32 %2466, 0
   br i1 %2467, label %glad_gl_has_extension.exit1733.thread, label %2463
 
@@ -28845,7 +28845,7 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias nocapture writ
   %11 = fpext float %2 to double
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %12 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %12, i8 0, i64 60, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 60, i1 false), !alias.scope !7
   %13 = fmul double %10, 5.000000e-01
   %14 = tail call double @tan(double noundef %13) #55, !noalias !7
   %15 = fmul double %14, 1.000000e-02
@@ -28915,7 +28915,7 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias nocapture writ
 
 63:                                               ; preds = %3
   %64 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %64, i8 0, i64 56, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %64, i8 0, i64 56, i1 false), !alias.scope !13
   store float 1.000000e+00, ptr %0, align 4, !alias.scope !13
   br label %65
 
@@ -34388,10 +34388,10 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.sroa.6.1.i = phi i32 [ 1, %234 ], [ %.sroa.6.0.i, %231 ]
   %238 = add i32 %.sroa.6.1.i, %.sroa.3.1.i
   %239 = sext i32 %.sroa.3.1.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %18, i64 %239, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %18, i64 %239, i1 false)
   %240 = getelementptr inbounds i8, ptr %5, i64 %239
   %241 = sext i32 %.sroa.6.1.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %240, ptr nonnull readonly align 1 %27, i64 %241, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %240, ptr nonnull align 1 %27, i64 %241, i1 false)
   %242 = add i32 %238, -1
   br label %243
 
@@ -34767,7 +34767,7 @@ sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sde
   %431 = mul nuw nsw i64 %indvars.iv253.i, 65535
   %432 = getelementptr inbounds i8, ptr %375, i64 %431
   %433 = sext i32 %381 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %430, ptr readonly align 1 %432, i64 %433, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %430, ptr align 1 %432, i64 %433, i1 false)
   %434 = getelementptr inbounds i8, ptr %430, i64 %433
   %435 = sub nsw i32 %.0230.i, %381
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next254.i, %wide.trip.count.i155
@@ -40657,7 +40657,7 @@ GetFileName.exit:                                 ; preds = %.preheader.i, %rlRe
   %49 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %48) #55
   %50 = call zeroext i1 @ExportImage(ptr noundef nonnull byval(%struct.Image) align 8 %3, ptr noundef nonnull %4) #55
   call void @free(ptr noundef %22) #55
-  %51 = call i32 @access(ptr noundef nonnull readonly %4, i32 noundef 0) #55
+  %51 = call i32 @access(ptr noundef nonnull %4, i32 noundef 0) #55
   %.not.i8.not = icmp eq i32 %51, -1
   br i1 %.not.i8.not, label %53, label %52
 
@@ -42236,7 +42236,7 @@ define void @GetViewRay(ptr dead_on_unwind noalias nocapture writable writeonly 
   store float %88, ptr %89, align 4, !alias.scope !43
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %20, align 8, !alias.scope !43
   %90 = getelementptr inbounds i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %90, i8 0, i64 56, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %90, i8 0, i64 56, i1 false), !alias.scope !46
   store float 1.000000e+00, ptr %7, align 8, !alias.scope !46
   %91 = getelementptr inbounds i8, ptr %7, i64 20
   store float 1.000000e+00, ptr %91, align 4, !alias.scope !46
@@ -43012,7 +43012,7 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 define noundef zeroext i1 @IsFileExtension(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [17 x i8], align 16
-  %5 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 46) #56
+  %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #56
   %6 = icmp eq ptr %5, %0
   %.not10 = icmp eq ptr %5, null
   %.not = or i1 %6, %.not10
@@ -43721,7 +43721,7 @@ sub_2.us:                                         ; preds = %sub_133.us
   %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %0, ptr noundef nonnull %15) #55
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %31 = call i32 @stat(ptr noundef nonnull readonly %5, ptr noundef nonnull %4) #55
+  %31 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #55
   %32 = load i32, ptr %9, align 8
   %33 = and i32 %32, 61440
   %34 = icmp eq i32 %33, 32768
@@ -43795,7 +43795,7 @@ sub_2:                                            ; preds = %sub_133
   %67 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %0, ptr noundef nonnull %52) #55
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %68 = call i32 @stat(ptr noundef nonnull readonly %5, ptr noundef nonnull %4) #55
+  %68 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #55
   %69 = load i32, ptr %9, align 8
   %70 = and i32 %69, 61440
   %71 = icmp eq i32 %70, 32768
@@ -43971,7 +43971,7 @@ define noundef ptr @CompressData(ptr nocapture noundef readonly %0, i32 noundef 
   %9 = add i32 %8, %7
   %10 = sext i32 %9 to i64
   %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 1) #58
-  %12 = tail call fastcc i32 @sdefl_compr(ptr noundef nonnull %4, ptr noundef %11, ptr noundef readonly %0, i32 noundef %1, i32 noundef 8)
+  %12 = tail call fastcc i32 @sdefl_compr(ptr noundef nonnull %4, ptr noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 8)
   store i32 %12, ptr %2, align 4
   tail call void @free(ptr noundef %4) #55
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.188, i32 noundef %1, i32 noundef %12) #55

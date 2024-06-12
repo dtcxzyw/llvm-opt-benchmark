@@ -120,7 +120,7 @@ invoke.cont9.i:                                   ; preds = %_ZN11ast_manager7in
   store i32 0, ptr %weaken_success.i.i.i, align 4
   %weaken_fail.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store i32 0, ptr %weaken_fail.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %watch.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %watch.i.i, i8 0, i64 17, i1 false)
   %m_only_array_eligible.i = getelementptr inbounds i8, ptr %call, i64 80
   store i8 %frombool.i, ptr %m_only_array_eligible.i, align 8
   %m_enable_litweak.i = getelementptr inbounds i8, ptr %call, i64 81

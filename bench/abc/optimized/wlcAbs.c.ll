@@ -818,7 +818,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val108, i64 %169
   tail call void @Wlc_NtkCleanMarks(ptr noundef nonnull %0) #23
-  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %170, ptr noundef nonnull readonly %12, ptr noundef nonnull %50, ptr noundef null)
+  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %170, ptr noundef nonnull %12, ptr noundef nonnull %50, ptr noundef null)
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %.val114 = load i32, ptr %112, align 4
   %171 = sext i32 %.val114 to i64
@@ -842,7 +842,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val100, i64 %176
   tail call void @Wlc_NtkCleanMarks(ptr noundef nonnull %0) #23
-  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %177, ptr noundef nonnull readonly %21, ptr noundef nonnull %50, ptr noundef null)
+  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %177, ptr noundef nonnull %21, ptr noundef nonnull %50, ptr noundef null)
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
   br i1 %exitcond.not, label %.critedge6.preheader, label %.critedge4, !llvm.loop !15
@@ -856,7 +856,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val99, i64 %181
   tail call void @Wlc_NtkCleanMarks(ptr noundef %0) #23
-  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef %0, ptr noundef %182, ptr noundef nonnull readonly %21, ptr noundef null, ptr noundef nonnull %41)
+  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef %0, ptr noundef %182, ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %41)
   %.val93 = load i32, ptr %43, align 4
   %183 = icmp sgt i32 %.val93, 0
   br i1 %183, label %.lr.ph150, label %.critedge6
@@ -2248,7 +2248,7 @@ define range(i32 -1, 2) i32 @Wla_ManShrinkAbs(ptr nocapture noundef readonly %0,
 Abc_Clock.exit.i:                                 ; preds = %11, %3
   %.0.i.neg.i = phi i64 [ %.neg2.i, %11 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %15 = call ptr @Wlc_NtkIntroduceChoices(ptr noundef %8, ptr noundef readonly %6, ptr noundef %7)
+  %15 = call ptr @Wlc_NtkIntroduceChoices(ptr noundef %8, ptr noundef %6, ptr noundef %7)
   %16 = getelementptr i8, ptr %15, i64 20
   %.val.i.i = load i32, ptr %16, align 4
   %17 = icmp sgt i32 %.val.i.i, 0
@@ -2293,10 +2293,10 @@ Wlc_NtkNumPiBits.exit.i:                          ; preds = %20, %Abc_Clock.exit
   br i1 %.not.i.i.i, label %Abc_UtilStrsav.exit.i.i, label %36
 
 36:                                               ; preds = %Wlc_NtkNumPiBits.exit.i
-  %37 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #24
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #24
   %38 = add i64 %37, 1
   %39 = call noalias ptr @malloc(i64 noundef %38) #26
-  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %35) #23
+  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %35) #23
   br label %Abc_UtilStrsav.exit.i.i
 
 Abc_UtilStrsav.exit.i.i:                          ; preds = %36, %Wlc_NtkNumPiBits.exit.i
@@ -5375,7 +5375,7 @@ Vec_BitStart.exit85.i:                            ; preds = %109, %Vec_BitStart.
   br i1 %exitcond103.not, label %.split.i, label %132, !llvm.loop !58
 
 .split.i:                                         ; preds = %.critedge.i, %.critedge.preheader.i
-  %150 = call ptr @Wlc_NtkIntroduceChoices(ptr noundef %79, ptr noundef nonnull readonly %84, ptr noundef null)
+  %150 = call ptr @Wlc_NtkIntroduceChoices(ptr noundef %79, ptr noundef nonnull %84, ptr noundef null)
   %151 = getelementptr i8, ptr %79, i64 20
   %.val.i86.i = load i32, ptr %151, align 4
   %152 = icmp sgt i32 %.val.i86.i, 0
@@ -5465,10 +5465,10 @@ Wlc_NtkNumPiBits.exit.i.i:                        ; preds = %173, %.loopexit.i
   br i1 %.not.i.i99.i, label %Abc_UtilStrsav.exit.i.i, label %193
 
 193:                                              ; preds = %Wlc_NtkNumPiBits.exit.i.i
-  %194 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %192) #24
+  %194 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %192) #24
   %195 = add i64 %194, 1
   %196 = call noalias ptr @malloc(i64 noundef %195) #26
-  %197 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %196, ptr noundef nonnull readonly dereferenceable(1) %192) #23
+  %197 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %196, ptr noundef nonnull dereferenceable(1) %192) #23
   br label %Abc_UtilStrsav.exit.i.i
 
 Abc_UtilStrsav.exit.i.i:                          ; preds = %193, %Wlc_NtkNumPiBits.exit.i.i
@@ -6922,8 +6922,8 @@ define internal fastcc i32 @Wlc_NtkRemoveFromAbstraction(ptr noundef %0, ptr noc
 
 Wlc_NtkMarkMffc.exit:                             ; preds = %.lr.ph.i, %16
   %.0.lcssa.i = phi ptr [ %20, %16 ], [ %42, %.lr.ph.i ]
-  %44 = tail call fastcc i32 @Wlc_NtkNodeDeref_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %.0.lcssa.i, ptr noundef readonly %2)
-  %45 = tail call fastcc i32 @Wlc_NtkNodeRef_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %.0.lcssa.i)
+  %44 = tail call fastcc i32 @Wlc_NtkNodeDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.i, ptr noundef %2)
+  %45 = tail call fastcc i32 @Wlc_NtkNodeRef_rec(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.i)
   %46 = add nsw i32 %44, %.018
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4
@@ -7446,7 +7446,7 @@ Vec_IntDup.exit:                                  ; preds = %59, %66
   br i1 %78, label %79, label %103
 
 79:                                               ; preds = %76
-  %80 = call fastcc ptr @Wlc_NtkMarkLimit(ptr noundef readonly %0, ptr noundef nonnull readonly %1)
+  %80 = call fastcc ptr @Wlc_NtkMarkLimit(ptr noundef %0, ptr noundef nonnull %1)
   %81 = getelementptr i8, ptr %80, i64 4
   %.val10.i = load i32, ptr %81, align 4
   %82 = icmp sgt i32 %.val10.i, 0
@@ -7722,7 +7722,7 @@ Wlc_NtkAbsMarkOpers.exit.i:                       ; preds = %197, %.critedge.i.i
   %202 = load i32, ptr %201, align 4
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val44.i.i, i64 %203
-  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %204, ptr noundef nonnull readonly %122, ptr noundef nonnull %105, ptr noundef nonnull %109, ptr noundef nonnull %113)
+  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %204, ptr noundef nonnull %122, ptr noundef nonnull %105, ptr noundef nonnull %109, ptr noundef nonnull %113)
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %.val47.i.i = load i32, ptr %42, align 4
   %205 = sext i32 %.val47.i.i to i64
@@ -7749,7 +7749,7 @@ Wlc_NtkAbsMarkOpers.exit.i:                       ; preds = %197, %.critedge.i.i
   %216 = load i32, ptr %215, align 4
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val42.i.i, i64 %217
-  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %218, ptr noundef nonnull readonly %122, ptr noundef nonnull %105, ptr noundef nonnull %109, ptr noundef nonnull %113)
+  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %218, ptr noundef nonnull %122, ptr noundef nonnull %105, ptr noundef nonnull %109, ptr noundef nonnull %113)
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %.val.i25.i = load i32, ptr %114, align 4
   %219 = sext i32 %.val.i25.i to i64

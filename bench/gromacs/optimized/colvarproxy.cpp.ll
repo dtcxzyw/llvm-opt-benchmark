@@ -3819,7 +3819,7 @@ define void @_ZN11colvarproxyC2Ev(ptr noundef nonnull align 8 dereferenceable(11
   store ptr getelementptr inbounds (i8, ptr @_ZTV17colvarproxy_atoms, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   %5 = getelementptr inbounds i8, ptr %0, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(184) %4, i8 0, i64 184, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %4, i8 0, i64 184, i1 false)
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 452
   store i8 0, ptr %6, align 4
@@ -3830,7 +3830,7 @@ define void @_ZN11colvarproxyC2Ev(ptr noundef nonnull align 8 dereferenceable(11
   %9 = getelementptr inbounds i8, ptr %0, i64 456
   store ptr getelementptr inbounds (i8, ptr @_ZTV23colvarproxy_atom_groups, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 464
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 648
   invoke void @_ZN19colvarproxy_volmapsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %11)
           to label %12 unwind label %46

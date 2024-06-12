@@ -3277,7 +3277,7 @@ ehcleanup.i.i.i815:                               ; preds = %lpad80.i.i.i827, %l
   store ptr @"_ZNSt17_Function_handlerIFvRN2tf7SubflowEEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !30
   store ptr @"_ZNSt17_Function_handlerIFvRN2tf7SubflowEEZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !30
   %subgraph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i797, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %subgraph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subgraph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !30
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i840 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i797, i64 232
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i840, align 8, !noalias !30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i765) #27, !noalias !30

@@ -2589,7 +2589,7 @@ if.end62:                                         ; preds = %close_conn.exit123
 define internal noundef i32 @test_binary_noop() #0 {
 entry:
   %buffer = alloca %union.anon.0, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 10, ptr %opcode.i.i, align 1
@@ -2819,7 +2819,7 @@ entry:
 define internal noundef i32 @test_binary_version() #0 {
 entry:
   %buffer = alloca %union.anon.20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 11, ptr %opcode.i.i, align 1
@@ -2937,7 +2937,7 @@ entry:
 define internal noundef i32 @test_binary_stat() #0 {
 entry:
   %buffer = alloca %union.anon.25, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 16, ptr %opcode.i.i, align 1
@@ -3033,7 +3033,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %safe_recv_packet.exit
   %cmd.04 = phi i8 [ 37, %entry ], [ %inc, %safe_recv_packet.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   store i8 %cmd.04, ptr %opcode.i.i, align 1
   store i16 %call.i.i, ptr %keylen8.i.i, align 2
@@ -3203,7 +3203,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i
   unreachable
 
 storage_command.exit.i:                           ; preds = %sw.bb.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %conv.i.i = trunc nsw i32 %add2.i to i16
@@ -3216,7 +3216,7 @@ storage_command.exit.i:                           ; preds = %sw.bb.i
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
   store i32 0, ptr %invariant.gep.i, align 8
   store i32 0, ptr %add.ptr.i94.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %initial14.i.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %initial14.i.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %initial14.i.i, i64 %conv3.i
   store i64 -77129852189294865, ptr %add.ptr18.i.i, align 1
   br label %sw.epilog.i
@@ -3231,7 +3231,7 @@ if.else.i.i.i:                                    ; preds = %sw.bb7.i
   unreachable
 
 raw_command.exit.i:                               ; preds = %sw.bb7.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %conv6.i.i.i = trunc nsw i32 %add2.i to i16
@@ -3241,13 +3241,13 @@ raw_command.exit.i:                               ; preds = %sw.bb7.i
   %call12.i.i.i = call i32 @htonl(i32 noundef %add10.i.i.i) #22
   store i32 %call12.i.i.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %conv3.i
   store i64 -77129852189294865, ptr %gep.i, align 1
   br label %sw.epilog.i
 
 sw.bb11.i:                                        ; preds = %while.body.i, %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %call.i.i25.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -3258,7 +3258,7 @@ sw.bb11.i:                                        ; preds = %while.body.i, %whil
   br label %sw.epilog.i
 
 sw.bb14.i:                                        ; preds = %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 10, ptr %opcode.i.i95.i, align 1
   %call.i.i31.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -3278,7 +3278,7 @@ if.else.i.i39.i:                                  ; preds = %sw.bb17.i
   unreachable
 
 raw_command.exit50.i:                             ; preds = %sw.bb17.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %conv6.i.i41.i = trunc nsw i32 %add2.i to i16
@@ -3287,7 +3287,7 @@ raw_command.exit50.i:                             ; preds = %sw.bb17.i
   %call12.i.i46.i = call i32 @htonl(i32 noundef %add2.i) #22
   store i32 %call12.i.i46.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
   br label %sw.epilog.i
 
 sw.bb21.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
@@ -3300,7 +3300,7 @@ if.else.i53.i:                                    ; preds = %sw.bb21.i
   unreachable
 
 arithmetic_command.exit.i:                        ; preds = %sw.bb21.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %command.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %command.i, i8 0, i64 48, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %conv.i55.i = trunc nsw i32 %add2.i to i16
@@ -3317,12 +3317,12 @@ arithmetic_command.exit.i:                        ; preds = %sw.bb21.i
   store i64 %call12.i.i, ptr %initial14.i.i, align 8
   %call15.i.i = call i32 @htonl(i32 noundef 0) #22
   store i32 %call15.i.i, ptr %expiration.i61.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i62.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i62.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
   %add17.i.i = add nsw i64 %conv3.i, 44
   br label %sw.epilog.i
 
 sw.bb25.i:                                        ; preds = %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 11, ptr %opcode.i.i95.i, align 1
   %call.i.i64.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -3342,7 +3342,7 @@ if.else.i.i72.i:                                  ; preds = %sw.bb28.i
   unreachable
 
 raw_command.exit83.i:                             ; preds = %sw.bb28.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %conv6.i.i74.i = trunc nsw i32 %add2.i to i16
@@ -3351,11 +3351,11 @@ raw_command.exit83.i:                             ; preds = %sw.bb28.i
   %call12.i.i79.i = call i32 @htonl(i32 noundef %add2.i) #22
   store i32 %call12.i.i79.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
   br label %sw.epilog.i
 
 sw.bb32.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i, %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %command.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %command.i, i8 0, i64 32, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %conv.i85.i = trunc nsw i32 %add2.i to i16
@@ -3368,12 +3368,12 @@ sw.bb32.i:                                        ; preds = %while.body.i, %whil
   %call7.i91.i = call i32 @htonl(i32 noundef %conv6.i90.i) #22
   store i32 %call7.i91.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i94.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i94.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
   %add10.i.i = add nsw i64 %conv3.i, 28
   br label %sw.epilog.i
 
 sw.bb36.i:                                        ; preds = %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 16, ptr %opcode.i.i95.i, align 1
   %call.i.i96.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -3389,7 +3389,7 @@ sw.bb39.i:                                        ; preds = %while.body.i, %whil
 
 sw.default.i:                                     ; preds = %sw.bb39.i, %while.body.i
   %cmd.0.i = phi i8 [ %conv.i, %while.body.i ], [ %conv41.i, %sw.bb39.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
   store i8 %cmd.0.i, ptr %opcode.i.i95.i, align 1
   %call.i.i102.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -3422,7 +3422,7 @@ test_binary_pipeline_hickup_chunk.exit:           ; preds = %sw.epilog.i, %if.th
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %test_binary_pipeline_hickup_chunk.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   store i8 -128, ptr %call, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %call, i64 1
   store i8 23, ptr %opcode.i.i, align 1
@@ -4922,7 +4922,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 define internal fastcc void @test_binary_quit_impl(i8 noundef zeroext %cmd) unnamed_addr #0 {
 entry:
   %buffer = alloca %union.anon.4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -5060,7 +5060,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -5082,7 +5082,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %cmp3 = icmp eq i8 %cmd, 1
@@ -5288,7 +5288,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -5310,7 +5310,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %keylen.i14 = getelementptr inbounds i8, ptr %receive, i64 2
@@ -5464,7 +5464,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -5486,7 +5486,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   br label %do.body.us.i
@@ -5558,7 +5558,7 @@ if.else.i20:                                      ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit34:                           ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i, align 1
   %conv.i22 = trunc i64 %call6 to i16
@@ -5572,7 +5572,7 @@ storage_command.exit34:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call6, i1 false)
   %add.ptr18.i33 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call6
   store i64 -2401053088876213506, ptr %add.ptr18.i33, align 1
   br label %do.body.us.i35
@@ -5644,7 +5644,7 @@ if.else.i70:                                      ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit84:                           ; preds = %safe_recv_packet.exit66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
   %conv.i72 = trunc i64 %call12 to i16
@@ -5658,7 +5658,7 @@ storage_command.exit84:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call12, i1 false)
   %add.ptr18.i83 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call12
   store i64 -2401053088876213506, ptr %add.ptr18.i83, align 1
   %cmp15 = icmp eq i8 %cmd, 3
@@ -5792,7 +5792,7 @@ if.else.i.i:                                      ; preds = %entry
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -5811,7 +5811,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i.preheader
 
 do.body.us.i.preheader:                           ; preds = %if.end.i.i, %if.then23.i.i
@@ -5884,7 +5884,7 @@ if.else.i:                                        ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit:                             ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i.i, align 1
   %conv.i13 = trunc i64 %call6 to i16
@@ -5902,7 +5902,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i16 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i16, ptr readonly align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i16, ptr align 1 %key, i64 %call6, i1 false)
   br label %do.body.us.i17
 
 do.body.us.i17:                                   ; preds = %do.cond.us.i26, %storage_command.exit
@@ -5972,7 +5972,7 @@ if.else.i.i51:                                    ; preds = %safe_recv_packet.ex
   unreachable
 
 if.end.i.i52:                                     ; preds = %safe_recv_packet.exit48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i.i, align 1
   %conv6.i.i54 = trunc i64 %call12 to i16
@@ -5985,7 +5985,7 @@ if.end.i.i52:                                     ; preds = %safe_recv_packet.ex
   br i1 %cmp21.not.i.i, label %do.body.us.i65.preheader, label %if.then23.i.i62
 
 if.then23.i.i62:                                  ; preds = %if.end.i.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i65.preheader
 
 do.body.us.i65.preheader:                         ; preds = %if.end.i.i52, %if.then23.i.i62
@@ -6142,7 +6142,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -6167,7 +6167,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then19.i:                                      ; preds = %if.end.i, %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i, %if.then19.i
@@ -6176,7 +6176,7 @@ if.end20.i:                                       ; preds = %if.end.i, %if.then1
 
 if.then23.i:                                      ; preds = %if.end20.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %send, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull align 1 %key, i64 %call5, i1 false)
   br label %do.body.us.i.preheader
 
 do.body.us.i.preheader:                           ; preds = %if.end20.i, %if.then23.i
@@ -6249,7 +6249,7 @@ if.else.i31:                                      ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit:                             ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i, align 1
   %conv.i34 = trunc i64 %call11 to i16
@@ -6266,7 +6266,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i38 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i38, ptr readonly align 1 %key, i64 %call11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i38, ptr align 1 %key, i64 %call11, i1 false)
   br label %do.body.us.i39
 
 do.body.us.i39:                                   ; preds = %do.cond.us.i48, %storage_command.exit
@@ -6348,7 +6348,7 @@ if.else.i74:                                      ; preds = %for.body
   unreachable
 
 if.end.i75:                                       ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   store i8 -128, ptr %temp, align 8
   store i8 %cmd, ptr %opcode.i76, align 1
   store i8 %conv.i, ptr %extlen5.i78, align 4
@@ -6366,14 +6366,14 @@ if.end.i75:                                       ; preds = %for.body
   ]
 
 if.then19.i88:                                    ; preds = %if.end.i75, %if.end.i75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i89, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i89, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i90
 
 if.end20.i90:                                     ; preds = %if.end.i75, %if.then19.i88
   br i1 %cmp21.not.i, label %ext_command.exit94, label %if.then23.i92
 
 if.then23.i92:                                    ; preds = %if.end20.i90
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr24.i93, ptr nonnull readonly align 1 %key, i64 %call24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i93, ptr nonnull align 1 %key, i64 %call24, i1 false)
   br label %ext_command.exit94
 
 ext_command.exit94:                               ; preds = %if.end20.i90, %if.then23.i92
@@ -6476,7 +6476,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 2, ptr %opcode.i, align 1
@@ -6498,11 +6498,11 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call5, i1 false)
   %expiration. = select i1 %or.cond.not, ptr null, ptr %expiration
   %add.i = or disjoint i64 %spec.store.select, 24
   %add1.i19 = or disjoint i64 %spec.store.select, 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   store i8 -128, ptr %temp, align 8
   %opcode.i22 = getelementptr inbounds i8, ptr %temp, i64 1
   store i8 %cmd, ptr %opcode.i22, align 1
@@ -6524,12 +6524,12 @@ storage_command.exit:                             ; preds = %entry
 
 if.then19.i:                                      ; preds = %storage_command.exit, %storage_command.exit
   %add.ptr.i27 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i27, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i27, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %ext_command.exit
 
 ext_command.exit:                                 ; preds = %storage_command.exit, %if.then19.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %temp, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
   store i32 -17958194, ptr %opaque.i26, align 4
   %add.ptr = getelementptr inbounds i8, ptr %send, i64 %add1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 8 dereferenceable(1) %temp, i64 %add1.i19, i1 false)
@@ -6543,7 +6543,7 @@ if.else.i31:                                      ; preds = %ext_command.exit
   unreachable
 
 if.end.i32:                                       ; preds = %ext_command.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   store i8 -128, ptr %temp, align 8
   store i8 %cmd, ptr %opcode.i22, align 1
   store i8 %conv.i23, ptr %extlen5.i, align 4
@@ -6560,7 +6560,7 @@ if.end.i32:                                       ; preds = %ext_command.exit
 
 if.then19.i44:                                    ; preds = %if.end.i32, %if.end.i32
   %add.ptr.i45 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i45, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i32, %if.then19.i44
@@ -6568,7 +6568,7 @@ if.end20.i:                                       ; preds = %if.end.i32, %if.the
   br i1 %cmp21.not.i, label %ext_command.exit47, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull align 1 %key, i64 %call5, i1 false)
   br label %ext_command.exit47
 
 ext_command.exit47:                               ; preds = %if.end20.i, %if.then23.i
@@ -6675,7 +6675,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 arithmetic_command.exit:                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -6702,7 +6702,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 5
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
@@ -6849,7 +6849,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 arithmetic_command.exit:                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -6876,7 +6876,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 6
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
@@ -7084,7 +7084,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 2, ptr %opcode.i, align 1
@@ -7106,7 +7106,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %storage_command.exit
@@ -7166,7 +7166,7 @@ if.end2.i:                                        ; preds = %safe_send.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
   store i8 4, ptr %extlen.i, align 4
@@ -7251,7 +7251,7 @@ if.else.i.i:                                      ; preds = %if.end
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %conv6.i.i = trunc i64 %call12 to i16
   %call.i.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i) #22
@@ -7264,7 +7264,7 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp21.not.i.i, label %do.body.us.i63.preheader, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i63.preheader
 
 do.body.us.i63.preheader:                         ; preds = %if.end.i.i, %if.then23.i.i
@@ -7405,7 +7405,7 @@ if.else.i129:                                     ; preds = %for.body
   unreachable
 
 storage_command.exit142:                          ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i, align 1
   %conv.i131 = trunc i64 %call24 to i16
@@ -7419,7 +7419,7 @@ storage_command.exit142:                          ; preds = %for.body
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call24, i1 false)
   br label %do.body.us.i143
 
 do.body.us.i143:                                  ; preds = %do.cond.us.i152, %storage_command.exit142
@@ -7475,7 +7475,7 @@ if.end2.i164:                                     ; preds = %safe_send.exit161
 
 safe_recv_packet.exit174:                         ; preds = %safe_send.exit161, %if.end2.i164
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
   br i1 %cmp30, label %if.then2.i, label %flush_command.exit
@@ -7561,7 +7561,7 @@ if.else.i.i216:                                   ; preds = %if.end40
   unreachable
 
 if.end.i.i217:                                    ; preds = %if.end40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %conv6.i.i219 = trunc i64 %call42 to i16
   %call.i.i220 = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i219) #22
@@ -7573,7 +7573,7 @@ if.end.i.i217:                                    ; preds = %if.end40
   br i1 %cmp21.not.i.i, label %do.body.us.i230.preheader, label %if.then23.i.i227
 
 if.then23.i.i227:                                 ; preds = %if.end.i.i217
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call42, i1 false)
   br label %do.body.us.i230.preheader
 
 do.body.us.i230.preheader:                        ; preds = %if.end.i.i217, %if.then23.i.i227
@@ -7653,7 +7653,7 @@ if.else.i.i:                                      ; preds = %entry
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -7673,13 +7673,13 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull align 1 %key, i64 %call, i1 false)
   br label %raw_command.exit
 
 raw_command.exit:                                 ; preds = %if.end.i.i, %if.then23.i.i
   %1 = getelementptr i8, ptr %send, i64 %call
   %add.ptr29.i.i = getelementptr i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %raw_command.exit
@@ -7749,7 +7749,7 @@ if.else.i:                                        ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit:                             ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i.i, align 1
   %conv.i41 = trunc i64 %call7 to i16
@@ -7767,9 +7767,9 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i44 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i44, ptr readonly align 1 %key, i64 %call7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr align 1 %key, i64 %call7, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %call7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i45
 
 do.body.us.i45:                                   ; preds = %do.cond.us.i54, %storage_command.exit
@@ -7839,7 +7839,7 @@ if.else.i.i80:                                    ; preds = %safe_recv_packet.ex
   unreachable
 
 if.end.i.i81:                                     ; preds = %safe_recv_packet.exit76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i.i, align 1
   %conv6.i.i83 = trunc i64 %call14 to i16
@@ -7853,13 +7853,13 @@ if.end.i.i81:                                     ; preds = %safe_recv_packet.ex
   br i1 %cmp21.not.i.i, label %raw_command.exit95, label %if.then23.i.i92
 
 if.then23.i.i92:                                  ; preds = %if.end.i.i81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call14, i1 false)
   br label %raw_command.exit95
 
 raw_command.exit95:                               ; preds = %if.end.i.i81, %if.then23.i.i92
   %18 = getelementptr i8, ptr %send, i64 %call14
   %add.ptr29.i.i94 = getelementptr i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i96
 
 do.body.us.i96:                                   ; preds = %do.cond.us.i105, %raw_command.exit95
@@ -7920,7 +7920,7 @@ if.end2.i117:                                     ; preds = %if.then
   br label %if.end.sink.split
 
 if.else:                                          ; preds = %safe_send.exit114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 10, ptr %opcode.i.i, align 1
   %call.i.i130 = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -8003,7 +8003,7 @@ if.else.i.i170:                                   ; preds = %if.end
   unreachable
 
 if.end.i.i171:                                    ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 12, ptr %opcode.i.i, align 1
   %conv6.i.i173 = trunc i64 %call30 to i16
@@ -8016,7 +8016,7 @@ if.end.i.i171:                                    ; preds = %if.end
   br i1 %cmp21.not.i.i, label %do.body.us.i185.preheader, label %if.then23.i.i182
 
 if.then23.i.i182:                                 ; preds = %if.end.i.i171
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call30, i1 false)
   br label %do.body.us.i185.preheader
 
 do.body.us.i185.preheader:                        ; preds = %if.end.i.i171, %if.then23.i.i182

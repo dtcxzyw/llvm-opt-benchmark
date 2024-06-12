@@ -975,7 +975,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = tail call i64 @getExpire(ptr noundef readonly %db, ptr noundef readonly %key)
+  %call.i = tail call i64 @getExpire(ptr noundef %db, ptr noundef %key)
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %return, label %keyIsExpired.exit
 
@@ -4396,7 +4396,7 @@ do.body:                                          ; preds = %while.body, %sdslen
   br i1 %tobool.not.i47, label %if.end.i49, label %if.then36
 
 if.end.i49:                                       ; preds = %do.body
-  %call.i50 = call i64 @getExpire(ptr noundef readonly %26, ptr noundef nonnull readonly %keyobj)
+  %call.i50 = call i64 @getExpire(ptr noundef %26, ptr noundef nonnull %keyobj)
   %cmp.i = icmp slt i64 %call.i50, 0
   br i1 %cmp.i, label %if.then36, label %keyIsExpired.exit
 

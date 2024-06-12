@@ -51,7 +51,7 @@ if.else:                                          ; preds = %if.then14
 
 if.end26:                                         ; preds = %entry
   %Htable27 = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %Htable27, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Htable27, i8 0, i64 16, i1 false)
   %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 224
   store i64 %1, ptr %arrayidx6.i, align 8
   %V.sroa.27.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 232

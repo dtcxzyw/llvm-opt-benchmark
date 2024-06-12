@@ -566,7 +566,7 @@ classify.exit.thread.i:                           ; preds = %152, %151, %150
   br i1 %.not5.i.i, label %classify.exit.i, label %parse_check_done.exit.i
 
 parse_check_done.exit.i:                          ; preds = %163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %167 = tail call { i64, ptr } @jv_invalid() #8
   %168 = extractvalue { i64, ptr } %167, 0
   %169 = extractvalue { i64, ptr } %167, 1
@@ -668,7 +668,7 @@ default.unreachable:                              ; preds = %classify.exit.i
   br i1 %.not5.i108.i, label %.backedge, label %parse_check_done.exit109.i
 
 parse_check_done.exit109.i:                       ; preds = %203
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %207 = tail call { i64, ptr } @jv_invalid() #8
   %208 = extractvalue { i64, ptr } %207, 0
   %209 = extractvalue { i64, ptr } %207, 1
@@ -958,7 +958,7 @@ unhex4.exit83.i.i:                                ; preds = %277
   br i1 %.not5.i114.i, label %.backedge, label %parse_check_done.exit115.i
 
 parse_check_done.exit115.i:                       ; preds = %332
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %334 = tail call { i64, ptr } @jv_invalid() #8
   %335 = extractvalue { i64, ptr } %334, 0
   %336 = extractvalue { i64, ptr } %334, 1

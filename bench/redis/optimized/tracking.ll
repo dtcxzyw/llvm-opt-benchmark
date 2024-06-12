@@ -248,7 +248,7 @@ sw.bb13.i:                                        ; preds = %while.body
 sdslen.exit:                                      ; preds = %while.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %9, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %while.body ]
   %cond.i = call i64 @llvm.umin.i64(i64 %2, i64 %retval.0.i)
-  %bcmp.i = call i32 @bcmp(ptr readonly %1, ptr nonnull readonly %4, i64 %cond.i)
+  %bcmp.i = call i32 @bcmp(ptr %1, ptr nonnull %4, i64 %cond.i)
   %cmp1.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp1.i.not, label %if.then9, label %while.cond, !llvm.loop !8
 
@@ -374,7 +374,7 @@ sw.bb13.i50:                                      ; preds = %sdslen.exit46
 sdslen.exit65:                                    ; preds = %sdslen.exit46, %sw.bb.i62, %sw.bb3.i59, %sw.bb5.i56, %sw.bb9.i53, %sw.bb13.i50
   %retval.0.i52 = phi i64 [ %25, %sw.bb13.i50 ], [ %conv12.i55, %sw.bb9.i53 ], [ %conv8.i58, %sw.bb5.i56 ], [ %conv4.i61, %sw.bb3.i59 ], [ %conv2.i64, %sw.bb.i62 ], [ 0, %sdslen.exit46 ]
   %cond.i66 = call i64 @llvm.umin.i64(i64 %retval.0.i33, i64 %retval.0.i52)
-  %bcmp.i67 = call i32 @bcmp(ptr nonnull readonly %13, ptr nonnull readonly %20, i64 %cond.i66)
+  %bcmp.i67 = call i32 @bcmp(ptr nonnull %13, ptr nonnull %20, i64 %cond.i66)
   %cmp1.i68.not = icmp eq i32 %bcmp.i67, 0
   br i1 %cmp1.i68.not, label %if.then31, label %for.cond16
 

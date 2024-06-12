@@ -6462,7 +6462,7 @@ entry:
   %please_shutdown_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 52
   store i8 0, ptr %please_shutdown_.i.i.i.i.i.i.i.i, align 1, !noalias !196
   %atfork_handler_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %atfork_handler_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !196
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %atfork_handler_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !196
   store ptr %_M_impl.i.i.i.i.i.i, ptr %0, align 8, !noalias !196
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !196
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
@@ -6739,13 +6739,13 @@ invoke.cont41.i:                                  ; preds = %call5.i.i.i3.i.i.i.
   %_M_invoker.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i65.i, i64 72
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4InitEvEUlS0_E_E9_M_invokeERKSt9_Any_dataOS0_, ptr %_M_invoker.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !214
   %_M_manager.i.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i65.i, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %parent_after3.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parent_after3.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !214
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4InitEvEUlS0_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i6.i.i.i.i.i.i.i.i.i, align 8, !noalias !214
   %child_after4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i65.i, i64 80
   %_M_invoker.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i65.i, i64 104
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4InitEvEUlS0_E0_E9_M_invokeERKSt9_Any_dataOS0_, ptr %_M_invoker.i7.i.i.i.i.i.i.i.i.i, align 8, !noalias !214
   %_M_manager.i.i12.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i65.i, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %child_after4.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child_after4.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !214
   store ptr @_ZNSt17_Function_handlerIFvSt3anyEZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4InitEvEUlS0_E0_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i12.i.i.i.i.i.i.i.i.i, align 8, !noalias !214
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %atfork_handler_.i.i.i.i.i.i.i.i, align 8, !noalias !199
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 64
@@ -9159,7 +9159,7 @@ define void @_ZN5arrow8internal9DelEnvVarERKNSt7__cxx1112basic_stringIcSt11char_
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  %call.i = tail call i32 @unsetenv(ptr noundef readonly %call) #32, !noalias !269
+  %call.i = tail call i32 @unsetenv(ptr noundef %call) #32, !noalias !269
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -9265,7 +9265,7 @@ do.end:                                           ; preds = %invoke.cont2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp120.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %selectors.i, i8 0, i64 24, i1 false), !noalias !275
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %selectors.i, i8 0, i64 24, i1 false), !noalias !275
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fallback_tmp.i) #32, !noalias !275
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #32, !noalias !275
   %call.i24.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -10250,7 +10250,7 @@ invoke.cont8.i20:                                 ; preds = %invoke.cont6.i
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i20
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_111DoCreateDirERKNS0_16PlatformFilenameEb(ptr noalias nonnull align 8 %result.i9, ptr noundef nonnull readonly align 8 dereferenceable(8) %fn.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_111DoCreateDirERKNS0_16PlatformFilenameEb(ptr noalias nonnull align 8 %result.i9, ptr noundef nonnull align 8 dereferenceable(8) %fn.i, i1 noundef zeroext false)
           to label %invoke.cont12.i23 unwind label %lpad11.i21
 
 invoke.cont12.i23:                                ; preds = %invoke.cont10.i
@@ -11245,7 +11245,7 @@ entry:
   %ref.tmp = alloca %"class.arrow::Result.15", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirContentsERKNS0_16PlatformFilenameEbb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext true, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirContentsERKNS0_16PlatformFilenameEbb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -12542,7 +12542,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !323
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !323
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -12794,7 +12794,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !332
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !332
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -13456,7 +13456,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !405
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !405
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -13884,7 +13884,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !417
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !417
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -16223,7 +16223,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !473
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !473
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -17307,7 +17307,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !488
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !488
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -17558,7 +17558,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !497
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !497
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -18061,7 +18061,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !507
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !507
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -18309,7 +18309,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !516
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !516
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -18557,7 +18557,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !525
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !525
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -18856,7 +18856,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !537
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !537
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -19096,7 +19096,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !546
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !546
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -19336,7 +19336,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !555
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !555
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -20794,7 +20794,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !596
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !596
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -21077,7 +21077,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !608
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !608
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry
@@ -21709,7 +21709,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !644
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !644
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit.i: ; preds = %entry

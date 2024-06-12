@@ -1922,7 +1922,7 @@ define dso_local noundef range(i32 -2, 1) i32 @dev_mc_del_global(ptr noundef %0,
 .lr.ph.split.i:                                   ; preds = %2, %25
   %11 = phi ptr [ %28, %25 ], [ %9, %2 ]
   %12 = getelementptr i8, ptr %11, i64 24
-  %13 = tail call i32 @memcmp(ptr noundef readonly %1, ptr noundef %12, i64 noundef %8)
+  %13 = tail call i32 @memcmp(ptr noundef %1, ptr noundef %12, i64 noundef %8)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
 

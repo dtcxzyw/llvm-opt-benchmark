@@ -5626,9 +5626,9 @@ parse_CM_Req_ServiceID.exit.i:                    ; preds = %49, %37
   br label %238
 
 236:                                              ; preds = %227
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0146.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 1 dereferenceable(16) %.0146.i, i64 16, i1 false)
   %237 = getelementptr inbounds i8, ptr %229, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0147.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull align 1 dereferenceable(16) %.0147.i, i64 16, i1 false)
   br label %238
 
 238:                                              ; preds = %236, %232
@@ -5704,7 +5704,7 @@ make_hash_key.exit.i.i:                           ; preds = %.lr.ph.i.i.i.i, %23
   %278 = getelementptr inbounds i8, ptr %276, i64 12
   store i32 0, ptr %278, align 4
   %279 = getelementptr inbounds i8, ptr %276, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %279, ptr noundef nonnull readonly align 8 dereferenceable(232) %274, i64 232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %279, ptr noundef nonnull align 8 dereferenceable(232) %274, i64 232, i1 false)
   %280 = load i32, ptr %263, align 4
   %281 = call nonnull ptr @conversation_new(i32 noundef %280, ptr noundef nonnull %246, ptr noundef nonnull %246, i32 noundef 14, i32 noundef %273, i32 noundef %273, i32 noundef 3) #11
   %282 = load i32, ptr @proto_infiniband, align 4
@@ -5962,7 +5962,7 @@ attach_connection_to_pinfo.exit.i.i:              ; preds = %426, %425, %424
   %441 = getelementptr inbounds i8, ptr %439, i64 12
   store i32 %436, ptr %441, align 4
   %442 = getelementptr inbounds i8, ptr %439, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %442, ptr noundef nonnull readonly align 8 dereferenceable(232) %437, i64 232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %442, ptr noundef nonnull align 8 dereferenceable(232) %437, i64 232, i1 false)
   %443 = load i32, ptr %412, align 4
   %444 = call nonnull ptr @conversation_new(i32 noundef %443, ptr noundef nonnull %16, ptr noundef nonnull %16, i32 noundef 14, i32 noundef %435, i32 noundef %435, i32 noundef 3) #11
   %445 = load i32, ptr @proto_infiniband, align 4

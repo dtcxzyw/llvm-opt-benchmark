@@ -314,7 +314,7 @@ sha256.exit.thread:                               ; preds = %35, %52
   br label %58
 
 56:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %55, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %55, i64 32, i1 false)
   %57 = load ptr, ptr %13, align 8
   call void @gcry_md_close(ptr noundef %57) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -378,7 +378,7 @@ sha256.exit.thread:                               ; preds = %23, %31
   br label %37
 
 35:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %34, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %34, i64 32, i1 false)
   %36 = load ptr, ptr %10, align 8
   call void @gcry_md_close(ptr noundef %36) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)

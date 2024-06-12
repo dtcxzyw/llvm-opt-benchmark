@@ -43401,7 +43401,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow11StructArray5fieldEi(ptr noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %call2.i), !noalias !388
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow11StructArray5fieldEi(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %call2.i), !noalias !388
   %2 = load ptr, ptr %call3.i, align 8, !noalias !388
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !388

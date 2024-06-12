@@ -148,7 +148,7 @@ define i32 @cli_scanishield_msi(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %3, ptr nonnull align 1 %50, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %50, i64 %spec.select.i, i1 false)
   %.not138 = icmp ugt i64 %48, 311
   br i1 %.not138, label %51, label %fmap_readn.exit.thread
 
@@ -291,7 +291,7 @@ fmap_readn.exit.thread:                           ; preds = %47, %.lr.ph, %fmap_
   br i1 %.not.i162, label %fmap_readn.exit163.thread, label %111
 
 111:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull align 1 %110, i64 %spec.select.i161, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %110, i64 %spec.select.i161, i1 false)
   %.pre = load i32, ptr %40, align 8
   br label %fmap_readn.exit163
 

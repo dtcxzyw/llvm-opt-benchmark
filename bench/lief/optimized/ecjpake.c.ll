@@ -209,13 +209,13 @@ define hidden i32 @mbedtls_ecjpake_read_round_one(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 %2
-  %18 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef readonly %16, ptr noundef nonnull %4, ptr noundef %17)
+  %18 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %16, ptr noundef nonnull %4, ptr noundef %17)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %ecjpake_kkpp_read.exit
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %0, i64 480
-  %21 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %20, ptr noundef readonly %16, ptr noundef nonnull %4, ptr noundef %17)
+  %21 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %20, ptr noundef %16, ptr noundef nonnull %4, ptr noundef %17)
   %.not20.i = icmp eq i32 %21, 0
   br i1 %.not20.i, label %22, label %ecjpake_kkpp_read.exit
 
@@ -275,7 +275,7 @@ ecjpake_kkp_write.exit.i:                         ; preds = %28
   %30 = load i64, ptr %8, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 %30
   store ptr %31, ptr %9, align 8
-  %32 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
+  %32 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %33, label %ecjpake_kkpp_write.exit
@@ -308,7 +308,7 @@ ecjpake_kkp_write.exit31.i:                       ; preds = %38
   %43 = load i64, ptr %7, align 8
   %44 = getelementptr inbounds i8, ptr %34, i64 %43
   store ptr %44, ptr %9, align 8
-  %45 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef readonly %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
+  %45 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not27.i = icmp eq i32 %45, 0
   br i1 %.not27.i, label %46, label %ecjpake_kkpp_write.exit
@@ -484,7 +484,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %34
   store ptr %43, ptr %6, align 8
-  %44 = call fastcc i32 @ecjpake_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %9, ptr noundef %4, ptr noundef readonly %5, ptr noundef nonnull %12)
+  %44 = call fastcc i32 @ecjpake_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %12)
   %.not43.i = icmp eq i32 %44, 0
   br i1 %.not43.i, label %45, label %49
 
@@ -951,12 +951,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %5, ptr %2, align 8
   %53 = getelementptr inbounds i8, ptr %5, i64 %43
-  %54 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef readonly %52, ptr noundef nonnull %2, ptr noundef nonnull %53)
+  %54 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %23, ptr noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %53)
   %.not.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i, label %55, label %mbedtls_ecjpake_read_round_one.exit.thread
 
 55:                                               ; preds = %42
-  %56 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %24, ptr noundef readonly %52, ptr noundef nonnull %2, ptr noundef nonnull %53)
+  %56 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %24, ptr noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %53)
   %.not20.i.i = icmp eq i32 %56, 0
   %57 = load ptr, ptr %2, align 8
   %.not21.i.i = icmp eq ptr %57, %53

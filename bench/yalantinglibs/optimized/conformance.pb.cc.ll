@@ -180,7 +180,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN11conformance18ConformanceRequestC2Ev.exit:    ; preds = %entry, %if.then.i.i.i.i
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 16), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 24), i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 24), i8 0, i64 17, i1 false)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 60), align 4
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN11conformance37_ConformanceRequest_default_instance_E)
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 64), align 8
@@ -8017,7 +8017,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18ConformanceRequ
   %message_type_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink13, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %message_type_.i.i.i, align 8
   %jspb_encoding_options_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink13, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i, i8 0, i64 17, i1 false)
   %_oneof_case_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink13, i64 60
   store i32 0, ptr %_oneof_case_.i.i.i.i, align 4
   ret ptr %call.i.sink13
@@ -8219,7 +8219,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN11conformance18ConformanceRequest
   %message_type_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %message_type_.i.i.i.i, align 8
   %jspb_encoding_options_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %jspb_encoding_options_.i.i.i.i, i8 0, i64 17, i1 false)
   %_oneof_case_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 60
   store i32 0, ptr %_oneof_case_.i.i.i.i.i, align 4
   ret ptr %call.i.i

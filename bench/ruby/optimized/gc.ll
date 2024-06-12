@@ -1972,7 +1972,7 @@ define hidden void @Init_heap() local_unnamed_addr #0 {
 24:                                               ; preds = %14
   tail call fastcc void @heap_pages_expand_sorted(ptr noundef nonnull %5)
   %25 = getelementptr inbounds i8, ptr %5, i64 1160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
   %26 = getelementptr inbounds i8, ptr %5, i64 1180
   store i32 500, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %5, i64 1176
@@ -13134,7 +13134,7 @@ define hidden noundef ptr @rb_raw_obj_info(ptr noundef returned %0, i64 noundef 
 
 tailrecurse:                                      ; preds = %18
   %20 = getelementptr i8, ptr %.tr180, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %20, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.334, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %20, ptr noundef nonnull align 1 dereferenceable(11) @.str.334, i64 11, i1 false)
   %21 = sub i64 %.tr73181, %5
   %22 = getelementptr inbounds i8, ptr %11, i64 24
   %23 = load i64, ptr %22, align 8
@@ -13194,7 +13194,7 @@ rb_array_const_ptr.exit:                          ; preds = %26
 
 55:                                               ; preds = %53
   %56 = getelementptr i8, ptr %.tr180, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(9) %56, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.340, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %56, ptr noundef nonnull align 1 dereferenceable(9) @.str.340, i64 9, i1 false)
   br label %57
 
 57:                                               ; preds = %55, %51
@@ -13350,7 +13350,7 @@ RSTRING_PTR.exit30:                               ; preds = %127, %134
 
 138:                                              ; preds = %136
   %139 = getelementptr i8, ptr %.tr180, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %139, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.347, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %139, ptr noundef nonnull align 1 dereferenceable(7) @.str.347, i64 7, i1 false)
   br i1 %ret.known.tr184, label %rb_raw_obj_info_buitin_type.exit.thread, label %rb_raw_obj_info_buitin_type.exit.thread308
 
 140:                                              ; preds = %10
@@ -13980,7 +13980,7 @@ internal_object_p.exit.thread104:                 ; preds = %internal_object_p.e
 
 159:                                              ; preds = %157
   %160 = getelementptr i8, ptr %0, i64 %.0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(21) %160, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.304, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %160, ptr noundef nonnull align 1 dereferenceable(21) @.str.304, i64 21, i1 false)
   br label %RB_SYMBOL_P.exit
 
 internal_object_p.exit.thread104.thread:          ; preds = %147, %internal_object_p.exit.thread104
@@ -18720,7 +18720,7 @@ ROBJECT_IV_COUNT.exit.i.i.i.i.i:                  ; preds = %714, %710
 721:                                              ; preds = %ROBJECT_IV_COUNT.exit.i.i.i.i.i
   %722 = zext i32 %.0.i28.i.i.i.i.i to i64
   %723 = shl nuw nsw i64 %722, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %680, ptr readonly align 1 %.0.i.i.i.i.i.i, i64 %723, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %680, ptr align 1 %.0.i.i.i.i.i.i, i64 %723, i1 false)
   br label %ruby_nonempty_memcpy.exit.i.i.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i.i.i:              ; preds = %721, %ROBJECT_IV_COUNT.exit.i.i.i.i.i
@@ -19264,7 +19264,7 @@ gc_ref_update.exit.i.i.i:                         ; preds = %gc_update_object_re
 1007:                                             ; preds = %gc_ref_update.exit.i.i.i
   %1008 = getelementptr i8, ptr %.pn55.i.i.i, i64 224
   %1009 = getelementptr i8, ptr %.pn55.i.i.i, i64 432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(208) %1008, ptr noundef nonnull readonly align 1 dereferenceable(208) %1009, i64 208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %1008, ptr noundef nonnull align 1 dereferenceable(208) %1009, i64 208, i1 false)
   br label %1010
 
 1010:                                             ; preds = %1007, %gc_ref_update.exit.i.i.i
@@ -21117,7 +21117,7 @@ gc_sweep_plane.exit:                              ; preds = %184
 
 193:                                              ; preds = %._crit_edge.i
   %194 = getelementptr inbounds i8, ptr %.052, i64 480
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(208) %77, ptr noundef nonnull readonly align 1 dereferenceable(208) %194, i64 208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %77, ptr noundef nonnull align 1 dereferenceable(208) %194, i64 208, i1 false)
   br label %195
 
 195:                                              ; preds = %193, %._crit_edge.i
@@ -21873,7 +21873,7 @@ unlock_page_body.exit.i:                          ; preds = %rb_vm_lock_enter.ex
   %48 = udiv i16 %47, 40
   %.zext.i.i = zext nneg i16 %48 to i64
   %49 = lshr i64 %46, %.zext.i.i
-  call fastcc void @invalidate_moved_plane(ptr noundef readonly %27, ptr noundef readonly %38, i64 noundef %42, i64 noundef %49)
+  call fastcc void @invalidate_moved_plane(ptr noundef %27, ptr noundef %38, i64 noundef %42, i64 noundef %49)
   %50 = sub nsw i64 64, %.zext.i.i
   %51 = mul nsw i64 %50, 40
   %52 = add i64 %51, %42
@@ -21888,7 +21888,7 @@ unlock_page_body.exit.i:                          ; preds = %rb_vm_lock_enter.ex
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, -1
   %59 = and i64 %55, %58
-  call fastcc void @invalidate_moved_plane(ptr noundef readonly %27, ptr noundef nonnull readonly %38, i64 noundef %.025.i.i, i64 noundef %59)
+  call fastcc void @invalidate_moved_plane(ptr noundef %27, ptr noundef nonnull %38, i64 noundef %.025.i.i, i64 noundef %59)
   %60 = add i64 %.025.i.i, 2560
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 26
@@ -22202,7 +22202,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %55, %5, %60, %68
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %100
 
 100:                                              ; preds = %98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %8, ptr readonly align 1 %9, i64 %99, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %9, i64 %99, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %98, %100
@@ -22853,7 +22853,7 @@ gc_sweep_plane.exit:                              ; preds = %269
 
 278:                                              ; preds = %._crit_edge.i
   %279 = getelementptr inbounds i8, ptr %150, i64 480
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(208) %162, ptr noundef nonnull readonly align 1 dereferenceable(208) %279, i64 208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %162, ptr noundef nonnull align 1 dereferenceable(208) %279, i64 208, i1 false)
   br label %280
 
 280:                                              ; preds = %278, %._crit_edge.i

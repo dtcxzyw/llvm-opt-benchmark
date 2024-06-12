@@ -1094,7 +1094,7 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
   %call_initial_size = getelementptr inbounds i8, ptr %this, i64 168
   %call_initial_size84 = getelementptr inbounds i8, ptr %other, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(208) %ref.tmp, i8 0, i64 208, i1 false), !alias.scope !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp, i8 0, i64 208, i1 false), !alias.scope !21
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -1116,7 +1116,7 @@ _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit: ; preds = %for.body.i
   %tcp_write_size = getelementptr inbounds i8, ptr %this, i64 376
   %tcp_write_size88 = getelementptr inbounds i8, ptr %other, i64 376
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp87, i8 0, i64 160, i1 false), !alias.scope !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp87, i8 0, i64 160, i1 false), !alias.scope !24
   br label %for.body.i35
 
 for.body.i35:                                     ; preds = %for.body.i35, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit
@@ -1138,7 +1138,7 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit: ; preds = %for.body.i35
   %tcp_write_iov_size = getelementptr inbounds i8, ptr %this, i64 536
   %tcp_write_iov_size92 = getelementptr inbounds i8, ptr %other, i64 536
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ref.tmp91, i8 0, i64 80, i1 false), !alias.scope !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp91, i8 0, i64 80, i1 false), !alias.scope !27
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit
@@ -1160,7 +1160,7 @@ _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit:  ; preds = %for.body.i43
   %tcp_read_size = getelementptr inbounds i8, ptr %this, i64 616
   %tcp_read_size96 = getelementptr inbounds i8, ptr %other, i64 616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp95, i8 0, i64 160, i1 false), !alias.scope !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp95, i8 0, i64 160, i1 false), !alias.scope !30
   br label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.body.i51, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit
@@ -1182,7 +1182,7 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59: ; preds = %for.body.i51
   %tcp_read_offer = getelementptr inbounds i8, ptr %this, i64 776
   %tcp_read_offer100 = getelementptr inbounds i8, ptr %other, i64 776
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp99, i8 0, i64 160, i1 false), !alias.scope !33
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp99, i8 0, i64 160, i1 false), !alias.scope !33
   br label %for.body.i60
 
 for.body.i60:                                     ; preds = %for.body.i60, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59
@@ -1204,7 +1204,7 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68: ; preds = %for.body.i60
   %tcp_read_offer_iov_size = getelementptr inbounds i8, ptr %this, i64 936
   %tcp_read_offer_iov_size104 = getelementptr inbounds i8, ptr %other, i64 936
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ref.tmp103, i8 0, i64 80, i1 false), !alias.scope !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp103, i8 0, i64 80, i1 false), !alias.scope !36
   br label %for.body.i69
 
 for.body.i69:                                     ; preds = %for.body.i69, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68
@@ -1226,7 +1226,7 @@ _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77: ; preds = %for.body.i69
   %http2_send_message_size = getelementptr inbounds i8, ptr %this, i64 1016
   %http2_send_message_size108 = getelementptr inbounds i8, ptr %other, i64 1016
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp107, i8 0, i64 160, i1 false), !alias.scope !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107, i8 0, i64 160, i1 false), !alias.scope !39
   br label %for.body.i78
 
 for.body.i78:                                     ; preds = %for.body.i78, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77
@@ -1248,7 +1248,7 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86: ; preds = %for.body.i78
   %http2_metadata_size = getelementptr inbounds i8, ptr %this, i64 1176
   %http2_metadata_size112 = getelementptr inbounds i8, ptr %other, i64 1176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(208) %ref.tmp111, i8 0, i64 208, i1 false), !alias.scope !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp111, i8 0, i64 208, i1 false), !alias.scope !42
   br label %for.body.i87
 
 for.body.i87:                                     ; preds = %for.body.i87, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86
@@ -1270,7 +1270,7 @@ _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95: ; preds = %for.body.i87
   %wrr_subchannel_list_size = getelementptr inbounds i8, ptr %this, i64 1384
   %wrr_subchannel_list_size116 = getelementptr inbounds i8, ptr %other, i64 1384
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp115, i8 0, i64 160, i1 false), !alias.scope !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp115, i8 0, i64 160, i1 false), !alias.scope !45
   br label %for.body.i96
 
 for.body.i96:                                     ; preds = %for.body.i96, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95
@@ -1292,7 +1292,7 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit: ; preds = %for.body.i96
   %wrr_subchannel_ready_size = getelementptr inbounds i8, ptr %this, i64 1544
   %wrr_subchannel_ready_size120 = getelementptr inbounds i8, ptr %other, i64 1544
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp119, i8 0, i64 160, i1 false), !alias.scope !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp119, i8 0, i64 160, i1 false), !alias.scope !48
   br label %for.body.i104
 
 for.body.i104:                                    ; preds = %for.body.i104, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit
@@ -1314,7 +1314,7 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112: ; preds = %for.body.i104
   %work_serializer_run_time_ms = getelementptr inbounds i8, ptr %this, i64 1704
   %work_serializer_run_time_ms124 = getelementptr inbounds i8, ptr %other, i64 1704
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp123, i8 0, i64 160, i1 false), !alias.scope !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp123, i8 0, i64 160, i1 false), !alias.scope !51
   br label %for.body.i113
 
 for.body.i113:                                    ; preds = %for.body.i113, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112
@@ -1336,7 +1336,7 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit: ; preds = %for.body.i113
   %work_serializer_work_time_ms = getelementptr inbounds i8, ptr %this, i64 1864
   %work_serializer_work_time_ms128 = getelementptr inbounds i8, ptr %other, i64 1864
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp127, i8 0, i64 160, i1 false), !alias.scope !54
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp127, i8 0, i64 160, i1 false), !alias.scope !54
   br label %for.body.i121
 
 for.body.i121:                                    ; preds = %for.body.i121, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit
@@ -1358,7 +1358,7 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129: ; preds = %for.body.i121
   %work_serializer_work_time_per_item_ms = getelementptr inbounds i8, ptr %this, i64 2024
   %work_serializer_work_time_per_item_ms132 = getelementptr inbounds i8, ptr %other, i64 2024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp131, i8 0, i64 160, i1 false), !alias.scope !57
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp131, i8 0, i64 160, i1 false), !alias.scope !57
   br label %for.body.i130
 
 for.body.i130:                                    ; preds = %for.body.i130, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129
@@ -1380,7 +1380,7 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138: ; preds = %for.body.i130
   %work_serializer_items_per_run = getelementptr inbounds i8, ptr %this, i64 2184
   %work_serializer_items_per_run136 = getelementptr inbounds i8, ptr %other, i64 2184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %ref.tmp135, i8 0, i64 160, i1 false), !alias.scope !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp135, i8 0, i64 160, i1 false), !alias.scope !60
   br label %for.body.i139
 
 for.body.i139:                                    ; preds = %for.body.i139, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138

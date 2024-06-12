@@ -2955,7 +2955,7 @@ dissect_pdu_bit_flag_v.exit:                      ; preds = %199, %204
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180)
   store i32 %220, ptr %174, align 4
   %224 = load i32, ptr @ett_acn_dmx_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %180, ptr noundef %0, ptr noundef nonnull writeonly %179, ptr noundef %223, ptr noundef nonnull %176, ptr noundef nonnull %174, ptr noundef nonnull %175, ptr noundef nonnull %177, ptr noundef nonnull %178, i32 noundef %224, i32 noundef 1)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %180, ptr noundef %0, ptr noundef nonnull %179, ptr noundef %223, ptr noundef nonnull %176, ptr noundef nonnull %174, ptr noundef nonnull %175, ptr noundef nonnull %177, ptr noundef nonnull %178, i32 noundef %224, i32 noundef 1)
   %225 = load ptr, ptr %180, align 8
   %226 = load i32, ptr %176, align 4
   %227 = load i32, ptr %178, align 4
@@ -3429,7 +3429,7 @@ dissect_acn_dmx_base_pdu.exit:                    ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %165)
   store i32 %453, ptr %159, align 4
   %456 = load i32, ptr @ett_acn_dmx_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %165, ptr noundef %0, ptr noundef nonnull writeonly %164, ptr noundef %191, ptr noundef nonnull %161, ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %162, ptr noundef nonnull %163, i32 noundef %456, i32 noundef 1)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %165, ptr noundef %0, ptr noundef nonnull %164, ptr noundef %191, ptr noundef nonnull %161, ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %162, ptr noundef nonnull %163, i32 noundef %456, i32 noundef 1)
   %457 = load ptr, ptr %165, align 8
   %458 = load i32, ptr %161, align 4
   %459 = load i32, ptr %163, align 4
@@ -3483,7 +3483,7 @@ dissect_acn_common_base_pdu.exit.i.i:             ; preds = %dissect_acn_common_
   %480 = tail call noalias ptr @wmem_alloc(ptr noundef %479, i64 noundef 97) #6
   store i8 0, ptr %480, align 1
   %481 = load i32, ptr @ett_acn_dmx_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %158, ptr noundef %0, ptr noundef nonnull writeonly %157, ptr noundef %457, ptr noundef nonnull %154, ptr noundef nonnull %152, ptr noundef nonnull %153, ptr noundef nonnull %155, ptr noundef nonnull %156, i32 noundef %481, i32 noundef 1)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %158, ptr noundef %0, ptr noundef nonnull %157, ptr noundef %457, ptr noundef nonnull %154, ptr noundef nonnull %152, ptr noundef nonnull %153, ptr noundef nonnull %155, ptr noundef nonnull %156, i32 noundef %481, i32 noundef 1)
   %482 = load ptr, ptr %158, align 8
   %483 = load i32, ptr %154, align 4
   %484 = load i32, ptr %156, align 4
@@ -3729,7 +3729,7 @@ dissect_acn_root_pdu_header.exit:                 ; preds = %581, %586
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150)
   store i32 %595, ptr %144, align 4
   %599 = load i32, ptr @ett_acn_sdt_base_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %150, ptr noundef %0, ptr noundef nonnull writeonly %149, ptr noundef %598, ptr noundef nonnull %146, ptr noundef nonnull %144, ptr noundef nonnull %145, ptr noundef nonnull %147, ptr noundef nonnull %148, i32 noundef %599, i32 noundef 1)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %150, ptr noundef %0, ptr noundef nonnull %149, ptr noundef %598, ptr noundef nonnull %146, ptr noundef nonnull %144, ptr noundef nonnull %145, ptr noundef nonnull %147, ptr noundef nonnull %148, i32 noundef %599, i32 noundef 1)
   %600 = load ptr, ptr %150, align 8
   %601 = load i32, ptr %146, align 4
   %602 = load i32, ptr %148, align 4
@@ -3955,7 +3955,7 @@ dissect_pdu_bit_flag_v.exit.i.i.i:                ; preds = %693, %683
 
 706:                                              ; preds = %dissect_pdu_bit_flag_v.exit.i.i.i
   %707 = call fastcc i32 @acn_add_channel_parameter(ptr noundef %0, ptr noundef %685, i32 noundef %spec.select.i.i)
-  %708 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %685, i32 noundef %707, ptr noundef nonnull @.str.729)
+  %708 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef %1, ptr noundef %685, i32 noundef %707, ptr noundef nonnull @.str.729)
   %709 = load i32, ptr @hf_acn_adhoc_expiry, align 4
   %710 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %709, ptr noundef %0, i32 noundef %708, i32 noundef 1, i32 noundef 0) #6
   br label %dissect_acn_sdt_wrapped_pdu.exit.i.i
@@ -4163,7 +4163,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %756, %dissect_pdu_b
   %.neg148.i.i.i = add i32 %.2.i.i.i, %.1188.i.i.i
   %785 = sub i32 %.neg148.i.i.i, %782
   store i32 %785, ptr %592, align 4
-  %786 = call fastcc i32 @acn_add_dmp_data(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %782, ptr noundef nonnull %128)
+  %786 = call fastcc i32 @acn_add_dmp_data(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %782, ptr noundef nonnull %128)
   %787 = icmp eq i32 %782, %786
   br i1 %787, label %.loopexit.i.i.i, label %.preheader200.i.i.i, !llvm.loop !17
 
@@ -4181,7 +4181,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %756, %dissect_pdu_b
   %.neg147.i.i.i = add i32 %.3.i.i.i, %.1188.i.i.i
   %793 = sub i32 %.neg147.i.i.i, %790
   store i32 %793, ptr %592, align 4
-  %794 = call fastcc i32 @acn_add_dmp_data(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %790, ptr noundef nonnull %128)
+  %794 = call fastcc i32 @acn_add_dmp_data(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %790, ptr noundef nonnull %128)
   %795 = icmp eq i32 %790, %794
   br i1 %795, label %.loopexit.i.i.i, label %.preheader202.i.i.i, !llvm.loop !18
 
@@ -4199,7 +4199,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %756, %dissect_pdu_b
   %.neg146.i.i.i = add i32 %.4.i.i.i, %.1188.i.i.i
   %802 = sub i32 %.neg146.i.i.i, %799
   store i32 %802, ptr %592, align 4
-  %803 = call fastcc i32 @acn_add_dmp_data(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %799, ptr noundef nonnull %128)
+  %803 = call fastcc i32 @acn_add_dmp_data(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %799, ptr noundef nonnull %128)
   %804 = icmp eq i32 %799, %803
   br i1 %804, label %.loopexit.i.i.i, label %796, !llvm.loop !19
 
@@ -4294,7 +4294,7 @@ default.unreachable:                              ; preds = %811
   %.neg145.i.i.i = add i32 %.10.i.i.i, %.1188.i.i.i
   %836 = sub i32 %.neg145.i.i.i, %833
   store i32 %836, ptr %592, align 4
-  %837 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %833, ptr noundef nonnull %128)
+  %837 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %833, ptr noundef nonnull %128)
   %838 = icmp eq i32 %833, %837
   br i1 %838, label %.loopexit.i.i.i, label %.preheader213.i.i.i, !llvm.loop !25
 
@@ -4312,7 +4312,7 @@ default.unreachable:                              ; preds = %811
   %.neg144.i.i.i = add i32 %.11.i.i.i, %.1188.i.i.i
   %844 = sub i32 %.neg144.i.i.i, %841
   store i32 %844, ptr %592, align 4
-  %845 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %841, ptr noundef nonnull %128)
+  %845 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %841, ptr noundef nonnull %128)
   %846 = icmp eq i32 %841, %845
   br i1 %846, label %.loopexit.i.i.i, label %.preheader215.i.i.i, !llvm.loop !26
 
@@ -4330,7 +4330,7 @@ default.unreachable:                              ; preds = %811
   %.neg143.i.i.i = add i32 %.12.i.i.i, %.1188.i.i.i
   %852 = sub i32 %.neg143.i.i.i, %849
   store i32 %852, ptr %592, align 4
-  %853 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %849, ptr noundef nonnull %128)
+  %853 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %849, ptr noundef nonnull %128)
   %854 = icmp eq i32 %849, %853
   br i1 %854, label %.loopexit.i.i.i, label %.preheader217.i.i.i, !llvm.loop !27
 
@@ -4358,7 +4358,7 @@ default.unreachable:                              ; preds = %811
   %.neg.i.i.i = add i32 %.14.i.i.i, %.1188.i.i.i
   %864 = sub i32 %.neg.i.i.i, %861
   store i32 %864, ptr %592, align 4
-  %865 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef readonly %1, ptr noundef %737, i32 noundef %861, ptr noundef nonnull %128)
+  %865 = call fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef %1, ptr noundef %737, i32 noundef %861, ptr noundef nonnull %128)
   %866 = icmp eq i32 %861, %865
   br i1 %866, label %.loopexit.i.i.i, label %.preheader221.i.i.i, !llvm.loop !29
 
@@ -4798,7 +4798,7 @@ dissect_acn_sdt_client_pdu.exit.i:                ; preds = %dissect_acn_dmp_pdu
   %1016 = load i32, ptr @hf_acn_reliable_sequence_number, align 4
   %1017 = call ptr @proto_tree_add_item(ptr noundef %600, i32 noundef %1016, ptr noundef %0, i32 noundef %1015, i32 noundef 4, i32 noundef 0) #6
   %1018 = add i32 %.sroa.17180.7, 30
-  %1019 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %600, i32 noundef %1018, ptr noundef nonnull @.str.726)
+  %1019 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef %1, ptr noundef %600, i32 noundef %1018, ptr noundef nonnull @.str.726)
   %1020 = call fastcc i32 @acn_add_channel_parameter(ptr noundef %0, ptr noundef %600, i32 noundef %1019)
   %1021 = load i32, ptr @hf_acn_adhoc_expiry, align 4
   %1022 = call ptr @proto_tree_add_item(ptr noundef %600, i32 noundef %1021, ptr noundef %0, i32 noundef %1020, i32 noundef 1, i32 noundef 0) #6
@@ -4900,8 +4900,8 @@ dissect_acn_sdt_client_pdu.exit.i:                ; preds = %dissect_acn_dmp_pdu
   %1097 = load i32, ptr @hf_acn_channel_number, align 4
   %1098 = call ptr @proto_tree_add_item(ptr noundef %1093, i32 noundef %1097, ptr noundef %0, i32 noundef %1096, i32 noundef 2, i32 noundef 0) #6
   %1099 = add i32 %.sroa.17180.7, 4
-  %1100 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %1093, i32 noundef %1099, ptr noundef nonnull @.str.726)
-  %1101 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %1093, i32 noundef %1100, ptr noundef nonnull @.str.1827)
+  %1100 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef %1, ptr noundef %1093, i32 noundef %1099, ptr noundef nonnull @.str.726)
+  %1101 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef %1, ptr noundef %1093, i32 noundef %1100, ptr noundef nonnull @.str.1827)
   %1102 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1101) #6
   %1103 = zext i16 %1102 to i32
   %.not.i65.i = icmp eq i16 %1102, 0
@@ -4930,8 +4930,8 @@ dissect_acn_sdt_client_pdu.exit.i:                ; preds = %dissect_acn_dmp_pdu
   %1117 = load i32, ptr @hf_acn_channel_number, align 4
   %1118 = call ptr @proto_tree_add_item(ptr noundef %1110, i32 noundef %1117, ptr noundef %0, i32 noundef %1116, i32 noundef 2, i32 noundef 0) #6
   %1119 = add i32 %.sroa.17180.7, 20
-  %1120 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %1110, i32 noundef %1119, ptr noundef nonnull @.str.726)
-  %1121 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %1110, i32 noundef %1120, ptr noundef nonnull @.str.1827)
+  %1120 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef %1, ptr noundef %1110, i32 noundef %1119, ptr noundef nonnull @.str.726)
+  %1121 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef %1, ptr noundef %1110, i32 noundef %1120, ptr noundef nonnull @.str.1827)
   %1122 = load i32, ptr @hf_acn_reciprocal_channel, align 4
   %1123 = call ptr @proto_tree_add_item(ptr noundef %1110, i32 noundef %1122, ptr noundef %0, i32 noundef %1121, i32 noundef 2, i32 noundef 0) #6
   %1124 = add i32 %1121, 2
@@ -5044,7 +5044,7 @@ dissect_acn_root_pdu_header.exit103:              ; preds = %1150, %1155
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109)
   store i32 %1163, ptr %103, align 4
   %1166 = load i32, ptr @ett_rdmnet_rpt_base_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %109, ptr noundef %0, ptr noundef nonnull writeonly %108, ptr noundef %191, ptr noundef nonnull %105, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %106, ptr noundef nonnull %107, i32 noundef %1166, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %109, ptr noundef %0, ptr noundef nonnull %108, ptr noundef %191, ptr noundef nonnull %105, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %106, ptr noundef nonnull %107, i32 noundef %1166, i32 noundef 0)
   %1167 = load ptr, ptr %109, align 8
   %1168 = load i32, ptr %105, align 4
   %1169 = load i32, ptr %107, align 4
@@ -5111,7 +5111,7 @@ dissect_acn_common_base_pdu.exit.i.i114:          ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102)
   store i32 %1202, ptr %96, align 4
   %1203 = load i32, ptr @ett_rdmnet_rpt_request_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %102, ptr noundef %0, ptr noundef nonnull writeonly %101, ptr noundef %1167, ptr noundef nonnull %98, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %99, ptr noundef nonnull %100, i32 noundef %1203, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %102, ptr noundef %0, ptr noundef nonnull %101, ptr noundef %1167, ptr noundef nonnull %98, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %99, ptr noundef nonnull %100, i32 noundef %1203, i32 noundef 0)
   %1204 = load ptr, ptr %102, align 8
   %1205 = load i32, ptr %98, align 4
   %1206 = load i32, ptr %100, align 4
@@ -5145,7 +5145,7 @@ dissect_acn_common_base_pdu.exit.i.i114:          ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95)
   store i32 %1219, ptr %89, align 4
   %1220 = load i32, ptr @ett_rdmnet_rpt_request_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %95, ptr noundef %0, ptr noundef nonnull writeonly %94, ptr noundef %1204, ptr noundef nonnull %91, ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef nonnull %92, ptr noundef nonnull %93, i32 noundef %1220, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %95, ptr noundef %0, ptr noundef nonnull %94, ptr noundef %1204, ptr noundef nonnull %91, ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef nonnull %92, ptr noundef nonnull %93, i32 noundef %1220, i32 noundef 0)
   %1221 = load ptr, ptr %95, align 8
   %1222 = load i32, ptr %91, align 4
   %1223 = load i32, ptr %93, align 4
@@ -5212,7 +5212,7 @@ dissect_acn_common_base_pdu.exit.i22.i:           ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88)
   store i32 %1202, ptr %82, align 4
   %1248 = load i32, ptr @ett_rdmnet_rpt_status_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %88, ptr noundef %0, ptr noundef nonnull writeonly %87, ptr noundef %1167, ptr noundef nonnull %84, ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %85, ptr noundef nonnull %86, i32 noundef %1248, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %88, ptr noundef %0, ptr noundef nonnull %87, ptr noundef %1167, ptr noundef nonnull %84, ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %85, ptr noundef nonnull %86, i32 noundef %1248, i32 noundef 0)
   %1249 = load ptr, ptr %88, align 8
   %1250 = load i32, ptr %84, align 4
   %1251 = load i32, ptr %86, align 4
@@ -5305,7 +5305,7 @@ dissect_acn_common_base_pdu.exit.i27.i:           ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81)
   store i32 %1202, ptr %75, align 4
   %1284 = load i32, ptr @ett_rdmnet_rpt_notification_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %81, ptr noundef %0, ptr noundef nonnull writeonly %80, ptr noundef %1167, ptr noundef nonnull %77, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef nonnull %78, ptr noundef nonnull %79, i32 noundef %1284, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %81, ptr noundef %0, ptr noundef nonnull %80, ptr noundef %1167, ptr noundef nonnull %77, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef nonnull %78, ptr noundef nonnull %79, i32 noundef %1284, i32 noundef 0)
   %1285 = load ptr, ptr %81, align 8
   %1286 = load i32, ptr %77, align 4
   %1287 = load i32, ptr %79, align 4
@@ -5350,7 +5350,7 @@ dissect_acn_common_base_pdu.exit.i.i.i:           ; preds = %1302
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
   store i32 %.1.i.i111, ptr %68, align 4
   %1304 = load i32, ptr @ett_rdmnet_rpt_request_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %74, ptr noundef %0, ptr noundef nonnull writeonly %73, ptr noundef %1285, ptr noundef nonnull %70, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %1304, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %74, ptr noundef %0, ptr noundef nonnull %73, ptr noundef %1285, ptr noundef nonnull %70, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %1304, i32 noundef 0)
   %1305 = load ptr, ptr %74, align 8
   %1306 = load i32, ptr %70, align 4
   %1307 = load i32, ptr %72, align 4
@@ -5502,7 +5502,7 @@ dissect_acn_root_pdu_header.exit125:              ; preds = %1353, %1358
   store i32 %1365, ptr %59, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %64, i8 0, i64 20, i1 false)
   %1368 = load i32, ptr @ett_rdmnet_broker_base_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %66, ptr noundef %0, ptr noundef nonnull writeonly %65, ptr noundef %191, ptr noundef nonnull %61, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %63, i32 noundef %1368, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %66, ptr noundef %0, ptr noundef nonnull %65, ptr noundef %191, ptr noundef nonnull %61, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %63, i32 noundef %1368, i32 noundef 0)
   %1369 = load ptr, ptr %66, align 8
   %1370 = load i32, ptr %61, align 4
   %1371 = load i32, ptr %63, align 4
@@ -5780,7 +5780,7 @@ dissect_acn_root_pdu_header.exit141:              ; preds = %1504, %1509
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
   store i32 %1517, ptr %50, align 4
   %1520 = load i32, ptr @ett_rdmnet_llrp_base_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %57, ptr noundef %0, ptr noundef nonnull writeonly %56, ptr noundef %191, ptr noundef nonnull %52, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef nonnull %54, i32 noundef %1520, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %57, ptr noundef %0, ptr noundef nonnull %56, ptr noundef %191, ptr noundef nonnull %52, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef nonnull %54, i32 noundef %1520, i32 noundef 0)
   %1521 = load ptr, ptr %57, align 8
   %1522 = load i32, ptr %52, align 4
   %1523 = load i32, ptr %54, align 4
@@ -6104,7 +6104,7 @@ dissect_acn_root_pdu_header.exit159:              ; preds = %1661, %1666
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   store i32 %1673, ptr %21, align 4
   %1676 = load i32, ptr @ett_rdmnet_ept_base_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %27, ptr noundef %0, ptr noundef nonnull writeonly %26, ptr noundef %191, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %25, i32 noundef %1676, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %27, ptr noundef %0, ptr noundef nonnull %26, ptr noundef %191, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %25, i32 noundef %1676, i32 noundef 0)
   %1677 = load ptr, ptr %27, align 8
   %1678 = load i32, ptr %23, align 4
   %1679 = load i32, ptr %25, align 4
@@ -6153,7 +6153,7 @@ dissect_ept_data.exit.i:                          ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store i32 %1696, ptr %14, align 4
   %1697 = load i32, ptr @ett_rdmnet_ept_data_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %20, ptr noundef %0, ptr noundef nonnull writeonly %19, ptr noundef %1677, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef %1697, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %20, ptr noundef %0, ptr noundef nonnull %19, ptr noundef %1677, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef %1697, i32 noundef 0)
   %1698 = load ptr, ptr %20, align 8
   %1699 = load i32, ptr %16, align 4
   %1700 = load i32, ptr %18, align 4
@@ -6204,7 +6204,7 @@ dissect_pdu_bit_flag_v.exit.i.i166:               ; preds = %dissect_acn_common_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i32 %1696, ptr %7, align 4
   %1723 = load i32, ptr @ett_rdmnet_ept_status_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %13, ptr noundef %0, ptr noundef nonnull writeonly %12, ptr noundef %1677, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %1723, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %13, ptr noundef %0, ptr noundef nonnull %12, ptr noundef %1677, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %1723, i32 noundef 0)
   %1724 = load ptr, ptr %13, align 8
   %1725 = load i32, ptr %9, align 4
   %1726 = load i32, ptr %11, align 4
@@ -8011,7 +8011,7 @@ define internal fastcc noundef i32 @dissect_broker_client_entry_pdu(ptr noundef 
   %11 = alloca ptr, align 8
   store i32 %2, ptr %5, align 4
   %12 = load i32, ptr @ett_rdmnet_broker_client_entry_pdu, align 4
-  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull writeonly %10, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %12, i32 noundef 0)
+  call fastcc void @begin_dissect_acn_pdu(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %12, i32 noundef 0)
   %13 = load ptr, ptr %11, align 8
   %14 = load i32, ptr %7, align 4
   %15 = load i32, ptr %9, align 4

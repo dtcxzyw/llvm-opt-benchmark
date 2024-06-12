@@ -368,7 +368,7 @@ if.then44.i:                                      ; preds = %if.end40.i
 ring_buf_init.exit.i:                             ; preds = %if.then44.i
   store i64 %7, ptr %len.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i.i, i8 0, i64 24, i1 false)
   %.pre.i = load i64, ptr %req_buf_len26.i, align 8
   br label %if.end51.i
 
@@ -395,7 +395,7 @@ if.then57.i:                                      ; preds = %if.end51.i
 ring_buf_init.exit35.i:                           ; preds = %if.then57.i
   store i64 %10, ptr %len53.i, align 8
   %count.i33.i = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i33.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i33.i, i8 0, i64 24, i1 false)
   br label %if.end66.i
 
 if.then63.i:                                      ; preds = %if.then57.i
@@ -970,7 +970,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
 
 if.end.i.i:                                       ; preds = %if.then.i
   store i64 %retval.0.i38, ptr %len1.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
   br label %if.end9
 
 if.end.i16:                                       ; preds = %lor.lhs.false
@@ -1475,7 +1475,7 @@ sw.bb7:                                           ; preds = %if.end
 
 sw.bb8:                                           ; preds = %if.end
   %count.i.i33 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i.i33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i.i33, i8 0, i64 24, i1 false)
   br label %return
 
 sw.bb10:                                          ; preds = %if.end
@@ -1880,7 +1880,7 @@ if.end3:                                          ; preds = %if.end
   %len.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 15336, ptr %len.i, align 8
   %count.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
   %grows_on_write = getelementptr inbounds i8, ptr %call.i, i64 80
   %bf.load = load i8, ptr %grows_on_write, align 8
   %bf.set = or i8 %bf.load, 8

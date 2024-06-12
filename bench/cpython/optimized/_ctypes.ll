@@ -1431,8 +1431,8 @@ if.end29:                                         ; preds = %for.body, %if.end10
   br i1 %cmp.i, label %_ctypes_alloc_format_string.exit, label %if.end3.thread.i
 
 if.end3.thread.i:                                 ; preds = %if.end29
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %suffix) #16
-  %call2.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call22225) #16
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix) #16
+  %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call22225) #16
   %add.i = add i64 %call.i, 1
   %add412.i = add i64 %add.i, %call2.i
   %call513.i = tail call ptr @PyMem_Malloc(i64 noundef %add412.i) #15
@@ -1444,8 +1444,8 @@ if.then7.i:                                       ; preds = %if.end3.thread.i
   br label %_ctypes_alloc_format_string.exit
 
 if.end13.i:                                       ; preds = %if.end3.thread.i
-  %call12.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call513.i, ptr noundef nonnull readonly dereferenceable(1) %call22225) #15
-  %call14.i = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call513.i, ptr noundef nonnull readonly dereferenceable(1) %suffix) #15
+  %call12.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call513.i, ptr noundef nonnull dereferenceable(1) %call22225) #15
+  %call14.i = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call513.i, ptr noundef nonnull dereferenceable(1) %suffix) #15
   br label %_ctypes_alloc_format_string.exit
 
 _ctypes_alloc_format_string.exit:                 ; preds = %if.end29, %if.then7.i, %if.end13.i
@@ -1748,7 +1748,7 @@ if.then22:                                        ; preds = %if.end16
   br label %if.end28
 
 if.else:                                          ; preds = %if.end16
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select) #16
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #16
   %add412.i = add i64 %call.i, 2
   %call513.i = call ptr @PyMem_Malloc(i64 noundef %add412.i) #15
   %cmp614.i = icmp eq ptr %call513.i, null
@@ -1760,7 +1760,7 @@ if.then7.i:                                       ; preds = %if.else
 
 if.then11.i:                                      ; preds = %if.else
   store i16 38, ptr %call513.i, align 1
-  %call14.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call513.i, ptr noundef nonnull readonly dereferenceable(1) %spec.select) #15
+  %call14.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call513.i, ptr noundef nonnull dereferenceable(1) %spec.select) #15
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then11.i, %if.then7.i, %if.then22
@@ -5403,7 +5403,7 @@ if.then1.i73.i:                                   ; preds = %if.end.i70.i
   br label %PyCFuncPtr_FromDll.exit
 
 if.end37.i:                                       ; preds = %if.end33.i
-  %call38.i = call ptr @GenericPyCData_new(ptr noundef %type, ptr nonnull poison, ptr readnone poison)
+  %call38.i = call ptr @GenericPyCData_new(ptr noundef %type, ptr nonnull poison, ptr poison)
   %tobool39.not.i = icmp eq ptr %call38.i, null
   br i1 %tobool39.not.i, label %if.then40.i, label %if.end41.i
 

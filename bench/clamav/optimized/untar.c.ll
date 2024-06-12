@@ -165,10 +165,10 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %25
 60:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
   %.0.i.sroa.gep165 = getelementptr inbounds i8, ptr %.0.i, i64 148
-  %61 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %.0.i.sroa.gep165, i64 noundef 8) #11
+  %61 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %.0.i.sroa.gep165, i64 noundef 8) #11
   store i8 0, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %62 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #11
+  %62 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #11
   %.not.i.i = icmp eq i32 %62, 1
   %63 = load i32, ptr %5, align 4
   %.0.i.i = select i1 %.not.i.i, i32 %63, i32 -1
@@ -284,7 +284,7 @@ testchecksum.exit.thread:                         ; preds = %60, %testchecksum.e
   %90 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %spec.select.sroa.sel164, i64 noundef 12) #11
   store i8 0, ptr %18, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %91 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull readonly %11, ptr noundef nonnull @.str.23, ptr noundef nonnull %4) #11
+  %91 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %11, ptr noundef nonnull @.str.23, ptr noundef nonnull %4) #11
   %.not.i154 = icmp eq i32 %91, 1
   %92 = load i32, ptr %4, align 4
   %.0.i155 = select i1 %.not.i154, i32 %92, i32 -1

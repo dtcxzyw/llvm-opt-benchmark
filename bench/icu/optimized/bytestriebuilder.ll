@@ -1675,7 +1675,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i
   %conv.i = sext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %2, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %2, i64 %conv.i, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %entry, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i
@@ -2003,7 +2003,7 @@ if.then.i2:                                       ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i3 = sext i32 %sub.i to i64
   %add.ptr.i4 = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i3
   %conv.i5 = sext i32 %length to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i4, ptr nonnull readonly align 1 %add.ptr, i64 %conv.i5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i4, ptr nonnull align 1 %add.ptr, i64 %conv.i5, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %entry, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i2
@@ -2161,7 +2161,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
   %conv.i = zext nneg i32 %length.2 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %intBytes, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %intBytes, i64 %conv.i, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %if.end43, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i
@@ -2330,7 +2330,7 @@ if.then.i3:                                       ; preds = %_ZN6icu_7516BytesTr
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i
   %conv.i4 = zext nneg i32 %inc32.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %intBytes, i64 %conv.i4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %intBytes, i64 %conv.i4, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
 _ZN6icu_7516BytesTrieBuilder5writeEPKci.exit:     ; preds = %_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit, %_ZN6icu_7516BytesTrieBuilder14ensureCapacityEi.exit.thread.i, %if.then.i3

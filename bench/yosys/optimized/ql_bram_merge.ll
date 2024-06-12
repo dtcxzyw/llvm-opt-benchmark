@@ -963,7 +963,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit29.i:               ; preds = %207, %204, %202
   br label %.body18.i
 
 208:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit27.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false), !alias.scope !18
   %209 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys7hashlib4dictINS1_INS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEENS0_4poolIPNS2_4CellENS5_ISA_EEEENS5_IS7_EEEixERKS7_(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 8 dereferenceable(49) %27)
           to label %210 unwind label %.loopexit
 

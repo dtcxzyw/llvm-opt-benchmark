@@ -800,7 +800,7 @@ if.then.i:                                        ; preds = %entry
   br label %PEM_write_PrivateKey_ex.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @PEM_write_bio_PrivateKey_ex(ptr noundef nonnull %call.i, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u, ptr readnone poison, ptr noundef null)
+  %call1.i = tail call i32 @PEM_write_bio_PrivateKey_ex(ptr noundef nonnull %call.i, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u, ptr poison, ptr noundef null)
   %call2.i = tail call i32 @BIO_free(ptr noundef nonnull %call.i) #6
   br label %PEM_write_PrivateKey_ex.exit
 

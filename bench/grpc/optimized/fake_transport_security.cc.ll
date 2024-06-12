@@ -300,7 +300,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
-  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
+  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.end10.i, label %for.inc.i.i
 
@@ -510,7 +510,7 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i
   store i8 %conv10.i.i.i, ptr %27, align 1
   %29 = load ptr, ptr %outgoing_frame.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %29, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %retval.0.i.i, i64 %call6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %retval.0.i.i, i64 %call6.i, i1 false)
   store i64 0, ptr %offset.i2637.i, align 8
   store i32 1, ptr %needs_draining.i, align 8
   %30 = tail call i32 @llvm.smin.i32(i32 %22, i32 2)
@@ -570,7 +570,7 @@ if.end2.i.i:                                      ; preds = %if.end18.i, %if.end
   br i1 %cmp3.i.i, label %if.then20, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end2.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr94, ptr align 1 %add.ptr.i27.i, i64 %sub.i41.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr94, ptr align 1 %add.ptr.i27.i, i64 %sub.i41.i, i1 false)
   store i64 0, ptr %offset.i2637.i, align 8
   store i32 0, ptr %needs_draining.i, align 8
   store i64 0, ptr %size.i2536.i, align 8
@@ -601,7 +601,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   br label %if.end30
 
 if.then20:                                        ; preds = %if.end2.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr94, ptr align 1 %add.ptr.i27.i, i64 %sub93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr94, ptr align 1 %add.ptr.i27.i, i64 %sub93, i1 false)
   %44 = load i64, ptr %offset.i2637.i, align 8
   %add.i29.i = add i64 %44, %sub93
   store i64 %add.i29.i, ptr %offset.i2637.i, align 8
@@ -662,7 +662,7 @@ if.then8.i59:                                     ; preds = %if.end5.i
   %call9.i = tail call ptr @gpr_malloc(i64 noundef %sub35)
   %unused_bytes10.i = getelementptr inbounds i8, ptr %call.i.i57, i64 8
   store ptr %call9.i, ptr %unused_bytes10.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr readonly align 1 %spec.select, i64 %sub35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr align 1 %spec.select, i64 %sub35, i1 false)
   br label %if.then42
 
 if.then42:                                        ; preds = %if.then8.i59, %if.end5.i
@@ -955,7 +955,7 @@ if.end2.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %0, i1 false)
   %5 = load i64, ptr %offset.i, align 8
   %add.i = add i64 %5, %0
   store i64 %add.i, ptr %offset.i, align 8
@@ -966,7 +966,7 @@ if.then3:                                         ; preds = %if.end2.i
   br label %return
 
 if.end5:                                          ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i, i1 false)
   store i64 0, ptr %offset.i, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size.i, align 8
@@ -1042,7 +1042,7 @@ if.end2.i35:                                      ; preds = %if.end29
   br i1 %cmp3.i36, label %15, label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.thread
 
 _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.thread: ; preds = %if.end2.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %13, i1 false)
   store i64 0, ptr %offset, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size, align 8
@@ -1052,7 +1052,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
   br label %return
 
 15:                                               ; preds = %if.end2.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %sub33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %sub33, i1 false)
   %16 = load i64, ptr %offset, align 8
   %add.i41 = add i64 %16, %sub33
   store i64 %add.i41, ptr %offset, align 8
@@ -1126,7 +1126,7 @@ if.end2.i:                                        ; preds = %if.end.thread, %if.
   br i1 %cmp3.i, label %11, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i23, i1 false)
   store i64 %sub.i23, ptr %protected_output_frames_size, align 8
   store i64 0, ptr %offset.i22, align 8
   store i32 0, ptr %needs_draining, align 8
@@ -1134,7 +1134,7 @@ if.end7.i:                                        ; preds = %if.end2.i
   br label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 11:                                               ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %9, i1 false)
   %12 = load i64, ptr %protected_output_frames_size, align 8
   %13 = load i64, ptr %offset.i22, align 8
   %add.i = add i64 %13, %12
@@ -1186,7 +1186,7 @@ if.end2.i:                                        ; preds = %if.then, %if.then1
   br i1 %cmp3.i, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub, i1 false)
   %7 = load i64, ptr %offset, align 8
   %add.i = add i64 %7, %sub
   store i64 %add.i, ptr %offset, align 8
@@ -1197,7 +1197,7 @@ if.then6:                                         ; preds = %if.end2.i
   br label %return
 
 if.end9:                                          ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub.i, i1 false)
   store i64 0, ptr %offset, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size.i, align 8
@@ -1244,7 +1244,7 @@ if.end2.i32:                                      ; preds = %if.end24
   br i1 %cmp3.i33, label %15, label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread
 
 _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread: ; preds = %if.end2.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub.i29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub.i29, i1 false)
   store i64 0, ptr %offset25, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size.i27, align 8
@@ -1254,7 +1254,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
   br label %return
 
 15:                                               ; preds = %if.end2.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub30, i1 false)
   %16 = load i64, ptr %offset25, align 8
   %add.i38 = add i64 %16, %sub30
   store i64 %add.i38, ptr %offset25, align 8

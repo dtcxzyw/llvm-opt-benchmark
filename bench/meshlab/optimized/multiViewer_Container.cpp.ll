@@ -980,7 +980,7 @@ define void @_ZN21MultiViewer_Container7addViewEP6GLAreaN2Qt11OrientationE(ptr n
   br i1 %.not.i, label %.noexc31, label %47
 
 47:                                               ; preds = %.noexc29
-  %48 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %43)
+  %48 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %43)
           to label %.noexc30 unwind label %25
 
 .noexc30:                                         ; preds = %47
@@ -1124,7 +1124,7 @@ _ZN21MultiViewer_Container13updateCurrentEi.exit: ; preds = %.noexc32, %49
   br i1 %.not.i34, label %.noexc39, label %111
 
 111:                                              ; preds = %.noexc37
-  %112 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %107)
+  %112 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %107)
           to label %.noexc38 unwind label %79
 
 .noexc38:                                         ; preds = %111
@@ -1185,7 +1185,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 124:                                              ; preds = %123
   %125 = getelementptr inbounds i8, ptr %0, i64 248
   %126 = load i32, ptr %125, align 8
-  %127 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %126)
+  %127 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %126)
           to label %_ZN21MultiViewer_Container11currentViewEv.exit unwind label %25
 
 _ZN21MultiViewer_Container11currentViewEv.exit:   ; preds = %124
@@ -1338,7 +1338,7 @@ _Z12qobject_castIP8SplitterET_P7QObject.exit:     ; preds = %_ZN21MultiViewer_Co
   br i1 %.not.i46, label %.noexc51, label %199
 
 199:                                              ; preds = %.noexc49
-  %200 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %195)
+  %200 = invoke noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %195)
           to label %.noexc50 unwind label %167
 
 .noexc50:                                         ; preds = %199
@@ -1643,7 +1643,7 @@ define void @_ZN21MultiViewer_Container13updateCurrentEi(ptr noundef nonnull ali
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %4)
+  %9 = tail call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %4)
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
   br label %10
 
@@ -2049,7 +2049,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit:                 ; preds = %43, %_ZN5QListIP6GL
   br i1 %.not.i, label %88, label %86
 
 86:                                               ; preds = %_ZN5QListIP6GLAreaE5firstEv.exit
-  %87 = call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %82)
+  %87 = call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %82)
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %87)
   br label %88
 
@@ -2151,7 +2151,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit41:               ; preds = %91, %_ZN5QListIP6GL
   br i1 %.not.i42, label %142, label %140
 
 140:                                              ; preds = %_ZN5QListIP6GLAreaE5firstEv.exit41
-  %141 = call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %136)
+  %141 = call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %136)
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %141)
   br label %142
 
@@ -2249,7 +2249,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit52:               ; preds = %143, %_ZN5QListIP6G
   br i1 %.not.i53, label %196, label %194
 
 194:                                              ; preds = %_ZN5QListIP6GLAreaE5firstEv.exit52
-  %195 = call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %190)
+  %195 = call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %190)
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %195)
   br label %196
 
@@ -3958,7 +3958,7 @@ define void @_ZN21MultiViewer_Container24updateTrackballInViewersEv(ptr nocaptur
   %3 = alloca %"class.QtPrivate::QForeachContainer", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load i32, ptr %4, align 8
-  %6 = tail call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %5)
+  %6 = tail call noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %5)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN9QtPrivate17QForeachContainerI5QListIP6GLAreaEED2Ev.exit, label %7
 

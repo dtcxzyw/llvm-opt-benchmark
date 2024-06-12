@@ -897,7 +897,7 @@ _ZN7rocksdbL16GetInfoLogPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %write_idx.0.lcssa.i = phi i64 [ 0, %if.else ], [ %write_idx.1.i, %if.end40.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %write_idx.0.lcssa.i
   %sub43.i = sub i64 260, %write_idx.0.lcssa.i
-  %call44.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly %add.ptr.i, i64 noundef %sub43.i, ptr noundef nonnull @__const._ZN7rocksdbL16GetInfoLogPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPci.suffix) #19
+  %call44.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr.i, i64 noundef %sub43.i, ptr noundef nonnull @__const._ZN7rocksdbL16GetInfoLogPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPci.suffix) #19
   %add.i = add i64 %write_idx.0.lcssa.i, 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19
   br label %if.end

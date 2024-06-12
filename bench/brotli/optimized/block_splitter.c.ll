@@ -80,7 +80,7 @@ if.then.i:                                        ; preds = %for.body.i38
   %sub.i = sub i64 %add3.i, %from_pos.028.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.027.i
   %add.ptr4.i = getelementptr inbounds i8, ptr %data, i64 %from_pos.028.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr4.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr4.i, i64 %sub.i, i1 false)
   %add5.i = add i64 %sub.i, %pos.027.i
   %sub6.i = sub i64 %conv.i40, %sub.i
   br label %if.end.i
@@ -95,7 +95,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
 if.then9.i:                                       ; preds = %if.end.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.1.i
   %add.ptr11.i = getelementptr inbounds i8, ptr %data, i64 %from_pos.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr10.i, ptr readonly align 1 %add.ptr11.i, i64 %insert_len.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr align 1 %add.ptr11.i, i64 %insert_len.0.i, i1 false)
   %add12.i = add i64 %pos.1.i, %insert_len.0.i
   br label %if.end13.i
 

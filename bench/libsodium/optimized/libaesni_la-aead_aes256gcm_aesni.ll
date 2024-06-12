@@ -331,7 +331,7 @@ if.then6:                                         ; preds = %if.end4, %lor.lhs.f
 
 if.then.i:                                        ; preds = %required_blocks.exit
   %and.i = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %ad, i64 noundef %and.i)
   %and2.i = and i64 %ad_len_, 15
   %cmp3.not.i = icmp eq i64 %and2.i, 0
   br i1 %cmp3.not.i, label %if.end8.i, label %if.then4.i
@@ -343,8 +343,8 @@ if.then4.i:                                       ; preds = %if.then.i
   %0 = sub nuw nsw i64 16, %and2.i
   %1 = getelementptr i8, ptr %pad.i, i64 %and2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr6.i, i64 %and2.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i, i64 noundef 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr align 1 %add.ptr6.i, i64 %and2.i, i1 false)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i, i64 noundef 16)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
@@ -422,7 +422,7 @@ for.body22.i.i:                                   ; preds = %for.body22.i.i, %fo
   br i1 %exitcond31.not.i.i, label %encrypt_xor_wide.exit.i, label %for.body22.i.i, !llvm.loop !11
 
 encrypt_xor_wide.exit.i:                          ; preds = %for.body22.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %c, ptr noundef nonnull align 16 dereferenceable(112) %ts.i.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %c, ptr noundef nonnull align 16 dereferenceable(112) %ts.i.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i.i)
   %cmp20.not628.i = icmp ult i64 %m_len_, 336
   br i1 %cmp20.not628.i, label %encrypt_xor_wide.exit.for.end69_crit_edge.i, label %for.body.i225.preheader.lr.ph.i
@@ -514,12 +514,12 @@ for.body22.i254.i:                                ; preds = %for.body22.i254.i, 
 
 encrypt_xor_wide.exit262.i:                       ; preds = %for.body22.i254.i
   %add.ptr23.i = getelementptr i8, ptr %c, i64 %i.0630.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr23.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i233.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr23.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i233.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i233.i)
   %add.ptr27.i = getelementptr i8, ptr %add.ptr24.i, i64 112
-  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr27.i, i32 0, i32 2, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %add.ptr27.i, i32 0, i32 2, i32 1)
   %add.ptr30.i = getelementptr i8, ptr %add.ptr24.i, i64 176
-  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr30.i, i32 0, i32 2, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %add.ptr30.i, i32 0, i32 2, i32 1)
   %add.ptr32.i = getelementptr i8, ptr %add.ptr23.i, i64 -112
   %26 = load <2 x i64>, ptr %arrayidx.i13, align 16
   %add.ptr32.val.i = load <16 x i8>, ptr %add.ptr32.i, align 1
@@ -627,12 +627,12 @@ for.body22.i295.i:                                ; preds = %for.body22.i295.i, 
 
 encrypt_xor_wide.exit303.i:                       ; preds = %for.body22.i295.i
   %add.ptr45.i = getelementptr i8, ptr %add.ptr23.i, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr45.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i274.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr45.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i274.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i274.i)
   %add.ptr50.i = getelementptr i8, ptr %add.ptr24.i, i64 224
-  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr50.i, i32 0, i32 2, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %add.ptr50.i, i32 0, i32 2, i32 1)
   %add.ptr53.i = getelementptr i8, ptr %add.ptr24.i, i64 288
-  tail call void @llvm.prefetch.p0(ptr readonly %add.ptr53.i, i32 0, i32 2, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %add.ptr53.i, i32 0, i32 2, i32 1)
   br label %for.body56.i
 
 for.body56.i:                                     ; preds = %for.body56.i, %encrypt_xor_wide.exit303.i
@@ -814,7 +814,7 @@ for.body22.i363.i:                                ; preds = %for.body22.i363.i, 
 
 encrypt_xor_wide.exit371.i:                       ; preds = %for.body22.i363.i
   %add.ptr95.i = getelementptr i8, ptr %c, i64 %i.1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr95.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i342.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr95.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i342.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i342.i)
   %add98.i = add i64 %i.1.i, 112
   %add100641.i = add i64 %i.1.i, 224
@@ -909,7 +909,7 @@ for.body22.i401.i:                                ; preds = %for.body22.i401.i, 
 
 encrypt_xor_wide.exit409.i:                       ; preds = %for.body22.i401.i
   %add.ptr105.i = getelementptr i8, ptr %c, i64 %i.2644.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr105.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i380.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr105.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i380.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i380.i)
   %add.ptr110.i = getelementptr i8, ptr %add.ptr105.i, i64 -112
   %107 = load <2 x i64>, ptr %arrayidx134.i.phi.trans.insert, align 16
@@ -1369,7 +1369,7 @@ encrypt.exit.i:                                   ; preds = %for.body.i564.i
 
 for.end264.i:                                     ; preds = %encrypt.exit.i
   %235 = getelementptr i8, ptr %m, i64 %i.6.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_blocks.i, ptr readonly align 1 %235, i64 %sub253.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_blocks.i, ptr align 1 %235, i64 %sub253.i, i1 false)
   %add.ptr266.i = getelementptr inbounds i8, ptr %last_blocks.i, i64 16
   store <16 x i8> %232, ptr %add.ptr266.i, align 16
   %236 = bitcast <2 x i64> %counter.6.lcssa.i to <16 x i8>
@@ -1416,7 +1416,7 @@ if.else.i:                                        ; preds = %encrypt.exit.i
 
 aes_gcm_encrypt_generic.exit:                     ; preds = %for.end286.i, %if.else.i
   %.sink.i = phi i64 [ 16, %if.else.i ], [ 32, %for.end286.i ]
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef %.sink.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef %.sink.i)
   %247 = load <2 x i64>, ptr %mac, align 1
   %248 = load <16 x i8>, ptr %sth, align 16
   %249 = shufflevector <16 x i8> %248, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1447,10 +1447,10 @@ entry:
   %add.ptr = getelementptr i8, ptr %c, i64 %m_len
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %st.i)
   tail call void @llvm.prefetch.p0(ptr nonnull %c, i32 0, i32 2, i32 1)
-  tail call void @llvm.prefetch.p0(ptr readonly %m, i32 0, i32 2, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %m, i32 0, i32 2, i32 1)
   tail call void @llvm.prefetch.p0(ptr %ad, i32 0, i32 2, i32 1)
-  %call.i = call i32 @crypto_aead_aes256gcm_beforenm(ptr noundef %st.i, ptr noundef readonly %k)
-  %call1.i = call i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef %c, ptr noundef %add.ptr, ptr noundef null, ptr noundef readonly %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr readnone poison, ptr noundef readonly %npub, ptr noundef %st.i)
+  %call.i = call i32 @crypto_aead_aes256gcm_beforenm(ptr noundef %st.i, ptr noundef %k)
+  %call1.i = call i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef %c, ptr noundef %add.ptr, ptr noundef null, ptr noundef %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr poison, ptr noundef %npub, ptr noundef %st.i)
   call void @sodium_memzero(ptr noundef nonnull %st.i, i64 noundef 512) #12
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %st.i)
   %cmp.not = icmp eq ptr %clen_p, null
@@ -1550,7 +1550,7 @@ required_blocks.exit.i:                           ; preds = %lor.lhs.false6.i.i
   %j.sroa.0.0.copyload.i = load <12 x i8>, ptr %npub, align 1
   %j.sroa.0.0.vec.expand.i = shufflevector <12 x i8> %j.sroa.0.0.copyload.i, <12 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
   %and.i = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef readonly %ad, i64 noundef %and.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth.i, ptr noundef %ad, i64 noundef %and.i)
   %and6.i = and i64 %ad_len_, 15
   %cmp7.not.i = icmp eq i64 %and6.i, 0
   br i1 %cmp7.not.i, label %if.end14.i, label %if.then8.i
@@ -1562,13 +1562,13 @@ if.then8.i:                                       ; preds = %required_blocks.exi
   %0 = sub nuw nsw i64 16, %and6.i
   %1 = getelementptr i8, ptr %pad.i, i64 %and6.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr12.i, i64 %and6.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %pad.i, i64 noundef 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr align 1 %add.ptr12.i, i64 %and6.i, i1 false)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %pad.i, i64 noundef 16)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then8.i, %required_blocks.exit.i
   %and15.i = and i64 %c_len_, 68719476720
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull readonly %c, i64 noundef %and15.i)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %c, i64 noundef %and15.i)
   %and16.i = and i64 %c_len_, 15
   %cmp17.not.i = icmp eq i64 %and16.i, 0
   br i1 %cmp17.not.i, label %if.end26.i, label %if.then18.i
@@ -1580,8 +1580,8 @@ if.then18.i:                                      ; preds = %if.end14.i
   %2 = sub nuw nsw i64 16, %and16.i
   %3 = getelementptr i8, ptr %pad19.i, i64 %and16.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad19.i, ptr readonly align 1 %add.ptr24.i, i64 %and16.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %pad19.i, i64 noundef 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad19.i, ptr align 1 %add.ptr24.i, i64 %and16.i, i1 false)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %pad19.i, i64 noundef 16)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then18.i, %if.end14.i
@@ -1611,7 +1611,7 @@ encrypt.exit.i:                                   ; preds = %for.body.i.i
   %13 = load <2 x i64>, ptr %arrayidx6.i.i, align 16
   %14 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %10, <2 x i64> %13)
   store <16 x i8> %12, ptr %last_block.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %last_block.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %last_block.i, i64 noundef 16)
   %15 = load <16 x i8>, ptr %sth.i, align 16
   %16 = shufflevector <16 x i8> %15, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %17 = bitcast <16 x i8> %16 to <2 x i64>
@@ -1663,7 +1663,7 @@ required_blocks.exit:                             ; preds = %lor.lhs.false6.i
 
 if.then.i:                                        ; preds = %required_blocks.exit
   %and.i34 = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i34)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %ad, i64 noundef %and.i34)
   %and2.i = and i64 %ad_len_, 15
   %cmp3.not.i = icmp eq i64 %and2.i, 0
   br i1 %cmp3.not.i, label %if.end8.i, label %if.then4.i
@@ -1675,8 +1675,8 @@ if.then4.i:                                       ; preds = %if.then.i
   %18 = sub nuw nsw i64 16, %and2.i
   %19 = getelementptr i8, ptr %pad.i16, i64 %and2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, i8 0, i64 %18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i16, ptr readonly align 1 %add.ptr6.i, i64 %and2.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i16, i64 noundef 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i16, ptr align 1 %add.ptr6.i, i64 %and2.i, i1 false)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i16, i64 noundef 16)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
@@ -1825,7 +1825,7 @@ for.body22.i.i:                                   ; preds = %for.body22.i.i, %fo
 
 encrypt_xor_wide.exit.i:                          ; preds = %for.body22.i.i
   %add.ptr22.i25 = getelementptr i8, ptr %m, i64 %i.0441.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr22.i25, ptr noundef nonnull align 16 dereferenceable(112) %ts.i.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr22.i25, ptr noundef nonnull align 16 dereferenceable(112) %ts.i.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i.i)
   br label %for.body.i173.i
 
@@ -1939,7 +1939,7 @@ for.body22.i209.i:                                ; preds = %for.body22.i209.i, 
 
 encrypt_xor_wide.exit217.i:                       ; preds = %for.body22.i209.i
   %add.ptr41.i = getelementptr i8, ptr %m, i64 %add27.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr41.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i188.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr41.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i188.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i188.i)
   %add.i26 = add i64 %add442.i, 224
   %cmp12.not.i = icmp ugt i64 %add.i26, %c_len_
@@ -2089,7 +2089,7 @@ for.body22.i270.i:                                ; preds = %for.body22.i270.i, 
 encrypt_xor_wide.exit278.i:                       ; preds = %for.body22.i270.i
   %xor.i.i248.i = xor <2 x i64> %92, %xor.i17.i231.i
   %add.ptr69.i = getelementptr i8, ptr %m, i64 %i.1451.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(112) %add.ptr69.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i249.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr69.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i249.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i249.i)
   %add46.i = add i64 %add46452.i, 112
   %cmp47.not.i = icmp ugt i64 %add46.i, %c_len_
@@ -2425,7 +2425,7 @@ encrypt.exit.i30:                                 ; preds = %for.body.i387.i
 
 for.cond190.preheader.i:                          ; preds = %encrypt.exit.i30
   %189 = getelementptr i8, ptr %c, i64 %i.4.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_blocks.i, ptr readonly align 1 %189, i64 %sub178.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_blocks.i, ptr align 1 %189, i64 %sub178.i, i1 false)
   %cmp191485.i = icmp ult i64 %sub178.i, 16
   br i1 %cmp191485.i, label %for.body192.preheader.i, label %for.end196.i
 
@@ -2439,7 +2439,7 @@ for.body192.preheader.i:                          ; preds = %for.cond190.prehead
 for.end196.i:                                     ; preds = %for.body192.preheader.i, %for.cond190.preheader.i
   %add.ptr198.i = getelementptr inbounds i8, ptr %last_blocks.i, i64 16
   store <16 x i8> %186, ptr %add.ptr198.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 32)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 32)
   %191 = bitcast <2 x i64> %counter.4.lcssa.i to <16 x i8>
   %192 = shufflevector <16 x i8> %191, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %193 = bitcast <16 x i8> %192 to <2 x i64>
@@ -2462,12 +2462,12 @@ for.body206.lr.ph.i:                              ; preds = %for.body.i391.i
   %xor.i.i398.i = xor <2 x i64> %197, %196
   store <2 x i64> %xor.i.i398.i, ptr %last_blocks.i, align 16
   %198 = getelementptr i8, ptr %m, i64 %i.4.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %198, ptr nonnull align 16 %last_blocks.i, i64 %sub178.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %198, ptr nonnull align 16 %last_blocks.i, i64 %sub178.i, i1 false)
   br label %aes_gcm_decrypt_generic.exit
 
 if.else.i:                                        ; preds = %encrypt.exit.i30
   store <16 x i8> %186, ptr %last_blocks.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
   br label %aes_gcm_decrypt_generic.exit
 
 aes_gcm_decrypt_generic.exit:                     ; preds = %for.body206.lr.ph.i, %if.else.i
@@ -2551,7 +2551,7 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add i64 %clen, -16
   %add.ptr.i = getelementptr i8, ptr %c, i64 %clen
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 -16
-  %call.i = call i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef %m, ptr readnone poison, ptr noundef %c, i64 noundef %sub.i, ptr noundef %add.ptr1.i, ptr noundef %ad, i64 noundef %adlen, ptr noundef readonly %npub, ptr noundef readonly %st)
+  %call.i = call i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef %m, ptr poison, ptr noundef %c, i64 noundef %sub.i, ptr noundef %add.ptr1.i, ptr noundef %ad, i64 noundef %adlen, ptr noundef %npub, ptr noundef %st)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry

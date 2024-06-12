@@ -97,7 +97,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 
 Res_WinMarkTfi.exit:                              ; preds = %.lr.ph.i, %Abc_NtkIncrementTravId.exit
   %46 = load ptr, ptr %0, align 8
-  tail call void @Res_WinMarkTfi_rec(ptr noundef nonnull readonly %0, ptr noundef %46)
+  tail call void @Res_WinMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %46)
   %47 = load ptr, ptr %0, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 232
@@ -155,8 +155,8 @@ Abc_NtkIncrementTravId.exit114:                   ; preds = %Res_WinMarkTfi.exit
   %70 = load i32, ptr %3, align 8
   tail call void @Res_WinSweepLeafTfo_rec(ptr noundef %69, i32 noundef %70)
   %71 = load ptr, ptr %0, align 8
-  %72 = tail call i32 @Res_NodeDeref_rec(ptr noundef readonly %71)
-  %73 = tail call i32 @Res_NodeRef_rec(ptr noundef readonly %71)
+  %72 = tail call i32 @Res_NodeDeref_rec(ptr noundef %71)
+  %73 = tail call i32 @Res_NodeRef_rec(ptr noundef %71)
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr i8, ptr %74, i64 28
   %.val89200 = load i32, ptr %75, align 4

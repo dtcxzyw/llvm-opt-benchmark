@@ -198,7 +198,7 @@ define range(i32 -1, 1) i32 @zend_load_extension_handle(ptr noundef %0, ptr noun
 61:                                               ; preds = %60
   %62 = getelementptr inbounds i8, ptr %.07.i, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) %59) #17
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %59) #17
   %.not8.i = icmp eq i32 %64, 0
   br i1 %.not8.i, label %zend_get_extension.exit, label %60
 
@@ -210,7 +210,7 @@ zend_get_extension.exit:                          ; preds = %61
 
 zend_get_extension.exit.thread:                   ; preds = %60, %33
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull readonly align 8 dereferenceable(208) %.036, i64 208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(208) %.036, i64 208, i1 false)
   %68 = getelementptr inbounds i8, ptr %3, i64 192
   store ptr %0, ptr %68, align 8
   call void (ptr, ptr, i32, ...) @zend_llist_apply_with_arguments(ptr noundef nonnull @zend_extensions, ptr noundef nonnull @zend_extension_message_dispatcher, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %3) #15

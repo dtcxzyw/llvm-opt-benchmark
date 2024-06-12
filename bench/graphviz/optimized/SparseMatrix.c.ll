@@ -2723,7 +2723,7 @@ define noundef ptr @SparseMatrix_from_coordinate_format(ptr nocapture noundef re
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load i64, ptr %18, align 8
-  %20 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef readonly %8, ptr noundef readonly %10, ptr noundef readonly %6, i32 noundef %17, i64 noundef %19, i32 noundef 1)
+  %20 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef %8, ptr noundef %10, ptr noundef %6, i32 noundef %17, i64 noundef %19, i32 noundef 1)
   br label %21
 
 21:                                               ; preds = %1, %4
@@ -2760,7 +2760,7 @@ define noundef ptr @SparseMatrix_from_coordinate_format_not_compacted(ptr nocapt
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load i64, ptr %18, align 8
-  %20 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef readonly %8, ptr noundef readonly %10, ptr noundef readonly %6, i32 noundef %17, i64 noundef %19, i32 noundef 0)
+  %20 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef %8, ptr noundef %10, ptr noundef %6, i32 noundef %17, i64 noundef %19, i32 noundef 0)
   br label %21
 
 21:                                               ; preds = %1, %4
@@ -6925,7 +6925,7 @@ gv_calloc.exit91:                                 ; preds = %37
   %88 = add nsw i32 %8, %6
   %89 = getelementptr inbounds i8, ptr %0, i64 56
   %90 = load i64, ptr %89, align 8
-  %91 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.2.lcssa, i32 noundef %88, i32 noundef %88, ptr noundef readonly %.076, ptr noundef readonly %.077, ptr noundef readonly %.080, i32 noundef %5, i64 noundef %90, i32 noundef 1)
+  %91 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.2.lcssa, i32 noundef %88, i32 noundef %88, ptr noundef %.076, ptr noundef %.077, ptr noundef %.080, i32 noundef %5, i64 noundef %90, i32 noundef 1)
   %92 = getelementptr inbounds i8, ptr %91, i64 52
   %93 = load i32, ptr %92, align 4
   %94 = or i32 %93, 3
@@ -7761,7 +7761,7 @@ gv_calloc.exit304:                                ; preds = %.thread328, %300
   %.20 = phi i32 [ 0, %gv_calloc.exit272 ], [ 0, %gv_calloc.exit284.preheader ], [ 0, %gv_calloc.exit296 ], [ 0, %gv_calloc.exit304 ], [ %.7, %.loopexit ], [ %.11, %gv_calloc.exit284 ], [ %.15, %.loopexit340 ], [ %.19, %.loopexit342 ]
   %333 = getelementptr inbounds i8, ptr %0, i64 56
   %334 = load i64, ptr %333, align 8
-  %335 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.20, i32 noundef %1, i32 noundef %2, ptr noundef readonly %.0236, ptr noundef readonly %.0237, ptr noundef readonly %.0244, i32 noundef %87, i64 noundef %334, i32 noundef 1)
+  %335 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.20, i32 noundef %1, i32 noundef %2, ptr noundef %.0236, ptr noundef %.0237, ptr noundef %.0244, i32 noundef %87, i64 noundef %334, i32 noundef 1)
   tail call void @free(ptr noundef %43) #16
   tail call void @free(ptr noundef %29) #16
   tail call void @free(ptr noundef %.0236) #16

@@ -727,7 +727,7 @@ if.end.i:                                         ; preds = %if.then56
 
 if.then5.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %buf.0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr nonnull readonly align 1 %38, i64 %call59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %38, i64 %call59, i1 false)
   br label %header_ext_add.exit
 
 header_ext_add.exit:                              ; preds = %if.end.i, %if.then5.i
@@ -777,7 +777,7 @@ if.end.i147:                                      ; preds = %if.then74
 
 if.then5.i151:                                    ; preds = %if.end.i147
   %add.ptr.i152 = getelementptr i8, ptr %buf.1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i152, ptr nonnull readonly align 1 %42, i64 %call77, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i152, ptr nonnull align 1 %42, i64 %call77, i1 false)
   br label %header_ext_add.exit154
 
 header_ext_add.exit154:                           ; preds = %if.end.i147, %if.then5.i151
@@ -819,7 +819,7 @@ if.end117:                                        ; preds = %if.then91
   %.compoundliteral.sroa.2.0..sroa_idx.i157 = getelementptr inbounds i8, ptr %buf.2, i64 4
   store i32 268435456, ptr %.compoundliteral.sroa.2.0..sroa_idx.i157, align 1
   %add.ptr.i159 = getelementptr i8, ptr %buf.2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %add.ptr.i159, ptr noundef nonnull readonly align 1 dereferenceable(16) %crypto_header, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i159, ptr noundef nonnull align 1 dereferenceable(16) %crypto_header, i64 16, i1 false)
   %.pre = load i64, ptr %crypto_header, align 8
   %.pre221 = load i64, ptr %length, align 8
   %48 = tail call noundef i64 @llvm.bswap.i64(i64 %.pre)
@@ -851,7 +851,7 @@ if.end136:                                        ; preds = %if.then130
   %.compoundliteral.sroa.2.0..sroa_idx.i164 = getelementptr inbounds i8, ptr %buf.3, i64 4
   store i32 -2147418112, ptr %.compoundliteral.sroa.2.0..sroa_idx.i164, align 1
   %add.ptr.i166 = getelementptr i8, ptr %buf.3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(384) %add.ptr.i166, ptr noundef nonnull readonly align 16 dereferenceable(384) @qcow2_update_header.features, i64 384, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %add.ptr.i166, ptr noundef nonnull align 16 dereferenceable(384) @qcow2_update_header.features, i64 384, i1 false)
   %add.ptr138 = getelementptr i8, ptr %buf.3, i64 392
   %sub140 = add i64 %buflen.3, -392
   br label %if.end141
@@ -925,7 +925,7 @@ if.end.i180:                                      ; preds = %for.body
 
 if.then5.i184:                                    ; preds = %if.end.i180
   %add.ptr.i185 = getelementptr i8, ptr %buf.6218, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i185, ptr nonnull readonly align 1 %data, i64 %conv165, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i185, ptr nonnull align 1 %data, i64 %conv165, i1 false)
   br label %header_ext_add.exit187
 
 header_ext_add.exit187:                           ; preds = %if.end.i180, %if.then5.i184
@@ -8646,7 +8646,7 @@ if.end:                                           ; preds = %entry
   store i64 %10, ptr %image_end_offset10.i, align 8
   %bfi.i = getelementptr inbounds i8, ptr %result, i64 32
   %bfi11.i = getelementptr inbounds i8, ptr %refcount_res, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bfi.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %bfi11.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bfi.i, ptr noundef nonnull align 16 dereferenceable(32) %bfi11.i, i64 32, i1 false)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 

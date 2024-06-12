@@ -4636,7 +4636,7 @@ define internal noundef zeroext i16 @de_rr_cell_ch_dsc(ptr noundef %0, ptr nound
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5921,7 +5921,7 @@ define internal noundef zeroext i16 @de_rr_freq_list(ptr noundef %0, ptr noundef
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5930,7 +5930,7 @@ define internal noundef zeroext i16 @de_rr_freq_short_list(ptr noundef %0, ptr n
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 9, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 9, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5939,7 +5939,7 @@ define internal noundef zeroext i16 @de_rr_freq_short_list2(ptr noundef %0, ptr 
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 8, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 8, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -7650,7 +7650,7 @@ define internal noundef zeroext i16 @de_rr_neigh_cell_desc(ptr noundef %0, ptr n
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %15 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %17 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %14)
+  %17 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %14)
   ret i16 %17
 }
 
@@ -7667,7 +7667,7 @@ define internal noundef zeroext i16 @de_rr_neigh_cell_desc2(ptr noundef %0, ptr 
   %16 = and i8 %15, -65
   %17 = load i32, ptr @hf_gsm_a_rr_format_id2, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %19 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %16)
+  %19 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %16)
   ret i16 %19
 }
 
@@ -10369,7 +10369,7 @@ define internal noundef zeroext i16 @de_rr_ext_meas_freq_list(ptr noundef %0, pt
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %13 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %15 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %12)
+  %15 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %12)
   ret i16 %15
 }
 

@@ -432,7 +432,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   %1 = zext i32 %0 to i64
   %2 = shl nuw nsw i64 %1, 7
   %3 = add nuw nsw i64 %2, 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %out, i8 0, i64 %3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %out, i8 0, i64 %3, i1 false)
   br label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EEEEEiPKjPjii.exit
 
 for.body7.i:                                      ; preds = %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack1_32EPKjPj.exit.i, %for.body7.preheader.i
@@ -4097,7 +4097,7 @@ for.body379.i:                                    ; preds = %for.body379.i, %for
   %in.addr.322371.i = phi ptr [ %in, %for.body379.preheader.i ], [ %add.ptr.i.i, %for.body379.i ]
   %816 = shl nsw i64 %indvars.iv.i, 5
   %add.ptr382.i = getelementptr inbounds i32, ptr %out, i64 %816
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(128) %add.ptr382.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %in.addr.322371.i, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr382.i, ptr noundef nonnull align 4 dereferenceable(128) %in.addr.322371.i, i64 128, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.322371.i, i64 128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

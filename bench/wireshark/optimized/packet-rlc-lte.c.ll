@@ -1633,11 +1633,11 @@ proto_item_set_generated.exit.i:                  ; preds = %298, %295, %294
   %307 = zext i16 %305 to i32
   %.not12.i.us.i = icmp eq i16 %305, 1
   %308 = select i1 %.not12.i.us.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, i32 noundef %307, ptr noundef nonnull %308, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, i32 noundef %307, ptr noundef nonnull %308, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.us.i
 
 309:                                              ; preds = %.lr.ph.split.us.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.us.i
 
 show_PDU_in_info.exit.us.i:                       ; preds = %309, %306
@@ -1664,11 +1664,11 @@ show_PDU_in_info.exit.us.i:                       ; preds = %309, %306
   %320 = zext i16 %317 to i32
   %.not12.i.i = icmp eq i16 %317, 1
   %321 = select i1 %.not12.i.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %spec.select204.i, i32 noundef %320, ptr noundef nonnull %321, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %spec.select204.i, i32 noundef %320, ptr noundef nonnull %321, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i
 
 322:                                              ; preds = %.lr.ph.split.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %spec.select204.i, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %spec.select204.i, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i
 
 show_PDU_in_info.exit.i:                          ; preds = %322, %319
@@ -1699,13 +1699,13 @@ show_PDU_in_info.exit.i:                          ; preds = %322, %319
   %336 = select i1 %.not12.i171.i, ptr @.str.299, ptr @.str.324
   %.not13.i.not.i = icmp eq i32 %285, 0
   %337 = select i1 %.not13.i.not.i, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %334, i32 noundef %331, ptr noundef nonnull %336, ptr noundef nonnull %337)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %334, i32 noundef %331, ptr noundef nonnull %336, ptr noundef nonnull %337)
   br label %show_PDU_in_info.exit172.i
 
 338:                                              ; preds = %._crit_edge.i
   %.not10.i.not.i = icmp eq i32 %285, 0
   %339 = select i1 %.not10.i.not.i, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %334, ptr noundef nonnull %339)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %334, ptr noundef nonnull %339)
   br label %show_PDU_in_info.exit172.i
 
 340:                                              ; preds = %288
@@ -1800,7 +1800,7 @@ thread-pre-split.i:                               ; preds = %354
   %380 = phi i16 [ %375, %373 ], [ %377, %.thread.i ]
   %381 = load i64, ptr %27, align 8
   %382 = trunc i64 %381 to i16
-  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.1185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef writeonly %31, ptr noundef %244)
+  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.1185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef %31, ptr noundef %244)
   br label %384
 
 384:                                              ; preds = %378, %361, %358
@@ -1859,11 +1859,11 @@ thread-pre-split.i:                               ; preds = %354
   %418 = zext i16 %415 to i32
   %.not12.i177.i = icmp eq i16 %415, 1
   %419 = select i1 %.not12.i177.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %416, i32 noundef %418, ptr noundef nonnull %419, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %416, i32 noundef %418, ptr noundef nonnull %419, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit178.i
 
 420:                                              ; preds = %.lr.ph202.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %416, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %416, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit178.i
 
 show_PDU_in_info.exit178.i:                       ; preds = %420, %417
@@ -1908,13 +1908,13 @@ show_PDU_in_info.exit178.i:                       ; preds = %420, %417
   %442 = select i1 %.not12.i181.i, ptr @.str.299, ptr @.str.324
   %.not13.i182.not.i = icmp eq i32 %285, 0
   %443 = select i1 %.not13.i182.not.i, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %440, i32 noundef %437, ptr noundef nonnull %442, ptr noundef nonnull %443)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %440, i32 noundef %437, ptr noundef nonnull %442, ptr noundef nonnull %443)
   br label %dissect_rlc_lte_um.exit
 
 444:                                              ; preds = %.loopexit.i
   %.not10.i180.not.i = icmp eq i32 %285, 0
   %445 = select i1 %.not10.i180.not.i, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %440, ptr noundef nonnull %445)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %440, ptr noundef nonnull %445)
   br label %dissect_rlc_lte_um.exit
 
 dissect_rlc_lte_um.exit:                          ; preds = %266, %384, %441, %444
@@ -2259,7 +2259,7 @@ thread-pre-split.i.i:                             ; preds = %589
   br i1 %.not79.i.i.i, label %checkChannelRepeatedNACKInfo.exit.i.i, label %629
 
 629:                                              ; preds = %610
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %628, ptr noundef nonnull readonly %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %628, ptr noundef nonnull %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelRepeatedNACKInfo.exit.i.i
 
 630:                                              ; preds = %604
@@ -2447,7 +2447,7 @@ thread-pre-split.i.i:                             ; preds = %589
   %721 = or disjoint i32 %716, %720
   store i32 %721, ptr %.phi.trans.insert.i.i.i.i, align 4
   %722 = call ptr @wmem_map_insert(ptr noundef %702, ptr noundef nonnull %706, ptr noundef nonnull %692) #13
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %692, ptr noundef readonly %40, ptr noundef %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %692, ptr noundef %40, ptr noundef %1, ptr noundef %459, ptr noundef %0)
   br label %723
 
 723:                                              ; preds = %._crit_edge.i.i.i.thread, %._crit_edge96.i.i.i, %._crit_edge.i.i.i
@@ -2497,7 +2497,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %723, %629, %610
   br i1 %.not37.i.i.i, label %checkChannelACKWindow.exit.i.i, label %752
 
 752:                                              ; preds = %733
-  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %751, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef writeonly %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %751, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 753:                                              ; preds = %checkChannelRepeatedNACKInfo.exit.i.i
@@ -2581,7 +2581,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %723, %629, %610
   %817 = or disjoint i32 %812, %816
   store i32 %817, ptr %.phi.trans.insert.i.i129.i.i, align 4
   %818 = call ptr @wmem_map_insert(ptr noundef %798, ptr noundef nonnull %802, ptr noundef %790) #13
-  call fastcc void @addChannelSequenceInfo(ptr noundef %790, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef writeonly %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef %790, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 checkChannelACKWindow.exit.i.i:                   ; preds = %788, %773, %753, %752, %733
@@ -2828,11 +2828,11 @@ proto_item_set_generated.exit.i183:               ; preds = %927, %924, %923
   %939 = zext i16 %935 to i32
   %.not12.i.i186 = icmp eq i16 %935, 1
   %940 = select i1 %.not12.i.i186, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %937, i32 noundef %939, ptr noundef nonnull %940, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %937, i32 noundef %939, ptr noundef nonnull %940, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i187
 
 941:                                              ; preds = %933
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %937, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %937, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i187
 
 show_PDU_in_info.exit.i187:                       ; preds = %941, %938
@@ -2863,13 +2863,13 @@ show_PDU_in_info.exit.i187:                       ; preds = %941, %938
   %955 = select i1 %.not12.i234.i, ptr @.str.299, ptr @.str.324
   %.not13.i.not.i192 = icmp eq i32 %914, 0
   %956 = select i1 %.not13.i.not.i192, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %953, i32 noundef %950, ptr noundef nonnull %955, ptr noundef nonnull %956)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %953, i32 noundef %950, ptr noundef nonnull %955, ptr noundef nonnull %956)
   br label %show_PDU_in_info.exit235.i
 
 957:                                              ; preds = %._crit_edge.i189
   %.not10.i.not.i191 = icmp eq i32 %914, 0
   %958 = select i1 %.not10.i.not.i191, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %953, ptr noundef nonnull %958)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %953, ptr noundef nonnull %958)
   br label %show_PDU_in_info.exit235.i
 
 959:                                              ; preds = %917
@@ -3020,11 +3020,11 @@ thread-pre-split.i181:                            ; preds = %969
   %1034 = zext i16 %1031 to i32
   %.not12.i240.i = icmp eq i16 %1031, 1
   %1035 = select i1 %.not12.i240.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1032, i32 noundef %1034, ptr noundef nonnull %1035, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1032, i32 noundef %1034, ptr noundef nonnull %1035, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit241.i
 
 1036:                                             ; preds = %.lr.ph262.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1032, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1032, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit241.i
 
 show_PDU_in_info.exit241.i:                       ; preds = %1036, %1033
@@ -3074,13 +3074,13 @@ show_PDU_in_info.exit241.i:                       ; preds = %1036, %1033
   %1061 = select i1 %.not12.i244.i, ptr @.str.299, ptr @.str.324
   %.not13.i245.not.i = icmp eq i32 %914, 0
   %1062 = select i1 %.not13.i245.not.i, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1059, i32 noundef %1056, ptr noundef nonnull %1061, ptr noundef nonnull %1062)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1059, i32 noundef %1056, ptr noundef nonnull %1061, ptr noundef nonnull %1062)
   br label %dissect_rlc_lte_am.exit
 
 1063:                                             ; preds = %1049
   %.not10.i243.not.i = icmp eq i32 %914, 0
   %1064 = select i1 %.not10.i243.not.i, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1059, ptr noundef nonnull %1064)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1059, ptr noundef nonnull %1064)
   br label %dissect_rlc_lte_am.exit
 
 1065:                                             ; preds = %.loopexit.i176

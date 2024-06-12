@@ -575,7 +575,7 @@ define void @Abc_NtkExpandCubes(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   store i32 0, ptr %6, align 4
   %30 = getelementptr inbounds i8, ptr %23, i64 56
   %31 = load ptr, ptr %30, align 8
-  call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef readonly %31)
+  call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef %31)
   %32 = load i32, ptr %6, align 4
   %33 = load i32, ptr %5, align 8
   %34 = icmp eq i32 %32, %33

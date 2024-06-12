@@ -1618,7 +1618,7 @@ _ZN12t_pull_groupD2Ev.exit:                       ; preds = %_ZNSt6vectorIfSaIfE
   store i32 %219, ptr %165, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
-  %221 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %58, ptr noundef nonnull @.str.56, ptr noundef nonnull %50, ptr noundef nonnull %51) #22, !noalias !7
+  %221 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %58, ptr noundef nonnull @.str.56, ptr noundef nonnull %50, ptr noundef nonnull %51) #22, !noalias !7
   %222 = icmp eq i32 %221, 1
   br i1 %222, label %.lr.ph.i, label %.loopexit229
 
@@ -2786,7 +2786,7 @@ _ZL11string2dvecPKcPd.exit.i:                     ; preds = %_ZL16process_pull_d
           to label %.noexc173 unwind label %.loopexit.split-lp.loopexit
 
 .noexc173:                                        ; preds = %.sink.split.i, %582, %579, %571, %568, %560, %557, %555
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
   %590 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %60, ptr noundef nonnull @.str.78, ptr noundef nonnull %44, ptr noundef nonnull %193, ptr noundef nonnull %194, ptr noundef nonnull %24) #22

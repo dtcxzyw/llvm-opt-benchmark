@@ -69,7 +69,7 @@ if.end:                                           ; preds = %while.end
   store i32 -1, ptr %spec, align 4
   store i16 0, ptr %fSpec.i, align 4
   store i16 32, ptr %fPadChar.i, align 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %fSkipArg.i, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %fSkipArg.i, i8 0, i64 5, i1 false)
   store i8 1, ptr %fIsString.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %alias.1, i64 2
   %4 = load i16, ptr %incdec.ptr.i, align 2

@@ -216,14 +216,14 @@ if.then11.i:                                      ; preds = %if.then8.i
   unreachable
 
 if.end13.i:                                       ; preds = %if.then8.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call63) #16
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63) #16
   %add1.i.i = add i64 %call.i.i, 2
-  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select1) #16
+  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #16
   %add4.i.i = add i64 %add1.i.i, %call2.i.i
   %sext.i.i = shl i64 %add4.i.i, 32
   %conv5.i.i = ashr exact i64 %sext.i.i, 32
   %call6.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv5.i.i) #12
-  %call7.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select1) #17
+  %call7.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i.i, ptr noundef nonnull dereferenceable(1) %spec.store.select1) #17
   %strlen.i.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %call6.i.i)
   %endptr.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %strlen.i.i
   store i16 47, ptr %endptr.i.i, align 1
@@ -232,10 +232,10 @@ if.end13.i:                                       ; preds = %if.then8.i
   %idxprom.i.i = ashr exact i64 %sext10.i.i, 32
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx11.i.i, align 1
-  %call12.i.i = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call6.i.i, ptr noundef nonnull readonly dereferenceable(1) %call63) #17
+  %call12.i.i = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call6.i.i, ptr noundef nonnull dereferenceable(1) %call63) #17
   %call15.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63) #16
   %add16.i = add i64 %call15.i, 1
-  %call17.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #16
+  %call17.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #16
   %add18.i = add i64 %add16.i, %call17.i
   %13 = trunc i64 %add18.i to i32
   %conv20.i = add i32 %13, 1
@@ -254,7 +254,7 @@ _ZL11allocStringj.exit.i:                         ; preds = %if.end13.i
   %idx.ext.i.i = zext nneg i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr @_ZL11stringStore, i64 %idx.ext.i.i
   store i32 %add.i.i, ptr @_ZL9stringTop, align 4
-  %call22.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
+  %call22.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull dereferenceable(1) %spec.store.select) #17
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr.i.i)
   %endptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %strlen.i
   store i16 47, ptr %endptr.i, align 1
@@ -323,7 +323,7 @@ if.end51.i:                                       ; preds = %if.end41.i
 if.else.i:                                        ; preds = %if.end7.i
   %call54.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63) #16
   %add55.i = add i64 %call54.i, 1
-  %call56.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #16
+  %call56.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #16
   %add57.i = add i64 %add55.i, %call56.i
   %25 = trunc i64 %add57.i to i32
   %conv59.i = add i32 %25, 1
@@ -342,7 +342,7 @@ _ZL11allocStringj.exit53.i:                       ; preds = %if.else.i
   %idx.ext.i50.i = zext nneg i32 %26 to i64
   %add.ptr.i51.i = getelementptr inbounds i8, ptr @_ZL11stringStore, i64 %idx.ext.i50.i
   store i32 %add.i48.i, ptr @_ZL9stringTop, align 4
-  %call61.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i51.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
+  %call61.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i51.i, ptr noundef nonnull dereferenceable(1) %spec.store.select) #17
   %strlen44.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr.i51.i)
   %endptr45.i = getelementptr inbounds i8, ptr %add.ptr.i51.i, i64 %strlen44.i
   store i16 47, ptr %endptr45.i, align 1

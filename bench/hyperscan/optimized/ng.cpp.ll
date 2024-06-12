@@ -2217,7 +2217,7 @@ if.then7:                                         ; preds = %if.end4
   %onmatch.i.i = getelementptr inbounds i8, ptr %r, i64 48
   store i32 %external_report, ptr %onmatch.i.i, align 8, !alias.scope !43
   %revNfaIndex.i.i = getelementptr inbounds i8, ptr %r, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %revNfaIndex.i.i, i8 0, i64 20, i1 false), !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %revNfaIndex.i.i, i8 0, i64 20, i1 false), !alias.scope !43
   store i32 0, ptr %offsetAdjust.i.i, align 4, !alias.scope !43
   store i32 -1, ptr %ekey.i.i, align 8, !alias.scope !43
   %somDistance.i = getelementptr inbounds i8, ptr %r, i64 56
@@ -2258,7 +2258,7 @@ cond.end:                                         ; preds = %if.else, %cond.true
   %onmatch.i.i20 = getelementptr inbounds i8, ptr %r15, i64 48
   store i32 %external_report, ptr %onmatch.i.i20, align 8, !alias.scope !46
   %revNfaIndex.i.i21 = getelementptr inbounds i8, ptr %r15, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %revNfaIndex.i.i21, i8 0, i64 20, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %revNfaIndex.i.i21, i8 0, i64 20, i1 false), !alias.scope !46
   store i32 0, ptr %offsetAdjust.i.i19, align 4, !alias.scope !46
   store i32 %cond, ptr %ekey.i.i16, align 8, !alias.scope !46
   store i8 %frombool.i11, ptr %quiet.i.i18, align 8, !alias.scope !46

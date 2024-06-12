@@ -1054,7 +1054,7 @@ descend_leftmost.exit:                            ; preds = %344, %362
   br label %430
 
 430:                                              ; preds = %do_search.exit, %descend_leftmost.exit
-  call void @unprepare_permutation_ntk(ptr noundef nonnull readonly %1)
+  call void @unprepare_permutation_ntk(ptr noundef nonnull %1)
   %431 = load i32, ptr %81, align 8
   %432 = icmp sgt i32 %431, 0
   br i1 %432, label %.lr.ph.i.i, label %unprepare_permutation.exit.i
@@ -1633,7 +1633,7 @@ descend_left.exit.thread.i:                       ; preds = %733, %descend.exit,
   br i1 %767, label %.lr.ph.i79.i, label %prepare_permutation.exit.i, !llvm.loop !30
 
 prepare_permutation.exit.i:                       ; preds = %.lr.ph.i79.i, %740
-  call void @prepare_permutation_ntk(ptr noundef nonnull readonly %1)
+  call void @prepare_permutation_ntk(ptr noundef nonnull %1)
   %768 = load ptr, ptr %73, align 8
   %769 = call i32 %768(ptr noundef nonnull %1) #24
   %.not68.i = icmp eq i32 %769, 0
@@ -1790,7 +1790,7 @@ update_theta.exit.i:                              ; preds = %850, %770
   %860 = load ptr, ptr %429, align 8
   %861 = load ptr, ptr %9, align 8
   %862 = call i32 %855(ptr noundef %856, i32 noundef %857, ptr noundef %858, i32 noundef %854, ptr noundef %859, ptr noundef %860, ptr noundef %861) #24
-  call void @unprepare_permutation_ntk(ptr noundef nonnull readonly %1)
+  call void @unprepare_permutation_ntk(ptr noundef nonnull %1)
   %863 = load i32, ptr %81, align 8
   %864 = icmp sgt i32 %863, 0
   br i1 %864, label %.lr.ph.i87.i, label %do_search.exit
@@ -1811,7 +1811,7 @@ update_theta.exit.i:                              ; preds = %850, %770
   br i1 %873, label %.lr.ph.i87.i, label %do_search.exit, !llvm.loop !25
 
 874:                                              ; preds = %prepare_permutation.exit.i
-  call void @unprepare_permutation_ntk(ptr noundef nonnull readonly %1)
+  call void @unprepare_permutation_ntk(ptr noundef nonnull %1)
   %875 = load i32, ptr %81, align 8
   %876 = icmp sgt i32 %875, 0
   br i1 %876, label %.lr.ph.i91.i, label %unprepare_permutation.exit94.i

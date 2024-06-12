@@ -1023,7 +1023,7 @@ _Z9arg_checkii.exit:                              ; preds = %526
   %532 = sext i32 %527 to i64
   %533 = getelementptr inbounds ptr, ptr %1, i64 %532
   %534 = load ptr, ptr %533, align 8
-  %535 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %534, ptr noundef nonnull @.str.344, ptr noundef nonnull @_ZL6g_Seed) #9
+  %535 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %534, ptr noundef nonnull @.str.344, ptr noundef nonnull @_ZL6g_Seed) #9
   %.not651 = icmp eq i32 %535, 0
   br i1 %.not651, label %536, label %_ZL13parse_int_argPcPm.exit.thread
 
@@ -1055,7 +1055,7 @@ _Z9arg_checkii.exit636:                           ; preds = %542
   %548 = sext i32 %543 to i64
   %549 = getelementptr inbounds ptr, ptr %1, i64 %548
   %550 = load ptr, ptr %549, align 8
-  %551 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %550, ptr noundef nonnull @.str.344, ptr noundef nonnull %3) #9
+  %551 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %550, ptr noundef nonnull @.str.344, ptr noundef nonnull %3) #9
   %.not650 = icmp eq i32 %551, 0
   br i1 %.not650, label %552, label %555
 
@@ -1093,7 +1093,7 @@ _Z9arg_checkii.exit639:                           ; preds = %562
   %568 = sext i32 %563 to i64
   %569 = getelementptr inbounds ptr, ptr %1, i64 %568
   %570 = load ptr, ptr %569, align 8
-  %571 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %570, ptr noundef nonnull @.str.344, ptr noundef nonnull %4) #9
+  %571 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %570, ptr noundef nonnull @.str.344, ptr noundef nonnull %4) #9
   %.not649 = icmp eq i32 %571, 0
   br i1 %.not649, label %572, label %575
 
@@ -1131,7 +1131,7 @@ _Z9arg_checkii.exit642:                           ; preds = %582
   %588 = sext i32 %583 to i64
   %589 = getelementptr inbounds ptr, ptr %1, i64 %588
   %590 = load ptr, ptr %589, align 8
-  %591 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %590, ptr noundef nonnull @.str.344, ptr noundef nonnull %5) #9
+  %591 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %590, ptr noundef nonnull @.str.344, ptr noundef nonnull %5) #9
   %.not648 = icmp eq i32 %591, 0
   br i1 %.not648, label %592, label %595
 
@@ -1205,7 +1205,7 @@ _Z9arg_checkii.exit645:                           ; preds = %622
   %628 = sext i32 %623 to i64
   %629 = getelementptr inbounds ptr, ptr %1, i64 %628
   %630 = load ptr, ptr %629, align 8
-  %631 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %630, ptr noundef nonnull @.str.344, ptr noundef nonnull %6) #9
+  %631 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %630, ptr noundef nonnull @.str.344, ptr noundef nonnull %6) #9
   %.not647 = icmp eq i32 %631, 0
   br i1 %.not647, label %632, label %635
 

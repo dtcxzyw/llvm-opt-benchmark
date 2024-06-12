@@ -1156,7 +1156,7 @@ while.cond.preheader.i.i:                         ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end5.i.i
   %2 = phi ptr [ %3, %if.end5.i.i ], [ %1, %while.cond.preheader.i.i ]
   %props.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %if.end5.i.i ], [ %0, %while.cond.preheader.i.i ]
-  %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #13
+  %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #13
   %cmp.i.i = icmp eq i32 %call.i4.i, 0
   br i1 %cmp.i.i, label %qdev_prop_find.exit, label %if.end5.i.i
 

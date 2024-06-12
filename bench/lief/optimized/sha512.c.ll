@@ -1096,7 +1096,7 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha512_self_test(i32 noundef %0) loc
   br label %71
 
 8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(216) %3, i8 0, i64 216, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %3, i8 0, i64 216, i1 false)
   %.not37 = icmp eq i32 %0, 0
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1123,7 +1123,7 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha512_self_test(i32 noundef %0) loc
   br label %22
 
 22:                                               ; preds = %18, %.backedge
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br i1 %.cmp, label %23, label %mbedtls_sha512_starts.exit
 
 23:                                               ; preds = %22
@@ -1171,7 +1171,7 @@ mbedtls_sha512_starts.exit:                       ; preds = %22, %23
 42:                                               ; preds = %41
   %43 = and i64 %31, 127
   %44 = getelementptr inbounds i8, ptr %15, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %35, i1 false)
   %45 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %3, ptr noundef nonnull %15)
   %46 = getelementptr inbounds i8, ptr %4, i64 %35
   %47 = sub nuw nsw i64 1000, %35

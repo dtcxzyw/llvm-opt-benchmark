@@ -1675,7 +1675,7 @@ define dso_local i32 @pg_strcoll(ptr noundef %0, ptr noundef %1, ptr noundef rea
   br i1 %.not, label %.split, label %5
 
 .split:                                           ; preds = %3
-  %4 = tail call i32 @strcoll(ptr noundef readonly %0, ptr noundef readonly %1) #26
+  %4 = tail call i32 @strcoll(ptr noundef %0, ptr noundef %1) #26
   br label %17
 
 5:                                                ; preds = %3
@@ -1688,7 +1688,7 @@ define dso_local i32 @pg_strcoll(ptr noundef %0, ptr noundef %1, ptr noundef rea
 pg_strcoll_libc.exit:                             ; preds = %5
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcoll_l(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %8) #26
+  %9 = tail call i32 @strcoll_l(ptr noundef %0, ptr noundef %1, ptr noundef %8) #26
   br label %17
 
 10:                                               ; preds = %5
@@ -1880,13 +1880,13 @@ define dso_local i32 @pg_strncoll(ptr noundef %0, i64 noundef %1, ptr noundef %2
 14:                                               ; preds = %12, %.split
   %.0.i = phi ptr [ %13, %12 ], [ %7, %.split ]
   %15 = getelementptr i8, ptr %.0.i, i64 %8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr readonly align 1 %0, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %0, i64 %1, i1 false)
   %16 = getelementptr i8, ptr %.0.i, i64 %1
   store i8 0, ptr %16, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr readonly align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %2, i64 %3, i1 false)
   %17 = getelementptr i8, ptr %15, i64 %3
   store i8 0, ptr %17, align 1
-  %18 = call i32 @strcoll(ptr noundef nonnull readonly %.0.i, ptr noundef readonly %15) #26
+  %18 = call i32 @strcoll(ptr noundef nonnull %.0.i, ptr noundef %15) #26
   %.not.i = icmp eq ptr %.0.i, %7
   br i1 %.not.i, label %pg_strncoll_libc.exit, label %19
 
@@ -1920,15 +1920,15 @@ pg_strncoll_libc.exit:                            ; preds = %14, %19
 pg_strcoll_libc.exit.i:                           ; preds = %26, %.split14
   %.0.i17 = phi ptr [ %27, %26 ], [ %6, %.split14 ]
   %28 = getelementptr i8, ptr %.0.i17, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i17, ptr readonly align 1 %0, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i17, ptr align 1 %0, i64 %1, i1 false)
   %29 = getelementptr i8, ptr %.0.i17, i64 %1
   store i8 0, ptr %29, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr readonly align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %2, i64 %3, i1 false)
   %30 = getelementptr i8, ptr %28, i64 %3
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds i8, ptr %4, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @strcoll_l(ptr noundef nonnull readonly %.0.i17, ptr noundef readonly %28, ptr noundef %32) #26
+  %33 = call i32 @strcoll_l(ptr noundef nonnull %.0.i17, ptr noundef %28, ptr noundef %32) #26
   %.not.i18 = icmp eq ptr %.0.i17, %6
   br i1 %.not.i18, label %pg_strncoll_libc.exit19, label %34
 
@@ -2122,7 +2122,7 @@ define dso_local i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 12:                                               ; preds = %10, %.split
   %.0.i = phi ptr [ %11, %10 ], [ %7, %.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr readonly align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %2, i64 %3, i1 false)
   %13 = getelementptr i8, ptr %.0.i, i64 %3
   store i8 0, ptr %13, align 1
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
@@ -2147,7 +2147,7 @@ define dso_local i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 21:                                               ; preds = %19, %.split14
   %.0.i17 = phi ptr [ %20, %19 ], [ %6, %.split14 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i17, ptr readonly align 1 %2, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i17, ptr align 1 %2, i64 %3, i1 false)
   %22 = getelementptr i8, ptr %.0.i17, i64 %3
   store i8 0, ptr %22, align 1
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23

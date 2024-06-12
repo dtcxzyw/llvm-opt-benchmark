@@ -1006,7 +1006,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end3
-  call void @_Py_PreInitializeFromPyArgv(ptr writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef nonnull %preconfig, ptr noundef null)
+  call void @_Py_PreInitializeFromPyArgv(ptr sret(%struct.PyStatus) align 8 %agg.result, ptr noundef nonnull %preconfig, ptr noundef null)
   br label %return
 
 if.else:                                          ; preds = %if.end3
@@ -1135,7 +1135,7 @@ _PyRuntime_Initialize.exit.i.i:                   ; preds = %if.end4
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_PyRuntime_Initialize.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %status.i.i, i64 32, i1 false), !noalias !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %status.i.i, i64 32, i1 false), !noalias !18
   br label %_Py_PreInitializeFromConfig.exit.i
 
 if.end.i.i:                                       ; preds = %_PyRuntime_Initialize.exit.i.i, %_PyRuntime_Initialize.exit.thread.i.i
@@ -1157,7 +1157,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end3.i.i
-  call void @_Py_PreInitializeFromPyArgv(ptr nonnull writeonly sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef null), !noalias !18
+  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef null), !noalias !18
   br label %_Py_PreInitializeFromConfig.exit.i
 
 if.else.i.i:                                      ; preds = %if.end3.i.i
@@ -1172,7 +1172,7 @@ if.else.i.i:                                      ; preds = %if.end3.i.i
   %items.i.i = getelementptr inbounds i8, ptr %config, i64 136
   %5 = load ptr, ptr %items.i.i, align 8, !noalias !27
   store ptr %5, ptr %wchar_argv.i.i, align 8, !noalias !27
-  call void @_Py_PreInitializeFromPyArgv(ptr nonnull writeonly sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config_args.i.i), !noalias !18
+  call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config_args.i.i), !noalias !18
   br label %_Py_PreInitializeFromConfig.exit.i
 
 _Py_PreInitializeFromConfig.exit.i:               ; preds = %if.else.i.i, %if.then5.i.i, %if.then.i.i
@@ -1228,7 +1228,7 @@ if.end10.i:                                       ; preds = %if.end5.i
   br i1 %tobool.not.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end10.i
-  call fastcc void @pyinit_config(ptr noalias nonnull align 8 %tmp12.i, ptr noundef nonnull writeonly %tstate, ptr noundef nonnull %config.i), !noalias !18
+  call fastcc void @pyinit_config(ptr noalias nonnull align 8 %tmp12.i, ptr noundef nonnull %tstate, ptr noundef nonnull %config.i), !noalias !18
   %tmp5.sroa.0.0.copyload17 = load i32, ptr %tmp12.i, align 8
   %tmp5.sroa.9.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 4
   %tmp5.sroa.9.0.copyload20 = load i32, ptr %tmp5.sroa.9.0.tmp12.i.sroa_idx, align 4
@@ -1487,7 +1487,7 @@ if.then.i:                                        ; preds = %interpreter_update_
   br label %return
 
 if.end.i:                                         ; preds = %interpreter_update_config.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !31
   br label %return
 
 if.end5:                                          ; preds = %if.end

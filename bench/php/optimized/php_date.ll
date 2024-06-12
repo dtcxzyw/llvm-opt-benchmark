@@ -4290,7 +4290,7 @@ php_time.exit:                                    ; preds = %30, %32
   br label %php_format_date.exit
 
 php_format_date.exit:                             ; preds = %40, %44
-  %45 = call fastcc ptr @date_format(ptr noundef nonnull readonly %36, i64 noundef %38, ptr noundef %39, i1 noundef zeroext %2)
+  %45 = call fastcc ptr @date_format(ptr noundef nonnull %36, i64 noundef %38, ptr noundef %39, i1 noundef zeroext %2)
   call void @timelib_time_dtor(ptr noundef %39) #25
   store ptr %45, ptr %1, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 4
@@ -8543,19 +8543,19 @@ define internal fastcc void @restore_custom_datetime_properties(ptr nocapture no
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %17, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %23, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %23, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %date_time_is_internal_property.exit.thread, label %date_time_is_internal_property.exit
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %17, i64 24
-  %bcmp22.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) %25, ptr noundef nonnull dereferenceable(13) @.str.340, i64 13)
+  %bcmp22.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %25, ptr noundef nonnull dereferenceable(13) @.str.340, i64 13)
   %.not23.i = icmp eq i32 %bcmp22.i, 0
   br i1 %.not23.i, label %date_time_is_internal_property.exit.thread, label %date_time_is_internal_property.exit
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %17, i64 24
-  %bcmp24.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %27, ptr noundef nonnull dereferenceable(8) @.str.151, i64 8)
+  %bcmp24.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %27, ptr noundef nonnull dereferenceable(8) @.str.151, i64 8)
   %.not25.i = icmp eq i32 %bcmp24.i, 0
   br i1 %.not25.i, label %date_time_is_internal_property.exit.thread, label %date_time_is_internal_property.exit
 
@@ -12595,7 +12595,7 @@ date_throw_uninitialized_error.exit:              ; preds = %18, %31
   %47 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 4, ptr %47, align 8
   %48 = call ptr @zend_hash_str_update(ptr noundef %42, ptr noundef nonnull @.str.340, i64 noundef 13, ptr noundef nonnull %3) #25
-  call fastcc void @php_timezone_to_string(ptr noundef nonnull readonly %10, ptr noundef nonnull %3)
+  call fastcc void @php_timezone_to_string(ptr noundef nonnull %10, ptr noundef nonnull %3)
   %49 = call ptr @zend_hash_str_update(ptr noundef %42, ptr noundef nonnull @.str.151, i64 noundef 8, ptr noundef nonnull %3) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %50 = call ptr @zend_std_get_properties(ptr noundef nonnull %9) #25
@@ -12771,13 +12771,13 @@ php_date_timezone_initialize_from_hash.exit.thread: ; preds = %27, %24, %21, %18
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %50, i64 24
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) %56, ptr noundef nonnull dereferenceable(13) @.str.340, i64 13)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %56, ptr noundef nonnull dereferenceable(13) @.str.340, i64 13)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %date_timezone_is_internal_property.exit.thread.i, label %date_timezone_is_internal_property.exit.i
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %50, i64 24
-  %bcmp14.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %58, ptr noundef nonnull dereferenceable(8) @.str.151, i64 8)
+  %bcmp14.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %58, ptr noundef nonnull dereferenceable(8) @.str.151, i64 8)
   %.not15.i.i = icmp eq i32 %bcmp14.i.i, 0
   br i1 %.not15.i.i, label %date_timezone_is_internal_property.exit.thread.i, label %date_timezone_is_internal_property.exit.i
 
@@ -13425,7 +13425,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %73 = load i64, ptr %5, align 8
   %74 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %74, i64 noundef %73) #25
-  %75 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %74, i1 noundef zeroext false)
+  %75 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %74, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %74) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %75) #25
   %76 = getelementptr inbounds i8, ptr %27, i64 -24
@@ -13628,7 +13628,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %207 = load i64, ptr %5, align 8
   %208 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %208, i64 noundef %207) #25
-  %209 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %208, i1 noundef zeroext false)
+  %209 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %208, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %208) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %209) #25
   %210 = load ptr, ptr %94, align 8
@@ -13693,7 +13693,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %261 = load i64, ptr %5, align 8
   %262 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %262, i64 noundef %261) #25
-  %263 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %262, i1 noundef zeroext false)
+  %263 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %262, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %262) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %263) #25
   %264 = load ptr, ptr %94, align 8
@@ -13752,7 +13752,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %306 = load i64, ptr %305, align 8
   %307 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %307, i64 noundef %306) #25
-  %308 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %307, i1 noundef zeroext false)
+  %308 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %307, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %307) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %308) #25
   %309 = load ptr, ptr %175, align 8
@@ -13876,7 +13876,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %389 = load i64, ptr %379, align 8
   %390 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %390, i64 noundef %389) #25
-  %391 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %390, i1 noundef zeroext false)
+  %391 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %390, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %390) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %391) #25
   %392 = load ptr, ptr %353, align 8
@@ -15304,12 +15304,12 @@ define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %37, ptr noundef nonnull dereferenceable(11) @.str.410, i64 11)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %37, ptr noundef nonnull dereferenceable(11) @.str.410, i64 11)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %date_interval_is_internal_property.exit.thread.i, label %38
 
 38:                                               ; preds = %36
-  %bcmp86.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %37, ptr noundef nonnull dereferenceable(11) @.str.419, i64 11)
+  %bcmp86.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %37, ptr noundef nonnull dereferenceable(11) @.str.419, i64 11)
   %.not87.i.i = icmp eq i32 %bcmp86.i.i, 0
   br i1 %.not87.i.i, label %date_interval_is_internal_property.exit.thread.i, label %date_interval_is_internal_property.exit.i
 
@@ -15328,13 +15328,13 @@ define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp101.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %42, ptr noundef nonnull dereferenceable(6) @.str.351, i64 6)
+  %bcmp101.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %42, ptr noundef nonnull dereferenceable(6) @.str.351, i64 6)
   %.not102.i.i = icmp eq i32 %bcmp101.i.i, 0
   br i1 %.not102.i.i, label %date_interval_is_internal_property.exit.thread.i, label %date_interval_is_internal_property.exit.i
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp103.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.352, i64 4)
+  %bcmp103.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.352, i64 4)
   %.not104.i.i = icmp eq i32 %bcmp103.i.i, 0
   br i1 %.not104.i.i, label %date_interval_is_internal_property.exit.thread.i, label %date_interval_is_internal_property.exit.i
 
@@ -17094,7 +17094,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %87, label %84
 
 84:                                               ; preds = %80
-  %85 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.429, i64 noundef 7) #27
+  %85 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.429, i64 noundef 7) #27
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %137, label %87
 
@@ -17104,7 +17104,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not22.i, label %92, label %89
 
 89:                                               ; preds = %87
-  %90 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.430, i64 noundef 8) #27
+  %90 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.430, i64 noundef 8) #27
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %137, label %92
 
@@ -17114,7 +17114,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not23.i, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.431, i64 noundef 11) #27
+  %95 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.431, i64 noundef 11) #27
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %137, label %97
 
@@ -17124,7 +17124,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not24.i, label %102, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.432, i64 noundef 7) #27
+  %100 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.432, i64 noundef 7) #27
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %137, label %102
 
@@ -17134,7 +17134,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not25.i, label %107, label %104
 
 104:                                              ; preds = %102
-  %105 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.433, i64 noundef 5) #27
+  %105 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.433, i64 noundef 5) #27
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %137, label %107
 
@@ -17144,7 +17144,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not26.i, label %112, label %109
 
 109:                                              ; preds = %107
-  %110 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.434, i64 noundef 9) #27
+  %110 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.434, i64 noundef 9) #27
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %137, label %112
 
@@ -17154,7 +17154,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not27.i, label %117, label %114
 
 114:                                              ; preds = %112
-  %115 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.435, i64 noundef 10) #27
+  %115 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.435, i64 noundef 10) #27
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %137, label %117
 
@@ -17164,7 +17164,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not28.i, label %122, label %119
 
 119:                                              ; preds = %117
-  %120 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.436, i64 noundef 7) #27
+  %120 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.436, i64 noundef 7) #27
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %137, label %122
 
@@ -17174,7 +17174,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not29.i, label %127, label %124
 
 124:                                              ; preds = %122
-  %125 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.437, i64 noundef 7) #27
+  %125 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.437, i64 noundef 7) #27
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %137, label %127
 
@@ -17184,7 +17184,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not30.i, label %132, label %129
 
 129:                                              ; preds = %127
-  %130 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.438, i64 noundef 8) #27
+  %130 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.438, i64 noundef 8) #27
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %137, label %132
 
@@ -17194,7 +17194,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br i1 %.not31.i, label %check_id_allowed.exit, label %134
 
 134:                                              ; preds = %132
-  %135 = call i32 @strncasecmp(ptr noundef readonly %82, ptr noundef nonnull @.str.182, i64 noundef 3) #27
+  %135 = call i32 @strncasecmp(ptr noundef %82, ptr noundef nonnull @.str.182, i64 noundef 3) #27
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %check_id_allowed.exit
 
@@ -19291,7 +19291,7 @@ define internal ptr @date_object_get_properties_for_timezone(ptr noundef %0, i32
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 4, ptr %16, align 8
   %17 = call ptr @zend_hash_str_update(ptr noundef %9, ptr noundef nonnull @.str.340, i64 noundef 13, ptr noundef nonnull %3) #25
-  call fastcc void @php_timezone_to_string(ptr noundef nonnull readonly %7, ptr noundef nonnull %3)
+  call fastcc void @php_timezone_to_string(ptr noundef nonnull %7, ptr noundef nonnull %3)
   %18 = call ptr @zend_hash_str_update(ptr noundef %9, ptr noundef nonnull @.str.151, i64 noundef 8, ptr noundef nonnull %3) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %19
@@ -20569,7 +20569,7 @@ define internal void @date_period_it_move_forward(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %6, i64 212
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull readonly align 8 dereferenceable(104) %8, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 220
   store i32 0, ptr %11, align 4
   tail call void @timelib_update_ts(ptr noundef %6, ptr noundef null) #25
@@ -20753,7 +20753,7 @@ define internal void @date_period_it_rewind(ptr noundef %0) #0 {
   %49 = getelementptr inbounds i8, ptr %46, i64 212
   store i32 1, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %46, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %50, ptr noundef nonnull readonly align 8 dereferenceable(104) %48, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %50, ptr noundef nonnull align 8 dereferenceable(104) %48, i64 104, i1 false)
   %51 = getelementptr inbounds i8, ptr %46, i64 220
   store i32 0, ptr %51, align 4
   tail call void @timelib_update_ts(ptr noundef %46, ptr noundef null) #25
@@ -21047,7 +21047,7 @@ create_date_period_datetime.exit:                 ; preds = %10, %16
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 5, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %22, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.357, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %22, ptr noundef nonnull align 1 dereferenceable(5) @.str.357, i64 5, i1 false)
   %23 = getelementptr inbounds i8, ptr %18, i64 29
   store i8 0, ptr %23, align 1
   %24 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21109,7 +21109,7 @@ create_date_period_datetime.exit23:               ; preds = %38, %44
   %49 = getelementptr inbounds i8, ptr %46, i64 16
   store i64 7, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %50, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.358, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %50, ptr noundef nonnull align 1 dereferenceable(7) @.str.358, i64 7, i1 false)
   %51 = getelementptr inbounds i8, ptr %46, i64 31
   store i8 0, ptr %51, align 1
   %52 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %46, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21171,7 +21171,7 @@ create_date_period_datetime.exit28:               ; preds = %66, %72
   %77 = getelementptr inbounds i8, ptr %74, i64 16
   store i64 3, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %74, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %78, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.359, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %78, ptr noundef nonnull align 1 dereferenceable(3) @.str.359, i64 3, i1 false)
   %79 = getelementptr inbounds i8, ptr %74, i64 27
   store i8 0, ptr %79, align 1
   %80 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %74, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21283,7 +21283,7 @@ write_date_period_property.exit35:                ; preds = %create_date_period_
   %128 = getelementptr inbounds i8, ptr %125, i64 16
   store i64 11, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %125, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %129, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.360, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %129, ptr noundef nonnull align 1 dereferenceable(11) @.str.360, i64 11, i1 false)
   %130 = getelementptr inbounds i8, ptr %125, i64 35
   store i8 0, ptr %130, align 1
   %131 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %125, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21330,7 +21330,7 @@ write_date_period_property.exit38:                ; preds = %write_date_period_p
   %150 = getelementptr inbounds i8, ptr %147, i64 16
   store i64 18, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %147, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %151, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.361, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %151, ptr noundef nonnull align 1 dereferenceable(18) @.str.361, i64 18, i1 false)
   %152 = getelementptr inbounds i8, ptr %147, i64 42
   store i8 0, ptr %152, align 1
   %153 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %147, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21377,7 +21377,7 @@ write_date_period_property.exit41:                ; preds = %write_date_period_p
   %172 = getelementptr inbounds i8, ptr %169, i64 16
   store i64 16, ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %169, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.362, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 1 dereferenceable(16) @.str.362, i64 16, i1 false)
   %174 = getelementptr inbounds i8, ptr %169, i64 40
   store i8 0, ptr %174, align 1
   %175 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %169, ptr noundef nonnull %2, ptr noundef null) #25

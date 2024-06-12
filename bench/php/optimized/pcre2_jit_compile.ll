@@ -1929,7 +1929,7 @@ find_vreverse.exit.i:                             ; preds = %643
   br label %get_class_iterator_size.exit.i
 
 774:                                              ; preds = %601
-  %775 = call fastcc ptr @next_opcode(ptr noundef nonnull readonly %8, ptr noundef nonnull %.0110226.i)
+  %775 = call fastcc ptr @next_opcode(ptr noundef nonnull %8, ptr noundef nonnull %.0110226.i)
   br label %.thread192.i
 
 get_class_iterator_size.exit.i:                   ; preds = %764, %761, %750, %738, %738, %728, %725, %714, %711, %711, %710, %707, %704, %703, %702, %701, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601, %601
@@ -9400,7 +9400,7 @@ recurse_check_bit.exit332.thread.i.i:             ; preds = %get_class_iterator_
   br label %3938
 
 3936:                                             ; preds = %.lr.ph.i.i1224
-  %3937 = call fastcc ptr @next_opcode(ptr noundef nonnull readonly %8, ptr noundef nonnull %.0183371.i.i)
+  %3937 = call fastcc ptr @next_opcode(ptr noundef nonnull %8, ptr noundef nonnull %.0183371.i.i)
   br label %3938
 
 3938:                                             ; preds = %3936, %3933, %3930, %3923, %3920, %3911, %recurse_check_bit.exit332.thread.i.i, %3846, %3824, %3802, %3775, %3771, %3768, %3741, %3737, %3734, %3707, %3703, %3700, %3678, %3645, %3569, %3507, %3486, %3454, %3433
@@ -106646,7 +106646,7 @@ define internal fastcc void @copy_recurse_data(ptr nocapture noundef readonly %0
   %24 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 3, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %25, i8 -1, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %25, i8 -1, i64 12, i1 false)
   %26 = getelementptr inbounds i8, ptr %7, i64 56
   store i32 0, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8

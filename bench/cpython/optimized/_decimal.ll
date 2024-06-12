@@ -1034,7 +1034,7 @@ if.then5:                                         ; preds = %lor.lhs.false3, %lo
 if.end9:                                          ; preds = %if.then5
   %ctx.i = getelementptr inbounds i8, ptr %call2.i21, i64 16
   %ctx3.i = getelementptr inbounds i8, ptr %v, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %ctx3.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx3.i, i64 48, i1 false)
   %newtrap.i = getelementptr inbounds i8, ptr %call2.i21, i64 48
   store i32 0, ptr %newtrap.i, align 8
   %capitals.i = getelementptr inbounds i8, ptr %v, i64 80
@@ -1195,7 +1195,7 @@ if.end11:                                         ; preds = %PyObject_TypeCheck.
 if.end15:                                         ; preds = %if.end11
   %ctx.i = getelementptr inbounds i8, ptr %call2.i20, i64 16
   %ctx3.i = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %ctx3.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx3.i, i64 48, i1 false)
   %newtrap.i = getelementptr inbounds i8, ptr %call2.i20, i64 48
   store i32 0, ptr %newtrap.i, align 8
   %capitals.i = getelementptr inbounds i8, ptr %7, i64 80
@@ -1307,7 +1307,7 @@ if.end3:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end3
   %ctx.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
   %ctx3.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %ctx3.i.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ctx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx3.i.i, i64 48, i1 false)
   %newtrap.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 48
   store i32 0, ptr %newtrap.i.i, align 8
   %capitals.i.i = getelementptr inbounds i8, ptr %2, i64 80
@@ -2523,7 +2523,7 @@ dec_cond_map_init.exit.thread:                    ; preds = %do.body238
   br label %do.body548.thread324.sink.split
 
 dec_cond_map_init.exit:                           ; preds = %do.body238
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %call.i234, ptr noundef nonnull readonly align 16 dereferenceable(320) @signal_map_template, i64 320, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %call.i234, ptr noundef nonnull align 16 dereferenceable(320) @signal_map_template, i64 320, i1 false)
   store ptr %call.i234, ptr %signal_map253, align 8
   br label %for.body
 
@@ -2643,7 +2643,7 @@ dec_cond_map_init.exit242.thread:                 ; preds = %do.body292
   br label %do.body548.thread324.sink.split
 
 do.end299:                                        ; preds = %do.body292
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call.i237, ptr noundef nonnull readonly align 16 dereferenceable(192) @cond_map_template, i64 192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call.i237, ptr noundef nonnull align 16 dereferenceable(192) @cond_map_template, i64 192, i1 false)
   store ptr %call.i237, ptr %cond_map254, align 8
   %67 = load ptr, ptr %signal_map253, align 8
   %ex302 = getelementptr inbounds i8, ptr %67, i64 24
@@ -2757,7 +2757,7 @@ do.end399:                                        ; preds = %do.body391
   %ctx1.i = getelementptr inbounds i8, ptr %call393, i64 16
   store i64 9, ptr %ctx1.i, align 8
   %ctx.sroa.3.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dflt_ctx, i64 8), i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dflt_ctx, i64 8), i64 16, i1 false)
   %ctx.sroa.32.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 40
   store i32 19391, ptr %ctx.sroa.32.0.ctx1.sroa_idx.i, align 8
   %ctx.sroa.5.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call393, i64 44
@@ -2785,11 +2785,11 @@ do.end417:                                        ; preds = %do.body409
   %ctx1.i243 = getelementptr inbounds i8, ptr %call411, i64 16
   store i64 9, ptr %ctx1.i243, align 8
   %ctx.sroa.3.0.ctx1.sroa_idx.i244 = getelementptr inbounds i8, ptr %call411, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i244, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dflt_ctx, i64 8), i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx.sroa.3.0.ctx1.sroa_idx.i244, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @dflt_ctx, i64 8), i64 16, i1 false)
   %ctx.sroa.32.0.ctx1.sroa_idx.i245 = getelementptr inbounds i8, ptr %call411, i64 40
   store i32 0, ptr %ctx.sroa.32.0.ctx1.sroa_idx.i245, align 8
   %ctx.sroa.4.0.ctx1.sroa_idx.i = getelementptr inbounds i8, ptr %call411, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %ctx.sroa.4.0.ctx1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @dflt_ctx, i64 28), i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ctx.sroa.4.0.ctx1.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @dflt_ctx, i64 28), i64 20, i1 false)
   %capitals.i246 = getelementptr inbounds i8, ptr %call411, i64 80
   store i32 1, ptr %capitals.i246, align 8
   %84 = load ptr, ptr %extended_context_template, align 8
@@ -3389,7 +3389,7 @@ if.end.i.i:                                       ; preds = %if.end.i9
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr readonly align 1 %5, i64 %call4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr align 1 %5, i64 %call4, i1 false)
   br label %unicode_fromascii.exit
 
 unicode_fromascii.exit:                           ; preds = %if.end8, %PyUnicode_DATA.exit.i
@@ -4041,7 +4041,7 @@ if.else5.i:                                       ; preds = %PyObject_TypeCheck.
   br i1 %tobool8.not.i, label %if.else11.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else5.i
-  %call.i56.i = call fastcc ptr @numeric_as_ascii(ptr noundef nonnull readonly %7, i32 noundef 1, i32 noundef 1)
+  %call.i56.i = call fastcc ptr @numeric_as_ascii(ptr noundef nonnull %7, i32 noundef 1, i32 noundef 1)
   %cmp.i57.i = icmp eq ptr %call.i56.i, null
   br i1 %cmp.i57.i, label %return, label %if.end.i58.i
 
@@ -13911,7 +13911,7 @@ if.end.i.i:                                       ; preds = %if.end.i8
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr readonly align 1 %10, i64 %call13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr align 1 %10, i64 %call13, i1 false)
   br label %unicode_fromascii.exit
 
 unicode_fromascii.exit:                           ; preds = %if.end17, %PyUnicode_DATA.exit.i
@@ -17705,7 +17705,7 @@ dec_strdup.exit.thread:                           ; preds = %if.then18
   br label %return
 
 if.end23:                                         ; preds = %if.then18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i45, ptr nonnull readonly align 1 %call11, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i45, ptr nonnull align 1 %call11, i64 %8, i1 false)
   %arrayidx.i = getelementptr i8, ptr %call.i45, i64 %8
   store i8 0, ptr %arrayidx.i, align 1
   store i8 95, ptr %call.i45, align 1
@@ -17800,7 +17800,7 @@ dec_strdup.exit56.thread:                         ; preds = %if.then32
   br label %return
 
 dec_strdup.exit56:                                ; preds = %if.then32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i50, ptr nonnull readonly align 1 %fmt.0, i64 %10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i50, ptr nonnull align 1 %fmt.0, i64 %10, i1 false)
   %arrayidx.i53 = getelementptr i8, ptr %call.i50, i64 %10
   store i8 0, ptr %arrayidx.i53, align 1
   %.pre108 = load i64, ptr %size, align 8
@@ -29325,7 +29325,7 @@ if.end.i.i:                                       ; preds = %if.end.i8
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr readonly align 1 %13, i64 %call1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr align 1 %13, i64 %call1, i1 false)
   br label %unicode_fromascii.exit
 
 unicode_fromascii.exit:                           ; preds = %if.end4, %PyUnicode_DATA.exit.i
@@ -29447,7 +29447,7 @@ if.end.i.i:                                       ; preds = %if.end.i8
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr readonly align 1 %13, i64 %call1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i, ptr align 1 %13, i64 %call1, i1 false)
   br label %unicode_fromascii.exit
 
 unicode_fromascii.exit:                           ; preds = %if.end4, %PyUnicode_DATA.exit.i
@@ -32342,7 +32342,7 @@ if.else25.i:                                      ; preds = %PyObject_TypeCheck.
 
 if.then29.i:                                      ; preds = %if.else25.i
   %20 = load ptr, ptr %PyDec_Type.i, align 8
-  %call.i43.i = call fastcc ptr @numeric_as_ascii(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0)
+  %call.i43.i = call fastcc ptr @numeric_as_ascii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
   %cmp.i44.i = icmp eq ptr %call.i43.i, null
   br i1 %cmp.i44.i, label %return, label %if.end.i45.i
 

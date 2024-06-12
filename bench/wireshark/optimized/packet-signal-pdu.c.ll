@@ -6334,9 +6334,9 @@ proto_item_set_hidden.exit.i:                     ; preds = %309, %306, %304, %2
   %337 = getelementptr inbounds i8, ptr %336, i64 8
   store i32 0, ptr %337, align 8
   %338 = getelementptr inbounds i8, ptr %336, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull readonly align 8 dereferenceable(16) %71, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   %339 = getelementptr inbounds i8, ptr %336, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull readonly align 8 dereferenceable(16) %71, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   %340 = getelementptr inbounds i8, ptr %336, i64 56
   store double 0.000000e+00, ptr %340, align 8
   %341 = load ptr, ptr @spdu_aggregation_data, align 8

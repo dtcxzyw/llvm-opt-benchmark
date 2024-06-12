@@ -515,7 +515,7 @@ _ZN3std4sync4once4Once9call_once17h0fe9ad241bd5ff13E.exit: ; preds = %3, %8
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
   store ptr %10, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -1383,7 +1383,7 @@ define void @_ZN19example_test_helper10CmdBuilder5spawn17hffb904c0956e1c0dE(ptr 
   %78 = extractvalue { ptr, i64 } %74, 1
   %79 = icmp ne ptr %77, null
   tail call void @llvm.assume(i1 %79)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %70, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %70, i64 %72, i1 false)
   store ptr %77, ptr %31, align 8
   %.sroa.4337.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %78, ptr %.sroa.4337.0..sroa_idx, align 8
@@ -4124,7 +4124,7 @@ _ZN5regex5regex6string5Match6as_str17h87b09744c741cb3eE.exit.i: ; preds = %"_ZN4
   %631 = extractvalue { ptr, i64 } %618, 1
   %632 = icmp ne ptr %630, null
   call void @llvm.assume(i1 %632)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %630, ptr nonnull readonly align 1 %629, i64 %617, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %630, ptr nonnull align 1 %629, i64 %617, i1 false)
   store ptr %630, ptr %31, align 8
   store i64 %631, ptr %.sroa.4521.0..sroa_idx, align 8
   store i64 %617, ptr %.sroa.5522.0..sroa_idx, align 8

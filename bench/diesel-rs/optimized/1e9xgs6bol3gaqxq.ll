@@ -3372,7 +3372,7 @@ define void @"_ZN6diesel2pg13query_builder13on_constraint267_$LT$impl$u20$diesel
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !274, !noalias !275, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %20, ptr noundef nonnull readonly align 1 dereferenceable(15) @anon.cabf6e29e35bc48d97d46deaf11776ac.11, i64 15, i1 false), !noalias !284
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %20, ptr noundef nonnull align 1 dereferenceable(15) @anon.cabf6e29e35bc48d97d46deaf11776ac.11, i64 15, i1 false), !noalias !284
   %21 = add i64 %17, 15
   store i64 %21, ptr %11, align 8, !alias.scope !274, !noalias !275
   %22 = load ptr, ptr %1, align 8, !nonnull !4, !align !264, !noundef !4

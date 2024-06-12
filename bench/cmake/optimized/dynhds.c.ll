@@ -253,14 +253,14 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0,
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %24, i64 32
   store ptr %26, ptr %24, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %1, i64 %2, i1 false)
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   store i64 %2, ptr %27, align 8
   %28 = getelementptr i8, ptr %26, i64 %2
   %29 = getelementptr i8, ptr %28, i64 1
   %30 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %29, ptr %30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr readonly align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %3, i64 %4, i1 false)
   %31 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 %4, ptr %31, align 8
   %32 = and i32 %21, 1
@@ -425,7 +425,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
   store i8 32, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %41, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %.05476, i64 %.05775, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %.05476, i64 %.05775, i1 false)
   %43 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %21, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8

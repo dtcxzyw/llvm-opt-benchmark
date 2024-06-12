@@ -3318,7 +3318,7 @@ land.lhs.true3.i:                                 ; preds = %for.body.i
   %25 = load ptr, ptr %currencyName.i20, align 8
   %conv.i = sext i32 %23 to i64
   %mul.i = shl nsw i64 %conv.i, 1
-  %bcmp.i = tail call i32 @bcmp(ptr %25, ptr readonly %text, i64 %mul.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %25, ptr %text, i64 %mul.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.then.i22, label %if.else.i21
 

@@ -62,7 +62,7 @@ entry:
   %seed = getelementptr inbounds i8, ptr %params, i64 32
   %4 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 34) #5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
   %pcounter.i = getelementptr inbounds i8, ptr %params, i64 48
   store i32 -1, ptr %pcounter.i, align 8
   %gindex.i = getelementptr inbounds i8, ptr %params, i64 56

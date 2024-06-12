@@ -305,7 +305,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %indvars.iv.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %testname.0.i.ph, ptr noundef nonnull dereferenceable(1) %4) #14
+  %call.i2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %testname.0.i.ph, ptr noundef nonnull dereferenceable(1) %4) #14
   %cmp2.i.i = icmp eq i32 %call.i2.i, 0
   br i1 %cmp2.i.i, label %for.end.thread.i.i, label %for.inc.i.i
 
@@ -321,7 +321,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then5.i.i, label %for.body.i.i, !llvm.loop !6
 
 if.then5.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
-  %call6.i.i = call i32 @atoi(ptr nocapture noundef nonnull readonly %testname.0.i.ph) #14
+  %call6.i.i = call i32 @atoi(ptr nocapture noundef nonnull %testname.0.i.ph) #14
   store i32 %call6.i.i, ptr @single_test, align 4
   br label %if.end8.i.i
 
@@ -528,7 +528,7 @@ if.then73:                                        ; preds = %if.else68
   br i1 %cmp.i, label %set_test_title.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then73
-  %call.i75 = call noalias ptr @strdup(ptr noundef nonnull readonly %27) #13
+  %call.i75 = call noalias ptr @strdup(ptr noundef nonnull %27) #13
   br label %set_test_title.exit
 
 set_test_title.exit:                              ; preds = %if.then73, %cond.false.i
@@ -561,7 +561,7 @@ if.else88:                                        ; preds = %if.else68
   br i1 %cmp.i, label %set_test_title.exit81, label %cond.false.i78
 
 cond.false.i78:                                   ; preds = %if.else88
-  %call.i79 = call noalias ptr @strdup(ptr noundef nonnull readonly %27) #13
+  %call.i79 = call noalias ptr @strdup(ptr noundef nonnull %27) #13
   br label %set_test_title.exit81
 
 set_test_title.exit81:                            ; preds = %if.else88, %cond.false.i78

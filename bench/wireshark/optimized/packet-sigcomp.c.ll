@@ -5118,7 +5118,7 @@ dissect_udvm_reference_operand_memory.exit2738:   ; preds = %1858
 2045:                                             ; preds = %2044, %2043
   %2046 = add i32 %.023933406, 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
-  %2047 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2046, ptr noundef nonnull %15)
+  %2047 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull %60, i32 noundef %2046, ptr noundef nonnull %15)
   %2048 = load i16, ptr %15, align 2
   %.tr.i = trunc i32 %.023933406 to i16
   %.narrow.i = add i16 %2048, %.tr.i
@@ -5323,7 +5323,7 @@ dissect_udvm_reference_operand_memory.exit2738:   ; preds = %1858
 2139:                                             ; preds = %2138, %2137
   %2140 = add i32 %.023933406, 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
-  %2141 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2140, ptr noundef nonnull %14)
+  %2141 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull %60, i32 noundef %2140, ptr noundef nonnull %14)
   %2142 = load i16, ptr %14, align 2
   %.tr.i2739 = trunc i32 %.023933406 to i16
   %.narrow.i2740 = add i16 %2142, %.tr.i2739
@@ -6018,7 +6018,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2248, %2259, %2270
   %.pre-phi3900 = phi i32 [ %.pre3899, %._crit_edge3753 ], [ %2523, %2520 ]
   %2530 = add i32 %2528, %.pre-phi3900
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
-  %2531 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2529, ptr noundef nonnull %13)
+  %2531 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull %60, i32 noundef %2529, ptr noundef nonnull %13)
   %2532 = load i16, ptr %13, align 2
   %.tr.i2747 = trunc i32 %.023933406 to i16
   %.narrow.i2748 = add i16 %2532, %.tr.i2747
@@ -6152,7 +6152,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2248, %2259, %2270
   %2603 = phi i32 [ %2595, %.thread3002..thread3003_crit_edge ], [ %2592, %2597 ]
   %2604 = add i32 %.pre-phi3904, %156
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  %2605 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2603, ptr noundef nonnull %12)
+  %2605 = call fastcc i32 @decode_udvm_multitype_operand(ptr noundef nonnull %60, i32 noundef %2603, ptr noundef nonnull %12)
   %2606 = load i16, ptr %12, align 2
   %.tr.i2749 = trunc i32 %.023933406 to i16
   %.narrow.i2750 = add i16 %2606, %.tr.i2749

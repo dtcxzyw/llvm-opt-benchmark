@@ -1043,7 +1043,7 @@ opal_obj_run_destructors.exit106:                 ; preds = %.lr.ph.i103, %196
   %227 = load i64, ptr %226, align 8
   %228 = mul i64 %227, %220
   %229 = getelementptr inbounds i8, ptr %225, i64 %228
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr nonnull readonly align 4 %5, i64 %227, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr nonnull align 4 %5, i64 %227, i1 false)
   br label %mca_base_var_group_get_internal.exit
 
 mca_base_var_group_get_internal.exit:             ; preds = %204, %215, %223, %opal_pointer_array_get_item.exit.i, %19, %opal_obj_run_destructors.exit106, %opal_thread_add_fetch_32.exit101, %opal_obj_run_destructors.exit99, %opal_thread_add_fetch_32.exit94, %opal_obj_run_destructors.exit92, %opal_thread_add_fetch_32.exit87, %opal_obj_run_destructors.exit85, %opal_thread_add_fetch_32.exit80, %opal_obj_run_destructors.exit78, %opal_thread_add_fetch_32.exit73, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %4, %36
@@ -1414,7 +1414,7 @@ sub_0.i.i:                                        ; preds = %49
   br i1 %.not18.i.i, label %mca_base_var_group_get_internal.exit.i, label %55
 
 55:                                               ; preds = %.tail.thread.i.i
-  %56 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %51) #15
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %51) #15
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %compare_strings.exit.thread.i, label %mca_base_var_group_get_internal.exit.i
 
@@ -1442,7 +1442,7 @@ sub_0.i13.i:                                      ; preds = %compare_strings.exi
   br i1 %.not18.i16.i, label %mca_base_var_group_get_internal.exit.i, label %64
 
 64:                                               ; preds = %.tail.thread.i15.i
-  %65 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %60) #15
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %60) #15
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %compare_strings.exit19.thread.i, label %mca_base_var_group_get_internal.exit.i
 
@@ -1470,7 +1470,7 @@ sub_0.i21.i:                                      ; preds = %compare_strings.exi
   br i1 %.not18.i24.i, label %mca_base_var_group_get_internal.exit.i, label %73
 
 73:                                               ; preds = %.tail.thread.i23.i
-  %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %69) #15
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %69) #15
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %compare_strings.exit27.thread.loopexit.split.loop.exit50.i, label %mca_base_var_group_get_internal.exit.i
 
@@ -1730,7 +1730,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
   %40 = load i64, ptr %39, align 8
   %41 = mul i64 %40, %.val14
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr nonnull readonly align 4 %3, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr nonnull align 4 %3, i64 %40, i1 false)
   %43 = load i32, ptr @mca_base_var_groups_timestamp, align 4
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr @mca_base_var_groups_timestamp, align 4
@@ -1829,7 +1829,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
   %40 = load i64, ptr %39, align 8
   %41 = mul i64 %40, %.val14
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr nonnull readonly align 4 %3, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr nonnull align 4 %3, i64 %40, i1 false)
   %43 = load i32, ptr @mca_base_var_groups_timestamp, align 4
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr @mca_base_var_groups_timestamp, align 4
@@ -1926,7 +1926,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %20
   %39 = load i64, ptr %38, align 8
   %40 = mul i64 %39, %.val16
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr readonly align 1 %1, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %1, i64 %39, i1 false)
   %.val = load i64, ptr %25, align 8
   %42 = trunc i64 %.val to i32
   %43 = add nsw i32 %42, -1

@@ -104,7 +104,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 %add.i, ptr %window_begin_ns.i.i, align 8
   %window_max_entries.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %n_used_entries.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %window_max_entries.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %window_max_entries.i.i, i8 0, i64 16, i1 false)
   store i64 8160, ptr %arrayidx9, align 16
   %call.i7 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc_n(i64 noundef 256, i64 noundef 32) #19
   %table.i = getelementptr inbounds i8, ptr %arrayidx9, i64 8
@@ -114,14 +114,14 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %call1.i, ptr %fulltlb.i, align 8
   store i64 0, ptr %n_used_entries.i, align 8
   %vindex.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i8 -1, i64 16, i1 false)
   store i64 0, ptr %vindex.i.i, align 8
   %2 = load ptr, ptr %table.i, align 8
   %fast.val.i.i = load i64, ptr %arrayidx9, align 16
   %add.i.i.i = add i64 %fast.val.i.i, 32
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 -1, i64 %add.i.i.i, i1 false)
   %vtable.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %vtable.i.i, i8 -1, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %vtable.i.i, i8 -1, i64 256, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -2080,7 +2080,7 @@ if.then85:                                        ; preds = %land.lhs.true
   %conv86 = and i64 %40, 7
   %vtable = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %arrayidx88 = getelementptr [8 x %union.CPUTLBEntry], ptr %vtable, i64 0, i64 %conv86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx88, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx88, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
   %vfulltlb = getelementptr inbounds i8, ptr %arrayidx, i64 304
   %arrayidx90 = getelementptr [8 x %struct.CPUTLBEntryFull], ptr %vfulltlb, i64 0, i64 %conv86
   %fulltlb = getelementptr inbounds i8, ptr %arrayidx, i64 560
@@ -2380,7 +2380,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i42.lcssa, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i42.lcssa, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i42.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, i64 32, i1 false)
   store atomic i32 0, ptr %neg.i release, align 4
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx.i41, i64 560
@@ -11677,7 +11677,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i70.lcssa, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i70.lcssa, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i70.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, i64 32, i1 false)
   store atomic i32 0, ptr %neg.i release, align 4
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx.i69, i64 560
@@ -12122,7 +12122,7 @@ if.end49.i:                                       ; preds = %while.body.i
 tlb_mmu_resize_locked.exit:                       ; preds = %if.end49.i, %if.then30.i, %if.then32.i, %if.end35.i
   store i64 0, ptr %n_used_entries.i, align 8
   %vindex.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i8 -1, i64 16, i1 false)
   store i64 0, ptr %vindex.i, align 8
   %table.i6 = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   %12 = load ptr, ptr %table.i6, align 8
@@ -12130,7 +12130,7 @@ tlb_mmu_resize_locked.exit:                       ; preds = %if.end49.i, %if.the
   %add.i.i8 = add i64 %fast.val.i7, 32
   tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 -1, i64 %add.i.i8, i1 false)
   %vtable.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %vtable.i, i8 -1, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %vtable.i, i8 -1, i64 256, i1 false)
   ret void
 }
 
@@ -12564,7 +12564,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx1.i39.lcssa, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i39.lcssa, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i39.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %tmptlb.sroa.0.i, i64 32, i1 false)
   store atomic i32 0, ptr %neg.i release, align 4
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 560

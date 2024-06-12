@@ -1802,7 +1802,7 @@ if.end.i:                                         ; preds = %entry
   %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %alloc_policy_, align 8
   %size3.i.i = getelementptr inbounds i8, ptr %mem, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %mem, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem, i8 0, i64 16, i1 false)
   store i64 %size, ptr %size3.i.i, align 8
   br label %invoke.cont
 
@@ -1921,19 +1921,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   %cmp2.i7.i = icmp ult i64 %size, 25
   %or.cond.i8.i = or i1 %cmp.i6.i, %cmp2.i7.i
-  br i1 %or.cond.i8.i, label %invoke.cont, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i
-  store i64 1, ptr %alloc_policy_, align 8
-  %size3.i.i.i = getelementptr inbounds i8, ptr %mem, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %mem, i8 0, i64 16, i1 false)
-  store i64 %size, ptr %size3.i.i.i, align 8
-  br label %invoke.cont
+  br i1 %or.cond.i8.i, label %invoke.cont, label %invoke.cont.sink.split.sink.split
 
 while.end.i:                                      ; preds = %entry
   %cmp4.i = icmp ult i64 %size, 56
   %or.cond.i = or i1 %cmp.i6.i, %cmp4.i
-  br i1 %or.cond.i, label %if.then5.i, label %if.else.i
+  br i1 %or.cond.i, label %if.then5.i, label %invoke.cont.sink.split.sink.split
 
 if.then5.i:                                       ; preds = %while.end.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %0, i64 56)
@@ -1941,26 +1934,26 @@ if.then5.i:                                       ; preds = %while.end.i
 
 if.then16.i.i:                                    ; preds = %if.then5.i
   %call.i7.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i.i) #30
-          to label %if.end9.i unwind label %lpad
+          to label %invoke.cont.sink.split unwind label %lpad
 
 if.end18.i.i:                                     ; preds = %if.then5.i
   %call20.i.i3 = invoke noundef ptr %2(i64 noundef %.sroa.speculated.i.i)
-          to label %if.end9.i unwind label %lpad
+          to label %invoke.cont.sink.split unwind label %lpad
 
-if.else.i:                                        ; preds = %while.end.i
+invoke.cont.sink.split.sink.split:                ; preds = %while.end.i, %if.then.i
   store i64 1, ptr %alloc_policy_, align 8
-  br label %if.end9.i
+  br label %invoke.cont.sink.split
 
-if.end9.i:                                        ; preds = %if.end18.i.i, %if.then16.i.i, %if.else.i
-  %mem.sroa.0.0.i = phi ptr [ %mem, %if.else.i ], [ %call.i7.i.i2, %if.then16.i.i ], [ %call20.i.i3, %if.end18.i.i ]
-  %mem.sroa.3.0.i = phi i64 [ %size, %if.else.i ], [ %.sroa.speculated.i.i, %if.then16.i.i ], [ %.sroa.speculated.i.i, %if.end18.i.i ]
-  %size3.i.i = getelementptr inbounds i8, ptr %mem.sroa.0.0.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0.i, i8 0, i64 16, i1 false)
-  store i64 %mem.sroa.3.0.i, ptr %size3.i.i, align 8
+invoke.cont.sink.split:                           ; preds = %invoke.cont.sink.split.sink.split, %if.then16.i.i, %if.end18.i.i
+  %mem.sroa.0.0.i.sink5 = phi ptr [ %call.i7.i.i2, %if.then16.i.i ], [ %call20.i.i3, %if.end18.i.i ], [ %mem, %invoke.cont.sink.split.sink.split ]
+  %mem.sroa.3.0.i.sink = phi i64 [ %.sroa.speculated.i.i, %if.then16.i.i ], [ %.sroa.speculated.i.i, %if.end18.i.i ], [ %size, %invoke.cont.sink.split.sink.split ]
+  %size3.i.i = getelementptr inbounds i8, ptr %mem.sroa.0.0.i.sink5, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0.i.sink5, i8 0, i64 16, i1 false)
+  store i64 %mem.sroa.3.0.i.sink, ptr %size3.i.i, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.end9.i, %if.end.i.i, %if.then.i
-  %retval.0.i = phi ptr [ %mem.sroa.0.0.i, %if.end9.i ], [ %mem, %if.end.i.i ], [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %if.then.i ]
+invoke.cont:                                      ; preds = %invoke.cont.sink.split, %if.then.i
+  %retval.0.i = phi ptr [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %if.then.i ], [ %mem.sroa.0.0.i.sink5, %invoke.cont.sink.split ]
   %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
   %head_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %first_arena_, i8 0, i64 48, i1 false)
@@ -2040,7 +2033,7 @@ if.end.i:                                         ; preds = %if.then
   %storemerge.i.i.i = or i64 %4, 1
   store i64 %storemerge.i.i.i, ptr %alloc_policy_.i, align 8
   %size3.i.i = getelementptr inbounds i8, ptr %buf, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %buf, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf, i8 0, i64 16, i1 false)
   store i64 %size, ptr %size3.i.i, align 8
   br label %return
 

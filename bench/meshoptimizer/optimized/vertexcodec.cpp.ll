@@ -132,7 +132,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit.thread39: ; preds = %for.cond
   %sub16.i41 = add i64 %cond, -1
   %mul.i42 = mul i64 %sub16.i41, %vertex_size
   %arrayidx17.i43 = getelementptr inbounds i8, ptr %add.ptr9, i64 %mul.i42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr readonly align 1 %arrayidx17.i43, i64 %vertex_size, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr align 1 %arrayidx17.i43, i64 %vertex_size, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
   br label %if.end13
 
@@ -268,7 +268,7 @@ for.end.i.i:                                      ; preds = %_ZN7meshoptL23encod
   ]
 
 if.then2.i.i.i:                                   ; preds = %for.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data.addr.045.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %add.ptr9.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data.addr.045.i.i, ptr noundef nonnull align 16 dereferenceable(16) %add.ptr9.i.i, i64 16, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.045.i.i, i64 16
   br label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
 
@@ -352,7 +352,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit: ; preds = %for.cond.us.us.i,
   %sub16.i = add i64 %cond, -1
   %mul.i = mul i64 %sub16.i, %vertex_size
   %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr9, i64 %mul.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr readonly align 1 %arrayidx17.i, i64 %vertex_size, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr align 1 %arrayidx17.i, i64 %vertex_size, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
   %tobool.not = icmp eq ptr %data.addr.0.lcssa.i, null
   br i1 %tobool.not, label %return, label %if.end13
@@ -1570,7 +1570,7 @@ if.end8.i:                                        ; preds = %for.body.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end8.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr11.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr11.i, i8 0, i64 16, i1 false)
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
 sw.bb1.i.i:                                       ; preds = %if.end8.i
@@ -1866,7 +1866,7 @@ sw.bb284.i.i:                                     ; preds = %if.end8.i
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
 sw.bb582.i.i:                                     ; preds = %if.end8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr11.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %data.addr.019.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr11.i, ptr noundef nonnull align 1 dereferenceable(16) %data.addr.019.i, i64 16, i1 false)
   %add.ptr583.i.i = getelementptr inbounds i8, ptr %data.addr.019.i, i64 16
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 

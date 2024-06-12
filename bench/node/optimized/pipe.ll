@@ -700,7 +700,7 @@ if.then17:                                        ; preds = %if.end11.i.i33, %if
 if.end18:                                         ; preds = %if.then26.i.i43, %if.end17.i.i41
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i.i24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addrlen.i.i25)
-  %call.i = call noundef i32 @stat64(ptr noundef nonnull readonly %call11, ptr noundef nonnull %pipe_stat) #12
+  %call.i = call noundef i32 @stat64(ptr noundef nonnull %call11, ptr noundef nonnull %pipe_stat) #12
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %if.then21, label %if.end23
 

@@ -949,7 +949,7 @@ if.end74:                                         ; preds = %if.then16.if.end74_
 do.body.i:                                        ; preds = %if.end74
   %39 = shl nuw i32 %srcLength.addr.0, 1
   %mul.i = zext i32 %39 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr77, ptr readonly align 2 %add.ptr, i64 %mul.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr77, ptr align 2 %add.ptr, i64 %mul.i, i1 false)
   %.pre119 = load i16, ptr %fUnion.i, align 8
   br label %if.end80
 
@@ -1404,7 +1404,7 @@ do.body.i:                                        ; preds = %if.then37
   %fBuffer = getelementptr inbounds i8, ptr %this, i64 10
   %13 = shl nuw i32 %cond.i32, 1
   %mul.i = zext i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %oldStackBuffer, ptr nonnull readonly align 2 %fBuffer, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %oldStackBuffer, ptr nonnull align 2 %fBuffer, i64 %mul.i, i1 false)
   br label %if.end.i
 
 if.else43:                                        ; preds = %if.end26
@@ -1512,7 +1512,7 @@ do.body.i73:                                      ; preds = %if.then61
   %cond.i70 = select i1 %tobool.not.i64, ptr %19, ptr %fBuffer.i
   %20 = shl nuw i32 %spec.select, 1
   %mul.i75 = zext i32 %20 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %cond.i70, ptr nonnull readonly align 2 %oldArray.09095, i64 %mul.i75, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i70, ptr nonnull align 2 %oldArray.09095, i64 %mul.i75, i1 false)
   %.pre100 = load i16, ptr %fUnion.i26, align 8
   br label %if.end63
 
@@ -2097,7 +2097,7 @@ do.body.i:                                        ; preds = %if.then.i
   %shr.i.i = sext i16 %2 to i32
   %mul.i = shl nsw i32 %shr.i.i, 1
   %conv9.i = sext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2772,7 +2772,7 @@ do.body.i:                                        ; preds = %if.then.i3
   %shr.i.i = sext i16 %7 to i32
   %mul.i = shl nsw i32 %shr.i.i, 1
   %conv9.i = sext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
 
 if.else.i:                                        ; preds = %invoke.cont
@@ -2835,7 +2835,7 @@ do.body.i:                                        ; preds = %if.then.i
   %shr.i.i = sext i16 %2 to i32
   %mul.i = shl nsw i32 %shr.i.i, 1
   %conv9.i = sext i32 %mul.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i, ptr nonnull align 2 %fBuffer7.i, i64 %conv9.i, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2876,7 +2876,7 @@ do.body.i8:                                       ; preds = %if.then.i6
   %shr.i.i11 = sext i16 %8 to i32
   %mul.i12 = shl nsw i32 %shr.i.i11, 1
   %conv9.i13 = sext i32 %mul.i12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i9, ptr nonnull align 2 %fBuffer7.i10, i64 %conv9.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i9, ptr nonnull align 2 %fBuffer7.i10, i64 %conv9.i13, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit24
 
 if.else.i14:                                      ; preds = %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit
@@ -2913,7 +2913,7 @@ do.body.i30:                                      ; preds = %if.then.i28
   %shr.i.i33 = sext i16 %12 to i32
   %mul.i34 = shl nsw i32 %shr.i.i33, 1
   %conv9.i35 = sext i32 %mul.i34 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %fBuffer.i31, ptr nonnull align 2 %fBuffer7.i32, i64 %conv9.i35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %fBuffer.i31, ptr nonnull align 2 %fBuffer7.i32, i64 %conv9.i35, i1 false)
   br label %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit46
 
 if.else.i36:                                      ; preds = %_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a.exit24
@@ -3972,7 +3972,7 @@ entry:
 do.body.i:                                        ; preds = %entry
   %5 = shl nuw i32 %length.addr.0, 1
   %mul.i = zext i32 %5 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr3, ptr readonly align 2 %add.ptr, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr3, ptr align 2 %add.ptr, i64 %mul.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %do.body.i, %entry
@@ -5783,7 +5783,7 @@ if.then77:                                        ; preds = %if.end74
 do.body.i:                                        ; preds = %if.then77
   %34 = shl nuw i32 %start.addr.2, 1
   %mul.i = zext i32 %34 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %cond.i112, ptr readonly align 2 %oldArray.0, i64 %mul.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i112, ptr align 2 %oldArray.0, i64 %mul.i, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit
 
 _ZL12us_arrayCopyPKDsiPDsii.exit:                 ; preds = %if.then77, %do.body.i
@@ -5812,7 +5812,7 @@ if.end90.sink.split:                              ; preds = %if.then84, %_ZL12us
   %add.ptr2.i123 = getelementptr inbounds i16, ptr %oldArray.0, i64 %idx.ext1.i122
   %35 = shl nuw i32 %sub88.sink, 1
   %mul.i124 = zext i32 %35 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(1) %add.ptr.i121, ptr noundef nonnull readonly align 2 dereferenceable(1) %add.ptr2.i123, i64 %mul.i124, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %add.ptr.i121, ptr noundef nonnull align 2 dereferenceable(1) %add.ptr2.i123, i64 %mul.i124, i1 false)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end90.sink.split, %if.then84, %_ZL12us_arrayCopyPKDsiPDsii.exit, %if.else82
@@ -5824,7 +5824,7 @@ do.body.i127:                                     ; preds = %if.end90
   %add.ptr.i129 = getelementptr inbounds i16, ptr %cond.i112, i64 %idx.ext.i128
   %36 = shl nuw i32 %srcLength.addr.0, 1
   %mul.i131 = zext i32 %36 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i129, ptr readonly align 2 %srcChars.addr.0, i64 %mul.i131, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i129, ptr align 2 %srcChars.addr.0, i64 %mul.i131, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit132
 
 _ZL12us_arrayCopyPKDsiPDsii.exit132:              ; preds = %if.end90, %do.body.i127
@@ -6035,7 +6035,7 @@ _ZNK6icu_7513UnicodeString8pinIndexERi.exit11.i:  ; preds = %if.else.i2.i, %_ZNK
 do.body.i.i.i:                                    ; preds = %_ZNK6icu_7513UnicodeString8pinIndexERi.exit11.i
   %7 = shl nuw i32 %length.addr.0.i.i, 1
   %mul.i.i.i = zext i32 %7 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 2 %call, ptr readonly align 2 %add.ptr.i.i, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call, ptr align 2 %add.ptr.i.i, i64 %mul.i.i.i, i1 false)
   br label %_ZNK6icu_7513UnicodeString14extractBetweenEiiPDsi.exit
 
 _ZNK6icu_7513UnicodeString14extractBetweenEiiPDsi.exit: ; preds = %_ZNK6icu_7513UnicodeString8pinIndexERi.exit11.i, %do.body.i.i.i
@@ -6216,7 +6216,7 @@ do.body.i:                                        ; preds = %if.else
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i10, i64 %idx.ext.i
   %6 = shl nuw i32 %cond.i, 1
   %mul.i = zext i32 %6 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 2 %add.ptr.i, ptr readonly align 2 %cond.i10, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i, ptr align 2 %cond.i10, i64 %mul.i, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit
 
 _ZL12us_arrayCopyPKDsiPDsii.exit:                 ; preds = %if.else, %do.body.i

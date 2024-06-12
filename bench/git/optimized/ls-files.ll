@@ -1004,7 +1004,7 @@ get_common_prefix_len.exit.thread:                ; preds = %if.end476, %if.end4
   br label %prune_index.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end476
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call475) #15
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call475) #15
   %conv.i = trunc i64 %call.i to i32
   %sub.i = shl i64 %call.i, 32
   %sext.i = add i64 %sub.i, -4294967296
@@ -1066,7 +1066,7 @@ if.then.i.i:                                      ; preds = %while.end.i
   %idx.ext.i = zext nneg i32 %spec.select.i44 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %55, i64 %idx.ext.i
   %mul.i.i.i = shl nuw nsw i64 %conv18.i, 3
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr.i, i64 %mul.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i64 %mul.i.i.i, i1 false)
   br label %move_array.exit.i
 
 move_array.exit.i:                                ; preds = %if.then.i.i, %while.end.i
@@ -2524,7 +2524,7 @@ land.lhs.true7.i:                                 ; preds = %lor.lhs.false.i
   br i1 %tobool10.not.i, label %get_tag.exit, label %if.then.i33
 
 if.then.i33:                                      ; preds = %land.lhs.true7.i, %land.lhs.true4.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) @get_tag.alttag, ptr noundef nonnull readonly align 1 dereferenceable(3) %tag, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) @get_tag.alttag, ptr noundef nonnull align 1 dereferenceable(3) %tag, i64 3, i1 false)
   %74 = load i8, ptr %tag, align 1
   %idxprom.i = zext i8 %74 to i64
   %arrayidx11.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i

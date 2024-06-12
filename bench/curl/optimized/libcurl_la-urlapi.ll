@@ -1401,7 +1401,7 @@ entry:
   br i1 %relative, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %url, ptr noundef nonnull dereferenceable(1) @.str.21) #11
+  %call.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %url, ptr noundef nonnull dereferenceable(1) @.str.21) #11
   %tobool.not.i = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 2
   %sep.0.i = select i1 %tobool.not.i, ptr %url, ptr %add.ptr.i
@@ -1411,7 +1411,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end7.i
 
 if.then4.i:                                       ; preds = %if.then
-  %call5.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %url) #11
+  %call5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #11
   %add.ptr6.i = getelementptr inbounds i8, ptr %url, i64 %call5.i
   br label %if.end7.i
 
@@ -1421,7 +1421,7 @@ if.end7.i:                                        ; preds = %if.then4.i, %if.the
   br i1 %tobool8.not.i, label %if.then9.i, label %find_host_sep.exit
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %call10.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %url) #11
+  %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #11
   %add.ptr11.i = getelementptr inbounds i8, ptr %url, i64 %call10.i
   br label %find_host_sep.exit
 
@@ -2233,12 +2233,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %enc390.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dedot.i)
   call void @Curl_dyn_init(ptr noundef nonnull %host.i, i64 noundef 8000000) #10
-  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %url) #11
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #11
   %cmp.i.i = icmp ugt i64 %call.i.i, 8000000
   br i1 %cmp.i.i, label %parseurl.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call1.i.i = call i64 @strcspn(ptr noundef readonly %url, ptr noundef nonnull @junkscan.badbytes) #11
+  %call1.i.i = call i64 @strcspn(ptr noundef %url, ptr noundef nonnull @junkscan.badbytes) #11
   %cmp2.not.i.i = icmp eq i64 %call1.i.i, %call.i.i
   br i1 %cmp2.not.i.i, label %lor.lhs.false.i.i, label %parseurl.exit
 
@@ -2248,7 +2248,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call3.i.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %url, i32 noundef 32) #11
+  %call3.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %url, i32 noundef 32) #11
   %tobool4.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %tobool4.not.i.i, label %if.end.i, label %parseurl.exit
 

@@ -256,7 +256,7 @@ if.end10:                                         ; preds = %if.end6
   %header.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %CTable, i64 1
   store i8 %conv2.i, ptr %header.sroa.3.0..sroa_idx.i, align 1
   %header.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %CTable, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %header.sroa.4.0..sroa_idx.i, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %header.sroa.4.0..sroa_idx.i, i8 0, i64 6, i1 false)
   %cmp11.not30 = icmp eq i32 %1, 0
   br i1 %cmp11.not30, label %for.cond19.preheader, label %for.body.preheader
 
@@ -1067,7 +1067,7 @@ HUF_buildCTableFromTree.exit:                     ; preds = %HUF_setValue.exit.i
   %header.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %CTable, i64 1
   store i8 %conv2.i.i, ptr %header.sroa.3.0..sroa_idx.i.i, align 1
   %header.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %CTable, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %header.sroa.4.0..sroa_idx.i.i, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %header.sroa.4.0..sroa_idx.i.i, i8 0, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %nbPerRank.i)
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %valPerRank.i)
   %conv = zext nneg i32 %retval.0.i25 to i64

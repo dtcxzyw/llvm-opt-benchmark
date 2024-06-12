@@ -108,7 +108,7 @@ define internal range(i32 -1, 1) i32 @hwloc_look_pci(ptr nocapture noundef %0, p
   br i1 %.not.i.i.i.i, label %40, label %42
 
 40:                                               ; preds = %.lr.ph168
-  %41 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef %39, i32 noundef 0) #11
+  %41 = call ptr @hwloc_get_obj_by_depth(ptr noundef %22, i32 noundef %39, i32 noundef 0) #11
   br label %hwloc_get_next_pcidev.exit.i
 
 42:                                               ; preds = %.lr.ph168
@@ -185,7 +185,7 @@ hwloc_pci_get_obj_names.exit.i:                   ; preds = %65, %63, %61
   br i1 %.not.i.i.i12.i, label %70, label %72
 
 70:                                               ; preds = %.lr.ph.i
-  %71 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef %69, i32 noundef 0) #11
+  %71 = call ptr @hwloc_get_obj_by_depth(ptr noundef %22, i32 noundef %69, i32 noundef 0) #11
   br label %hwloc_get_next_bridge.exit.i
 
 72:                                               ; preds = %.lr.ph.i
@@ -509,7 +509,7 @@ sub_0.i:                                          ; preds = %243
   br i1 %or.cond159, label %hwloc_linux_pci_link_speed_from_string.exit, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %sub_0.i
-  %245 = call double @atof(ptr noundef nonnull readonly %20) #11
+  %245 = call double @atof(ptr noundef nonnull %20) #11
   %246 = fmul double %245, 1.280000e+02
   %247 = fdiv double %246, 1.300000e+02
   %248 = fptrunc double %247 to float

@@ -1726,7 +1726,7 @@ define dso_local i32 @nghttp2_nv_compare_name(ptr nocapture noundef readonly %0,
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef readonly %6, i64 noundef %5) #18
+  %11 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %6, i64 noundef %5) #18
   br label %bytes_compar.exit
 
 12:                                               ; preds = %2
@@ -1734,13 +1734,13 @@ define dso_local i32 @nghttp2_nv_compare_name(ptr nocapture noundef readonly %0,
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef readonly %6, i64 noundef %5) #18
+  %15 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %6, i64 noundef %5) #18
   %16 = icmp eq i32 %15, 0
   %..i = select i1 %16, i32 -1, i32 %15
   br label %bytes_compar.exit
 
 17:                                               ; preds = %12
-  %18 = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef readonly %6, i64 noundef %8) #18
+  %18 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %6, i64 noundef %8) #18
   %.21.i = tail call i32 @llvm.umax.i32(i32 %18, i32 1)
   br label %bytes_compar.exit
 
@@ -1774,18 +1774,18 @@ define internal i32 @nv_compar(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef readonly %6, i64 noundef %5) #18
+  %13 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %6, i64 noundef %5) #18
   %14 = icmp eq i32 %13, 0
   %spec.select = select i1 %14, i32 -1, i32 %13
   br label %bytes_compar.exit16
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef readonly %6, i64 noundef %8) #18
+  %16 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %6, i64 noundef %8) #18
   %.21.i = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
   br label %bytes_compar.exit16
 
 bytes_compar.exit:                                ; preds = %2
-  %17 = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef readonly %6, i64 noundef %5) #18
+  %17 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %6, i64 noundef %5) #18
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %bytes_compar.exit16
 
@@ -1802,7 +1802,7 @@ bytes_compar.exit:                                ; preds = %2
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %19
-  %30 = tail call i32 @memcmp(ptr noundef readonly %21, ptr noundef readonly %25, i64 noundef %23) #18
+  %30 = tail call i32 @memcmp(ptr noundef %21, ptr noundef %25, i64 noundef %23) #18
   br label %bytes_compar.exit16
 
 31:                                               ; preds = %19
@@ -1810,13 +1810,13 @@ bytes_compar.exit:                                ; preds = %2
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @memcmp(ptr noundef readonly %21, ptr noundef readonly %25, i64 noundef %23) #18
+  %34 = tail call i32 @memcmp(ptr noundef %21, ptr noundef %25, i64 noundef %23) #18
   %35 = icmp eq i32 %34, 0
   %..i15 = select i1 %35, i32 -1, i32 %34
   br label %bytes_compar.exit16
 
 36:                                               ; preds = %31
-  %37 = tail call i32 @memcmp(ptr noundef readonly %21, ptr noundef readonly %25, i64 noundef %27) #18
+  %37 = tail call i32 @memcmp(ptr noundef %21, ptr noundef %25, i64 noundef %27) #18
   %.21.i13 = tail call i32 @llvm.umax.i32(i32 %37, i32 1)
   br label %bytes_compar.exit16
 

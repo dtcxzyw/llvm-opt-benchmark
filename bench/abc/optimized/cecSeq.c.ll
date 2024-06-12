@@ -886,7 +886,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %41
   store i32 %67, ptr %79, align 4
   call void @Gia_ManCreateValueRefs(ptr noundef %0) #13
   %80 = call ptr @Cec_ManSimStart(ptr noundef %0, ptr noundef nonnull %5) #13
-  %81 = call i32 @Cec_ManSeqResimulate(ptr noundef %80, ptr noundef nonnull readonly %60)
+  %81 = call i32 @Cec_ManSeqResimulate(ptr noundef %80, ptr noundef nonnull %60)
   %82 = getelementptr inbounds i8, ptr %80, i64 104
   store ptr null, ptr %82, align 8
   call void @Cec_ManSimStop(ptr noundef %80) #13
@@ -1421,7 +1421,7 @@ Cec_ManSeqResimulateInfo.exit:                    ; preds = %Cec_ManSeqDeriveInf
   %122 = call ptr @Cec_ManSimStart(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
   %123 = getelementptr inbounds i8, ptr %122, i64 104
   store ptr %17, ptr %123, align 8
-  %124 = call i32 @Cec_ManSeqResimulate(ptr noundef %122, ptr noundef nonnull readonly %70)
+  %124 = call i32 @Cec_ManSeqResimulate(ptr noundef %122, ptr noundef nonnull %70)
   store ptr null, ptr %123, align 8
   call void @Cec_ManSimStop(ptr noundef %122) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)

@@ -48,7 +48,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
 
 28:                                               ; preds = %24, %26
   %29 = phi ptr [ %27, %26 ], [ %25, %24 ]
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %17, i8 0, i64 %10, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %10, i1 false)
   %30 = getelementptr inbounds i8, ptr %0, i64 84
   %31 = load i32, ptr %30, align 4
   %.not283 = icmp eq i32 %31, 0

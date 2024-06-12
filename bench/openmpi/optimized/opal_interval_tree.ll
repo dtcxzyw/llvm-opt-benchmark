@@ -1566,7 +1566,7 @@ opal_interval_tree_node_copy.exit.i:              ; preds = %170, %137, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %172 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 56
   %173 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %172, ptr noundef nonnull readonly align 1 dereferenceable(72) %173, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %172, ptr noundef nonnull align 1 dereferenceable(72) %173, i64 72, i1 false)
   %174 = load i32, ptr %57, align 8
   store i32 %174, ptr %172, align 8
   %175 = load ptr, ptr %51, align 8

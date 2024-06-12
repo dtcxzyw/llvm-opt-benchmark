@@ -4437,7 +4437,7 @@ _ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.
   br i1 %1635, label %1636, label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i
 
 1636:                                             ; preds = %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i.us.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %1633, ptr align 4 %.sroa.074.0.i, i64 %1622, i1 false), !noalias !24
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1633, ptr align 4 %.sroa.074.0.i, i64 %1622, i1 false), !noalias !24
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i: ; preds = %1636, %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i.us.i.i
@@ -4570,7 +4570,7 @@ _ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.
   br i1 %1677, label %1678, label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i22.i.i
 
 1678:                                             ; preds = %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i21.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %1675, ptr align 4 %.sroa.074.2.i, i64 %1663, i1 false), !noalias !24
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1675, ptr align 4 %.sroa.074.2.i, i64 %1663, i1 false), !noalias !24
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i22.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i22.i.i: ; preds = %1678, %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i21.i.i

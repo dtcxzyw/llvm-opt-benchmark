@@ -164,7 +164,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_Z6inRectiiiib.exit
   store i16 %52, ptr %53, align 2
   %54 = getelementptr inbounds i8, ptr %45, i64 12
   store i16 0, ptr %54, align 4
-  %55 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %56 = trunc i64 %55 to i32
   %57 = add i32 %56, 1
   %58 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -176,7 +176,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_Z6inRectiiiib.exit
   %62 = zext i32 %58 to i64
   %63 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %62
   %64 = zext i32 %57 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr readonly align 1 %0, i64 %64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr align 1 %0, i64 %64, i1 false)
   store i32 %59, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -671,7 +671,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   store i16 %81, ptr %82, align 2
   %83 = getelementptr inbounds i8, ptr %74, i64 12
   store i16 0, ptr %83, align 4
-  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %85 = trunc i64 %84 to i32
   %86 = add i32 %85, 1
   %87 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -702,7 +702,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   store i16 %101, ptr %102, align 2
   %103 = getelementptr inbounds i8, ptr %94, i64 12
   store i16 0, ptr %103, align 4
-  %104 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %105 = trunc i64 %104 to i32
   %106 = add i32 %105, 1
   %107 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -718,7 +718,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %91, %71
   %110 = zext i32 %.sink30 to i64
   %111 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %110
   %112 = zext i32 %.sink28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr readonly align 1 %0, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %0, i64 %112, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -898,7 +898,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %41, %48, %45
   store i16 %81, ptr %82, align 2
   %83 = getelementptr inbounds i8, ptr %74, i64 12
   store i16 0, ptr %83, align 4
-  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %85 = trunc i64 %84 to i32
   %86 = add i32 %85, 1
   %87 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -929,7 +929,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %41, %48, %45
   store i16 %101, ptr %102, align 2
   %103 = getelementptr inbounds i8, ptr %94, i64 12
   store i16 0, ptr %103, align 4
-  %104 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %105 = trunc i64 %104 to i32
   %106 = add i32 %105, 1
   %107 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -945,7 +945,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %91, %71
   %110 = zext i32 %.sink29 to i64
   %111 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %110
   %112 = zext i32 %.sink27 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr readonly align 1 %0, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %0, i64 %112, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -1187,7 +1187,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit28.thread:    ; preds = %71, %_ZL20addGfxCmd
   store i16 %110, ptr %111, align 2
   %112 = getelementptr inbounds i8, ptr %102, i64 12
   store i16 0, ptr %112, align 4
-  %113 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %114 = trunc i64 %113 to i32
   %115 = add i32 %114, 1
   %116 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1221,7 +1221,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit28.thread34:  ; preds = %85, %_ZL20addGfxCmd
   store i16 %131, ptr %132, align 2
   %133 = getelementptr inbounds i8, ptr %123, i64 12
   store i16 0, ptr %133, align 4
-  %134 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %135 = trunc i64 %134 to i32
   %136 = add i32 %135, 1
   %137 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1237,7 +1237,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %120, %99
   %140 = zext i32 %.sink42 to i64
   %141 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %140
   %142 = zext i32 %.sink40 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr readonly align 1 %0, i64 %142, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr align 1 %0, i64 %142, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -1417,7 +1417,7 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   store i16 %78, ptr %79, align 2
   %80 = getelementptr inbounds i8, ptr %70, i64 12
   store i16 0, ptr %80, align 4
-  %81 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %82 = trunc i64 %81 to i32
   %83 = add i32 %82, 1
   %84 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1449,7 +1449,7 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   store i16 %99, ptr %100, align 2
   %101 = getelementptr inbounds i8, ptr %91, i64 12
   store i16 0, ptr %101, align 4
-  %102 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %103 = trunc i64 %102 to i32
   %104 = add i32 %103, 1
   %105 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1466,7 +1466,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %88, %67
   %108 = zext i32 %.sink62 to i64
   %109 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %108
   %110 = zext i32 %.sink60 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr readonly align 1 %0, i64 %110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr align 1 %0, i64 %110, i1 false)
   store i32 %.sink57, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -1507,7 +1507,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
   store i16 %126, ptr %127, align 2
   %128 = getelementptr inbounds i8, ptr %119, i64 12
   store i16 2, ptr %128, align 4
-  %129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %129 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %130 = trunc i64 %129 to i32
   %131 = add i32 %130, 1
   %132 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1519,7 +1519,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
   %136 = zext i32 %132 to i64
   %137 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %136
   %138 = zext i32 %131 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull readonly align 1 %1, i64 %138, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull align 1 %1, i64 %138, i1 false)
   store i32 %133, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i34
 
@@ -1562,7 +1562,7 @@ define dso_local void @_Z10imguiLabelPKc(ptr nocapture noundef readonly %0) loca
   store i16 %16, ptr %17, align 2
   %18 = getelementptr inbounds i8, ptr %10, i64 12
   store i16 0, ptr %18, align 4
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %20 = trunc i64 %19 to i32
   %21 = add i32 %20, 1
   %22 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1574,7 +1574,7 @@ define dso_local void @_Z10imguiLabelPKc(ptr nocapture noundef readonly %0) loca
   %26 = zext i32 %22 to i64
   %27 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %26
   %28 = zext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %0, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %0, i64 %28, i1 false)
   store i32 %23, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i
 
@@ -1620,7 +1620,7 @@ define dso_local void @_Z10imguiValuePKc(ptr nocapture noundef readonly %0) loca
   store i16 %19, ptr %20, align 2
   %21 = getelementptr inbounds i8, ptr %12, i64 12
   store i16 2, ptr %21, align 4
-  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %23 = trunc i64 %22 to i32
   %24 = add i32 %23, 1
   %25 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1632,7 +1632,7 @@ define dso_local void @_Z10imguiValuePKc(ptr nocapture noundef readonly %0) loca
   %29 = zext i32 %25 to i64
   %30 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %29
   %31 = zext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %0, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %0, i64 %31, i1 false)
   store i32 %26, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i
 
@@ -1931,7 +1931,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit70:           ; preds = %_ZL20addGfxCmdRound
   store i16 %152, ptr %153, align 2
   %154 = getelementptr inbounds i8, ptr %146, i64 12
   store i16 0, ptr %154, align 4
-  %155 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %155 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %156 = trunc i64 %155 to i32
   %157 = add i32 %156, 1
   %158 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -1943,7 +1943,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit70:           ; preds = %_ZL20addGfxCmdRound
   %162 = zext i32 %158 to i64
   %163 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %162
   %164 = zext i32 %157 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %163, ptr readonly align 1 %0, i64 %164, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %163, ptr align 1 %0, i64 %164, i1 false)
   store i32 %159, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -1975,7 +1975,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %143, %161
   store i16 %177, ptr %178, align 2
   %179 = getelementptr inbounds i8, ptr %171, i64 12
   store i16 2, ptr %179, align 4
-  %180 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %180 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %181 = trunc i64 %180 to i32
   %182 = add i32 %181, 1
   %183 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -2008,7 +2008,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %143, %161
   store i16 %199, ptr %200, align 2
   %201 = getelementptr inbounds i8, ptr %192, i64 12
   store i16 0, ptr %201, align 4
-  %202 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %203 = trunc i64 %202 to i32
   %204 = add i32 %203, 1
   %205 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -2020,7 +2020,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %143, %161
   %209 = zext i32 %205 to i64
   %210 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %209
   %211 = zext i32 %204 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %210, ptr readonly align 1 %0, i64 %211, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %210, ptr align 1 %0, i64 %211, i1 false)
   store i32 %206, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit77
 
@@ -2051,7 +2051,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit77:                 ; preds = %189, %208
   store i16 %199, ptr %225, align 2
   %226 = getelementptr inbounds i8, ptr %219, i64 12
   store i16 2, ptr %226, align 4
-  %227 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %227 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %228 = trunc i64 %227 to i32
   %229 = add i32 %228, 1
   %230 = add i32 %229, %212
@@ -2066,7 +2066,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit74.sink.split.sink.split: ; preds = %215, %167
   %232 = zext i32 %.sink115 to i64
   %233 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %232
   %234 = zext i32 %.sink113 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %233, ptr nonnull readonly align 16 %8, i64 %234, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %233, ptr nonnull align 16 %8, i64 %234, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit74.sink.split
 
@@ -2196,7 +2196,7 @@ define dso_local void @_Z13imguiDrawTextiiiPKcj(i32 noundef %0, i32 noundef %1, 
   %18 = trunc i32 %2 to i16
   %19 = getelementptr inbounds i8, ptr %11, i64 12
   store i16 %18, ptr %19, align 4
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #14
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, 1
   %23 = load i32, ptr @_ZL14g_textPoolSize, align 4
@@ -2208,7 +2208,7 @@ define dso_local void @_Z13imguiDrawTextiiiPKcj(i32 noundef %0, i32 noundef %1, 
   %27 = zext i32 %23 to i64
   %28 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %27
   %29 = zext i32 %22 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %3, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %3, i64 %29, i1 false)
   store i32 %24, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i
 

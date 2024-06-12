@@ -2108,7 +2108,7 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %69
-  %74 = tail call fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %49)
+  %74 = tail call fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49)
   br label %mysql_dissect_greeting.exit
 
 75:                                               ; preds = %69
@@ -2692,7 +2692,7 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
 
 378:                                              ; preds = %349
   %379 = getelementptr inbounds i8, ptr %.0132, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %379, ptr noundef nonnull readonly align 8 dereferenceable(24) %363, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %379, ptr noundef nonnull align 8 dereferenceable(24) %363, i64 24, i1 false)
   br label %mysql_set_field_metas.exit.i.i
 
 mysql_set_field_metas.exit.i.i:                   ; preds = %378, %349, %mysql_set_prepared_stmt_id.exit.i.i
@@ -3301,7 +3301,7 @@ tvb_get_fle.exit.i.i:                             ; preds = %637, %635, %632, %6
 mysql_set_field_metas.exit.sink.split.i.i:        ; preds = %688, %664
   %.sink115.i.i = phi ptr [ %689, %688 ], [ %666, %664 ]
   %690 = getelementptr inbounds i8, ptr %.0132, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %690, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sink115.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %690, ptr noundef nonnull align 8 dereferenceable(24) %.sink115.i.i, i64 24, i1 false)
   br label %mysql_set_field_metas.exit.i306.i
 
 mysql_set_field_metas.exit.i306.i:                ; preds = %mysql_set_field_metas.exit.sink.split.i.i, %684, %680, %678, %664
@@ -3432,7 +3432,7 @@ mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
 738:                                              ; preds = %595
   %739 = tail call ptr @val_to_str(i32 noundef 14, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %739) #8
-  %740 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull readonly %.0)
+  %740 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull %.0)
   %741 = getelementptr i8, ptr %1, i64 80
   %.val276.i = load ptr, ptr %741, align 8
   %742 = getelementptr i8, ptr %.val276.i, i64 50
@@ -3509,7 +3509,7 @@ mysql_set_remaining_field_packet_count.exit315.i: ; preds = %758, %755
 768:                                              ; preds = %595, %595
   %769 = tail call ptr @val_to_str(i32 noundef %225, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %769) #8
-  %770 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull readonly %.0)
+  %770 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull %.0)
   %771 = getelementptr i8, ptr %1, i64 80
   %.val277.i = load ptr, ptr %771, align 8
   %772 = getelementptr i8, ptr %.val277.i, i64 50
@@ -3564,7 +3564,7 @@ mysql_dec_remaining_field_packet_count.exit322.i: ; preds = %768
 794:                                              ; preds = %595
   %795 = tail call ptr @val_to_str(i32 noundef 15, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %795) #8
-  %796 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull readonly %.0)
+  %796 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull %.0)
   %797 = getelementptr i8, ptr %1, i64 80
   %.val278.i = load ptr, ptr %797, align 8
   %798 = getelementptr i8, ptr %.val278.i, i64 50

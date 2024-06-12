@@ -1197,7 +1197,7 @@ define internal range(i32 0, 2) i32 @dissect_tango(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %decode_user_exception.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val965, ptr noundef nonnull dereferenceable(24) @.str.750) #5
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val965, ptr noundef nonnull dereferenceable(24) @.str.750) #5
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %44
 
@@ -1245,7 +1245,7 @@ start_dissecting.exit.i:                          ; preds = %23, %21
   br i1 %exitcond.not.i.i, label %decode_user_exception.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 44:                                               ; preds = %18
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val965, ptr noundef nonnull dereferenceable(29) @.str.751) #5
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val965, ptr noundef nonnull dereferenceable(29) @.str.751) #5
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %decode_user_exception.exit
 

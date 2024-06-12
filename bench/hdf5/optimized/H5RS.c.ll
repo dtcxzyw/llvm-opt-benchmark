@@ -49,7 +49,7 @@ define noalias ptr @H5RS_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %8
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %11 = add i64 %10, 1
   br label %12
 
@@ -72,7 +72,7 @@ define noalias ptr @H5RS_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not31.i, label %H5RS__xstrdup.exit, label %20
 
 20:                                               ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %0, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %0, i64 %10, i1 false)
   br label %H5RS__xstrdup.exit
 
 H5RS__xstrdup.exit:                               ; preds = %19, %20
@@ -276,7 +276,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5RS__prepare_for_append(ptr nocapt
   br i1 %18, label %19, label %42
 
 19:                                               ; preds = %15
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #11
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %21 = add i64 %20, 1
   br label %22
 
@@ -299,7 +299,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5RS__prepare_for_append(ptr nocapt
   br i1 %.not31.i, label %38, label %30
 
 30:                                               ; preds = %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %2, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %2, i64 %20, i1 false)
   br label %38
 
 31:                                               ; preds = %25
@@ -637,7 +637,7 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not.i, label %30, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #11
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %9 = add i64 %8, 1
   br label %10
 
@@ -660,7 +660,7 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not31.i, label %19, label %18
 
 18:                                               ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %6, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %6, i64 %8, i1 false)
   br label %19
 
 19:                                               ; preds = %18, %17

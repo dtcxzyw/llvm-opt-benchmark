@@ -514,13 +514,13 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %82 = call i64 @g_get_real_time() #12
   store i64 0, ptr %4, align 8
-  %83 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
+  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %84 = add i64 %83, 3
   %85 = and i64 %84, 4294967292
   %86 = add nuw i64 %70, 40
   %87 = add nuw i64 %86, %85
   %88 = call noalias ptr @g_malloc0(i64 noundef %87) #14
-  %89 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
+  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %90 = trunc i64 %89 to i16
   %91 = add i16 %90, 3
   %92 = and i16 %91, -4
@@ -535,7 +535,7 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %98 = getelementptr i8, ptr %88, i64 3
   store i8 %97, ptr %98, align 1
   %99 = getelementptr i8, ptr %88, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %99, ptr readonly align 1 %2, i64 %89, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %2, i64 %89, i1 false)
   %100 = zext i16 %92 to i32
   %101 = zext i16 %92 to i64
   %102 = getelementptr i8, ptr %88, i64 %101
@@ -562,7 +562,7 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %114 = add nuw nsw i32 %100, 40
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr i8, ptr %88, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull readonly align 1 %65, i64 %70, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull align 1 %65, i64 %70, i1 false)
   %117 = trunc i64 %70 to i32
   %118 = add i32 %114, %117
   %119 = sdiv i64 %82, 1000000

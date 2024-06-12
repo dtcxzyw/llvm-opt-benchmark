@@ -618,7 +618,7 @@ if.then3.i:                                       ; preds = %if.end.i78
   %59 = load <2 x i64>, ptr %st_ctim.i.i, align 8
   %60 = shufflevector <2 x i64> %59, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x i64> %60, ptr %st_ctim26.i.i296, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %st_flags.i.i301, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i301, i8 0, i64 16, i1 false)
   br label %uv__fs_fstat.exit
 
 uv__fs_fstat.exit:                                ; preds = %uv__fs_statx.exit.i, %if.end.i78, %if.then3.i
@@ -762,7 +762,7 @@ uv__fs_statx.exit.i170:                           ; preds = %sw.epilog.i.i171, %
 
 if.end.i124:                                      ; preds = %sw.default.i.i169, %sw.bb51
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i121)
-  %call.i6.i125 = call noundef i32 @lstat64(ptr noundef readonly %69, ptr noundef nonnull %pbuf.i122) #15
+  %call.i6.i125 = call noundef i32 @lstat64(ptr noundef %69, ptr noundef nonnull %pbuf.i122) #15
   %cmp2.i126 = icmp eq i32 %call.i6.i125, 0
   br i1 %cmp2.i126, label %if.then3.i128, label %uv__fs_lstat.exit
 
@@ -792,7 +792,7 @@ if.then3.i128:                                    ; preds = %if.end.i124
   %83 = load <2 x i64>, ptr %st_ctim.i.i158, align 8
   %84 = shufflevector <2 x i64> %83, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x i64> %84, ptr %st_ctim26.i.i296, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %st_flags.i.i301, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i301, i8 0, i64 16, i1 false)
   br label %uv__fs_lstat.exit
 
 uv__fs_lstat.exit:                                ; preds = %uv__fs_statx.exit.i170, %if.end.i124, %if.then3.i128
@@ -1539,7 +1539,7 @@ uv__fs_statx.exit.i307:                           ; preds = %sw.epilog.i.i308, %
 
 if.end.i261:                                      ; preds = %sw.default.i.i306, %sw.bb100
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i258)
-  %call.i6.i262 = call noundef i32 @stat64(ptr noundef readonly %168, ptr noundef nonnull %pbuf.i259) #15
+  %call.i6.i262 = call noundef i32 @stat64(ptr noundef %168, ptr noundef nonnull %pbuf.i259) #15
   %cmp2.i263 = icmp eq i32 %call.i6.i262, 0
   br i1 %cmp2.i263, label %if.then3.i265, label %uv__fs_stat.exit
 
@@ -1569,7 +1569,7 @@ if.then3.i265:                                    ; preds = %if.end.i261
   %182 = load <2 x i64>, ptr %st_ctim.i.i295, align 8
   %183 = shufflevector <2 x i64> %182, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x i64> %183, ptr %st_ctim26.i.i296, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %st_flags.i.i301, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i301, i8 0, i64 16, i1 false)
   br label %uv__fs_stat.exit
 
 uv__fs_stat.exit:                                 ; preds = %uv__fs_statx.exit.i307, %if.end.i261, %if.then3.i265

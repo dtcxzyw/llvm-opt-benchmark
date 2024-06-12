@@ -131,7 +131,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br i1 %.not15, label %115, label %38
 
 38:                                               ; preds = %34
-  %39 = call noalias ptr @strdup(ptr noundef nonnull readonly %37) #9
+  %39 = call noalias ptr @strdup(ptr noundef nonnull %37) #9
   %.not51.i = icmp eq ptr %39, null
   br i1 %.not51.i, label %.critedge58.i, label %.lr.ph.i
 

@@ -346,7 +346,7 @@ define noundef i32 @H5G_name_copy(ptr nocapture noundef writeonly %0, ptr nocapt
   br label %13
 
 12:                                               ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   br label %13
 
 13:                                               ; preds = %12, %5

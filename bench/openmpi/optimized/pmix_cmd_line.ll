@@ -99,7 +99,7 @@ define range(i32 -157, 1) i32 @pmix_cmd_line_parse(ptr noundef %0, ptr noundef %
   br i1 %30, label %57, label %31
 
 31:                                               ; preds = %25
-  %32 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %29) #13
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #13
   %33 = icmp ult i64 %32, 3
   br i1 %33, label %57, label %sub_0.i
 
@@ -914,7 +914,7 @@ define internal void @ocon(ptr noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null

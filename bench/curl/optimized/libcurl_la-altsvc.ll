@@ -141,7 +141,7 @@ if.end24.i:                                       ; preds = %while.cond12.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dstport.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %prio.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %persist.i.i)
-  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %lineptr.0.i, ptr noundef nonnull @.str.14, ptr noundef nonnull %srcalpn.i.i, ptr noundef nonnull %srchost.i.i, ptr noundef nonnull %srcport.i.i, ptr noundef nonnull %dstalpn.i.i, ptr noundef nonnull %dsthost.i.i, ptr noundef nonnull %dstport.i.i, ptr noundef nonnull %date.i.i, ptr noundef nonnull %persist.i.i, ptr noundef nonnull %prio.i.i) #12
+  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %lineptr.0.i, ptr noundef nonnull @.str.14, ptr noundef nonnull %srcalpn.i.i, ptr noundef nonnull %srchost.i.i, ptr noundef nonnull %srcport.i.i, ptr noundef nonnull %dstalpn.i.i, ptr noundef nonnull %dsthost.i.i, ptr noundef nonnull %dstport.i.i, ptr noundef nonnull %date.i.i, ptr noundef nonnull %persist.i.i, ptr noundef nonnull %prio.i.i) #12
   %cmp.i.i = icmp eq i32 %call.i.i, 9
   br i1 %cmp.i.i, label %if.then.i.i, label %altsvc_add.exit.i
 
@@ -565,7 +565,7 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %return
 
 do.end6:                                          ; preds = %while.end26.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %alpnbuf, ptr nonnull align 1 %p.0.i, i64 %sub.ptr.sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %alpnbuf, ptr nonnull align 1 %p.0.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %alpnbuf, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i, align 1
   %call8 = call i32 @curl_strequal(ptr noundef nonnull %alpnbuf, ptr noundef nonnull @.str.6) #12
@@ -847,7 +847,7 @@ while.end26.i63:                                  ; preds = %while.cond6.i61, %w
   br i1 %or.cond.i69, label %getalnum.exit76.thread, label %if.then179
 
 getalnum.exit76.thread:                           ; preds = %while.end26.i63
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %option, ptr nonnull align 1 %p.0.i57, i64 %sub.ptr.sub.i66, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %option, ptr nonnull align 1 %p.0.i57, i64 %sub.ptr.sub.i66, i1 false)
   %arrayidx.i72 = getelementptr inbounds i8, ptr %option, i64 %sub.ptr.sub.i66
   store i8 0, ptr %arrayidx.i72, align 1
   br label %while.cond182.preheader
@@ -1058,7 +1058,7 @@ while.end26.i85:                                  ; preds = %while.cond6.i83, %w
 getalnum.exit98.thread:                           ; preds = %while.end26.i85
   %gepdiff = add nsw i64 %p.1.i84.idx, -1
   %p.1.i84.ptr.le = getelementptr inbounds i8, ptr %p.12.pn, i64 %p.1.i84.idx
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %alpnbuf, ptr nonnull align 1 %p.0.i79.ptr, i64 %gepdiff, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %alpnbuf, ptr nonnull align 1 %p.0.i79.ptr, i64 %gepdiff, i1 false)
   %arrayidx.i94 = getelementptr inbounds i8, ptr %alpnbuf, i64 %gepdiff
   store i8 0, ptr %arrayidx.i94, align 1
   %.pr146 = load i8, ptr %p.1.i84.ptr.le, align 1

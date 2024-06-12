@@ -249,7 +249,7 @@ freeClientMultiState.exit:                        ; preds = %for.end.i, %entry
   store i64 0, ptr %argv_len_sums.i, align 8
   %alloc_count.i = getelementptr inbounds i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %mstate.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i, i8 0, i64 20, i1 false)
   %flags = getelementptr inbounds i8, ptr %c, i64 8
   %11 = load i64, ptr %flags, align 8
   %and = and i64 %11, -4137
@@ -424,7 +424,7 @@ discardTransaction.exit:                          ; preds = %for.end.i.i, %if.en
   store i64 0, ptr %argv_len_sums.i.i, align 8
   %alloc_count.i.i = getelementptr inbounds i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
   %12 = load i64, ptr %flags, align 8
   %and.i = and i64 %12, -4137
   store i64 %and.i, ptr %flags, align 8
@@ -483,7 +483,7 @@ discardTransaction.exit:                          ; preds = %for.end.i.i, %entry
   store i64 0, ptr %argv_len_sums.i.i, align 8
   %alloc_count.i.i = getelementptr inbounds i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
   %flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %11 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %11, -4137
@@ -646,7 +646,7 @@ discardTransaction.exit:                          ; preds = %for.end.i.i, %if.en
   store i64 0, ptr %argv_len_sums.i.i, align 8
   %alloc_count.i.i = getelementptr inbounds i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
   %22 = load i64, ptr %flags, align 8
   %and.i = and i64 %22, -4137
   store i64 %and.i, ptr %flags, align 8
@@ -819,7 +819,7 @@ discardTransaction.exit82:                        ; preds = %for.end.i.i74, %if.
   store i64 0, ptr %argv_len_sums.i.i65, align 8
   %alloc_count.i.i66 = getelementptr inbounds i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %mstate, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate, i8 0, i64 20, i1 false)
   %59 = load i64, ptr %flags, align 8
   %and.i68 = and i64 %59, -4137
   store i64 %and.i68, ptr %flags, align 8

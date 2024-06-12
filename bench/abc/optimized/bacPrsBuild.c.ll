@@ -3668,10 +3668,10 @@ Psr_ManRoot.exit:                                 ; preds = %2, %6
   br i1 %.not.i.i, label %Abc_UtilStrsav.exit.i, label %12
 
 12:                                               ; preds = %Psr_ManRoot.exit
-  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %14 = add i64 %13, 1
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #18
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %0) #16
   br label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %12, %Psr_ManRoot.exit

@@ -1018,7 +1018,7 @@ invoke.cont48.us:                                 ; preds = %invoke.cont44.us
           to label %invoke.cont50.us unwind label %lpad43.split.us
 
 invoke.cont50.us:                                 ; preds = %invoke.cont48.us
-  invoke void @_ZN3nla5order20order_lemma_on_ab_gtERNS_9new_lemmaERKNS_5monicERK8rationaljj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull readonly align 8 dereferenceable(34) %m, ptr noundef nonnull align 8 dereferenceable(32) %rsign, i32 noundef %call47.us, i32 noundef %call51.us)
+  invoke void @_ZN3nla5order20order_lemma_on_ab_gtERNS_9new_lemmaERKNS_5monicERK8rationaljj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(34) %m, ptr noundef nonnull align 8 dereferenceable(32) %rsign, i32 noundef %call47.us, i32 noundef %call51.us)
           to label %invoke.cont53.us unwind label %lpad43.split.us
 
 invoke.cont53.us:                                 ; preds = %invoke.cont50.us
@@ -1065,7 +1065,7 @@ invoke.cont48:                                    ; preds = %invoke.cont44
           to label %invoke.cont50 unwind label %lpad43.split
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  invoke void @_ZN3nla5order20order_lemma_on_ab_ltERNS_9new_lemmaERKNS_5monicERK8rationaljj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull readonly align 8 dereferenceable(34) %m, ptr noundef nonnull align 8 dereferenceable(32) %rsign, i32 noundef %call47, i32 noundef %call51)
+  invoke void @_ZN3nla5order20order_lemma_on_ab_ltERNS_9new_lemmaERKNS_5monicERK8rationaljj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(16) %lemma, ptr noundef nonnull align 8 dereferenceable(34) %m, ptr noundef nonnull align 8 dereferenceable(32) %rsign, i32 noundef %call47, i32 noundef %call51)
           to label %invoke.cont53 unwind label %lpad43.split
 
 invoke.cont53:                                    ; preds = %invoke.cont50

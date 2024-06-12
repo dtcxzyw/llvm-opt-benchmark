@@ -92,7 +92,7 @@ for.body18:                                       ; preds = %if.end14, %for.body
   %arrayidx20 = getelementptr inbounds %struct.sec_bin_s, ptr %9, i64 %indvars.iv
   store i8 0, ptr %arrayidx20, align 8
   %bytes_cur.i = getelementptr inbounds i8, ptr %arrayidx20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes_cur.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_cur.i, i8 0, i64 16, i1 false)
   %incdec.ptr21 = getelementptr inbounds i8, ptr %bin_cur.137, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -488,7 +488,7 @@ edata_list_active_concat.exit.i:                  ; preds = %do.end51.sink.split
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %edata_list_active_concat.exit.i
-  call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull readonly %self, ptr noundef nonnull %retval.0.i)
+  call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull %self, ptr noundef nonnull %retval.0.i)
   br label %sec_batch_fill_and_alloc.exit
 
 if.else.i:                                        ; preds = %edata_list_active_concat.exit.i
@@ -715,7 +715,7 @@ edata_list_active_prepend.exit.i:                 ; preds = %do.body2.i.i, %sz_p
   br i1 %cmp.i23, label %if.then.i26, label %if.else.i
 
 if.then.i26:                                      ; preds = %edata_list_active_prepend.exit.i
-  tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull readonly %self, ptr noundef nonnull %retval.0.i)
+  tail call fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef nonnull %self, ptr noundef nonnull %retval.0.i)
   br label %if.end7
 
 if.else.i:                                        ; preds = %edata_list_active_prepend.exit.i

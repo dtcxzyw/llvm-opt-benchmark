@@ -5115,7 +5115,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %for.body.preheader.i
 
 invoke.cont9.i:                                   ; preds = %_ZNSt6vectorInSaInEE17_S_check_init_lenEmRKS0_.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !alias.scope !56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !alias.scope !56
   store i32 0, ptr %i.i, align 4, !noalias !56
   br label %_ZN8facebook5velox6common12_GLOBAL__N_124deserializeHugeintValuesERKN5folly7dynamicE.exit
 
@@ -15155,7 +15155,7 @@ if.then23:                                        ; preds = %if.end20
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_25) #34
   %sext.i = shl i64 %.sroa.speculated.i, 32
   %conv3.i = ashr exact i64 %sext.i, 32
-  %call4.i = tail call i32 @memcmp(ptr noundef readonly %value, ptr noundef %call2.i, i64 noundef %conv3.i) #40
+  %call4.i = tail call i32 @memcmp(ptr noundef %value, ptr noundef %call2.i, i64 noundef %conv3.i) #40
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15192,7 +15192,7 @@ if.then35:                                        ; preds = %if.end33
   %call2.i11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_38) #34
   %sext.i12 = shl i64 %.sroa.speculated.i10, 32
   %conv3.i13 = ashr exact i64 %sext.i12, 32
-  %call4.i14 = tail call i32 @memcmp(ptr noundef readonly %value, ptr noundef %call2.i11, i64 noundef %conv3.i13) #40
+  %call4.i14 = tail call i32 @memcmp(ptr noundef %value, ptr noundef %call2.i11, i64 noundef %conv3.i13) #40
   %tobool.not.i15 = icmp eq i32 %call4.i14, 0
   br i1 %tobool.not.i15, label %if.end.i17, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21
 
@@ -15266,7 +15266,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #34
   %sext.i = shl i64 %.sroa.speculated.i, 32
   %conv3.i = ashr exact i64 %sext.i, 32
-  %call4.i = tail call i32 @memcmp(ptr noundef readonly %3, ptr noundef %call2.i, i64 noundef %conv3.i) #40
+  %call4.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %call2.i, i64 noundef %conv3.i) #40
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15307,7 +15307,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false13
   %call2.i6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #34
   %sext.i7 = shl i64 %.sroa.speculated.i5, 32
   %conv3.i8 = ashr exact i64 %sext.i7, 32
-  %call4.i9 = tail call i32 @memcmp(ptr noundef readonly %9, ptr noundef %call2.i6, i64 noundef %conv3.i8) #40
+  %call4.i9 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %call2.i6, i64 noundef %conv3.i8) #40
   %tobool.not.i10 = icmp eq i32 %call4.i9, 0
   br i1 %tobool.not.i10, label %if.end.i12, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16
 
@@ -15394,7 +15394,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true3.land
   %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #34
   %sext.i = shl i64 %.sroa.speculated.i, 32
   %conv3.i = ashr exact i64 %sext.i, 32
-  %call4.i = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef %call2.i, i64 noundef %conv3.i) #40
+  %call4.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %call2.i, i64 noundef %conv3.i) #40
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i12, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15423,7 +15423,7 @@ land.lhs.true27:                                  ; preds = %if.end25
   %call2.i18 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #34
   %sext.i19 = shl i64 %.sroa.speculated.i17, 32
   %conv3.i20 = ashr exact i64 %sext.i19, 32
-  %call4.i21 = tail call i32 @memcmp(ptr noundef readonly %5, ptr noundef %call2.i18, i64 noundef %conv3.i20) #40
+  %call4.i21 = tail call i32 @memcmp(ptr noundef %5, ptr noundef %call2.i18, i64 noundef %conv3.i20) #40
   %tobool.not.i22 = icmp eq i32 %call4.i21, 0
   br i1 %tobool.not.i22, label %if.end.i24, label %_ZN8facebook5velox6common12_GLOBAL__N_113compareRangesEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit28
 
@@ -20733,7 +20733,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br label %if.end169
 
 if.end169:                                        ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, %if.then.i.i148, %invoke.cont162
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %rejectedValues, i1 noundef zeroext %63, i1 noundef zeroext true)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %rejectedValues, i1 noundef zeroext %63, i1 noundef zeroext true)
           to label %cleanup unwind label %lpad141
 
 if.end172:                                        ; preds = %if.end153
@@ -22215,7 +22215,7 @@ land.rhs:                                         ; preds = %for.end80
 
 land.end:                                         ; preds = %land.rhs, %for.end80
   %43 = phi i1 [ false, %for.end80 ], [ %call85, %land.rhs ]
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %43, i1 noundef zeroext false)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %43, i1 noundef zeroext false)
           to label %invoke.cont87 unwind label %lpad.loopexit.split-lp
 
 invoke.cont87:                                    ; preds = %land.end
@@ -22600,7 +22600,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %cmp.i29.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end23
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %2, i1 noundef zeroext false)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %2, i1 noundef zeroext false)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %for.end
@@ -22901,7 +22901,7 @@ land.rhs:                                         ; preds = %for.end75
 
 land.end:                                         ; preds = %land.rhs, %for.end75
   %48 = phi i1 [ false, %for.end75 ], [ %call79, %land.rhs ]
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %48, i1 noundef zeroext false)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %48, i1 noundef zeroext false)
           to label %invoke.cont81 unwind label %lpad.loopexit.split-lp
 
 invoke.cont81:                                    ; preds = %land.end
@@ -23087,7 +23087,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %exitcond.not, label %for.end, label %invoke.cont, !llvm.loop !447
 
 for.end:                                          ; preds = %for.inc, %land.end
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %2, i1 noundef zeroext false)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %valuesToKeep, i1 noundef zeroext %2, i1 noundef zeroext false)
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %for.end
@@ -23574,7 +23574,7 @@ invoke.cont42:                                    ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %cmp.i66.not, label %while.end45, label %while.body40, !llvm.loop !457
 
 while.end45:                                      ; preds = %invoke.cont42, %while.cond35.preheader
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %allRejected, i1 noundef zeroext %nullAllowed, i1 noundef zeroext true)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_124createBigintValuesFilterERKSt6vectorIlSaIlEEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %allRejected, i1 noundef zeroext %nullAllowed, i1 noundef zeroext true)
           to label %invoke.cont46 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont46:                                    ; preds = %while.end45

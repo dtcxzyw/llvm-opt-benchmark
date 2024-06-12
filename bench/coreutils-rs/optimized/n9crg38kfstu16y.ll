@@ -72,7 +72,7 @@ define void @_ZN7uu_true6uu_app17h88e6faf02651edd5E(ptr noalias nocapture nounde
   store ptr @anon.60e6bbef1546bb65da05593c49c74f48.3, ptr %27, align 8, !alias.scope !10, !noalias !12
   %28 = getelementptr inbounds i8, ptr %10, i64 552
   store i64 4, ptr %28, align 8, !alias.scope !10, !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %11, ptr noundef nonnull align 8 dereferenceable(592) %10, i64 592, i1 false), !alias.scope !14, !noalias !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %11, ptr noundef nonnull align 8 dereferenceable(592) %10, i64 592, i1 false), !alias.scope !14, !noalias !15
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i)
@@ -201,7 +201,7 @@ define void @_ZN7uu_true6uu_app17h88e6faf02651edd5E(ptr noalias nocapture nounde
   store ptr @anon.60e6bbef1546bb65da05593c49c74f48.5, ptr %60, align 8, !alias.scope !66, !noalias !68
   %61 = getelementptr inbounds i8, ptr %8, i64 552
   store i64 7, ptr %61, align 8, !alias.scope !66, !noalias !68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %9, ptr noundef nonnull align 8 dereferenceable(592) %8, i64 592, i1 false), !alias.scope !70, !noalias !71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %9, ptr noundef nonnull align 8 dereferenceable(592) %8, i64 592, i1 false), !alias.scope !70, !noalias !71
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i20)

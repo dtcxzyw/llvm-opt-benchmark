@@ -124,7 +124,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %if.then.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %string) #5
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #5
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.then.i
@@ -243,7 +243,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.then
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %string) #5
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #5
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.then

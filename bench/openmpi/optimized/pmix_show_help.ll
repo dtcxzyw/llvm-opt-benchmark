@@ -310,7 +310,7 @@ define noundef i32 @pmix_show_help_init(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
@@ -342,7 +342,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 20:                                               ; preds = %19, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 48), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @abd_tuples, i64 56), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @abd_tuples, i64 56), i8 0, i64 64, i1 false)
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i4 = icmp eq ptr %22, null
@@ -788,7 +788,7 @@ localgetline.exit.i:                              ; preds = %58, %.lr.ph.i15
 69:                                               ; preds = %66
   store i8 0, ptr %67, align 1
   %70 = getelementptr inbounds i8, ptr %62, i64 1
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(1) %2) #23
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %2) #23
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %.backedge.i
 
@@ -1221,7 +1221,7 @@ define internal void @tuple_list_item_constructor(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null

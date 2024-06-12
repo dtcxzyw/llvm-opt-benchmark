@@ -694,7 +694,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %201, %
 225:                                              ; preds = %224, %pmix_obj_new_tma.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 488), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 496), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 504), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 504), i8 0, i64 64, i1 false)
   %226 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %227 = load ptr, ptr %226, align 8
   %.not6.i = icmp eq ptr %227, null
@@ -722,7 +722,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %225
 234:                                              ; preds = %233, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 56), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 64), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 72), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 72), i8 0, i64 64, i1 false)
   %235 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %236 = load ptr, ptr %235, align 8
   %.not6.i382 = icmp eq ptr %236, null
@@ -750,7 +750,7 @@ pmix_obj_run_constructors.exit386:                ; preds = %.lr.ph.i383, %234
 243:                                              ; preds = %242, %pmix_obj_run_constructors.exit386
   store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 328), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 336), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 344), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 344), i8 0, i64 64, i1 false)
   %244 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %245 = load ptr, ptr %244, align 8
   %.not6.i387 = icmp eq ptr %245, null
@@ -1393,7 +1393,7 @@ pmix_obj_run_destructors.exit408:                 ; preds = %.lr.ph.i405, %320
 585:                                              ; preds = %584, %581
   store ptr @pmix_iof_sink_t_class, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 824), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 832), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 840), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 840), i8 0, i64 64, i1 false)
   %586 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_iof_sink_t_class, i64 40), align 8
   %587 = load ptr, ptr %586, align 8
   %.not6.i410 = icmp eq ptr %587, null
@@ -1478,7 +1478,7 @@ pmix_strncpy.exit:                                ; preds = %pmix_obj_run_constr
 618:                                              ; preds = %617, %614
   store ptr @pmix_iof_sink_t_class, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 1696), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 1704), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 1712), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_client_globals, i64 1712), i8 0, i64 64, i1 false)
   %619 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_iof_sink_t_class, i64 40), align 8
   %620 = load ptr, ptr %619, align 8
   %.not6.i415 = icmp eq ptr %620, null
@@ -1563,7 +1563,7 @@ pmix_strncpy.exit424:                             ; preds = %pmix_obj_run_constr
 653:                                              ; preds = %652, %647
   store ptr @pmix_iof_read_event_t_class, ptr getelementptr inbounds (i8, ptr @stdinev, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @stdinev, i64 48), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @stdinev, i64 56), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @stdinev, i64 56), i8 0, i64 64, i1 false)
   %654 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_iof_read_event_t_class, i64 40), align 8
   %655 = load ptr, ptr %654, align 8
   %.not6.i425 = icmp eq ptr %655, null
@@ -1621,7 +1621,7 @@ pmix_obj_run_constructors.exit429:                ; preds = %.lr.ph.i426, %653
 676:                                              ; preds = %675, %672
   store ptr @pmix_iof_read_event_t_class, ptr getelementptr inbounds (i8, ptr @stdinev, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @stdinev, i64 48), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @stdinev, i64 56), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @stdinev, i64 56), i8 0, i64 64, i1 false)
   %677 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_iof_read_event_t_class, i64 40), align 8
   %678 = load ptr, ptr %677, align 8
   %.not6.i430 = icmp eq ptr %678, null
@@ -1842,7 +1842,7 @@ pmix_obj_run_destructors.exit439:                 ; preds = %.lr.ph.i436, %757
   %781 = getelementptr inbounds i8, ptr %9, i64 48
   store i32 1, ptr %781, align 8
   %782 = getelementptr inbounds i8, ptr %9, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %782, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %782, i8 0, i64 64, i1 false)
   %783 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cb_t_class, i64 40), align 8
   %784 = load ptr, ptr %783, align 8
   %.not6.i441 = icmp eq ptr %784, null
@@ -1975,7 +1975,7 @@ pmix_obj_run_destructors.exit450:                 ; preds = %pmix_obj_run_destru
 843:                                              ; preds = %842, %839
   store ptr @pmix_cb_t_class, ptr %780, align 8
   store i32 1, ptr %781, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %782, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %782, i8 0, i64 64, i1 false)
   %844 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cb_t_class, i64 40), align 8
   %845 = load ptr, ptr %844, align 8
   %.not6.i451 = icmp eq ptr %845, null
@@ -2331,7 +2331,7 @@ pmix_obj_run_destructors.exit470:                 ; preds = %.lr.ph.i467, %998
   %1020 = getelementptr inbounds i8, ptr %9, i64 48
   store i32 1, ptr %1020, align 8
   %1021 = getelementptr inbounds i8, ptr %9, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1021, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1021, i8 0, i64 64, i1 false)
   %1022 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cb_t_class, i64 40), align 8
   %1023 = load ptr, ptr %1022, align 8
   %.not6.i472 = icmp eq ptr %1023, null
@@ -2451,7 +2451,7 @@ pmix_obj_run_destructors.exit481:                 ; preds = %pmix_obj_run_destru
   %1077 = getelementptr inbounds i8, ptr %11, i64 56
   store i32 1, ptr %1077, align 8
   %1078 = getelementptr inbounds i8, ptr %11, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1078, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1078, i8 0, i64 64, i1 false)
   %1079 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %1080 = load ptr, ptr %1079, align 8
   %.not6.i482 = icmp eq ptr %1080, null
@@ -2487,7 +2487,7 @@ pmix_obj_run_constructors.exit486:                ; preds = %.lr.ph.i483, %1074
   %1093 = getelementptr inbounds i8, ptr %12, i64 56
   store i32 1, ptr %1093, align 8
   %1094 = getelementptr inbounds i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1094, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1094, i8 0, i64 64, i1 false)
   %1095 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %1096 = load ptr, ptr %1095, align 8
   %.not6.i487 = icmp eq ptr %1096, null
@@ -7520,7 +7520,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %103
   %124 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 1, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %125, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %125, i8 0, i64 64, i1 false)
   %126 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %127 = load ptr, ptr %126, align 8
   %.not6.i273 = icmp eq ptr %127, null
@@ -7741,7 +7741,7 @@ pmix_obj_run_destructors.exit288:                 ; preds = %.lr.ph.i285, %._cri
   %231 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 1, ptr %231, align 8
   %232 = getelementptr inbounds i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %232, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %232, i8 0, i64 64, i1 false)
   %233 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %234 = load ptr, ptr %233, align 8
   %.not6.i289 = icmp eq ptr %234, null
@@ -9958,7 +9958,7 @@ define internal void @getsrvrs(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %10 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null

@@ -537,14 +537,14 @@ if.end152:                                        ; preds = %if.then149
   br i1 %or.cond472, label %if.then459, label %if.end160
 
 if.end160:                                        ; preds = %if.end152
-  %call.i397 = call i64 @strcspn(ptr noundef nonnull readonly %call.i396, ptr noundef nonnull @invalid_octets.badoctets) #13
+  %call.i397 = call i64 @strcspn(ptr noundef nonnull %call.i396, ptr noundef nonnull @invalid_octets.badoctets) #13
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i396, i64 %call.i397
   %18 = load i8, ptr %arrayidx.i, align 1
   %cmp.i.not = icmp eq i8 %18, 0
   br i1 %cmp.i.not, label %lor.lhs.false164, label %land.lhs.true171
 
 lor.lhs.false164:                                 ; preds = %if.end160
-  %call.i398 = call i64 @strcspn(ptr noundef nonnull readonly %17, ptr noundef nonnull @invalid_octets.badoctets) #13
+  %call.i398 = call i64 @strcspn(ptr noundef nonnull %17, ptr noundef nonnull @invalid_octets.badoctets) #13
   %arrayidx.i399 = getelementptr inbounds i8, ptr %17, i64 %call.i398
   %19 = load i8, ptr %arrayidx.i399, align 1
   %cmp.i400.not = icmp eq i8 %19, 0
@@ -2296,7 +2296,7 @@ if.then29:                                        ; preds = %if.end4.i, %land.lh
   br i1 %tobool30.not, label %if.then34, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %if.then29
-  %call.i51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #13
+  %call.i51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   %cmp.i52 = icmp eq i64 %call.i51, 1
   br i1 %cmp.i52, label %if.then34, label %if.end.i53
 
@@ -2334,7 +2334,7 @@ if.end16.i:                                       ; preds = %if.then12.i, %if.en
   br i1 %cmp18.i, label %pathmatch.exit.thread76, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end16.i
-  %call22.i = tail call i32 @strncmp(ptr noundef nonnull readonly %7, ptr noundef nonnull %uri_path.0.i, i64 noundef %call.i51) #13
+  %call22.i = tail call i32 @strncmp(ptr noundef nonnull %7, ptr noundef nonnull %uri_path.0.i, i64 noundef %call.i51) #13
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %if.end25.i, label %pathmatch.exit.thread76
 

@@ -7259,7 +7259,7 @@ entry:
   store ptr %call.i, ptr %agg.tmp1.i, align 8, !noalias !53
   %m_len.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
   store i64 %call2.i, ptr %m_len.i1.i, align 8, !noalias !53
-  call void @_ZN18OpenImageIO_v2_6_010ImageInput6createENS_17basic_string_viewIcSt11char_traitsIcEEEbPKNS_9ImageSpecEPNS_10Filesystem7IOProxyES4_(ptr writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp1.i)
+  call void @_ZN18OpenImageIO_v2_6_010ImageInput6createENS_17basic_string_viewIcSt11char_traitsIcEEEbPKNS_9ImageSpecEPNS_10Filesystem7IOProxyES4_(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1.i)
   ret void
@@ -7302,7 +7302,7 @@ entry:
   store ptr %call.i, ptr %agg.tmp1.i, align 8, !noalias !56
   %m_len.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
   store i64 %call2.i, ptr %m_len.i1.i, align 8, !noalias !56
-  call void @_ZN18OpenImageIO_v2_6_010ImageInput6createENS_17basic_string_viewIcSt11char_traitsIcEEEbPKNS_9ImageSpecEPNS_10Filesystem7IOProxyES4_(ptr writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext %do_open, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp1.i)
+  call void @_ZN18OpenImageIO_v2_6_010ImageInput6createENS_17basic_string_viewIcSt11char_traitsIcEEEbPKNS_9ImageSpecEPNS_10Filesystem7IOProxyES4_(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext %do_open, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1.i)
   ret void

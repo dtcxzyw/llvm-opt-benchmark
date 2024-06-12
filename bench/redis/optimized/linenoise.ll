@@ -240,7 +240,7 @@ if.end.i:                                         ; preds = %if.end27
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext.i
   %sext = shl i64 %call30, 32
   %conv4.i = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %seq, i64 %conv4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %seq, i64 %conv4.i, i1 false)
   store ptr %call.i, ptr %ab, align 8
   %add7.i = add nsw i32 %12, %conv31
   store i32 %add7.i, ptr %len1.i, align 8
@@ -260,7 +260,7 @@ if.end.i20:                                       ; preds = %abAppend.exit
   %idx.ext.i21 = sext i32 %15 to i64
   %add.ptr.i22 = getelementptr inbounds i8, ptr %call.i18, i64 %idx.ext.i21
   %conv4.i23 = sext i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i22, ptr nonnull readonly align 1 %call, i64 %conv4.i23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i22, ptr nonnull align 1 %call, i64 %conv4.i23, i1 false)
   store ptr %call.i18, ptr %ab, align 8
   %add7.i24 = add nsw i32 %15, %spec.select
   store i32 %add7.i24, ptr %len1.i, align 8
@@ -464,7 +464,7 @@ if.then21.i:                                      ; preds = %if.end.i
 
 if.end.i.i:                                       ; preds = %if.then21.i
   %conv27.i = trunc i64 %call26.i to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i, ptr nonnull readonly align 16 %seq.i, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i, ptr nonnull align 16 %seq.i, i64 %conv.i.i, i1 false)
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end.i.i, %if.then21.i, %if.end.i
@@ -495,7 +495,7 @@ if.end.i55.i:                                     ; preds = %for.body.i
   %add.ptr.i57.i = getelementptr inbounds i8, ptr %call.i53.i, i64 %idx.ext.i56.i
   %sext154.i = shl i64 %call36.i, 32
   %conv4.i58.i = ashr exact i64 %sext154.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i57.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i58.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i57.i, ptr nonnull align 16 %seq.i, i64 %conv4.i58.i, i1 false)
   br label %abAppend.exit60.i
 
 abAppend.exit60.i:                                ; preds = %if.end.i55.i, %for.body.i
@@ -524,7 +524,7 @@ if.end.i66.i:                                     ; preds = %for.end.i
   %add.ptr.i68.i = getelementptr inbounds i8, ptr %call.i64.i, i64 %idx.ext.i67.i
   %sext148.i = shl i64 %call42.i, 32
   %conv4.i69.i = ashr exact i64 %sext148.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i68.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i69.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i68.i, ptr nonnull align 16 %seq.i, i64 %conv4.i69.i, i1 false)
   store ptr %call.i64.i, ptr %ab.i, align 8
   store i32 %add.i62.i, ptr %len.i.i, align 8
   br label %abAppend.exit71.i
@@ -546,7 +546,7 @@ if.end.i77.i:                                     ; preds = %abAppend.exit71.i
   %add.ptr.i79.i = getelementptr inbounds i8, ptr %call.i75.i, i64 %idx.ext.i78.i
   %sext149.i = shl i64 %call46.i, 32
   %conv4.i80.i = ashr exact i64 %sext149.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i79.i, ptr readonly align 1 %12, i64 %conv4.i80.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i79.i, ptr align 1 %12, i64 %conv4.i80.i, i1 false)
   store ptr %call.i75.i, ptr %ab.i, align 8
   store i32 %add.i73.i, ptr %len.i.i, align 8
   br label %abAppend.exit82.i
@@ -603,7 +603,7 @@ if.end.i98.i:                                     ; preds = %if.else.i
   %add.ptr.i100.i = getelementptr inbounds i8, ptr %call.i96.i, i64 %idx.ext.i99.i
   %sext150.i = shl i64 %18, 32
   %conv4.i101.i = ashr exact i64 %sext150.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i100.i, ptr readonly align 1 %17, i64 %conv4.i101.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i100.i, ptr align 1 %17, i64 %conv4.i101.i, i1 false)
   br label %if.end62.i.sink.split
 
 if.end62.i.sink.split:                            ; preds = %for.cond51.preheader.i, %abAppend.exit92.i, %if.end.i98.i
@@ -666,7 +666,7 @@ if.end.i119.i:                                    ; preds = %abAppend.exit113.i
   %add.ptr.i121.i = getelementptr inbounds i8, ptr %call.i117.i, i64 %idx.ext.i120.i
   %sext151.i = shl i64 %call79.i, 32
   %conv4.i122.i = ashr exact i64 %sext151.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i121.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i122.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i121.i, ptr nonnull align 16 %seq.i, i64 %conv4.i122.i, i1 false)
   store ptr %call.i117.i, ptr %ab.i, align 8
   store i32 %add.i115.i, ptr %len.i.i, align 8
   br label %abAppend.exit124.i
@@ -712,7 +712,7 @@ if.end.i130.i:                                    ; preds = %if.then102.i
   %add.ptr.i132.i = getelementptr inbounds i8, ptr %call.i128.i, i64 %idx.ext.i131.i
   %sext152.i = shl i64 %call108.i, 32
   %conv4.i133.i = ashr exact i64 %sext152.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i132.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i133.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i132.i, ptr nonnull align 16 %seq.i, i64 %conv4.i133.i, i1 false)
   store ptr %call.i128.i, ptr %ab.i, align 8
   store i32 %add.i126.i, ptr %len.i.i, align 8
   br label %if.end110.i
@@ -751,7 +751,7 @@ if.end.i141.i:                                    ; preds = %if.end124.i
   %add.ptr.i143.i = getelementptr inbounds i8, ptr %call.i139.i, i64 %.pre.i
   %sext153.i = shl i64 %call127.i, 32
   %conv4.i144.i = ashr exact i64 %sext153.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i143.i, ptr nonnull readonly align 16 %seq.i, i64 %conv4.i144.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i143.i, ptr nonnull align 16 %seq.i, i64 %conv4.i144.i, i1 false)
   br label %refreshMultiLine.exit
 
 refreshMultiLine.exit:                            ; preds = %if.end124.i, %if.end.i141.i
@@ -814,7 +814,7 @@ while.cond5.preheader.i:                          ; preds = %while.body.preheade
 
 if.end.i.i13:                                     ; preds = %while.cond5.preheader.i
   %conv.i14 = trunc i64 %call15.i to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i11, ptr nonnull readonly align 16 %seq.i2, i64 %conv.i.i10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %malloc.i11, ptr nonnull align 16 %seq.i2, i64 %conv.i.i10, i1 false)
   store ptr %malloc.i11, ptr %ab.i3, align 8
   store i32 %conv.i14, ptr %len.i.i8, align 8
   br label %abAppend.exit.i
@@ -834,7 +834,7 @@ if.end.i25.i:                                     ; preds = %abAppend.exit.i
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %call.i23.i, i64 %idx.ext.i26.i
   %sext74.i = shl i64 %call18.i, 32
   %conv4.i28.i = ashr exact i64 %sext74.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i27.i, ptr readonly align 1 %37, i64 %conv4.i28.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i27.i, ptr align 1 %37, i64 %conv4.i28.i, i1 false)
   store ptr %call.i23.i, ptr %ab.i3, align 8
   store i32 %add.i21.i, ptr %len.i.i8, align 8
   br label %abAppend.exit30.i
@@ -885,7 +885,7 @@ if.end.i46.i:                                     ; preds = %if.else.i18
   %add.ptr.i48.i = getelementptr inbounds i8, ptr %call.i44.i, i64 %idx.ext.i47.i
   %sext75.i = shl i64 %49, 32
   %conv4.i49.i = ashr exact i64 %sext75.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i48.i, ptr readonly align 1 %buf.0.lcssa.i, i64 %conv4.i49.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i48.i, ptr align 1 %buf.0.lcssa.i, i64 %conv4.i49.i, i1 false)
   br label %if.end.i19.sink.split
 
 if.end.i19.sink.split:                            ; preds = %while.cond22.preheader.i, %abAppend.exit40.i, %if.end.i46.i
@@ -897,7 +897,7 @@ if.end.i19.sink.split:                            ; preds = %while.cond22.prehea
 
 if.end.i19:                                       ; preds = %if.end.i19.sink.split, %if.else.i18
   %conv27.i20 = trunc i64 %call.i5 to i32
-  call void @refreshShowHints(ptr noundef nonnull %ab.i3, ptr noundef readonly %l, i32 noundef %conv27.i20)
+  call void @refreshShowHints(ptr noundef nonnull %ab.i3, ptr noundef %l, i32 noundef %conv27.i20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %seq.i2, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, i64 5, i1 false)
   %call32.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %seq.i2) #24
   %conv33.i = trunc i64 %call32.i to i32
@@ -914,7 +914,7 @@ if.end.i57.i:                                     ; preds = %if.end.i19
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %call.i55.i, i64 %.pre
   %sext76.i = shl i64 %call32.i, 32
   %conv4.i60.i = ashr exact i64 %sext76.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i59.i, ptr nonnull readonly align 16 %seq.i2, i64 %conv4.i60.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i59.i, ptr nonnull align 16 %seq.i2, i64 %conv4.i60.i, i1 false)
   br label %abAppend.exit62.i
 
 abAppend.exit62.i:                                ; preds = %if.end.i19, %if.end.i57.i
@@ -935,7 +935,7 @@ if.end.i68.i:                                     ; preds = %abAppend.exit62.i
   %add.ptr.i70.i = getelementptr inbounds i8, ptr %call.i66.i, i64 %.pre.i21.pre-phi
   %sext77.i = shl i64 %call40.i, 32
   %conv4.i71.i = ashr exact i64 %sext77.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i70.i, ptr nonnull readonly align 16 %seq.i2, i64 %conv4.i71.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i70.i, ptr nonnull align 16 %seq.i2, i64 %conv4.i71.i, i1 false)
   br label %refreshSingleLine.exit
 
 refreshSingleLine.exit:                           ; preds = %abAppend.exit62.i, %if.end.i68.i

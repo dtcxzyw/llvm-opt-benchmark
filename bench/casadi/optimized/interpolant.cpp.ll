@@ -4883,7 +4883,7 @@ define void @_ZN6casadi11Interpolant15get_sparsity_inEx(ptr dead_on_unwind noali
   br i1 %25, label %_ZNK6casadi11Interpolant10arg_valuesEx.exit, label %_ZNK6casadi11Interpolant10arg_valuesEx.exit.thread
 
 _ZNK6casadi11Interpolant10arg_valuesEx.exit:      ; preds = %20
-  %26 = tail call noundef i64 @_ZNK6casadi11Interpolant10arg_valuesEv(ptr noundef nonnull readonly align 8 dereferenceable(1432) %1)
+  %26 = tail call noundef i64 @_ZNK6casadi11Interpolant10arg_valuesEv(ptr noundef nonnull align 8 dereferenceable(1432) %1)
   %27 = icmp eq i64 %26, %2
   br i1 %27, label %28, label %_ZNK6casadi11Interpolant10arg_valuesEx.exit.thread
 
@@ -4933,7 +4933,7 @@ _ZNK6casadi11Interpolant10arg_valuesEx.exit.thread: ; preds = %20, %_ZNK6casadi1
   br i1 %51, label %_ZNK6casadi11Interpolant8arg_gridEx.exit, label %_ZNK6casadi11Interpolant8arg_gridEx.exit.thread
 
 _ZNK6casadi11Interpolant8arg_gridEx.exit:         ; preds = %_ZNK6casadi11Interpolant10arg_valuesEx.exit.thread
-  %52 = tail call noundef i64 @_ZNK6casadi11Interpolant8arg_gridEv(ptr noundef nonnull readonly align 8 dereferenceable(1432) %1)
+  %52 = tail call noundef i64 @_ZNK6casadi11Interpolant8arg_gridEv(ptr noundef nonnull align 8 dereferenceable(1432) %1)
   %53 = icmp eq i64 %2, 1
   br i1 %53, label %54, label %_ZNK6casadi11Interpolant8arg_gridEx.exit.thread
 
@@ -5341,7 +5341,7 @@ define void @_ZN6casadi11Interpolant11get_name_inB5cxx11Ex(ptr dead_on_unwind no
   br i1 %29, label %_ZNK6casadi11Interpolant10arg_valuesEx.exit, label %_ZNK6casadi11Interpolant10arg_valuesEx.exit.thread
 
 _ZNK6casadi11Interpolant10arg_valuesEx.exit:      ; preds = %24
-  %30 = tail call noundef i64 @_ZNK6casadi11Interpolant10arg_valuesEv(ptr noundef nonnull readonly align 8 dereferenceable(1432) %1)
+  %30 = tail call noundef i64 @_ZNK6casadi11Interpolant10arg_valuesEv(ptr noundef nonnull align 8 dereferenceable(1432) %1)
   %31 = icmp eq i64 %30, %2
   br i1 %31, label %32, label %_ZNK6casadi11Interpolant10arg_valuesEx.exit.thread
 
@@ -5383,7 +5383,7 @@ _ZNK6casadi11Interpolant10arg_valuesEx.exit.thread: ; preds = %24, %_ZNK6casadi1
   br i1 %42, label %_ZNK6casadi11Interpolant8arg_gridEx.exit, label %_ZNK6casadi11Interpolant8arg_gridEx.exit.thread
 
 _ZNK6casadi11Interpolant8arg_gridEx.exit:         ; preds = %_ZNK6casadi11Interpolant10arg_valuesEx.exit.thread
-  %43 = tail call noundef i64 @_ZNK6casadi11Interpolant8arg_gridEv(ptr noundef nonnull readonly align 8 dereferenceable(1432) %1)
+  %43 = tail call noundef i64 @_ZNK6casadi11Interpolant8arg_gridEv(ptr noundef nonnull align 8 dereferenceable(1432) %1)
   %44 = icmp eq i64 %2, 1
   br i1 %44, label %45, label %_ZNK6casadi11Interpolant8arg_gridEx.exit.thread
 

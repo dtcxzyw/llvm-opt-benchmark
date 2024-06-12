@@ -199,7 +199,7 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %50 = getelementptr inbounds i8, ptr %5, i64 %34
   %51 = load ptr, ptr %0, align 8, !noalias !12
   %52 = getelementptr inbounds i8, ptr %51, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %50, ptr align 1 %52, i64 %48, i1 false), !noalias !5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %52, i64 %48, i1 false), !noalias !5
   br label %53
 
 53:                                               ; preds = %49, %39
@@ -317,7 +317,7 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %110 = getelementptr inbounds i8, ptr %5, i64 %94
   %111 = load ptr, ptr %0, align 8, !noalias !17
   %112 = getelementptr inbounds i8, ptr %111, i64 %100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %110, ptr align 1 %112, i64 %108, i1 false), !noalias !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %110, ptr align 1 %112, i64 %108, i1 false), !noalias !14
   br label %113
 
 113:                                              ; preds = %109, %99

@@ -3363,7 +3363,7 @@ _ZN6spdlog7details7log_msgC2ENSt6chrono10time_pointINS2_3_V212system_clockENS2_8
   store i64 %1, ptr %thread_id.i, align 8
   %color_range_start.i = getelementptr inbounds i8, ptr %this, i64 40
   %source.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %color_range_start.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %color_range_start.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %source.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %payload.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %msg.coerce0, ptr %payload.i, align 8
@@ -4311,28 +4311,28 @@ for.body.i.i.i.i.i:                               ; preds = %if.end, %if.end12.i
   %__trip_count.057.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end12.i.i.i.i.i ], [ 4, %if.end ]
   %__first.addr.056.i.i.i.i.i = phi ptr [ %incdec.ptr13.i.i.i.i.i, %if.end12.i.i.i.i.i ], [ @"_ZZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvE5terms", %if.end ]
   %__first.addr.0.val.i.i.i.i.i = load ptr, ptr %__first.addr.056.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %__first.addr.0.val.i.i.i.i.i) #38
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %__first.addr.0.val.i.i.i.i.i) #38
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit"
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 8
   %incdec.ptr.val.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
-  %call.i.i33.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr.val.i.i.i.i.i) #38
+  %call.i.i33.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %incdec.ptr.val.i.i.i.i.i) #38
   %cmp.i.i34.not.i.i.i.i.i = icmp eq ptr %call.i.i33.i.i.i.i.i, null
   br i1 %cmp.i.i34.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit16"
 
 if.end4.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %incdec.ptr5.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 16
   %incdec.ptr5.val.i.i.i.i.i = load ptr, ptr %incdec.ptr5.i.i.i.i.i, align 8
-  %call.i.i35.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr5.val.i.i.i.i.i) #38
+  %call.i.i35.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %incdec.ptr5.val.i.i.i.i.i) #38
   %cmp.i.i36.not.i.i.i.i.i = icmp eq ptr %call.i.i35.i.i.i.i.i, null
   br i1 %cmp.i.i36.not.i.i.i.i.i, label %if.end8.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit18"
 
 if.end8.i.i.i.i.i:                                ; preds = %if.end4.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 24
   %incdec.ptr9.val.i.i.i.i.i = load ptr, ptr %incdec.ptr9.i.i.i.i.i, align 8
-  %call.i.i37.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call2, ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr9.val.i.i.i.i.i) #38
+  %call.i.i37.i.i.i.i.i = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %incdec.ptr9.val.i.i.i.i.i) #38
   %cmp.i.i38.not.i.i.i.i.i = icmp eq ptr %call.i.i37.i.i.i.i.i, null
   br i1 %cmp.i.i38.not.i.i.i.i.i, label %if.end12.i.i.i.i.i, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit20"
 
@@ -9423,7 +9423,7 @@ _ZN6spdlog7details7log_msgC2EN3fmt2v917basic_string_viewIcEENS_5level10level_enu
   store i64 %4, ptr %thread_id.i.i, align 8
   %color_range_start.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %payload.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %color_range_start.i.i, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %color_range_start.i.i, i8 0, i64 40, i1 false)
   store ptr @.str.9, ptr %payload.i.i, align 8
   %agg.tmp52.sroa.4.0.payload.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   store i64 53, ptr %agg.tmp52.sroa.4.0.payload.i.sroa_idx.i, align 8
@@ -9490,7 +9490,7 @@ _ZN6spdlog7details7log_msgC2EN3fmt2v917basic_string_viewIcEENS_5level10level_enu
   store i64 %12, ptr %thread_id.i.i18, align 8
   %color_range_start.i.i19 = getelementptr inbounds i8, ptr %ref.tmp9, i64 40
   %payload.i.i20 = getelementptr inbounds i8, ptr %ref.tmp9, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %color_range_start.i.i19, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %color_range_start.i.i19, i8 0, i64 40, i1 false)
   store ptr @.str.10, ptr %payload.i.i20, align 8
   %agg.tmp52.sroa.4.0.payload.i.sroa_idx.i21 = getelementptr inbounds i8, ptr %ref.tmp9, i64 88
   store i64 53, ptr %agg.tmp52.sroa.4.0.payload.i.sroa_idx.i21, align 8
@@ -16324,7 +16324,7 @@ invoke.cont.i2:                                   ; preds = %_ZNSt10lock_guardIS
   br i1 %cmp.i.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont.i2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !303
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !303
   br label %_ZN6spdlog7details8registry3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 cond.false.i:                                     ; preds = %invoke.cont.i2
@@ -18789,7 +18789,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN6spdlog7details1
   %__n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i ], [ %sub.ptr.div10.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i, i64 96, i1 false)
   %buffer.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 96
   %size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 112
   store i64 0, ptr %size_.i.i.i.i.i.i.i, align 8
@@ -18911,7 +18911,7 @@ for.body.i.i.i.i.i47:                             ; preds = %_ZN6spdlog7details1
   %__n.09.i.i.i.i.i48 = phi i64 [ %dec.i.i.i.i.i85, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i78 ], [ %sub.ptr.div10.i.i.i.i.i46, %for.body.preheader.i.i.i.i.i45 ]
   %__result.addr.08.i.i.i.i.i49 = phi ptr [ %incdec.ptr1.i.i.i.i.i84, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i78 ], [ %3, %for.body.preheader.i.i.i.i.i45 ]
   %__first.addr.07.i.i.i.i.i50 = phi ptr [ %incdec.ptr.i.i.i.i.i83, %_ZN6spdlog7details14log_msg_bufferaSERKS1_.exit.i.i.i.i.i78 ], [ %1, %for.body.preheader.i.i.i.i.i45 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i49, ptr noundef nonnull readonly align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i50, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__result.addr.08.i.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.07.i.i.i.i.i50, i64 96, i1 false)
   %buffer.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i49, i64 96
   %size_.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i49, i64 112
   store i64 0, ptr %size_.i.i.i.i.i.i.i52, align 8

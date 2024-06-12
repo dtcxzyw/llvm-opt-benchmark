@@ -64,7 +64,7 @@ if.end6:                                          ; preds = %if.end
   %version.i.i = getelementptr inbounds i8, ptr %4, i64 328
   %data.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %data.i.i, align 8
-  %call.i.i13 = invoke noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 0, ptr noundef nonnull readonly %version.i.i, ptr noundef nonnull align 8 dereferenceable(140) %6, ptr noundef nonnull readonly align 8 dereferenceable(852) %5, ptr noundef null, i32 noundef 0, ptr noundef nonnull %indexes.i, ptr noundef nonnull %call2, i32 noundef 20000, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call.i.i13 = invoke noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 0, ptr noundef nonnull %version.i.i, ptr noundef nonnull align 8 dereferenceable(140) %6, ptr noundef nonnull align 8 dereferenceable(852) %5, ptr noundef null, i32 noundef 0, ptr noundef nonnull %indexes.i, ptr noundef nonnull %call2, i32 noundef 20000, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.end6
@@ -104,7 +104,7 @@ if.end16:                                         ; preds = %if.then3.i
   %version.i.i20 = getelementptr inbounds i8, ptr %9, i64 328
   %data.i.i21 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %data.i.i21, align 8
-  %call.i.i22 = invoke noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 0, ptr noundef nonnull readonly %version.i.i20, ptr noundef nonnull align 8 dereferenceable(140) %11, ptr noundef nonnull readonly align 8 dereferenceable(852) %10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %indexes.i17, ptr noundef nonnull %call.i16, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call.i.i22 = invoke noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 0, ptr noundef nonnull %version.i.i20, ptr noundef nonnull align 8 dereferenceable(140) %11, ptr noundef nonnull align 8 dereferenceable(852) %10, ptr noundef null, i32 noundef 0, ptr noundef nonnull %indexes.i17, ptr noundef nonnull %call.i16, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %if.end16
@@ -155,7 +155,7 @@ entry:
   %version.i = getelementptr inbounds i8, ptr %0, i64 328
   %data.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %data.i, align 8
-  %call.i = call noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 0, ptr noundef nonnull readonly %version.i, ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull readonly align 8 dereferenceable(852) %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call.i = call noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 0, ptr noundef nonnull %version.i, ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull align 8 dereferenceable(852) %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret i32 %call.i
 }
 
@@ -662,7 +662,7 @@ do.body.i:                                        ; preds = %do.body249
   %add.ptr.i = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i
   %sub.i = sub nsw i32 %56, %55
   %conv.i192 = sext i32 %sub.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %reorderCodes.0, i64 %conv.i192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %reorderCodes.0, i64 %conv.i192, i1 false)
   %.pre277 = load i32, ptr %arrayidx123, align 4
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit
 
@@ -678,7 +678,7 @@ do.body.i196:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i198 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i197
   %sub.i199 = sub nsw i32 %58, %57
   %conv.i200 = sext i32 %sub.i199 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i198, ptr readonly align 1 %59, i64 %conv.i200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i198, ptr align 1 %59, i64 %conv.i200, i1 false)
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit201
 
 _ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit201: ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit, %do.body.i196
@@ -694,7 +694,7 @@ do.body.i205:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i207 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i206
   %sub.i208 = sub nsw i32 %61, %60
   %conv.i209 = sext i32 %sub.i208 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i207, ptr readonly align 1 %62, i64 %conv.i209, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i207, ptr align 1 %62, i64 %conv.i209, i1 false)
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit210
 
 _ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit210: ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit201, %do.body.i205
@@ -710,7 +710,7 @@ do.body.i214:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i216 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i215
   %sub.i217 = sub nsw i32 %64, %63
   %conv.i218 = sext i32 %sub.i217 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i216, ptr readonly align 1 %65, i64 %conv.i218, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i216, ptr align 1 %65, i64 %conv.i218, i1 false)
   %.pre278 = load i32, ptr %arrayidx171, align 4
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit219
 
@@ -725,7 +725,7 @@ do.body.i223:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i225 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i224
   %sub.i226 = sub nsw i32 %67, %66
   %conv.i227 = sext i32 %sub.i226 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i225, ptr readonly align 1 %rootElements, i64 %conv.i227, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i225, ptr align 1 %rootElements, i64 %conv.i227, i1 false)
   %.pre279 = load i32, ptr %arrayidx174, align 4
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit228
 
@@ -742,7 +742,7 @@ do.body.i232:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i234 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i233
   %sub.i235 = sub nsw i32 %69, %68
   %conv.i236 = sext i32 %sub.i235 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i234, ptr readonly align 1 %70, i64 %conv.i236, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i234, ptr align 1 %70, i64 %conv.i236, i1 false)
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit237
 
 _ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit237: ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit228, %do.body.i232
@@ -757,7 +757,7 @@ do.body.i241:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i243 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i242
   %sub.i244 = sub nsw i32 %72, %71
   %conv.i245 = sext i32 %sub.i244 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i243, ptr readonly align 1 %73, i64 %conv.i245, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i243, ptr align 1 %73, i64 %conv.i245, i1 false)
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246
 
 _ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246: ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit237, %do.body.i241
@@ -791,7 +791,7 @@ do.body.i250:                                     ; preds = %_ZNK6icu_7513Unicod
   %add.ptr.i252 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i251
   %sub.i253 = sub nsw i32 %76, %75
   %conv.i254 = sext i32 %sub.i253 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i252, ptr readonly align 1 %retval.0.i, i64 %conv.i254, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i252, ptr align 1 %retval.0.i, i64 %conv.i254, i1 false)
   %.pre280 = load i32, ptr %arrayidx238, align 4
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255
 
@@ -808,7 +808,7 @@ do.body.i259:                                     ; preds = %_ZN6icu_7519Collati
   %add.ptr.i261 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i260
   %sub.i262 = sub nsw i32 %78, %77
   %conv.i263 = sext i32 %sub.i262 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i261, ptr readonly align 1 %79, i64 %conv.i263, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i261, ptr align 1 %79, i64 %conv.i263, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %do.body.i259, %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255, %if.then246

@@ -3489,7 +3489,7 @@ entry:
   %ref.tmp.i.i = alloca %struct.grpc_slice, align 8
   %ref.tmp.sroa.4 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %ref.tmp4.sroa.6 = alloca %"union.grpc_slice::grpc_slice_data", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !alias.scope !37
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false), !alias.scope !37
   %authority = getelementptr inbounds i8, ptr %this, i64 32
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8

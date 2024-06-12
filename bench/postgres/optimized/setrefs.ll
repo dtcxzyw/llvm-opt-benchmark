@@ -5696,7 +5696,7 @@ define internal ptr @fix_scan_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 
 7:                                                ; preds = %5
   %8 = tail call noundef ptr @palloc(i64 noundef 48) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %.tr60, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %.tr60, i64 48, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 0
@@ -6285,7 +6285,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture n
 
 20:                                               ; preds = %16
   %21 = tail call noundef ptr @palloc(i64 noundef 48) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   %22 = icmp slt i16 %9, 1
   br i1 %22, label %52, label %23
 
@@ -6598,7 +6598,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 
 30:                                               ; preds = %24
   %31 = tail call noundef ptr @palloc(i64 noundef 48) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull readonly align 8 dereferenceable(48) %.tr116, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %.tr116, i64 48, i1 false)
   %32 = getelementptr inbounds i8, ptr %1, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %31, i64 4

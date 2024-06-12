@@ -867,7 +867,7 @@ define hidden void @bluetooth_add_address(ptr nocapture noundef readonly %0, ptr
   br i1 %or.cond, label %64, label %17
 
 17:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %18 = call ptr @find_conversation(i32 noundef %4, ptr noundef %1, ptr noundef nonnull %8, i32 noundef 15, i32 noundef %2, i32 noundef %2, i32 noundef 196608) #11
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %22, label %19
@@ -1017,7 +1017,7 @@ define void @srtp_add_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   br i1 %or.cond3, label %128, label %23
 
 23:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %24 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %1) #11
   %.not = icmp eq i32 %4, 0
   %25 = select i1 %.not, i32 196608, i32 65536

@@ -863,7 +863,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.body:                                         ; preds = %if.then, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %call.i, %for.body ], [ %2, %if.then ]
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %second, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %second, i8 0, i64 56, i1 false)
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.05) #19
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %if.end, label %for.body

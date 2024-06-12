@@ -70,12 +70,12 @@ define i32 @mknodat(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
 
 13:                                               ; preds = %11
   %14 = and i32 %2, -61441
-  %15 = call i32 @mkdir(ptr noundef nonnull readonly %5, i32 noundef %14)
+  %15 = call i32 @mkdir(ptr noundef nonnull %5, i32 noundef %14)
   br label %mknod.exit
 
 16:                                               ; preds = %11
   %17 = and i32 %2, -61441
-  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull readonly %5, i32 noundef 38, i32 noundef %17) #4
+  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 38, i32 noundef %17) #4
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %20, label %mknod.exit
 

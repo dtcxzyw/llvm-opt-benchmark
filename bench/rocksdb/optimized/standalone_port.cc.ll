@@ -380,7 +380,7 @@ entry:
   %size2 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size2, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %call.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %cond.i) #18
+  %call.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %cond.i) #18
   %cmp1.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.not.i, label %if.else.i, label %_Z15toku_keycomparePKvmS0_m.exit
 

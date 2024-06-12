@@ -149,7 +149,7 @@ define void @_Z27communicate_group_positionsPK9t_commrecPA3_fPA3_iS5_bPA3_KfiiPK
 .lr.ph.preheader.i:                               ; preds = %12
   %15 = zext nneg i32 %6 to i64
   %16 = mul nuw nsw i64 %15, 12
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %1, i8 0, i64 %16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %16, i1 false)
   br label %_ZL11clear_rvecsiPA3_f.exit
 
 _ZL11clear_rvecsiPA3_f.exit:                      ; preds = %12, %.lr.ph.preheader.i
@@ -509,7 +509,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef double @_Z20get_sum_of_positionsPA3_KfPfiPd(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
   %5 = icmp sgt i32 %2, 0
   br i1 %.not, label %.preheader, label %.preheader30

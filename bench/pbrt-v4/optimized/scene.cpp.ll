@@ -5675,7 +5675,7 @@ invoke.cont.i:                                    ; preds = %.noexc25
           to label %call.i.i2.i.noexc.i unwind label %lpad1.i
 
 call.i.i2.i.noexc.i:                              ; preds = %invoke.cont.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call.i.i2.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %fvoid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %fvoid.i, i64 32, i1 false)
   %parameters.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 32
   %16 = load i64, ptr %parameters.i.i.i.i.i, align 8
   store i64 %16, ptr %parameters.i.i.i.i.i.i.i, align 8
@@ -5712,7 +5712,7 @@ _ZNSt8functionIFN4pbrt7SamplerEvEED2Ev.exit.i:    ; preds = %if.else.i.i.i.i.i.i
   store ptr null, ptr %ptr7.i.i.i.i.i.i.i.i.i, align 8
   %colorSpace.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 128
   %colorSpace3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i, i64 12, i1 false)
   %23 = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 144
   store ptr %15, ptr %23, align 8
   %activeWorkers.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -6543,7 +6543,7 @@ invoke.cont.i:                                    ; preds = %.noexc4
           to label %call.i.i2.i.noexc.i unwind label %lpad1.i
 
 call.i.i2.i.noexc.i:                              ; preds = %invoke.cont.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call.i.i2.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %fvoid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %fvoid.i, i64 32, i1 false)
   %parameters.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 32
   %5 = load i64, ptr %parameters.i.i.i.i.i.i, align 8
   store i64 %5, ptr %parameters.i.i.i.i.i.i.i.i, align 8
@@ -6580,7 +6580,7 @@ _ZNSt8functionIFN4pbrt6MediumEvEED2Ev.exit.i:     ; preds = %if.else.i.i.i.i.i.i
   store ptr null, ptr %ptr7.i.i.i.i.i.i.i.i.i.i, align 8
   %colorSpace.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 128
   %colorSpace3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
   %renderFromObject.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %renderFromObject.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(696) %renderFromObject.i.i, i64 696, i1 false)
   %12 = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 840
@@ -14580,7 +14580,7 @@ call.i.i2.i.noexc.i:                              ; preds = %invoke.cont.i
   %71 = load i64, ptr %fvoid.i, align 8
   store i64 %71, ptr %call.i.i2.i4.i, align 8
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i, i64 32, i1 false)
   %parameters.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 40
   %72 = load i64, ptr %parameters.i.i.i.i.i.i.i.i, align 8
   store i64 %72, ptr %parameters.i.i.i.i.i.i.i.i.i.i, align 8
@@ -14617,7 +14617,7 @@ _ZNSt8functionIFN4pbrt12FloatTextureEvEED2Ev.exit.i: ; preds = %if.else.i.i.i.i.
   store ptr null, ptr %ptr7.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %colorSpace.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 136
   %colorSpace3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
   %renderFromObject.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %renderFromObject.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(696) %renderFromObject, i64 696, i1 false)
   %activeWorkers.i.i.i = getelementptr inbounds i8, ptr %call.i92, i64 8
@@ -15415,7 +15415,7 @@ call.i.i2.i.noexc.i:                              ; preds = %invoke.cont.i
   %88 = load i64, ptr %fvoid.i, align 8
   store i64 %88, ptr %call.i.i2.i4.i, align 8
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i, i64 32, i1 false)
   %parameters.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 40
   %89 = load i64, ptr %parameters.i.i.i.i.i.i.i.i, align 8
   store i64 %89, ptr %parameters.i.i.i.i.i.i.i.i.i.i, align 8
@@ -15452,7 +15452,7 @@ _ZNSt8functionIFN4pbrt15SpectrumTextureEvEED2Ev.exit.i: ; preds = %if.else.i.i.i
   store ptr null, ptr %ptr7.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %colorSpace.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 136
   %colorSpace3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i.i.i.i.i.i.i.i.i.i.i, i64 12, i1 false)
   %renderFromObject.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %renderFromObject.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(696) %renderFromObject2.i.i.i96, i64 696, i1 false)
   %activeWorkers.i.i.i = getelementptr inbounds i8, ptr %call.i146, i64 8
@@ -17861,7 +17861,7 @@ invoke.cont:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_node_count.i.i.i.i.i, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt10BasicSceneC1EvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt10BasicSceneC1EvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN4pbrt11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEC2EOSt8functionIFS5_vEE(ptr noundef nonnull align 8 dereferenceable(112) %threadAllocators, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -22593,7 +22593,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %49 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %land.end28 ]
   %50 = phi ptr [ %46, %for.end.loopexit ], [ null, %land.end28 ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp41, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp41, i8 0, i64 32, i1 false)
   %call.i.i2.i40 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
           to label %invoke.cont43 unwind label %lpad37.loopexit.split-lp.loopexit.split-lp
 
@@ -23248,7 +23248,7 @@ _ZN4pstd6vectorINS0_IN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEENS4_IS6_
   %7 = load ptr, ptr %shapes, align 8
   %8 = load <2 x ptr>, ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i38 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
           to label %invoke.cont unwind label %lpad
 
@@ -34379,7 +34379,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -53273,7 +53273,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

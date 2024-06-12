@@ -75,7 +75,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %.lr.ph46, %50
   %.245 = phi i32 [ %.13061, %.lr.ph46 ], [ %51, %50 ]
   %19 = tail call i32 @nxmutex_lock(ptr noundef nonnull @g_b62lock) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @g_base62, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @g_base62, i64 6, i1 false)
   br label %20
 
 20:                                               ; preds = %27, %18

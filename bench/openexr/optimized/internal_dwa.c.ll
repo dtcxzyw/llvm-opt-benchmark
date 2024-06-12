@@ -250,7 +250,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %data_type = getelementptr inbounds i8, ptr %17, i64 26
   %18 = load i16, ptr %data_type, align 2
   %conv33 = zext i16 %18 to i32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 32 dereferenceable(448) %arrayidx28, i8 0, i64 448, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(448) %arrayidx28, i8 0, i64 448, i1 false)
   %_type.i = getelementptr inbounds i8, ptr %arrayidx28, i64 416
   store i32 %conv33, ptr %_type.i, align 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -489,7 +489,7 @@ for.body4.i:                                      ; preds = %for.inc.i, %for.bod
   %chan.i = getelementptr inbounds %struct._ChannelData, ptr %11, i64 %indvars.iv.i, i32 1
   %14 = load ptr, ptr %chan.i, align 32
   %15 = load ptr, ptr %14, align 8
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %15, i32 noundef 46) #20
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 46) #20
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %suffix.0.i.i = select i1 %tobool.not.i.i, ptr %15, ptr %add.ptr.i.i
@@ -506,11 +506,11 @@ if.end.i.i:                                       ; preds = %for.body4.i
   br i1 %tobool.not.i22.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call.i23.i = tail call i32 @strcasecmp(ptr noundef readonly %suffix.0.i.i, ptr noundef %18) #20
+  %call.i23.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %18) #20
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %18) #20
+  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %18) #20
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.then1.i.i
@@ -519,15 +519,14 @@ Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.th
   br i1 %retval.0.shrunk.i.not.i, label %if.then7.i, label %for.inc.i
 
 if.then7.i:                                       ; preds = %Classifier_match.exit.i
-  %call.i24.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #20
+  %call.i24.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
   %add1.i.i = add i64 %nOut.042.i, 3
-  %add12.i = add i64 %call.i24.i, %add1.i.i
-  %cmp13.i = icmp ugt i64 %add12.i, %2
+  %add8.i = add i64 %add1.i.i, %call.i24.i
+  %cmp13.i = icmp ugt i64 %add8.i, %2
   br i1 %cmp13.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then7.i
-  %call.i25.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
-  %add.i.i = add i64 %call.i25.i, 1
+  %add.i.i = add i64 %call.i24.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %curp.039.i, ptr align 1 %18, i64 %add.i.i, i1 false)
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %curp.039.i, i64 %add.i.i
   %_cscIdx.i.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 16
@@ -550,7 +549,6 @@ if.end16.i:                                       ; preds = %if.then7.i
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 1
   store i8 %conv19.i.i, ptr %arrayidx20.i.i, align 1
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 2
-  %add20.i = add i64 %call.i25.i, %add1.i.i
   %.pre.i = load i64, ptr %_channelRuleCount, align 8
   br label %for.inc22.i
 
@@ -562,7 +560,7 @@ for.inc.i:                                        ; preds = %Classifier_match.ex
 for.inc22.i:                                      ; preds = %for.inc.i, %if.end16.i, %for.cond2.preheader.i
   %25 = phi i64 [ %.pre.i, %if.end16.i ], [ %10, %for.cond2.preheader.i ], [ %10, %for.inc.i ]
   %curp.1.i = phi ptr [ %add.ptr21.i.i, %if.end16.i ], [ %curp.039.i, %for.cond2.preheader.i ], [ %curp.039.i, %for.inc.i ]
-  %nOut.1.i = phi i64 [ %add20.i, %if.end16.i ], [ %nOut.042.i, %for.cond2.preheader.i ], [ %nOut.042.i, %for.inc.i ]
+  %nOut.1.i = phi i64 [ %add8.i, %if.end16.i ], [ %nOut.042.i, %for.cond2.preheader.i ], [ %nOut.042.i, %for.inc.i ]
   %inc23.i = add nuw i64 %i.040.i, 1
   %cmp1.i = icmp ult i64 %inc23.i, %25
   br i1 %cmp1.i, label %for.cond2.preheaderthread-pre-split.i, label %for.end24.i, !llvm.loop !11
@@ -919,7 +917,7 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   %94 = shufflevector <2 x i32> %93, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %94, ptr %_width.i.i, align 4
   store ptr @dwaCompressorToNonlinear, ptr %enc, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_numAcComp.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_numAcComp.i.i, i8 0, i64 16, i1 false)
   store ptr %packedAcEnd.1271, ptr %_packedAc.i.i, align 8
   store ptr %packedDcEnd.1270, ptr %_packedDc.i.i, align 8
   %cmp.i.i = fcmp olt float %div, 0.000000e+00
@@ -2319,7 +2317,7 @@ if.end256:                                        ; preds = %lor.lhs.false248
   %chan274 = getelementptr inbounds i8, ptr %arrayidx238, i64 448
   %90 = load ptr, ptr %chan274, align 32
   %height = getelementptr inbounds i8, ptr %90, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %decoder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder, i8 0, i64 16, i1 false)
   store ptr %packedAcBufferEnd.1308, ptr %_packedAc.i.i, align 8
   store ptr %add.ptr270, ptr %_packedAcEnd.i.i, align 8
   store ptr %packedDcBufferEnd.1307, ptr %_packedDc.i.i, align 8
@@ -2396,7 +2394,7 @@ sw.bb333:                                         ; preds = %if.end331
   %spec.store.select = select i1 %tobool335.not.not, ptr @dwaCompressorToLinear, ptr null
   %add.ptr339 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2329, i64 %mul338
   %height341 = getelementptr inbounds i8, ptr %104, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %decoder334, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder334, i8 0, i64 16, i1 false)
   store ptr %packedAcBufferEnd.2329, ptr %_packedAc.i.i266, align 8
   store ptr %add.ptr339, ptr %_packedAcEnd.i.i267, align 8
   store ptr %packedDcBufferEnd.2327, ptr %_packedDc.i.i268, align 8
@@ -2412,7 +2410,7 @@ if.then.i.i:                                      ; preds = %sw.bb333
   br label %LossyDctDecoder_construct.exit
 
 LossyDctDecoder_construct.exit:                   ; preds = %sw.bb333, %if.then.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %81, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %81, i8 0, i64 16, i1 false)
   store ptr %arrayidx322, ptr %_channel_decode_data.i.i274, align 8
   store i32 1, ptr %_channel_decode_data_count.i275, align 8
   %111 = load ptr, ptr %alloc_fn346, align 8
@@ -7019,7 +7017,7 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   %maxOutBufferSize.0121 = phi i64 [ 0, %for.body39.lr.ph ], [ %add41, %for.body39 ]
   %arrayidx40 = getelementptr inbounds %struct._Classifier, ptr %6, i64 %i35.0122
   %arrayidx40.val = load ptr, ptr %arrayidx40, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx40.val) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx40.val) #20
   %add1.i = add i64 %maxOutBufferSize.0121, 3
   %add41 = add i64 %add1.i, %call.i
   %inc43 = add nuw i64 %i35.0122, 1
@@ -7078,7 +7076,7 @@ for.body.i:                                       ; preds = %for.inc46.i, %for.b
   %chan.i = getelementptr inbounds %struct._ChannelData, ptr %14, i64 %indvars.iv.i, i32 1
   %15 = load ptr, ptr %chan.i, align 32
   %16 = load ptr, ptr %15, align 8
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %16, i32 noundef 46) #20
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #20
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %suffix.0.i.i = select i1 %tobool.not.i.i, ptr %16, ptr %add.ptr.i.i
@@ -7163,11 +7161,11 @@ if.end.i81.i:                                     ; preds = %for.body23.i
   br i1 %tobool.not.i82.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i81.i
-  %call.i83.i = tail call i32 @strcasecmp(ptr noundef readonly %suffix.0.i.i, ptr noundef %27) #20
+  %call.i83.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %27) #20
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i81.i
-  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %27) #20
+  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %27) #20
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.then1.i.i
@@ -8669,7 +8667,7 @@ entry:
   store ptr %toNonlinear, ptr %e, align 8
   %_numAcComp.i = getelementptr inbounds i8, ptr %e, i64 8
   %_packedAc.i = getelementptr inbounds i8, ptr %e, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_numAcComp.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_numAcComp.i, i8 0, i64 16, i1 false)
   store ptr %packedAc, ptr %_packedAc.i, align 8
   %_packedDc.i = getelementptr inbounds i8, ptr %e, i64 72
   store ptr %packedDc, ptr %_packedDc.i, align 8
@@ -8709,7 +8707,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 LossyDctEncoder_base_construct.exit:              ; preds = %for.body.i
   %_channel_encode_data.i = getelementptr inbounds i8, ptr %e, i64 24
   %3 = getelementptr inbounds i8, ptr %e, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 16, i1 false)
   store ptr %rowPtrs, ptr %_channel_encode_data.i, align 8
   %_channel_encode_data_count = getelementptr inbounds i8, ptr %e, i64 48
   store i32 1, ptr %_channel_encode_data_count, align 8

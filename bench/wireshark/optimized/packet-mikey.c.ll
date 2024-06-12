@@ -642,7 +642,7 @@ dissect_payload_cs_id.exit.us:                    ; preds = %.lr.ph, %dissect_pa
   %.05259.us = phi i32 [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 10, %.lr.ph ]
   %.05358.us = phi i32 [ %36, %dissect_payload_cs_id.exit.thread.us ], [ 0, %.lr.ph ]
   %32 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %.05259.us) #2
-  %33 = tail call fastcc i32 @dissect_payload_cs_id_srtp(ptr nonnull readnone poison, ptr noundef %32, ptr readnone poison, ptr noundef %3) #2
+  %33 = tail call fastcc i32 @dissect_payload_cs_id_srtp(ptr nonnull poison, ptr noundef %32, ptr poison, ptr noundef %3) #2
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %._crit_edge, label %dissect_payload_cs_id.exit.thread.us
 

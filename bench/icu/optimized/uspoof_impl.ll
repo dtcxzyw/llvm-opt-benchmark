@@ -1443,7 +1443,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end9:                                          ; preds = %for.body
   call void @_ZN6icu_759ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet)
-  invoke void @_ZNK6icu_759SpoofImpl27getResolvedScriptSetWithoutERKNS_13UnicodeStringE11UScriptCodeRNS_9ScriptSetER10UErrorCode(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef 200, ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759SpoofImpl27getResolvedScriptSetWithoutERKNS_13UnicodeStringE11UScriptCodeRNS_9ScriptSetER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef 200, ptr noundef nonnull align 4 dereferenceable(28) %resolvedScriptSet, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end9
@@ -2015,7 +2015,7 @@ entry:
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
   %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2196,7 +2196,7 @@ entry:
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
   %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2328,7 +2328,7 @@ entry:
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
   %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return

@@ -1042,7 +1042,7 @@ if.end.i.i.i.i.i:                                 ; preds = %invoke.cont5
 
 "_ZNSt7variantIJSt9monostateN2tf4Node6StaticENS2_7DynamicENS2_9ConditionENS2_14MultiConditionENS2_6ModuleENS2_5AsyncENS2_14DependentAsyncEEE7emplaceIS3_JZ4mainE3$_0EEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i": ; preds = %.noexc11, %invoke.cont5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %_handle.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_handle.i, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %"_ZN2tf4Task4workIZ4mainE3$_0EERS0_OT_.exit" unwind label %lpad4.loopexit.split-lp
 

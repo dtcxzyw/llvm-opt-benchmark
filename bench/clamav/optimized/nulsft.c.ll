@@ -588,7 +588,7 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef %0, ptr noundef %1) unn
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %3, ptr nonnull align 1 %36, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %36, i64 %spec.select.i, i1 false)
   %.not157 = icmp ugt i64 %33, 3
   br i1 %.not157, label %37, label %fmap_readn.exit.thread
 

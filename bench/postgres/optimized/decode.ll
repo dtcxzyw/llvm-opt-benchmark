@@ -1151,7 +1151,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %78, i8 0, i64 23, i1 false)
   %86 = load ptr, ptr %77, align 8
   %87 = getelementptr i8, ptr %86, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr readonly align 1 %83, i64 %74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 1 %83, i64 %74, i1 false)
   store <2 x i16> %85, ptr %84, align 2
   %88 = getelementptr inbounds i8, ptr %78, i64 22
   store i8 %.sroa.3.0.copyload.i.i, ptr %88, align 2
@@ -1201,7 +1201,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %109, i8 0, i64 23, i1 false)
   %117 = load ptr, ptr %108, align 8
   %118 = getelementptr i8, ptr %117, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %114, i64 %105, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr align 1 %114, i64 %105, i1 false)
   store <2 x i16> %116, ptr %115, align 2
   %119 = getelementptr inbounds i8, ptr %109, i64 22
   store i8 %.sroa.3.0.copyload.i39.i, ptr %119, align 2
@@ -1358,7 +1358,7 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %61 = load ptr, ptr %52, align 8
   %62 = getelementptr i8, ptr %61, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %58, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %58, i64 %49, i1 false)
   store <2 x i16> %60, ptr %59, align 2
   %63 = getelementptr inbounds i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
@@ -1469,7 +1469,7 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %61 = load ptr, ptr %52, align 8
   %62 = getelementptr i8, ptr %61, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %58, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %58, i64 %49, i1 false)
   store <2 x i16> %60, ptr %59, align 2
   %63 = getelementptr inbounds i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2

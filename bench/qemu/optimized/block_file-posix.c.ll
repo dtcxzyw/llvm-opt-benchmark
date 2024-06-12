@@ -796,7 +796,7 @@ hdev_get_max_segments.exit.thread:                ; preds = %if.then.i32
   br label %if.end27
 
 if.end3.i:                                        ; preds = %if.end19
-  %call4.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.61)
+  %call4.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.61)
   %conv.i30 = trunc nsw i64 %call4.i to i32
   br label %hdev_get_max_segments.exit
 
@@ -875,7 +875,7 @@ get_sysfs_zoned_model.exit.i:                     ; preds = %if.else.i.i, %if.en
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   %zoned2.i = getelementptr inbounds i8, ptr %bs, i64 16552
   store i32 %zoned.0.i, ptr %zoned2.i, align 8
-  %call3.i36 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.63)
+  %call3.i36 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.63)
   %cmp4.i37 = icmp sgt i64 %call3.i36, -1
   br i1 %cmp4.i37, label %if.then6.i43, label %if.end8.i38
 
@@ -886,7 +886,7 @@ if.then6.i43:                                     ; preds = %get_sysfs_zoned_mod
   br label %if.end8.i38
 
 if.end8.i38:                                      ; preds = %if.then6.i43, %get_sysfs_zoned_model.exit.i
-  %call9.i39 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.64)
+  %call9.i39 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.64)
   %cmp11.i = icmp sgt i64 %call9.i39, -1
   br i1 %cmp11.i, label %if.then13.i, label %if.end15.i
 
@@ -897,7 +897,7 @@ if.then13.i:                                      ; preds = %if.end8.i38
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %if.end8.i38
-  %call16.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.65)
+  %call16.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.65)
   %conv17.i = trunc nsw i64 %call16.i to i32
   %cmp18.i = icmp slt i64 %call16.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %if.else.i40
@@ -919,7 +919,7 @@ if.end23.i:                                       ; preds = %if.else.i40
   %shl.i = shl i32 %conv17.i, 9
   %zone_size.i = getelementptr inbounds i8, ptr %bs, i64 16556
   store i32 %shl.i, ptr %zone_size.i, align 4
-  %call25.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.68)
+  %call25.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.68)
   %conv26.i = trunc nsw i64 %call25.i to i32
   %cmp27.i = icmp slt i64 %call25.i, 0
   br i1 %cmp27.i, label %if.then29.i, label %if.else31.i
@@ -940,7 +940,7 @@ if.then33.i:                                      ; preds = %if.else31.i
 if.end35.i:                                       ; preds = %if.else31.i
   %nr_zones.i = getelementptr inbounds i8, ptr %bs, i64 16560
   store i32 %conv26.i, ptr %nr_zones.i, align 8
-  %call37.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.71)
+  %call37.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.71)
   %cmp39.i = icmp sgt i64 %call37.i, 0
   br i1 %cmp39.i, label %if.then41.i, label %if.end43.i
 
@@ -952,7 +952,7 @@ if.then41.i:                                      ; preds = %if.end35.i
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then41.i, %if.end35.i
-  %call44.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.72)
+  %call44.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.72)
   %cmp46.i = icmp sgt i64 %call44.i, -1
   br i1 %cmp46.i, label %if.then48.i, label %if.end50.i
 
@@ -5265,7 +5265,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sg_version.i)
   %1 = load ptr, ptr %opaque, align 8
   %filename.i = getelementptr inbounds i8, ptr %bs, i64 49
-  %call.i = call i32 @stat64(ptr noundef nonnull readonly %filename.i, ptr noundef nonnull %st.i) #17
+  %call.i = call i32 @stat64(ptr noundef nonnull %filename.i, ptr noundef nonnull %st.i) #17
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %hdev_is_sg.exit, label %lor.lhs.false.i
 

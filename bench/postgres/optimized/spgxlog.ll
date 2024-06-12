@@ -281,7 +281,7 @@ spgRedoAddLeaf.exit:                              ; preds = %103, %143, %145
   %151 = getelementptr inbounds i8, ptr %150, i64 12
   %152 = load i64, ptr %151, align 4
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %152 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
   %153 = getelementptr inbounds i8, ptr %18, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %18, i64 92
@@ -525,7 +525,7 @@ spgRedoMoveLeafs.exit:                            ; preds = %285, %287
   %294 = getelementptr inbounds i8, ptr %292, i64 12
   %295 = load i64, ptr %294, align 4
   %.sroa.0.0.extract.trunc.i.i18 = trunc i64 %295 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   %296 = getelementptr inbounds i8, ptr %14, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i18, ptr %296, align 8
   %297 = getelementptr inbounds i8, ptr %14, i64 92
@@ -1079,7 +1079,7 @@ spgRedoSplitTuple.exit:                           ; preds = %605, %607
   %613 = getelementptr inbounds i8, ptr %612, i64 20
   %614 = load i64, ptr %613, align 4
   %.sroa.0.0.extract.trunc.i.i32 = trunc i64 %614 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
   %615 = getelementptr inbounds i8, ptr %7, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i32, ptr %615, align 8
   %616 = getelementptr inbounds i8, ptr %7, i64 92
@@ -1552,7 +1552,7 @@ spgRedoPickSplit.exit:                            ; preds = %832, %837, %879, %8
   %887 = getelementptr inbounds i8, ptr %886, i64 8
   %888 = load i64, ptr %887, align 4
   %.sroa.0.0.extract.trunc.i.i45 = trunc i64 %888 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %889 = getelementptr inbounds i8, ptr %5, i64 88
   store i32 %.sroa.0.0.extract.trunc.i.i45, ptr %889, align 8
   %890 = getelementptr inbounds i8, ptr %5, i64 92

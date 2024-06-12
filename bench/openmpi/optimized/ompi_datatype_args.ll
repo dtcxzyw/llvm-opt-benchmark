@@ -1767,7 +1767,7 @@ ompi_datatype_set_args.exit52.i:                  ; preds = %opal_thread_add_fet
   store volatile i32 1, ptr %328, align 8
   %338 = getelementptr inbounds i8, ptr %328, i64 8
   store i64 40, ptr %338, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull readonly align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   store ptr %317, ptr %337, align 8
   %339 = getelementptr i8, ptr %317, i64 16
   %.val.i56.i = load i16, ptr %339, align 8

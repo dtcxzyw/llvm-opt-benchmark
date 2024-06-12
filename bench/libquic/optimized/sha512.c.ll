@@ -86,7 +86,7 @@ entry:
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i32 0, ptr %num.i, align 8
   %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 212
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
   store i32 48, ptr %md_len.i, align 4
   %u.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %cmp.i.i = icmp eq i64 %len, 0
@@ -242,7 +242,7 @@ entry:
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i32 0, ptr %num.i, align 8
   %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 212
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
   store i32 64, ptr %md_len.i, align 4
   %u.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %cmp.i = icmp eq i64 %len, 0

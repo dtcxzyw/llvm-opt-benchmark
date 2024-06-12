@@ -374,7 +374,7 @@ init.end:                                         ; preds = %arrayctor.loop.preh
   call void @_ZN2EA4StdC9StopwatchC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i32 noundef 1, i1 noundef zeroext false)
   call void @_ZN2EA4StdC9StopwatchC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %stopwatchGlobal, i32 noundef 5, i1 noundef zeroext false)
   call void @_ZN2EA8UnitTest21SetHighThreadPriorityEv()
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %allSortFunctions, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allSortFunctions, i8 0, i64 24, i1 false)
   %mpEnd.i = getelementptr inbounds i8, ptr %allSortFunctions, i64 8
   %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %allSortFunctions, i64 16
   br label %for.body
@@ -413,7 +413,7 @@ _ZN5eastl10VectorBaseIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEE10DoAlloc
   br i1 %cmp.not.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_116SortFunctionTypeES3_S3_EET1_T_T0_S4_.exit.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEE10DoAllocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %retval.0.i.i.i, ptr align 4 %4, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %retval.0.i.i.i, ptr align 4 %4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %sub.ptr.sub.i.i
   br label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_116SortFunctionTypeES3_S3_EET1_T_T0_S4_.exit.i.i
 
@@ -2254,7 +2254,7 @@ if.then.i.i.i591:                                 ; preds = %_ZN5eastl12basic_st
           to label %land.rhs.i.i599.preheader unwind label %lpad11.loopexit.split-lp
 
 land.rhs.i.i599.preheader:                        ; preds = %if.then.i.i.i591
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %call.i.i.i.i.i598, ptr align 4 %allSortFunctions.val119, i64 %sub.ptr.sub.i.i588, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i598, ptr align 4 %allSortFunctions.val119, i64 %sub.ptr.sub.i.i588, i1 false)
   %add.ptr.i.i.i.i596 = getelementptr inbounds i8, ptr %call.i.i.i.i.i598, i64 %sub.ptr.sub.i.i588
   br label %land.rhs.i.i599
 
@@ -4906,7 +4906,7 @@ call.i.i.i.i.i.noexc1215:                         ; preds = %for.body546
   store ptr %call.i.i.i.i.i1216, ptr %v548, align 8
   %add.ptr.i.i1208 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1216, i64 %add.ptr.i.i1208.idx
   store ptr %add.ptr.i.i1208, ptr %mCapacityAllocator.i.i.i1209, align 8
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %call.i.i.i.i.i1216, i8 0, i64 %mul.i.i.i1207, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %call.i.i.i.i.i1216, i8 0, i64 %mul.i.i.i1207, i1 false)
   br label %for.body.i.i1210
 
 for.body.i.i1210:                                 ; preds = %for.body.i.i1210, %call.i.i.i.i.i.noexc1215
@@ -7543,7 +7543,7 @@ if.end.i.i.i:                                     ; preds = %_ZN5eastl10VectorBa
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %retval.0.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %retval.0.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i.i.i, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %sub.ptr.sub.i.i.i
   br label %invoke.cont
 
@@ -8722,7 +8722,7 @@ invoke.cont39:                                    ; preds = %for.body.preheader.
   store ptr %call.i.i.i.i.i89, ptr %eaVectorVP, align 8
   %add.ptr.i.i85 = getelementptr inbounds i8, ptr %call.i.i.i.i.i89, i64 80000
   store ptr %add.ptr.i.i85, ptr %mCapacityAllocator.i.i.i86, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(80000) %call.i.i.i.i.i89, i8 0, i64 80000, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80000) %call.i.i.i.i.i89, i8 0, i64 80000, i1 false)
   store ptr %add.ptr.i.i85, ptr %mpEnd.i5.i, align 8
   br label %for.body43
 
@@ -9688,7 +9688,7 @@ ehcleanup65.thread:                               ; preds = %entry
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i669
 
 invoke.cont9:                                     ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call.i.i.i.i.i4.i, ptr noundef nonnull readonly align 4 dereferenceable(32) @constinit.46, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i.i.i.i.i4.i, ptr noundef nonnull align 4 dereferenceable(32) @constinit.46, i64 32, i1 false)
   invoke void (i32, ptr, ...) @_ZN2EA8UnitTest15ReportVerbosityEjPKcz(i32 noundef 2, ptr noundef nonnull @.str.47)
           to label %invoke.cont22 unwind label %lpad10
 
@@ -14374,7 +14374,7 @@ call.i.i.i.i.i.noexc.i347:                        ; preds = %for.body.preheader.
   store ptr %call.i.i.i.i.i126.i, ptr %v.i293, align 8
   %add.ptr.i.i.i348 = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %call.i.i.i.i.i126.i, i64 %mul.i336
   store ptr %add.ptr.i.i.i348, ptr %mCapacityAllocator.i.i.i.i330, align 8
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %call.i.i.i.i.i126.i, i8 0, i64 %mul.i.i.i124.i338, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %call.i.i.i.i.i126.i, i8 0, i64 %mul.i.i.i124.i338, i1 false)
   br label %for.body.i.i.i349
 
 for.body.i.i.i349:                                ; preds = %for.body.i.i.i349, %call.i.i.i.i.i.noexc.i347
@@ -16555,7 +16555,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %cond.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i, label %if.else.i.i.i.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %stdVectorVP.val4, i64 %__i.sroa.0.011.i.idx.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %stdVectorVP.val4, i64 %__i.sroa.0.011.i.idx.i.i.i, i1 false)
   br label %for.inc.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -16667,7 +16667,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt
   %sub.ptr.div.i.i.i.i.i.i69.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i68.i.i.i, 3
   %.pre.i.i.i.i.i.i70.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i69.i.i.i
   %add.ptr.i.i.i.i.i.i71.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %add.ptr.i7.i66.i.i.i, i64 %.pre.i.i.i.i.i.i70.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i71.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %stdVectorVP.val4, i64 %sub.ptr.sub.i.i.i.i.i.i68.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i71.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %stdVectorVP.val4, i64 %sub.ptr.sub.i.i.i.i.i.i68.i.i.i, i1 false)
   br label %for.inc.i51.i.i.i
 
 if.else.i41.i.i.i:                                ; preds = %for.body.i30.i.i.i
@@ -30548,7 +30548,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIPiS0_ET0_
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i53, 2
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__last, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i.i.i, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i53, i1 false)
   br label %if.end27
 
 if.end3.i:                                        ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit57.thread

@@ -2800,7 +2800,7 @@ Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate
   %90 = load i32, ptr %0, align 8
   %91 = sext i32 %90 to i64
   %92 = tail call noalias ptr @calloc(i64 noundef %91, i64 noundef 4) #19
-  tail call void @Abc_ZddPrint_rec(ptr noundef nonnull readonly %0, i32 noundef %88, ptr noundef %92, i32 noundef 0)
+  tail call void @Abc_ZddPrint_rec(ptr noundef nonnull %0, i32 noundef %88, ptr noundef %92, i32 noundef 0)
   %.not.i = icmp eq ptr %92, null
   br i1 %.not.i, label %Abc_ZddPrint.exit, label %93
 
@@ -2810,8 +2810,8 @@ Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate
 
 Abc_ZddPrint.exit:                                ; preds = %89, %93
   %putchar = tail call i32 @putchar(i32 10)
-  %94 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull readonly %0, i32 noundef %88)
-  tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull readonly %0, i32 noundef %88)
+  %94 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull %0, i32 noundef %88)
+  tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull %0, i32 noundef %88)
   %95 = tail call i32 @Abc_ZddCountPaths(ptr noundef nonnull %0, i32 noundef %88)
   %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %94, i32 noundef %95)
   ret void
@@ -3052,7 +3052,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.023.i = phi i32 [ %110, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %107 = getelementptr inbounds i32, ptr %.val19.i, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4
-  %109 = tail call i32 @Abc_ZddCount_rec(ptr noundef readonly %3, i32 noundef %108)
+  %109 = tail call i32 @Abc_ZddCount_rec(ptr noundef %3, i32 noundef %108)
   %110 = add nsw i32 %109, %.023.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %106
@@ -3062,7 +3062,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.critedge.i ], [ 0, %.lr.ph.i ]
   %111 = getelementptr inbounds i32, ptr %.val19.i, i64 %indvars.iv28.i
   %112 = load i32, ptr %111, align 4
-  tail call void @Abc_ZddUnmark_rec(ptr noundef readonly %3, i32 noundef %112)
+  tail call void @Abc_ZddUnmark_rec(ptr noundef %3, i32 noundef %112)
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next29.i, %106
   br i1 %exitcond90.not, label %Abc_ZddCountNodesArray.exit, label %.critedge.i, !llvm.loop !14
@@ -3428,7 +3428,7 @@ Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate
   %141 = load i32, ptr %0, align 8
   %142 = sext i32 %141 to i64
   %143 = tail call noalias ptr @calloc(i64 noundef %142, i64 noundef 4) #19
-  tail call void @Abc_ZddPrint_rec(ptr noundef nonnull readonly %0, i32 noundef %139, ptr noundef %143, i32 noundef 0)
+  tail call void @Abc_ZddPrint_rec(ptr noundef nonnull %0, i32 noundef %139, ptr noundef %143, i32 noundef 0)
   %.not.i78 = icmp eq ptr %143, null
   br i1 %.not.i78, label %Abc_ZddPrint.exit, label %144
 
@@ -3437,8 +3437,8 @@ Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate
   br label %Abc_ZddPrint.exit
 
 Abc_ZddPrint.exit:                                ; preds = %140, %144
-  %145 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull readonly %0, i32 noundef %139)
-  tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull readonly %0, i32 noundef %139)
+  %145 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull %0, i32 noundef %139)
+  tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull %0, i32 noundef %139)
   %146 = tail call i32 @Abc_ZddCountPaths(ptr noundef nonnull %0, i32 noundef %139)
   %147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %145, i32 noundef %146)
   %.val = load i32, ptr %4, align 4
@@ -3453,7 +3453,7 @@ Abc_ZddPrint.exit:                                ; preds = %140, %144
   %154 = load i32, ptr %0, align 8
   %155 = sext i32 %154 to i64
   %156 = tail call noalias ptr @calloc(i64 noundef %155, i64 noundef 4) #19
-  tail call void @Abc_ZddPrint_rec(ptr noundef nonnull readonly %0, i32 noundef %153, ptr noundef %156, i32 noundef 0)
+  tail call void @Abc_ZddPrint_rec(ptr noundef nonnull %0, i32 noundef %153, ptr noundef %156, i32 noundef 0)
   %.not.i79 = icmp eq ptr %156, null
   br i1 %.not.i79, label %Abc_ZddPrint.exit80, label %157
 
@@ -3462,8 +3462,8 @@ Abc_ZddPrint.exit:                                ; preds = %140, %144
   br label %Abc_ZddPrint.exit80
 
 Abc_ZddPrint.exit80:                              ; preds = %Abc_ZddPrint.exit, %157
-  %158 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull readonly %0, i32 noundef %153)
-  tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull readonly %0, i32 noundef %153)
+  %158 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull %0, i32 noundef %153)
+  tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull %0, i32 noundef %153)
   %159 = tail call i32 @Abc_ZddCountPaths(ptr noundef nonnull %0, i32 noundef %153)
   %160 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %158, i32 noundef %159)
   %putchar = tail call i32 @putchar(i32 10)
@@ -3909,8 +3909,8 @@ Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate
 
 181:                                              ; preds = %Abc_ZddBuildSet.exit
   %182 = call i32 @Abc_ZddCountPaths(ptr noundef nonnull %16, i32 noundef %180)
-  %183 = call i32 @Abc_ZddCount_rec(ptr noundef nonnull readonly %16, i32 noundef %180)
-  call void @Abc_ZddUnmark_rec(ptr noundef nonnull readonly %16, i32 noundef %180)
+  %183 = call i32 @Abc_ZddCount_rec(ptr noundef nonnull %16, i32 noundef %180)
+  call void @Abc_ZddUnmark_rec(ptr noundef nonnull %16, i32 noundef %180)
   %184 = load i32, ptr %58, align 4
   %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef 1, i32 noundef %182, i32 noundef %183, i32 noundef %184)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -3943,8 +3943,8 @@ Abc_Clock.exit82:                                 ; preds = %181, %188
   %.06799 = phi i32 [ %180, %Abc_Clock.exit82 ], [ %200, %Abc_Clock.exit84 ]
   %200 = call i32 @Abc_ZddPermProduct(ptr noundef nonnull %16, i32 noundef %.06799, i32 noundef %180)
   %201 = call i32 @Abc_ZddCountPaths(ptr noundef nonnull %16, i32 noundef %200)
-  %202 = call i32 @Abc_ZddCount_rec(ptr noundef nonnull readonly %16, i32 noundef %200)
-  call void @Abc_ZddUnmark_rec(ptr noundef nonnull readonly %16, i32 noundef %200)
+  %202 = call i32 @Abc_ZddCount_rec(ptr noundef nonnull %16, i32 noundef %200)
+  call void @Abc_ZddUnmark_rec(ptr noundef nonnull %16, i32 noundef %200)
   %203 = load i32, ptr %58, align 4
   %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.1100, i32 noundef %201, i32 noundef %202, i32 noundef %203)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)

@@ -396,7 +396,7 @@ CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist
   store ptr %106, ptr %107, align 8
   %108 = load ptr, ptr %90, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
   %110 = load ptr, ptr %90, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 128
   store ptr %111, ptr %111, align 8
@@ -1260,7 +1260,7 @@ ReleasePredXact.exit:                             ; preds = %154, %162
   %189 = getelementptr i8, ptr %19, i64 -24
   store ptr %188, ptr %189, align 8
   %190 = getelementptr i8, ptr %19, i64 -16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
   %191 = getelementptr i8, ptr %19, i64 60
   store i32 0, ptr %191, align 4
   %192 = load i8, ptr @XactReadOnly, align 1
@@ -1676,7 +1676,7 @@ PredicateLockExists.exit:                         ; preds = %1
 
 PredicateLockExists.exit.thread:                  ; preds = %1, %PredicateLockExists.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = getelementptr inbounds i8, ptr %7, i64 12
   %16 = getelementptr inbounds i8, ptr %7, i64 4
@@ -6075,7 +6075,7 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
   %47 = getelementptr i8, ptr %15, i64 -24
   store ptr %46, ptr %47, align 8
   %48 = getelementptr i8, ptr %15, i64 -16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %49 = getelementptr i8, ptr %15, i64 48
   store i32 %0, ptr %49, align 8
   %50 = load i32, ptr %36, align 4

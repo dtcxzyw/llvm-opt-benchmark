@@ -276,7 +276,7 @@ Initialize.exit:                                  ; preds = %81
   br i1 %90, label %TrimExtension.exit.i, label %91
 
 91:                                               ; preds = %Initialize.exit
-  %92 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %89) #13
+  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #13
   %93 = trunc i64 %92 to i32
   %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #13
   %95 = trunc i64 %94 to i32
@@ -291,7 +291,7 @@ Initialize.exit:                                  ; preds = %81
   %100 = ashr exact i64 %sext13.i.i, 32
   %101 = sub nsw i64 0, %100
   %102 = getelementptr i8, ptr %99, i64 %101
-  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull readonly dereferenceable(1) %89) #13
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %89) #13
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %TrimExtension.exit.i
 
@@ -306,14 +306,14 @@ Initialize.exit:                                  ; preds = %81
 
 TrimExtension.exit.i:                             ; preds = %105, %97, %91, %Initialize.exit
   %109 = phi ptr [ %88, %Initialize.exit ], [ %88, %91 ], [ %88, %97 ], [ %.pre.i, %105 ]
-  %110 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %109) #13
+  %110 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #13
   switch i64 %110, label %129 [
     i64 24, label %IsXLogFileName.exit.i
     i64 32, label %115
   ]
 
 IsXLogFileName.exit.i:                            ; preds = %TrimExtension.exit.i
-  %111 = tail call i64 @strspn(ptr noundef readonly %109, ptr noundef nonnull @.str.37) #13
+  %111 = tail call i64 @strspn(ptr noundef %109, ptr noundef nonnull @.str.37) #13
   %112 = icmp eq i64 %111, 24
   br i1 %112, label %113, label %IsBackupHistoryFileName.exit.thread.i
 
@@ -322,13 +322,13 @@ IsXLogFileName.exit.i:                            ; preds = %TrimExtension.exit.
   br label %SetWALFileNameForCleanup.exit
 
 115:                                              ; preds = %TrimExtension.exit.i
-  %116 = tail call i64 @strspn(ptr noundef readonly %109, ptr noundef nonnull @.str.37) #13
+  %116 = tail call i64 @strspn(ptr noundef %109, ptr noundef nonnull @.str.37) #13
   %117 = icmp eq i64 %116, 24
   br i1 %117, label %IsPartialXLogFileName.exit.i, label %.thread4.i
 
 IsPartialXLogFileName.exit.i:                     ; preds = %115
   %118 = getelementptr i8, ptr %109, i64 24
-  %119 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %118, ptr noundef nonnull dereferenceable(9) @.str.38) #13
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %118, ptr noundef nonnull dereferenceable(9) @.str.38) #13
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %.thread4.i
 
@@ -352,14 +352,14 @@ IsPartialXLogFileName.exit.i:                     ; preds = %115
   br i1 %130, label %.thread4.i, label %IsBackupHistoryFileName.exit.thread.i
 
 .thread4.i:                                       ; preds = %129, %IsPartialXLogFileName.exit.i, %115
-  %131 = tail call i64 @strspn(ptr noundef readonly %109, ptr noundef nonnull @.str.37) #13
+  %131 = tail call i64 @strspn(ptr noundef %109, ptr noundef nonnull @.str.37) #13
   %132 = icmp eq i64 %131, 24
   br i1 %132, label %IsBackupHistoryFileName.exit.i, label %IsBackupHistoryFileName.exit.thread.i
 
 IsBackupHistoryFileName.exit.i:                   ; preds = %.thread4.i
   %133 = getelementptr i8, ptr %109, i64 %110
   %134 = getelementptr i8, ptr %133, i64 -7
-  %135 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %134, ptr noundef nonnull dereferenceable(8) @.str.40) #13
+  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull dereferenceable(8) @.str.40) #13
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %IsBackupHistoryFileName.exit.thread.i
 
@@ -491,7 +491,7 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
   br i1 %17, label %TrimExtension.exit, label %18
 
 18:                                               ; preds = %12
-  %19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #13
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #13
   %20 = trunc i64 %19 to i32
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %22 = trunc i64 %21 to i32
@@ -506,7 +506,7 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
   %27 = ashr exact i64 %sext13.i, 32
   %28 = sub nsw i64 0, %27
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %16) #13
+  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %16) #13
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %TrimExtension.exit
 
@@ -519,19 +519,19 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
   br label %TrimExtension.exit
 
 TrimExtension.exit:                               ; preds = %12, %18, %24, %32
-  %36 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   switch i64 %36, label %IsPartialXLogFileName.exit.thread [
     i64 24, label %IsXLogFileName.exit
     i64 32, label %39
   ]
 
 IsXLogFileName.exit:                              ; preds = %TrimExtension.exit
-  %37 = call i64 @strspn(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.37) #13
+  %37 = call i64 @strspn(ptr noundef nonnull %1, ptr noundef nonnull @.str.37) #13
   %38 = icmp eq i64 %37, 24
   br i1 %38, label %55, label %.backedge
 
 39:                                               ; preds = %TrimExtension.exit
-  %40 = call i64 @strspn(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.37) #13
+  %40 = call i64 @strspn(ptr noundef nonnull %1, ptr noundef nonnull @.str.37) #13
   %41 = icmp eq i64 %40, 24
   br i1 %41, label %IsPartialXLogFileName.exit, label %IsPartialXLogFileName.exit.thread.thread11
 
@@ -558,13 +558,13 @@ IsPartialXLogFileName.exit.thread.thread11:       ; preds = %39
   br i1 %49, label %.thread9, label %.backedge
 
 .thread9:                                         ; preds = %IsPartialXLogFileName.exit.thread, %IsPartialXLogFileName.exit.thread.thread11, %.thread8
-  %50 = call i64 @strspn(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.37) #13
+  %50 = call i64 @strspn(ptr noundef nonnull %1, ptr noundef nonnull @.str.37) #13
   %51 = icmp eq i64 %50, 24
   br i1 %51, label %IsBackupHistoryFileName.exit, label %.backedge
 
 IsBackupHistoryFileName.exit:                     ; preds = %.thread9
   %gep = getelementptr i8, ptr %invariant.gep, i64 %36
-  %52 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %gep, ptr noundef nonnull dereferenceable(8) @.str.40) #13
+  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %gep, ptr noundef nonnull dereferenceable(8) @.str.40) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %55, label %.backedge
 

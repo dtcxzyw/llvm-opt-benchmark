@@ -4284,7 +4284,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 _ZN7V3Error1sEv.exit:                             ; preds = %5, %6, %9
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7V3Error18v3errorAcquireLockEbE3$_0E9_M_invokeERKSt9_Any_data", ptr %14, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7V3Error18v3errorAcquireLockEbE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation", ptr %13, align 8
   %15 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1

@@ -2456,7 +2456,7 @@ for.inc.i.i.i:                                    ; preds = %megasas_unmap_frame
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %megasas_reset_frames.exit.i.i, !llvm.loop !11
 
 megasas_reset_frames.exit.i.i:                    ; preds = %for.inc.i.i.i, %trace_megasas_init_queue.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %frame_map.i.i, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map.i.i, i8 0, i64 256, i1 false)
   %fw_state.i.i = getelementptr inbounds i8, ptr %opaque, i64 3428
   store i32 -1073741824, ptr %fw_state.i.i, align 4
   br label %out.i.i
@@ -3676,7 +3676,7 @@ megasas_write_sense.exit128.i.i:                  ; preds = %if.end12.i.i120.i.i
 
 if.end41.i.i:                                     ; preds = %if.end31.i210.i
   %387 = getelementptr inbounds i8, ptr %cdb.i.i, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %387, i8 0, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %387, i8 0, i64 15, i1 false)
   %..i.i.i = select i1 %cmp.i190.i, i8 -118, i8 -120
   store i8 %..i.i.i, ptr %cdb.i.i, align 16
   %arrayidx2.i129.i.i = getelementptr inbounds i8, ptr %cdb.i.i, i64 2
@@ -4327,7 +4327,7 @@ megasas_reset_frames.exit.loopexit:               ; preds = %for.inc.i
 megasas_reset_frames.exit:                        ; preds = %megasas_reset_frames.exit.loopexit, %if.end
   %conv = phi i16 [ %24, %megasas_reset_frames.exit.loopexit ], [ 0, %if.end ]
   %frame_map.i = getelementptr inbounds i8, ptr %s, i64 265720
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %frame_map.i, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map.i, i8 0, i64 256, i1 false)
   %reply_queue_len = getelementptr inbounds i8, ptr %s, i64 3544
   store i16 %conv, ptr %reply_queue_len, align 8
   %reply_queue_pa = getelementptr inbounds i8, ptr %s, i64 3528
@@ -6838,7 +6838,7 @@ if.then:                                          ; preds = %entry
   %vpd_page83 = getelementptr inbounds i8, ptr %call, i64 100
   store i8 127, ptr %vpd_page83, align 1
   %2 = getelementptr inbounds i8, ptr %cmdbuf, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %2, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, i8 0, i64 5, i1 false)
   store i8 18, ptr %cmdbuf, align 1
   %arrayidx3.i = getelementptr inbounds i8, ptr %cmdbuf, i64 3
   store i16 24576, ptr %arrayidx3.i, align 1

@@ -212,7 +212,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
   %.0.i = select i1 %46, i64 %50, i64 %43
   %51 = load ptr, ptr @TopTransactionContext, align 8
   %52 = tail call ptr @MemoryContextAlloc(ptr noundef %51, i64 noundef %.0.i) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %52, ptr noundef nonnull readonly align 8 dereferenceable(120) %storemerge, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %52, ptr noundef nonnull align 8 dereferenceable(120) %storemerge, i64 112, i1 false)
   %53 = getelementptr inbounds i8, ptr %52, i64 68
   store i32 0, ptr %53, align 4
   %54 = getelementptr inbounds i8, ptr %52, i64 64
@@ -715,7 +715,7 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   %.0.i = select i1 %21, i64 %25, i64 %18
   %26 = load ptr, ptr @TopTransactionContext, align 8
   %27 = tail call ptr @MemoryContextAlloc(ptr noundef %26, i64 noundef %.0.i) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %27, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %27, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 112, i1 false)
   %28 = getelementptr inbounds i8, ptr %27, i64 68
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %27, i64 64
@@ -825,7 +825,7 @@ define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) loc
   %.0.i = select i1 %9, i64 %13, i64 %6
   %14 = load ptr, ptr @TopTransactionContext, align 8
   %15 = tail call ptr @MemoryContextAlloc(ptr noundef %14, i64 noundef %.0.i) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 112, i1 false)
   %16 = getelementptr inbounds i8, ptr %15, i64 68
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %15, i64 64
@@ -1047,7 +1047,7 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
   %.0.i = select i1 %16, i64 %20, i64 %13
   %21 = load ptr, ptr @TopTransactionContext, align 8
   %22 = tail call ptr @MemoryContextAlloc(ptr noundef %21, i64 noundef %.0.i) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 112, i1 false)
   %23 = getelementptr inbounds i8, ptr %22, i64 68
   store i32 0, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %22, i64 64
@@ -1535,7 +1535,7 @@ list_length.exit:                                 ; preds = %12, %20
   %.0.i = select i1 %33, i64 %37, i64 %30
   %38 = load ptr, ptr @TopTransactionContext, align 8
   %39 = call ptr @MemoryContextAlloc(ptr noundef %38, i64 noundef %.0.i) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 112, i1 false)
   %40 = getelementptr inbounds i8, ptr %39, i64 68
   store i32 0, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %39, i64 64
@@ -2488,7 +2488,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   %.0.i = select i1 %94, i64 %98, i64 %91
   %99 = load ptr, ptr @TopTransactionContext, align 8
   %100 = tail call ptr @MemoryContextAlloc(ptr noundef %99, i64 noundef %.0.i) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %100, ptr noundef nonnull readonly align 8 dereferenceable(120) %86, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %100, ptr noundef nonnull align 8 dereferenceable(120) %86, i64 112, i1 false)
   %101 = getelementptr inbounds i8, ptr %100, i64 68
   store i32 0, ptr %101, align 4
   %102 = getelementptr inbounds i8, ptr %100, i64 64

@@ -679,7 +679,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %scevgep.i = getelementptr i8, ptr %add.ptr, i64 %2
   %narrow.i = sub nuw nsw i32 131072, %1
   %3 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 2 %scevgep.i, i8 0, i64 %3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %reverseLutFromBitmap.exit
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end39

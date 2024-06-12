@@ -1255,7 +1255,7 @@ _ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M
 
 79:                                               ; preds = %.noexc15.i
   %80 = load ptr, ptr %20, align 8, !noalias !5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !5
   %.not4.i.i.i.i.i = icmp eq ptr %80, %18
   br i1 %.not4.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE11_M_allocateEm.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -12193,7 +12193,7 @@ _ZN5vcpkg7Strings4joinISt6vectorINS_15LocalizedStringESaIS3_EEEENSt7__cxx1112bas
   store ptr %1178, ptr %1181, align 8, !noalias !153
   %1182 = getelementptr inbounds i8, ptr %26, i64 40
   store i64 0, ptr %1182, align 8, !noalias !153
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !noalias !153
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !noalias !153
   store ptr %26, ptr %28, align 8, !noalias !153
   %1183 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %94, ptr %1183, align 8, !noalias !153
@@ -26008,7 +26008,7 @@ _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpec
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unordered_map.503", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
@@ -27012,7 +27012,7 @@ _ZNSt12_Vector_baseIPKN5vcpkg12_GLOBAL__N_17ClusterESaIS4_EE11_M_allocateEm.exit
   br i1 %107, label %108, label %_ZNSt6vectorIPKN5vcpkg12_GLOBAL__N_17ClusterESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 108:                                              ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg12_GLOBAL__N_17ClusterESaIS4_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %105, ptr align 8 %.val16.i.i.i, i64 %93, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %105, ptr align 8 %.val16.i.i.i, i64 %93, i1 false)
   br label %_ZNSt6vectorIPKN5vcpkg12_GLOBAL__N_17ClusterESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 _ZNSt6vectorIPKN5vcpkg12_GLOBAL__N_17ClusterESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i: ; preds = %108, %_ZNSt12_Vector_baseIPKN5vcpkg12_GLOBAL__N_17ClusterESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -34555,7 +34555,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.not174, label %._crit_edge214, label %382
 
 ._crit_edge214:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %371
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   %396 = getelementptr inbounds i8, ptr %70, i64 160
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds i8, ptr %70, i64 152

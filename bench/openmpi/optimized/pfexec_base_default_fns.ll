@@ -1056,7 +1056,7 @@ pmix_obj_new_tma.exit297:                         ; preds = %.lr.ph.i.i294, %396
   %453 = getelementptr inbounds i8, ptr %392, i64 632
   store i32 1, ptr %453, align 8
   %454 = getelementptr inbounds i8, ptr %392, i64 640
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %454, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %454, i8 0, i64 64, i1 false)
   %455 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_iof_sink_t_class, i64 40), align 8
   %456 = load ptr, ptr %455, align 8
   %.not6.i.i300 = icmp eq ptr %456, null

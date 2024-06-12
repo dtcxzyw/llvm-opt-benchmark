@@ -336,7 +336,7 @@ Wlc_NtkAbsMarkOpers.exit.i:                       ; preds = %145, %.critedge.i.i
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val46.i.i, i64 %151
-  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %152, ptr noundef nonnull readonly %70, ptr noundef nonnull %53, ptr noundef nonnull %57, ptr noundef nonnull %61)
+  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %152, ptr noundef nonnull %70, ptr noundef nonnull %53, ptr noundef nonnull %57, ptr noundef nonnull %61)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %.val43.i.i = load i32, ptr %41, align 4
   %153 = sext i32 %.val43.i.i to i64
@@ -363,7 +363,7 @@ Wlc_NtkAbsMarkOpers.exit.i:                       ; preds = %145, %.critedge.i.i
   %164 = load i32, ptr %163, align 4
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val40.i.i, i64 %165
-  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %166, ptr noundef nonnull readonly %70, ptr noundef nonnull %53, ptr noundef nonnull %57, ptr noundef nonnull %61)
+  call fastcc void @Wlc_NtkAbsMarkNodes_rec(ptr noundef nonnull %0, ptr noundef %166, ptr noundef nonnull %70, ptr noundef nonnull %53, ptr noundef nonnull %57, ptr noundef nonnull %61)
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %.val42.i.i = load i32, ptr %62, align 4
   %167 = sext i32 %.val42.i.i to i64
@@ -872,8 +872,8 @@ Vec_IntFree.exit80:                               ; preds = %Wlc_NtkAbsRefinemen
 
 Wlc_NtkMarkMffc.exit.i:                           ; preds = %.lr.ph.i.i85, %342
   %.0.lcssa.i.i = phi ptr [ %346, %342 ], [ %367, %.lr.ph.i.i85 ]
-  %369 = call fastcc i32 @Wlc_NtkNodeDeref_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %.0.lcssa.i.i, ptr noundef nonnull readonly %18)
-  %370 = call fastcc i32 @Wlc_NtkNodeRef_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %.0.lcssa.i.i)
+  %369 = call fastcc i32 @Wlc_NtkNodeDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.i.i, ptr noundef nonnull %18)
+  %370 = call fastcc i32 @Wlc_NtkNodeRef_rec(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.i.i)
   %371 = add nsw i32 %369, %.018.i
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %.val13.i = load i32, ptr %339, align 4

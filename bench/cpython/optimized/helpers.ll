@@ -602,7 +602,7 @@ if.then.i:                                        ; preds = %if.end16
   br label %_PyTokenizer_new_string.exit
 
 if.end.i:                                         ; preds = %if.end16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %call.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %call.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 5
   store i8 0, ptr %arrayidx.i, align 1
   br label %_PyTokenizer_new_string.exit
@@ -729,7 +729,7 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %if.then69.i
   br label %return
 
 if.end73.i:                                       ; preds = %if.then69.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %incdec.ptr.i, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %incdec.ptr.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i.i = getelementptr i8, ptr %call.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %buf.i.i)
@@ -823,7 +823,7 @@ _PyTokenizer_new_string.exit49.thread.i:          ; preds = %if.then77.i
   br label %return
 
 _PyTokenizer_new_string.exit49.i:                 ; preds = %if.then77.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i43.i, ptr readonly align 1 %retval.0.i.i, i64 %call78.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i43.i, ptr align 1 %retval.0.i.i, i64 %call78.i, i1 false)
   %arrayidx.i46.i = getelementptr i8, ptr %call.i43.i, i64 %call78.i
   store i8 0, ptr %arrayidx.i46.i, align 1
   br label %if.end35

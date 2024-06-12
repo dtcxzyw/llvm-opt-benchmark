@@ -4339,7 +4339,7 @@ fs_fixup_bc.exit:                                 ; preds = %for.body.i83, %fs_p
   br i1 %cmp.i87, label %if.then.i102, label %if.end.i88
 
 if.then.i102:                                     ; preds = %fs_fixup_bc.exit
-  tail call fastcc void @err_limit(ptr noundef nonnull readonly %1, i32 noundef 65536, ptr noundef nonnull @.str.9) #12
+  tail call fastcc void @err_limit(ptr noundef nonnull %1, i32 noundef 65536, ptr noundef nonnull @.str.9) #12
   unreachable
 
 if.end.i88:                                       ; preds = %fs_fixup_bc.exit
@@ -4348,7 +4348,7 @@ if.end.i88:                                       ; preds = %fs_fixup_bc.exit
   br i1 %cmp1.i89, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i88
-  tail call fastcc void @err_limit(ptr noundef nonnull readonly %1, i32 noundef 65536, ptr noundef nonnull @.str.9) #12
+  tail call fastcc void @err_limit(ptr noundef nonnull %1, i32 noundef 65536, ptr noundef nonnull @.str.9) #12
   unreachable
 
 if.end3.i:                                        ; preds = %if.end.i88
@@ -4531,7 +4531,7 @@ fs_fixup_k.exit:                                  ; preds = %for.inc61.i
   %uvtmp.i = getelementptr inbounds i8, ptr %1, i64 612
   %conv.i104 = zext i8 %107 to i64
   %mul.i = shl nuw nsw i64 %conv.i104, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr40, ptr nonnull readonly align 4 %uvtmp.i, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr40, ptr nonnull align 4 %uvtmp.i, i64 %mul.i, i1 false)
   %add.ptr41 = getelementptr inbounds i8, ptr %call22, i64 %add16
   %108 = load ptr, ptr %bcbase.i76, align 8
   %add.ptr.i106 = getelementptr inbounds i8, ptr %108, i64 8

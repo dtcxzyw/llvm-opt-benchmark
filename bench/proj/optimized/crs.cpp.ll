@@ -21528,7 +21528,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS4_3C
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
 
 .thread.i.i:                                      ; preds = %1219, %.noexc366
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !281
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !281
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i: ; preds = %.thread.i.i, %1231, %1228, %1221
@@ -21536,7 +21536,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObject
   br label %1234
 
 1233:                                             ; preds = %.noexc365
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !275
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !275
   br label %1234
 
 1234:                                             ; preds = %1233, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
@@ -44654,7 +44654,7 @@ define hidden void @_ZNK5osgeo4proj3crs11CompoundCRS12_exportToWKTEPNS0_2io12WKT
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
 
 .thread.i.i:                                      ; preds = %54, %47
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !521
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i: ; preds = %.thread.i.i, %66, %63, %56
@@ -44662,7 +44662,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObject
   br label %_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit
 
 68:                                               ; preds = %44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !515
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !515
   br label %_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit
 
 _ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i, %68
@@ -74956,7 +74956,7 @@ define hidden void @_ZNK5osgeo4proj3crs11CompoundCRS19_exportToPROJStringEPNS0_2
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
 
 .thread.i.i:                                      ; preds = %22, %15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !746
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !746
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i: ; preds = %.thread.i.i, %34, %31, %24
@@ -74964,7 +74964,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObject
   br label %_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit
 
 36:                                               ; preds = %12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !740
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !740
   br label %_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit
 
 _ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit: ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit.i, %36
@@ -79520,13 +79520,13 @@ define void @_ZN5osgeo4proj3crs8BoundCRS18createFromNadgridsERKN7dropbox6oxygen2
   br label %_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit.thread154
 
 _ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit.thread158: ; preds = %29, %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !787
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !787
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #37, !noalias !781
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %64
 
 _ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv.exit.thread: ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !781
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !781
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %64
 
@@ -88903,7 +88903,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i:
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %9, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #37
   ret void
 }
@@ -88943,7 +88943,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -24
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #37
   ret void
 }
@@ -88987,7 +88987,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #37
   ret void
 }
@@ -89032,7 +89032,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %14, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #37
   ret void
 }
@@ -89077,7 +89077,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %14, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #37
   ret void
 }
@@ -89122,7 +89122,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %14, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #37
   ret void
 }
@@ -89162,7 +89162,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %9, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #37
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
   ret void
@@ -89203,7 +89203,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -24
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #37
   tail call void @_ZdlPv(ptr noundef nonnull %10) #36
   ret void
@@ -89248,7 +89248,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #37
   tail call void @_ZdlPv(ptr noundef nonnull %5) #36
   ret void
@@ -89294,7 +89294,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %14, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #37
   tail call void @_ZdlPv(ptr noundef nonnull %6) #36
   ret void
@@ -89340,7 +89340,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %14, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #37
   tail call void @_ZdlPv(ptr noundef nonnull %6) #36
   ret void
@@ -89386,7 +89386,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %14, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #37
   tail call void @_ZdlPv(ptr noundef nonnull %6) #36
   ret void
@@ -106713,7 +106713,7 @@ _ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.
 
 _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj3crs20DerivedGeographicCRS7PrivateESt14default_deleteIS4_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN5osgeo4proj3crs10DerivedCRS7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
+  tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj3crs20DerivedGeographicCRSE, i64 8)) #37
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #37
   tail call void @_ZdlPv(ptr noundef nonnull %3) #36
   br label %15

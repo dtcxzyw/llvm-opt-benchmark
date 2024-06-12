@@ -63,7 +63,7 @@ define noalias noundef ptr @Gia_ManTreeDup(ptr nocapture noundef readonly %0) lo
 .lr.ph18.preheader.i.i:                           ; preds = %1
   %wide.trip.count24.i.i = zext nneg i32 %11 to i64
   %16 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr readonly align 8 %4, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %4, i64 %16, i1 false)
   br label %Abc_TtDup.exit
 
 Abc_TtDup.exit:                                   ; preds = %1, %.lr.ph18.preheader.i.i
@@ -689,7 +689,7 @@ define noalias noundef ptr @Gia_ManContructTree(ptr nocapture noundef readonly %
 .lr.ph18.preheader.i.i:                           ; preds = %4
   %wide.trip.count24.i.i = zext nneg i32 %6 to i64
   %11 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr readonly align 8 %0, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %0, i64 %11, i1 false)
   br label %Abc_TtDup.exit
 
 Abc_TtDup.exit:                                   ; preds = %4, %.lr.ph18.preheader.i.i
@@ -1205,7 +1205,7 @@ Abc_TtCopy.exit78.us:                             ; preds = %.lr.ph18.i74.us, %.
   br i1 %exitcond25.not.i65, label %Abc_TtCopy.exit66, label %.lr.ph18.i62, !llvm.loop !24
 
 Abc_TtCopy.exit66:                                ; preds = %.lr.ph18.i62, %73
-  %83 = tail call ptr @Gia_ManContructTree(ptr noundef readonly %79, i32 noundef %1, i32 noundef %2, i32 noundef %3)
+  %83 = tail call ptr @Gia_ManContructTree(ptr noundef %79, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   %84 = getelementptr inbounds i8, ptr %83, i64 200
   br label %85
 
@@ -1879,7 +1879,7 @@ Abc_TtCopy.exit.preheader:                        ; preds = %Abc_Clock.exit
 .lr.ph18.preheader.i.us.preheader:                ; preds = %Abc_Clock.exit
   %wide.trip.count24.i.i = zext nneg i32 %15 to i64
   %21 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr readonly align 8 %0, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %0, i64 %21, i1 false)
   %22 = call i32 @Gia_ManRandom(i32 noundef 1) #23
   %23 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
   br label %.lr.ph18.preheader.i.us
@@ -2037,7 +2037,7 @@ Vec_WrdFetch.exit:                                ; preds = %6, %16
 
 .lr.ph.preheader.i163:                            ; preds = %38
   %41 = shl nuw nsw i64 %wide.trip.count.i148, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %.0.i, i8 0, i64 %41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %41, i1 false)
   br label %Abc_TtClear.exit
 
 42:                                               ; preds = %.lr.ph.i167
@@ -2066,7 +2066,7 @@ Vec_WrdFetch.exit:                                ; preds = %6, %16
 
 .lr.ph.preheader.i182:                            ; preds = %45
   %48 = shl nuw nsw i64 %wide.trip.count.i148, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %.0.i, i8 -1, i64 %48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 -1, i64 %48, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtIsConst1.exit172:                           ; preds = %.lr.ph.i167, %.lr.ph.i176
@@ -2834,7 +2834,7 @@ Vec_WrdGrow.exit:                                 ; preds = %33, %35
   %52 = shl i32 %.081.us, %10
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i64, ptr null, i64 %53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %54, i8 0, i64 %42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, i8 0, i64 %42, i1 false)
   br label %Abc_TtClear.exit.us
 
 Abc_TtClear.exit.us:                              ; preds = %.lr.ph.preheader.i.us, %.lr.ph.split.us
@@ -3074,7 +3074,7 @@ Vec_WrdFetch.exit:                                ; preds = %tailrecurse, %22
 .lr.ph.preheader.i:                               ; preds = %34
   %40 = zext nneg i32 %17 to i64
   %41 = shl nuw nsw i64 %40, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %.0.i, i8 0, i64 %41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %41, i1 false)
   br label %Abc_TtClear.exit
 
 .lr.ph.preheader.i175:                            ; preds = %.lr.ph25.i
@@ -3100,7 +3100,7 @@ Vec_WrdFetch.exit:                                ; preds = %tailrecurse, %22
 .lr.ph.preheader.i177:                            ; preds = %42
   store i32 1, ptr %7, align 4
   %49 = shl nuw nsw i64 %wide.trip.count.i, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %.0.i, i8 -1, i64 %49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 -1, i64 %49, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtIntersect.exit176:                          ; preds = %.lr.ph.i
@@ -4455,7 +4455,7 @@ Vec_WrdFetch.exit:                                ; preds = %9, %21
 
 .lr.ph.preheader.i226:                            ; preds = %43
   %46 = shl nuw nsw i64 %wide.trip.count.i211, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %.0.i, i8 0, i64 %46, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %46, i1 false)
   br label %Abc_TtClear.exit
 
 47:                                               ; preds = %.lr.ph.i230
@@ -4485,7 +4485,7 @@ Vec_WrdFetch.exit:                                ; preds = %9, %21
 .lr.ph.preheader.i245:                            ; preds = %50
   store i32 1, ptr %7, align 4
   %53 = shl nuw nsw i64 %wide.trip.count.i211, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %.0.i, i8 -1, i64 %53, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 -1, i64 %53, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtIsConst1.exit235:                           ; preds = %.lr.ph.i230, %.lr.ph.i239
@@ -6158,7 +6158,7 @@ Abc_Clock.exit:                                   ; preds = %6, %13
 .lr.ph18.preheader.i.i:                           ; preds = %Abc_Clock.exit
   %wide.trip.count24.i.i = zext nneg i32 %17 to i64
   %22 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr readonly align 8 %0, i64 %22, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %0, i64 %22, i1 false)
   br label %Abc_TtDup.exit
 
 Abc_TtDup.exit:                                   ; preds = %Abc_Clock.exit, %.lr.ph18.preheader.i.i
@@ -6371,7 +6371,7 @@ Abc_Clock.exit:                                   ; preds = %6, %14
 .lr.ph18.preheader.i.i:                           ; preds = %Abc_Clock.exit
   %wide.trip.count24.i.i = zext nneg i32 %18 to i64
   %23 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr readonly align 8 %0, i64 %23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %23, i1 false)
   br label %Abc_TtDup.exit
 
 Abc_TtDup.exit:                                   ; preds = %Abc_Clock.exit, %.lr.ph18.preheader.i.i
@@ -6580,7 +6580,7 @@ Abc_Clock.exit64:                                 ; preds = %71, %74
 
 84:                                               ; preds = %Abc_Clock.exit64, %70
   %85 = sdiv i32 %2, 2
-  %86 = call ptr @Gia_ManContructTree(ptr noundef readonly %27, i32 noundef %1, i32 noundef %85, i32 noundef %3)
+  %86 = call ptr @Gia_ManContructTree(ptr noundef %27, i32 noundef %1, i32 noundef %85, i32 noundef %3)
   %87 = getelementptr inbounds i8, ptr %86, i64 520
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %86, align 8
@@ -6663,7 +6663,7 @@ Abc_Clock.exit:                                   ; preds = %6, %14
 .lr.ph18.preheader.i.i:                           ; preds = %Abc_Clock.exit
   %wide.trip.count24.i.i = zext nneg i32 %18 to i64
   %23 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr readonly align 8 %0, i64 %23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %23, i1 false)
   br label %Abc_TtDup.exit
 
 Abc_TtDup.exit:                                   ; preds = %Abc_Clock.exit, %.lr.ph18.preheader.i.i
@@ -6939,7 +6939,7 @@ Abc_Clock.exit:                                   ; preds = %6, %16
 .lr.ph18.preheader.i.i:                           ; preds = %Abc_Clock.exit
   %wide.trip.count24.i.i = zext nneg i32 %21 to i64
   %26 = shl nuw nsw i64 %wide.trip.count24.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr readonly align 8 %0, i64 %26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %0, i64 %26, i1 false)
   br label %Abc_TtDup.exit
 
 Abc_TtDup.exit:                                   ; preds = %Abc_Clock.exit, %.lr.ph18.preheader.i.i

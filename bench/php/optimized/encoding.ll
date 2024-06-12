@@ -167,7 +167,7 @@ looks_ascii.exit:                                 ; preds = %.lr.ph.i
 looks_utf8_with_BOM.exit:                         ; preds = %62
   %66 = getelementptr inbounds i8, ptr %11, i64 3
   %67 = add i64 %.0127, -3
-  %68 = call i32 @file_looks_utf8(ptr noundef nonnull readonly %66, i64 noundef %67, ptr noundef %53, ptr noundef nonnull %spec.select)
+  %68 = call i32 @file_looks_utf8(ptr noundef nonnull %66, i64 noundef %67, ptr noundef %53, ptr noundef nonnull %spec.select)
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge
 

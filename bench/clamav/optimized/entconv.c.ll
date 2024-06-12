@@ -1254,7 +1254,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly %0,
   br i1 %or.cond3, label %14, label %179
 
 14:                                               ; preds = %3
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #16
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %16 = icmp ugt i64 %15, 32
   br i1 %16, label %.loopexit42, label %.preheader25.i
 

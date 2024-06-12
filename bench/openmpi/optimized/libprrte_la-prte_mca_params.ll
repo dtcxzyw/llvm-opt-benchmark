@@ -259,7 +259,7 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
   %52 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 1, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   %54 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %55 = load ptr, ptr %54, align 8
   %.not6.i = icmp eq ptr %55, null

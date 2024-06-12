@@ -426,7 +426,7 @@ define void @pmix_init_registered_attrs() local_unnamed_addr #0 {
 5:                                                ; preds = %4, %1
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @client_attrs, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @client_attrs, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @client_attrs, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @client_attrs, i64 56), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
@@ -454,7 +454,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 14:                                               ; preds = %13, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @server_attrs, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @server_attrs, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @server_attrs, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @server_attrs, i64 56), i8 0, i64 64, i1 false)
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i18 = icmp eq ptr %16, null
@@ -482,7 +482,7 @@ pmix_obj_run_constructors.exit22:                 ; preds = %.lr.ph.i19, %14
 23:                                               ; preds = %22, %pmix_obj_run_constructors.exit22
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @host_attrs, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @host_attrs, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @host_attrs, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @host_attrs, i64 56), i8 0, i64 64, i1 false)
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i23 = icmp eq ptr %25, null
@@ -510,7 +510,7 @@ pmix_obj_run_constructors.exit27:                 ; preds = %.lr.ph.i24, %23
 32:                                               ; preds = %31, %pmix_obj_run_constructors.exit27
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @tool_attrs, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @tool_attrs, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @tool_attrs, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @tool_attrs, i64 56), i8 0, i64 64, i1 false)
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %34 = load ptr, ptr %33, align 8
   %.not6.i28 = icmp eq ptr %34, null
@@ -1283,7 +1283,7 @@ define void @pmix_attrs_query_support(i32 noundef %0, i16 noundef signext %1, pt
 37:                                               ; preds = %36, %.lr.ph517
   store ptr @pmix_list_t_class, ptr %15, align 8
   store i32 1, ptr %16, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i = icmp eq ptr %39, null
@@ -2840,7 +2840,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %36, %3
   br i1 %.not9.i, label %pmix_attributes_lookup.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph20
-  %82 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef readonly %81) #19
+  %82 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef %81) #19
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %.lr.ph.i._crit_edge, label %.lr.ph15
 
@@ -2855,7 +2855,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %36, %3
   br i1 %.not.i79, label %pmix_attributes_lookup.exit, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %.lr.ph15
-  %88 = tail call i32 @strcasecmp(ptr noundef nonnull %87, ptr noundef readonly %81) #19
+  %88 = tail call i32 @strcasecmp(ptr noundef nonnull %87, ptr noundef %81) #19
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.lr.ph.i._crit_edge, label %.lr.ph15, !llvm.loop !29
 
@@ -2876,7 +2876,7 @@ pmix_attributes_lookup.exit:                      ; preds = %.lr.ph15, %.lr.ph20
   br i1 %.not7.i, label %.loopexit, label %.lr.ph.i80.preheader
 
 .lr.ph.i80.preheader:                             ; preds = %pmix_attributes_lookup.exit
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %94) #19
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %94) #19
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %pmix_attributes_lookup_term.exit, label %.lr.ph17
 
@@ -2891,7 +2891,7 @@ pmix_attributes_lookup.exit:                      ; preds = %.lr.ph15, %.lr.ph20
   br i1 %.not.i82, label %.loopexit, label %.lr.ph.i80, !llvm.loop !30
 
 .lr.ph.i80:                                       ; preds = %.lr.ph17
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull readonly dereferenceable(1) %94) #19
+  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) %94) #19
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %pmix_attributes_lookup_term.exit, label %.lr.ph17, !llvm.loop !30
 
@@ -3943,7 +3943,7 @@ define ptr @pmix_attributes_print_attr(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not9.i, label %pmix_attributes_lookup.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph85
-  %60 = call i32 @strcasecmp(ptr noundef nonnull %22, ptr noundef readonly %59) #19
+  %60 = call i32 @strcasecmp(ptr noundef nonnull %22, ptr noundef %59) #19
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.lr.ph.i._crit_edge, label %.lr.ph
 
@@ -3958,7 +3958,7 @@ define ptr @pmix_attributes_print_attr(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not.i, label %pmix_attributes_lookup.exit, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %66 = call i32 @strcasecmp(ptr noundef nonnull %65, ptr noundef readonly %59) #19
+  %66 = call i32 @strcasecmp(ptr noundef nonnull %65, ptr noundef %59) #19
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !29
 
@@ -3979,7 +3979,7 @@ pmix_attributes_lookup.exit:                      ; preds = %.lr.ph, %.lr.ph85, 
   br i1 %.not7.i, label %.loopexit, label %.lr.ph.i67.preheader
 
 .lr.ph.i67.preheader:                             ; preds = %pmix_attributes_lookup.exit
-  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %72) #19
+  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %72) #19
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %pmix_attributes_lookup_term.exit, label %.lr.ph82
 
@@ -3994,7 +3994,7 @@ pmix_attributes_lookup.exit:                      ; preds = %.lr.ph, %.lr.ph85, 
   br i1 %.not.i69, label %.loopexit, label %.lr.ph.i67, !llvm.loop !30
 
 .lr.ph.i67:                                       ; preds = %.lr.ph82
-  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(1) %72) #19
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %72) #19
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %pmix_attributes_lookup_term.exit, label %.lr.ph82, !llvm.loop !30
 

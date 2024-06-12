@@ -325,7 +325,7 @@ if.then12:                                        ; preds = %if.end9
 if.end13:                                         ; preds = %if.end9
   store i64 %limit, ptr @slabmem_limit, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
-  %call.i6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %file) #20
+  %call.i6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #20
   %add2.i = add i64 %call.i6, 6
   %call3.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add2.i) #16
   %cmp.i = icmp eq ptr %call3.i, null
@@ -338,7 +338,7 @@ if.then.i:                                        ; preds = %if.end13
   unreachable
 
 if.end.i:                                         ; preds = %if.end13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr readonly align 1 %file, i64 %call.i6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr align 1 %file, i64 %call.i6, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, i64 5, i1 false)
   %call6.i = tail call noalias ptr @fopen(ptr noundef nonnull %call3.i, ptr noundef nonnull @.str.17)
@@ -445,7 +445,7 @@ entry:
   %call = tail call i32 @msync(ptr noundef %0, i64 noundef %1, i32 noundef 4) #19
   %2 = load ptr, ptr @memory_file, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %add2.i = add i64 %call.i, 6
   %call3.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add2.i) #16
   %cmp.i = icmp eq ptr %call3.i, null
@@ -457,7 +457,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.then
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr readonly align 1 %2, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr align 1 %2, i64 %call.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call3.i, i64 %call.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, i64 5, i1 false)
   %call5.i = tail call i32 @umask(i32 noundef -385) #19

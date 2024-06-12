@@ -277,7 +277,7 @@ if.end.i:                                         ; preds = %trace_wct_init.exit
   %outbuf.i = getelementptr inbounds i8, ptr %call.i, i64 264
   %idx.ext.i = sext i32 %25 to i64
   %add.ptr.i62 = getelementptr i8, ptr %outbuf.i, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr.i62, ptr noundef nonnull readonly align 16 dereferenceable(18) @WC_MODEL_STRING, i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr.i62, ptr noundef nonnull align 16 dereferenceable(18) @WC_MODEL_STRING, i64 18, i1 false)
   %27 = load i32, ptr %outlen.i, align 8
   %add5.i = add i32 %27, 18
   store i32 %add5.i, ptr %outlen.i, align 8

@@ -5315,7 +5315,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 .loopexit8.i:                                     ; preds = %121, %111
   %.val.i = load i16, ptr %74, align 8
   %130 = trunc nuw nsw i64 %indvars.iv to i32
-  %131 = tail call fastcc i32 @tt_available(ptr noundef readonly %0, i16 %.val.i, i8 %79, ptr noundef readonly %10, i32 noundef %82, i32 noundef %130)
+  %131 = tail call fastcc i32 @tt_available(ptr noundef %0, i16 %.val.i, i8 %79, ptr noundef %10, i32 noundef %82, i32 noundef %130)
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %.loopexit, label %133
 

@@ -3145,7 +3145,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %Py_XDECREF.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call4.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull %call1.i, ptr noundef nonnull writeonly %res)
+  %call4.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %obj, ptr noundef nonnull %call1.i, ptr noundef nonnull %res)
   %2 = load i64, ptr %call1.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i16.not.i = icmp eq i64 %3, 0

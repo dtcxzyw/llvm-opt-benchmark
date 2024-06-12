@@ -82,7 +82,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   %conv5.i = and i64 %call, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %str, i64 %conv5.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %str, i64 %conv5.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %conv5.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %while.cond.i

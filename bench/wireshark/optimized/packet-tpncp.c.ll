@@ -1141,7 +1141,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
 .lr.ph.i:                                         ; preds = %153, %157
   %155 = phi ptr [ %161, %157 ], [ %154, %153 ]
   %.09.i = phi i32 [ %158, %157 ], [ 0, %153 ]
-  %156 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %113, ptr noundef nonnull dereferenceable(1) %155) #15
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(1) %155) #15
   %.not7.i = icmp eq i32 %156, 0
   br i1 %.not7.i, label %get_enum_name_val.exit, label %157
 
@@ -1285,7 +1285,7 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
   %204 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %200, %201 ]
   %205 = sext i32 %203 to i64
   %206 = getelementptr %struct.hf_register_info, ptr %204, i64 %205
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %206, ptr noundef nonnull readonly align 8 dereferenceable(80) %5, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %206, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   %207 = add i32 %203, 1
   store i32 %207, ptr @hf_size, align 4
   %208 = zext i1 %93 to i8

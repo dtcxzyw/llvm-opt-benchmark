@@ -1745,7 +1745,7 @@ if.end:                                           ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   store i32 %type, ptr %call, align 8
   %m_size.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
   switch i32 %type, label %return [
     i32 0, label %if.then30.sink.split
     i32 1, label %if.then30.sink.split

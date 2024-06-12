@@ -117,7 +117,7 @@ define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly
   br i1 %.not7, label %wmem_strbuf_new_len.exit6, label %20
 
 20:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %1, i64 %8, i1 false)
   %21 = getelementptr i8, ptr %18, i64 %8
   store i8 0, ptr %21, align 1
   store i64 %8, ptr %15, align 8
@@ -293,7 +293,7 @@ define void @wmem_strbuf_append_vprintf(ptr nocapture noundef %0, ptr nocapture 
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %11, %8
-  %13 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %12, ptr noundef readonly %1, ptr noundef nonnull %4) #12
+  %13 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %12, ptr noundef %1, ptr noundef nonnull %4) #12
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -370,7 +370,7 @@ wmem_strbuf_grow.exit:                            ; preds = %.wmem_strbuf_grow.e
   %47 = phi ptr [ %.pre, %.wmem_strbuf_grow.exit_crit_edge ], [ %.pre12, %40 ], [ %44, %42 ]
   %48 = getelementptr i8, ptr %47, i64 %46
   %49 = sub i64 %45, %46
-  %50 = call i32 @vsnprintf(ptr noundef %48, i64 noundef %49, ptr noundef readonly %1, ptr noundef %2) #12
+  %50 = call i32 @vsnprintf(ptr noundef %48, i64 noundef %49, ptr noundef %1, ptr noundef %2) #12
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %56
 
@@ -1130,7 +1130,7 @@ define i32 @wmem_strbuf_strcmp(ptr nocapture noundef readonly %0, ptr nocapture 
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @llvm.umin.i64(i64 %6, i64 %10)
-  %12 = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef readonly %8, i64 noundef %11) #13
+  %12 = tail call i32 @memcmp(ptr noundef %4, ptr noundef %8, i64 noundef %11) #13
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %_memcmp_len.exit
 

@@ -124,7 +124,7 @@ for.body.i:                                       ; preds = %_ZNSt6vectorIN3ue28
   %__begin1.sroa.0.06.i = phi ptr [ %3, %for.body.lr.ph.i ], [ %incdec.ptr.i13.i, %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE9push_backERKS1_.exit.i ]
   store i32 %e.07.i, ptr %ref.tmp.i, align 8
   %reach2.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %reach.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %reach2.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reach.i.i, ptr noundef nonnull align 8 dereferenceable(32) %reach2.i.i, i64 32, i1 false)
   %auto_restart3.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 5
   %5 = load i8, ptr %auto_restart3.i.i, align 1
   %frombool.i.i = and i8 %5, 1
@@ -229,7 +229,7 @@ for.body16.i:                                     ; preds = %_ZNSt6vectorIN3ue28
   %__begin18.sroa.0.09.i = phi ptr [ %12, %for.body16.lr.ph.i ], [ %incdec.ptr.i60.i, %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE9push_backERKS1_.exit59.i ]
   store i32 -1, ptr %ref.tmp19.i, align 8
   %reach2.i17.i = getelementptr inbounds i8, ptr %__begin18.sroa.0.09.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %reach.i16.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %reach2.i17.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reach.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reach2.i17.i, i64 32, i1 false)
   %auto_restart3.i19.i = getelementptr inbounds i8, ptr %__begin18.sroa.0.09.i, i64 5
   %13 = load i8, ptr %auto_restart3.i19.i, align 1
   %frombool.i20.i = and i8 %13, 1
@@ -1249,7 +1249,7 @@ if.else.i:                                        ; preds = %if.else.loopexit.i,
 if.then8.i:                                       ; preds = %if.else.i
   %type9.i = getelementptr inbounds i8, ptr %kp.0251, i64 25
   store i8 1, ptr %type9.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i130, ptr noundef nonnull readonly align 8 dereferenceable(32) %reach1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i130, ptr noundef nonnull align 8 dereferenceable(32) %reach1.i, i64 32, i1 false)
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.then8.i
@@ -1318,7 +1318,7 @@ _ZNK3ue29CharReach10find_firstEv.exit63.i:        ; preds = %for.inc.i.i60.i, %i
   br label %if.end36.i
 
 if.else21.i:                                      ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %reach1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %reach1.i, i64 32, i1 false)
   br label %for.body.i.i.i64.i
 
 for.body.i.i.i64.i:                               ; preds = %for.body.i.i.i64.i, %if.else21.i
@@ -1348,7 +1348,7 @@ if.then27.i:                                      ; preds = %call25.i.noexc
 
 if.else29.i:                                      ; preds = %call25.i.noexc
   store i8 3, ptr %type30.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %reach1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(32) %reach1.i, i64 32, i1 false)
   br label %for.body.i.i.i71.i
 
 for.body.i.i.i71.i:                               ; preds = %for.body.i.i.i71.i, %if.else29.i
@@ -1720,9 +1720,9 @@ if.then:                                          ; preds = %for.body.i.i.i.i.i.
   %__y.addr.0.lcssa.i.i.i37 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS0_8raw_puffESaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEE11lower_boundERSA_.exit ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %__y.addr.1.i.i.i, %do.body8.i.i ], [ %__y.addr.1.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %_M_storage.i.i.i.i.i6 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %_M_storage.i.i.i.i.i6, ptr noundef nonnull readonly align 8 dereferenceable(48) %__k, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(48) %__k, i64 48, i1 false)
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %cmp.i38, label %if.then.i.i, label %if.else12.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1780,7 +1780,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i.i, label %if.else.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 if.else.i.i:                                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i, %if.end14.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i
-  %call11.i.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110ClusterKeyESt4pairIKS2_St6vectorINS0_8raw_puffESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(41) %_M_storage.i.i.i.i.i6)
+  %call11.i.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110ClusterKeyESt4pairIKS2_St6vectorINS0_8raw_puffESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(41) %_M_storage.i.i.i.i.i6)
   %25 = extractvalue { ptr, ptr } %call11.i.i, 0
   %26 = extractvalue { ptr, ptr } %call11.i.i, 1
   br label %invoke.cont7.i
@@ -1890,7 +1890,7 @@ if.then32.i.i:                                    ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp35.i.i, label %if.then.i, label %invoke.cont7.i
 
 if.else42.i.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.i57.i.i, %if.end14.i.i47.i.i, %if.end.i.i41.i.i
-  %call43.i.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110ClusterKeyESt4pairIKS2_St6vectorINS0_8raw_puffESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(41) %_M_storage.i.i.i.i.i6)
+  %call43.i.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110ClusterKeyESt4pairIKS2_St6vectorINS0_8raw_puffESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(41) %_M_storage.i.i.i.i.i6)
   %44 = extractvalue { ptr, ptr } %call43.i.i, 0
   %45 = extractvalue { ptr, ptr } %call43.i.i, 1
   br label %invoke.cont7.i
@@ -1972,7 +1972,7 @@ if.then64.i.i:                                    ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont7.i
 
 if.else74.i.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.i113.i.i, %if.end14.i.i103.i.i, %if.end.i.i97.i.i
-  %call75.i.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110ClusterKeyESt4pairIKS2_St6vectorINS0_8raw_puffESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(41) %_M_storage.i.i.i.i.i6)
+  %call75.i.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110ClusterKeyESt4pairIKS2_St6vectorINS0_8raw_puffESaIS6_EEESt10_Select1stIS9_ESt4lessIS2_ESaIS9_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(41) %_M_storage.i.i.i.i.i6)
   %57 = extractvalue { ptr, ptr } %call75.i.i, 0
   %58 = extractvalue { ptr, ptr } %call75.i.i, 1
   br label %invoke.cont7.i

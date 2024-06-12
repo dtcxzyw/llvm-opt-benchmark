@@ -18,7 +18,7 @@ define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %.021, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %8) #5
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %8) #5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.critedge, label %11
 
@@ -93,7 +93,7 @@ define ptr @agbindrec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %.021.i, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %10) #5
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #5
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.critedge.i, label %13
 
@@ -195,7 +195,7 @@ objputrec.exit:                                   ; preds = %objputrec.exit.sink
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %.021.i21, align 8
-  %54 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %53) #5
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %53) #5
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.critedge.i24, label %56
 
@@ -263,7 +263,7 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef read
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %.021.i, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %8) #5
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %8) #5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.critedge.i, label %11
 
@@ -523,7 +523,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr %.021.i.i, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %17) #5
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #5
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.critedge.i.i, label %20
 

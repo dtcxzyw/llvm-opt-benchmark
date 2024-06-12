@@ -43,7 +43,7 @@ chunk_list_free.exit:                             ; preds = %.lr.ph.i, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_bufq_init2(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -55,7 +55,7 @@ define dso_local void @Curl_bufq_init2(ptr nocapture noundef writeonly %0, i64 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_bufq_init(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -69,7 +69,7 @@ define dso_local void @Curl_bufq_init(ptr nocapture noundef writeonly %0, i64 no
 define dso_local void @Curl_bufq_initp(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %6, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -318,7 +318,7 @@ chunk_append.exit:                                ; preds = %12
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = getelementptr inbounds [1 x i8], ptr %18, i64 0, i64 %14
   %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 %.02435)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %.02336, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %.02336, i64 %20, i1 false)
   %21 = load i64, ptr %13, align 8
   %22 = add i64 %21, %20
   store i64 %22, ptr %13, align 8
@@ -367,7 +367,7 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
   store ptr %11, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %get_spare.exit
 
 13:                                               ; preds = %7
@@ -405,7 +405,7 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
   store i64 %31, ptr %29, align 8
   store ptr null, ptr %26, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   br label %42
 
 33:                                               ; preds = %25
@@ -503,12 +503,12 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
   br i1 %.not21.i, label %23, label %22
 
 22:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.01829, ptr nonnull align 1 %17, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01829, ptr nonnull align 1 %17, i64 %20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br label %chunk_read.exit
 
 23:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.01829, ptr nonnull align 1 %17, i64 %.02028, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01829, ptr nonnull align 1 %17, i64 %.02028, i1 false)
   %24 = load i64, ptr %15, align 8
   %25 = add i64 %24, %.02028
   store i64 %25, ptr %15, align 8
@@ -563,7 +563,7 @@ chunk_read.exit:                                  ; preds = %13, %22, %23
 
 47:                                               ; preds = %40
   store ptr null, ptr %30, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %48 = load ptr, ptr %39, align 8
   store ptr %48, ptr %30, align 8
   store ptr %30, ptr %39, align 8
@@ -691,7 +691,7 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek(ptr nocapture noundef %0, pt
 
 32:                                               ; preds = %25
   store ptr null, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %33 = load ptr, ptr %24, align 8
   store ptr %33, ptr %15, align 8
   store ptr %15, ptr %24, align 8
@@ -902,7 +902,7 @@ chunk_skip.exit:                                  ; preds = %11, %16, %21
 
 41:                                               ; preds = %34
   store ptr null, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %42 = load ptr, ptr %33, align 8
   store ptr %42, ptr %24, align 8
   store ptr %24, ptr %33, align 8
@@ -1147,7 +1147,7 @@ Curl_bufq_pass.exit:                              ; preds = %38, %35, %37
   store ptr %48, ptr %10, align 8
   store ptr null, ptr %46, align 8
   %49 = getelementptr inbounds i8, ptr %46, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   br label %get_spare.exit.i
 
 50:                                               ; preds = %45
@@ -1181,7 +1181,7 @@ Curl_bufq_pass.exit:                              ; preds = %38, %35, %37
   store i64 %64, ptr %62, align 8
   store ptr null, ptr %59, align 8
   %65 = getelementptr inbounds i8, ptr %59, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br label %75
 
 66:                                               ; preds = %58
@@ -1256,7 +1256,7 @@ chunk_append.exit.i:                              ; preds = %get_non_full_tail.e
   %97 = getelementptr inbounds i8, ptr %.0.i40, i64 32
   %98 = getelementptr inbounds [1 x i8], ptr %97, i64 0, i64 %94
   %99 = tail call i64 @llvm.umin.i64(i64 %96, i64 %.02435.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.02336.i, i64 %99, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %.02336.i, i64 %99, i1 false)
   %100 = load i64, ptr %95, align 8
   %101 = add i64 %100, %99
   store i64 %101, ptr %95, align 8

@@ -58978,7 +58978,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define void @ws_manuf_iter_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(3) %2, ptr noundef nonnull readonly align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
   %3 = getelementptr i8, ptr %0, i64 27
   store i8 0, ptr %3, align 1
   %4 = getelementptr i8, ptr %0, i64 28
@@ -59004,7 +59004,7 @@ define void @ws_manuf_iter_init(ptr nocapture noundef writeonly %0) local_unname
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %15, ptr noundef nonnull readonly align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %15, ptr noundef nonnull align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 77
   store i8 36, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %0, i64 80
@@ -59107,7 +59107,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = getelementptr [34910 x %struct.manuf_oui24_t], ptr @global_manuf_oui24_table, i64 0, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(3) %40, ptr noundef nonnull readonly align 8 dereferenceable(3) %41, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %40, ptr noundef nonnull align 8 dereferenceable(3) %41, i64 3, i1 false)
   %42 = getelementptr i8, ptr %0, i64 27
   store i8 0, ptr %42, align 1
   %43 = getelementptr i8, ptr %0, i64 28
@@ -59140,7 +59140,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %0, i64 72
   %59 = getelementptr [10404 x %struct.manuf_oui36_t], ptr @global_manuf_oui36_table, i64 0, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %58, ptr noundef nonnull readonly align 8 dereferenceable(5) %59, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %58, ptr noundef nonnull align 8 dereferenceable(5) %59, i64 5, i1 false)
   br label %.sink.split
 
 60:                                               ; preds = %._crit_edge
@@ -59245,7 +59245,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   store i64 0, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(3) %5, ptr noundef nonnull readonly align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 27
   store i8 0, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %2, i64 28
@@ -59271,7 +59271,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %18, ptr noundef nonnull readonly align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %18, ptr noundef nonnull align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
   %19 = getelementptr inbounds i8, ptr %2, i64 77
   store i8 36, ptr %19, align 1
   %20 = getelementptr inbounds i8, ptr %2, i64 80
@@ -59306,7 +59306,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %36 = zext i8 %35 to i32
   %37 = load i8, ptr %25, align 2
   %38 = zext i8 %37 to i32
-  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.3, i32 noundef %34, i32 noundef %36, i32 noundef %38) #11
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.3, i32 noundef %34, i32 noundef %36, i32 noundef %38) #11
   br label %ws_manuf_block_str.exit
 
 40:                                               ; preds = %30
@@ -59318,7 +59318,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %46 = zext i8 %45 to i32
   %47 = load i8, ptr %26, align 1
   %48 = zext i8 %47 to i32
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48) #11
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48) #11
   br label %ws_manuf_block_str.exit
 
 50:                                               ; preds = %30
@@ -59332,7 +59332,7 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %58 = zext i8 %57 to i32
   %59 = load i8, ptr %27, align 4
   %60 = zext i8 %59 to i32
-  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %52, i32 noundef %54, i32 noundef %56, i32 noundef %58, i32 noundef %60) #11
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %52, i32 noundef %54, i32 noundef %56, i32 noundef %58, i32 noundef %60) #11
   br label %ws_manuf_block_str.exit
 
 62:                                               ; preds = %30

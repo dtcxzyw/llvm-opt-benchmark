@@ -679,7 +679,7 @@ define range(i32 -1, 1) i32 @zend_register_constant(ptr nocapture noundef readon
 
 53:                                               ; preds = %51, %49
   %54 = phi ptr [ %50, %49 ], [ %52, %51 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store ptr %54, ptr %2, align 8
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 13, ptr %55, align 8

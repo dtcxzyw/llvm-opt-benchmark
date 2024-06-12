@@ -1046,7 +1046,7 @@ define i64 @Sfm_ComputeInterpolant(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %25, label %.lr.ph.preheader.i, label %Abc_TtClear.exit
 
 .lr.ph.preheader.i:                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %24, i8 0, i64 %27, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, i8 0, i64 %27, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %1, %.lr.ph.preheader.i
@@ -1392,7 +1392,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %25, label %.lr.ph.preheader.i125, label %Abc_TtFill.exit
 
 .lr.ph.preheader.i125:                            ; preds = %205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %33, i8 -1, i64 %27, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 -1, i64 %27, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %205, %.lr.ph.preheader.i125

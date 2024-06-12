@@ -635,7 +635,7 @@ if.then186.i:                                     ; preds = %if.end180.i
   %litlen199.i = getelementptr inbounds i8, ptr %arrayidx159.i, i64 12
   %87 = load i32, ptr %litlen199.i, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %retval.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %rep193.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i, ptr noundef nonnull align 4 dereferenceable(12) %rep193.i, i64 12, i1 false)
   %cmp.i.i = icmp ugt i32 %86, 3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -1000,7 +1000,7 @@ if.then422.i:                                     ; preds = %_shortestPath.i.thr
   %idxprom423.i = zext i32 %cur.i.1669 to i64
   %rep425.i = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %10, i64 %idxprom423.i, i32 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %retval.i540)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i540, ptr noundef nonnull readonly align 4 dereferenceable(12) %rep425.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i540, ptr noundef nonnull align 4 dereferenceable(12) %rep425.i, i64 12, i1 false)
   %cmp.i.i541 = icmp ugt i32 %lastSequence.i.sroa.3.0666, 3
   br i1 %cmp.i.i541, label %if.then.i.i569, label %if.else.i.i542
 
@@ -2069,7 +2069,7 @@ if.then186.i:                                     ; preds = %if.end180.i
   %litlen199.i = getelementptr inbounds i8, ptr %arrayidx159.i, i64 12
   %98 = load i32, ptr %litlen199.i, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %retval.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %rep193.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i, ptr noundef nonnull align 4 dereferenceable(12) %rep193.i, i64 12, i1 false)
   %cmp.i.i = icmp ugt i32 %97, 3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -2550,7 +2550,7 @@ if.then422.i:                                     ; preds = %_shortestPath.i.thr
   %idxprom423.i = zext i32 %cur.i.1743 to i64
   %rep425.i = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %10, i64 %idxprom423.i, i32 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %retval.i598)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i598, ptr noundef nonnull readonly align 4 dereferenceable(12) %rep425.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %retval.i598, ptr noundef nonnull align 4 dereferenceable(12) %rep425.i, i64 12, i1 false)
   %cmp.i.i599 = icmp ugt i32 %lastSequence.i.sroa.3.0740, 3
   br i1 %cmp.i.i599, label %if.then.i.i627, label %if.else.i.i600
 
@@ -3043,7 +3043,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true4
 
 if.then:                                          ; preds = %land.lhs.true9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %tmpRep.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %tmpRep.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %rep, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %tmpRep.i, ptr noundef nonnull align 4 dereferenceable(12) %rep, i64 12, i1 false)
   %call.i = call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef nonnull %ms, ptr noundef nonnull %seqStore, ptr noundef nonnull %tmpRep.i, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   call void @ZSTD_resetSeqStore(ptr noundef nonnull %seqStore) #11
   %6 = load ptr, ptr %base, align 8

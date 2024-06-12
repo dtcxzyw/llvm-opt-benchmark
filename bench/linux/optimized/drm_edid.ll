@@ -7303,7 +7303,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   %.sroa.1282.1 = phi i32 [ %.sroa.1282.0, %75 ], [ %.sroa.1282.2, %84 ]
   %78 = phi i64 [ 0, %75 ], [ %85, %84 ]
   %79 = getelementptr [6 x %struct.std_timing], ptr %76, i64 0, i64 %78
-  %80 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %79)
+  %80 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %79)
   %81 = icmp eq ptr %80, null
   br i1 %81, label %84, label %82
 
@@ -7457,7 +7457,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
   %.sroa.1282.6 = phi i32 [ %.sroa.1282.5, %170 ], [ %.sroa.1282.7, %179 ]
   %173 = phi i64 [ 0, %170 ], [ %180, %179 ]
   %174 = getelementptr [6 x %struct.std_timing], ptr %171, i64 0, i64 %173
-  %175 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %174)
+  %175 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %174)
   %176 = icmp eq ptr %175, null
   br i1 %176, label %179, label %177
 
@@ -7523,7 +7523,7 @@ do_standard_modes.exit75:                         ; preds = %179, %156, %162, %1
   %.sroa.1282.10 = phi i32 [ %.sroa.1282.9, %210 ], [ %.sroa.1282.11, %219 ]
   %213 = phi i64 [ 0, %210 ], [ %220, %219 ]
   %214 = getelementptr [6 x %struct.std_timing], ptr %211, i64 0, i64 %213
-  %215 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %214)
+  %215 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %214)
   %216 = icmp eq ptr %215, null
   br i1 %216, label %219, label %217
 

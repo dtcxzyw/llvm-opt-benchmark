@@ -477,7 +477,7 @@ return:                                           ; preds = %if.end32, %sw.bb109
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %str.coerce0, ptr nocapture readonly %str.coerce1) local_unnamed_addr #3 {
 entry:
-  %call2.i = tail call fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEPKhl(ptr noundef readonly %str.coerce1, i64 noundef %str.coerce0)
+  %call2.i = tail call fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEPKhl(ptr noundef %str.coerce1, i64 noundef %str.coerce0)
   ret i1 %call2.i
 }
 

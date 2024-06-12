@@ -116,7 +116,7 @@ entry:
   %random_bool_source_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %random_generator, ptr %random_bool_source_, align 8
   %bit_bucket_.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bit_bucket_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bit_bucket_.i, i8 0, i64 16, i1 false)
   %buffer_allocator_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %buffer_allocator, ptr %buffer_allocator_, align 8
   %send_version_in_packet_ = getelementptr inbounds i8, ptr %this, i64 56

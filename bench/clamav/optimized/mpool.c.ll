@@ -838,40 +838,39 @@ define ptr @cli_mpool_virname(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 12:                                               ; preds = %9
   %.not21 = icmp eq i32 %2, 0
-  br i1 %.not21, label %19, label %13
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  br i1 %.not21, label %19, label %14
 
-13:                                               ; preds = %12
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
-  %15 = add i64 %14, 1
+14:                                               ; preds = %12
+  %15 = add i64 %13, 1
   %16 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %15)
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %18
 
-17:                                               ; preds = %13
+17:                                               ; preds = %14
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.16, i64 noundef %15) #10
   br label %cli_mpool_strdup.exit
 
-18:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %15, i1 false)
+18:                                               ; preds = %14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %15, i1 false)
   br label %cli_mpool_strdup.exit
 
 19:                                               ; preds = %12
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %21 = add i64 %20, 12
-  %22 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %21)
-  %.not22 = icmp eq ptr %22, null
-  br i1 %.not22, label %23, label %24
+  %20 = add i64 %13, 12
+  %21 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %20)
+  %.not22 = icmp eq ptr %21, null
+  br i1 %.not22, label %22, label %23
 
-23:                                               ; preds = %19
+22:                                               ; preds = %19
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21) #10
   br label %cli_mpool_strdup.exit
 
-24:                                               ; preds = %19
-  %25 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %1) #10
+23:                                               ; preds = %19
+  %24 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %1) #10
   br label %cli_mpool_strdup.exit
 
-cli_mpool_strdup.exit:                            ; preds = %18, %17, %3, %24, %23, %11
-  %.0 = phi ptr [ %22, %24 ], [ null, %23 ], [ null, %11 ], [ null, %3 ], [ %16, %18 ], [ null, %17 ]
+cli_mpool_strdup.exit:                            ; preds = %18, %17, %3, %23, %22, %11
+  %.0 = phi ptr [ %21, %23 ], [ null, %22 ], [ null, %11 ], [ null, %3 ], [ %16, %18 ], [ null, %17 ]
   ret ptr %.0
 }
 

@@ -200,7 +200,7 @@ define i32 @opal_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr n
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %8 = call i32 @stat(ptr noundef nonnull readonly %0, ptr noundef nonnull %4) #11
+  %8 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %4) #11
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds i8, ptr %4, i64 24
   %11 = load i32, ptr %10, align 8
@@ -412,7 +412,7 @@ sub_2:                                            ; preds = %sub_152
 
 87:                                               ; preds = %.sink.split, %7
   %.3 = phi i32 [ %.05.i, %7 ], [ %.3.ph, %.sink.split ]
-  %88 = tail call ptr @opendir(ptr noundef nonnull readonly %0)
+  %88 = tail call ptr @opendir(ptr noundef nonnull %0)
   %.not11.i = icmp eq ptr %88, null
   br i1 %.not11.i, label %opal_os_dirpath_is_empty.exit.thread, label %.preheader.i
 

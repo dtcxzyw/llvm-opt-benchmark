@@ -73,7 +73,7 @@ if.end.i:                                         ; preds = %entry
   %pending_in.i = getelementptr inbounds i8, ptr %key, i64 5873
   %idxprom.i = zext i8 %1 to i64
   %arrayidx.i = getelementptr [32 x [64 x i8]], ptr %pending_in.i, i64 0, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %arrayidx.i, ptr noundef nonnull readonly align 1 dereferenceable(64) %packet, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(64) %packet, i64 64, i1 false)
   br label %u2f_pending_in_add.exit
 
 u2f_pending_in_add.exit:                          ; preds = %entry, %if.end.i

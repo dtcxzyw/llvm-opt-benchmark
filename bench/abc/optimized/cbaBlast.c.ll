@@ -1611,7 +1611,7 @@ define i32 @Cba_BlastLessSigned(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %15, label %Cba_BlastLess.exit, label %16
 
 16:                                               ; preds = %4
-  call void @Cba_BlastLess_rec(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call void @Cba_BlastLess_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %17 = load i32, ptr %5, align 4
   br label %Cba_BlastLess.exit
 
@@ -2697,7 +2697,7 @@ Vec_IntAlloc.exit135:                             ; preds = %Vec_IntAlloc.exit13
   %74 = getelementptr i8, ptr %73, i64 -4
   %75 = load i32, ptr %74, align 4
   %76 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %71, i32 noundef %75) #20
-  %77 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %8, ptr noundef readonly %1, i32 noundef %2)
+  %77 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2)
   %78 = icmp sgt i32 %2, 0
   br i1 %78, label %.lr.ph.preheader.i, label %Cba_BlastMinus.exit
 
@@ -2721,7 +2721,7 @@ Vec_IntAlloc.exit135:                             ; preds = %Vec_IntAlloc.exit13
   br i1 %exitcond.not.i, label %Cba_BlastMinus.exit, label %.lr.ph.i, !llvm.loop !29
 
 Cba_BlastMinus.exit:                              ; preds = %.lr.ph.i, %Vec_IntAlloc.exit135
-  %86 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %17, ptr noundef readonly %3, i32 noundef %4)
+  %86 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %17, ptr noundef %3, i32 noundef %4)
   %87 = icmp sgt i32 %4, 0
   br i1 %87, label %.lr.ph.preheader.i136, label %Cba_BlastMinus.exit143
 
@@ -2758,7 +2758,7 @@ Cba_BlastMinus.exit143:                           ; preds = %.lr.ph.i138, %Cba_B
 
 ._crit_edge.thread:                               ; preds = %Cba_BlastMinus.exit143
   %.val107181 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %96 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %60, ptr noundef readonly %.val107181, i32 noundef %2)
+  %96 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %60, ptr noundef %.val107181, i32 noundef %2)
   br label %._crit_edge168
 
 .lr.ph:                                           ; preds = %Cba_BlastMinus.exit143
@@ -2854,7 +2854,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit
   %140 = getelementptr i8, ptr %6, i64 8
   %.val107 = load ptr, ptr %140, align 8
-  %141 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %60, ptr noundef readonly %.val107, i32 noundef %2)
+  %141 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %60, ptr noundef %.val107, i32 noundef %2)
   br i1 %78, label %.lr.ph.preheader.i144, label %._crit_edge168
 
 .lr.ph.preheader.i144:                            ; preds = %._crit_edge
@@ -3797,10 +3797,10 @@ Vec_IntGrow.exit:                                 ; preds = %10, %25
   br i1 %.not.i1038, label %Abc_UtilStrsav.exit, label %50
 
 50:                                               ; preds = %Vec_IntGrow.exit
-  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val987) #21
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val987) #21
   %52 = add i64 %51, 1
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #19
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %.val987) #20
+  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.val987) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntGrow.exit, %50
@@ -6606,7 +6606,7 @@ Vec_IntPush.exit1341:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %1360, label %Cba_BlastLess.exit, label %1361
 
 1361:                                             ; preds = %1359
-  call void @Cba_BlastLess_rec(ptr noundef nonnull %48, ptr noundef readonly %spec.select973, ptr noundef readonly %spec.select, i32 noundef %1350, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call void @Cba_BlastLess_rec(ptr noundef nonnull %48, ptr noundef %spec.select973, ptr noundef %spec.select, i32 noundef %1350, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %1362 = load i32, ptr %3, align 4
   br label %Cba_BlastLess.exit
 
@@ -7366,7 +7366,7 @@ Cba_VecLoadFanins.exit1528.us:                    ; preds = %.lr.ph1872.us
   %1690 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1689, i32 noundef 115) #21
   %1691 = icmp ne ptr %1690, null
   %1692 = zext i1 %1691 to i32
-  tail call void @Cba_BlastConst(ptr noundef nonnull readonly %0, ptr noundef %27, i32 noundef %1533, i32 noundef %1687, i32 noundef %1692)
+  tail call void @Cba_BlastConst(ptr noundef nonnull %0, ptr noundef %27, i32 noundef %1533, i32 noundef %1687, i32 noundef %1692)
   %1693 = icmp sgt i32 %1687, 0
   br i1 %1693, label %.lr.ph1867.us.preheader, label %._crit_edge1868.us
 
@@ -7934,7 +7934,7 @@ Cba_VecLoadFanins.exit:                           ; preds = %.lr.ph1853
   %1939 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1938, i32 noundef 115) #21
   %1940 = icmp ne ptr %1939, null
   %1941 = zext i1 %1940 to i32
-  tail call void @Cba_BlastConst(ptr noundef nonnull readonly %0, ptr noundef %27, i32 noundef %1782, i32 noundef %1936, i32 noundef %1941)
+  tail call void @Cba_BlastConst(ptr noundef nonnull %0, ptr noundef %27, i32 noundef %1782, i32 noundef %1936, i32 noundef %1941)
   %1942 = icmp sgt i32 %1936, 0
   br i1 %1942, label %.lr.ph1848.preheader, label %._crit_edge1849
 
@@ -8218,7 +8218,7 @@ Cba_FonRangeSize.exit1411:                        ; preds = %Cba_FonRange.exit.i
   %2086 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2085, i32 noundef 115) #21
   %2087 = icmp ne ptr %2086, null
   %2088 = zext i1 %2087 to i32
-  tail call void @Cba_BlastConst(ptr noundef nonnull readonly %0, ptr noundef %27, i32 noundef %2079, i32 noundef %2059, i32 noundef %2088)
+  tail call void @Cba_BlastConst(ptr noundef nonnull %0, ptr noundef %27, i32 noundef %2079, i32 noundef %2059, i32 noundef %2088)
   br label %Cba_VecLoadFanins.exit1454
 
 2089:                                             ; preds = %2077

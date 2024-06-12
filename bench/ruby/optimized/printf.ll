@@ -367,7 +367,7 @@ rbimpl_intern_const.exit64:                       ; preds = %.lr.ph.i62, %87
   %105 = ptrtoint ptr %93 to i64
   %106 = ptrtoint ptr %99 to i64
   %107 = sub i64 %105, %106
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.4.ptr.ptr, ptr noundef nonnull align 1 dereferenceable(1) %99, i64 %107, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.4.ptr.ptr, ptr noundef nonnull align 1 dereferenceable(1) %99, i64 %107, i1 false)
   %.4.ptr.add = add nsw i64 %107, %.4.idx
   br label %uint_to_str.exit
 
@@ -427,7 +427,7 @@ rbimpl_intern_const.exit72:                       ; preds = %.lr.ph.i70, %uint_t
   %128 = ptrtoint ptr %116 to i64
   %129 = ptrtoint ptr %122 to i64
   %130 = sub i64 %128, %129
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.ptr, ptr noundef nonnull align 1 dereferenceable(1) %122, i64 %130, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.ptr, ptr noundef nonnull align 1 dereferenceable(1) %122, i64 %130, i1 false)
   %131 = getelementptr inbounds i8, ptr %.ptr, i64 %130
   br label %uint_to_str.exit78
 

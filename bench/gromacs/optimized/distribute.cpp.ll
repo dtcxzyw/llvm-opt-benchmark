@@ -2496,7 +2496,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i: ; preds = %55, %_ZN
   %61 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %62 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.050.1.i, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, ptr noundef nonnull readonly align 4 dereferenceable(12) %61, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false)
   %63 = getelementptr inbounds i8, ptr %.sroa.048.066.i, i64 4
   %.not60.i = icmp eq ptr %63, %.sroa.0.0.copyload.i41.i
   br i1 %.not60.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
@@ -2590,7 +2590,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %65, %64
   %88 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %87
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
   %89 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %indvars.iv88.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, ptr noundef nonnull readonly align 4 dereferenceable(12) %88, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, ptr noundef nonnull align 4 dereferenceable(12) %88, i64 12, i1 false)
   %90 = getelementptr inbounds i8, ptr %.sroa.0.076.i, i64 4
   %.not59.i = icmp eq ptr %90, %.sroa.0.0.copyload.i44.i
   br i1 %.not59.i, label %._crit_edge80.i, label %.lr.ph79.i
@@ -2661,7 +2661,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %65, %64
   %120 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %119
   %indvars.iv.next.i8 = add nsw i64 %indvars.iv.i7, 1
   %121 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %indvars.iv.i7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %121, ptr noundef nonnull readonly align 4 dereferenceable(12) %120, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %121, ptr noundef nonnull align 4 dereferenceable(12) %120, i64 12, i1 false)
   %122 = getelementptr inbounds i8, ptr %.sroa.027.036.i, i64 4
   %.not.i9 = icmp eq ptr %122, %.sroa.0.0.copyload.i24.i
   br i1 %.not.i9, label %._crit_edge.loopexit.i10, label %.lr.ph.i6

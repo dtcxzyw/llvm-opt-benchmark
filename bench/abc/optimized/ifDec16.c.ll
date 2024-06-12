@@ -3148,7 +3148,7 @@ If_CluInitTruthTables.exit.._crit_edge_crit_edge: ; preds = %If_CluInitTruthTabl
 If_CluClear.exit.i:                               ; preds = %._crit_edge
   %45 = zext nneg i32 %43 to i64
   %46 = shl nuw nsw i64 %45, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %10, i8 0, i64 %46, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %10, i8 0, i64 %46, i1 false)
   %.not45.i = icmp eq i8 %28, 31
   br i1 %.not45.i, label %If_CluComposeLut.exit, label %.lr.ph43.split.us.i.preheader
 
@@ -3169,7 +3169,7 @@ If_CluClear.exit.i:                               ; preds = %._crit_edge
   br i1 %.not.us.i, label %If_CluOr.exit.us.i, label %.lr.ph.preheader.i24.us.i
 
 .lr.ph.preheader.i24.us.i:                        ; preds = %.lr.ph43.split.us.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %8, i8 -1, i64 %46, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, i8 -1, i64 %46, i1 false)
   br i1 %29, label %.lr.ph.us.i, label %.lr.ph.i34.us.i.preheader
 
 .lr.ph.i34.us.i.preheader:                        ; preds = %If_CluAnd.exit.us.us.i, %.lr.ph.preheader.i24.us.i
@@ -3286,7 +3286,7 @@ If_CluComposeLut.exit89.thread97:                 ; preds = %._crit_edge107
 If_CluClear.exit.i58:                             ; preds = %._crit_edge107
   %88 = zext nneg i32 %43 to i64
   %89 = shl nuw nsw i64 %88, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %11, i8 0, i64 %89, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %11, i8 0, i64 %89, i1 false)
   %.not45.i59 = icmp eq i8 %74, 31
   br i1 %.not45.i59, label %If_CluComposeLut.exit89.thread, label %.lr.ph43.split.us.i61.preheader
 
@@ -3315,7 +3315,7 @@ If_CluComposeLut.exit89.thread:                   ; preds = %If_CluClear.exit.i5
   br i1 %.not.us.i63, label %If_CluOr.exit.us.i72, label %.lr.ph.preheader.i24.us.i64
 
 .lr.ph.preheader.i24.us.i64:                      ; preds = %.lr.ph43.split.us.i61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %7, i8 -1, i64 %89, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 -1, i64 %89, i1 false)
   br i1 %75, label %.lr.ph.us.i75, label %.lr.ph.i34.us.i66.preheader
 
 .lr.ph.i34.us.i66.preheader:                      ; preds = %If_CluAnd.exit.us.us.i82, %.lr.ph.preheader.i24.us.i64
@@ -3523,7 +3523,7 @@ If_CluInitTruthTables.exit.._crit_edge_crit_edge: ; preds = %If_CluInitTruthTabl
 If_CluClear.exit.i:                               ; preds = %._crit_edge
   %52 = zext nneg i32 %50 to i64
   %53 = shl nuw nsw i64 %52, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %16, i8 0, i64 %53, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %16, i8 0, i64 %53, i1 false)
   %.not45.i = icmp eq i8 %35, 31
   br i1 %.not45.i, label %If_CluComposeLut.exit.thread227, label %.lr.ph43.split.us.i.preheader
 
@@ -3544,7 +3544,7 @@ If_CluClear.exit.i:                               ; preds = %._crit_edge
   br i1 %.not.us.i, label %If_CluOr.exit.us.i, label %.lr.ph.preheader.i24.us.i
 
 .lr.ph.preheader.i24.us.i:                        ; preds = %.lr.ph43.split.us.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %11, i8 -1, i64 %53, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %11, i8 -1, i64 %53, i1 false)
   br i1 %36, label %.lr.ph.us.i, label %.lr.ph.i34.us.i.preheader
 
 .lr.ph.i34.us.i.preheader:                        ; preds = %If_CluAnd.exit.us.us.i, %.lr.ph.preheader.i24.us.i
@@ -3622,7 +3622,7 @@ If_CluClear.exit.i70.thread:                      ; preds = %If_CluComposeLut.ex
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %10)
   %85 = zext nneg i32 %50 to i64
   %86 = shl nuw nsw i64 %85, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %17, i8 0, i64 %86, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %17, i8 0, i64 %86, i1 false)
   br label %.lr.ph43.split.us.i73.preheader
 
 If_CluComposeLut.exit.thread:                     ; preds = %._crit_edge
@@ -3666,7 +3666,7 @@ If_CluComposeLut.exit.thread:                     ; preds = %._crit_edge
 If_CluClear.exit.i70:                             ; preds = %._crit_edge188
   %97 = zext nneg i32 %50 to i64
   %98 = shl nuw nsw i64 %97, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %17, i8 0, i64 %98, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %17, i8 0, i64 %98, i1 false)
   %.not45.i71 = icmp eq i8 %96, 31
   br i1 %.not45.i71, label %If_CluComposeLut.exit101, label %.lr.ph43.split.us.i73.preheader
 
@@ -3691,7 +3691,7 @@ If_CluClear.exit.i70:                             ; preds = %._crit_edge188
   br i1 %.not.us.i75, label %If_CluOr.exit.us.i84, label %.lr.ph.preheader.i24.us.i76
 
 .lr.ph.preheader.i24.us.i76:                      ; preds = %.lr.ph43.split.us.i73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %10, i8 -1, i64 %99, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %10, i8 -1, i64 %99, i1 false)
   br i1 %101, label %.lr.ph.us.i87, label %.lr.ph.i34.us.i78.preheader
 
 .lr.ph.i34.us.i78.preheader:                      ; preds = %If_CluAnd.exit.us.us.i94, %.lr.ph.preheader.i24.us.i76
@@ -3816,7 +3816,7 @@ If_CluComposeLut.exit154.thread175:               ; preds = %._crit_edge193
 If_CluClear.exit.i123:                            ; preds = %._crit_edge193
   %148 = zext nneg i32 %50 to i64
   %149 = shl nuw nsw i64 %148, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %18, i8 0, i64 %149, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %18, i8 0, i64 %149, i1 false)
   %.not45.i124 = icmp eq i8 %130, 31
   br i1 %.not45.i124, label %If_CluComposeLut.exit154.thread, label %.lr.ph43.split.us.i126.preheader
 
@@ -3841,7 +3841,7 @@ If_CluComposeLut.exit154.thread:                  ; preds = %If_CluClear.exit.i1
   br i1 %.not.us.i128, label %If_CluOr.exit.us.i137, label %.lr.ph.preheader.i24.us.i129
 
 .lr.ph.preheader.i24.us.i129:                     ; preds = %.lr.ph43.split.us.i126
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %9, i8 -1, i64 %149, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 -1, i64 %149, i1 false)
   br i1 %131, label %.lr.ph.us.i140, label %.lr.ph.i34.us.i131.preheader
 
 .lr.ph.i34.us.i131.preheader:                     ; preds = %If_CluAnd.exit.us.us.i147, %.lr.ph.preheader.i24.us.i129

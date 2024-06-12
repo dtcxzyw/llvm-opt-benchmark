@@ -1075,7 +1075,7 @@ lor.lhs.false23.i:                                ; preds = %lor.lhs.false20.i
 
 if.end34.i:                                       ; preds = %lor.lhs.false23.i, %if.end15.i
   %usermatched.0.i = phi i8 [ 0, %if.end15.i ], [ 1, %lor.lhs.false23.i ]
-  %call35.i = call fastcc i32 @match_host(ptr noundef nonnull readonly %url1, ptr noundef nonnull readonly %norm_info)
+  %call35.i = call fastcc i32 @match_host(ptr noundef nonnull %url1, ptr noundef nonnull %norm_info)
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %return.critedge, label %if.end38.i
 
@@ -1534,13 +1534,13 @@ while.body:                                       ; preds = %while.body.preheade
   %url.043 = phi ptr [ %spec.select, %if.end29 ], [ %add.ptr, %while.body.preheader ]
   %sext = shl i64 %url_len.0.in45, 32
   %conv8 = ashr exact i64 %sext, 32
-  %call.i = tail call ptr @memchr(ptr noundef readonly %url.043, i32 noundef 46, i64 noundef %conv8) #14
+  %call.i = tail call ptr @memchr(ptr noundef %url.043, i32 noundef 46, i64 noundef %conv8) #14
   %tobool.not.i = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %url.043, i64 %conv8
   %spec.select.i = select i1 %tobool.not.i, ptr %add.ptr.i, ptr %call.i
   %sext34 = shl i64 %pat_len.0.in46, 32
   %conv9 = ashr exact i64 %sext34, 32
-  %call.i35 = tail call ptr @memchr(ptr noundef readonly %pat.044, i32 noundef 46, i64 noundef %conv9) #14
+  %call.i35 = tail call ptr @memchr(ptr noundef %pat.044, i32 noundef 46, i64 noundef %conv9) #14
   %tobool.not.i36 = icmp eq ptr %call.i35, null
   %add.ptr.i37 = getelementptr inbounds i8, ptr %pat.044, i64 %conv9
   %spec.select.i38 = select i1 %tobool.not.i36, ptr %add.ptr.i37, ptr %call.i35

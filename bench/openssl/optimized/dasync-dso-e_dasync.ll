@@ -70,7 +70,7 @@ skip_cbs:                                         ; preds = %entry, %if.end
   br i1 %tobool.not.i, label %bind_helper.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_cbs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(7) @.str) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(7) @.str) #9
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %bind_helper.exit, label %bind_helper.exit.thread
 

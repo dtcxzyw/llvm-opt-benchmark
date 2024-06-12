@@ -324,7 +324,7 @@ for.body.i:                                       ; preds = %for.cond.i, %lor.lh
   %i.04.i = phi i64 [ 0, %lor.lhs.false ], [ %inc.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.04.i
   %1 = load ptr, ptr %arrayidx.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %0) #6
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0) #6
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %lookup_key.exit, label %for.cond.i
 

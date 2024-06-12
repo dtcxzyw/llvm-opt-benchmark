@@ -204,7 +204,7 @@ if.then54:                                        ; preds = %land.lhs.true
 
 pkcs12_gen_gost_mac_key.exit:                     ; preds = %if.then54
   %add.ptr4.i = getelementptr inbounds i8, ptr %out.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %key, ptr noundef nonnull align 16 dereferenceable(32) %add.ptr4.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key, ptr noundef nonnull align 16 dereferenceable(32) %add.ptr4.i, i64 32, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %out.i, i64 noundef 96) #5
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %out.i)
   br label %if.end81

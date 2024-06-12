@@ -2577,13 +2577,13 @@ define dso_local ptr @trace_get_event_file(ptr noundef %0, ptr nocapture noundef
   br i1 %55, label %.thread.i, label %56
 
 56:                                               ; preds = %52
-  %57 = tail call i32 @strcmp(ptr noundef readonly %2, ptr noundef nonnull dereferenceable(1) %50) #19
+  %57 = tail call i32 @strcmp(ptr noundef %2, ptr noundef nonnull dereferenceable(1) %50) #19
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %.thread.i
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %54, align 8
-  %61 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef %60) #19
+  %61 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %60) #19
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %65, label %.thread.i
 
@@ -6395,7 +6395,7 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
 
 118:                                              ; preds = %111
   %119 = load ptr, ptr %109, align 8
-  %120 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.fr6, ptr noundef %119) #19
+  %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.fr6, ptr noundef %119) #19
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %.thread.i
 

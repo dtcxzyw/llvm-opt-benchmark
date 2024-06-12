@@ -1179,7 +1179,7 @@ rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
   %34 = getelementptr inbounds [64 x i8], ptr %33, i64 0, i64 %.0.i
   %35 = getelementptr inbounds i8, ptr @.str, i64 %.1.i
   %36 = xor i64 %.1.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %35, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %35, i64 %36, i1 false)
   %37 = load i32, ptr %4, align 4
   %38 = and i32 %37, 504
   %.not34 = icmp eq i32 %38, 448
@@ -1221,7 +1221,7 @@ rb_Digest_SHA1_Update.exit25:                     ; preds = %52, %47
   %54 = getelementptr inbounds [64 x i8], ptr %33, i64 0, i64 %.0.i20
   %55 = getelementptr inbounds i8, ptr @.str.1, i64 %.1.i19
   %56 = xor i64 %.1.i19, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %55, i64 %56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %55, i64 %56, i1 false)
   %57 = load i32, ptr %4, align 4
   %58 = and i32 %57, 504
   %.not = icmp eq i32 %58, 448

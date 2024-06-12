@@ -20319,7 +20319,7 @@ declare void @SSL_CTX_set_stateless_cookie_generate_cb(ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @generate_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #15 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %cookie, ptr noundef nonnull align 1 dereferenceable(12) @cookie_magic_value, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %cookie, ptr noundef nonnull align 1 dereferenceable(12) @cookie_magic_value, i64 12, i1 false)
   store i64 12, ptr %cookie_len, align 8
   ret i32 1
 }
@@ -20334,7 +20334,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %cookie, ptr noundef nonnull dereferenceable(12) @cookie_magic_value, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %cookie, ptr noundef nonnull dereferenceable(12) @cookie_magic_value, i64 12)
   %cmp3.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp3.i, label %verify_cookie_callback.exit, label %if.end.i
 

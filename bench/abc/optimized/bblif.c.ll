@@ -169,7 +169,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Bbl_ManFileRead(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
+  %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
 
@@ -233,7 +233,7 @@ define void @Bbl_ManDumpBinaryBlif(ptr nocapture noundef readonly %0, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Bbl_ManReadBinaryBlif(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(1232) ptr @calloc(i64 1, i64 1232)
-  %2 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
+  %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
 

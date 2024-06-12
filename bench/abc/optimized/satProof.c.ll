@@ -839,7 +839,7 @@ Abc_Clock.exit:
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = call i32 @Proof_MarkUsed_rec(ptr noundef readonly %0, i32 noundef %10)
+  %13 = call i32 @Proof_MarkUsed_rec(ptr noundef %0, i32 noundef %10)
   %14 = add nsw i32 %13, %.014.i
   %.val.pre.i = load i32, ptr %5, align 4
   br label %15

@@ -268,7 +268,7 @@ if.end25.i:                                       ; preds = %if.end20.i
   br i1 %tobool28.not.i, label %kdf_pbkdf1_do_derive.exit, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %key, ptr nonnull align 16 %md_tmp.i, i64 %keylen, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %key, ptr nonnull align 16 %md_tmp.i, i64 %keylen, i1 false)
   br label %kdf_pbkdf1_do_derive.exit
 
 kdf_pbkdf1_do_derive.exit:                        ; preds = %for.body.i, %if.end20.i, %if.end25.i, %if.then.i, %if.end.i, %lor.lhs.false.i, %lor.lhs.false4.i, %lor.lhs.false7.i, %if.end11.i, %for.end.i

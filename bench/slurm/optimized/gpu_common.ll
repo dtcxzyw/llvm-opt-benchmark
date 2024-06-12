@@ -562,7 +562,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br i1 %.not31, label %20, label %42
 
 20:                                               ; preds = %18
-  %21 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %16, ptr noundef null, i32 noundef 10) #7
+  %21 = call i64 @strtoul(ptr nocapture noundef nonnull %16, ptr noundef null, i32 noundef 10) #7
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr %4, align 4
   %.not32 = icmp eq i32 %22, 0
@@ -602,7 +602,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br i1 %.not28, label %_xlate_freq_value.exit, label %42
 
 _xlate_freq_value.exit:                           ; preds = %34
-  %36 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %.034, ptr noundef null, i32 noundef 10) #7
+  %36 = call i64 @strtoul(ptr nocapture noundef nonnull %.034, ptr noundef null, i32 noundef 10) #7
   %37 = trunc i64 %36 to i32
   store i32 %37, ptr %2, align 4
   %.not29 = icmp eq i32 %37, 0

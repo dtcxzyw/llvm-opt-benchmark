@@ -697,7 +697,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   store i32 1, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull readonly align 8 dereferenceable(24) %173, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
   %174 = getelementptr i8, ptr %171, i64 32
   store i32 2, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %1, i64 284
@@ -708,7 +708,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   store i32 1, ptr %178, align 8
   %179 = getelementptr i8, ptr %171, i64 72
   %180 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef nonnull readonly align 8 dereferenceable(24) %180, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef nonnull align 8 dereferenceable(24) %180, i64 24, i1 false)
   %181 = getelementptr i8, ptr %171, i64 96
   store i32 2, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %1, i64 288
@@ -1308,7 +1308,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   store i32 1, ptr %494, align 8
   %495 = getelementptr inbounds i8, ptr %494, i64 8
   %496 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %495, ptr noundef nonnull readonly align 8 dereferenceable(24) %496, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %495, ptr noundef nonnull align 8 dereferenceable(24) %496, i64 24, i1 false)
   %497 = getelementptr i8, ptr %494, i64 32
   store i32 2, ptr %497, align 8
   %498 = getelementptr inbounds i8, ptr %1, i64 284
@@ -1319,7 +1319,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   store i32 1, ptr %501, align 8
   %502 = getelementptr i8, ptr %494, i64 72
   %503 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull readonly align 8 dereferenceable(24) %503, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull align 8 dereferenceable(24) %503, i64 24, i1 false)
   %504 = getelementptr i8, ptr %494, i64 96
   store i32 2, ptr %504, align 8
   %505 = getelementptr inbounds i8, ptr %1, i64 288
@@ -1808,7 +1808,7 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %730, %._crit_edge.i
 
 778:                                              ; preds = %775, %772
   %.sink.i.i.i = phi i32 [ %777, %775 ], [ %774, %772 ]
-  %779 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 2048, ptr noundef nonnull @.str.267, i32 noundef %.sink.i.i.i) #7
+  %779 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 2048, ptr noundef nonnull @.str.267, i32 noundef %.sink.i.i.i) #7
   %780 = load i32, ptr %740, align 8
   %781 = icmp sgt i32 %780, 1
   %782 = icmp slt i32 %779, 1948
@@ -1853,7 +1853,7 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %730, %._crit_edge.i
 .sink.split.i.i:                                  ; preds = %805, %802
   %.sink53.i.i = phi i32 [ %807, %805 ], [ %804, %802 ]
   %.pre-phi.i.ph.i.i = phi i32 [ %786, %805 ], [ %792, %802 ]
-  %808 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %798, i64 noundef %800, ptr noundef nonnull @.str.268, i32 noundef %.sink53.i.i) #7
+  %808 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %798, i64 noundef %800, ptr noundef nonnull @.str.268, i32 noundef %.sink53.i.i) #7
   %809 = add i32 %808, %.134.i.i.i
   %.pre.i = load i32, ptr %740, align 8
   br label %810

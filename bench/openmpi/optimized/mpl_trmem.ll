@@ -1755,14 +1755,14 @@ define ptr @MPL_trstrdup(ptr nocapture noundef readonly %0, i32 noundef %1, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %3, %6
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %11 = add i64 %10, 1
   %12 = tail call fastcc ptr @trmalloc(i64 noundef 0, i64 noundef %11, i32 noundef 4, i32 noundef %1, ptr noundef %2)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %trstrdup.exit, label %13
 
 13:                                               ; preds = %.critedge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %0, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %0, i64 %11, i1 false)
   br label %trstrdup.exit
 
 trstrdup.exit:                                    ; preds = %.critedge, %13

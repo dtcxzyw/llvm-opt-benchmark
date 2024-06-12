@@ -2098,8 +2098,8 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
   store i32 %0, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 24
   %31 = getelementptr inbounds i8, ptr %27, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(57) %30, i8 0, i64 57, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %30, i8 0, i64 57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false)
   store ptr %27, ptr %4, align 8
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   %.not.i = icmp eq ptr %7, %32
@@ -2379,9 +2379,9 @@ define dso_local noundef ptr @_ZN4Type17find_pointer_typeEPKS_b(ptr noundef %0, 
   %20 = getelementptr inbounds i8, ptr %17, i64 24
   %21 = getelementptr inbounds i8, ptr %17, i64 76
   %22 = getelementptr inbounds i8, ptr %17, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %21, i8 0, i64 5, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %21, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13derived_types, i64 16), align 8
   %.not.i = icmp eq ptr %3, %23
   br i1 %.not.i, label %27, label %24
@@ -8330,8 +8330,8 @@ define dso_local void @_ZN4Type19GenerateSimpleTypesEv() local_unnamed_addr #4 a
   store i32 %.057, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = getelementptr inbounds i8, ptr %3, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(57) %6, i8 0, i64 57, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %6, i8 0, i64 57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8AllTypes, i64 16), align 8
   %.not.i.i = icmp eq ptr %2, %8
   br i1 %.not.i.i, label %12, label %9
@@ -8413,8 +8413,8 @@ _ZNSt6vectorIP4TypeSaIS1_EE9push_backEOS1_.exit:  ; preds = %9, %_ZNSt6vectorIP4
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   %42 = getelementptr inbounds i8, ptr %38, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(57) %41, i8 0, i64 57, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %42, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %41, i8 0, i64 57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, i8 0, i64 48, i1 false)
   store ptr %38, ptr @_ZN4Type9void_typeE, align 8
   ret void
 }
@@ -9135,8 +9135,8 @@ _ZNK4Type9is_signedEv.exit9.i:                    ; preds = %17
   br i1 %.0.i.i, label %20, label %_ZNK4Type13is_equivalentEPKS_.exit
 
 20:                                               ; preds = %_ZNK4Type9is_signedEv.exit9.i, %_ZNK4Type9is_signedEv.exit9.thr_comm.i
-  %21 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %.0.i)
-  %22 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %.0.i2)
+  %21 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %.0.i)
+  %22 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %.0.i2)
   %23 = icmp ne i64 %21, %22
   br label %_ZNK4Type13is_equivalentEPKS_.exit
 

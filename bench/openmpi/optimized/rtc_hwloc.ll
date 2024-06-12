@@ -155,7 +155,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr @prte_hwloc_topology, align 8
-  %57 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %56, i32 noundef 0, i32 noundef 0) #7
+  %57 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %56, i32 noundef 0, i32 noundef 0) #7
   %58 = getelementptr inbounds i8, ptr %57, i64 232
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null

@@ -175,7 +175,7 @@ land.lhs.true26.i:                                ; preds = %if.end23.i
 
 _ZN5arrow12_GLOBAL__N_123IdentityImpliesEqualityERKNS_8DataTypeERKNS_12EqualOptionsE.exit.i: ; preds = %land.lhs.true26.i
   %9 = load ptr, ptr %0, align 8
-  %call1.i.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_135IdentityImpliesEqualityNansNotEqualERKNS_8DataTypeE(ptr noundef nonnull readonly align 8 dereferenceable(72) %9)
+  %call1.i.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_135IdentityImpliesEqualityNansNotEqualERKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(72) %9)
   br i1 %call1.i.i, label %_ZN5arrow12_GLOBAL__N_118CompareArrayRangesERKNS_9ArrayDataES3_lllRKNS_12EqualOptionsEb.exit.thread18, label %_ZN5arrow12_GLOBAL__N_118CompareArrayRangesERKNS_9ArrayDataES3_lllRKNS_12EqualOptionsEb.exit
 
 _ZN5arrow12_GLOBAL__N_118CompareArrayRangesERKNS_9ArrayDataES3_lllRKNS_12EqualOptionsEb.exit.thread: ; preds = %lor.lhs.false.i, %entry, %if.end.i, %if.end18.i
@@ -466,7 +466,7 @@ land.lhs.true:                                    ; preds = %entry
 _ZN5arrow12_GLOBAL__N_123IdentityImpliesEqualityERKNS_8DataTypeERKNS_12EqualOptionsE.exit: ; preds = %land.lhs.true
   %type = getelementptr inbounds i8, ptr %left, i64 24
   %1 = load ptr, ptr %type, align 8
-  %call1.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_135IdentityImpliesEqualityNansNotEqualERKNS_8DataTypeE(ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
+  %call1.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_135IdentityImpliesEqualityNansNotEqualERKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(72) %1)
   br i1 %call1.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN5arrow12_GLOBAL__N_123IdentityImpliesEqualityERKNS_8DataTypeERKNS_12EqualOptionsE.exit
@@ -494,7 +494,7 @@ if.end17:                                         ; preds = %if.end13
   %frombool.i = zext i1 %floating_approximate to i8
   store ptr %right, ptr %visitor, align 8
   %options_.i = getelementptr inbounds i8, ptr %visitor, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %options, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i, ptr noundef nonnull align 8 dereferenceable(24) %options, i64 24, i1 false)
   %floating_approximate_.i = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 %frombool.i, ptr %floating_approximate_.i, align 8
   %result_.i = getelementptr inbounds i8, ptr %visitor, i64 33
@@ -868,14 +868,14 @@ sw.bb57.i:                                        ; preds = %if.end17
 sw.bb59.i:                                        ; preds = %if.end17
   %value.i78 = getelementptr inbounds i8, ptr %left, i64 48
   %value2.i79 = getelementptr inbounds i8, ptr %right, i64 48
-  %bcmp.i.i.i.i.i.i.i80 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %value.i78, ptr noundef nonnull dereferenceable(16) %value2.i79, i64 16), !noalias !85
+  %bcmp.i.i.i.i.i.i.i80 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %value.i78, ptr noundef nonnull dereferenceable(16) %value2.i79, i64 16), !noalias !85
   %tobool1.not.i.i.i.i.i.i.i81 = icmp eq i32 %bcmp.i.i.i.i.i.i.i80, 0
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit.thread
 
 sw.bb61.i:                                        ; preds = %if.end17
   %value.i75 = getelementptr inbounds i8, ptr %left, i64 48
   %value2.i = getelementptr inbounds i8, ptr %right, i64 48
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %value.i75, ptr noundef nonnull dereferenceable(32) %value2.i, i64 32), !noalias !88
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %value.i75, ptr noundef nonnull dereferenceable(32) %value2.i, i64 32), !noalias !88
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit.thread
 
@@ -1140,11 +1140,11 @@ if.end13:                                         ; preds = %land.rhs.i.i, %_ZSt
   ]
 
 sw.bb:                                            ; preds = %if.end13
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %left, ptr noundef nonnull readonly align 8 dereferenceable(112) %right, ptr noundef nonnull readonly align 8 dereferenceable(24) %opts)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(112) %left, ptr noundef nonnull align 8 dereferenceable(112) %right, ptr noundef nonnull align 8 dereferenceable(24) %opts)
   br label %return
 
 sw.bb16:                                          ; preds = %if.end13
-  %call.i14 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %left, ptr noundef nonnull readonly align 8 dereferenceable(112) %right, ptr noundef nonnull readonly align 8 dereferenceable(24) %opts)
+  %call.i14 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(112) %left, ptr noundef nonnull align 8 dereferenceable(112) %right, ptr noundef nonnull align 8 dereferenceable(24) %opts)
   br label %return
 
 sw.default:                                       ; preds = %if.end13
@@ -2472,7 +2472,7 @@ sw.default.i.i:                                   ; preds = %_ZNSt10shared_ptrIN
 if.end.i.i.i:                                     ; preds = %sw.default.i.i
   %conv.i.i.i = sext i32 %call37.i.i to i64
   %mul.i.i.i = mul nsw i64 %call4.i.i.i, %conv.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %cond.i27182.i.i, ptr readonly %cond.i73188.i.i, i64 %mul.i.i.i)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %cond.i27182.i.i, ptr %cond.i73188.i.i, i64 %mul.i.i.i)
   %cmp1.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZN5arrow12_GLOBAL__N_122SparseTensorEqualsImplINS_14SparseCOOIndexES2_E7CompareERKNS_16SparseTensorImplIS2_EES7_RKNS_12EqualOptionsE.exit.i
 
@@ -3063,7 +3063,7 @@ sw.default.i.i248:                                ; preds = %_ZNSt10shared_ptrIN
 if.end.i.i.i250:                                  ; preds = %sw.default.i.i248
   %conv.i.i.i251 = sext i32 %call37.i.i116 to i64
   %mul.i.i.i252 = mul nsw i64 %call4.i.i.i98, %conv.i.i.i251
-  %bcmp.i.i.i253 = call i32 @bcmp(ptr readonly %cond.i27182.i.i153, ptr readonly %cond.i73188.i.i176, i64 %mul.i.i.i252)
+  %bcmp.i.i.i253 = call i32 @bcmp(ptr %cond.i27182.i.i153, ptr %cond.i73188.i.i176, i64 %mul.i.i.i252)
   %cmp1.i.i.i254 = icmp eq i32 %bcmp.i.i.i253, 0
   br label %_ZN5arrow12_GLOBAL__N_122SparseTensorEqualsImplINS_14SparseCSRIndexES2_E7CompareERKNS_16SparseTensorImplIS2_EES7_RKNS_12EqualOptionsE.exit.i
 
@@ -3654,7 +3654,7 @@ sw.default.i.i514:                                ; preds = %_ZNSt10shared_ptrIN
 if.end.i.i.i516:                                  ; preds = %sw.default.i.i514
   %conv.i.i.i517 = sext i32 %call37.i.i382 to i64
   %mul.i.i.i518 = mul nsw i64 %call4.i.i.i358, %conv.i.i.i517
-  %bcmp.i.i.i519 = call i32 @bcmp(ptr readonly %cond.i27182.i.i419, ptr readonly %cond.i73188.i.i442, i64 %mul.i.i.i518)
+  %bcmp.i.i.i519 = call i32 @bcmp(ptr %cond.i27182.i.i419, ptr %cond.i73188.i.i442, i64 %mul.i.i.i518)
   %cmp1.i.i.i520 = icmp eq i32 %bcmp.i.i.i519, 0
   br label %_ZN5arrow12_GLOBAL__N_122SparseTensorEqualsImplINS_14SparseCSCIndexES2_E7CompareERKNS_16SparseTensorImplIS2_EES7_RKNS_12EqualOptionsE.exit.i
 
@@ -4214,7 +4214,7 @@ sw.default.i.i770:                                ; preds = %_ZNSt10shared_ptrIN
 if.end.i.i.i772:                                  ; preds = %sw.default.i.i770
   %conv.i.i.i773 = sext i32 %call37.i.i638 to i64
   %mul.i.i.i774 = mul nsw i64 %call4.i.i.i622, %conv.i.i.i773
-  %bcmp.i.i.i775 = tail call i32 @bcmp(ptr readonly %cond.i27182.i.i675, ptr readonly %cond.i73188.i.i698, i64 %mul.i.i.i774)
+  %bcmp.i.i.i775 = tail call i32 @bcmp(ptr %cond.i27182.i.i675, ptr %cond.i73188.i.i698, i64 %mul.i.i.i774)
   %cmp1.i.i.i776 = icmp eq i32 %bcmp.i.i.i775, 0
   br label %_ZN5arrow12_GLOBAL__N_122SparseTensorEqualsImplINS_14SparseCSFIndexES2_E7CompareERKNS_16SparseTensorImplIS2_EES7_RKNS_12EqualOptionsE.exit.i
 
@@ -9039,7 +9039,7 @@ if.then.i.i:                                      ; preds = %_ZNK5arrow9ArrayDat
 if.then.i11:                                      ; preds = %if.then.i.i, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit10
   %range_length_.i = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load i64, ptr %range_length_.i, align 8
-  %call2.i = call fastcc noundef zeroext i1 @_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_11BooleanTypeEENKUlllE_clEll(ptr noundef nonnull readonly align 8 dereferenceable(24) %compare_runs, i64 noundef 0, i64 noundef %15)
+  %call2.i = call fastcc noundef zeroext i1 @_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_11BooleanTypeEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(24) %compare_runs, i64 noundef 0, i64 noundef %15)
   %result_.i = getelementptr inbounds i8, ptr %this, i64 56
   %frombool.i = zext i1 %call2.i to i8
   store i8 %frombool.i, ptr %result_.i, align 8
@@ -9108,7 +9108,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 
 if.end8.i:                                        ; preds = %while.body.i
   %20 = extractvalue { i64, i64 } %call5.i, 0
-  %call10.i = call fastcc noundef zeroext i1 @_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_11BooleanTypeEENKUlllE_clEll(ptr noundef nonnull readonly align 8 dereferenceable(24) %compare_runs, i64 noundef %20, i64 noundef %19)
+  %call10.i = call fastcc noundef zeroext i1 @_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_11BooleanTypeEENKUlllE_clEll(ptr noundef nonnull align 8 dereferenceable(24) %compare_runs, i64 noundef %20, i64 noundef %19)
   br i1 %call10.i, label %while.body.i, label %if.then11.i, !llvm.loop !366
 
 if.then11.i:                                      ; preds = %if.end8.i
@@ -13787,7 +13787,7 @@ for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %conv16.i.i.i.i = sext i32 %sub15.i.i.i.i to i64
   %add.ptr.i.i.i20.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %conv.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i8.i, i64 %conv11.i.i.i.i
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i.i20.i.i, ptr nonnull readonly %add.ptr2.i.i.i.i.i, i64 %conv16.i.i.i.i), !noalias !477
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %add.ptr.i.i.i20.i.i, ptr nonnull %add.ptr2.i.i.i.i.i, i64 %conv16.i.i.i.i), !noalias !477
   %cmp.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %31 = zext i1 %cmp.i.i.i.i.i to i8
   br label %return.sink.split.i.i.i
@@ -13889,7 +13889,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13Comp
   %conv16.i17.i.i.i = sext i32 %sub15.i16.i.i.i to i64
   %add.ptr.i.i22.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %conv.i13.i.i.i
   %add.ptr2.i.i23.i.i.i = getelementptr inbounds i8, ptr %cond.i.i8.i, i64 %conv11.i14.i.i.i
-  %bcmp.i.i24.i.i.i = call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i22.i.i.i, ptr nonnull readonly %add.ptr2.i.i23.i.i.i, i64 %conv16.i17.i.i.i), !noalias !477
+  %bcmp.i.i24.i.i.i = call i32 @bcmp(ptr nonnull %add.ptr.i.i22.i.i.i, ptr nonnull %add.ptr2.i.i23.i.i.i, i64 %conv16.i17.i.i.i), !noalias !477
   %cmp.i.i25.i.i.i = icmp eq i32 %bcmp.i.i24.i.i.i, 0
   br i1 %cmp.i.i25.i.i.i, label %while.body.i.i.i, label %return.sink.split.i.i.i, !llvm.loop !481
 
@@ -14525,7 +14525,7 @@ for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %sub14.i.i.i.i = sub nsw i64 %30, %28
   %add.ptr.i.i.i20.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %28
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i8.i, i64 %29
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i.i20.i.i, ptr nonnull readonly %add.ptr2.i.i.i.i.i, i64 %sub14.i.i.i.i), !noalias !491
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %add.ptr.i.i.i20.i.i, ptr nonnull %add.ptr2.i.i.i.i.i, i64 %sub14.i.i.i.i), !noalias !491
   %cmp.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %31 = zext i1 %cmp.i.i.i.i.i to i8
   br label %return.sink.split.i.i.i
@@ -14624,7 +14624,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_13Comp
   %sub14.i14.i.i.i = sub nsw i64 %42, %40
   %add.ptr.i.i19.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %40
   %add.ptr2.i.i20.i.i.i = getelementptr inbounds i8, ptr %cond.i.i8.i, i64 %41
-  %bcmp.i.i21.i.i.i = call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i19.i.i.i, ptr nonnull readonly %add.ptr2.i.i20.i.i.i, i64 %sub14.i14.i.i.i), !noalias !491
+  %bcmp.i.i21.i.i.i = call i32 @bcmp(ptr nonnull %add.ptr.i.i19.i.i.i, ptr nonnull %add.ptr2.i.i20.i.i.i, i64 %sub14.i14.i.i.i), !noalias !491
   %cmp.i.i22.i.i.i = icmp eq i32 %bcmp.i.i21.i.i.i, 0
   br i1 %cmp.i.i22.i.i.i, label %while.body.i.i.i, label %return.sink.split.i.i.i, !llvm.loop !495
 
@@ -18821,7 +18821,7 @@ land.lhs.true26.i:                                ; preds = %if.end23.i
 
 _ZN5arrow12_GLOBAL__N_123IdentityImpliesEqualityERKNS_8DataTypeERKNS_12EqualOptionsE.exit.i: ; preds = %land.lhs.true26.i
   %16 = load ptr, ptr %1, align 8
-  %call1.i.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_135IdentityImpliesEqualityNansNotEqualERKNS_8DataTypeE(ptr noundef nonnull readonly align 8 dereferenceable(72) %16)
+  %call1.i.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_135IdentityImpliesEqualityNansNotEqualERKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(72) %16)
   br i1 %call1.i.i, label %_ZN5arrow12_GLOBAL__N_118CompareArrayRangesERKNS_9ArrayDataES3_lllRKNS_12EqualOptionsEb.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZN5arrow12_GLOBAL__N_123IdentityImpliesEqualityERKNS_8DataTypeERKNS_12EqualOptionsE.exit.i, %if.end23.i

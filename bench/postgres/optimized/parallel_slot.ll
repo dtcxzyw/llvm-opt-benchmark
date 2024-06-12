@@ -67,7 +67,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local
 
 25:                                               ; preds = %22
   %26 = call ptr @PQdb(ptr noundef nonnull %23) #9
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %1) #10
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %1) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %find_matching_idle_slot.exit, label %._crit_edge28.i
 
@@ -321,7 +321,7 @@ processQueryResult.exit.i:                        ; preds = %123
 130:                                              ; preds = %120
   %131 = getelementptr inbounds i8, ptr %99, i64 8
   store i8 0, ptr %131, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %processQueryResult.exit.i, %130, %115
@@ -564,7 +564,7 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %.pre = load i32, ptr %0, align 8
   br label %27
 

@@ -61,7 +61,7 @@ define hidden void @rb_load_with_builtin_functions(ptr noundef %0, ptr noundef %
   %5 = sext i32 %3 to i64
   %6 = getelementptr [22 x %struct.builtin_binary], ptr @builtin_binary, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #6
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #6
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %bin4feature.exit.i, label %.lr.ph.i.preheader
 
@@ -77,7 +77,7 @@ bin4feature.exit.i:                               ; preds = %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %bin4feature.exit11.i
   %11 = phi ptr [ %18, %bin4feature.exit11.i ], [ @.str.3, %.lr.ph.i.preheader ]
   %.013.i = phi ptr [ %17, %bin4feature.exit11.i ], [ @builtin_binary, %.lr.ph.i.preheader ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #6
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %0) #6
   %.not.i10.i = icmp eq i32 %12, 0
   br i1 %.not.i10.i, label %13, label %bin4feature.exit11.i
 

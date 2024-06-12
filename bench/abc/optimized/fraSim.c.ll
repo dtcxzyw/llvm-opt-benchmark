@@ -2431,7 +2431,7 @@ define void @Fra_SmlResimulate(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %exitcond.not.i, label %Fra_SmlCheckOutput.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit:                          ; preds = %.lr.ph.i.i
-  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %20)
+  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %20)
   br label %88
 
 Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %12, %1
@@ -2616,7 +2616,7 @@ define void @Fra_SmlSimulate(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %exitcond.not.i, label %Fra_SmlCheckOutput.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit:                          ; preds = %.lr.ph.i.i
-  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %23)
+  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %23)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %2
@@ -2708,7 +2708,7 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %
   br i1 %exitcond.not.i77, label %Fra_SmlCheckOutput.exit86.thread, label %.lr.ph.i72, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit86:                        ; preds = %.lr.ph.i.i79
-  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %71)
+  tail call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %71)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit86.thread:                 ; preds = %.loopexit.i75, %63, %Fra_SmlCheckOutput.exit.thread
@@ -2884,7 +2884,7 @@ Fra_SmlSavePattern1.exit:                         ; preds = %133, %Abc_Clock.exi
   br i1 %exitcond.not.i102, label %Fra_SmlCheckOutput.exit111.thread, label %.lr.ph.i97, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit111:                       ; preds = %.lr.ph.i.i104
-  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %166)
+  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %166)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit111.thread:                ; preds = %.loopexit.i100, %158, %Fra_SmlSavePattern1.exit
@@ -3015,7 +3015,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br i1 %exitcond.not.i127, label %Fra_SmlCheckOutput.exit136.thread, label %.lr.ph.i122, !llvm.loop !18
 
 Fra_SmlCheckOutput.exit136:                       ; preds = %.lr.ph.i.i129
-  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull readonly %0, ptr noundef %232)
+  call void @Fra_SmlCheckOutputSavePattern(ptr noundef nonnull %0, ptr noundef %232)
   br label %.loopexit
 
 Fra_SmlCheckOutput.exit136.thread:                ; preds = %.loopexit.i125, %225, %215

@@ -3202,8 +3202,8 @@ invoke.cont33:                                    ; preds = %invoke.cont33.lr.ph
   %arrayidx32 = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %read_reqs, i64 %i27.0356
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   store ptr @.str.4, ptr %result.i.i, align 8, !alias.scope !10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %size_.i.i.i, i8 0, i64 14, i1 false), !alias.scope !10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %state_.i.i.i.i.i, i8 0, i64 48, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %size_.i.i.i, i8 0, i64 14, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %state_.i.i.i.i.i, i8 0, i64 48, i1 false), !alias.scope !10
   %32 = load i64, ptr %arrayidx32, align 8, !noalias !10
   %sub1.i.i = and i64 %32, %sub.not.i.i
   store i64 %sub1.i.i, ptr %r31, align 8, !alias.scope !10
@@ -4816,8 +4816,8 @@ invoke.cont37:                                    ; preds = %invoke.cont31
   store ptr @.str.4, ptr %result.i.i, align 8, !alias.scope !45
   %size_.i.i.i = getelementptr inbounds i8, ptr %aligned_req, i64 32
   %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %aligned_req, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %size_.i.i.i, i8 0, i64 14, i1 false), !alias.scope !45
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %state_.i.i.i.i.i, i8 0, i64 48, i1 false), !alias.scope !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %size_.i.i.i, i8 0, i64 14, i1 false), !alias.scope !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %state_.i.i.i.i.i, i8 0, i64 48, i1 false), !alias.scope !45
   %sub.not.i.i = sub i64 0, %call22
   %40 = load <2 x i64>, ptr %req, align 8
   %41 = extractelement <2 x i64> %40, i64 0

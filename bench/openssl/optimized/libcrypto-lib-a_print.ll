@@ -135,7 +135,7 @@ if.end.i:                                         ; preds = %for.end34
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #3
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #3
   %conv.i = trunc i64 %call.i to i32
   br label %if.end3.i
 

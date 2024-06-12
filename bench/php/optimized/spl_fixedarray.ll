@@ -168,7 +168,7 @@ define hidden void @zim_SplFixedArray___construct(ptr nocapture noundef readonly
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %19, i64 -16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i64 -1, ptr %33, align 8
   br label %spl_fixedarray_init.exit
 
@@ -234,7 +234,7 @@ define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds i8, ptr %4, i64 -16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 -1, ptr %26, align 8
   br label %spl_fixedarray_init.exit
 
@@ -1176,7 +1176,7 @@ tailrecurse.i:                                    ; preds = %61, %18
   br i1 %.not.i5.i.i, label %spl_fixedarray_resize.exit, label %.lr.ph.i.i.i
 
 33:                                               ; preds = %27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %spl_fixedarray_init.exit.sink.split.i
 
 34:                                               ; preds = %25
@@ -2517,7 +2517,7 @@ define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr nou
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %14, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i64 -1, ptr %27, align 8
   br label %spl_fixedarray_init.exit.i
 

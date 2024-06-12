@@ -846,7 +846,7 @@ define range(i32 -2147483648, 2) i32 @onig_get_callout_data_by_tag_dont_clear_ol
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   br label %onig_get_callout_data_dont_clear_old.exit
 
 onig_get_callout_data_dont_clear_old.exit:        ; preds = %22, %23
@@ -894,7 +894,7 @@ define range(i32 -30, 2) i32 @onig_get_callout_data_by_callout_args_self_dont_cl
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   br label %25
 
 25:                                               ; preds = %23, %22
@@ -1007,7 +1007,7 @@ define range(i32 -2147483648, 2) i32 @onig_get_callout_data_by_tag(ptr noundef %
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds i8, ptr %26, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   br label %onig_get_callout_data.exit
 
 onig_get_callout_data.exit:                       ; preds = %29, %30
@@ -1065,7 +1065,7 @@ define range(i32 -30, 2) i32 @onig_get_callout_data_by_callout_args(ptr nocaptur
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %25, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   br label %31
 
 31:                                               ; preds = %29, %28
@@ -1125,7 +1125,7 @@ define range(i32 -30, 2) i32 @onig_get_callout_data_by_callout_args_self(ptr noc
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds i8, ptr %26, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   br label %32
 
 32:                                               ; preds = %30, %29
@@ -1186,7 +1186,7 @@ onig_set_callout_data.exit:                       ; preds = %10
   %19 = getelementptr inbounds [5 x %struct.anon], ptr %17, i64 0, i64 %18
   store i32 %5, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %21 = getelementptr inbounds i8, ptr %1, i64 48
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %16, align 8
@@ -1217,7 +1217,7 @@ define range(i32 -30, 1) i32 @onig_set_callout_data_by_callout_args(ptr nocaptur
   %19 = getelementptr inbounds [5 x %struct.anon], ptr %17, i64 0, i64 %18
   store i32 %3, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %21 = getelementptr inbounds i8, ptr %11, i64 48
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %16, align 8
@@ -1250,7 +1250,7 @@ define range(i32 -30, 1) i32 @onig_set_callout_data_by_callout_args_self(ptr noc
   %20 = getelementptr inbounds [5 x %struct.anon], ptr %18, i64 0, i64 %19
   store i32 %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %12, i64 48
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %17, align 8

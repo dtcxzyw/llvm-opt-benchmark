@@ -1418,10 +1418,10 @@ define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %28 = getelementptr inbounds i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #12
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #12
   %32 = add i64 %31, 1
   %33 = tail call ptr @SPI_palloc(i64 noundef %32) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %30, i64 %32, i1 false)
   tail call void @SPI_cursor_close(ptr noundef nonnull %21) #11
   %34 = tail call i32 @SPI_finish() #11
   %35 = tail call ptr @cstring_to_text(ptr noundef %33) #11
@@ -1481,10 +1481,10 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
 29:                                               ; preds = %21
   %30 = icmp ne i64 %8, 0
   %31 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef nonnull %23, i32 noundef 0, i1 noundef zeroext %30, ptr noundef %13)
-  %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #12
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #12
   %33 = add i64 %32, 1
   %34 = tail call ptr @SPI_palloc(i64 noundef %33) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %31, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %31, i64 %33, i1 false)
   %35 = tail call i32 @SPI_finish() #11
   %36 = tail call ptr @cstring_to_text(ptr noundef %34) #11
   %37 = ptrtoint ptr %36 to i64
@@ -1571,10 +1571,10 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %28 = getelementptr inbounds i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #12
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #12
   %32 = add i64 %31, 1
   %33 = tail call ptr @SPI_palloc(i64 noundef %32) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %30, i64 %32, i1 false)
   tail call void @SPI_cursor_close(ptr noundef nonnull %21) #11
   %34 = tail call i32 @SPI_finish() #11
   %35 = tail call fastcc ptr @query_to_xml_internal(ptr noundef %6, ptr noundef null, ptr noundef %33, i1 noundef zeroext %27, ptr noundef %13, i1 noundef zeroext true)

@@ -475,7 +475,7 @@ define ptr @php_random_engine_common_clone_object(ptr noundef %0) #0 {
   %13 = getelementptr inbounds i8, ptr %7, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %14, ptr nonnull readonly align 1 %11, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 1 %11, i64 %15, i1 false)
   store ptr %14, ptr %13, align 8
   br label %16
 

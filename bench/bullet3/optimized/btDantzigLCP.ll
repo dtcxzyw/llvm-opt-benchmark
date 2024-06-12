@@ -4789,7 +4789,7 @@ _ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit:     ; preds = %for.body.us8.i, %wh
 
 _ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread904: ; preds = %for.body.lr.ph.split.i
   %196 = shl nuw nsw i64 %wide.trip.count.i731, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %add.ptr.i725, i8 0, i64 %196, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i725, i8 0, i64 %196, i1 false)
   %197 = load ptr, ptr %m_data.i649, align 8
   %198 = load ptr, ptr %m_A.i, align 8
   %arrayidx.i741905 = getelementptr inbounds ptr, ptr %198, i64 %indvars.iv988

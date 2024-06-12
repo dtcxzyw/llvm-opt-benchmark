@@ -2091,7 +2091,7 @@ if.then9.i:                                       ; preds = %do.body.i
 if.then11.i:                                      ; preds = %if.then9.i
   %call12.i = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @ram_save_host_page_urgent.print_once_, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.ram_save_host_page_urgent) #16
   store i8 0, ptr %host_page_sending.i.i, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br i1 %sent.0.i, label %ram_save_host_page_urgent.exit, label %if.then30
 
 if.end16.i:                                       ; preds = %if.then9.i, %do.body.i
@@ -2131,7 +2131,7 @@ pss_within_range.exit.i:                          ; preds = %land.lhs.true.i.i.i
 
 out.i:                                            ; preds = %pss_within_range.exit.i, %land.lhs.true.i.i.i, %if.end2.i.i, %if.end.i.i
   store i8 0, ptr %host_page_sending.i.i, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br i1 %sent.1.i, label %ram_save_host_page_urgent.exit.thread56, label %if.end33
 
 ram_save_host_page_urgent.exit.thread56:          ; preds = %out.i
@@ -3685,7 +3685,7 @@ if.else.i:                                        ; preds = %if.else
   %sub.i = add nuw nsw i64 %shr, 63
   %6 = lshr i64 %sub.i, 3
   %mul.i = and i64 %6, 1125899906842616
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %4, i8 0, i64 %mul.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %mul.i, i1 false)
   br label %while.end10
 
 while.end10:                                      ; preds = %for.body3, %if.else.i, %if.then.i, %migrate_ram_is_ignored.exit
@@ -5513,7 +5513,7 @@ if.end:                                           ; preds = %entry
   %last_sent_block.i.c = getelementptr i8, ptr %6, i64 64
   store ptr null, ptr %last_sent_block.i.c, align 8
   %last_seen_block.i = getelementptr inbounds i8, ptr %6, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   %last_version.i = getelementptr inbounds i8, ptr %6, i64 144
   store i32 %7, ptr %last_version.i, align 8
@@ -6695,7 +6695,7 @@ for.body7:                                        ; preds = %while.end.i.i, %if.
 for.body.i:                                       ; preds = %for.body7
   store ptr null, ptr %last_sent_block.i, align 8
   store ptr null, ptr %last_sent_block.i.c, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   store i32 %7, ptr %last_version, align 8
   store i8 0, ptr %xbzrle_started.i, align 8
@@ -8073,7 +8073,7 @@ for.end.i9:                                       ; preds = %while.end6.i, %if.e
   %last_sent_block.i.c.i = getelementptr i8, ptr %0, i64 64
   store ptr null, ptr %last_sent_block.i.c.i, align 8
   %last_seen_block.i.i = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_seen_block.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block.i.i, i8 0, i64 16, i1 false)
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @ram_list, i64 88), align 8
   %last_version.i.i = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %37, ptr %last_version.i.i, align 8
@@ -9107,7 +9107,7 @@ if.end26.i:                                       ; preds = %while.end.i, %if.en
 
 ram_save_host_page.exit.thread:                   ; preds = %if.end26.i
   store i8 0, ptr %host_page_sending.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %while.end29
 
 if.end29.i:                                       ; preds = %if.end26.i, %do.body.i
@@ -9145,7 +9145,7 @@ pss_within_range.exit.i:                          ; preds = %if.end2.i.i
 
 do.end31.i:                                       ; preds = %pss_within_range.exit.i, %if.end2.i.i, %if.end.i.i47
   store i8 0, ptr %host_page_sending.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %flags.i.i48 = getelementptr inbounds i8, ptr %.pre57.i, i64 72
   %73 = load i32, ptr %flags.i.i48, align 8
   %and.i38.i = and i32 %73, 64

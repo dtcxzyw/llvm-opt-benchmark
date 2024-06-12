@@ -292,7 +292,7 @@ if.then6.i:                                       ; preds = %entry
   %data_write_guid.i = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i.i)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data_write_guid.i, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid.i, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i)
   br label %if.end7.i
 
@@ -302,7 +302,7 @@ if.end7.i:                                        ; preds = %if.then6.i, %entry
 
 if.then9.i:                                       ; preds = %if.end7.i
   %log_guid10.i = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i, ptr noundef nonnull align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
@@ -334,7 +334,7 @@ if.then6.i30:                                     ; preds = %if.end
   %data_write_guid.i31 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i.i6)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i.i6) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data_write_guid.i31, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid.i31, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i6)
   br label %if.end7.i21
 
@@ -343,7 +343,7 @@ if.end7.i21:                                      ; preds = %if.then6.i30, %if.e
 
 if.then9.i23:                                     ; preds = %if.end7.i21
   %log_guid10.i24 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i24, ptr noundef nonnull readonly align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i24, ptr noundef nonnull align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
   br label %if.end11.i25
 
 if.end11.i25:                                     ; preds = %if.then9.i23, %if.end7.i21
@@ -508,7 +508,7 @@ if.end13:                                         ; preds = %if.end10
   %session_guid = getelementptr inbounds i8, ptr %0, i64 465
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %session_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %session_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
   %call.i = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 80) #17
   %call1.i = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 80) #17
@@ -1771,7 +1771,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_visible_write.i, align 8
-  %call.i = call i32 @vhdx_update_headers(ptr noundef nonnull readonly %bs, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null)
+  %call.i = call i32 @vhdx_update_headers(ptr noundef nonnull %bs, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null)
   br label %vhdx_user_visible_write.exit
 
 vhdx_user_visible_write.exit:                     ; preds = %entry, %if.then.i
@@ -2365,12 +2365,12 @@ entry:
   %file_write_guid = getelementptr inbounds i8, ptr %call2, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %file_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %file_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
   %data_write_guid = getelementptr inbounds i8, ptr %call2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i15)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i15) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i15)
   %parents = getelementptr inbounds i8, ptr %call, i64 16848
   %0 = load ptr, ptr %parents, align 8
@@ -2568,7 +2568,7 @@ if.else.i:                                        ; preds = %if.end
 
 vhdx_guid_generate.exit:                          ; preds = %if.end
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %add.ptr6, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr6, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
   store i64 %image_size, ptr %add.ptr, align 1
   store i32 %sector_size, ptr %add.ptr11, align 1

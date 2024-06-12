@@ -969,7 +969,7 @@ define void @Amap_ManMergeNodeChoice(ptr nocapture noundef %0, ptr noundef %1) l
   %42 = lshr i32 %41, 15
   %43 = and i32 %42, 131068
   %44 = zext nneg i32 %43 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull readonly align 4 %40, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull align 4 %40, i64 %44, i1 false)
   %45 = lshr i32 %31, 16
   %46 = and i32 %45, 1
   %47 = shl nuw nsw i32 %26, 1

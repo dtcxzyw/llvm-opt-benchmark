@@ -2807,7 +2807,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS
 _ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv.exit: ; preds = %83, %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit.i
   %.sroa.0.0 = phi ptr [ %91, %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit.i ], [ %84, %83 ]
   store i32 1, ptr %68, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %73, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %73, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %95 = getelementptr inbounds i8, ptr %.024, i64 72
   %96 = load ptr, ptr %95, align 8
   store ptr %.sroa.0.0, ptr %95, align 8

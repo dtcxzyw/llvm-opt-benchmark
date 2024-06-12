@@ -43,14 +43,14 @@ if.end3:                                          ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end3
   %pack_name.i = getelementptr inbounds i8, ptr %p, i64 240
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name.i) #10
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i) #10
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end5
   %sub.i.i.i = add i64 %call.i.i, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pack_name.i, i64 %sub.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %pack_mtimes_filename.exit, label %if.then.i
 

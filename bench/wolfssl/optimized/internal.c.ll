@@ -1059,7 +1059,7 @@ entry:
   %tobool13.not.i = icmp eq i32 %haveAnon, 0
   %or15.i = or i32 %have.3.i, 32
   %have.4.i = select i1 %tobool13.not.i, i32 %have.3.i, i32 %or15.i
-  tail call void @InitSuitesHashSigAlgo_ex2(ptr noundef nonnull %hashSigAlgo, i32 noundef %have.4.i, i32 noundef %tls1_2, i32 poison, ptr noundef nonnull writeonly %hashSigAlgoSz)
+  tail call void @InitSuitesHashSigAlgo_ex2(ptr noundef nonnull %hashSigAlgo, i32 noundef %have.4.i, i32 noundef %tls1_2, i32 poison, ptr noundef nonnull %hashSigAlgoSz)
   ret void
 }
 
@@ -2993,9 +2993,9 @@ if.end:                                           ; preds = %if.then, %entry
   %setup9.i = getelementptr inbounds i8, ptr %ssl, i64 1192
   store i8 0, ptr %setup9.i, align 8
   %specs = getelementptr inbounds i8, ptr %ssl, i64 698
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(16) %specs, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %specs, i8 0, i64 16, i1 false)
   %bulk_cipher_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 706
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(5) %bulk_cipher_algorithm.i, i8 -1, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %bulk_cipher_algorithm.i, i8 -1, i64 5, i1 false)
   %call = tail call i32 @ReinitSSL(ptr noundef nonnull %ssl, ptr nonnull poison, i32 noundef %writeDup)
   %cmp95.not = icmp eq i32 %call, 0
   br i1 %cmp95.not, label %if.end98, label %return
@@ -6472,7 +6472,7 @@ do.end6.i:                                        ; preds = %if.end.i, %if.end24
   %1 = load ptr, ptr %name.i, align 8
   %len7.i = getelementptr inbounds i8, ptr %altName.114.i, i64 12
   %2 = load i32, ptr %len7.i, align 4
-  %call.i = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef readonly %domainName)
+  %call.i = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef %domainName)
   %tobool8.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool8.not.i, label %if.else.i, label %if.end10
 
@@ -6534,7 +6534,7 @@ do.end6.i.i:                                      ; preds = %if.end.i.i, %if.end
   %1 = load ptr, ptr %name.i.i, align 8
   %len7.i.i = getelementptr inbounds i8, ptr %altName.114.i.i, i64 12
   %2 = load i32, ptr %len7.i.i, align 4
-  %call.i.i = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef readonly %ipasc)
+  %call.i.i = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef %ipasc)
   %tobool8.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool8.not.i.i, label %if.else.i.i, label %CheckHostName.exit
 
@@ -6567,7 +6567,7 @@ if.then2.i:                                       ; preds = %if.end.i.i, %entry
   %5 = load ptr, ptr %subjectCN.i, align 8
   %subjectCNLen.i = getelementptr inbounds i8, ptr %dCert, i64 144
   %6 = load i32, ptr %subjectCNLen.i, align 8
-  %call3.i = tail call i32 @MatchDomainName(ptr noundef %5, i32 noundef %6, ptr noundef readonly %ipasc)
+  %call3.i = tail call i32 @MatchDomainName(ptr noundef %5, i32 noundef %6, ptr noundef %ipasc)
   %cmp4.not.i = icmp eq i32 %call3.i, 0
   %spec.select4.i = select i1 %cmp4.not.i, i32 -322, i32 0
   br label %CheckHostName.exit
@@ -8373,7 +8373,7 @@ HashInput.exit:                                   ; preds = %if.then136
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %idx.ext
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   %add.i = add nsw i32 %size, 4
-  %call.i = tail call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i, i32 noundef %add.i)
+  %call.i = tail call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i, i32 noundef %add.i)
   %cmp138.not = icmp eq i32 %call.i, 0
   br i1 %cmp138.not, label %if.end144, label %return
 
@@ -9961,7 +9961,7 @@ if.then85.i:                                      ; preds = %if.end74.i
   store i32 %conv.i, ptr %length89.i, align 8
   %idx.ext95.i = zext i32 %sub.i to i64
   %add.ptr96.i = getelementptr inbounds i8, ptr %input, i64 %idx.ext95.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call77.i, ptr readonly align 1 %add.ptr96.i, i64 %conv76.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call77.i, ptr align 1 %add.ptr96.i, i64 %conv76.i, i1 false)
   %add100.i = add i32 %sub.i, %conv.i
   store i32 %add100.i, ptr %idx, align 16
   %dhKeySz.i = getelementptr inbounds i8, ptr %ssl, i64 1036
@@ -10045,7 +10045,7 @@ if.then178.i:                                     ; preds = %if.end167.i
   store i32 %conv129.i, ptr %length182.i, align 8
   %idx.ext200.i = zext i32 %sub104.i to i64
   %add.ptr201.i = getelementptr inbounds i8, ptr %input, i64 %idx.ext200.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call170.i, ptr readonly align 1 %add.ptr201.i, i64 %conv169.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call170.i, ptr align 1 %add.ptr201.i, i64 %conv169.i, i1 false)
   %add205.i = add i32 %sub104.i, %conv129.i
   store i32 %add205.i, ptr %idx, align 16
   %sub208.i = add i32 %add205.i, 2
@@ -10169,7 +10169,7 @@ if.then315.i:                                     ; preds = %if.end304.i
   store i32 %conv244.i, ptr %length319.i, align 8
   %idx.ext348.i = zext i32 %sub208.i to i64
   %add.ptr349.i = getelementptr inbounds i8, ptr %input, i64 %idx.ext348.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call307.i, ptr readonly align 1 %add.ptr349.i, i64 %conv306.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call307.i, ptr align 1 %add.ptr349.i, i64 %conv306.i, i1 false)
   store i8 1, ptr %weOwnDH.i, align 1
   %add355.i = add i32 %sub208.i, %conv244.i
   store i32 %add355.i, ptr %idx, align 16
@@ -17081,7 +17081,7 @@ HashOutput.exit:                                  ; preds = %if.then182
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
   %add184 = add i32 %inSz, -5
   %sub.i = add i32 %add184, %18
-  %call.i = call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr1.i, i32 noundef %sub.i)
+  %call.i = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr1.i, i32 noundef %sub.i)
   %cmp187.not = icmp eq i32 %call.i, 0
   br i1 %cmp187.not, label %if.end191, label %do.end353.thread
 
@@ -18914,7 +18914,7 @@ if.else126:                                       ; preds = %if.end86, %IsEncryp
 
 HashOutput.exit:                                  ; preds = %if.else126
   %sub.i = add nsw i32 %i.1, -3
-  %call.i = tail call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i95, i32 noundef %sub.i)
+  %call.i = tail call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i95, i32 noundef %sub.i)
   %cmp128.not = icmp eq i32 %call.i, 0
   br i1 %cmp128.not, label %if.end132, label %return
 
@@ -21561,7 +21561,7 @@ if.else191:                                       ; preds = %if.end158, %IsEncry
 HashOutput.exit:                                  ; preds = %if.else191
   %add.ptr.i128 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %sub.i = add nsw i32 %13, -5
-  %call.i = call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i128, i32 noundef %sub.i)
+  %call.i = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i128, i32 noundef %sub.i)
   %cmp193.not = icmp eq i32 %call.i, 0
   br i1 %cmp193.not, label %if.end197, label %return
 
@@ -22692,7 +22692,7 @@ if.end468:                                        ; preds = %if.else464
   %115 = load ptr, ptr %args12, align 8
   %add.ptr.i254 = getelementptr inbounds i8, ptr %115, i64 5
   %sub.i = add nsw i32 %114, -5
-  %call.i255 = tail call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i254, i32 noundef %sub.i)
+  %call.i255 = tail call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i254, i32 noundef %sub.i)
   %cmp469.not = icmp eq i32 %call.i255, 0
   br i1 %cmp469.not, label %if.end468.if.end472_crit_edge, label %do.end509
 
@@ -23644,7 +23644,7 @@ if.then13:                                        ; preds = %if.end12
 
 HashOutput.exit:                                  ; preds = %if.then13
   %add.ptr.i = getelementptr inbounds i8, ptr %input, i64 5
-  %call.i = tail call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i, i32 noundef %add)
+  %call.i = tail call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i, i32 noundef %add)
   %cmp16.not = icmp eq i32 %call.i, 0
   br i1 %cmp16.not, label %if.end19, label %return
 
@@ -24317,7 +24317,7 @@ if.else186:                                       ; preds = %if.end152, %IsEncry
 
 HashOutput.exit:                                  ; preds = %if.else186
   %sub.i = add nsw i32 %4, -5
-  %call.i = call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i118, i32 noundef %sub.i)
+  %call.i = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i118, i32 noundef %sub.i)
   %cmp188.not = icmp eq i32 %call.i, 0
   br i1 %cmp188.not, label %if.end192, label %return
 
@@ -26663,7 +26663,7 @@ if.else:                                          ; preds = %AddHeaders.exit, %I
 
 HashOutput.exit:                                  ; preds = %if.else
   %sub.i = add nsw i32 %2, -5
-  %call.i = tail call i32 @HashRaw(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %add.ptr.i40, i32 noundef %sub.i)
+  %call.i = tail call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr.i40, i32 noundef %sub.i)
   %cmp34.not = icmp eq i32 %call.i, 0
   br i1 %cmp34.not, label %if.end38, label %return
 

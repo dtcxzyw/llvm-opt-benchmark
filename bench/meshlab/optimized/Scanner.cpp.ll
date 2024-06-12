@@ -898,7 +898,7 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKww(ptr noundef %0, i3
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit.thread, label %_Z18coco_string_lengthPKw.exit
 
 _Z18coco_string_lengthPKw.exit:                   ; preds = %2
-  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
   %.fr13 = freeze i64 %3
   %4 = trunc i64 %.fr13 to i32
   %5 = shl i64 %.fr13, 32
@@ -1170,7 +1170,7 @@ define noalias noundef nonnull ptr @_Z23coco_string_create_charPKw(ptr noundef r
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
   %4 = trunc i64 %3 to i32
   br label %_Z18coco_string_lengthPKw.exit
 
@@ -2573,7 +2573,7 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_Z18coco_string_lengthPKw.exit.i, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #24
+  %12 = tail call i64 @wcslen(ptr noundef nonnull %1) #24
   %13 = trunc i64 %12 to i32
   br label %_Z18coco_string_lengthPKw.exit.i
 
@@ -4140,7 +4140,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %.011.i240 = phi ptr [ %.0.i241, %220 ], [ %.09.i237, %._crit_edge.i.i236 ]
   %216 = getelementptr inbounds i8, ptr %.011.i240, i64 8
   %217 = load ptr, ptr %216, align 8
-  %218 = tail call i32 @wcscmp(ptr noundef readonly %217, ptr noundef nonnull readonly %199) #24
+  %218 = tail call i32 @wcscmp(ptr noundef %217, ptr noundef nonnull %199) #24
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %.critedge.i243, label %220
 
@@ -5585,7 +5585,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %3, %._crit_edge.i
   %.011 = phi ptr [ %.0, %19 ], [ %.09, %_Z16coco_string_hashPKw.exit ]
   %15 = getelementptr inbounds i8, ptr %.011, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @wcscmp(ptr noundef readonly %16, ptr noundef readonly %1) #24
+  %17 = tail call i32 @wcscmp(ptr noundef %16, ptr noundef %1) #24
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.critedge, label %19
 

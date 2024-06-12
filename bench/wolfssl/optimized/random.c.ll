@@ -879,7 +879,7 @@ if.else:                                          ; preds = %if.end
   %tobool.not.i = icmp ne i32 %rem.i, 0
   %cond.i = zext i1 %tobool.not.i to i32
   %add.i = add nuw nsw i32 %div14.i, %cond.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(55) %V, i64 55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %data.i, ptr noundef nonnull align 1 dereferenceable(55) %V, i64 55, i1 false)
   %cmp45.not.i = icmp eq i32 %add.i, 0
   br i1 %cmp45.not.i, label %for.cond.preheader.i.i, label %for.body.i
 

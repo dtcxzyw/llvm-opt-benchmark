@@ -758,12 +758,12 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
   br i1 %.not.i69, label %137, label %135
 
 135:                                              ; preds = %Dar_CutFindFree.exit
-  %136 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull readonly %.060102, ptr noundef nonnull readonly %.061105)
+  %136 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull %.060102, ptr noundef nonnull %.061105)
   %.not13.i = icmp eq i32 %136, 0
   br i1 %.not13.i, label %Dar_CutMerge.exit.thread, label %139
 
 137:                                              ; preds = %Dar_CutFindFree.exit
-  %138 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull readonly %.061105, ptr noundef nonnull readonly %.060102)
+  %138 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull %.061105, ptr noundef nonnull %.060102)
   %.not12.i = icmp eq i32 %138, 0
   br i1 %.not12.i, label %Dar_CutMerge.exit.thread, label %139
 

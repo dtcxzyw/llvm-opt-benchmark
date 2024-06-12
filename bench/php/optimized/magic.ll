@@ -156,7 +156,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   %25 = load i32, ptr %24, align 8
-  %26 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 2) #11
+  %26 = call i32 @access(ptr noundef nonnull %1, i32 noundef 2) #11
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %31
 
@@ -166,7 +166,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %30, label %unreadable_info.exit, label %31
 
 31:                                               ; preds = %28, %23
-  %32 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 1) #11
+  %32 = call i32 @access(ptr noundef nonnull %1, i32 noundef 1) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 

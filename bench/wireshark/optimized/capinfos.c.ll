@@ -1344,7 +1344,7 @@ define internal fastcc range(i32 0, 3) i32 @process_cap_file(ptr noundef %0, i32
   br i1 %.b.i, label %calculate_hashes.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.67)
+  %28 = call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.67)
   %29 = icmp ne ptr %28, null
   %30 = load ptr, ptr @hd, align 8
   %31 = icmp ne ptr %30, null
@@ -1383,7 +1383,7 @@ define internal fastcc range(i32 0, 3) i32 @process_cap_file(ptr noundef %0, i32
   %46 = getelementptr i8, ptr %42, i64 %indvars.iv.i.i
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %45, i64 noundef 3, ptr noundef nonnull @.str.68, i32 noundef %48) #15
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %45, i64 noundef 3, ptr noundef nonnull @.str.68, i32 noundef %48) #15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %hash_to_str.exit.i, label %.lr.ph.i.i, !llvm.loop !9
@@ -1402,7 +1402,7 @@ hash_to_str.exit.i:                               ; preds = %.lr.ph.i.i
   %55 = getelementptr i8, ptr %51, i64 %indvars.iv.i10.i
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %54, i64 noundef 3, ptr noundef nonnull @.str.68, i32 noundef %57) #15
+  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %54, i64 noundef 3, ptr noundef nonnull @.str.68, i32 noundef %57) #15
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, 20
   br i1 %exitcond.not.i13.i, label %hash_to_str.exit14.i, label %.lr.ph.i9.i, !llvm.loop !9

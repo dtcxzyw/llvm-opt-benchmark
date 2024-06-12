@@ -605,15 +605,15 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   %83 = load i32, ptr @hf_dtpt_queryset_blob_pointer, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %83, ptr noundef %0, i32 noundef 60, i32 noundef 4, i32 noundef -2147483648) #5
   %85 = load i32, ptr @hf_dtpt_service_instance_name, align 4
-  %86 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef 64, ptr noundef nonnull %20, ptr noundef nonnull readonly %1, i32 noundef %85)
+  %86 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef 64, ptr noundef nonnull %20, ptr noundef nonnull %1, i32 noundef %85)
   %87 = load i32, ptr @hf_dtpt_service_class_id, align 4
-  %88 = tail call fastcc i32 @dissect_dtpt_guid(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %20, ptr noundef nonnull readonly %1, i32 noundef %87)
+  %88 = tail call fastcc i32 @dissect_dtpt_guid(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %20, ptr noundef nonnull %1, i32 noundef %87)
   %89 = load i32, ptr @hf_dtpt_comment, align 4
-  %90 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %88, ptr noundef nonnull %20, ptr noundef nonnull readonly %1, i32 noundef %89)
+  %90 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %88, ptr noundef nonnull %20, ptr noundef nonnull %1, i32 noundef %89)
   %91 = load i32, ptr @hf_dtpt_ns_provider_id, align 4
-  %92 = tail call fastcc i32 @dissect_dtpt_guid(ptr noundef %0, i32 noundef %90, ptr noundef nonnull %20, ptr noundef nonnull readonly %1, i32 noundef %91)
+  %92 = tail call fastcc i32 @dissect_dtpt_guid(ptr noundef %0, i32 noundef %90, ptr noundef nonnull %20, ptr noundef nonnull %1, i32 noundef %91)
   %93 = load i32, ptr @hf_dtpt_context, align 4
-  %94 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %92, ptr noundef nonnull %20, ptr noundef nonnull readonly %1, i32 noundef %93)
+  %94 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %92, ptr noundef nonnull %20, ptr noundef nonnull %1, i32 noundef %93)
   br label %95
 
 95:                                               ; preds = %.split261.i, %.split.i
@@ -672,7 +672,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   %123 = add i32 %.pre308.i, %phi.call.i
   %124 = add i32 %123, %.pre-phi.i
   %125 = load i32, ptr @hf_dtpt_query_string, align 4
-  %126 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %124, ptr noundef %20, ptr noundef readonly %1, i32 noundef %125)
+  %126 = tail call fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %124, ptr noundef %20, ptr noundef %1, i32 noundef %125)
   %127 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %126) #5
   %.not280.i = icmp eq i32 %127, 0
   br i1 %.not280.i, label %131, label %128
@@ -761,9 +761,9 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   %175 = load i32, ptr @ett_dtpt_cs_addr2, align 4
   %176 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %134, ptr noundef %0, i32 noundef %.0254299.i, i32 noundef -1, i32 noundef %175, ptr noundef nonnull %6, ptr noundef nonnull @.str.212, i32 noundef %156) #5
   %177 = load i32, ptr @hf_dtpt_cs_addr_local, align 4
-  %178 = call fastcc i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 noundef %.0254299.i, ptr noundef %176, ptr noundef readonly %1, i32 noundef %177, i32 noundef 1)
+  %178 = call fastcc i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 noundef %.0254299.i, ptr noundef %176, ptr noundef %1, i32 noundef %177, i32 noundef 1)
   %179 = load i32, ptr @hf_dtpt_cs_addr_remote, align 4
-  %180 = call fastcc i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 noundef %178, ptr noundef %176, ptr noundef readonly %1, i32 noundef %179, i32 noundef 1)
+  %180 = call fastcc i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 noundef %178, ptr noundef %176, ptr noundef %1, i32 noundef %179, i32 noundef 1)
   %181 = load ptr, ptr %6, align 8
   %182 = sub i32 %180, %.0254299.i
   call void @proto_item_set_len(ptr noundef %181, i32 noundef %182) #5

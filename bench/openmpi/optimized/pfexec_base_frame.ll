@@ -273,7 +273,7 @@ define internal i32 @pmix_pfexec_base_open(i32 noundef %0) #0 {
 5:                                                ; preds = %4, %1
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_pfexec_globals, i64 56), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_pfexec_globals, i64 64), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_pfexec_globals, i64 72), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_pfexec_globals, i64 72), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
@@ -441,7 +441,7 @@ define internal void @chcon(ptr noundef %0) #0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 632
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 640
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_iof_sink_t_class, i64 40), align 8
   %19 = load ptr, ptr %18, align 8
   %.not6.i = icmp eq ptr %19, null

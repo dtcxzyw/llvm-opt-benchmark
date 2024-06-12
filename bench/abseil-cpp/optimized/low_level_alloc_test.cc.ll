@@ -61,7 +61,7 @@ entry:
   %allocated = alloca %"class.absl::node_hash_map", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %allocated, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %allocated, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
   br i1 %use_new_arena, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -165,7 +165,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 _ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit: ; preds = %for.body.i, %cond.end
   %call25 = call i32 @rand() #19
   %this.val.i = load ptr, ptr %allocated, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i.i = zext i32 %call25 to i64
   %add.i.i.i.i = add i64 %conv.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
@@ -281,7 +281,7 @@ invoke.cont37:                                    ; preds = %for.cond.i, %invoke
           to label %for.inc.sink.split.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else:                                          ; preds = %invoke.cont31
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1), !noalias !10
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1), !noalias !10
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end36.i.i.i.i, %if.else
@@ -523,7 +523,7 @@ call5.i.i2.i.i.i.i.i.i.i.i.noexc:                 ; preds = %if.then.i.i.i
   %add.ptr.i4.i.i.i = getelementptr inbounds ptr, ptr %this.val3.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i
   store i32 %call25, ptr %call5.i.i2.i.i.i.i.i.i.i.i45, align 8, !noalias !10
   %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i.i45, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !10
   store ptr %call5.i.i2.i.i.i.i.i.i.i.i45, ptr %add.ptr.i4.i.i.i, align 8, !noalias !10
   %this.val2.pre.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, align 8, !noalias !10
   %add.ptr3.i.i.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %this.val2.pre.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i

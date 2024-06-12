@@ -564,7 +564,7 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   %.0274.lcssa415419.i = phi i64 [ %.2276.i, %291 ], [ %.2276.i, %._crit_edge356.i ], [ 0, %210 ]
   %298 = load i32, ptr %11, align 4
   %299 = load i64, ptr %15, align 8
-  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef readonly %122, ptr noundef readonly %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %298, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef readonly %141, i32 noundef %.0280361.i, i64 noundef %299, ptr noundef %146)
+  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef %122, ptr noundef %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %298, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %141, i32 noundef %.0280361.i, i64 noundef %299, ptr noundef %146)
   %.not309.i = icmp eq i64 %.0274.lcssa415419.i, 0
   br i1 %.not309.i, label %309, label %300
 
@@ -617,7 +617,7 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   %.1281368.i = phi i32 [ %322, %.lr.ph370.i ], [ %317, %._crit_edge367.i ]
   %320 = load i32, ptr %11, align 4
   %321 = load i64, ptr %15, align 8
-  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef readonly %122, ptr noundef readonly %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %320, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef readonly %141, i32 noundef %.1281368.i, i64 noundef %321, ptr noundef %146)
+  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef %122, ptr noundef %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %320, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %141, i32 noundef %.1281368.i, i64 noundef %321, ptr noundef %146)
   %322 = add nsw i32 %.1281368.i, 1
   %323 = load i32, ptr %10, align 4
   %324 = icmp slt i32 %322, %323

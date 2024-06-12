@@ -357,7 +357,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
 
 168:                                              ; preds = %164, %160
   %169 = trunc nsw i64 %indvars.iv.next.i51 to i32
-  %170 = call fastcc i32 @try_remove_definition(ptr noundef nonnull readonly %8, i32 noundef %169, ptr noundef nonnull %136, ptr noundef null)
+  %170 = call fastcc i32 @try_remove_definition(ptr noundef nonnull %8, i32 noundef %169, ptr noundef nonnull %136, ptr noundef null)
   %171 = add nsw i32 %170, %.098123.i
   br label %288
 
@@ -367,7 +367,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
   br i1 %spec.select.i.i, label %._crit_edge75, label %173
 
 173:                                              ; preds = %172
-  %174 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull readonly %8, i32 noundef %.pre76, ptr noundef nonnull %7)
+  %174 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull %8, i32 noundef %.pre76, ptr noundef nonnull %7)
   %.not.i52 = icmp eq ptr %174, null
   br i1 %.not.i52, label %288, label %._crit_edge75
 
@@ -671,7 +671,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %2
   br i1 %spec.select.i115.i, label %285, label %288
 
 285:                                              ; preds = %._crit_edge.i
-  %286 = call fastcc i32 @try_remove_definition(ptr noundef nonnull readonly %8, i32 noundef %.pre76, ptr noundef %136, ptr noundef %.0100.i)
+  %286 = call fastcc i32 @try_remove_definition(ptr noundef nonnull %8, i32 noundef %.pre76, ptr noundef %136, ptr noundef %.0100.i)
   %287 = add nsw i32 %286, %.1.lcssa.i
   br label %288
 
@@ -7421,7 +7421,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
 
 29:                                               ; preds = %.critedge.i
   %30 = getelementptr inbounds i8, ptr %9, i64 24
-  %bcmp41.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %30, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
+  %bcmp41.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %30, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
   %.not42.i = icmp eq i32 %bcmp41.i, 0
   br i1 %.not42.i, label %31, label %can_ct_eval_func_call.exit.thread
 
@@ -7455,7 +7455,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
 
 can_ct_eval_func_call.exit:                       ; preds = %23
   %51 = getelementptr inbounds i8, ptr %9, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %51, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %51, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
   %.not40.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not40.i, label %can_ct_eval_func_call.exit.thread65, label %can_ct_eval_func_call.exit.thread
 

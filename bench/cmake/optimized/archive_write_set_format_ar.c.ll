@@ -245,7 +245,7 @@ sub_2:                                            ; preds = %sub_1148
   br label %188
 
 48:                                               ; preds = %.tail146
-  %49 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #13
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
   %50 = getelementptr inbounds i8, ptr %8, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -1
   %52 = load i8, ptr %51, align 1

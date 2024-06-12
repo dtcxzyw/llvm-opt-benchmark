@@ -614,7 +614,7 @@ define void @phpdbg_set_color_ex(i32 noundef %0, ptr nocapture noundef readonly 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %1, ptr nonnull %5, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr nonnull %5, i64 %2)
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %phpdbg_get_color.exit, label %11
 
@@ -1159,7 +1159,7 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %87, i64 1
-  %strlen.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %90)
+  %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %90)
   %strchr.i = getelementptr inbounds i8, ptr %90, i64 %strlen.i
   %91 = getelementptr inbounds i8, ptr %strchr.i, i64 1
   br label %phpdbg_get_property_key.exit

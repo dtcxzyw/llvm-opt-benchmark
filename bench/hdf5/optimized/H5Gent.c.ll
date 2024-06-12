@@ -727,7 +727,7 @@ define void @H5G__ent_copy(ptr nocapture noundef writeonly %0, ptr nocapture nou
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   store i64 -1, ptr %6, align 8
   br label %7

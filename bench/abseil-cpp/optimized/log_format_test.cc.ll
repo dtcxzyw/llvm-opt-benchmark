@@ -137490,7 +137490,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogForma
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i7317) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i7318) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i7319) #25
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7336, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i7339)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7336, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i7339)
           to label %invoke.cont9.i7569 unwind label %lpad8.i
 
 lpad.i8.i7358:                                    ; preds = %call.i.noexc.i.i7362, %invoke.cont7.i7356
@@ -138256,7 +138256,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogForma
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i7587) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i7588) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i7589) #25
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7606, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i7609)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7606, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i7609)
           to label %invoke.cont9.i7843 unwind label %lpad8.i7842
 
 lpad.i8.i7628:                                    ; preds = %call.i.noexc.i.i7632, %invoke.cont7.i7626

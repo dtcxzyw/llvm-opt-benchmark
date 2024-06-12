@@ -1299,7 +1299,7 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha256_self_test(i32 noundef %0) loc
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(108) %9, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %9, i8 0, i64 64, i1 false)
   %.not37 = icmp eq i32 %0, 0
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1362,7 +1362,7 @@ mbedtls_sha256_starts.exit:                       ; preds = %17, %.backedge
 36:                                               ; preds = %35
   %37 = zext nneg i32 %27 to i64
   %38 = getelementptr inbounds i8, ptr %14, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %29, i1 false)
   %39 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef nonnull %14)
   %40 = getelementptr inbounds i8, ptr %4, i64 %29
   %41 = sub nuw nsw i64 1000, %29

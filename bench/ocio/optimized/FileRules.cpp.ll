@@ -6021,7 +6021,7 @@ catch:                                            ; preds = %lpad
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #24
   %7 = load ptr, ptr %fileRules, align 8
   %8 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev9FileRules22FilePathSearchRuleNameE, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev9FileRules10insertRuleEmPKcS2_S2_(ptr noundef nonnull readonly align 8 dereferenceable(16) %7, i64 noundef 0, ptr noundef %8, ptr noundef null, ptr noundef null)
+  invoke void @_ZN19OpenColorIO_v2_4dev9FileRules10insertRuleEmPKcS2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 0, ptr noundef %8, ptr noundef null, ptr noundef null)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %catch

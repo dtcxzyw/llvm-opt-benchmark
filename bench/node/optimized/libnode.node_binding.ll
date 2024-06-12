@@ -1321,27 +1321,27 @@ if.then30:                                        ; preds = %lor.rhs.i
   %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %36, i64 96
   %37 = load ptr, ptr %isolate_data_.i.i.i, align 8
   %38 = load ptr, ptr %nm_modname.i.le, align 8
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.37) #25
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.37) #25
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.end171.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then30
-  %call7.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(5) @.str.38) #25
+  %call7.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(5) @.str.38) #25
   %cmp8.i.i = icmp eq i32 %call7.i.i, 0
   br i1 %cmp8.i.i, label %if.end171.i.i, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else.i.i
-  %call16.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(9) @.str.39) #25
+  %call16.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(9) @.str.39) #25
   %cmp17.i.i = icmp eq i32 %call16.i.i, 0
   br i1 %cmp17.i.i, label %if.end171.i.i, label %if.else24.i.i
 
 if.else24.i.i:                                    ; preds = %if.else15.i.i
-  %call25.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.40) #25
+  %call25.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.40) #25
   %cmp26.i.i = icmp eq i32 %call25.i.i, 0
   br i1 %cmp26.i.i, label %if.end171.i.i, label %if.else33.i.i
 
 if.else33.i.i:                                    ; preds = %if.else24.i.i
-  %call34.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(17) @.str.41) #25
+  %call34.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(17) @.str.41) #25
   %cmp35.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %cmp35.i.i, label %if.end171.i.i, label %sub_0.i.i
 
@@ -1363,57 +1363,57 @@ if.else42.tail.i.i:                               ; preds = %sub_1.i.i
   br i1 %44, label %if.end171.i.i, label %if.else51.i.i
 
 if.else51.i.i:                                    ; preds = %if.else42.tail.i.i, %sub_1.i.i, %sub_0.i.i
-  %call52.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.43) #25
+  %call52.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.43) #25
   %cmp53.i.i = icmp eq i32 %call52.i.i, 0
   br i1 %cmp53.i.i, label %if.end171.i.i, label %if.else60.i.i
 
 if.else60.i.i:                                    ; preds = %if.else51.i.i
-  %call61.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(10) @.str.44) #25
+  %call61.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(10) @.str.44) #25
   %cmp62.i.i = icmp eq i32 %call61.i.i, 0
   br i1 %cmp62.i.i, label %if.end171.i.i, label %if.else69.i.i
 
 if.else69.i.i:                                    ; preds = %if.else60.i.i
-  %call70.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.45) #25
+  %call70.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.45) #25
   %cmp71.i.i = icmp eq i32 %call70.i.i, 0
   br i1 %cmp71.i.i, label %if.end171.i.i, label %if.else78.i.i
 
 if.else78.i.i:                                    ; preds = %if.else69.i.i
-  %call79.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(8) @.str.46) #25
+  %call79.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(8) @.str.46) #25
   %cmp80.i.i = icmp eq i32 %call79.i.i, 0
   br i1 %cmp80.i.i, label %if.end171.i.i, label %if.else87.i.i
 
 if.else87.i.i:                                    ; preds = %if.else78.i.i
-  %call88.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.47) #25
+  %call88.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.47) #25
   %cmp89.i.i = icmp eq i32 %call88.i.i, 0
   br i1 %cmp89.i.i, label %if.end171.i.i, label %if.else96.i.i
 
 if.else96.i.i:                                    ; preds = %if.else87.i.i
-  %call97.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.48) #25
+  %call97.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.48) #25
   %cmp98.i.i = icmp eq i32 %call97.i.i, 0
   br i1 %cmp98.i.i, label %if.end171.i.i, label %if.else105.i.i
 
 if.else105.i.i:                                   ; preds = %if.else96.i.i
-  %call106.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(16) @.str.49) #25
+  %call106.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(16) @.str.49) #25
   %cmp107.i.i = icmp eq i32 %call106.i.i, 0
   br i1 %cmp107.i.i, label %if.end171.i.i, label %if.else114.i.i
 
 if.else114.i.i:                                   ; preds = %if.else105.i.i
-  %call115.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.50) #25
+  %call115.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.50) #25
   %cmp116.i.i = icmp eq i32 %call115.i.i, 0
   br i1 %cmp116.i.i, label %if.end171.i.i, label %if.else123.i.i
 
 if.else123.i.i:                                   ; preds = %if.else114.i.i
-  %call124.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(4) @.str.51) #25
+  %call124.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(4) @.str.51) #25
   %cmp125.i.i = icmp eq i32 %call124.i.i, 0
   br i1 %cmp125.i.i, label %if.end171.i.i, label %if.else132.i.i
 
 if.else132.i.i:                                   ; preds = %if.else123.i.i
-  %call133.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.52) #25
+  %call133.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.52) #25
   %cmp134.i.i = icmp eq i32 %call133.i.i, 0
   br i1 %cmp134.i.i, label %if.end171.i.i, label %if.else141.i.i
 
 if.else141.i.i:                                   ; preds = %if.else132.i.i
-  %call142.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(4) @.str.53) #25
+  %call142.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(4) @.str.53) #25
   %cmp143.i.i = icmp eq i32 %call142.i.i, 0
   %..i.i = select i1 %cmp143.i.i, i64 3536, i64 2584
   br label %if.end171.i.i
@@ -3616,7 +3616,7 @@ sw.bb.i:                                          ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val4 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__source.val4, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

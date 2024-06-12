@@ -94,8 +94,8 @@ invoke.cont:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 160
   %firstFinalTZTransition.i = getelementptr inbounds i8, ptr %this, i64 184
   %finalZoneWithStartYear.i = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %finalZoneWithStartYear.i, i8 0, i64 16, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce seq_cst, align 8
   %cmp = icmp ne ptr %top, null
@@ -520,7 +520,7 @@ if.then230:                                       ; preds = %if.end.thread, %if.
   %typeMapData.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr null, ptr %typeMapData.i, align 8
   %typeCount.i = getelementptr inbounds i8, ptr %this, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %transitionTimesPre32.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %transitionTimesPre32.i, i8 0, i64 24, i1 false)
   store i16 1, ptr %typeCount.i, align 8
   %typeOffsets.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr @_ZN6icu_75L5ZEROSE, ptr %typeOffsets.i, align 8
@@ -675,8 +675,8 @@ cond.end.i:                                       ; preds = %cond.true.i, %delet
   %firstFinalTZTransition.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %finalZoneWithStartYear.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %finalZoneWithStartYear.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule.i.i, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition.i.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule.i.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition.i.i, i8 0, i64 18, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce seq_cst, align 8
   br label %invoke.cont
 
@@ -780,8 +780,8 @@ cond.end:                                         ; preds = %delete.end, %cond.t
   %finalZoneWithStartYear.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %finalZoneWithStartYear.i, align 8
   %transitionRulesInitOnce.i = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule.i, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition.i, i8 0, i64 18, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce.i seq_cst, align 8
   br label %return
 
@@ -923,8 +923,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.end46:                                         ; preds = %for.end, %if.end29
   store ptr null, ptr %finalZoneWithStartYear, align 8
   %transitionRulesInitOnce.i = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %initialRule, i8 0, i64 18, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %firstFinalTZTransition, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %initialRule, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %firstFinalTZTransition, i8 0, i64 18, i1 false)
   store atomic i32 0, ptr %transitionRulesInitOnce.i seq_cst, align 8
   ret void
 }

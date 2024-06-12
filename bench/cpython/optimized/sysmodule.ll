@@ -4912,7 +4912,7 @@ do.end153.i:                                      ; preds = %Py_DECREF.exit462.i
   br i1 %cmp155.i, label %if.then27, label %do.body158.i
 
 do.body158.i:                                     ; preds = %do.end153.i
-  %call160.i = tail call fastcc ptr @get_hash_info(ptr noundef nonnull readonly %tstate), !noalias !18
+  %call160.i = tail call fastcc ptr @get_hash_info(ptr noundef nonnull %tstate), !noalias !18
   %cmp161.i = icmp eq ptr %call160.i, null
   br i1 %cmp161.i, label %if.then27, label %if.end163.i
 
@@ -5073,7 +5073,7 @@ do.body224.i:                                     ; preds = %Py_DECREF.exit408.i
   br i1 %cmp226.i, label %if.then27, label %do.end229.i
 
 do.end229.i:                                      ; preds = %do.body224.i
-  %call230.i = tail call fastcc ptr @make_version_info(ptr noundef nonnull readonly %tstate), !noalias !18
+  %call230.i = tail call fastcc ptr @make_version_info(ptr noundef nonnull %tstate), !noalias !18
   %cmp233.i = icmp eq ptr %call230.i, null
   br i1 %cmp233.i, label %if.then27, label %if.end235.i
 

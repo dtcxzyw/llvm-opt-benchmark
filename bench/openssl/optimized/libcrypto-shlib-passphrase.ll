@@ -530,7 +530,7 @@ if.then56.i:                                      ; preds = %sw.default.i
 if.end57.i:                                       ; preds = %sw.default.i
   %conv58.i = zext nneg i32 %call53.i to i64
   store i64 %conv58.i, ptr %pass_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %pass, ptr nonnull align 1 %call24.i, i64 %conv58.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pass, ptr nonnull align 1 %call24.i, i64 %conv58.i, i1 false)
   br label %end.i
 
 end.i:                                            ; preds = %if.end57.i, %if.then56.i, %sw.bb52.i, %sw.bb.i, %if.then48.i, %if.then36.i, %if.then33.i, %if.end23.i, %if.then22.i

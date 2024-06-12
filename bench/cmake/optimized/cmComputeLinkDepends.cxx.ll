@@ -4856,7 +4856,7 @@ select.unfold.i.i.i:                              ; preds = %48, %._crit_edge.th
   %62 = add i64 %61, 1
   store i64 %62, ptr %60, align 8
   %63 = getelementptr inbounds i8, ptr %16, i64 184
-  tail call void @_ZN20cmComputeLinkDepends23QueueSharedDependenciesEmRKSt6vectorI10cmLinkItemSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %63)
+  tail call void @_ZN20cmComputeLinkDepends23QueueSharedDependenciesEmRKSt6vectorI10cmLinkItemSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %63)
   br label %_ZN20cmComputeLinkDepends16FollowSharedDepsEmPK15cmLinkInterfaceb.exit
 
 _ZN20cmComputeLinkDepends16FollowSharedDepsEmPK15cmLinkInterfaceb.exit: ; preds = %48, %56

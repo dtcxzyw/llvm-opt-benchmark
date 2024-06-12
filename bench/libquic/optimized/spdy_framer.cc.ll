@@ -1558,7 +1558,7 @@ if.then.i.i:                                      ; preds = %if.then.i77
   %10 = load ptr, ptr %current_frame_buffer_.i.i, align 8
   %11 = load i64, ptr %len_.i.i.i78, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr readonly align 1 %data.addr.0, i64 %.sroa.speculated.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 1 %data.addr.0, i64 %.sroa.speculated.i.i, i1 false)
   %12 = load i64, ptr %len_.i.i.i78, align 8
   %add.i.i.i = add i64 %12, %.sroa.speculated.i.i
   store i64 %add.i.i.i, ptr %len_.i.i.i78, align 8
@@ -1910,7 +1910,7 @@ if.then6:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then6
   %4 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %5 = load i64, ptr %len_.i, align 8
   %add.i.i = add i64 %5, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i, align 8
@@ -2262,7 +2262,7 @@ if.then.i:                                        ; preds = %if.then4
   %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %3 = load i64, ptr %len_.i.i, align 8
   %add.i.i = add i64 %3, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i.i, align 8
@@ -2909,7 +2909,7 @@ if.then.i:                                        ; preds = %if.then
   %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %3 = load i64, ptr %len_.i.i, align 8
   %add.i.i = add i64 %3, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i.i, align 8
@@ -3033,7 +3033,7 @@ if.then22:                                        ; preds = %if.then20
 if.else24:                                        ; preds = %while.body
   %6 = load ptr, ptr %settings_scratch_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
   %7 = load i64, ptr %len_.i, align 8
   %add.i = add i64 %7, %.sroa.speculated
   store i64 %add.i, ptr %len_.i, align 8
@@ -3497,7 +3497,7 @@ if.then8:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then8
   %3 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %4 = load i64, ptr %len_.i, align 8
   %add.i.i = add i64 %4, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i, align 8
@@ -3656,7 +3656,7 @@ if.then8:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then8
   %3 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %4 = load i64, ptr %len_.i, align 8
   %add.i.i = add i64 %4, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i, align 8
@@ -3843,7 +3843,7 @@ if.end7:                                          ; preds = %_ZNKSt14default_del
   %len_.i5 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %len_.i5, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %data, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %data, i64 %.sroa.speculated, i1 false)
   %10 = load i64, ptr %len_.i5, align 8
   %add.i = add i64 %10, %.sroa.speculated
   store i64 %add.i, ptr %len_.i5, align 8
@@ -4010,7 +4010,7 @@ if.then.i:                                        ; preds = %entry
   %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %3 = load i64, ptr %len_.i.i, align 8
   %add.i.i = add i64 %3, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i.i, align 8
@@ -4765,7 +4765,7 @@ if.then:                                          ; preds = %entry
   %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load i64, ptr %len_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %1, i64 %.sroa.speculated, i1 false)
   %4 = load i64, ptr %len_.i, align 8
   %add.i = add i64 %4, %.sroa.speculated
   store i64 %add.i, ptr %len_.i, align 8

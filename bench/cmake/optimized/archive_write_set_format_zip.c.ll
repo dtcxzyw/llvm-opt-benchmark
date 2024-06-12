@@ -1423,7 +1423,7 @@ cd_alloc.exit373:                                 ; preds = %485, %493, %500
   %509 = call ptr @archive_entry_pathname(ptr noundef %508) #13
   %510 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %509) #16
   %511 = call i32 @archive_entry_filetype(ptr noundef %508) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.0.i371, ptr align 1 %509, i64 %510, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i371, ptr align 1 %509, i64 %510, i1 false)
   %512 = icmp eq i32 %511, 16384
   br i1 %512, label %513, label %copy_path.exit
 

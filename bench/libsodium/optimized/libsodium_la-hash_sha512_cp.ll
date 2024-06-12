@@ -1099,8 +1099,8 @@ define noundef i32 @crypto_hash_sha512(ptr nocapture noundef nonnull writeonly %
 entry:
   %state = alloca %struct.crypto_hash_sha512_state, align 8
   %count.i = getelementptr inbounds i8, ptr %state, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %count.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %state, ptr noundef nonnull align 16 dereferenceable(64) @crypto_hash_sha512_init.sha512_initial_state, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count.i, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %state, ptr noundef nonnull align 16 dereferenceable(64) @crypto_hash_sha512_init.sha512_initial_state, i64 64, i1 false)
   %call1 = call i32 @crypto_hash_sha512_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)
   %call2 = call i32 @crypto_hash_sha512_final(ptr noundef %state, ptr noundef %out)
   ret i32 0

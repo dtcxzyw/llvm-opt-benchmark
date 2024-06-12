@@ -5408,7 +5408,7 @@ parse_RID.exit.i:                                 ; preds = %284, %115
   ]
 
 286:                                              ; preds = %parse_RID.exit.i
-  %287 = call fastcc i32 @parse_ClassPortInfo(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  %287 = call fastcc i32 @parse_ClassPortInfo(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 288:                                              ; preds = %parse_RID.exit.i
@@ -5416,93 +5416,93 @@ parse_RID.exit.i:                                 ; preds = %284, %115
   br label %403
 
 290:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_InformInfo(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  call fastcc void @parse_InformInfo(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 291:                                              ; preds = %parse_RID.exit.i
   %292 = load i32, ptr @hf_opa_reserved32, align 4
   %293 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %292, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 4, i32 noundef 0) #6
   %294 = add i32 %.val.i76, 4
-  %295 = call fastcc i32 @parse_NodeInfo(ptr noundef %108, ptr noundef %.0, i32 %294, ptr noundef nonnull readonly %6)
-  call fastcc void @parse_NodeDescription(ptr noundef %108, ptr noundef %.0, i32 %295, ptr noundef nonnull readonly %6)
+  %295 = call fastcc i32 @parse_NodeInfo(ptr noundef %108, ptr noundef %.0, i32 %294, ptr noundef nonnull %6)
+  call fastcc void @parse_NodeDescription(ptr noundef %108, ptr noundef %.0, i32 %295, ptr noundef nonnull %6)
   br label %403
 
 296:                                              ; preds = %parse_RID.exit.i
   %297 = load i32, ptr @hf_opa_reserved16, align 4
   %298 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %297, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %299 = add i32 %.val.i76, 2
-  call fastcc void @parse_PortInfoRecord(ptr noundef %108, ptr noundef %.0, i32 %299, ptr noundef nonnull readonly %6)
+  call fastcc void @parse_PortInfoRecord(ptr noundef %108, ptr noundef %.0, i32 %299, ptr noundef nonnull %6)
   br label %403
 
 300:                                              ; preds = %parse_RID.exit.i
   %301 = load i32, ptr @hf_opa_reserved16, align 4
   %302 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %301, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %303 = add i32 %.val.i76, 2
-  %304 = call fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %108, ptr noundef %.0, i32 %303, ptr noundef nonnull readonly %6)
+  %304 = call fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %108, ptr noundef %.0, i32 %303, ptr noundef nonnull %6)
   br label %403
 
 305:                                              ; preds = %parse_RID.exit.i
   %306 = load i32, ptr @hf_opa_reserved16, align 4
   %307 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %306, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %308 = add i32 %.val.i76, 2
-  %309 = call fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %108, ptr noundef %.0, i32 %308, ptr noundef nonnull readonly %6)
+  %309 = call fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %108, ptr noundef %.0, i32 %308, ptr noundef nonnull %6)
   br label %403
 
 310:                                              ; preds = %parse_RID.exit.i
   %311 = load i32, ptr @hf_opa_reserved16, align 4
   %312 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %311, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %313 = add i32 %.val.i76, 2
-  %314 = call fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %108, ptr noundef %.0, i32 %313, ptr noundef nonnull readonly %6)
+  %314 = call fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %108, ptr noundef %.0, i32 %313, ptr noundef nonnull %6)
   br label %403
 
 315:                                              ; preds = %parse_RID.exit.i, %parse_RID.exit.i, %parse_RID.exit.i
   %316 = load i32, ptr @hf_opa_reserved24, align 4
   %317 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %316, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 3, i32 noundef 0) #6
   %318 = add i32 %.val.i76, 3
-  %319 = call fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %108, ptr noundef %.0, i32 %318, ptr noundef nonnull readonly %6)
+  %319 = call fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %108, ptr noundef %.0, i32 %318, ptr noundef nonnull %6)
   br label %403
 
 320:                                              ; preds = %parse_RID.exit.i
   %321 = load i32, ptr @hf_opa_reserved32, align 4
   %322 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %321, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 4, i32 noundef 0) #6
   %323 = add i32 %.val.i76, 4
-  %324 = call fastcc i32 @parse_SwitchInfo(ptr noundef %108, ptr noundef %.0, i32 %323, ptr noundef nonnull readonly %6)
+  %324 = call fastcc i32 @parse_SwitchInfo(ptr noundef %108, ptr noundef %.0, i32 %323, ptr noundef nonnull %6)
   br label %403
 
 325:                                              ; preds = %parse_RID.exit.i
-  %326 = call fastcc i32 @parse_LinearForwardingTable(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  %326 = call fastcc i32 @parse_LinearForwardingTable(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 327:                                              ; preds = %parse_RID.exit.i
-  %328 = call fastcc i32 @parse_MulticastForwardingTable(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  %328 = call fastcc i32 @parse_MulticastForwardingTable(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 329:                                              ; preds = %parse_RID.exit.i
   %330 = load i32, ptr @hf_opa_reserved16, align 4
   %331 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %330, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %332 = add i32 %.val.i76, 2
-  %333 = call fastcc i32 @parse_VLArbitrationTable(ptr noundef %108, ptr noundef %.0, i32 %332, ptr noundef nonnull readonly %6)
+  %333 = call fastcc i32 @parse_VLArbitrationTable(ptr noundef %108, ptr noundef %.0, i32 %332, ptr noundef nonnull %6)
   br label %403
 
 334:                                              ; preds = %parse_RID.exit.i
   %335 = load i32, ptr @hf_opa_reserved32, align 4
   %336 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %335, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 4, i32 noundef 0) #6
   %337 = add i32 %.val.i76, 4
-  %338 = call fastcc i32 @parse_SMInfo(ptr noundef %108, ptr noundef %.0, i32 %337, ptr noundef nonnull readonly %6)
+  %338 = call fastcc i32 @parse_SMInfo(ptr noundef %108, ptr noundef %.0, i32 %337, ptr noundef nonnull %6)
   br label %403
 
 339:                                              ; preds = %parse_RID.exit.i
   %340 = load i32, ptr @hf_opa_reserved8, align 4
   %341 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %340, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 1, i32 noundef 0) #6
   %342 = add i32 %.val.i76, 1
-  %343 = call fastcc i32 @parse_P_KeyTable(ptr noundef %108, ptr noundef %.0, i32 %342, ptr noundef nonnull readonly %6)
+  %343 = call fastcc i32 @parse_P_KeyTable(ptr noundef %108, ptr noundef %.0, i32 %342, ptr noundef nonnull %6)
   br label %403
 
 344:                                              ; preds = %parse_RID.exit.i
   %345 = load i32, ptr @hf_opa_reserved16, align 4
   %346 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %345, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %347 = add i32 %.val.i76, 2
-  call fastcc void @parse_InformInfo(ptr noundef %108, ptr noundef %.0, i32 %347, ptr noundef nonnull readonly %6)
+  call fastcc void @parse_InformInfo(ptr noundef %108, ptr noundef %.0, i32 %347, ptr noundef nonnull %6)
   br label %403
 
 348:                                              ; preds = %parse_RID.exit.i
@@ -5542,7 +5542,7 @@ parse_RID.exit.i:                                 ; preds = %284, %115
   br label %403
 
 357:                                              ; preds = %parse_RID.exit.i
-  %358 = call fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  %358 = call fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 359:                                              ; preds = %parse_RID.exit.i
@@ -5557,57 +5557,57 @@ parse_RID.exit.i:                                 ; preds = %284, %115
   %362 = load i32, ptr @hf_opa_reserved16, align 4
   %363 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %362, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %364 = add i32 %.val.i76, 2
-  %365 = call fastcc i32 @parse_PortGroupTable(ptr noundef %108, ptr noundef %.0, i32 %364, ptr noundef nonnull readonly %6)
+  %365 = call fastcc i32 @parse_PortGroupTable(ptr noundef %108, ptr noundef %.0, i32 %364, ptr noundef nonnull %6)
   br label %403
 
 366:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_QuarantinedNodeRecord(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  call fastcc void @parse_QuarantinedNodeRecord(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 367:                                              ; preds = %parse_RID.exit.i
   %368 = load i32, ptr @hf_opa_reserved32, align 4
   %369 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %368, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 4, i32 noundef 0) #6
   %370 = add i32 %.val.i76, 4
-  %371 = call fastcc i32 @parse_CongestionInfo(ptr noundef %108, ptr noundef %.0, i32 %370, ptr noundef nonnull readonly %6)
+  %371 = call fastcc i32 @parse_CongestionInfo(ptr noundef %108, ptr noundef %.0, i32 %370, ptr noundef nonnull %6)
   br label %403
 
 372:                                              ; preds = %parse_RID.exit.i
   %373 = load i32, ptr @hf_opa_reserved32, align 4
   %374 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %373, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 4, i32 noundef 0) #6
   %375 = add i32 %.val.i76, 4
-  %376 = call fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %108, ptr noundef %.0, i32 %375, ptr noundef nonnull readonly %6)
+  %376 = call fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %108, ptr noundef %.0, i32 %375, ptr noundef nonnull %6)
   br label %403
 
 377:                                              ; preds = %parse_RID.exit.i
   %378 = load i32, ptr @hf_opa_reserved24, align 4
   %379 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %378, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 3, i32 noundef 0) #6
   %380 = add i32 %.val.i76, 3
-  %381 = call fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %108, ptr noundef %.0, i32 %380, ptr noundef nonnull readonly %6)
+  %381 = call fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %108, ptr noundef %.0, i32 %380, ptr noundef nonnull %6)
   br label %403
 
 382:                                              ; preds = %parse_RID.exit.i
   %383 = load i32, ptr @hf_opa_reserved32, align 4
   %384 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %383, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 4, i32 noundef 0) #6
   %385 = add i32 %.val.i76, 4
-  %386 = call fastcc i32 @parse_HFICongestionSetting(ptr noundef %108, ptr noundef %.0, i32 %385, ptr noundef nonnull readonly %6)
+  %386 = call fastcc i32 @parse_HFICongestionSetting(ptr noundef %108, ptr noundef %.0, i32 %385, ptr noundef nonnull %6)
   br label %403
 
 387:                                              ; preds = %parse_RID.exit.i
   %388 = load i32, ptr @hf_opa_reserved16, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %388, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 2, i32 noundef 0) #6
   %390 = add i32 %.val.i76, 2
-  %391 = call fastcc i32 @parse_HFICongestionControlTable(ptr noundef %108, ptr noundef %.0, i32 %390, ptr noundef nonnull readonly %6)
+  %391 = call fastcc i32 @parse_HFICongestionControlTable(ptr noundef %108, ptr noundef %.0, i32 %390, ptr noundef nonnull %6)
   br label %403
 
 392:                                              ; preds = %parse_RID.exit.i
   %393 = load i32, ptr @hf_opa_reserved24, align 4
   %394 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %393, ptr noundef %.0, i32 noundef %.val.i76, i32 noundef 3, i32 noundef 0) #6
   %395 = add i32 %.val.i76, 3
-  %396 = call fastcc i32 @parse_BufferControlTable(ptr noundef %108, ptr noundef %.0, i32 %395, ptr noundef nonnull readonly %6)
+  %396 = call fastcc i32 @parse_BufferControlTable(ptr noundef %108, ptr noundef %.0, i32 %395, ptr noundef nonnull %6)
   br label %403
 
 397:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_FabricInfoRecord(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull readonly %6)
+  call fastcc void @parse_FabricInfoRecord(ptr noundef %108, ptr noundef %.0, i32 %.val.i76, ptr noundef nonnull %6)
   br label %403
 
 398:                                              ; preds = %parse_RID.exit.i
@@ -5851,7 +5851,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 35:                                               ; preds = %33
-  %36 = call fastcc i32 @parse_ClassPortInfo(ptr noundef %12, ptr noundef %2, i32 %28, ptr noundef nonnull readonly %5)
+  %36 = call fastcc i32 @parse_ClassPortInfo(ptr noundef %12, ptr noundef %2, i32 %28, ptr noundef nonnull %5)
   br label %.sink.split
 
 37:                                               ; preds = %33

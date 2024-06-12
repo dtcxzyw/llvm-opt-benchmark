@@ -267,7 +267,7 @@ define ptr @H5C_create(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nound
   %90 = getelementptr inbounds i8, ptr %10, i64 527648
   %91 = getelementptr inbounds i8, ptr %10, i64 527704
   %92 = getelementptr inbounds i8, ptr %10, i64 527600
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %90, i8 0, i64 52, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %91, i8 0, i64 18, i1 false)
   tail call void @H5C_stats__reset(ptr noundef nonnull %10) #8

@@ -325,7 +325,7 @@ define ptr @Pdr_ManFetchSolver(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %.val.val.i = load ptr, ptr %46, align 8
   %47 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %5
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr @Pdr_ManCubeToLits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %45, i32 noundef 1, i32 noundef 0)
+  %49 = tail call ptr @Pdr_ManCubeToLits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %45, i32 noundef 1, i32 noundef 0)
   %50 = getelementptr i8, ptr %49, i64 8
   %.val9.i = load ptr, ptr %50, align 8
   %51 = getelementptr i8, ptr %49, i64 4

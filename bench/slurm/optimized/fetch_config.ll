@@ -1034,7 +1034,7 @@ define range(i32 -1, 1) i32 @write_one_config(ptr nocapture noundef readonly %0,
   br i1 %.not.i, label %.loopexit.i, label %26
 
 26:                                               ; preds = %25
-  %27 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %28 = trunc i64 %27 to i32
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph.split.us.i, label %.loopexit.i
@@ -1071,7 +1071,7 @@ define range(i32 -1, 1) i32 @write_one_config(ptr nocapture noundef readonly %0,
   br i1 %42, label %43, label %60
 
 43:                                               ; preds = %.split42.us.i
-  %44 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %45 = trunc i64 %44 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 375, ptr noundef nonnull @__func__._write_conf, i32 noundef %.028.ph49.i, i32 noundef %45) #13
   br label %60
@@ -1091,7 +1091,7 @@ define range(i32 -1, 1) i32 @write_one_config(ptr nocapture noundef readonly %0,
   br i1 %52, label %53, label %.lr.ph.split.us.i.backedge
 
 53:                                               ; preds = %50
-  %54 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %55 = trunc i64 %54 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.2, i32 noundef 375, ptr noundef nonnull @__func__._write_conf, i32 noundef %48, i32 noundef %55) #13
   br label %.lr.ph.split.us.i.backedge

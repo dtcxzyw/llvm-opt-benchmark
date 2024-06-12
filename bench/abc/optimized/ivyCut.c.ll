@@ -3118,7 +3118,7 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
   %11 = shl nuw nsw i32 1, %10
   store i32 %11, ptr %4, align 4
   store i32 1, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), ptr noundef nonnull readonly align 4 dereferenceable(36) %3, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), ptr noundef nonnull align 4 dereferenceable(36) %3, i64 36, i1 false)
   %12 = getelementptr i8, ptr %0, i64 24
   br label %13
 
@@ -3645,7 +3645,7 @@ Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.
   store i32 %218, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   %219 = sext i32 %25 to i64
   %220 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %219
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %220, ptr noundef nonnull readonly align 4 dereferenceable(36) %3, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %220, ptr noundef nonnull align 4 dereferenceable(36) %3, i64 36, i1 false)
   %.pre = load i32, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   br label %Ivy_NodeCutFindOrAddFilter.exit
 

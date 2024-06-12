@@ -294,7 +294,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call11, i8 0, i64 24, i1 false)
   %create_time.i = getelementptr inbounds i8, ptr %call11, i64 112
   %hi_.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 116
   store i32 0, ptr %hi_.i.i.i.i, align 4

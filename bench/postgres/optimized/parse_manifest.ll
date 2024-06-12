@@ -841,7 +841,7 @@ json_manifest_finalize_file.exit:                 ; preds = %192, %194
   %227 = load ptr, ptr %204, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %228 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %227, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  %228 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %227, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not.i.i = icmp eq i32 %228, 2
   br i1 %.not.i.i, label %parse_xlogrecptr.exit.thread.i, label %233
 
@@ -853,7 +853,7 @@ parse_xlogrecptr.exit.thread.i:                   ; preds = %226
   %231 = load ptr, ptr %211, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %232 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %231, ptr noundef nonnull @.str.18, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
+  %232 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %231, ptr noundef nonnull @.str.18, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %.not.i33.i = icmp eq i32 %232, 2
   br i1 %.not.i33.i, label %parse_xlogrecptr.exit34.thread.i, label %250
 

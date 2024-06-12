@@ -1883,10 +1883,10 @@ define internal fastcc ptr @Gia_ManBalanceInt(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #22
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #20
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #19
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #19
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %4, %10
@@ -1898,10 +1898,10 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %10
   br i1 %.not.i87, label %Abc_UtilStrsav.exit88, label %18
 
 18:                                               ; preds = %Abc_UtilStrsav.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #22
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #22
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #20
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #19
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #19
   br label %Abc_UtilStrsav.exit88
 
 Abc_UtilStrsav.exit88:                            ; preds = %Abc_UtilStrsav.exit, %18
@@ -3244,7 +3244,7 @@ Vec_IntPush.exit.i.i72:                           ; preds = %403, %Vec_IntGrow.e
   store i32 %.0.i.i, ptr %409, align 4
   %410 = getelementptr i8, ptr %0, i64 768
   %.val40.i.i = load ptr, ptr %410, align 8
-  %411 = tail call i32 @Bal_ManSetGateLevel(ptr noundef %.val40.i.i, ptr nonnull readonly poison, i32 noundef %.0.i.i)
+  %411 = tail call i32 @Bal_ManSetGateLevel(ptr noundef %.val40.i.i, ptr nonnull poison, i32 noundef %.0.i.i)
   %.val39.i.i = load i32, ptr %290, align 4
   %412 = icmp sgt i32 %.val39.i.i, 1
   br i1 %412, label %.lr.ph.i.i74, label %Gia_ManBalanceGate.exit
@@ -3522,7 +3522,7 @@ Bal_ManEvalTwo.exit.i.i:                          ; preds = %Gia_ObjIsXor.exit.i
   %541 = zext i1 %540 to i32
   %542 = icmp slt i32 %528, %535
   %543 = zext i1 %542 to i32
-  %544 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull readonly %.val53.i, i32 noundef %522, i32 noundef %523, i32 noundef 0, i32 poison, i32 poison, i32 poison, i32 noundef %543, i32 noundef %541, i32 noundef %539, i32 poison, i32 poison, i32 noundef 0)
+  %544 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull %.val53.i, i32 noundef %522, i32 noundef %523, i32 noundef 0, i32 poison, i32 poison, i32 poison, i32 noundef %543, i32 noundef %541, i32 noundef %539, i32 poison, i32 poison, i32 noundef 0)
   %545 = icmp eq i32 %544, -1
   br i1 %545, label %Bal_ManEvalTwo.exit.thread.i.i, label %546
 
@@ -3649,7 +3649,7 @@ Bal_ManEvalTwo.exit111.i.i:                       ; preds = %Gia_ObjIsXor.exit10
   %600 = zext i1 %599 to i32
   %601 = icmp slt i32 %587, %594
   %602 = zext i1 %601 to i32
-  %603 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull readonly %.val53.i, i32 noundef %581, i32 noundef %582, i32 noundef 0, i32 poison, i32 poison, i32 poison, i32 noundef %602, i32 noundef %600, i32 noundef %598, i32 poison, i32 poison, i32 noundef 0)
+  %603 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull %.val53.i, i32 noundef %581, i32 noundef %582, i32 noundef 0, i32 poison, i32 poison, i32 poison, i32 noundef %602, i32 noundef %600, i32 noundef %598, i32 poison, i32 poison, i32 noundef 0)
   %604 = icmp eq i32 %603, -1
   br i1 %604, label %Bal_ManEvalTwo.exit111.thread.i.i, label %605
 
@@ -3870,7 +3870,7 @@ Gia_ObjIsXor.exit.thread.i:                       ; preds = %Gia_ObjIsXor.exit.i
 
 699:                                              ; preds = %Gia_ObjIsXor.exit.thread.i, %696
   %.047.i = phi i32 [ %697, %696 ], [ %698, %Gia_ObjIsXor.exit.thread.i ]
-  %700 = tail call i32 @Bal_ManSetGateLevel(ptr noundef %.val53.i, ptr nonnull readonly poison, i32 noundef %.047.i)
+  %700 = tail call i32 @Bal_ManSetGateLevel(ptr noundef %.val53.i, ptr nonnull poison, i32 noundef %.047.i)
   %701 = load ptr, ptr %465, align 8
   %702 = load i32, ptr %290, align 4
   %703 = load i32, ptr %286, align 8

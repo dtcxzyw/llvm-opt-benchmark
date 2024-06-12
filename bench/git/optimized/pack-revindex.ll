@@ -53,14 +53,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %pack_name.i = getelementptr inbounds i8, ptr %p, i64 240
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name.i) #11
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i) #11
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end
   %sub.i.i.i = add i64 %call.i.i, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pack_name.i, i64 %sub.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %pack_revindex_filename.exit, label %if.then.i
 
@@ -589,7 +589,7 @@ for.end44.i.i:                                    ; preds = %for.cond23.do.body_
   br i1 %or.cond.i.i, label %create_pack_revindex.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end44.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %29, ptr readonly align 1 %call3.i.i, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %call3.i.i, i64 %mul.i.i.i, i1 false)
   br label %create_pack_revindex.exit
 
 create_pack_revindex.exit:                        ; preds = %if.end49.i, %for.end44.i.i, %if.then.i.i.i

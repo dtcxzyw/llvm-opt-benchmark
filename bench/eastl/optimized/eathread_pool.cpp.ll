@@ -67,7 +67,7 @@ entry:
   store volatile i8 0, ptr %mbQuit, align 1
   %mpThread = getelementptr inbounds i8, ptr %this, i64 8
   %mpRunnable.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mpThread, i8 0, i64 16, i1 false)
   ret void
 }
@@ -270,7 +270,7 @@ if.else.i:                                        ; preds = %entry
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit: ; preds = %if.then.i, %if.else.i
   %call3.sink.i = phi ptr [ %call3.i, %if.else.i ], [ %call2.i, %if.then.i ]
   %mpRunnable.i.i2.i = getelementptr inbounds i8, ptr %call3.sink.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i.i2.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i, i8 0, i64 24, i1 false)
   %mpNodeHead = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call3.sink.i, ptr %mpNodeHead, align 8
   %call.i1 = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
@@ -291,7 +291,7 @@ if.else.i9:                                       ; preds = %_ZN2EA6Thread7detai
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit11: ; preds = %if.then.i3, %if.else.i9
   %call3.sink.i7 = phi ptr [ %call3.i10, %if.else.i9 ], [ %call2.i6, %if.then.i3 ]
   %mpRunnable.i.i2.i8 = getelementptr inbounds i8, ptr %call3.sink.i7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i.i2.i8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i8, i8 0, i64 24, i1 false)
   %mpNodeTail = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call3.sink.i7, ptr %mpNodeTail, align 8
   %2 = load ptr, ptr %mpNodeHead, align 8
@@ -1002,7 +1002,7 @@ _ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit: 
 
 while.body7:                                      ; preds = %while.body7.lr.ph, %while.body7
   %nAdjustment.112 = phi i32 [ %sub, %while.body7.lr.ph ], [ %inc, %while.body7 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
   %call8 = call noundef i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i1 zeroext poison)
   %inc = add i32 %nAdjustment.112, 1
   %exitcond.not = icmp eq i32 %inc, 0
@@ -1630,7 +1630,7 @@ if.else.i.i:                                      ; preds = %if.end
 _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %call3.sink.i.i = phi ptr [ %call3.i.i, %if.else.i.i ], [ %call2.i.i, %if.then.i.i ]
   %mpRunnable.i.i2.i.i = getelementptr inbounds i8, ptr %call3.sink.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i.i2.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call3.sink.i.i, ptr noundef nonnull align 8 dereferenceable(32) %job, i64 32, i1 false)
   %mpNodeTail.i2 = getelementptr inbounds i8, ptr %this, i64 256
   %11 = load ptr, ptr %mpNodeTail.i2, align 8
@@ -1755,7 +1755,7 @@ define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPNS0_9IRunnableEPv
 entry:
   %job = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
   %mpRunnable.i = getelementptr inbounds i8, ptr %job, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
   %mnLastJobID = getelementptr inbounds i8, ptr %this, i64 56
   %0 = atomicrmw add ptr %mnLastJobID, i32 1 seq_cst, align 4
   %1 = add i32 %0, 1
@@ -1776,7 +1776,7 @@ define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPFlPvES2_PPNS0_6Th
 entry:
   %job = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
   %mpRunnable.i = getelementptr inbounds i8, ptr %job, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
   %mnLastJobID = getelementptr inbounds i8, ptr %this, i64 56
   %0 = atomicrmw add ptr %mnLastJobID, i32 1 seq_cst, align 4
   %1 = add i32 %0, 1
@@ -2016,7 +2016,7 @@ if.then:                                          ; preds = %cond.false, %cond.t
   store volatile i8 0, ptr %mbQuit.i8, align 1
   %mpThread.i9 = getelementptr inbounds i8, ptr %call2.sink13, i64 8
   %mpRunnable.i.i10 = getelementptr inbounds i8, ptr %call2.sink13, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mpRunnable.i.i10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i10, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mpThread.i9, i8 0, i64 16, i1 false)
   store volatile i8 0, ptr %call2.sink13, align 8
   %mbQuit = getelementptr inbounds i8, ptr %call2.sink13, i64 1

@@ -1733,11 +1733,11 @@ define internal fastcc void @stat_create_entry_summary_string(ptr nocapture noun
   %14 = tail call ptr @someip_lookup_eventgroup_name(i16 noundef zeroext %11, i16 noundef zeroext %13) #7
   %15 = load i16, ptr %8, align 2
   %16 = zext i16 %15 to i32
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 127, ptr noundef nonnull readonly @.str.191, i32 noundef %16) #7
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %16) #7
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull readonly @.str.191, i32 noundef %20) #7
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %20) #7
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i8 %23, -1
@@ -1749,7 +1749,7 @@ define internal fastcc void @stat_create_entry_summary_string(ptr nocapture noun
 
 26:                                               ; preds = %1
   %27 = zext i8 %23 to i32
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 127, ptr noundef nonnull readonly @.str.192, i32 noundef %27) #7
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 127, ptr noundef nonnull @.str.192, i32 noundef %27) #7
   br label %stat_number_to_string_with_any.exit
 
 stat_number_to_string_with_any.exit:              ; preds = %25, %26
@@ -1772,7 +1772,7 @@ stat_number_to_string_with_any.exit:              ; preds = %25, %26
   br label %stat_number_to_string_with_any.exit23
 
 35:                                               ; preds = %30
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 127, ptr noundef nonnull readonly @.str.192, i32 noundef %32) #7
+  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 127, ptr noundef nonnull @.str.192, i32 noundef %32) #7
   br label %stat_number_to_string_with_any.exit23
 
 stat_number_to_string_with_any.exit23:            ; preds = %34, %35
@@ -1790,7 +1790,7 @@ stat_number_to_string_with_any.exit23:            ; preds = %34, %35
 41:                                               ; preds = %stat_number_to_string_with_any.exit, %stat_number_to_string_with_any.exit
   %42 = load i16, ptr %12, align 2
   %43 = zext i16 %42 to i32
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 127, ptr noundef nonnull readonly @.str.191, i32 noundef %43) #7
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %43) #7
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %47, label %45
 

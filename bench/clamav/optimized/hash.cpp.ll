@@ -483,7 +483,7 @@ define noundef zeroext i1 @_ZN8DataHash3CmpEP9HashValuePh(ptr nocapture noundef 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %4, i64 4
   %29 = getelementptr inbounds i8, ptr %1, i64 4
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %28, ptr noundef nonnull readonly dereferenceable(32) %29, i64 32)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %28, ptr noundef nonnull dereferenceable(32) %29, i64 32)
   %30 = icmp eq i32 %bcmp.i, 0
   br label %_ZNK9HashValueeqERKS_.exit
 

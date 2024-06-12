@@ -308,7 +308,7 @@ define internal fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit23.thread": ; preds = %39
   %46 = load ptr, ptr %8, align 8, !alias.scope !40, !noalias !43, !nonnull !5, !noundef !5
   %47 = getelementptr inbounds i8, ptr %46, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull readonly align 1 %41, i64 %40, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %41, i64 %40, i1 false), !noalias !40
   %48 = add i64 %43, %40
   store i64 %48, ptr %7, align 8, !alias.scope !40, !noalias !43
   br label %17
@@ -603,7 +603,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us: ; preds = %62
 _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread.us.us: ; preds = %62
   %70 = load ptr, ptr %46, align 8, !alias.scope !95, !noalias !96, !nonnull !5, !noundef !5
   %71 = getelementptr inbounds i8, ptr %70, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %.sroa.02.0.i, i64 %.sroa.33.0.i, i1 false), !noalias !95
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.33.0.i, i1 false), !noalias !95
   %72 = add i64 %65, %.sroa.33.0.i
   store i64 %72, ptr %45, align 8, !alias.scope !95, !noalias !96
   br label %73
@@ -830,7 +830,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
 174:                                              ; preds = %"_ZN7uu_join5State7combine28_$u7b$$u7b$closure$u7d$$u7d$17hf7f8eb98870b862bE.exit.i"
   %175 = load ptr, ptr %46, align 8, !alias.scope !145, !noalias !146, !nonnull !5, !noundef !5
   %176 = getelementptr inbounds i8, ptr %175, i64 %169
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %176, ptr nonnull readonly align 1 %.sroa.018.0.i, i64 %.sroa.3.0.i, i1 false), !noalias !148
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %176, ptr nonnull align 1 %.sroa.018.0.i, i64 %.sroa.3.0.i, i1 false), !noalias !148
   %177 = add i64 %169, %.sroa.3.0.i
   store i64 %177, ptr %45, align 8, !alias.scope !145, !noalias !146
   br label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i"
@@ -1170,7 +1170,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread: ; preds = %_ZN7uu
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !179, !noalias !180, !nonnull !5, !noundef !5
   %43 = getelementptr inbounds i8, ptr %42, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %.sroa.02.0.i, i64 %.sroa.33.0.i, i1 false), !noalias !179
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.33.0.i, i1 false), !noalias !179
   %44 = add i64 %38, %.sroa.33.0.i
   store i64 %44, ptr %37, align 8, !alias.scope !179, !noalias !180
   br label %133
@@ -1342,7 +1342,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
 128:                                              ; preds = %"_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i"
   %129 = load ptr, ptr %52, align 8, !alias.scope !223, !noalias !224, !nonnull !5, !noundef !5
   %130 = getelementptr inbounds i8, ptr %129, i64 %123
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull readonly align 1 %.sroa.018.0.i, i64 %.sroa.3.0.i27, i1 false), !noalias !226
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull align 1 %.sroa.018.0.i, i64 %.sroa.3.0.i27, i1 false), !noalias !226
   %131 = add i64 %123, %.sroa.3.0.i27
   store i64 %131, ptr %51, align 8, !alias.scope !223, !noalias !224
   br label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit27.i"

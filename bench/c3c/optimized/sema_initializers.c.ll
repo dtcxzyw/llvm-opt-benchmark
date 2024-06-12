@@ -2286,7 +2286,7 @@ tailrecurse.i.i:                                  ; preds = %700, %.critedge.i
   %701 = getelementptr inbounds i8, ptr %.0.i398.i, i64 88
   %702 = load ptr, ptr %701, align 8
   %703 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %703, ptr noundef nonnull readonly align 8 dereferenceable(56) %702, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %703, ptr noundef nonnull align 8 dereferenceable(56) %702, i64 56, i1 false)
   br label %tailrecurse.i.i
 
 .critedge.thread.i.i:                             ; preds = %tailrecurse.i.i, %682
@@ -3355,7 +3355,7 @@ tailrecurse.i:                                    ; preds = %330, %.critedge
   %331 = getelementptr inbounds i8, ptr %.0.i296, i64 88
   %332 = load ptr, ptr %331, align 8
   %333 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %333, ptr noundef nonnull readonly align 8 dereferenceable(56) %332, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %333, ptr noundef nonnull align 8 dereferenceable(56) %332, i64 56, i1 false)
   br label %tailrecurse.i
 
 .critedge.thread.i:                               ; preds = %tailrecurse.i, %312
@@ -3504,7 +3504,7 @@ tailrecurse.i297:                                 ; preds = %396, %.critedge2
   %397 = getelementptr inbounds i8, ptr %.0.i300, i64 88
   %398 = load ptr, ptr %397, align 8
   %399 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull readonly align 8 dereferenceable(56) %398, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %399, ptr noundef nonnull align 8 dereferenceable(56) %398, i64 56, i1 false)
   br label %tailrecurse.i297
 
 .critedge.thread.i301:                            ; preds = %tailrecurse.i297, %378
@@ -3973,7 +3973,7 @@ tailrecurse.i:                                    ; preds = %63, %90
   %91 = getelementptr inbounds i8, ptr %.0.i20, i64 88
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull readonly align 8 dereferenceable(56) %92, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull align 8 dereferenceable(56) %92, i64 56, i1 false)
   br label %tailrecurse.i
 
 .critedge.thread.i:                               ; preds = %tailrecurse.i, %72
@@ -4175,7 +4175,7 @@ tailrecurse.i23:                                  ; preds = %tailrecurse.i23.pre
   %187 = getelementptr inbounds i8, ptr %.0.i26, i64 88
   %188 = load ptr, ptr %187, align 8
   %189 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %189, ptr noundef nonnull readonly align 8 dereferenceable(56) %188, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %189, ptr noundef nonnull align 8 dereferenceable(56) %188, i64 56, i1 false)
   br label %tailrecurse.i23
 
 .critedge.thread.i27:                             ; preds = %tailrecurse.i23, %168
@@ -4526,7 +4526,7 @@ tailrecurse.i37:                                  ; preds = %325, %349
   %350 = getelementptr inbounds i8, ptr %.0.i40, i64 88
   %351 = load ptr, ptr %350, align 8
   %352 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %352, ptr noundef nonnull readonly align 8 dereferenceable(56) %351, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %352, ptr noundef nonnull align 8 dereferenceable(56) %351, i64 56, i1 false)
   br label %tailrecurse.i37
 
 .critedge.thread.i41:                             ; preds = %tailrecurse.i37, %331

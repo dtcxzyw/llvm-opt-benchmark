@@ -1269,7 +1269,7 @@ do.body:                                          ; preds = %do.body, %_ZN4absl1
   %storage.i = getelementptr inbounds i8, ptr %call4.i.i, i64 13
   %sub.i9 = sub i64 %data.sroa.0.0, %.sroa.speculated
   %add.ptr.i = getelementptr inbounds i8, ptr %data.coerce1, i64 %sub.i9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %storage.i, ptr align 1 %add.ptr.i, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i, ptr align 1 %add.ptr.i, i64 %.sroa.speculated, i1 false)
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %data.sroa.0.0, i64 %sub.i9)
   %cmp.i10 = icmp eq i64 %.sroa.speculated.i.i, 0
   %cmp.not = icmp eq i8 %sub.i8, 0
@@ -1349,7 +1349,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %storage.i = getelementptr inbounds i8, ptr %call4.i.i, i64 13
   %sub.i = sub i64 %data.sroa.0.026, %.sroa.speculated
   %add.ptr.i = getelementptr inbounds i8, ptr %data.coerce1, i64 %sub.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %storage.i, ptr align 1 %add.ptr.i, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i, ptr align 1 %add.ptr.i, i64 %.sroa.speculated, i1 false)
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %data.sroa.0.026, i64 %sub.i)
   %cmp.i = icmp eq i64 %.sroa.speculated.i.i, 0
   %cmp = icmp eq i64 %dec, 0
@@ -1830,7 +1830,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %edges_, i64 0, i64 %conv.i
   store ptr %call4.i.i, ptr %arrayidx, align 8
   %storage.i = getelementptr inbounds i8, ptr %call4.i.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %storage.i, ptr align 1 %data.sroa.7.0, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i, ptr align 1 %data.sroa.7.0, i64 %.sroa.speculated, i1 false)
   %sub.i.i9 = sub i64 %data.sroa.0.0, %.sroa.speculated
   %add.ptr.i.i = getelementptr inbounds i8, ptr %data.sroa.7.0, i64 %.sroa.speculated
   %cmp.i10 = icmp eq i64 %sub.i.i9, 0
@@ -1910,7 +1910,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %edges_, i64 0, i64 %end.027
   store ptr %call4.i.i, ptr %arrayidx, align 8
   %storage.i = getelementptr inbounds i8, ptr %call4.i.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %storage.i, ptr align 1 %data.sroa.6.026, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i, ptr align 1 %data.sroa.6.026, i64 %.sroa.speculated, i1 false)
   %sub.i.i18 = sub i64 %data.sroa.0.025, %.sroa.speculated
   %add.ptr.i.i = getelementptr inbounds i8, ptr %data.sroa.6.026, i64 %.sroa.speculated
   %cmp.i = icmp eq i64 %sub.i.i18, 0

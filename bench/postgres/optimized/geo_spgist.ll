@@ -571,7 +571,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %128, %132
   %187 = phi i32 [ 0, %.lr.ph172 ], [ %445, %443 ]
   %.0137170 = phi i8 [ 0, %.lr.ph172 ], [ %444, %443 ]
   %188 = tail call ptr @palloc(i64 noundef 64) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0133, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull align 8 dereferenceable(64) %.0133, i64 64, i1 false)
   %189 = and i32 %187, 8
   %190 = load double, ptr %106, align 8
   %191 = xor i32 %189, 8

@@ -640,7 +640,7 @@ _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10uniqu
   %parsing_value_.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i8 0, ptr %parsing_value_.i, align 8
   %events_.i = getelementptr inbounds i8, ptr %call2, i64 312
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events_.i, i8 0, i64 24, i1 false)
   %current_header_.i = getelementptr inbounds i8, ptr %call2, i64 336
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_header_.i) #19
   %5 = getelementptr inbounds i8, ptr %call2, i64 376

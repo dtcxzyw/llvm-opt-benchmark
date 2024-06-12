@@ -1669,7 +1669,7 @@ call.i375.noexc:                                  ; preds = %if.end.i374
   %data.i.i.i = getelementptr inbounds i8, ptr %call.i375377, i64 36
   store i8 0, ptr %data.i.i.i, align 4
   store ptr %call.i375377, ptr %pip.11378, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i375377, ptr noundef nonnull readonly align 8 dereferenceable(32) %109, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i375377, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)
   %cmp.i.i.i = icmp eq ptr %call.i375377, %109
   br i1 %cmp.i.i.i, label %_ZN9aiTextureaSERKS_.exit.i, label %if.end.i.i.i
 
@@ -1680,7 +1680,7 @@ if.end.i.i.i:                                     ; preds = %call.i375.noexc
   store i32 %spec.select.i.i.i, ptr %mFilename.i.i, align 4
   %data8.i.i.i = getelementptr inbounds i8, ptr %109, i64 36
   %conv11.i.i.i = zext nneg i32 %spec.select.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr nonnull readonly align 4 %data8.i.i.i, i64 %conv11.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr nonnull align 4 %data8.i.i.i, i64 %conv11.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i.i, i64 0, i64 %conv11.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %_ZN9aiTextureaSERKS_.exit.i
@@ -2910,14 +2910,14 @@ if.end.i.i.i499:                                  ; preds = %call.i496.noexc
   store i32 %spec.select.i.i.i500, ptr %call.i496504, align 4
   %data8.i.i.i501 = getelementptr inbounds i8, ptr %292, i64 4
   %conv11.i.i.i502 = zext nneg i32 %spec.select.i.i.i500 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i497, ptr nonnull readonly align 4 %data8.i.i.i501, i64 %conv11.i.i.i502, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i497, ptr nonnull align 4 %data8.i.i.i501, i64 %conv11.i.i.i502, i1 false)
   %arrayidx.i.i.i503 = getelementptr inbounds [1024 x i8], ptr %data.i.i.i497, i64 0, i64 %conv11.i.i.i502
   store i8 0, ptr %arrayidx.i.i.i503, align 1
   br label %_ZN7aiLightaSERKS_.exit.i
 
 _ZN7aiLightaSERKS_.exit.i:                        ; preds = %if.end.i.i.i499, %call.i496.noexc
   %mType3.i.i = getelementptr inbounds i8, ptr %292, i64 1028
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %mType.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %mType3.i.i, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %mType.i.i, ptr noundef nonnull align 4 dereferenceable(52) %mType3.i.i, i64 52, i1 false)
   %mColorDiffuse.i.i = getelementptr inbounds i8, ptr %call.i496504, i64 1080
   %mColorDiffuse4.i.i = getelementptr inbounds i8, ptr %292, i64 1080
   %294 = load float, ptr %mColorDiffuse4.i.i, align 4
@@ -2955,7 +2955,7 @@ _ZN7aiLightaSERKS_.exit.i:                        ; preds = %if.end.i.i.i499, %c
   %b4.i13.i.i = getelementptr inbounds i8, ptr %call.i496504, i64 1112
   store float %302, ptr %b4.i13.i.i, align 4
   %mAngleInnerCone10.i.i = getelementptr inbounds i8, ptr %292, i64 1116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mAngleInnerCone.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %mAngleInnerCone10.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mAngleInnerCone.i.i, ptr noundef nonnull align 4 dereferenceable(16) %mAngleInnerCone10.i.i, i64 16, i1 false)
   br label %if.end603
 
 if.else597:                                       ; preds = %for.body586
@@ -3219,14 +3219,14 @@ if.end.i.i.i569:                                  ; preds = %call.i566.noexc
   store i32 %spec.select.i.i.i570, ptr %call.i566574, align 4
   %data8.i.i.i571 = getelementptr inbounds i8, ptr %336, i64 4
   %conv11.i.i.i572 = zext nneg i32 %spec.select.i.i.i570 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i567, ptr nonnull readonly align 4 %data8.i.i.i571, i64 %conv11.i.i.i572, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i567, ptr nonnull align 4 %data8.i.i.i571, i64 %conv11.i.i.i572, i1 false)
   %arrayidx.i.i.i573 = getelementptr inbounds [1024 x i8], ptr %data.i.i.i567, i64 0, i64 %conv11.i.i.i572
   store i8 0, ptr %arrayidx.i.i.i573, align 1
   br label %_ZN8aiCameraaSERKS_.exit.i
 
 _ZN8aiCameraaSERKS_.exit.i:                       ; preds = %if.end.i.i.i569, %call.i566.noexc
   %mPosition3.i.i = getelementptr inbounds i8, ptr %336, i64 1028
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %mPosition.i.i, ptr noundef nonnull readonly align 4 dereferenceable(56) %mPosition3.i.i, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %mPosition.i.i, ptr noundef nonnull align 4 dereferenceable(56) %mPosition3.i.i, i64 56, i1 false)
   br label %if.end649
 
 if.else643:                                       ; preds = %for.body632
@@ -3481,14 +3481,14 @@ if.end.i.i.i639:                                  ; preds = %call.i636.noexc
   store i32 %spec.select.i.i.i640, ptr %call.i636646, align 4
   %data8.i.i.i641 = getelementptr inbounds i8, ptr %369, i64 4
   %conv11.i.i.i642 = zext nneg i32 %spec.select.i.i.i640 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i637, ptr nonnull readonly align 4 %data8.i.i.i641, i64 %conv11.i.i.i642, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i637, ptr nonnull align 4 %data8.i.i.i641, i64 %conv11.i.i.i642, i1 false)
   %arrayidx.i.i.i643 = getelementptr inbounds [1024 x i8], ptr %data.i.i.i637, i64 0, i64 %conv11.i.i.i642
   store i8 0, ptr %arrayidx.i.i.i643, align 1
   br label %_ZN11aiAnimationaSERKS_.exit.i
 
 _ZN11aiAnimationaSERKS_.exit.i:                   ; preds = %if.end.i.i.i639, %call.i636.noexc
   %mDuration3.i.i = getelementptr inbounds i8, ptr %369, i64 1032
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mDuration.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %mDuration3.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mDuration.i.i, ptr noundef nonnull align 8 dereferenceable(64) %mDuration3.i.i, i64 64, i1 false)
   %mChannels3.i = getelementptr inbounds i8, ptr %369, i64 1056
   %371 = load ptr, ptr %mChannels3.i, align 8
   %372 = load i32, ptr %mNumChannels.i.i, align 8
@@ -3542,14 +3542,14 @@ if.end.i.i.i1062:                                 ; preds = %call.i1059.noexc
   store i32 %spec.select.i.i.i1063, ptr %call.i10591081, align 4
   %data8.i.i.i1064 = getelementptr inbounds i8, ptr %375, i64 4
   %conv11.i.i.i1065 = zext nneg i32 %spec.select.i.i.i1063 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i1060, ptr nonnull readonly align 4 %data8.i.i.i1064, i64 %conv11.i.i.i1065, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i1060, ptr nonnull align 4 %data8.i.i.i1064, i64 %conv11.i.i.i1065, i1 false)
   %arrayidx.i.i.i1066 = getelementptr inbounds [1024 x i8], ptr %data.i.i.i1060, i64 0, i64 %conv11.i.i.i1065
   store i8 0, ptr %arrayidx.i.i.i1066, align 1
   br label %_ZN10aiNodeAnimaSERKS_.exit.i
 
 _ZN10aiNodeAnimaSERKS_.exit.i:                    ; preds = %if.end.i.i.i1062, %call.i1059.noexc
   %mNumPositionKeys3.i.i = getelementptr inbounds i8, ptr %375, i64 1028
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %mNumPositionKeys.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %mNumPositionKeys3.i.i, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %mNumPositionKeys.i.i, ptr noundef nonnull align 4 dereferenceable(52) %mNumPositionKeys3.i.i, i64 52, i1 false)
   %mPositionKeys.i = getelementptr inbounds i8, ptr %call.i10591081, i64 1032
   %377 = load ptr, ptr %mPositionKeys.i, align 8
   %tobool.not.i.i1067 = icmp eq ptr %377, null
@@ -3706,14 +3706,14 @@ if.end.i.i.i1036:                                 ; preds = %call.i1033.noexc
   store i32 %spec.select.i.i.i1037, ptr %call.i10331050, align 4
   %data8.i.i.i1038 = getelementptr inbounds i8, ptr %390, i64 4
   %conv11.i.i.i1039 = zext nneg i32 %spec.select.i.i.i1037 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i1034, ptr nonnull readonly align 4 %data8.i.i.i1038, i64 %conv11.i.i.i1039, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i1034, ptr nonnull align 4 %data8.i.i.i1038, i64 %conv11.i.i.i1039, i1 false)
   %arrayidx.i.i.i1040 = getelementptr inbounds [1024 x i8], ptr %data.i.i.i1034, i64 0, i64 %conv11.i.i.i1039
   store i8 0, ptr %arrayidx.i.i.i1040, align 1
   br label %_ZN15aiMeshMorphAnimaSERKS_.exit.i
 
 _ZN15aiMeshMorphAnimaSERKS_.exit.i:               ; preds = %if.end.i.i.i1036, %call.i1033.noexc
   %mNumKeys3.i.i = getelementptr inbounds i8, ptr %390, i64 1028
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %mNumKeys.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %mNumKeys3.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %mNumKeys.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNumKeys3.i.i, i64 12, i1 false)
   %392 = load ptr, ptr %mKeys.i.i, align 8
   %tobool.not.i.i1041 = icmp eq ptr %392, null
   %.pre.i1042 = load i32, ptr %mNumKeys.i.i, align 4
@@ -4247,7 +4247,7 @@ for.inc739:                                       ; preds = %for.inc.i684, %for.
 for.end744:                                       ; preds = %for.cond475.loopexit, %cond.end468
   %mRootNode.i = getelementptr inbounds i8, ptr %master, i64 8
   %473 = load ptr, ptr %mRootNode.i, align 8
-  invoke void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef %473, ptr noundef nonnull readonly align 8 dereferenceable(24) %nodes)
+  invoke void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef %473, ptr noundef nonnull align 8 dereferenceable(24) %nodes)
           to label %invoke.cont745 unwind label %lpad435.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont745:                                   ; preds = %for.end744
@@ -4315,7 +4315,7 @@ if.then770:                                       ; preds = %for.body766
   %484 = load ptr, ptr %add.ptr.i771, align 8
   %mRootNode.i772 = getelementptr inbounds i8, ptr %484, i64 8
   %485 = load ptr, ptr %mRootNode.i772, align 8
-  invoke void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef %485, ptr noundef nonnull readonly align 8 dereferenceable(24) %nodes)
+  invoke void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef %485, ptr noundef nonnull align 8 dereferenceable(24) %nodes)
           to label %invoke.cont774 unwind label %lpad435.loopexit
 
 invoke.cont774:                                   ; preds = %if.then770
@@ -5239,7 +5239,7 @@ if.end.i.i119:                                    ; preds = %if.end.i115
   store i32 %spec.select.i.i120, ptr %call.i116, align 4
   %data8.i.i121 = getelementptr inbounds i8, ptr %56, i64 4
   %conv11.i.i122 = zext nneg i32 %spec.select.i.i120 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i117, ptr nonnull readonly align 4 %data8.i.i121, i64 %conv11.i.i122, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i117, ptr nonnull align 4 %data8.i.i121, i64 %conv11.i.i122, i1 false)
   %arrayidx.i.i123 = getelementptr inbounds [1024 x i8], ptr %data.i.i117, i64 0, i64 %conv11.i.i122
   store i8 0, ptr %arrayidx.i.i123, align 1
   br label %_ZN6Assimp13SceneCombiner4CopyEPP8aiStringPKS1_.exit
@@ -7850,14 +7850,14 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   store i32 %spec.select.i.i.i.i, ptr %call.i.i, align 4
   %data8.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 4
   %conv11.i.i.i.i = zext nneg i32 %spec.select.i.i.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i.i, ptr nonnull readonly align 4 %data8.i.i.i.i, i64 %conv11.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i.i, ptr nonnull align 4 %data8.i.i.i.i, i64 %conv11.i.i.i.i, i1 false)
   %arrayidx.i.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i.i.i, i64 0, i64 %conv11.i.i.i.i
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   br label %_ZN7aiLightaSERKS_.exit.i.i
 
 _ZN7aiLightaSERKS_.exit.i.i:                      ; preds = %if.end.i.i.i.i, %if.end.i.i
   %mType3.i.i.i = getelementptr inbounds i8, ptr %20, i64 1028
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %mType.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %mType3.i.i.i, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %mType.i.i.i, ptr noundef nonnull align 4 dereferenceable(52) %mType3.i.i.i, i64 52, i1 false)
   %mColorDiffuse.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1080
   %mColorDiffuse4.i.i.i = getelementptr inbounds i8, ptr %20, i64 1080
   %22 = load float, ptr %mColorDiffuse4.i.i.i, align 4
@@ -7895,7 +7895,7 @@ _ZN7aiLightaSERKS_.exit.i.i:                      ; preds = %if.end.i.i.i.i, %if
   %b4.i13.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1112
   store float %30, ptr %b4.i13.i.i.i, align 4
   %mAngleInnerCone10.i.i.i = getelementptr inbounds i8, ptr %20, i64 1116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mAngleInnerCone.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %mAngleInnerCone10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mAngleInnerCone.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %mAngleInnerCone10.i.i.i, i64 16, i1 false)
   br label %_ZN6Assimp13SceneCombiner4CopyEPP7aiLightPKS1_.exit.i
 
 _ZN6Assimp13SceneCombiner4CopyEPP7aiLightPKS1_.exit.i: ; preds = %_ZN7aiLightaSERKS_.exit.i.i, %for.body.i59
@@ -7952,14 +7952,14 @@ if.end.i.i.i.i81:                                 ; preds = %if.end.i.i76
   store i32 %spec.select.i.i.i.i82, ptr %call.i.i78, align 4
   %data8.i.i.i.i83 = getelementptr inbounds i8, ptr %35, i64 4
   %conv11.i.i.i.i84 = zext nneg i32 %spec.select.i.i.i.i82 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i.i79, ptr nonnull readonly align 4 %data8.i.i.i.i83, i64 %conv11.i.i.i.i84, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i.i79, ptr nonnull align 4 %data8.i.i.i.i83, i64 %conv11.i.i.i.i84, i1 false)
   %arrayidx.i.i.i.i85 = getelementptr inbounds [1024 x i8], ptr %data.i.i.i.i79, i64 0, i64 %conv11.i.i.i.i84
   store i8 0, ptr %arrayidx.i.i.i.i85, align 1
   br label %_ZN8aiCameraaSERKS_.exit.i.i
 
 _ZN8aiCameraaSERKS_.exit.i.i:                     ; preds = %if.end.i.i.i.i81, %if.end.i.i76
   %mPosition3.i.i.i = getelementptr inbounds i8, ptr %35, i64 1028
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %mPosition.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(56) %mPosition3.i.i.i, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %mPosition.i.i.i, ptr noundef nonnull align 4 dereferenceable(56) %mPosition3.i.i.i, i64 56, i1 false)
   br label %_ZN6Assimp13SceneCombiner4CopyEPP8aiCameraPKS1_.exit.i
 
 _ZN6Assimp13SceneCombiner4CopyEPP8aiCameraPKS1_.exit.i: ; preds = %_ZN8aiCameraaSERKS_.exit.i.i, %for.body.i70
@@ -8434,7 +8434,7 @@ if.end.i:                                         ; preds = %for.body
   %data.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 36
   store i8 0, ptr %data.i.i.i, align 4
   store ptr %call.i, ptr %arrayidx, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %cmp.i.i.i = icmp eq ptr %call.i, %2
   br i1 %cmp.i.i.i, label %_ZN9aiTextureaSERKS_.exit.i, label %if.end.i.i.i
 
@@ -8445,7 +8445,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   store i32 %spec.select.i.i.i, ptr %mFilename.i.i, align 4
   %data8.i.i.i = getelementptr inbounds i8, ptr %2, i64 36
   %conv11.i.i.i = zext nneg i32 %spec.select.i.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr nonnull readonly align 4 %data8.i.i.i, i64 %conv11.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr nonnull align 4 %data8.i.i.i, i64 %conv11.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i.i, i64 0, i64 %conv11.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %_ZN9aiTextureaSERKS_.exit.i

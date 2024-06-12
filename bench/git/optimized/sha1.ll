@@ -3263,7 +3263,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   %buffer.i = getelementptr inbounds i8, ptr %ctx, i64 28
   %idx.ext.i = and i64 %0, 63
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 16 dereferenceable(1) @sha1_padding, i64 %conv1.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) @sha1_padding, i64 %conv1.i, i1 false)
   tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i)
   %add.ptr11.i = getelementptr inbounds i8, ptr @sha1_padding, i64 %conv1.i
   %sub13.i = sub nsw i64 %conv4, %conv1.i

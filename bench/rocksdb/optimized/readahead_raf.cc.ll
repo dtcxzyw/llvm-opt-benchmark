@@ -242,7 +242,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false.i
   %bufstart_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %bufstart_.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %sub.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %scratch, ptr align 1 %add.ptr.i, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scratch, ptr align 1 %add.ptr.i, i64 %.sroa.speculated.i, i1 false)
   %cmp3.not = icmp ult i64 %sub7.i, %n
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then8
 
@@ -322,7 +322,7 @@ if.end.i29:                                       ; preds = %lor.lhs.false.i23
   %.sroa.speculated.i32 = call i64 @llvm.umin.i64(i64 %sub7.i31, i64 %sub)
   %18 = load ptr, ptr %bufstart_.i.i17, align 8
   %add.ptr.i34 = getelementptr inbounds i8, ptr %18, i64 %sub.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr align 1 %add.ptr.i34, i64 %.sroa.speculated.i32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr.i34, i64 %.sroa.speculated.i32, i1 false)
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %if.end.i29, %lor.lhs.false.i23

@@ -11445,7 +11445,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %_ZL30InputScalar_DefaultCharsFilteriPKc.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %format.addr.0) #37
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %format.addr.0) #37
   %10 = getelementptr i8, ptr %format.addr.0, i64 %call.i
   %arrayidx2.i = getelementptr i8, ptr %10, i64 -1
   %11 = load i8, ptr %arrayidx2.i, align 1
@@ -18250,7 +18250,7 @@ if.then433:                                       ; preds = %land.lhs.true431
   %148 = load i8, ptr %single_line.i, align 1
   %tobool.not.i = icmp eq i8 %148, 0
   %y.addr.0.i = select i1 %tobool.not.i, float %cond422, float 0.000000e+00
-  %call.i981 = call fastcc noundef i32 @_ZN5ImStbL21stb_text_locate_coordEP19ImGuiInputTextStateff(ptr noundef nonnull readonly %state.01435, float noundef %add409, float noundef %y.addr.0.i)
+  %call.i981 = call fastcc noundef i32 @_ZN5ImStbL21stb_text_locate_coordEP19ImGuiInputTextStateff(ptr noundef nonnull %state.01435, float noundef %add409, float noundef %y.addr.0.i)
   store i32 %call.i981, ptr %Stb434, align 4
   %select_start.i982 = getelementptr inbounds i8, ptr %state.01435, i64 88
   store i32 %call.i981, ptr %select_start.i982, align 4
@@ -18365,7 +18365,7 @@ if.else512:                                       ; preds = %if.then507
   %165 = load i8, ptr %single_line.i992, align 1
   %tobool.not.i993 = icmp eq i8 %165, 0
   %y.addr.0.i994 = select i1 %tobool.not.i993, float %cond422, float 0.000000e+00
-  %call.i995 = call fastcc noundef i32 @_ZN5ImStbL21stb_text_locate_coordEP19ImGuiInputTextStateff(ptr noundef nonnull readonly %state.01435, float noundef %add409, float noundef %y.addr.0.i994)
+  %call.i995 = call fastcc noundef i32 @_ZN5ImStbL21stb_text_locate_coordEP19ImGuiInputTextStateff(ptr noundef nonnull %state.01435, float noundef %add409, float noundef %y.addr.0.i994)
   store i32 %call.i995, ptr %Stb511, align 4
   %select_start.i996 = getelementptr inbounds i8, ptr %state.01435, i64 88
   store i32 %call.i995, ptr %select_start.i996, align 4
@@ -20750,7 +20750,7 @@ if.end.i:                                         ; preds = %if.then7
   br i1 %tobool.not.i, label %_ZL30InputScalar_DefaultCharsFilteriPKc.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %format.addr.0) #37
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %format.addr.0) #37
   %9 = getelementptr i8, ptr %format.addr.0, i64 %call.i
   %arrayidx2.i = getelementptr i8, ptr %9, i64 -1
   %10 = load i8, ptr %arrayidx2.i, align 1
@@ -20773,7 +20773,7 @@ if.end9:                                          ; preds = %_ZL30InputScalar_De
 if.then12:                                        ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8
-  %call.i52 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef %label, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, i32 noundef %or10, ptr noundef readonly null, ptr noundef null)
+  %call.i52 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef %label, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, i32 noundef %or10, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br i1 %call.i52, label %if.then15, label %return
 
@@ -20796,7 +20796,7 @@ if.else:                                          ; preds = %if.end9
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef %cond.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i53)
   store <2 x float> zeroinitializer, ptr %ref.tmp.i53, align 8
-  %call.i55 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i53, i32 noundef %or10, ptr noundef readonly null, ptr noundef null)
+  %call.i55 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i53, i32 noundef %or10, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i53)
   br i1 %call.i55, label %if.then24, label %if.end28
 
@@ -24891,7 +24891,7 @@ if.end246:                                        ; preds = %if.else237, %if.the
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i197)
   store <2 x float> zeroinitializer, ptr %ref.tmp.i197, align 8
-  %call.i199 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i197, i32 noundef 6, ptr noundef readonly null, ptr noundef null)
+  %call.i199 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i197, i32 noundef 6, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i197)
   br i1 %call.i199, label %while.cond, label %if.end271
 
@@ -25388,7 +25388,7 @@ if.end.i41:                                       ; preds = %if.then52
 
 if.end53:                                         ; preds = %if.end.i41, %if.then52
   store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr %ref.tmp, align 8
-  %call.i = call noundef zeroext i1 @_ZN5ImGui8ButtonExEPKcRK6ImVec2i(ptr noundef nonnull @.str.88, ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp, i32 noundef 0)
+  %call.i = call noundef zeroext i1 @_ZN5ImGui8ButtonExEPKcRK6ImVec2i(ptr noundef nonnull @.str.88, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef 0)
   br i1 %call.i, label %if.then55, label %if.end56
 
 if.then55:                                        ; preds = %if.end53

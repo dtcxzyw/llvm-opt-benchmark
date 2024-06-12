@@ -10904,12 +10904,12 @@ if.then.i:                                        ; preds = %for.end.i
   %add32.i.i = add nuw nsw i64 %49, 32
   %50 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %add32.i.i)
   %51 = bitcast i64 %50 to <64 x i1>
-  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %45, ptr writeonly %utf8_output.addr.0.lcssa.i, i32 1, <64 x i1> %51)
+  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %45, ptr %utf8_output.addr.0.lcssa.i, i32 1, <64 x i1> %51)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %add32.i.i
   %sub.i.i = sub nuw nsw i64 %add.i.i, %add32.i.i
   %52 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %sub.i.i)
   %53 = bitcast i64 %52 to <64 x i1>
-  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %48, ptr nonnull writeonly %add.ptr.i.i, i32 1, <64 x i1> %53)
+  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %48, ptr nonnull %add.ptr.i.i, i32 1, <64 x i1> %53)
   %add.ptr11.i = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %add.i.i
   br label %if.end.i
 
@@ -10925,7 +10925,7 @@ if.then14.i:                                      ; preds = %if.end.i
   %54 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv15.i)
   %add.ptr18.i = getelementptr inbounds i8, ptr %buf, i64 %pos.1.i
   %55 = bitcast i64 %54 to <64 x i1>
-  %56 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr readonly %add.ptr18.i, i32 1, <64 x i1> %55, <64 x i8> zeroinitializer)
+  %56 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr18.i, i32 1, <64 x i1> %55, <64 x i8> zeroinitializer)
   %57 = icmp slt <64 x i8> %56, zeroinitializer
   %58 = bitcast <64 x i1> %57 to i64
   %59 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58)
@@ -10965,19 +10965,19 @@ if.then33.i.i:                                    ; preds = %if.then14.i
   %79 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %76, <64 x i8> zeroinitializer, <64 x i1> %78)
   %80 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %add32.i34.i)
   %81 = bitcast i64 %80 to <64 x i1>
-  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %69, ptr writeonly %utf8_output.addr.1.i, i32 1, <64 x i1> %81)
+  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %69, ptr %utf8_output.addr.1.i, i32 1, <64 x i1> %81)
   %add.ptr.i37.i = getelementptr inbounds i8, ptr %utf8_output.addr.1.i, i64 %add32.i34.i
   %sub.i38.i = sub i64 %add.i25.i, %add32.i34.i
   %conv39.i39.i = and i64 %sub.i38.i, 4294967295
   %82 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv39.i39.i)
   %83 = bitcast i64 %82 to <64 x i1>
-  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %79, ptr nonnull writeonly %add.ptr.i37.i, i32 1, <64 x i1> %83)
+  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %79, ptr nonnull %add.ptr.i37.i, i32 1, <64 x i1> %83)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_125latin1_to_utf8_avx512_vecEDv8_xmPci.exit.i
 
 if.else.i36.i:                                    ; preds = %if.then14.i
   %84 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %add.i25.i)
   %85 = bitcast i64 %84 to <64 x i1>
-  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %69, ptr writeonly %utf8_output.addr.1.i, i32 1, <64 x i1> %85)
+  tail call void @llvm.masked.store.v64i8.p0(<64 x i8> %69, ptr %utf8_output.addr.1.i, i32 1, <64 x i1> %85)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_125latin1_to_utf8_avx512_vecEDv8_xmPci.exit.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_125latin1_to_utf8_avx512_vecEDv8_xmPci.exit.i: ; preds = %if.else.i36.i, %if.then33.i.i
@@ -11021,10 +11021,10 @@ if.then.i:                                        ; preds = %for.end.i
   %sub6.i = xor i32 %notmask.i, -1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %and.i
   %2 = bitcast i32 %sub6.i to <32 x i1>
-  %3 = tail call <32 x i8> @llvm.masked.load.v32i8.p0(ptr readonly %add.ptr.i, i32 1, <32 x i1> %2, <32 x i8> zeroinitializer)
+  %3 = tail call <32 x i8> @llvm.masked.load.v32i8.p0(ptr %add.ptr.i, i32 1, <32 x i1> %2, <32 x i8> zeroinitializer)
   %conv.i.i = zext <32 x i8> %3 to <32 x i16>
   %add.ptr12.i = getelementptr inbounds i16, ptr %utf16_output, i64 %and.i
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %conv.i.i, ptr writeonly %add.ptr12.i, i32 1, <32 x i1> %2)
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %conv.i.i, ptr %add.ptr12.i, i32 1, <32 x i1> %2)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiannessE0EEEmPKcmPDs.exit
 
 _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiannessE0EEEmPKcmPDs.exit: ; preds = %for.end.i, %if.then.i
@@ -11062,13 +11062,13 @@ if.then.i:                                        ; preds = %for.end.i
   %sub9.i = xor i32 %notmask.i, -1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %and.i
   %4 = bitcast i32 %sub9.i to <32 x i1>
-  %5 = tail call <32 x i8> @llvm.masked.load.v32i8.p0(ptr readonly %add.ptr.i, i32 1, <32 x i1> %4, <32 x i8> zeroinitializer)
+  %5 = tail call <32 x i8> @llvm.masked.load.v32i8.p0(ptr %add.ptr.i, i32 1, <32 x i1> %4, <32 x i8> zeroinitializer)
   %conv.i.i = zext <32 x i8> %5 to <32 x i16>
   %6 = bitcast <32 x i16> %conv.i.i to <64 x i8>
   %7 = shufflevector <64 x i8> %6, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
   %add.ptr18.i = getelementptr inbounds i16, ptr %utf16_output, i64 %and.i
   %8 = bitcast <64 x i8> %7 to <32 x i16>
-  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %8, ptr writeonly %add.ptr18.i, i32 1, <32 x i1> %4)
+  tail call void @llvm.masked.store.v32i16.p0(<32 x i16> %8, ptr %add.ptr18.i, i32 1, <32 x i1> %4)
   br label %_ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiannessE1EEEmPKcmPDs.exit
 
 _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiannessE1EEEmPKcmPDs.exit: ; preds = %for.end.i, %if.then.i
@@ -11224,7 +11224,7 @@ if.then8.i:                                       ; preds = %while.end.i
   %conv1.i.i = and i64 %sub.i, 4294967295
   %16 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv1.i.i)
   %17 = bitcast i64 %16 to <64 x i1>
-  %18 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr readonly %add.ptr10.i, i32 1, <64 x i1> %17, <64 x i8> zeroinitializer)
+  %18 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr10.i, i32 1, <64 x i1> %17, <64 x i8> zeroinitializer)
   %19 = icmp slt <64 x i8> %18, zeroinitializer
   %20 = bitcast <64 x i1> %19 to i64
   %cmp.i126.i = icmp eq i64 %20, 0
@@ -11375,7 +11375,7 @@ if.then8.i:                                       ; preds = %while.end.i
   %conv1.i.i = and i64 %sub.i, 4294967295
   %16 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv1.i.i)
   %17 = bitcast i64 %16 to <64 x i1>
-  %18 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr readonly %add.ptr10.i, i32 1, <64 x i1> %17, <64 x i8> zeroinitializer)
+  %18 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr10.i, i32 1, <64 x i1> %17, <64 x i8> zeroinitializer)
   %19 = icmp slt <64 x i8> %18, zeroinitializer
   %20 = bitcast <64 x i1> %19 to i64
   %cmp.i126.i = icmp eq i64 %20, 0
@@ -11637,7 +11637,7 @@ if.then.i:                                        ; preds = %while.end.i
   %conv1.i.i = and i64 %sub.i, 4294967295
   %12 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv1.i.i)
   %13 = bitcast i64 %12 to <64 x i1>
-  %14 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr readonly %add.ptr8.i, i32 1, <64 x i1> %13, <64 x i8> zeroinitializer)
+  %14 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr8.i, i32 1, <64 x i1> %13, <64 x i8> zeroinitializer)
   %15 = icmp slt <64 x i8> %14, zeroinitializer
   %16 = bitcast <64 x i1> %15 to i64
   %cmp.i127.i = icmp eq i64 %16, 0
@@ -24645,7 +24645,7 @@ if.end.i.i.i.i:                                   ; preds = %while.end.i.i.i
   %174 = select i1 %172, i64 0, i64 %173
   %175 = getelementptr i8, ptr %block.i.i.i, i64 %sub.i66.i.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %175, i8 32, i64 %174, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i.i, ptr readonly align 1 %add.ptr.i64.i.i.i, i64 %sub.i66.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i.i, ptr align 1 %add.ptr.i64.i.i.i, i64 %sub.i66.i.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i.i = load <4 x i64>, ptr %block.i.i.i, align 16, !noalias !240
   %block.32.block.32.block.32.add.ptr.i26.sroa_idx.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %block.i.i.i, i64 32
   %block.32.block.32.block.32..pre.i.i.i = load <4 x i64>, ptr %block.32.block.32.block.32.add.ptr.i26.sroa_idx.phi.trans.insert.i.i.i, align 16, !noalias !243
@@ -24856,7 +24856,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %39 = select i1 %37, i64 0, i64 %38
   %40 = getelementptr i8, ptr %block.i.i, i64 %sub.i66.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %40, i8 32, i64 %39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i64.i.i, i64 %sub.i66.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i64.i.i, i64 %sub.i66.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <4 x i64>, ptr %block.i.i, align 16, !noalias !252
   %block.32.block.32.block.32.add.ptr.i26.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 32
   %block.32.block.32.block.32..pre.i.i = load <4 x i64>, ptr %block.32.block.32.block.32.add.ptr.i26.sroa_idx.phi.trans.insert.i.i, align 16, !noalias !255
@@ -25049,7 +25049,7 @@ if.then.i.i:                                      ; preds = %_ZN7simdutf7haswell
   %spec.select1238.i.i = tail call i64 @llvm.usub.sat.i64(i64 %count.01250.i.i, i64 1)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1238.i.i
   %sub.i.i = sub i64 %len, %spec.select1238.i.i
-  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull readonly %buf, ptr noundef readonly %add.ptr.i.i, i64 noundef %sub.i.i) #54
+  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull %buf, ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i) #54
   %38 = extractvalue { i32, i64 } %call4.i.i, 0
   %39 = extractvalue { i32, i64 } %call4.i.i, 1
   %add.i.i = add i64 %39, %spec.select1238.i.i
@@ -25077,7 +25077,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %42 = select i1 %40, i64 0, i64 %41
   %43 = getelementptr i8, ptr %block.i.i, i64 %sub.i84.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %43, i8 32, i64 %42, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i82.i.i, i64 %sub.i84.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i82.i.i, i64 %sub.i84.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <4 x i64>, ptr %block.i.i, align 16, !noalias !265
   %block.32.block.32.block.32.add.ptr.i44.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 32
   %block.32.block.32.block.32..pre.i.i = load <4 x i64>, ptr %block.32.block.32.block.32.add.ptr.i44.sroa_idx.phi.trans.insert.i.i, align 16, !noalias !268
@@ -25170,7 +25170,7 @@ if.then12.i.i:                                    ; preds = %_ZN7simdutf7haswell
   %spec.select1239.i.i = tail call i64 @llvm.usub.sat.i64(i64 %reader.sroa.11.0.lcssa.i.i, i64 1)
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1239.i.i
   %sub18.i.i = sub i64 %len, %spec.select1239.i.i
-  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly %buf, ptr noundef readonly %add.ptr17.i.i, i64 noundef %sub18.i.i) #54
+  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef %buf, ptr noundef %add.ptr17.i.i, i64 noundef %sub18.i.i) #54
   %80 = extractvalue { i32, i64 } %call19.i.i, 0
   %81 = extractvalue { i32, i64 } %call19.i.i, 1
   %add21.i.i = add i64 %81, %spec.select1239.i.i
@@ -25224,7 +25224,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %4 = select i1 %2, i64 0, i64 %3
   %5 = getelementptr i8, ptr %block.i.i, i64 %sub.i39.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %5, i8 32, i64 %4, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i37.i.i, i64 %sub.i39.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i37.i.i, i64 %sub.i39.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <4 x i64>, ptr %block.i.i, align 16, !noalias !278
   %block.32.block.32.block.32.add.ptr.i28.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 32
   %block.32.block.32.block.32..pre.i.i = load <4 x i64>, ptr %block.32.block.32.block.32.add.ptr.i28.sroa_idx.phi.trans.insert.i.i, align 16, !noalias !281
@@ -25345,7 +25345,7 @@ _ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.ex
   %9 = select i1 %7, i64 0, i64 %8
   %10 = getelementptr i8, ptr %block.i.i, i64 %sub.i55.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %10, i8 32, i64 %9, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i53.i.i, i64 %sub.i55.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i53.i.i, i64 %sub.i55.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <4 x i64>, ptr %block.i.i, align 16, !noalias !291
   %block.32.block.32.block.32.add.ptr.i44.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 32
   %block.32.block.32.block.32..pre.i.i = load <4 x i64>, ptr %block.32.block.32.block.32.add.ptr.i44.sroa_idx.phi.trans.insert.i.i, align 16, !noalias !294
@@ -29213,7 +29213,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endianness
   %pos.0.lcssa.i = phi i64 [ 0, %entry ], [ %pos.2.i, %if.end.i ]
   %add.ptr14.i = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa.i
   %sub15.i = sub i64 %size, %pos.0.lcssa.i
-  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef readonly %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
+  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
   %add.ptr17.i = getelementptr inbounds i16, ptr %utf16_output.addr.0.lcssa.i, i64 %call16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %utf16_output to i64
@@ -29532,7 +29532,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endianness
   %pos.0.lcssa.i = phi i64 [ 0, %entry ], [ %pos.2.i, %if.end.i ]
   %add.ptr14.i = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa.i
   %sub15.i = sub i64 %size, %pos.0.lcssa.i
-  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef readonly %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
+  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
   %add.ptr17.i = getelementptr inbounds i16, ptr %utf16_output.addr.0.lcssa.i, i64 %call16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %utf16_output to i64
@@ -30589,7 +30589,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ; 
   %pos.0.lcssa.i = phi i64 [ 0, %entry ], [ %pos.2.i, %if.end.i ]
   %add.ptr14.i = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa.i
   %sub15.i = sub i64 %size, %pos.0.lcssa.i
-  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef readonly %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf32_output.addr.0.lcssa.i)
+  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf32_output.addr.0.lcssa.i)
   %add.ptr17.i = getelementptr inbounds i32, ptr %utf32_output.addr.0.lcssa.i, i64 %call16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %utf32_output to i64
@@ -37877,7 +37877,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %72 = select i1 %70, i64 0, i64 %71
   %73 = getelementptr i8, ptr %block.i.i, i64 %sub.i84.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %73, i8 32, i64 %72, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i82.i.i, i64 %sub.i84.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i82.i.i, i64 %sub.i84.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <2 x i64>, ptr %block.i.i, align 16
   %block.16.block.16.block.16.add.ptr.i27.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 16
   %block.16.block.16.block.16..pre.i.i = load <2 x i64>, ptr %block.16.block.16.block.16.add.ptr.i27.sroa_idx.phi.trans.insert.i.i, align 16
@@ -38189,7 +38189,7 @@ if.then.i.i:                                      ; preds = %_ZN7simdutf8westmer
   %spec.select1013.i.i = tail call i64 @llvm.usub.sat.i64(i64 %count.01025.i.i, i64 1)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1013.i.i
   %sub.i.i = sub i64 %len, %spec.select1013.i.i
-  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull readonly %buf, ptr noundef readonly %add.ptr.i.i, i64 noundef %sub.i.i) #54
+  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull %buf, ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i) #54
   %70 = extractvalue { i32, i64 } %call4.i.i, 0
   %71 = extractvalue { i32, i64 } %call4.i.i, 1
   %add.i.i = add i64 %71, %spec.select1013.i.i
@@ -38221,7 +38221,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %75 = select i1 %73, i64 0, i64 %74
   %76 = getelementptr i8, ptr %block.i.i, i64 %sub.i102.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %76, i8 32, i64 %75, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i100.i.i, i64 %sub.i102.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i100.i.i, i64 %sub.i102.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <2 x i64>, ptr %block.i.i, align 16
   %block.16.block.16.block.16.add.ptr.i45.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 16
   %block.16.block.16.block.16..pre.i.i = load <2 x i64>, ptr %block.16.block.16.block.16.add.ptr.i45.sroa_idx.phi.trans.insert.i.i, align 16
@@ -38374,7 +38374,7 @@ if.then12.i.i:                                    ; preds = %_ZN7simdutf8westmer
   %spec.select1014.i.i = tail call i64 @llvm.usub.sat.i64(i64 %reader.sroa.11.0.lcssa.i.i, i64 1)
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1014.i.i
   %sub18.i.i = sub i64 %len, %spec.select1014.i.i
-  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly %buf, ptr noundef readonly %add.ptr17.i.i, i64 noundef %sub18.i.i) #54
+  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef %buf, ptr noundef %add.ptr17.i.i, i64 noundef %sub18.i.i) #54
   %142 = extractvalue { i32, i64 } %call19.i.i, 0
   %143 = extractvalue { i32, i64 } %call19.i.i, 1
   %add21.i.i = add i64 %143, %spec.select1014.i.i
@@ -38438,7 +38438,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %6 = select i1 %4, i64 0, i64 %5
   %7 = getelementptr i8, ptr %block.i.i, i64 %sub.i55.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %7, i8 32, i64 %6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i53.i.i, i64 %sub.i55.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i53.i.i, i64 %sub.i55.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <2 x i64>, ptr %block.i.i, align 16
   %block.16.block.16.block.16.add.ptr.i37.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 16
   %block.16.block.16.block.16..pre.i.i = load <2 x i64>, ptr %block.16.block.16.block.16.add.ptr.i37.sroa_idx.phi.trans.insert.i.i, align 16
@@ -38575,7 +38575,7 @@ _ZNK7simdutf8westmere12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.e
   %11 = select i1 %9, i64 0, i64 %10
   %12 = getelementptr i8, ptr %block.i.i, i64 %sub.i63.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %12, i8 32, i64 %11, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr readonly align 1 %add.ptr.i61.i.i, i64 %sub.i63.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i, ptr align 1 %add.ptr.i61.i.i, i64 %sub.i63.i.i, i1 false)
   %block.0.block.0.block.0..pre.i.i = load <2 x i64>, ptr %block.i.i, align 16
   %block.16.block.16.block.16.add.ptr.i45.sroa_idx.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %block.i.i, i64 16
   %block.16.block.16.block.16..pre.i.i = load <2 x i64>, ptr %block.16.block.16.block.16.add.ptr.i45.sroa_idx.phi.trans.insert.i.i, align 16
@@ -43028,7 +43028,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannes
   %pos.0.lcssa.i = phi i64 [ 0, %entry ], [ %pos.2.i, %if.end.i ]
   %add.ptr14.i = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa.i
   %sub15.i = sub i64 %size, %pos.0.lcssa.i
-  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef readonly %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
+  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
   %add.ptr17.i = getelementptr inbounds i16, ptr %utf16_output.addr.0.lcssa.i, i64 %call16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %utf16_output to i64
@@ -43396,7 +43396,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannes
   %pos.0.lcssa.i = phi i64 [ 0, %entry ], [ %pos.2.i, %if.end.i ]
   %add.ptr14.i = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa.i
   %sub15.i = sub i64 %size, %pos.0.lcssa.i
-  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef readonly %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
+  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf16_output.addr.0.lcssa.i)
   %add.ptr17.i = getelementptr inbounds i16, ptr %utf16_output.addr.0.lcssa.i, i64 %call16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %utf16_output to i64
@@ -44743,7 +44743,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ;
   %pos.0.lcssa.i = phi i64 [ 0, %entry ], [ %pos.2.i, %if.end.i ]
   %add.ptr14.i = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa.i
   %sub15.i = sub i64 %size, %pos.0.lcssa.i
-  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef readonly %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf32_output.addr.0.lcssa.i)
+  %call16.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef %add.ptr14.i, i64 noundef %sub15.i, ptr noundef %utf32_output.addr.0.lcssa.i)
   %add.ptr17.i = getelementptr inbounds i32, ptr %utf32_output.addr.0.lcssa.i, i64 %call16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr17.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %utf32_output to i64

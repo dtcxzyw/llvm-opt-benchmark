@@ -7237,7 +7237,7 @@ _ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_115SemiSortedArrayIfEESaIS3_EE11_M_alloc
   %.092.i.i.i.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_115SemiSortedArrayIfEESaIS3_EE11_M_allocateEm.exit.i.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.092.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.092.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !64
   %115 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 16
   %116 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 16
   %117 = load <2 x ptr>, ptr %116, align 8, !alias.scope !62, !noalias !59
@@ -7249,7 +7249,7 @@ _ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_115SemiSortedArrayIfEESaIS3_EE11_M_alloc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
   %121 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 40
   %122 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %121, ptr noundef nonnull align 8 dereferenceable(12) %122, i64 12, i1 false), !alias.scope !64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %121, ptr noundef nonnull align 8 dereferenceable(12) %122, i64 12, i1 false), !alias.scope !64
   %123 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 56
   %124 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i.i = icmp eq ptr %123, %.pre.pre.i
@@ -8194,7 +8194,7 @@ _ZN5faiss12_GLOBAL__N_112partial_sortINS_4CMaxIfiEEEEviiPKNT_1TEPNS4_2TIE.exit: 
   %149 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %148, i1 true)
   %150 = shl nuw nsw i64 %149, 1
   %151 = xor i64 %150, 126
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_17ArgSortIfEEEEEvT_SE_T0_T1_(ptr %141, ptr %143, i64 noundef %151, ptr readonly %135)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_17ArgSortIfEEEEEvT_SE_T0_T1_(ptr %141, ptr %143, i64 noundef %151, ptr %135)
   %152 = icmp sgt i64 %147, 64
   %scevgep.i.i.i = getelementptr i8, ptr %141, i64 4
   br i1 %152, label %.lr.ph.i.i.i.i, label %193
@@ -9307,7 +9307,7 @@ _ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_114PreSortedArrayIfEESaIS3_EE11_M_alloca
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_114PreSortedArrayIfEESaIS3_EE11_M_allocateEm.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i ], [ %52, %_ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_114PreSortedArrayIfEESaIS3_EE11_M_allocateEm.exit.i.i.i.i ]
   %.092.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.41.0, %_ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_114PreSortedArrayIfEESaIS3_EE11_M_allocateEm.exit.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !96
   %53 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 16
   %54 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %53, %.sroa.53.0

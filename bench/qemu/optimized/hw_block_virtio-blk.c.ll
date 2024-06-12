@@ -196,7 +196,7 @@ while.body.us:                                    ; preds = %while.cond.us
   %vq1.i.i.us = getelementptr inbounds i8, ptr %call.i.us, i64 72
   store ptr %vq, ptr %vq1.i.i.us, align 8
   %size.i.i.us = getelementptr inbounds i8, ptr %call.i.us, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %size.i.i.us, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i.us, i8 0, i64 32, i1 false)
   %call4.us = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i.us, ptr noundef nonnull %mrb)
   %tobool5.not.us = icmp eq i32 %call4.us, 0
   br i1 %tobool5.not.us, label %while.cond.us, label %if.then6.us, !llvm.loop !5
@@ -225,7 +225,7 @@ while.body:                                       ; preds = %while.cond
   %vq1.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %vq, ptr %vq1.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %size.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i, i8 0, i64 32, i1 false)
   %call4 = call fastcc i32 @virtio_blk_handle_request(ptr noundef nonnull %call.i, ptr noundef nonnull %mrb)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %while.cond.backedge, label %if.then6
@@ -3500,7 +3500,7 @@ if.end7:                                          ; preds = %if.then, %while.bod
   %vq1.i = getelementptr inbounds i8, ptr %call8, i64 72
   store ptr %call9, ptr %vq1.i, align 8
   %size.i = getelementptr inbounds i8, ptr %call8, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %size.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %rq, align 8
   %next = getelementptr inbounds i8, ptr %call8, i64 200
   store ptr %1, ptr %next, align 8

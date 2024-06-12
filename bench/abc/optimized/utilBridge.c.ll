@@ -2293,7 +2293,7 @@ define void @Gia_ManToBridgeAbsNetlistTest(ptr noundef %0, ptr nocapture noundef
   br label %14
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @Gia_ManToBridgeVec(ptr noundef readonly %1)
+  %9 = tail call ptr @Gia_ManToBridgeVec(ptr noundef %1)
   %10 = getelementptr i8, ptr %9, i64 4
   %.val.i = load i32, ptr %10, align 4
   %11 = getelementptr i8, ptr %9, i64 8

@@ -150,7 +150,7 @@ define internal i32 @opal_hwloc_base_close() #0 {
   br i1 %12, label %free_topology.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %9, i32 noundef 0, i32 noundef 0) #7
+  %14 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0) #7
   %15 = getelementptr inbounds i8, ptr %14, i64 232
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null

@@ -1844,7 +1844,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   %729 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %728, ptr noundef %53, i32 noundef %719, i32 noundef 1, i32 noundef -2147483648) #5
   %730 = trunc nuw nsw i32 %.0141.i to i16
   %731 = add nuw nsw i16 %730, 5
-  %732 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull readonly %1, ptr noundef %42, i16 noundef zeroext %731)
+  %732 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull %1, ptr noundef %42, i16 noundef zeroext %731)
   %733 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %734 = zext i16 %732 to i32
   %.not147.i = icmp eq i32 %733, %734
@@ -1866,7 +1866,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   %743 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %742, ptr noundef %53, i32 noundef %741, i32 noundef 1, i32 noundef -2147483648) #5
   %744 = trunc nuw nsw i32 %.0141.i to i16
   %745 = add nuw nsw i16 %744, 5
-  %746 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull readonly %1, ptr noundef %42, i16 noundef zeroext %745)
+  %746 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull %1, ptr noundef %42, i16 noundef zeroext %745)
   %747 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %748 = zext i16 %746 to i32
   %.not146.i = icmp eq i32 %747, %748
@@ -1919,7 +1919,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   %784 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %783, ptr noundef %53, i32 noundef %762, i32 noundef 1, i32 noundef -2147483648) #5
   %785 = trunc nuw nsw i32 %.0141.i to i16
   %786 = add nuw nsw i16 %785, 5
-  %787 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull readonly %1, ptr noundef %42, i16 noundef zeroext %786)
+  %787 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull %1, ptr noundef %42, i16 noundef zeroext %786)
   %788 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %789 = zext i16 %787 to i32
   %.not145.i = icmp eq i32 %788, %789
@@ -2009,14 +2009,14 @@ define internal fastcc void @ver2str(ptr noundef %0, i32 noundef %1) unnamed_add
 
 14:                                               ; preds = %10
   %15 = and i32 %11, 15
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) @ver2str.buffer, i64 noundef 12, ptr noundef nonnull @.str.419, i32 noundef %15) #5
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @ver2str.buffer, i64 noundef 12, ptr noundef nonnull @.str.419, i32 noundef %15) #5
   br label %print_version_field.exit
 
 17:                                               ; preds = %10
   %18 = lshr i32 %11, 4
   %19 = mul nsw i32 %18, -6
   %20 = add nsw i32 %19, %11
-  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) @ver2str.buffer, i64 noundef 12, ptr noundef nonnull @.str.420, i32 noundef %20) #5
+  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @ver2str.buffer, i64 noundef 12, ptr noundef nonnull @.str.420, i32 noundef %20) #5
   br label %print_version_field.exit
 
 print_version_field.exit:                         ; preds = %14, %17
@@ -2052,14 +2052,14 @@ print_version_field.exit:                         ; preds = %14, %17
 
 40:                                               ; preds = %36
   %41 = and i32 %37, 15
-  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %33, i64 noundef %35, ptr noundef nonnull @.str.419, i32 noundef %41) #5
+  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.419, i32 noundef %41) #5
   br label %print_version_field.exit64
 
 43:                                               ; preds = %36
   %44 = lshr i32 %37, 4
   %45 = mul nsw i32 %44, -6
   %46 = add nsw i32 %45, %37
-  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %33, i64 noundef %35, ptr noundef nonnull @.str.420, i32 noundef %46) #5
+  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.420, i32 noundef %46) #5
   br label %print_version_field.exit64
 
 48:                                               ; preds = %31
@@ -2092,14 +2092,14 @@ print_version_field.exit64:                       ; preds = %43, %40, %48
 
 66:                                               ; preds = %55
   %67 = and i32 %63, 15
-  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %60, i64 noundef %62, ptr noundef nonnull @.str.419, i32 noundef %67) #5
+  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef nonnull @.str.419, i32 noundef %67) #5
   br label %print_version_field.exit66
 
 69:                                               ; preds = %55
   %70 = lshr i32 %63, 4
   %71 = mul nsw i32 %70, -6
   %72 = add nsw i32 %71, %63
-  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %60, i64 noundef %62, ptr noundef nonnull @.str.420, i32 noundef %72) #5
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef nonnull @.str.420, i32 noundef %72) #5
   br label %print_version_field.exit66
 
 print_version_field.exit66:                       ; preds = %66, %69

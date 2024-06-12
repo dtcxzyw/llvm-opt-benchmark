@@ -1324,7 +1324,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %54, %59
 
 100:                                              ; preds = %.lr.ph.i154
   %101 = trunc nuw nsw i64 %indvars.iv.i155 to i32
-  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull readonly %55, ptr noundef %.08.i, i32 noundef %101, i1 noundef zeroext false, i32 noundef 1)
+  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull %55, ptr noundef %.08.i, i32 noundef %101, i1 noundef zeroext false, i32 noundef 1)
   %.pre.i = load i32, ptr %56, align 8
   br label %102
 
@@ -2628,7 +2628,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 94:                                               ; preds = %90
   %95 = and i32 %86, 1
   %96 = icmp ne i32 %95, 0
-  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull readonly %17, ptr noundef %.08.i, i32 noundef %85, i1 noundef zeroext %96, i32 noundef %7)
+  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull %17, ptr noundef %.08.i, i32 noundef %85, i1 noundef zeroext %96, i32 noundef %7)
   br i1 %68, label %104, label %plan_single_revoke.exit.thread
 
 97:                                               ; preds = %80, %67

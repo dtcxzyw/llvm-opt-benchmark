@@ -2064,7 +2064,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %140 = load i32, ptr %17, align 4
   %141 = sext i32 %140 to i64
   %142 = shl nsw i64 %141, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %136, ptr nonnull readonly align 4 %114, i64 %142, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %136, ptr nonnull align 4 %114, i64 %142, i1 false)
   %143 = getelementptr inbounds i8, ptr %.0446382, i64 8
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, -4194304

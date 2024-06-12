@@ -6089,7 +6089,7 @@ define internal i32 @dissect_h245_h245(ptr noundef %0, ptr noundef %1, ptr nound
   %23 = getelementptr inbounds i8, ptr %20, i64 4
   store i8 0, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %20, i64 54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %24, ptr noundef nonnull align 1 dereferenceable(6) @.str.2895, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %24, ptr noundef nonnull align 1 dereferenceable(6) @.str.2895, i64 6, i1 false)
   br label %init_h245_packet_info.exit
 
 init_h245_packet_info.exit:                       ; preds = %18, %22
@@ -11046,7 +11046,7 @@ define internal i32 @dissect_h245_OpenLogicalChannelAck(ptr noundef %0, i32 noun
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %70, i64 72
   %82 = getelementptr inbounds i8, ptr %74, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull readonly align 8 dereferenceable(16) %82, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   %83 = load <2 x i32>, ptr %75, align 8
   store <2 x i32> %83, ptr %73, align 8
   %84 = getelementptr inbounds i8, ptr %70, i64 56
@@ -11074,7 +11074,7 @@ update_unicast_addr.exit:                         ; preds = %71, %77, %80
 94:                                               ; preds = %91
   %95 = getelementptr inbounds i8, ptr %70, i64 120
   %96 = getelementptr inbounds i8, ptr %74, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull readonly align 8 dereferenceable(16) %96, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false)
   %97 = load <2 x i32>, ptr %89, align 8
   store <2 x i32> %97, ptr %88, align 8
   %98 = getelementptr inbounds i8, ptr %70, i64 104
@@ -11103,7 +11103,7 @@ update_unicast_addr.exit54:                       ; preds = %update_unicast_addr
 109:                                              ; preds = %106
   %110 = getelementptr inbounds i8, ptr %70, i64 224
   %111 = getelementptr inbounds i8, ptr %74, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull readonly align 8 dereferenceable(16) %111, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false)
   %112 = load <2 x i32>, ptr %104, align 8
   store <2 x i32> %112, ptr %103, align 8
   %113 = getelementptr inbounds i8, ptr %70, i64 208
@@ -11131,7 +11131,7 @@ update_unicast_addr.exit57:                       ; preds = %update_unicast_addr
 123:                                              ; preds = %120
   %124 = getelementptr inbounds i8, ptr %70, i64 272
   %125 = getelementptr inbounds i8, ptr %74, i64 272
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull readonly align 8 dereferenceable(16) %125, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %125, i64 16, i1 false)
   %126 = load <2 x i32>, ptr %118, align 8
   store <2 x i32> %126, ptr %117, align 8
   %127 = getelementptr inbounds i8, ptr %70, i64 256

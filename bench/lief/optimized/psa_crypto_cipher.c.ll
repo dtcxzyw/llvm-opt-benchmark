@@ -486,7 +486,7 @@ define hidden i32 @mbedtls_psa_cipher_encrypt(ptr nocapture noundef readonly %0,
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
-  %16 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %13, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 1)
+  %16 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %13, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 1)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %mbedtls_psa_cipher_set_iv.exit.thread
 
@@ -547,7 +547,7 @@ mbedtls_psa_cipher_set_iv.exit:                   ; preds = %18
   br i1 %.not15.i, label %mbedtls_psa_cipher_finish.exit.thread, label %43
 
 43:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %29, ptr nonnull align 16 %12, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 16 %12, i64 %40, i1 false)
   br label %44
 
 mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %34, %34, %42
@@ -599,7 +599,7 @@ define hidden i32 @mbedtls_psa_cipher_decrypt(ptr nocapture noundef readonly %0,
   %11 = alloca %struct.mbedtls_psa_cipher_operation_t, align 8
   %12 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
-  %13 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %11, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 0)
+  %13 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %11, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %50
 
@@ -664,7 +664,7 @@ mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_
   br i1 %.not15.i, label %mbedtls_psa_cipher_finish.exit.thread, label %43
 
 43:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %29, ptr nonnull align 16 %10, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 16 %10, i64 %40, i1 false)
   br label %44
 
 mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %34, %34, %42

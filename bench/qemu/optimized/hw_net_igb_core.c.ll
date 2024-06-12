@@ -2564,7 +2564,7 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
   %311 = load i16, ptr %bastate.i, align 2
   %add.i.i106.i = select i1 %tobool.i.i104.i, i16 0, i16 %311
   %pkt_len.0.i.i.i = add i16 %add.i.i106.i, %310
-  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull readonly %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull readonly %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %pkt_len.0.i.i.i)
+  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %pkt_len.0.i.i.i)
   %312 = load i64, ptr %.sink.i.sroa.gep.i, align 8
   %313 = shl i64 %312, 5
   %conv12.i.i107.i = and i64 %313, 32736
@@ -2583,7 +2583,7 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
 
 if.else3.i.i:                                     ; preds = %igb_write_to_rx_buffers.exit.i
   %317 = load i16, ptr %arrayidx.i.i110.i, align 4
-  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull readonly %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull readonly %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %317)
+  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %317)
   %.pre164.i = load i32, ptr %hdr_addr.i.i.i, align 8
   br label %igb_write_rx_descr.exit.i
 
@@ -2666,7 +2666,7 @@ if.then16.i.i:                                    ; preds = %if.then.i125.i
 igb_write_packet_to_guest.exit:                   ; preds = %do.body.i, %igb_ring_empty.exit.i, %do.end.i, %if.then.i125.i, %if.then16.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %desc.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %pdma_st.i)
-  %call.i180 = call fastcc i32 @igb_ring_free_descr_num(ptr noundef nonnull readonly %core, ptr noundef readonly %arrayidx.i109)
+  %call.i180 = call fastcc i32 @igb_ring_free_descr_num(ptr noundef nonnull %core, ptr noundef %arrayidx.i109)
   %332 = load i32, ptr %arrayidx.i.i147, align 4
   %333 = lshr i32 %332, 16
   %mul2.i = and i32 %333, 496

@@ -5938,7 +5938,7 @@ define internal void @isakmp_init_protocol() #0 {
   %10 = getelementptr inbounds i8, ptr %8, i64 368
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %8, i64 108
   %13 = load ptr, ptr @ikev1_uat_data, align 8
   %14 = getelementptr %struct._ikev1_uat_data_key, ptr %13, i64 %indvars.iv
@@ -6126,7 +6126,7 @@ define internal i32 @dissect_isakmp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %53 = getelementptr inbounds i8, ptr %51, i64 368
   store ptr %52, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr @isakmp_hash, align 8
   %56 = call i32 @g_hash_table_insert(ptr noundef %55, ptr noundef nonnull %49, ptr noundef %51) #17
   br label %57
@@ -6152,7 +6152,7 @@ addresses_equal.exit:                             ; preds = %61
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds i8, ptr %1, i64 216
   %71 = load ptr, ptr %70, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i32 %67, ptr %58, align 8
   %72 = icmp eq i32 %69, 0
   br i1 %72, label %copy_address_wmem.exit, label %73
@@ -8683,7 +8683,7 @@ get_iv.exit:                                      ; preds = %16, %19
   %33 = getelementptr i8, ptr %1, i64 %28
   %34 = sub nsw i64 0, %27
   %35 = getelementptr i8, ptr %33, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %35, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %35, i64 %27, i1 false)
   br label %set_next_iv.exit
 
 set_next_iv.exit:                                 ; preds = %get_iv.exit, %30

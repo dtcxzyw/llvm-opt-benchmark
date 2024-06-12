@@ -513,7 +513,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !96, !noalias !101, !nonnull !5, !noundef !5
   %55 = getelementptr inbounds i8, ptr %54, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %42, i1 false)
   %56 = load i64, ptr %43, align 8, !alias.scope !96, !noalias !101, !noundef !5
   %57 = add i64 %56, %42
   store i64 %57, ptr %43, align 8, !alias.scope !96, !noalias !101
@@ -570,7 +570,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !109, !noalias !114, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
   %17 = load i64, ptr %4, align 8, !alias.scope !109, !noalias !114, !noundef !5
   %18 = add i64 %17, %2
   store i64 %18, ptr %4, align 8, !alias.scope !109, !noalias !114
@@ -990,7 +990,7 @@ define void @_ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E
 .noexc186:                                        ; preds = %.noexc185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68), !noalias !126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !noalias !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !noalias !122
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69), !noalias !125
   %.pre = load i8, ptr %120, align 1
   br label %_ZN11actix_files5named9NamedFile4etag17ha3bbef69975ebe76E.exit
@@ -1487,7 +1487,7 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
   %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx.i215 = getelementptr inbounds i8, ptr %72, i64 16
   store ptr @anon.bbb906e4541fad27cf5595ce5ea38697.0.llvm.10796002377775672969, ptr %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx.i215, align 8, !alias.scope !235
   %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx.i216 = getelementptr inbounds i8, ptr %72, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx.i216, i8 0, i64 16, i1 false), !alias.scope !235
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx.i216, i8 0, i64 16, i1 false), !alias.scope !235
   %312 = invoke noundef align 8 ptr @_ZN10actix_http9responses4head17BoxedResponseHead3new17h5f863da7d7dfb636E(i16 noundef %311)
           to label %317 unwind label %313, !noalias !238
 
@@ -1601,7 +1601,7 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
   %363 = icmp ne ptr %362, null
   call void @llvm.assume(i1 %363)
   %364 = shl i64 %359, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %362, ptr nonnull readonly align 8 %357, i64 %364, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %362, ptr nonnull align 8 %357, i64 %364, i1 false)
   %365 = ptrtoint ptr %362 to i64
   br label %393
 
@@ -1707,7 +1707,7 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
   %trunc.i = trunc nuw i64 %342 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %344, i64 undef
   %395 = getelementptr inbounds i8, ptr %99, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %395, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !noalias !246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %395, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !noalias !246
   %396 = getelementptr inbounds i8, ptr %99, i64 80
   store i64 %341, ptr %396, align 8, !alias.scope !243, !noalias !246
   store i64 %342, ptr %99, align 8, !alias.scope !243, !noalias !246
@@ -2950,7 +2950,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %74, i64 16
   store ptr @anon.bbb906e4541fad27cf5595ce5ea38697.0.llvm.10796002377775672969, ptr %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !504
   %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %74, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !504
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !504
   %786 = invoke noundef align 8 ptr @_ZN10actix_http9responses4head17BoxedResponseHead3new17h5f863da7d7dfb636E(i16 noundef %118)
           to label %791 unwind label %787, !noalias !507
 
@@ -3065,7 +3065,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   %838 = icmp ne ptr %837, null
   tail call void @llvm.assume(i1 %838)
   %839 = shl i64 %834, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %837, ptr nonnull readonly align 8 %832, i64 %839, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %837, ptr nonnull align 8 %832, i64 %839, i1 false)
   %840 = ptrtoint ptr %837 to i64
   br label %868
 
@@ -3169,7 +3169,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   %trunc.i330 = trunc nuw i64 %817 to i1
   %.sroa.5.0.i331 = select i1 %trunc.i330, i64 %819, i64 undef
   %870 = getelementptr inbounds i8, ptr %114, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %870, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !noalias !515
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %870, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !noalias !515
   %871 = getelementptr inbounds i8, ptr %114, i64 80
   store i64 %816, ptr %871, align 8, !alias.scope !512, !noalias !515
   store i64 %817, ptr %114, align 8, !alias.scope !512, !noalias !515
@@ -3509,7 +3509,7 @@ define { ptr, ptr } @"_ZN121_$LT$actix_files..named..NamedFile$u20$as$u20$actix_
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %5, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %5, i64 %6, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store i64 %8, ptr %2, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
@@ -3661,7 +3661,7 @@ default.unreachable:                              ; preds = %2
   %33 = extractvalue { i64, ptr } %30, 1
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %28, i64 %29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %28, i64 %29, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   store i64 %32, ptr %3, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
@@ -4257,7 +4257,7 @@ define void @"_ZN86_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core.
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h80bb9d1136c941d7E.exit"
 
 11:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !702
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !702
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h80bb9d1136c941d7E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h80bb9d1136c941d7E.exit": ; preds = %7, %11

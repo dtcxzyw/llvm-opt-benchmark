@@ -497,7 +497,7 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
   %80 = and i32 %79, 255
   %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.10, i32 noundef %80) #7
   %82 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %6)
-  call void @Rwr_NodePrint_rec(ptr noundef %6, ptr noundef nonnull readonly %.03141)
+  call void @Rwr_NodePrint_rec(ptr noundef %6, ptr noundef nonnull %.03141)
   %fputc.i = call i32 @fputc(i32 10, ptr %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %83

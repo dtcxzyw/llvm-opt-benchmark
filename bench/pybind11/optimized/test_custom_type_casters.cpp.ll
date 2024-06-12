@@ -29879,7 +29879,7 @@ define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1I13ArgInspec
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   call void @_ZN13ArgInspector1C2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8)
   %9 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZTIZ34test_submodule_custom_type_castersRN8pybind117module_EE12ArgInspector, ptr %4, align 8
   %10 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -30882,7 +30882,7 @@ _ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterI13ArgInspector1vEENS2_Iiv
 
 _ZNSt11_Tuple_implILm1EJN8pybind116detail11type_casterI13ArgInspector1vEES4_NS2_IivEENS2_I13ArgInspector2vEENS2_I17ArgAlwaysConvertsvEEEEC2Ev.exit.i.i.i.i: ; preds = %_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterI13ArgInspector1vEENS2_IivEENS2_I13ArgInspector2vEENS2_I17ArgAlwaysConvertsvEEEEC2Ev.exit.i.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ34test_submodule_custom_type_castersRN8pybind117module_EE12ArgInspector, ptr %2, align 8
   %15 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)

@@ -281,7 +281,7 @@ define hidden i64 @rb_io_buffer_type_allocate(i64 noundef %0) #0 {
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 4, ptr %11, align 8
   ret i64 %2
 }
@@ -429,7 +429,7 @@ define internal fastcc i64 @io_buffer_for_make_instance(i64 noundef %0, i64 noun
 rb_io_buffer_type_allocate.exit:                  ; preds = %3, %10
   %12 = phi ptr [ %11, %10 ], [ %9, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i64 4, ptr %13, align 8
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @rb_io_buffer_type) #20
   %15 = and i64 %1, 7
@@ -538,7 +538,7 @@ define dso_local i64 @rb_io_buffer_new(ptr noundef %0, i64 noundef %1, i32 nound
 rb_io_buffer_type_allocate.exit:                  ; preds = %3, %11
   %13 = phi ptr [ %12, %11 ], [ %10, %3 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i64 4, ptr %14, align 8
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %5, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %5, ptr noundef %15, ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef 4)
@@ -649,7 +649,7 @@ io_buffer_experimental.exit:                      ; preds = %4, %5, %7
 rb_io_buffer_type_allocate.exit:                  ; preds = %io_buffer_experimental.exit, %15
   %17 = phi ptr [ %16, %15 ], [ %14, %io_buffer_experimental.exit ]
   %18 = getelementptr inbounds i8, ptr %17, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i64 4, ptr %18, align 8
   %19 = tail call ptr @rb_check_typeddata(i64 noundef %9, ptr noundef nonnull @rb_io_buffer_type) #20
   %20 = tail call i32 @rb_io_descriptor(i64 noundef %0) #20
@@ -1513,12 +1513,12 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
 rb_io_buffer_type_allocate.exit:                  ; preds = %rb_class_of.exit, %30
   %32 = phi ptr [ %31, %30 ], [ %29, %rb_class_of.exit ]
   %33 = getelementptr inbounds i8, ptr %32, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store i64 4, ptr %33, align 8
   %34 = tail call ptr @rb_check_typeddata(i64 noundef %24, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %35 = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i64 4, ptr %35, align 8
   ret i64 %24
 }
@@ -1588,7 +1588,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %23, i64 %.val
   %32 = sub i64 %1, %.val
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %31, i8 0, i64 %32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
   br label %io_buffer_resize_clear.exit
 
 io_buffer_resize_clear.exit:                      ; preds = %28, %30
@@ -1645,7 +1645,7 @@ io_buffer_free.exit:                              ; preds = %37, %39
 53:                                               ; preds = %50
   %54 = getelementptr i8, ptr %46, i64 %.val44
   %55 = sub i64 %1, %.val44
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %54, i8 0, i64 %55, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
   br label %io_buffer_resize_clear.exit46
 
 io_buffer_resize_clear.exit46:                    ; preds = %50, %53
@@ -1705,7 +1705,7 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
   br i1 %.not.i15.i, label %ruby_nonempty_memcpy.exit.i, label %72
 
 72:                                               ; preds = %io_buffer_initialize.exit.i.thread
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.0.0.i50, ptr nonnull readonly align 1 %69, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i50, ptr nonnull align 1 %69, i64 %spec.select.i, i1 false)
   %.val.pre.i = load i64, ptr %70, align 8
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -1717,7 +1717,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %io_buffer_init
 74:                                               ; preds = %ruby_nonempty_memcpy.exit.i
   %75 = getelementptr i8, ptr %.sroa.0.0.i50, i64 %.val.i
   %76 = sub i64 %1, %.val.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %75, i8 0, i64 %76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %76, i1 false)
   br label %io_buffer_resize_clear.exit.i
 
 io_buffer_resize_clear.exit.i:                    ; preds = %74, %ruby_nonempty_memcpy.exit.i
@@ -3349,7 +3349,7 @@ rb_class_of.exit.i:                               ; preds = %27, %25, %24, %23, 
 rb_io_buffer_type_allocate.exit.i:                ; preds = %36, %rb_class_of.exit.i
   %38 = phi ptr [ %37, %36 ], [ %35, %rb_class_of.exit.i ]
   %39 = getelementptr inbounds i8, ptr %38, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   store i64 4, ptr %39, align 8
   %40 = tail call ptr @rb_check_typeddata(i64 noundef %30, ptr noundef nonnull @rb_io_buffer_type) #20
   %41 = load ptr, ptr %7, align 8
@@ -4526,7 +4526,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %13, ptr noundef %23, ptr noundef null, i64 noundef %10, i32 noundef %..i, i64 noundef 4)
@@ -4597,7 +4597,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %13, ptr noundef %23, ptr noundef null, i64 noundef %10, i32 noundef %..i, i64 noundef 4)
@@ -4668,7 +4668,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %13, ptr noundef %23, ptr noundef null, i64 noundef %10, i32 noundef %..i, i64 noundef 4)
@@ -4727,7 +4727,7 @@ define internal i64 @io_buffer_not(i64 noundef %0) #0 {
 rb_io_buffer_new.exit:                            ; preds = %1, %13
   %15 = phi ptr [ %14, %13 ], [ %12, %1 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i64 4, ptr %16, align 8
   %17 = tail call ptr @rb_check_typeddata(i64 noundef %7, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call fastcc void @io_buffer_initialize(i64 noundef %7, ptr noundef %17, ptr noundef null, i64 noundef %4, i32 noundef %..i, i64 noundef 4)
@@ -5589,7 +5589,7 @@ io_buffer_validate_range.exit.i:                  ; preds = %io_buffer_validate.
 io_buffer_memcpy.exit:                            ; preds = %73
   %74 = getelementptr i8, ptr %1, i64 %.037
   %75 = getelementptr i8, ptr %63, i64 %.0182932
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %75, ptr readonly align 1 %74, i64 %.017, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %74, i64 %.017, i1 false)
   %76 = icmp ult i64 %.017, 4611686018427387904
   br i1 %76, label %io_buffer_memcpy.exit.thread, label %79
 

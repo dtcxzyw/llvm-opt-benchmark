@@ -3186,7 +3186,7 @@ _waiting_init.exit.thread:                        ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr %call.i, ptr %waiting, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %waiting, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.compoundliteral.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %call1 = call fastcc i32 @channel_send(i64 noundef %cid, ptr noundef %obj, ptr noundef nonnull %waiting)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %finally, label %if.end4

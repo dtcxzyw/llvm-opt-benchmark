@@ -2376,7 +2376,7 @@ define internal fastcc ptr @xml_utf8_decode(ptr noundef %0, i64 noundef %1, ptr 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ @.str.3, %3 ], [ %12, %10 ]
   %.09.i = phi ptr [ @xml_encodings, %3 ], [ %11, %10 ]
-  %8 = tail call i32 @strcasecmp(ptr noundef readonly %2, ptr noundef nonnull %7) #19
+  %8 = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull %7) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10
 
@@ -2853,7 +2853,7 @@ define hidden void @_xml_characterDataHandler(ptr noundef %0, ptr noundef %1, i3
 _xml_xmlcharlen.exit.i:                           ; preds = %.lr.ph.i.i, %27, %25
   %.0.i = phi i32 [ %2, %25 ], [ 0, %27 ], [ %29, %.lr.ph.i.i ]
   %32 = sext i32 %.0.i to i64
-  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %32, ptr noundef readonly %22)
+  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %32, ptr noundef %22)
   store ptr %33, ptr %23, align 16
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
@@ -3439,7 +3439,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %23
   %.0.i = phi i64 [ 0, %23 ], [ %28, %_xml_xmlcharlen.exit.i.loopexit ]
-  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %20)
+  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %20)
   store ptr %29, ptr %21, align 16
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -3478,7 +3478,7 @@ _xml_xmlcharlen.exit.i43.loopexit:                ; preds = %.lr.ph.i.i39
 
 _xml_xmlcharlen.exit.i43:                         ; preds = %_xml_xmlcharlen.exit.i43.loopexit, %38
   %.0.i44 = phi i64 [ 0, %38 ], [ %43, %_xml_xmlcharlen.exit.i43.loopexit ]
-  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef readonly %34)
+  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef %34)
   store ptr %44, ptr %36, align 16
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
@@ -3590,7 +3590,7 @@ define hidden void @_xml_defaultHandler(ptr noundef readonly %0, ptr noundef %1,
 _xml_xmlcharlen.exit.i:                           ; preds = %.lr.ph.i.i, %25, %23
   %.0.i = phi i32 [ %2, %23 ], [ 0, %25 ], [ %27, %.lr.ph.i.i ]
   %30 = sext i32 %.0.i to i64
-  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %30, ptr noundef readonly %20)
+  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %30, ptr noundef %20)
   store ptr %31, ptr %21, align 16
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -3700,7 +3700,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %26
   %.0.i = phi i64 [ 0, %26 ], [ %31, %_xml_xmlcharlen.exit.i.loopexit ]
-  %32 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %23)
+  %32 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %23)
   store ptr %32, ptr %24, align 16
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
@@ -3739,7 +3739,7 @@ _xml_xmlcharlen.exit.i49.loopexit:                ; preds = %.lr.ph.i.i45
 
 _xml_xmlcharlen.exit.i49:                         ; preds = %_xml_xmlcharlen.exit.i49.loopexit, %41
   %.0.i50 = phi i64 [ 0, %41 ], [ %46, %_xml_xmlcharlen.exit.i49.loopexit ]
-  %47 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i50, ptr noundef readonly %37)
+  %47 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i50, ptr noundef %37)
   store ptr %47, ptr %39, align 16
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
@@ -3778,7 +3778,7 @@ _xml_xmlcharlen.exit.i59.loopexit:                ; preds = %.lr.ph.i.i55
 
 _xml_xmlcharlen.exit.i59:                         ; preds = %_xml_xmlcharlen.exit.i59.loopexit, %56
   %.0.i60 = phi i64 [ 0, %56 ], [ %61, %_xml_xmlcharlen.exit.i59.loopexit ]
-  %62 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i60, ptr noundef readonly %52)
+  %62 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i60, ptr noundef %52)
   store ptr %62, ptr %54, align 16
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
@@ -3817,7 +3817,7 @@ _xml_xmlcharlen.exit.i69.loopexit:                ; preds = %.lr.ph.i.i65
 
 _xml_xmlcharlen.exit.i69:                         ; preds = %_xml_xmlcharlen.exit.i69.loopexit, %71
   %.0.i70 = phi i64 [ 0, %71 ], [ %76, %_xml_xmlcharlen.exit.i69.loopexit ]
-  %77 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i70, ptr noundef readonly %67)
+  %77 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i70, ptr noundef %67)
   store ptr %77, ptr %69, align 16
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
@@ -3856,7 +3856,7 @@ _xml_xmlcharlen.exit.i79.loopexit:                ; preds = %.lr.ph.i.i75
 
 _xml_xmlcharlen.exit.i79:                         ; preds = %_xml_xmlcharlen.exit.i79.loopexit, %86
   %.0.i80 = phi i64 [ 0, %86 ], [ %91, %_xml_xmlcharlen.exit.i79.loopexit ]
-  %92 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %5, i64 noundef %.0.i80, ptr noundef readonly %82)
+  %92 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %5, i64 noundef %.0.i80, ptr noundef %82)
   store ptr %92, ptr %84, align 16
   %93 = getelementptr inbounds i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
@@ -3970,7 +3970,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %25
   %.0.i = phi i64 [ 0, %25 ], [ %30, %_xml_xmlcharlen.exit.i.loopexit ]
-  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %22)
+  %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %22)
   store ptr %31, ptr %23, align 16
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -4009,7 +4009,7 @@ _xml_xmlcharlen.exit.i47.loopexit:                ; preds = %.lr.ph.i.i43
 
 _xml_xmlcharlen.exit.i47:                         ; preds = %_xml_xmlcharlen.exit.i47.loopexit, %40
   %.0.i48 = phi i64 [ 0, %40 ], [ %45, %_xml_xmlcharlen.exit.i47.loopexit ]
-  %46 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i48, ptr noundef readonly %36)
+  %46 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i48, ptr noundef %36)
   store ptr %46, ptr %38, align 16
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -4048,7 +4048,7 @@ _xml_xmlcharlen.exit.i57.loopexit:                ; preds = %.lr.ph.i.i53
 
 _xml_xmlcharlen.exit.i57:                         ; preds = %_xml_xmlcharlen.exit.i57.loopexit, %55
   %.0.i58 = phi i64 [ 0, %55 ], [ %60, %_xml_xmlcharlen.exit.i57.loopexit ]
-  %61 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i58, ptr noundef readonly %51)
+  %61 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i58, ptr noundef %51)
   store ptr %61, ptr %53, align 16
   %62 = getelementptr inbounds i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
@@ -4087,7 +4087,7 @@ _xml_xmlcharlen.exit.i67.loopexit:                ; preds = %.lr.ph.i.i63
 
 _xml_xmlcharlen.exit.i67:                         ; preds = %_xml_xmlcharlen.exit.i67.loopexit, %70
   %.0.i68 = phi i64 [ 0, %70 ], [ %75, %_xml_xmlcharlen.exit.i67.loopexit ]
-  %76 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i68, ptr noundef readonly %66)
+  %76 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i68, ptr noundef %66)
   store ptr %76, ptr %68, align 16
   %77 = getelementptr inbounds i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
@@ -4202,7 +4202,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %27
   %.0.i = phi i64 [ 0, %27 ], [ %32, %_xml_xmlcharlen.exit.i.loopexit ]
-  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %24)
+  %33 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %24)
   store ptr %33, ptr %25, align 16
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
@@ -4241,7 +4241,7 @@ _xml_xmlcharlen.exit.i52.loopexit:                ; preds = %.lr.ph.i.i48
 
 _xml_xmlcharlen.exit.i52:                         ; preds = %_xml_xmlcharlen.exit.i52.loopexit, %42
   %.0.i53 = phi i64 [ 0, %42 ], [ %47, %_xml_xmlcharlen.exit.i52.loopexit ]
-  %48 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i53, ptr noundef readonly %38)
+  %48 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i53, ptr noundef %38)
   store ptr %48, ptr %40, align 16
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
@@ -4280,7 +4280,7 @@ _xml_xmlcharlen.exit.i62.loopexit:                ; preds = %.lr.ph.i.i58
 
 _xml_xmlcharlen.exit.i62:                         ; preds = %_xml_xmlcharlen.exit.i62.loopexit, %57
   %.0.i63 = phi i64 [ 0, %57 ], [ %62, %_xml_xmlcharlen.exit.i62.loopexit ]
-  %63 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i63, ptr noundef readonly %53)
+  %63 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i63, ptr noundef %53)
   store ptr %63, ptr %55, align 16
   %64 = getelementptr inbounds i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
@@ -4319,7 +4319,7 @@ _xml_xmlcharlen.exit.i72.loopexit:                ; preds = %.lr.ph.i.i68
 
 _xml_xmlcharlen.exit.i72:                         ; preds = %_xml_xmlcharlen.exit.i72.loopexit, %72
   %.0.i73 = phi i64 [ 0, %72 ], [ %77, %_xml_xmlcharlen.exit.i72.loopexit ]
-  %78 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i73, ptr noundef readonly %68)
+  %78 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i73, ptr noundef %68)
   store ptr %78, ptr %70, align 16
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
@@ -4446,7 +4446,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %23
   %.0.i = phi i64 [ 0, %23 ], [ %28, %_xml_xmlcharlen.exit.i.loopexit ]
-  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %20)
+  %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %20)
   store ptr %29, ptr %21, align 16
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -4485,7 +4485,7 @@ _xml_xmlcharlen.exit.i43.loopexit:                ; preds = %.lr.ph.i.i39
 
 _xml_xmlcharlen.exit.i43:                         ; preds = %_xml_xmlcharlen.exit.i43.loopexit, %38
   %.0.i44 = phi i64 [ 0, %38 ], [ %43, %_xml_xmlcharlen.exit.i43.loopexit ]
-  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef readonly %34)
+  %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i44, ptr noundef %34)
   store ptr %44, ptr %36, align 16
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
@@ -4596,7 +4596,7 @@ _xml_xmlcharlen.exit.i.loopexit:                  ; preds = %.lr.ph.i.i
 
 _xml_xmlcharlen.exit.i:                           ; preds = %_xml_xmlcharlen.exit.i.loopexit, %22
   %.0.i = phi i64 [ 0, %22 ], [ %27, %_xml_xmlcharlen.exit.i.loopexit ]
-  %28 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef readonly %19)
+  %28 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef %19)
   store ptr %28, ptr %20, align 16
   %29 = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
@@ -8750,7 +8750,7 @@ define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0,
 78:                                               ; preds = %82, %.critedge
   %79 = phi ptr [ @.str.3, %.critedge ], [ %84, %82 ]
   %.09.i = phi ptr [ @xml_encodings, %.critedge ], [ %83, %82 ]
-  %80 = call i32 @strcasecmp(ptr noundef nonnull readonly %77, ptr noundef nonnull %79) #19
+  %80 = call i32 @strcasecmp(ptr noundef nonnull %77, ptr noundef nonnull %79) #19
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %xml_get_encoding.exit, label %82
 

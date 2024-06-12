@@ -199,7 +199,7 @@ commonPrefix.exit.thread:                         ; preds = %67
 formTextDatum.exit:                               ; preds = %100, %96
   %.sink13.i = phi i64 [ 4, %100 ], [ 1, %96 ]
   %102 = getelementptr i8, ptr %93, i64 %.sink13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull readonly align 1 %49, i64 %94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull align 1 %49, i64 %94, i1 false)
   %103 = ptrtoint ptr %93 to i64
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %103, ptr %104, align 8
@@ -255,7 +255,7 @@ formTextDatum.exit:                               ; preds = %100, %96
 formTextDatum.exit120:                            ; preds = %131, %127
   %.sink13.i118 = phi i64 [ 4, %131 ], [ 1, %127 ]
   %133 = getelementptr i8, ptr %123, i64 %.sink13.i118
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr readonly align 1 %119, i64 %124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr align 1 %119, i64 %124, i1 false)
   %134 = ptrtoint ptr %123 to i64
   %135 = getelementptr inbounds i8, ptr %7, i64 48
   store i64 %134, ptr %135, align 8
@@ -356,7 +356,7 @@ searchChar.exit:                                  ; preds = %157
 formTextDatum.exit125:                            ; preds = %186, %182
   %.sink13.i123 = phi i64 [ 4, %186 ], [ 1, %182 ]
   %188 = getelementptr i8, ptr %179, i64 %.sink13.i123
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr readonly align 1 %176, i64 %180, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr align 1 %176, i64 %180, i1 false)
   %189 = ptrtoint ptr %179 to i64
   %190 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %189, ptr %190, align 8
@@ -627,7 +627,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %100, %95
 formTextDatum.exit:                               ; preds = %126, %122
   %.sink13.i = phi i64 [ 4, %126 ], [ 1, %122 ]
   %128 = getelementptr i8, ptr %118, i64 %.sink13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %115, i64 %119, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull align 1 %115, i64 %119, i1 false)
   %129 = ptrtoint ptr %118 to i64
   %130 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %129, ptr %130, align 8
@@ -883,7 +883,7 @@ formTextDatum.exit:                               ; preds = %126, %122
 .sink.split.i170:                                 ; preds = %284, %280
   %.sink13.i171 = phi i64 [ 4, %284 ], [ 1, %280 ]
   %286 = getelementptr i8, ptr %276, i64 %.sink13.i171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr readonly align 1 %271, i64 %277, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr align 1 %271, i64 %277, i1 false)
   br label %formTextDatum.exit173
 
 287:                                              ; preds = %.thread202, %.thread, %231

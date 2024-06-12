@@ -57,7 +57,7 @@ _ZN9rcContext11resetTimersEv.exit:
   %4 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8004) %4, i8 0, i64 8004, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %5, i8 -1, i64 224, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %5, i8 -1, i64 224, i1 false)
   ret void
 }
 

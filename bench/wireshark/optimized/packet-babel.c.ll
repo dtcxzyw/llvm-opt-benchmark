@@ -422,7 +422,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %111 = add i32 %.0302, 12
   %112 = zext i8 %.0263 to i32
   %113 = add nsw i32 %112, -6
-  %114 = call fastcc i32 @network_prefix(i32 noundef %110, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %111, ptr noundef null, i32 noundef %113, ptr noundef nonnull writeonly %13)
+  %114 = call fastcc i32 @network_prefix(i32 noundef %110, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %111, ptr noundef null, i32 noundef %113, ptr noundef nonnull %13)
   %115 = load i32, ptr @hf_babel_message_rxcost, align 4
   %116 = add i32 %.0302, 8
   %117 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %115, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef 0) #7
@@ -481,7 +481,7 @@ format_address.exit:                              ; preds = %107, %.sink.split.i
   %146 = add i32 %.0302, 8
   %147 = zext i8 %.0263 to i32
   %148 = add nsw i32 %147, -2
-  %149 = call fastcc i32 @network_prefix(i32 noundef %145, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %146, ptr noundef null, i32 noundef %148, ptr noundef nonnull writeonly %14)
+  %149 = call fastcc i32 @network_prefix(i32 noundef %145, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %146, ptr noundef null, i32 noundef %148, ptr noundef nonnull %14)
   %150 = load i32, ptr @ett_subtree, align 4
   %151 = load ptr, ptr %20, align 8
   %152 = icmp slt i32 %149, 0

@@ -27,7 +27,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocap
   br i1 %.not32, label %12, label %11
 
 11:                                               ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   br label %copy_special_str.exit
 
 12:                                               ; preds = %10

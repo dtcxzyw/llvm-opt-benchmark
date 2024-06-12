@@ -711,7 +711,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h098f641a5e3325acE(ptr
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e23272ea28dcd9bE.exit": ; preds = %8
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %13, ptr %7, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %.pr = load i64, ptr %4, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %14
@@ -775,7 +775,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h6c85a7bb22328719E(ptr
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e23272ea28dcd9bE.exit": ; preds = %7
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %12, ptr %6, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %.pr = load i64, ptr %4, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %13
@@ -908,7 +908,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hb36bdf793bfbc0c9E(ptr
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53eb51dc12c1ebbcE.exit": ; preds = %7
   %12 = getelementptr inbounds i8, ptr %9, i64 56
   store ptr %12, ptr %6, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %.pr = load i64, ptr %4, align 8
   %.not = icmp eq i64 %.pr, 3
   br i1 %.not, label %.loopexit, label %13
@@ -1001,7 +1001,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha7dbb05bc
   %storemerge10 = phi ptr [ %2, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e23272ea28dcd9bE.exit.lr.ph" ], [ %30, %24 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   store ptr %23, ptr %13, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   %.pr = load i64, ptr %7, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %24

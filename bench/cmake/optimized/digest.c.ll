@@ -209,7 +209,7 @@ define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr no
   br i1 %.not.i, label %auth_decode_digest_md5_message.exit.thread, label %22
 
 22:                                               ; preds = %6
-  %23 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.21) #11
+  %23 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.21) #11
   %.not.i.not.i = icmp eq ptr %23, null
   br i1 %.not.i.not.i, label %auth_decode_digest_md5_message.exit.thread, label %24
 
@@ -247,7 +247,7 @@ auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i
 auth_digest_get_key_value.exit.thread57.i:        ; preds = %auth_digest_get_key_value.exit.i, %24, %24
   %.sink.i = phi ptr [ %32, %auth_digest_get_key_value.exit.i ], [ %12, %24 ], [ %12, %24 ]
   store i8 0, ptr %.sink.i, align 1
-  %33 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
+  %33 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.22) #11
   %.not.i15.not.i = icmp eq ptr %33, null
   br i1 %.not.i15.not.i, label %auth_digest_get_key_value.exit28.thread59.i, label %34
 
@@ -285,7 +285,7 @@ auth_digest_get_key_value.exit28.i:               ; preds = %switch.early.test63
 auth_digest_get_key_value.exit28.thread59.i:      ; preds = %auth_digest_get_key_value.exit28.i, %34, %34, %auth_digest_get_key_value.exit.thread57.i
   %.sink75.i = phi ptr [ %42, %auth_digest_get_key_value.exit28.i ], [ %13, %34 ], [ %13, %34 ], [ %13, %auth_digest_get_key_value.exit.thread57.i ]
   store i8 0, ptr %.sink75.i, align 1
-  %43 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
+  %43 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.24) #11
   %.not.i29.not.i = icmp eq ptr %43, null
   br i1 %.not.i29.not.i, label %auth_decode_digest_md5_message.exit.thread, label %44
 
@@ -323,7 +323,7 @@ auth_digest_get_key_value.exit42.i:               ; preds = %switch.early.test64
 auth_digest_get_key_value.exit42.thread61.i:      ; preds = %auth_digest_get_key_value.exit42.i, %44, %44
   %.sink76.i = phi ptr [ %52, %auth_digest_get_key_value.exit42.i ], [ %14, %44 ], [ %14, %44 ]
   store i8 0, ptr %.sink76.i, align 1
-  %53 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
+  %53 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.25) #11
   %.not.i43.not.i = icmp eq ptr %53, null
   br i1 %.not.i43.not.i, label %auth_decode_digest_md5_message.exit.thread, label %54
 

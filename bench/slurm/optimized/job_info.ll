@@ -1448,11 +1448,11 @@ define ptr @slurm_sprint_job_info(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not512, label %.thread590, label %302
 
 302:                                              ; preds = %301
-  %303 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.139, i32 noundef %spec.select574, i32 noundef %296) #19
+  %303 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.139, i32 noundef %spec.select574, i32 noundef %296) #19
   br label %_sprint_range.exit
 
 .thread590:                                       ; preds = %288, %301
-  %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.72, i32 noundef %293) #19
+  %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.72, i32 noundef %293) #19
   br label %_sprint_range.exit
 
 _sprint_range.exit:                               ; preds = %.thread590, %302, %299
@@ -1465,11 +1465,11 @@ _sprint_range.exit:                               ; preds = %.thread590, %302, %
   br i1 %.not.i579, label %311, label %309
 
 309:                                              ; preds = %_sprint_range.exit
-  %310 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.139, i32 noundef %306, i32 noundef %308) #19
+  %310 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.139, i32 noundef %306, i32 noundef %308) #19
   br label %_sprint_range.exit580
 
 311:                                              ; preds = %_sprint_range.exit
-  %312 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.72, i32 noundef %306) #19
+  %312 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131072, ptr noundef nonnull @.str.72, i32 noundef %306) #19
   br label %_sprint_range.exit580
 
 _sprint_range.exit580:                            ; preds = %309, %311
@@ -2212,7 +2212,7 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br i1 %.not.i582, label %642, label %641
 
 641:                                              ; preds = %638
-  call fastcc void @_fname_format(ptr noundef nonnull writeonly %9, i32 noundef 4096, ptr noundef nonnull readonly %0, ptr noundef nonnull %640)
+  call fastcc void @_fname_format(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef nonnull %0, ptr noundef nonnull %640)
   br label %647
 
 642:                                              ; preds = %638

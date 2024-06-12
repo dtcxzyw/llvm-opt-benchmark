@@ -222,7 +222,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
   %41 = load ptr, ptr %28, align 8
   %42 = icmp eq ptr %41, %0
   %spec.select.i = select i1 %42, ptr %.064.i, ptr %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull readonly align 8 dereferenceable(32) %11, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   %44 = load ptr, ptr %43, align 8
   %.not79.i = icmp eq ptr %44, null

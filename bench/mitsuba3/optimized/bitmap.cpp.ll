@@ -14827,7 +14827,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %exitcond.not.i.i, label %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit.i, label %217, !llvm.loop !208
 
 223:                                              ; preds = %.noexc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %.035.i, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i, i8 0, i64 12, i1 false)
   br label %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit.i
 
 _ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit.i: ; preds = %217, %223
@@ -14913,7 +14913,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit: ; preds = %_ZN
   br i1 %exitcond.not.i, label %.loopexit238, label %255, !llvm.loop !208
 
 261:                                              ; preds = %249
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %.0130279, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0130279, i8 0, i64 12, i1 false)
   br label %.loopexit238
 
 .loopexit238:                                     ; preds = %255, %261
@@ -14966,7 +14966,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit: ; preds = %_ZN
   br i1 %exitcond.not.i.i203, label %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit.i204, label %279, !llvm.loop !208
 
 285:                                              ; preds = %.noexc206
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %.035.i199, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i199, i8 0, i64 12, i1 false)
   br label %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit.i204
 
 _ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit.i204: ; preds = %279, %285
@@ -15201,7 +15201,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit207: ; preds = %
   br i1 %exitcond.not.i211, label %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit212, label %370, !llvm.loop !208
 
 376:                                              ; preds = %.lr.ph277
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %.1131275, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.1131275, i8 0, i64 12, i1 false)
   br label %_ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit212
 
 _ZN7mitsuba12_GLOBAL__N_113rgbe_to_floatEPhPf.exit212: ; preds = %370, %376
@@ -20143,7 +20143,7 @@ define void @_ZNK7mitsuba6Bitmap11write_asyncERKNS_10filesystem4pathENS0_10FileF
   %34 = and i8 %33, 1
   store i8 %34, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %22, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull readonly align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %36 = invoke noundef ptr @task_submit_dep(ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @"_ZZN5drjit8do_asyncIRZNK7mitsuba6Bitmap11write_asyncERKNS1_10filesystem4pathENS2_10FileFormatEiE3$_0EEP4TaskOT_PKPKSA_mP4PoolENUljPvE_8__invokeEjSK_", ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull @"_ZZN5drjit8do_asyncIRZNK7mitsuba6Bitmap11write_asyncERKNS1_10filesystem4pathENS2_10FileFormatEiE3$_0EEP4TaskOT_PKPKSA_mP4PoolENUlPvE_8__invokeESK_", i32 noundef 1)
           to label %"_ZN5drjit8do_asyncIZNK7mitsuba6Bitmap11write_asyncERKNS1_10filesystem4pathENS2_10FileFormatEiE3$_0EEP4TaskOT_St16initializer_listIPKS9_EP4Pool.exit" unwind label %42
 

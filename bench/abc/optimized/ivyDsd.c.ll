@@ -301,7 +301,7 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %115, %Vec_IntGrow.e
 124:                                              ; preds = %.sink.split, %100
   %.val.i = load i32, ptr %3, align 4
   %125 = add nsw i32 %.val.i, -1
-  %126 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %125, ptr noundef nonnull readonly %1)
+  %126 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %125, ptr noundef nonnull %1)
   %.not26 = icmp eq i32 %126, %0
   br i1 %.not26, label %128, label %127
 
@@ -1865,7 +1865,7 @@ define void @Ivy_TruthTestOne(i32 noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr i8, ptr %25, i64 4
   %.val.i2 = load i32, ptr %26, align 4
   %27 = add nsw i32 %.val.i2, -1
-  %28 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %27, ptr noundef readonly %25)
+  %28 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %27, ptr noundef %25)
   %.not1 = icmp eq i32 %24, %28
   br i1 %.not1, label %30, label %29
 

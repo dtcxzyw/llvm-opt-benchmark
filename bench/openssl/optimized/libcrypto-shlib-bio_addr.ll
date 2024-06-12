@@ -58,19 +58,19 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then4:                                         ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(112) %dst, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %dst, i8 0, i64 112, i1 false)
   br label %return
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %dst, ptr noundef nonnull readonly align 2 dereferenceable(16) %src, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dst, ptr noundef nonnull align 2 dereferenceable(16) %src, i64 16, i1 false)
   br label %return
 
 if.then6.i:                                       ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %dst, ptr noundef nonnull readonly align 2 dereferenceable(28) %src, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %dst, ptr noundef nonnull align 2 dereferenceable(28) %src, i64 28, i1 false)
   br label %return
 
 if.then12.i:                                      ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(110) %dst, ptr noundef nonnull readonly align 2 dereferenceable(110) %src, i64 110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %dst, ptr noundef nonnull align 2 dereferenceable(110) %src, i64 110, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then12.i, %if.then6.i, %if.then.i, %entry, %if.then4
@@ -134,19 +134,19 @@ if.end.i6:                                        ; preds = %if.then
   ]
 
 if.then4.i:                                       ; preds = %if.end.i6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(112) %call.i, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %call.i, i8 0, i64 112, i1 false)
   br label %if.end4
 
 if.then.i.i:                                      ; preds = %if.end.i6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(16) %ap, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %call.i, ptr noundef nonnull align 2 dereferenceable(16) %ap, i64 16, i1 false)
   br label %if.end4
 
 if.then6.i.i:                                     ; preds = %if.end.i6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(28) %ap, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i, ptr noundef nonnull align 2 dereferenceable(28) %ap, i64 28, i1 false)
   br label %if.end4
 
 if.then12.i.i:                                    ; preds = %if.end.i6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(110) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(110) %ap, i64 110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %call.i, ptr noundef nonnull align 2 dereferenceable(110) %ap, i64 110, i1 false)
   br label %if.end4
 
 if.then3:                                         ; preds = %if.end.i6
@@ -886,7 +886,7 @@ if.end.i17.i:                                     ; preds = %if.then14.i
   store i16 0, ptr %1, align 4
   store i16 1, ptr %call.i.i, align 4
   %sun_path.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2
-  %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull readonly dereferenceable(1) %host, i64 noundef 107) #14
+  %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull dereferenceable(1) %host, i64 noundef 107) #14
   br label %BIO_ADDR_rawmake.exit.i
 
 BIO_ADDR_rawmake.exit.i:                          ; preds = %if.end.i17.i, %if.then14.i

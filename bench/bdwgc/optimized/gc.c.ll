@@ -1399,8 +1399,8 @@ GC_register_data_segments.exit:                   ; preds = %166
   unreachable
 
 184:                                              ; preds = %176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %179, i8 0, i64 32768, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %178, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %179, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %178, i8 0, i64 32768, i1 false)
   br label %GC_bl_init_no_interiors.exit.i
 
 GC_bl_init_no_interiors.exit.i:                   ; preds = %184, %172
@@ -1422,8 +1422,8 @@ GC_bl_init_no_interiors.exit.i:                   ; preds = %184, %172
   unreachable
 
 GC_bl_init.exit:                                  ; preds = %GC_bl_init_no_interiors.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %187, i8 0, i64 32768, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %186, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %187, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %186, i8 0, i64 32768, i1 false)
   call fastcc void @alloc_mark_stack(i64 noundef 4096)
   %192 = call ptr @getenv(ptr noundef nonnull @.str.84) #38
   %.not100 = icmp eq ptr %192, null
@@ -2972,7 +2972,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
 
 10:                                               ; preds = %1
   %11 = load i32, ptr @GC_stderr, align 4
-  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #46
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
   %.not.i.i = icmp eq i64 %12, 0
@@ -22372,13 +22372,13 @@ GC_clear_marks.exit:                              ; preds = %99, %41
 108:                                              ; preds = %104
   %109 = load ptr, ptr @GC_old_normal_bl, align 8
   %110 = load ptr, ptr @GC_incomplete_normal_bl, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %110, ptr noundef nonnull readonly align 8 dereferenceable(32768) %109, i64 32768, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %110, ptr noundef nonnull align 8 dereferenceable(32768) %109, i64 32768, i1 false)
   br label %GC_unpromote_black_lists.exit
 
 GC_unpromote_black_lists.exit:                    ; preds = %104, %108
   %111 = load ptr, ptr @GC_old_stack_bl, align 8
   %112 = load ptr, ptr @GC_incomplete_stack_bl, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %112, ptr noundef nonnull readonly align 8 dereferenceable(32768) %111, i64 32768, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %112, ptr noundef nonnull align 8 dereferenceable(32768) %111, i64 32768, i1 false)
   br label %.loopexit
 
 113:                                              ; preds = %GC_clear_marks.exit
@@ -23415,7 +23415,7 @@ define void @GC_ignore_warn_proc(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @GC_err_printf(ptr noundef readonly %0, i64 noundef %1)
+  tail call void (ptr, ...) @GC_err_printf(ptr noundef %0, i64 noundef %1)
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -25367,8 +25367,8 @@ GC_initialize_offsets.exit:                       ; preds = %GC_lock.exit
   unreachable
 
 33:                                               ; preds = %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %28, i8 0, i64 32768, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %27, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %28, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %27, i8 0, i64 32768, i1 false)
   br label %GC_bl_init_no_interiors.exit
 
 GC_bl_init_no_interiors.exit:                     ; preds = %33, %22, %GC_initialize_offsets.exit
@@ -26613,7 +26613,7 @@ GC_get_maps.exit:                                 ; preds = %227
   store i8 0, ptr %233, align 1
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.110)
   %234 = load i32, ptr @GC_stderr, align 4
-  %235 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #46
+  %235 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %232) #46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %236 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #38
   %.not.i.i1 = icmp eq i64 %235, 0
@@ -39934,11 +39934,11 @@ define internal fastcc void @GC_promote_black_lists() unnamed_addr #1 {
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %1, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %1, i8 0, i64 32768, i1 false)
   br label %7
 
 7:                                                ; preds = %6, %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %2, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %2, i8 0, i64 32768, i1 false)
   store ptr %1, ptr @GC_incomplete_normal_bl, align 8
   store ptr %2, ptr @GC_incomplete_stack_bl, align 8
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 288), align 8

@@ -2822,7 +2822,7 @@ entry:
   store i64 0, ptr %purge_state, align 8
   %next_purge_search_begin = getelementptr inbounds i8, ptr %purge_state, i64 80
   store i64 0, ptr %next_purge_search_begin, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %dirty_pages, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %dirty_pages, i8 0, i64 64, i1 false)
   %active_pages = getelementptr inbounds i8, ptr %hpdata, i64 112
   br label %for.body.i
 
@@ -2855,7 +2855,7 @@ for.body.i17:                                     ; preds = %for.body.i17, %fb_b
 
 fb_bit_and.exit:                                  ; preds = %for.body.i17
   %to_purge = getelementptr inbounds i8, ptr %purge_state, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %to_purge, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %to_purge, i8 0, i64 64, i1 false)
   %invariant.gep = getelementptr i8, ptr %purge_state, i64 24
   br label %while.body
 

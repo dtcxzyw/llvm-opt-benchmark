@@ -1422,7 +1422,7 @@ lpad.i12:                                         ; preds = %_ZNSt4pairIKNSt7__c
 _ZN9struct_pb8compiler13FileGenerator16generate_ns_openEPN6google8protobuf2io7PrinterE.exit: ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit
   call void @_ZN9struct_pb8compiler15NamespaceOpenerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i11) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i11)
-  call void @_ZN9struct_pb8compiler13FileGenerator18generate_fwd_declsEPN6google8protobuf2io7PrinterE(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull %p)
+  call void @_ZN9struct_pb8compiler13FileGenerator18generate_fwd_declsEPN6google8protobuf2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %p)
   %enum_generators_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %_M_finish.i.i.i, align 8

@@ -2393,7 +2393,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef nonnull readonly %anyset, ptr noundef nonnull %key, i64 noundef %hash.0.i)
+  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef nonnull %anyset, ptr noundef nonnull %key, i64 noundef %hash.0.i)
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
@@ -4142,7 +4142,7 @@ if.end.i187:                                      ; preds = %while.body51
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %while.body51, %if.end.i187
-  %call.i110 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %other, ptr noundef nonnull %21, i64 noundef %22)
+  %call.i110 = tail call fastcc ptr @set_lookkey(ptr noundef %other, ptr noundef nonnull %21, i64 noundef %22)
   %cmp.not.i111 = icmp eq ptr %call.i110, null
   br i1 %cmp.not.i111, label %if.then56, label %set_contains_entry.exit
 
@@ -5290,7 +5290,7 @@ if.end.i233:                                      ; preds = %while.body
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i233
-  %call.i93 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select75, ptr noundef nonnull %10, i64 noundef %11)
+  %call.i93 = tail call fastcc ptr @set_lookkey(ptr noundef %spec.select75, ptr noundef nonnull %10, i64 noundef %11)
   %cmp.not.i94 = icmp eq ptr %call.i93, null
   br i1 %cmp.not.i94, label %if.then30, label %set_contains_entry.exit
 
@@ -5415,7 +5415,7 @@ while.body47:                                     ; preds = %while.body47.lr.ph,
   br i1 %cmp49, label %error, label %if.end51
 
 if.end51:                                         ; preds = %while.body47
-  %call.i99 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %so, ptr noundef nonnull %call45124, i64 noundef %call48)
+  %call.i99 = tail call fastcc ptr @set_lookkey(ptr noundef %so, ptr noundef nonnull %call45124, i64 noundef %call48)
   %cmp.not.i100 = icmp eq ptr %call.i99, null
   br i1 %cmp.not.i100, label %error, label %set_contains_entry.exit105
 
@@ -6593,7 +6593,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %so, ptr noundef nonnull %key, i64 noundef %hash.0.i)
+  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef %so, ptr noundef nonnull %key, i64 noundef %hash.0.i)
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %if.then, label %set_contains_key.exit
 
@@ -6679,7 +6679,7 @@ if.then.i18:                                      ; preds = %lor.lhs.false.i29, 
 
 if.end5.i21:                                      ; preds = %if.then.i18, %lor.lhs.false.i29
   %hash.0.i22 = phi i64 [ %call2.i19, %if.then.i18 ], [ %8, %lor.lhs.false.i29 ]
-  %call.i.i23 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %so, ptr noundef nonnull %call.i, i64 noundef %hash.0.i22)
+  %call.i.i23 = tail call fastcc ptr @set_lookkey(ptr noundef %so, ptr noundef nonnull %call.i, i64 noundef %hash.0.i22)
   %cmp.not.i.i24 = icmp eq ptr %call.i.i23, null
   br i1 %cmp.not.i.i24, label %set_contains_key.exit32, label %if.then.i.i25
 
@@ -6819,7 +6819,7 @@ if.end.i54:                                       ; preds = %while.body
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i54
   %hash = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
   %11 = load i64, ptr %hash, align 8
-  %call.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %other, ptr noundef nonnull %9, i64 noundef %11)
+  %call.i = tail call fastcc ptr @set_lookkey(ptr noundef %other, ptr noundef nonnull %9, i64 noundef %11)
   %cmp.not.i33 = icmp eq ptr %call.i, null
   br i1 %cmp.not.i33, label %set_contains_entry.exit, label %if.then.i
 
@@ -6917,7 +6917,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %w
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %so, ptr noundef nonnull %call15, i64 noundef %hash.0.i)
+  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef %so, ptr noundef nonnull %call15, i64 noundef %hash.0.i)
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %set_contains_key.exit, label %if.then.i.i
 
@@ -7696,7 +7696,7 @@ if.end.i101:                                      ; preds = %while.body
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i101
   %hash = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
   %8 = load i64, ptr %hash, align 8
-  %call.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select34, ptr noundef nonnull %6, i64 noundef %8)
+  %call.i = tail call fastcc ptr @set_lookkey(ptr noundef %spec.select34, ptr noundef nonnull %6, i64 noundef %8)
   %cmp.not.i44 = icmp eq ptr %call.i, null
   br i1 %cmp.not.i44, label %set_contains_entry.exit, label %if.then.i
 
@@ -7760,7 +7760,7 @@ if.then.i48:                                      ; preds = %lor.lhs.false.i, %w
 
 if.end5.i:                                        ; preds = %if.then.i48, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i48 ], [ %13, %lor.lhs.false.i ]
-  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %so, ptr noundef nonnull %call30, i64 noundef %hash.0.i)
+  %call.i.i = tail call fastcc ptr @set_lookkey(ptr noundef %so, ptr noundef nonnull %call30, i64 noundef %hash.0.i)
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %set_contains_key.exit, label %if.then.i.i
 

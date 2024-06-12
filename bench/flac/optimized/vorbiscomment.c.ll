@@ -27,7 +27,7 @@ define dso_local range(i32 0, 2) i32 @flac__vorbiscomment_add(ptr noundef %block
 entry:
   %entry1.i = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   %converted.i = alloca ptr, align 8
-  %call.i.i = tail call noalias ptr @strdup(ptr noundef readonly %comment) #9
+  %call.i.i = tail call noalias ptr @strdup(ptr noundef %comment) #9
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %local_strdup.exit.i
 
@@ -38,7 +38,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 local_strdup.exit.i:                              ; preds = %entry
-  %call.i16.i = tail call noalias ptr @strdup(ptr noundef readonly %comment) #9
+  %call.i16.i = tail call noalias ptr @strdup(ptr noundef %comment) #9
   %cmp.i17.i = icmp eq ptr %call.i16.i, null
   br i1 %cmp.i17.i, label %if.then.i18.i, label %local_strdup.exit20.i
 
@@ -90,7 +90,7 @@ for.inc.i:                                        ; preds = %switch.early.test.i
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end5.i
-  %call.i21.i = tail call noalias ptr @strdup(ptr noundef nonnull readonly %call.i16.i) #9
+  %call.i21.i = tail call noalias ptr @strdup(ptr noundef nonnull %call.i16.i) #9
   %cmp.i22.i = icmp eq ptr %call.i21.i, null
   br i1 %cmp.i22.i, label %if.then.i23.i, label %local_strdup.exit25.i
 
@@ -101,7 +101,7 @@ if.then.i23.i:                                    ; preds = %for.end.i
   unreachable
 
 local_strdup.exit25.i:                            ; preds = %for.end.i
-  %call.i26.i = tail call noalias ptr @strdup(ptr noundef nonnull readonly %incdec.ptr.i) #9
+  %call.i26.i = tail call noalias ptr @strdup(ptr noundef nonnull %incdec.ptr.i) #9
   %cmp.i27.i = icmp eq ptr %call.i26.i, null
   br i1 %cmp.i27.i, label %if.then.i28.i, label %if.end
 

@@ -13771,17 +13771,17 @@ define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_
   br i1 %4, label %_ZN5faiss12_GLOBAL__N_116get_trains_aloneEPKNS_5IndexE.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull readonly %3, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss9IndexFlatE, i64 0) #27
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss9IndexFlatE, i64 0) #27
   %.not19.i = icmp eq ptr %6, null
   br i1 %.not19.i, label %.critedge8.i, label %_ZN5faiss12_GLOBAL__N_116get_trains_aloneEPKNS_5IndexE.exit
 
 .critedge8.i:                                     ; preds = %5
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull readonly %3, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #27
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss19MultiIndexQuantizerE, i64 0) #27
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %_ZN5faiss12_GLOBAL__N_116get_trains_aloneEPKNS_5IndexE.exit
 
 8:                                                ; preds = %.critedge8.i
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %3, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss23ResidualCoarseQuantizerE, i64 0) #27
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss23ResidualCoarseQuantizerE, i64 0) #27
   %.not20.i = icmp eq ptr %9, null
   %.mux15.i = select i1 %.not20.i, i8 2, i8 1
   br label %_ZN5faiss12_GLOBAL__N_116get_trains_aloneEPKNS_5IndexE.exit

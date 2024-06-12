@@ -1273,7 +1273,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_bn2bin(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call i32 @BN_num_bits(ptr noundef readonly %a)
+  %call.i = tail call i32 @BN_num_bits(ptr noundef %a)
   %add.i = add nsw i32 %call.i, 7
   %div.i = sdiv i32 %add.i, 8
   %dmax.i = getelementptr inbounds i8, ptr %a, i64 12
@@ -1288,7 +1288,7 @@ if.then25.i:                                      ; preds = %entry
 
 if.then28.i:                                      ; preds = %if.then25.i
   %conv29.i = sext i32 %div.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %to, i8 0, i64 %conv29.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %to, i8 0, i64 %conv29.i, i1 false)
   br label %bn2binpad.exit
 
 if.end31.i:                                       ; preds = %entry
@@ -1391,14 +1391,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @BN_native2bn(ptr nocapture noundef readonly %s, i32 noundef %len, ptr noundef %ret) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call fastcc ptr @bin2bn(ptr noundef readonly %s, i32 noundef %len, ptr noundef %ret, i32 noundef 1, i32 noundef 1)
+  %call.i = tail call fastcc ptr @bin2bn(ptr noundef %s, i32 noundef %len, ptr noundef %ret, i32 noundef 1, i32 noundef 1)
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @BN_signed_native2bn(ptr nocapture noundef readonly %s, i32 noundef %len, ptr noundef %ret) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call fastcc ptr @bin2bn(ptr noundef readonly %s, i32 noundef %len, ptr noundef %ret, i32 noundef 1, i32 noundef 0)
+  %call.i = tail call fastcc ptr @bin2bn(ptr noundef %s, i32 noundef %len, ptr noundef %ret, i32 noundef 1, i32 noundef 0)
   ret ptr %call.i
 }
 
@@ -1409,7 +1409,7 @@ entry:
   br i1 %cmp.i, label %BN_bn2lebinpad.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @bn2binpad(ptr noundef readonly %a, ptr noundef writeonly %to, i32 noundef %tolen, i32 noundef 1, i32 noundef 1)
+  %call.i = tail call fastcc i32 @bn2binpad(ptr noundef %a, ptr noundef %to, i32 noundef %tolen, i32 noundef 1, i32 noundef 1)
   br label %BN_bn2lebinpad.exit
 
 BN_bn2lebinpad.exit:                              ; preds = %entry, %if.end.i
@@ -1424,7 +1424,7 @@ entry:
   br i1 %cmp.i, label %BN_signed_bn2lebin.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call fastcc i32 @bn2binpad(ptr noundef readonly %a, ptr noundef writeonly %to, i32 noundef %tolen, i32 noundef 1, i32 noundef 0)
+  %call.i = tail call fastcc i32 @bn2binpad(ptr noundef %a, ptr noundef %to, i32 noundef %tolen, i32 noundef 1, i32 noundef 0)
   br label %BN_signed_bn2lebin.exit
 
 BN_signed_bn2lebin.exit:                          ; preds = %entry, %if.end.i

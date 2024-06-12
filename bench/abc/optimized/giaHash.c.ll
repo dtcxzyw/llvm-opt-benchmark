@@ -717,7 +717,7 @@ define void @Gia_ManHashResize(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %0, i64 104
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2587,10 +2587,10 @@ define ptr @Gia_ManRehash(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #25
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #24
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #24
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %6
@@ -2602,10 +2602,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %6
   br i1 %.not.i42, label %Abc_UtilStrsav.exit43, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #25
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #25
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #23
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #24
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #24
   br label %Abc_UtilStrsav.exit43
 
 Abc_UtilStrsav.exit43:                            ; preds = %Abc_UtilStrsav.exit, %14
@@ -3502,7 +3502,7 @@ define noundef ptr @Gia_ManMultiInputTest(i32 noundef %0) local_unnamed_addr #1 
 Gia_ManCollectLiterals.exit:                      ; preds = %.lr.ph.i, %1
   %7 = tail call ptr @Gia_ManStart(i32 noundef 1000) #24
   %8 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.4, i64 6, i1 false) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false) #24
   store ptr %8, ptr %7, align 8
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -4403,7 +4403,7 @@ define noundef ptr @Gia_ManMuxTreeTest(i32 noundef %0) local_unnamed_addr #1 {
 Gia_ManCollectLiterals.exit:                      ; preds = %.lr.ph.i, %1
   %9 = tail call ptr @Gia_ManStart(i32 noundef 1000) #24
   %10 = tail call noalias dereferenceable_or_null(9) ptr @malloc(i64 noundef 9) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #24
   store ptr %10, ptr %9, align 8
   br i1 %6, label %.lr.ph, label %._crit_edge
 

@@ -291,7 +291,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
 .lr.ph.i:                                         ; preds = %5, %9
   %.03.i = phi ptr [ %.0.i, %9 ], [ %.01.i, %5 ]
   %7 = load ptr, ptr %.03.i, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #13
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
@@ -332,7 +332,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
 .lr.ph.i:                                         ; preds = %5, %9
   %.03.i = phi ptr [ %.0.i, %9 ], [ %.01.i, %5 ]
   %7 = load ptr, ptr %.03.i, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #13
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 

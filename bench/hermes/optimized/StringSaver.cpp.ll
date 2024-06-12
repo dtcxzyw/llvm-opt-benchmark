@@ -74,7 +74,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %_ZN4llvh11StringSaver4saveENS_9StringRefE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1, ptr readonly align 1 %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i1, ptr align 1 %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i1 false)
   br label %_ZN4llvh11StringSaver4saveENS_9StringRefE.exit
 
 _ZN4llvh11StringSaver4saveENS_9StringRefE.exit:   ; preds = %if.then, %if.then.i

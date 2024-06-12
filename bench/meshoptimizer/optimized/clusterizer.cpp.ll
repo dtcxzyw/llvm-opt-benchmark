@@ -675,7 +675,7 @@ while.body.preheader.i:                           ; preds = %if.then141
   %127 = add nuw nsw i64 %126, %124
   %128 = and i64 %127, 3
   %129 = add nuw nsw i64 %128, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %129, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %129, i1 false)
   br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
 _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %if.then141, %while.body.preheader.i
@@ -1391,7 +1391,7 @@ while.body.preheader.i:                           ; preds = %for.end
   %15 = add nuw nsw i64 %12, %14
   %16 = and i64 %15, 3
   %17 = add nuw nsw i64 %16, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %17, i1 false)
   %.pre = load i32, ptr %vertex_count, align 4
   %.pre55 = load i32, ptr %triangle_count, align 4
   %.pre56 = load i32, ptr %11, align 4
@@ -1601,7 +1601,7 @@ while.body.preheader.i:                           ; preds = %if.then
   %9 = add nuw nsw i64 %8, %6
   %10 = and i64 %9, 3
   %11 = add nuw nsw i64 %10, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %11, i1 false)
   br label %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
 
 _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %if.then, %while.body.preheader.i

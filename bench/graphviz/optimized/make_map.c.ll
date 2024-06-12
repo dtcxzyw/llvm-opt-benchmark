@@ -2927,7 +2927,7 @@ get_tri.exit:                                     ; preds = %384
 .lr.ph.preheader.i:                               ; preds = %.loopexit
   %468 = zext nneg i32 %.2425 to i64
   %469 = shl nuw nsw i64 %468, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %465, ptr nonnull readonly align 4 %.2462, i64 %469, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %465, ptr nonnull align 4 %.2462, i64 %469, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3433,7 +3433,7 @@ get_poly_lines.exit.i:                            ; preds = %.loopexit1.i.i, %._
 .lr.ph452.i.i:                                    ; preds = %get_poly_lines.exit.i
   %711 = zext nneg i32 %700 to i64
   %712 = shl nuw nsw i64 %711, 2
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %483, i8 -1, i64 %712, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %483, i8 -1, i64 %712, i1 false)
   %713 = call ptr @SparseMatrix_new(i32 noundef %700, i32 noundef %700, i32 noundef 1, i32 noundef 4, i32 noundef 1) #18
   store i32 0, ptr %19, align 4
   store i32 0, ptr %20, align 4
@@ -4407,7 +4407,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #18
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -4496,7 +4496,7 @@ gv_calloc.exit.i.i:                               ; preds = %26
 
 agxbnext.exit.i:                                  ; preds = %37, %35
   %41 = phi ptr [ %36, %35 ], [ %40, %37 ]
-  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #18
+  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #18
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %vagxbprint.exit
 

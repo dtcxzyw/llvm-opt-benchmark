@@ -1183,7 +1183,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pKey.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prop.i)
   store ptr @.str.4, ptr %pKey.addr.i, align 8
-  %call.i = call i32 @aiGetMaterialProperty(ptr noundef readonly %mat, ptr noundef nonnull @.str.4, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop.i)
+  %call.i = call i32 @aiGetMaterialProperty(ptr noundef %mat, ptr noundef nonnull @.str.4, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %prop.i)
   %0 = load ptr, ptr %prop.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %aiGetMaterialString.exit.thread, label %if.end.i
@@ -1214,7 +1214,7 @@ if.end:                                           ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 4
   %add.i = add i32 %3, 1
   %conv.i = zext i32 %add.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %data.i, ptr nonnull align 1 %add.ptr.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %add.ptr.i, i64 %conv.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pKey.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prop.i)
   store i32 0, ptr %mapping_, align 4
@@ -1424,7 +1424,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %data.i1 = getelementptr inbounds i8, ptr %2, i64 4
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull readonly dereferenceable(10) @.str.12) #17
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull dereferenceable(10) @.str.12) #17
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %land.lhs.true2.i, label %for.inc.i
 
@@ -1459,7 +1459,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %add.i.i = add i32 %7, 1
   %conv.i.i = zext i32 %add.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %data.i, ptr nonnull align 1 %add.ptr.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %add.ptr.i.i, i64 %conv.i.i, i1 false)
   br label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i

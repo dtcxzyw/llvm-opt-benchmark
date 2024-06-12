@@ -267,7 +267,7 @@ _signal_batch_script_step.exit:                   ; preds = %25, %42, %._crit_ed
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %74 = getelementptr inbounds i8, ptr %4, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %74, ptr noundef nonnull readonly align 8 dereferenceable(12) %72, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %74, ptr noundef nonnull align 8 dereferenceable(12) %72, i64 12, i1 false)
   %75 = getelementptr inbounds i8, ptr %4, i64 2
   store i16 %73, ptr %75, align 2
   %76 = getelementptr inbounds i8, ptr %63, i64 80
@@ -448,7 +448,7 @@ _terminate_batch_script_step.exit:                ; preds = %24, %39, %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i32 -65536, ptr %3, align 4
   %67 = getelementptr inbounds i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull readonly align 8 dereferenceable(12) %66, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %66, i64 12, i1 false)
   %68 = getelementptr inbounds i8, ptr %57, i64 80
   %69 = load ptr, ptr %68, align 8
   %70 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %69, i32 noundef 6006, ptr noundef nonnull %3)

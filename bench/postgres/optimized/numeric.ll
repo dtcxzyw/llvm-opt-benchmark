@@ -2885,7 +2885,7 @@ numericvar_to_double.exit.thread:                 ; preds = %PGTYPESnumeric_copy
 define noundef i32 @PGTYPESnumeric_to_int(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = tail call ptr @PGTYPESnumeric_to_asc(ptr noundef readonly %0, i32 noundef 0)
+  %4 = tail call ptr @PGTYPESnumeric_to_asc(ptr noundef %0, i32 noundef 0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %PGTYPESnumeric_to_long.exit.thread, label %6
 

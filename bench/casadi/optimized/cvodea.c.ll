@@ -3376,9 +3376,9 @@ CVAckpntInit.exit.thread152:                      ; preds = %136, %.critedge.i, 
 
 .loopexit.i146:                                   ; preds = %630, %.preheader433.i, %.loopexit436.i
   %634 = getelementptr inbounds i8, ptr %248, i64 544
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %634, ptr noundef nonnull readonly align 8 dereferenceable(112) %221, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %634, ptr noundef nonnull align 8 dereferenceable(112) %221, i64 112, i1 false)
   %635 = getelementptr inbounds i8, ptr %248, i64 656
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %635, ptr noundef nonnull readonly align 8 dereferenceable(48) %222, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %635, ptr noundef nonnull align 8 dereferenceable(48) %222, i64 48, i1 false)
   %636 = load i32, ptr %208, align 8
   %.not407595.i = icmp slt i32 %636, 0
   br i1 %.not407595.i, label %641, label %.lr.ph597.i
@@ -3388,7 +3388,7 @@ CVAckpntInit.exit.thread152:                      ; preds = %136, %.critedge.i, 
   %638 = add nuw i32 %636, 1
   %639 = zext i32 %638 to i64
   %640 = shl nuw nsw i64 %639, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %637, ptr noundef nonnull readonly align 8 dereferenceable(1) %223, i64 %640, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %637, ptr noundef nonnull align 8 dereferenceable(1) %223, i64 %640, i1 false)
   br label %641
 
 .loopexit154.sink.split:                          ; preds = %.lr.ph476.i, %309, %.lr.ph496.i, %381, %.lr.ph527.i, %483, %.lr.ph568.i, %.lr.ph602.i, %.loopexit438.i, %480, %.loopexit443.i, %378, %._crit_edge492.i, %305, %.preheader.i148, %.preheader450.i

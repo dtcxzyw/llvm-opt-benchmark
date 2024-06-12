@@ -3551,7 +3551,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZSt8_DestroyIPNSt1
           to label %1471 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1471:                                             ; preds = %1467
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %28, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %28, i8 0, i64 36, i1 false)
   %1472 = load ptr, ptr %135, align 8
   %1473 = getelementptr inbounds i8, ptr %1472, i64 4
   store i32 1, ptr %1473, align 4

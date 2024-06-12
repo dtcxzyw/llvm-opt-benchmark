@@ -905,7 +905,7 @@ BeginStrongLockAcquire.exit:                      ; preds = %168, %172
 
 222:                                              ; preds = %217
   %223 = trunc nuw nsw i64 %indvars.iv59.i to i32
-  %224 = call fastcc ptr @SetupLockInTable(ptr noundef nonnull readonly %19, ptr noundef %196, ptr noundef nonnull %0, i32 noundef %84, i32 noundef %223)
+  %224 = call fastcc ptr @SetupLockInTable(ptr noundef nonnull %19, ptr noundef %196, ptr noundef nonnull %0, i32 noundef %84, i32 noundef %223)
   %.not44.i = icmp eq ptr %224, null
   br i1 %.not44.i, label %261, label %225
 

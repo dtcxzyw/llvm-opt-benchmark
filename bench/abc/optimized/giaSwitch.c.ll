@@ -399,7 +399,7 @@ Gia_ManSwiSimInfoZero.exit.i:                     ; preds = %Gia_ManSwiSimInfoZe
   %118 = mul nsw i32 %.125.i, %28
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i32, ptr %42, i64 %119
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %120, i8 0, i64 %108, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %120, i8 0, i64 %108, i1 false)
   %.val.i131.pre = load ptr, ptr %37, align 8
   %.phi.trans.insert341 = getelementptr i8, ptr %.val.i131.pre, i64 4
   %.val.val.i132.pre = load i32, ptr %.phi.trans.insert341, align 4
@@ -432,7 +432,7 @@ Gia_ManSwiSimInfoInit.exit:                       ; preds = %Gia_ManSwiSimInfoZe
   br i1 %127, label %Gia_ManSwiSimInfoZero.exit.i134, label %.lr.ph.preheader.i.i139
 
 .lr.ph.preheader.i.i139:                          ; preds = %135
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %35, i8 0, i64 %129, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %129, i1 false)
   br label %Gia_ManSwiSimInfoZero.exit.i134
 
 Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.i139, %135

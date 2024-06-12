@@ -586,12 +586,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %struct.pathspec_item, ptr %5, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef %6, i64 noundef %2) #14
+  %call.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef %6, i64 noundef %2) #14
   %tobool7.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %for.inc.i
 
 if.end9.i:                                        ; preds = %for.body.i
-  %call10.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pathname) #14
+  %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #14
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %2
   %call11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #14
   %cmp12.not.i = icmp ugt i64 %call11.i, %call10.i
@@ -606,7 +606,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   ]
 
 if.end22.i:                                       ; preds = %if.end14.i, %if.end14.i
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
   %tobool24.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool24.not.i, label %land.lhs.true6, label %for.inc.i
 
@@ -1266,12 +1266,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %struct.pathspec_item, ptr %6, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strncmp(ptr noundef readonly %2, ptr noundef %7, i64 noundef %3) #14
+  %call.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef %7, i64 noundef %3) #14
   %tobool7.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %for.inc.i
 
 if.end9.i:                                        ; preds = %for.body.i
-  %call10.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pathname) #14
+  %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #14
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %3
   %call11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #14
   %cmp12.not.i = icmp ugt i64 %call11.i, %call10.i
@@ -1286,7 +1286,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   ]
 
 if.end22.i:                                       ; preds = %if.end14.i, %if.end14.i
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %pathname, ptr nonnull %add.ptr.i, i64 %call10.i)
   %tobool24.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool24.not.i, label %if.then4, label %for.inc.i
 

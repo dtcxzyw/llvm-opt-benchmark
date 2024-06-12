@@ -2805,7 +2805,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -2824,7 +2824,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !38
 
@@ -2974,7 +2974,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -2994,7 +2994,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !38
 
@@ -3177,7 +3177,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
   %273 = load ptr, ptr %186, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val15 = load i32, ptr %274, align 4
@@ -3648,7 +3648,7 @@ Sfm_LibTruth8Two.exit:                            ; preds = %.lr.ph.i157, %198
   %.val16.i = load i32, ptr %212, align 4
   %213 = getelementptr i8, ptr %211, i64 8
   %.val17.i = load ptr, ptr %213, align 8
-  call fastcc void @Exp_Truth8(i32 noundef %203, i32 %.val16.i, ptr %.val17.i, ptr noundef nonnull %9, ptr noundef nonnull writeonly %14)
+  call fastcc void @Exp_Truth8(i32 noundef %203, i32 %.val16.i, ptr %.val17.i, ptr noundef nonnull %9, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %Abc_TtCopy.exit
@@ -4734,7 +4734,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %4
   %38 = mul nsw i32 %37, %9
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i64, ptr %36, i64 %39
-  %bcmp.i16 = tail call i32 @bcmp(ptr %40, ptr readonly %1, i64 %32)
+  %bcmp.i16 = tail call i32 @bcmp(ptr %40, ptr %1, i64 %32)
   %.not15.i17 = icmp eq i32 %bcmp.i16, 0
   br i1 %.not15.i17, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -4754,7 +4754,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %4
   %50 = mul nsw i32 %49, %9
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i64, ptr %48, i64 %51
-  %bcmp.i = tail call i32 @bcmp(ptr %52, ptr readonly %1, i64 %32)
+  %bcmp.i = tail call i32 @bcmp(ptr %52, ptr %1, i64 %32)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %53, !llvm.loop !38
 
@@ -4884,7 +4884,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %10
   %46 = mul nsw i32 %45, %17
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i64, ptr %44, i64 %47
-  %bcmp.i68 = call i32 @bcmp(ptr %48, ptr readonly %1, i64 %40)
+  %bcmp.i68 = call i32 @bcmp(ptr %48, ptr %1, i64 %40)
   %.not15.i69 = icmp eq i32 %bcmp.i68, 0
   br i1 %.not15.i69, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -4904,7 +4904,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %10
   %58 = mul nsw i32 %57, %17
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i64, ptr %56, i64 %59
-  %bcmp.i = call i32 @bcmp(ptr %60, ptr readonly %1, i64 %40)
+  %bcmp.i = call i32 @bcmp(ptr %60, ptr %1, i64 %40)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %61, !llvm.loop !38
 

@@ -5983,7 +5983,7 @@ spcache_init.exit:                                ; preds = %10, %14
 
 spcachekey_equal.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i
   %49 = load ptr, ptr %45, align 8
-  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %49, ptr noundef nonnull readonly dereferenceable(1) %5) #19
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %5) #19
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %nsphash_lookup.exit.i, label %spcachekey_equal.exit.thread.i.i.i
 
@@ -6089,7 +6089,7 @@ define internal fastcc ptr @spcache_insert(ptr noundef %0, i32 noundef %1) unnam
 
 spcachekey_equal.exit.i.i:                        ; preds = %.lr.ph.i.i
   %28 = load ptr, ptr %24, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %0) #19
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %nsphash_lookup.exit, label %spcachekey_equal.exit.thread.i.i
 
@@ -6205,7 +6205,7 @@ nsphash_update_parameters.exit.i.i.i:             ; preds = %nsphash_compute_siz
   %.val56.i.i.i = load ptr, ptr %89, align 8
   %93 = getelementptr i8, ptr %89, i64 8
   %.val57.i.i.i = load i32, ptr %93, align 8
-  %94 = tail call fastcc i32 @spcachekey_hash(ptr readonly %.val56.i.i.i, i32 %.val57.i.i.i)
+  %94 = tail call fastcc i32 @spcachekey_hash(ptr %.val56.i.i.i, i32 %.val57.i.i.i)
   %95 = and i32 %94, %83
   %96 = icmp eq i32 %95, %.060.i.i.i
   br i1 %96, label %.lr.ph68.i.i.i.preheader, label %97
@@ -6234,7 +6234,7 @@ nsphash_update_parameters.exit.i.i.i:             ; preds = %nsphash_compute_siz
   %.val58.i.i.i = load ptr, ptr %102, align 8
   %107 = getelementptr i8, ptr %102, i64 8
   %.val59.i.i.i = load i32, ptr %107, align 8
-  %108 = tail call fastcc i32 @spcachekey_hash(ptr readonly %.val58.i.i.i, i32 %.val59.i.i.i)
+  %108 = tail call fastcc i32 @spcachekey_hash(ptr %.val58.i.i.i, i32 %.val59.i.i.i)
   %.val53.i.i.i = load i32, ptr %46, align 4
   br label %109
 
@@ -6289,12 +6289,12 @@ nsphash_grow.exit.i.i:                            ; preds = %117, %nsphash_updat
   br i1 %135, label %spcachekey_equal.exit.i.i21, label %spcachekey_equal.exit.thread.i.i20
 
 spcachekey_equal.exit.i.i21:                      ; preds = %.lr.ph.i.i19
-  %136 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(1) %39) #19
+  %136 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %39) #19
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %nsphash_insert.exit, label %spcachekey_equal.exit.thread.i.i20
 
 spcachekey_equal.exit.thread.i.i20:               ; preds = %spcachekey_equal.exit.i.i21, %.lr.ph.i.i19
-  %138 = tail call fastcc i32 @spcachekey_hash(ptr readonly %132, i32 %134)
+  %138 = tail call fastcc i32 @spcachekey_hash(ptr %132, i32 %134)
   %139 = and i32 %138, %.val78.i.i
   %.not.i84.i.i = icmp ugt i32 %139, %.075121.i.i
   br i1 %.not.i84.i.i, label %140, label %nsphash_distance.exit.i.i

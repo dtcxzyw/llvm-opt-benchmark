@@ -2087,7 +2087,7 @@ entry:
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %value, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %value, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value, i8 0, i64 16, i1 false)
   %call1.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull %text.i, ptr noundef nonnull %base.addr.i, ptr noundef nonnull %negative.i)
   br i1 %call1.i, label %lor.lhs.false.i, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
@@ -2154,7 +2154,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %cmp.i.i25.i.i, label %if.then10.i.i, label %if.end11.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %value, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value, i8 -1, i64 16, i1 false)
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
@@ -2169,7 +2169,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i42.i.i, label %if.then20.i.i, label %if.end21.i.i
 
 if.then20.i.i:                                    ; preds = %if.end11.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %value, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value, i8 -1, i64 16, i1 false)
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 if.end21.i.i:                                     ; preds = %if.end11.i.i

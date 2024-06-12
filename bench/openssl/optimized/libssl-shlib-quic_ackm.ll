@@ -43,9 +43,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx3 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline, i64 0, i64 %indvars.iv
   store i64 -1, ptr %arrayidx3, align 8
   %arrayidx6 = getelementptr inbounds [3 x %struct.tx_pkt_history_st], ptr %call, i64 0, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %arrayidx6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx6, i8 0, i64 24, i1 false)
   %watermark.i = getelementptr inbounds i8, ptr %arrayidx6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %watermark.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %watermark.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @tx_pkt_info_hash, ptr noundef nonnull @tx_pkt_info_compare) #11
   %map.i = getelementptr inbounds i8, ptr %arrayidx6, i64 24
   store ptr %call.i.i, ptr %map.i, align 8

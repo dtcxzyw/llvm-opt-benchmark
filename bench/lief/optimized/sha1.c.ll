@@ -1700,7 +1700,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha1_self_test(i32 noundef %0) local_
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [20 x i8], align 16
   %4 = alloca %struct.mbedtls_sha1_context, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(92) %4, i8 0, i64 92, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(92) %4, i8 0, i64 92, i1 false)
   %.not24 = icmp eq i32 %0, 0
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = getelementptr inbounds i8, ptr %4, i64 16

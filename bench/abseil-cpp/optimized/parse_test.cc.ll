@@ -2614,7 +2614,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %sw.bb12
   br i1 %cmp.i.i.i.i.i, label %if.end, label %_ZN4absl9ParseFlagIN12_GLOBAL__N_13UDTEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS5_SaIcEEE.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i.i.i: ; preds = %sw.bb12
-  %bcmp.i9.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.342, i64 3)
+  %bcmp.i9.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.342, i64 3)
   %cmp.i.i10.i.i.i = icmp eq i32 %bcmp.i9.i.i.i, 0
   br i1 %cmp.i.i10.i.i.i, label %if.end, label %_ZN4absl9ParseFlagIN12_GLOBAL__N_13UDTEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS5_SaIcEEE.exit
 

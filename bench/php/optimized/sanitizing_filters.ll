@@ -843,7 +843,7 @@ define hidden void @php_filter_unsafe_raw(ptr noundef %0, i64 noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @php_filter_email(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i64], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -923,7 +923,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden void @php_filter_url(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i64], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -1000,7 +1000,7 @@ filter_map_apply.exit:                            ; preds = %33, %filter_map_upd
 ; Function Attrs: nounwind uwtable
 define hidden void @php_filter_number_int(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i64], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -1077,7 +1077,7 @@ filter_map_apply.exit:                            ; preds = %33, %filter_map_upd
 ; Function Attrs: nounwind uwtable
 define hidden void @php_filter_number_float(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i64], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i

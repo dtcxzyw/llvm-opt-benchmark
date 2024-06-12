@@ -1045,7 +1045,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
 
 225:                                              ; preds = %.preheader.split.preheader.i, %.loopexit.i
   %226 = phi i32 [ 1, %.preheader.split.preheader.i ], [ %300, %.loopexit.i ]
-  %227 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %47, i32 noundef %216, ptr noundef nonnull %219, i64 noundef %218)
+  %227 = call fastcc i32 @hfsplus_fetch_node(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %47, i32 noundef %216, ptr noundef nonnull %219, i64 noundef %218)
   %.not134.i = icmp eq i32 %227, 0
   br i1 %.not134.i, label %229, label %228
 
@@ -1177,7 +1177,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
 
 288:                                              ; preds = %285
   %289 = getelementptr inbounds i8, ptr %272, i64 14
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %289, ptr noundef nonnull readonly dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %289, ptr noundef nonnull dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
   %290 = icmp eq i32 %bcmp.i, 0
   br i1 %290, label %291, label %299
 
@@ -1226,7 +1226,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %283, %277, %268, %2
 
 301:                                              ; preds = %295
   %302 = getelementptr inbounds i8, ptr %272, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %17, ptr nonnull align 1 %302, i64 %297, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %17, ptr nonnull align 1 %302, i64 %297, i1 false)
   call void @free(ptr noundef nonnull %219) #13
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #13
   %303 = icmp ult i32 %296, 16
@@ -2326,7 +2326,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   br i1 %.not.i, label %fmap_readn.exit.thread, label %90
 
 90:                                               ; preds = %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %77, ptr nonnull align 1 %89, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %89, i64 %spec.select.i, i1 false)
   %91 = icmp ult i64 %spec.select.i, 2147483648
   %92 = select i1 %91, i64 %spec.select.i, i64 -1
   br label %fmap_readn.exit

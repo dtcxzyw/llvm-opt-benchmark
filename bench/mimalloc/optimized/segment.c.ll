@@ -330,7 +330,7 @@ if.end:                                           ; preds = %_mi_page_start.exit
   %bf.load = load i8, ptr %is_zero_init, align 8
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %is_zero_init, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(70) %capacity, i8 0, i64 70, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(70) %capacity, i8 0, i64 70, i1 false)
   store i32 1, ptr %xblock_size.i, align 4
   %call10 = tail call fastcc ptr @mi_segment_span_free_coalesce(ptr noundef nonnull %page, ptr noundef nonnull %tld) #12
   %used = getelementptr inbounds i8, ptr %1, i64 208
@@ -2922,7 +2922,7 @@ return:                                           ; preds = %for.body.i29, %mi_c
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr nocapture noundef writeonly %start_p, ptr nocapture noundef writeonly %full_size, ptr nocapture noundef writeonly %cm) unnamed_addr #4 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
   %0 = add i64 %size, -33554433
   %or.cond = icmp ult i64 %0, -33554432
   br i1 %or.cond, label %return, label %lor.lhs.false2
@@ -2984,15 +2984,15 @@ if.end31:                                         ; preds = %if.then30, %if.end2
   ]
 
 if.then.i:                                        ; preds = %if.end31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %cm, i8 -1, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 -1, i64 64, i1 false)
   br label %return
 
 if.then2.i:                                       ; preds = %if.end31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
   br label %return
 
 if.else3.i:                                       ; preds = %if.end31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
   %div15.i = lshr i64 %start.1, 22
   %rem.i = and i64 %div36, 63
   br label %while.body.i
@@ -3148,7 +3148,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br i1 %tobool11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end10.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %commit_mask.i, i8 -1, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %commit_mask.i, i8 -1, i64 64, i1 false)
   br label %if.end20.i
 
 if.else.i:                                        ; preds = %if.end10.i
@@ -3158,15 +3158,15 @@ if.else.i:                                        ; preds = %if.end10.i
   ]
 
 if.then.i26.i:                                    ; preds = %if.else.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %commit_mask.i, i8 -1, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %commit_mask.i, i8 -1, i64 64, i1 false)
   br label %mi_commit_mask_create.exit.i
 
 if.then2.i.i:                                     ; preds = %if.else.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %commit_mask.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %commit_mask.i, i8 0, i64 64, i1 false)
   br label %mi_commit_mask_create.exit.i
 
 if.else3.i.i:                                     ; preds = %if.else.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %commit_mask.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %commit_mask.i, i8 0, i64 64, i1 false)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.else3.i.i
@@ -3285,7 +3285,7 @@ if.then16:                                        ; preds = %if.end
   %20 = mul nuw nsw i64 %segment_slices.0, 80
   %add17 = add nuw nsw i64 %20, 160
   %add.ptr = getelementptr inbounds i8, ptr %call7.i, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %add.ptr, i8 0, i64 %add17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, i8 0, i64 %add17, i1 false)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %if.end

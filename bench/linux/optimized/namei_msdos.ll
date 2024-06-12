@@ -107,7 +107,7 @@ define internal ptr @msdos_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #2 ali
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4, i8 0, i64 11, i1 false), !annotation !5
   %18 = getelementptr inbounds i8, ptr %17, i64 184
-  %19 = call fastcc i32 @msdos_format_name(ptr noundef readonly %12, i32 noundef %14, ptr noundef nonnull %4, ptr noundef %18), !range !6
+  %19 = call fastcc i32 @msdos_format_name(ptr noundef %12, i32 noundef %14, ptr noundef nonnull %4, ptr noundef %18), !range !6
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %msdos_find.exit.thread
 
@@ -327,7 +327,7 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
   %20 = getelementptr inbounds i8, ptr %19, i64 184
-  %21 = call fastcc i32 @msdos_format_name(ptr noundef readonly %13, i32 noundef %15, ptr noundef nonnull %3, ptr noundef %20), !range !6
+  %21 = call fastcc i32 @msdos_format_name(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %3, ptr noundef %20), !range !6
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %msdos_find.exit.thread
 
@@ -546,7 +546,7 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
   %22 = getelementptr inbounds i8, ptr %21, i64 184
-  %23 = call fastcc i32 @msdos_format_name(ptr noundef readonly %16, i32 noundef %18, ptr noundef nonnull %3, ptr noundef %22), !range !6
+  %23 = call fastcc i32 @msdos_format_name(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %3, ptr noundef %22), !range !6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %msdos_find.exit.thread
 

@@ -961,7 +961,7 @@ entry:
   %mId.i.i = getelementptr inbounds i8, ptr %task, i64 8
   store i32 %1, ptr %mId.i.i, align 8
   %mNotify.i.i = getelementptr inbounds i8, ptr %task, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %mNotify.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %task, align 8
   %mGrids.i = getelementptr inbounds i8, ptr %task, i64 48
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %grids, i64 8

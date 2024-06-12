@@ -11293,7 +11293,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %22 = load ptr, ptr %GetErrorColumnNumber.i, align 8
   %23 = load ptr, ptr %parser, align 8
   %call12.i = call i64 %22(ptr noundef %23) #11
-  call fastcc void @expat_set_error(ptr noundef nonnull readonly %2, i32 noundef %call6.i, i64 noundef %call9.i, i64 noundef %call12.i, ptr noundef null)
+  call fastcc void @expat_set_error(ptr noundef nonnull %2, i32 noundef %call6.i, i64 noundef %call9.i, i64 noundef %call12.i, ptr noundef null)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -11347,7 +11347,7 @@ if.then3.i21:                                     ; preds = %if.end.i19
   %37 = load ptr, ptr %GetErrorColumnNumber.i26, align 8
   %38 = load ptr, ptr %parser.i14, align 8
   %call12.i27 = call i64 %37(ptr noundef %38) #11
-  call fastcc void @expat_set_error(ptr noundef nonnull readonly %2, i32 noundef %call6.i23, i64 noundef %call9.i25, i64 noundef %call12.i27, ptr noundef null)
+  call fastcc void @expat_set_error(ptr noundef nonnull %2, i32 noundef %call6.i23, i64 noundef %call9.i25, i64 noundef %call12.i27, ptr noundef null)
   br label %expat_parse.exit28
 
 expat_parse.exit28:                               ; preds = %if.end21, %if.end.i19, %if.then3.i21
@@ -11407,7 +11407,7 @@ if.then3.i.i:                                     ; preds = %if.end.i19.i
   %13 = load ptr, ptr %GetErrorColumnNumber.i.i, align 8
   %14 = load ptr, ptr %parser.i.i, align 8
   %call12.i.i = tail call i64 %13(ptr noundef %14) #11
-  tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %2, i32 noundef %call6.i.i, i64 noundef %call9.i.i, i64 noundef %call12.i.i, ptr noundef null)
+  tail call fastcc void @expat_set_error(ptr noundef nonnull %2, i32 noundef %call6.i.i, i64 noundef %call9.i.i, i64 noundef %call12.i.i, ptr noundef null)
   br label %_elementtree_XMLParser_close_impl.exit
 
 if.end4.i:                                        ; preds = %if.end.i19.i
@@ -11693,7 +11693,7 @@ if.then3.i:                                       ; preds = %if.end.i66
   %31 = load ptr, ptr %GetErrorColumnNumber.i, align 8
   %32 = load ptr, ptr %parser.i, align 8
   %call12.i = tail call i64 %31(ptr noundef %32) #11
-  tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %2, i32 noundef %call6.i, i64 noundef %call9.i, i64 noundef %call12.i, ptr noundef null)
+  tail call fastcc void @expat_set_error(ptr noundef nonnull %2, i32 noundef %call6.i, i64 noundef %call9.i, i64 noundef %call12.i, ptr noundef null)
   br label %expat_parse.exit
 
 expat_parse.exit:                                 ; preds = %if.end29, %if.end.i66, %if.then3.i
@@ -11804,7 +11804,7 @@ if.then3.i77:                                     ; preds = %if.end.i75
   %51 = load ptr, ptr %GetErrorColumnNumber.i82, align 8
   %52 = load ptr, ptr %parser.i, align 8
   %call12.i83 = tail call i64 %51(ptr noundef %52) #11
-  tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %2, i32 noundef %call6.i79, i64 noundef %call9.i81, i64 noundef %call12.i83, ptr noundef null)
+  tail call fastcc void @expat_set_error(ptr noundef nonnull %2, i32 noundef %call6.i79, i64 noundef %call9.i81, i64 noundef %call12.i83, ptr noundef null)
   br label %return
 
 land.lhs.true:                                    ; preds = %if.end.i75

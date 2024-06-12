@@ -2755,7 +2755,7 @@ if.end15.i:                                       ; preds = %if.end15.i.backedge
   %call17.i = call ptr @OPENSSL_sk_value(ptr noundef %dn_sk.0, i32 noundef %inc241.i) #10
   %name.i25 = getelementptr inbounds i8, ptr %call17.i, i64 8
   %36 = load ptr, ptr %name.i25, align 8
-  %call1.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #11
+  %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #11
   %cmp.i.i = icmp ult i64 %call1.i.i, 4
   br i1 %cmp.i.i, label %for.cond31.i.preheader, label %check_end.exit.i
 
@@ -2765,12 +2765,12 @@ for.cond31.i.preheader:                           ; preds = %check_end.exit83.i,
 check_end.exit.i:                                 ; preds = %if.end15.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %36, i64 %call1.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
-  %call3.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.212) #11
+  %call3.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(5) @.str.212) #11
   %tobool19.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool19.not.i, label %for.cond.backedge.i, label %check_end.exit63.i
 
 check_end.exit63.i:                               ; preds = %check_end.exit.i
-  %call3.i61.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.213) #11
+  %call3.i61.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(5) @.str.213) #11
   %tobool21.not.i = icmp eq i32 %call3.i61.i, 0
   br i1 %tobool21.not.i, label %for.cond.backedge.i, label %lor.lhs.false22.i
 
@@ -2780,7 +2780,7 @@ lor.lhs.false22.i:                                ; preds = %check_end.exit63.i
 
 check_end.exit73.i:                               ; preds = %lor.lhs.false22.i
   %add.ptr2.i70.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  %call3.i71.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i70.i, ptr noundef nonnull readonly dereferenceable(9) @.str.214) #11
+  %call3.i71.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2.i70.i, ptr noundef nonnull dereferenceable(9) @.str.214) #11
   %tobool24.not.i = icmp eq i32 %call3.i71.i, 0
   br i1 %tobool24.not.i, label %for.cond.backedge.i, label %check_end.exit83.i
 
@@ -2790,7 +2790,7 @@ lor.lhs.false25.i:                                ; preds = %lor.lhs.false22.i
 
 check_end.exit83.i:                               ; preds = %lor.lhs.false25.i, %check_end.exit73.i
   %add.ptr2.i80.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -6
-  %call3.i81.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i80.i, ptr noundef nonnull readonly dereferenceable(7) @.str.215) #11
+  %call3.i81.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2.i80.i, ptr noundef nonnull dereferenceable(7) @.str.215) #11
   %tobool27.not.i = icmp eq i32 %call3.i81.i, 0
   br i1 %tobool27.not.i, label %for.cond.backedge.i, label %for.cond31.i.preheader
 
@@ -2849,9 +2849,9 @@ join.exit.thread.i:                               ; preds = %if.end59.i
   br label %prompt_info.exit
 
 if.end64.i:                                       ; preds = %if.end59.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %40, i64 %call.i84.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %40, i64 %call.i84.i, i1 false)
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i84.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(9) %add.ptr.i88.i, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i88.i, ptr noundef nonnull align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
   %43 = load ptr, ptr @req_conf, align 8
   %call66.i = call ptr @app_conf_try_string(ptr noundef %43, ptr noundef %call3, ptr noundef nonnull %buf.i) #10
   %cmp67.i = icmp eq ptr %call66.i, null
@@ -2868,9 +2868,9 @@ join.exit101.thread.i:                            ; preds = %if.end64.i
   br label %prompt_info.exit
 
 if.end76.i:                                       ; preds = %if.end64.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %44, i64 %call.i91.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %44, i64 %call.i91.i, i1 false)
   %add.ptr.i97.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i91.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %add.ptr.i97.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i97.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
   %47 = load ptr, ptr @req_conf, align 8
   %call78.i = call ptr @app_conf_try_string(ptr noundef %47, ptr noundef %call3, ptr noundef nonnull %buf.i) #10
   %48 = load ptr, ptr %name.i25, align 8
@@ -2885,9 +2885,9 @@ join.exit112.thread.i:                            ; preds = %if.end76.i
   br label %prompt_info.exit
 
 if.end88.i:                                       ; preds = %if.end76.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %48, i64 %call.i102.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %48, i64 %call.i102.i, i1 false)
   %add.ptr.i108.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i102.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr.i108.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i108.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
   %51 = load ptr, ptr @req_conf, align 8
   %call90.i = call i32 @app_conf_try_number(ptr noundef %51, ptr noundef %call3, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_min.i) #10
   %tobool91.not.i = icmp eq i32 %call90.i, 0
@@ -2910,9 +2910,9 @@ join.exit123.thread.i:                            ; preds = %if.end93.i
   br label %prompt_info.exit
 
 if.end99.i:                                       ; preds = %if.end93.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %52, i64 %call.i113.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %52, i64 %call.i113.i, i1 false)
   %add.ptr.i119.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i113.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr.i119.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i119.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
   %55 = load ptr, ptr @req_conf, align 8
   %call101.i = call i32 @app_conf_try_number(ptr noundef %55, ptr noundef %call3, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_max.i) #10
   %tobool102.not.i = icmp eq i32 %call101.i, 0
@@ -3011,9 +3011,9 @@ join.exit138.thread.i:                            ; preds = %if.end151.i
   br label %prompt_info.exit
 
 if.end156.i:                                      ; preds = %if.end151.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %62, i64 %call.i128.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %62, i64 %call.i128.i, i1 false)
   %add.ptr.i134.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i128.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(9) %add.ptr.i134.i, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i134.i, ptr noundef nonnull align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
   %65 = load ptr, ptr @req_conf, align 8
   %call158.i = call ptr @app_conf_try_string(ptr noundef %65, ptr noundef %call12, ptr noundef nonnull %buf.i) #10
   %cmp159.i = icmp eq ptr %call158.i, null
@@ -3029,9 +3029,9 @@ join.exit149.thread.i:                            ; preds = %if.end156.i
   br label %prompt_info.exit
 
 if.end167.i:                                      ; preds = %if.end156.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %62, i64 %call.i139.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %62, i64 %call.i139.i, i1 false)
   %add.ptr.i145.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i139.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %add.ptr.i145.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i145.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
   %68 = load ptr, ptr @req_conf, align 8
   %call169.i = call ptr @app_conf_try_string(ptr noundef %68, ptr noundef %call12, ptr noundef nonnull %buf.i) #10
   %call.i150.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #11
@@ -3045,9 +3045,9 @@ join.exit160.thread.i:                            ; preds = %if.end167.i
   br label %prompt_info.exit
 
 if.end174.i:                                      ; preds = %if.end167.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %62, i64 %call.i150.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %62, i64 %call.i150.i, i1 false)
   %add.ptr.i156.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i150.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr.i156.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i156.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
   %71 = load ptr, ptr @req_conf, align 8
   %call176.i = call i32 @app_conf_try_number(ptr noundef %71, ptr noundef %call12, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_min.i) #10
   %tobool177.not.i = icmp eq i32 %call176.i, 0
@@ -3069,9 +3069,9 @@ join.exit171.thread.i:                            ; preds = %if.end179.i
   br label %prompt_info.exit
 
 if.end184.i:                                      ; preds = %if.end179.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %62, i64 %call.i161.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %62, i64 %call.i161.i, i1 false)
   %add.ptr.i167.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i161.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr.i167.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i167.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
   %74 = load ptr, ptr @req_conf, align 8
   %call186.i = call i32 @app_conf_try_number(ptr noundef %74, ptr noundef %call12, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_max.i) #10
   %tobool187.not.i = icmp eq i32 %call186.i, 0
@@ -3319,7 +3319,7 @@ join.exit.thread:                                 ; preds = %if.then3
   br label %return
 
 if.end8:                                          ; preds = %if.then3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr nonnull align 1 %value, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 1 %value, i64 %call.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %call.i
   store i16 10, ptr %add.ptr.i, align 1
   %4 = load ptr, ptr @bio_err, align 8
@@ -3370,7 +3370,7 @@ join.exit35.thread:                               ; preds = %if.end39
   br label %return
 
 join.exit35:                                      ; preds = %if.end39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %buf, ptr nonnull align 1 %def, i64 %call.i25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr nonnull align 1 %def, i64 %call.i25, i1 false)
   %add.ptr.i31 = getelementptr inbounds i8, ptr %buf, i64 %call.i25
   store i16 10, ptr %add.ptr.i31, align 1
   br label %if.end56

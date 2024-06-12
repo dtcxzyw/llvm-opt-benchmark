@@ -16718,7 +16718,7 @@ _ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pa
   %second.i.i5613 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i5612, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i5594)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i5595)
-  invoke void @_ZN4cvc58internal6theory11quantifiers13TermGenerator10debugPrintEPNS2_10TermGenEnvEPKcS7_(ptr noundef nonnull align 8 dereferenceable(112) %second.i.i5613, ptr noundef nonnull %d_tge, ptr noundef nonnull readnone @.str.70, ptr noundef nonnull readnone @.str.71)
+  invoke void @_ZN4cvc58internal6theory11quantifiers13TermGenerator10debugPrintEPNS2_10TermGenEnvEPKcS7_(ptr noundef nonnull align 8 dereferenceable(112) %second.i.i5613, ptr noundef nonnull %d_tge, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71)
           to label %cond.end1714 unwind label %lpad1679
 
 cond.end1714:                                     ; preds = %_ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pairIKjS4_EEEixEOj.exit.i5611

@@ -184,12 +184,12 @@ if.else10:                                        ; preds = %if.else
   %tm_mday.i = getelementptr inbounds i8, ptr %tm.i, i64 12
   %tm_hour.i = getelementptr inbounds i8, ptr %tm.i, i64 8
   %tm_min.i = getelementptr inbounds i8, ptr %tm.i, i64 4
-  %call.i17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %call3, ptr noundef nonnull @.str.17, ptr noundef nonnull %tm_year.i, ptr noundef nonnull %tm_mon.i, ptr noundef nonnull %tm_mday.i, ptr noundef nonnull %tm_hour.i, ptr noundef nonnull %tm_min.i, ptr noundef nonnull %tm.i) #9
+  %call.i17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.17, ptr noundef nonnull %tm_year.i, ptr noundef nonnull %tm_mon.i, ptr noundef nonnull %tm_mday.i, ptr noundef nonnull %tm_hour.i, ptr noundef nonnull %tm_min.i, ptr noundef nonnull %tm.i) #9
   %cmp.i = icmp eq i32 %call.i17, 6
   br i1 %cmp.i, label %if.end11.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else10
-  %call4.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %call3, ptr noundef nonnull @.str.18, ptr noundef nonnull %tm_year.i, ptr noundef nonnull %tm_mon.i, ptr noundef nonnull %tm_mday.i) #9
+  %call4.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.18, ptr noundef nonnull %tm_year.i, ptr noundef nonnull %tm_mon.i, ptr noundef nonnull %tm_mday.i) #9
   %cmp5.i = icmp eq i32 %call4.i, 3
   br i1 %cmp5.i, label %if.then6.i, label %date_fail.i
 

@@ -8396,7 +8396,7 @@ _ZNSt10unique_ptrIN5arrow7compute6detail12_GLOBAL__N_114ScalarExecutorESt14defau
   %promote_if_all_scalars_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 91
   store i8 1, ptr %promote_if_all_scalars_.i.i.i, align 1, !noalias !122
   %chunk_indexes_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %chunk_indexes_.i.i.i, i8 0, i64 88, i1 false), !noalias !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %chunk_indexes_.i.i.i, i8 0, i64 88, i1 false), !noalias !122
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -8410,9 +8410,9 @@ _ZNSt10unique_ptrIN5arrow7compute6detail12_GLOBAL__N_114VectorExecutorESt14defau
   %promote_if_all_scalars_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 83
   store i8 1, ptr %promote_if_all_scalars_.i.i.i, align 1, !noalias !125
   %chunk_indexes_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %chunk_indexes_.i.i.i, i8 0, i64 88, i1 false), !noalias !125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %chunk_indexes_.i.i.i, i8 0, i64 88, i1 false), !noalias !125
   %results_.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %results_.i.i, i8 0, i64 24, i1 false), !noalias !125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %results_.i.i, i8 0, i64 24, i1 false), !noalias !125
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -8426,7 +8426,7 @@ _ZNSt10unique_ptrIN5arrow7compute6detail12_GLOBAL__N_117ScalarAggExecutorESt14de
   %promote_if_all_scalars_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 83
   store i8 1, ptr %promote_if_all_scalars_.i.i.i, align 1, !noalias !128
   %chunk_indexes_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %chunk_indexes_.i.i.i, i8 0, i64 88, i1 false), !noalias !128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %chunk_indexes_.i.i.i, i8 0, i64 88, i1 false), !noalias !128
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -22553,7 +22553,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit.i: ; preds = %if.else.i.i.i.i
   store ptr null, ptr %agg.tmp48.i, align 8, !noalias !411
   %_M_index.i.i.i.i.i.i.i.i.i142.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i142.i, align 8, !noalias !411
-  invoke fastcc void @_ZN5arrow7compute6detail12_GLOBAL__N_114VectorExecutor10EmitResultENS_5DatumEPNS1_12ExecListenerE(ptr noalias nonnull writeonly align 8 %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef %listener)
+  invoke fastcc void @_ZN5arrow7compute6detail12_GLOBAL__N_114VectorExecutor10EmitResultENS_5DatumEPNS1_12ExecListenerE(ptr noalias nonnull align 8 %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef %listener)
           to label %invoke.cont54.i unwind label %lpad53.i
 
 invoke.cont54.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit.i
@@ -22620,7 +22620,7 @@ _ZNSt10shared_ptrIN5arrow12ChunkedArrayEEC2ERKS2_.exit.i: ; preds = %if.else.i.i
           to label %invoke.cont65.i unwind label %lpad64.i, !noalias !411
 
 invoke.cont65.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow12ChunkedArrayEEC2ERKS2_.exit.i
-  invoke fastcc void @_ZN5arrow7compute6detail12_GLOBAL__N_114VectorExecutor10EmitResultENS_5DatumEPNS1_12ExecListenerE(ptr noalias nonnull writeonly align 8 %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull %agg.tmp60.i, ptr noundef %listener)
+  invoke fastcc void @_ZN5arrow7compute6detail12_GLOBAL__N_114VectorExecutor10EmitResultENS_5DatumEPNS1_12ExecListenerE(ptr noalias nonnull align 8 %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull %agg.tmp60.i, ptr noundef %listener)
           to label %invoke.cont67.i unwind label %lpad66.i
 
 invoke.cont67.i:                                  ; preds = %invoke.cont65.i

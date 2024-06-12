@@ -7016,7 +7016,7 @@ define internal fastcc void @register_dmp_id(ptr noundef %0, i8 noundef zeroext 
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 240
   %28 = load ptr, ptr %27, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 %24, ptr %22, align 8
   %29 = icmp eq i32 %26, 0
   br i1 %29, label %copy_address_wmem.exit, label %30
@@ -7041,7 +7041,7 @@ copy_address_wmem.exit:                           ; preds = %18, %30
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 216
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   store i32 %39, ptr %37, align 8
   %44 = icmp eq i32 %41, 0
   br i1 %44, label %copy_address_wmem.exit91, label %45
@@ -7103,7 +7103,7 @@ thread-pre-split:                                 ; preds = %7, %59, %copy_addre
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 240
   %74 = load ptr, ptr %73, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %70, ptr %64, align 8
   %75 = icmp eq i32 %72, 0
   br i1 %75, label %copy_address_wmem.exit92, label %76
@@ -7128,7 +7128,7 @@ copy_address_wmem.exit92:                         ; preds = %65, %76
   %87 = load i32, ptr %86, align 4
   %88 = getelementptr inbounds i8, ptr %0, i64 216
   %89 = load ptr, ptr %88, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   store i32 %85, ptr %83, align 8
   %90 = icmp eq i32 %87, 0
   br i1 %90, label %copy_address_wmem.exit93, label %91
@@ -7149,7 +7149,7 @@ copy_address_wmem.exit92:                         ; preds = %65, %76
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds i8, ptr %0, i64 216
   %103 = load ptr, ptr %102, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %99, ptr %64, align 8
   %104 = icmp eq i32 %101, 0
   br i1 %104, label %copy_address_wmem.exit94, label %105
@@ -7174,7 +7174,7 @@ copy_address_wmem.exit94:                         ; preds = %94, %105
   %116 = load i32, ptr %115, align 4
   %117 = getelementptr inbounds i8, ptr %0, i64 240
   %118 = load ptr, ptr %117, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
   store i32 %114, ptr %112, align 8
   %119 = icmp eq i32 %116, 0
   br i1 %119, label %copy_address_wmem.exit93, label %120

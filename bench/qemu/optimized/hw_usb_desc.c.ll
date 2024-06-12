@@ -317,7 +317,7 @@ for.body.i:                                       ; preds = %if.end.i, %if.end18
   %idx.ext.i = sext i32 %pos.030.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr, i64 %idx.ext.i
   %sub.i = sub i64 %sub, %idx.ext.i
-  %call.i = tail call i32 @usb_desc_iface(ptr noundef %arrayidx13.i, i32 noundef %flags, ptr noundef writeonly %add.ptr.i, i64 noundef %sub.i)
+  %call.i = tail call i32 @usb_desc_iface(ptr noundef %arrayidx13.i, i32 noundef %flags, ptr noundef %add.ptr.i, i64 noundef %sub.i)
   %cmp15.i = icmp slt i32 %call.i, 0
   br i1 %cmp15.i, label %return, label %if.end18.i
 
@@ -532,7 +532,7 @@ usb_desc_other.exit:                              ; preds = %cond.end.i
   %cond.i = zext i8 %cond.in.i to i32
   %data6.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %13 = load ptr, ptr %data6.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr21, ptr align 1 %13, i64 %conv4.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr21, ptr align 1 %13, i64 %conv4.i, i1 false)
   %add27 = add i32 %pos.057, %cond.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i8, ptr %ndesc, align 1
@@ -650,7 +650,7 @@ if.then51.i:                                      ; preds = %if.end48.i
   %add.ptr54.i = getelementptr i8, ptr %add.ptr37, i64 %idx.ext53.i
   %add.ptr57.i = getelementptr i8, ptr %add.ptr54.i, i64 %idx.ext56.i
   %conv59.i = zext i8 %cond5.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr57.i, ptr nonnull align 1 %34, i64 %conv59.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr57.i, ptr nonnull align 1 %34, i64 %conv59.i, i1 false)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then51.i, %if.end48.i

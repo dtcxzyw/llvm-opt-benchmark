@@ -1533,7 +1533,7 @@ readNumber.exit104.i:                             ; preds = %._crit_edge.i94.i, 
   store i64 %.032.i96.i, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   store i32 0, ptr %19, align 4
-  %102 = call fastcc ptr @readData(ptr noundef nonnull readonly %23, ptr noundef nonnull %21, i32 noundef %37, ptr noundef nonnull %20, ptr noundef nonnull %19)
+  %102 = call fastcc ptr @readData(ptr noundef nonnull %23, ptr noundef nonnull %21, i32 noundef %37, ptr noundef nonnull %20, ptr noundef nonnull %19)
   %103 = load i8, ptr %20, align 1
   %104 = trunc i8 %103 to i1
   %105 = load i32, ptr %19, align 4
@@ -1977,7 +1977,7 @@ readNumber.exit165.i:                             ; preds = %._crit_edge.i155.i,
   store i32 %284, ptr %285, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store i32 0, ptr %18, align 4
-  %286 = call fastcc ptr @readData(ptr noundef nonnull readonly %23, ptr noundef nonnull %21, i32 noundef %37, ptr noundef nonnull %20, ptr noundef nonnull %18)
+  %286 = call fastcc ptr @readData(ptr noundef nonnull %23, ptr noundef nonnull %21, i32 noundef %37, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %287 = load i8, ptr %20, align 1
   %288 = trunc i8 %287 to i1
   %289 = load i32, ptr %18, align 4
@@ -2362,7 +2362,7 @@ readNumber.exit193.i:                             ; preds = %._crit_edge.i183.lo
 451:                                              ; preds = %443
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
-  %452 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %421) #27
+  %452 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %421) #27
   %453 = trunc i64 %452 to i32
   store i8 1, ptr %17, align 1
   %454 = load i8, ptr %421, align 1
@@ -2519,7 +2519,7 @@ readFixedNumber.exit98.thread.i:                  ; preds = %readFixedNumber.exi
   store i32 8, ptr %504, align 8
   %505 = getelementptr inbounds i8, ptr %489, i64 20
   store i32 8, ptr %505, align 4
-  call fastcc void @parseType(ptr noundef nonnull %0, ptr noundef nonnull %489, ptr noundef nonnull readonly %421, ptr noundef nonnull %16, i32 noundef %453, ptr noundef nonnull %17)
+  call fastcc void @parseType(ptr noundef nonnull %0, ptr noundef nonnull %489, ptr noundef nonnull %421, ptr noundef nonnull %16, i32 noundef %453, ptr noundef nonnull %17)
   %506 = load i8, ptr %17, align 1
   %507 = trunc i8 %506 to i1
   br i1 %507, label %510, label %508
@@ -2548,7 +2548,7 @@ readFixedNumber.exit98.thread.i:                  ; preds = %readFixedNumber.exi
   %519 = getelementptr inbounds i8, ptr %489, i64 20
   store i32 0, ptr %519, align 4
   store i32 8, ptr %518, align 8
-  call fastcc void @parseType(ptr noundef nonnull %0, ptr noundef nonnull %489, ptr noundef nonnull readonly %421, ptr noundef nonnull %16, i32 noundef %453, ptr noundef nonnull %17)
+  call fastcc void @parseType(ptr noundef nonnull %0, ptr noundef nonnull %489, ptr noundef nonnull %421, ptr noundef nonnull %16, i32 noundef %453, ptr noundef nonnull %17)
   %520 = load i8, ptr %17, align 1
   %521 = trunc i8 %520 to i1
   br i1 %521, label %add_static_types.exit.i, label %522
@@ -2885,7 +2885,7 @@ parseTypes.exit:                                  ; preds = %669, %add_static_ty
 675:                                              ; preds = %443
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  %676 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %421) #27
+  %676 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %421) #27
   %677 = trunc i64 %676 to i32
   store i8 1, ptr %15, align 1
   %678 = load i8, ptr %421, align 1
@@ -3232,7 +3232,7 @@ readTypeID.exit.i162:                             ; preds = %814, %813
   %.0.i.i163 = phi i16 [ -1, %813 ], [ %815, %814 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  %816 = call fastcc ptr @readData(ptr noundef nonnull readonly %421, ptr noundef nonnull %14, i32 noundef %677, ptr noundef nonnull %15, ptr noundef nonnull %13)
+  %816 = call fastcc ptr @readData(ptr noundef nonnull %421, ptr noundef nonnull %14, i32 noundef %677, ptr noundef nonnull %15, ptr noundef nonnull %13)
   %817 = load i8, ptr %15, align 1
   %818 = trunc i8 %817 to i1
   %819 = load i32, ptr %13, align 4
@@ -3841,7 +3841,7 @@ parseGlobals.exit:                                ; preds = %1046
 1053:                                             ; preds = %1050
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  %1054 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %421) #27
+  %1054 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %421) #27
   %1055 = trunc i64 %1054 to i32
   store i8 1, ptr %11, align 1
   %1056 = load i8, ptr %423, align 1
@@ -4035,7 +4035,7 @@ readNumber.exit67.thread.i:                       ; preds = %readNumber.exit67.i
 1139:                                             ; preds = %.lr.ph.i227
   %1140 = getelementptr inbounds %struct.cli_bc_dbgnode_element, ptr %1129, i64 %indvars.iv154.i
   %1141 = getelementptr inbounds i8, ptr %1140, i64 4
-  %1142 = call fastcc ptr @readData(ptr noundef nonnull readonly %421, ptr noundef nonnull %10, i32 noundef %1055, ptr noundef nonnull %11, ptr noundef nonnull %1141)
+  %1142 = call fastcc ptr @readData(ptr noundef nonnull %421, ptr noundef nonnull %10, i32 noundef %1055, ptr noundef nonnull %11, ptr noundef nonnull %1141)
   %1143 = getelementptr inbounds i8, ptr %1140, i64 8
   store ptr %1142, ptr %1143, align 8
   %1144 = load i8, ptr %11, align 1
@@ -4331,7 +4331,7 @@ thread-pre-split:                                 ; preds = %443
   %1254 = load ptr, ptr %427, align 8
   %1255 = zext i32 %.0105.ph1047 to i64
   %1256 = getelementptr inbounds %struct.cli_bc_func, ptr %1254, i64 %1255
-  %1257 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %421) #27
+  %1257 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %421) #27
   %1258 = trunc i64 %1257 to i32
   %.not65.i = icmp eq i8 %1248, 65
   br i1 %.not65.i, label %1261, label %1259
@@ -4710,7 +4710,7 @@ readFixedNumber.exit107.thread.i:                 ; preds = %1408, %readFixedNum
 1424:                                             ; preds = %1418
   %1425 = add i32 %1415, 1
   store i32 %1425, ptr %9, align 4
-  %1426 = call fastcc i64 @readNumber(ptr noundef nonnull readonly %421, ptr noundef nonnull %9, i32 noundef %1258, ptr noundef nonnull %8)
+  %1426 = call fastcc i64 @readNumber(ptr noundef nonnull %421, ptr noundef nonnull %9, i32 noundef %1258, ptr noundef nonnull %8)
   %1427 = trunc i64 %1426 to i32
   %1428 = getelementptr inbounds i8, ptr %1256, i64 4
   store i32 %1427, ptr %1428, align 4
@@ -4746,7 +4746,7 @@ readFixedNumber.exit107.thread.i:                 ; preds = %1408, %readFixedNum
   br label %1457
 
 1445:                                             ; preds = %1432
-  %1446 = call fastcc i64 @readNumber(ptr noundef nonnull readonly %421, ptr noundef nonnull %9, i32 noundef %1258, ptr noundef nonnull %8)
+  %1446 = call fastcc i64 @readNumber(ptr noundef nonnull %421, ptr noundef nonnull %9, i32 noundef %1258, ptr noundef nonnull %8)
   %1447 = trunc i64 %1446 to i16
   %1448 = getelementptr inbounds i8, ptr %1256, i64 20
   store i16 %1447, ptr %1448, align 4
@@ -10205,7 +10205,7 @@ define i32 @cli_bytecode_runlsig(ptr noundef %0, ptr noundef readonly %1, ptr no
 
 21:                                               ; preds = %18, %15
   %.043 = phi ptr [ %17, %15 ], [ %20, %18 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1344) %8, i8 0, i64 1344, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1344) %8, i8 0, i64 1344, i1 false)
   %22 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 60000, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 60

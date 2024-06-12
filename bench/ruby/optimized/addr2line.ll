@@ -847,7 +847,7 @@ uncompress_debug_section.exit:                    ; preds = %113
   %183 = getelementptr inbounds i8, ptr %25, i64 64
   store ptr %182, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %25, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %184, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %184, i8 0, i64 32, i1 false)
   %185 = icmp ult ptr %169, %179
   br i1 %185, label %.lr.ph474, label %.loopexit326
 
@@ -2640,7 +2640,7 @@ debug_info_read.exit:                             ; preds = %.backedge.i, %rngli
 
 1000:                                             ; preds = %994
   %1001 = getelementptr %struct.line_info, ptr %4, i64 %indvars.iv.i.i.i
-  call fastcc void @fill_filename(i32 noundef %.052163.i.i, i8 noundef zeroext %974, i16 noundef zeroext %975, ptr noundef %976, ptr noundef %977, ptr noundef writeonly %1001, ptr noundef %26, ptr noundef %6)
+  call fastcc void @fill_filename(i32 noundef %.052163.i.i, i8 noundef zeroext %974, i16 noundef zeroext %975, ptr noundef %976, ptr noundef %977, ptr noundef %1001, ptr noundef %26, ptr noundef %6)
   %1002 = getelementptr inbounds i8, ptr %1001, i64 24
   store i32 %.056161.i.i, ptr %1002, align 8
   br label %1003
@@ -2849,7 +2849,7 @@ uleb128.exit105.i.i:                              ; preds = %.lr.ph.i97.i.i, %10
 
 1109:                                             ; preds = %1103
   %1110 = getelementptr %struct.line_info, ptr %4, i64 %indvars.iv.i108.i.i
-  call fastcc void @fill_filename(i32 noundef %.052163.i.i, i8 noundef zeroext %974, i16 noundef zeroext %975, ptr noundef %976, ptr noundef %977, ptr noundef writeonly %1110, ptr noundef %26, ptr noundef %6)
+  call fastcc void @fill_filename(i32 noundef %.052163.i.i, i8 noundef zeroext %974, i16 noundef zeroext %975, ptr noundef %976, ptr noundef %977, ptr noundef %1110, ptr noundef %26, ptr noundef %6)
   %1111 = getelementptr inbounds i8, ptr %1110, i64 24
   store i32 %.056161.i.i, ptr %1111, align 8
   br label %1112
@@ -2919,7 +2919,7 @@ uleb128.exit105.i.i:                              ; preds = %.lr.ph.i97.i.i, %10
 
 1150:                                             ; preds = %1144
   %1151 = getelementptr %struct.line_info, ptr %4, i64 %indvars.iv.i126.i.i
-  call fastcc void @fill_filename(i32 noundef %.052163.i.i, i8 noundef zeroext %974, i16 noundef zeroext %975, ptr noundef %976, ptr noundef %977, ptr noundef writeonly %1151, ptr noundef %26, ptr noundef %6)
+  call fastcc void @fill_filename(i32 noundef %.052163.i.i, i8 noundef zeroext %974, i16 noundef zeroext %975, ptr noundef %976, ptr noundef %977, ptr noundef %1151, ptr noundef %26, ptr noundef %6)
   %1152 = getelementptr inbounds i8, ptr %1151, i64 24
   store i32 %1138, ptr %1152, align 8
   br label %1153
@@ -3867,7 +3867,7 @@ uleb128.exit43:                                   ; preds = %._crit_edge, %._cri
   %54 = getelementptr inbounds i8, ptr %8, i64 64
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
   %56 = zext i8 %2 to i32
   %57 = getelementptr inbounds i8, ptr %8, i64 136
   store i32 %56, ptr %57, align 8

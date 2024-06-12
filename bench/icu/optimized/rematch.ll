@@ -736,7 +736,7 @@ _ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode.exit: ; preds = %if.end.i
   store i64 %6, ptr %fLookLimit.i.i, align 8
   %fMatchStart.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i.i, align 8
   %fAppendPosition.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i.i, align 8
@@ -1338,7 +1338,7 @@ if.end32:                                         ; preds = %if.end23, %if.then2
   store i64 %13, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -1406,7 +1406,7 @@ if.end8:                                          ; preds = %if.end6
   store i64 %2, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -10346,7 +10346,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %2, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -10409,7 +10409,7 @@ entry:
   store i64 %0, ptr %fLookLimit, align 8
   %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
   %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
@@ -14784,7 +14784,7 @@ if.then11:                                        ; preds = %if.else9.i.i, %if.t
 if.end16.sink.split:                              ; preds = %if.end6, %if.then11
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -14906,7 +14906,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %2, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -14999,7 +14999,7 @@ if.then14:                                        ; preds = %if.else9.i.i, %if.t
   store i64 %call16, ptr %fAnchorLimit.i, align 8
   store i64 0, ptr %fLookStart.i, align 8
   store i64 %call16, ptr %fLookLimit.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   store i64 0, ptr %fAppendPosition.i.i, align 8
   store i8 0, ptr %fMatch.i.i, align 2
@@ -15159,7 +15159,7 @@ if.then11:                                        ; preds = %if.else9.i.i, %if.t
 if.end16.sink.split:                              ; preds = %if.end6, %if.then11
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -15259,7 +15259,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %2, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -15352,7 +15352,7 @@ if.then14:                                        ; preds = %if.else9.i.i, %if.t
   store i64 %call16, ptr %fAnchorLimit.i, align 8
   store i64 0, ptr %fLookStart.i, align 8
   store i64 %call16, ptr %fLookLimit.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   store i64 0, ptr %fAppendPosition.i.i, align 8
   store i8 0, ptr %fMatch.i.i, align 2
@@ -15472,7 +15472,7 @@ if.end16.thread:                                  ; preds = %if.end12
   store i64 %4, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -15608,7 +15608,7 @@ if.end12.i:                                       ; preds = %if.then11.i, %if.en
   store i64 %4, ptr %fLookLimit.i.i, align 8
   %fMatchStart.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i.i, align 8
   %fAppendPosition.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i.i, align 8
@@ -15812,7 +15812,7 @@ if.then16:                                        ; preds = %if.end6, %if.end13
   store i64 %4, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -15946,7 +15946,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %2, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -16073,7 +16073,7 @@ if.end11:                                         ; preds = %if.end
   store i64 %call13, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
@@ -16162,7 +16162,7 @@ if.end:                                           ; preds = %entry
   store i64 %1, ptr %fLookLimit.i, align 8
   %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
   %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8

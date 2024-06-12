@@ -467,7 +467,7 @@ scsi_build_sense_buf.exit:                        ; preds = %if.then, %if.then.i
   store i8 0, ptr %buf.i.2.buf.i.2.buf.i.2..sroa_idx, align 2
   %cond.i = tail call i64 @llvm.umin.i64(i64 %len.0.i, i64 %conv)
   %conv13.i = trunc nuw nsw i64 %cond.i to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr nonnull align 16 %buf.i, i64 %cond.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 16 %buf.i, i64 %cond.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buf.i)
   br label %return
 
@@ -548,7 +548,7 @@ scsi_build_sense_buf.exit32:                      ; preds = %if.then.i29, %if.el
   store i8 %sense.sroa.3.0.extract.trunc.sink.i, ptr %buf.i19.2.buf.i19.2.buf.i19.2..sroa_idx, align 2
   %cond.i27 = tail call i64 @llvm.umin.i64(i64 %len.0.i25, i64 %conv24)
   %conv13.i28 = trunc nuw nsw i64 %cond.i27 to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr nonnull align 16 %buf.i19, i64 %cond.i27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 16 %buf.i19, i64 %cond.i27, i1 false)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buf.i19)
   br label %return
 

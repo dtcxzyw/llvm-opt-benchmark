@@ -2994,7 +2994,7 @@ if.else.i.us:                                     ; preds = %while.body.outer.us
   br label %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us
 
 if.then.i9.us:                                    ; preds = %while.body.outer.us435
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout, i8 0, i64 16, i1 false)
   br label %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us
 
 _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us: ; preds = %if.then.i9.us, %if.else.i.us
@@ -3030,7 +3030,7 @@ if.end13.i.split.split.us:                        ; preds = %if.end2.i.us
   br label %while.body.outer.outer.split.split.us
 
 if.then.i9.us.us293:                              ; preds = %if.end3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout, i8 0, i64 16, i1 false)
   br label %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us.us294
 
 _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us.us294: ; preds = %if.end46.us.us302, %if.then.i9.us.us293
@@ -3055,7 +3055,7 @@ if.end46.us.us302:                                ; preds = %while.end.us.us299
   br i1 %tobool.not.i11.us.us, label %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us.us294, label %return
 
 _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us42: ; preds = %if.end3.split
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %inset, ptr noundef nonnull align 8 dereferenceable(128) %fds, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %outset, ptr noundef nonnull align 8 dereferenceable(128) %pollset_out, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errset, ptr noundef nonnull align 8 dereferenceable(128) %pollset_err, i64 128, i1 false)

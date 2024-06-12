@@ -986,7 +986,7 @@ block_setup.exit.thread16:                        ; preds = %13, %RB_SYMBOL_P.ex
   store i32 %.sink, ptr %38, align 8
   %39 = and i64 %7, -4
   %40 = inttoptr i64 %39 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   %41 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %42 = icmp sgt i32 %41, 1
   br label %43
@@ -1081,7 +1081,7 @@ rb_proc_arity.exit:                               ; preds = %33, %35, %36
   store i32 %.sink, ptr %40, align 8
   %41 = and i64 %8, -4
   %42 = inttoptr i64 %41 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   %43 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %3, ptr noundef nonnull %2)
   %44 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %44, -1
@@ -1140,7 +1140,7 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   store i32 0, ptr %23, align 8
   %24 = and i64 %7, -4
   %25 = inttoptr i64 %24 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   br label %block_setup.exit
 
 26:                                               ; preds = %11
@@ -1148,7 +1148,7 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   store i32 1, ptr %27, align 8
   %28 = and i64 %7, -4
   %29 = inttoptr i64 %28 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   br label %block_setup.exit
 
 vm_block_handler_type.exit.i:                     ; preds = %RB_SYMBOL_P.exit.i.i, %13
@@ -2714,7 +2714,7 @@ method_cref.exit.thread:                          ; preds = %74, %method_cref.ex
   %108 = zext i32 %106 to i64
   %109 = shl nuw nsw i64 %108, 3
   %110 = load ptr, ptr %90, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %87, ptr readonly align 1 %110, i64 %109, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %110, i64 %109, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %107, %83
@@ -3422,7 +3422,7 @@ define internal i64 @proc_curry(i32 noundef %0, ptr nocapture noundef readonly %
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %7, ptr noundef nonnull writeonly %4)
+  %8 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %7, ptr noundef nonnull %4)
   %9 = icmp ugt i32 %0, 1
   br i1 %9, label %10, label %rb_check_arity.exit
 
@@ -6218,7 +6218,7 @@ define internal i64 @top_define_method(i32 noundef %0, ptr nocapture noundef rea
   %.not.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   %spec.select.i = select i1 %.not.i, ptr %4, ptr %15
-  %16 = call fastcc i64 @rb_mod_define_method_with_visibility(i32 noundef %0, ptr noundef readonly %1, i64 noundef %.0, ptr noundef nonnull %spec.select.i)
+  %16 = call fastcc i64 @rb_mod_define_method_with_visibility(i32 noundef %0, ptr noundef %1, i64 noundef %.0, ptr noundef nonnull %spec.select.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i64 %16
 }

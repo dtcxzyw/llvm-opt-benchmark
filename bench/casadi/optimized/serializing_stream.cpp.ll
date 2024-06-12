@@ -430,7 +430,7 @@ define void @_ZN6casadi19DeserializingStreamC2ERSi(ptr noundef nonnull align 8 d
 
 91:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  invoke void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 74)
+  invoke void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 74)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %91, %.noexc111
@@ -673,7 +673,7 @@ define void @_ZN6casadi19DeserializingStreamC2ERSi(ptr noundef nonnull align 8 d
 
 163:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  invoke void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 74)
+  invoke void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 74)
           to label %.noexc125 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc125:                                        ; preds = %163, %.noexc127
@@ -916,7 +916,7 @@ define void @_ZN6casadi19DeserializingStreamC2ERSi(ptr noundef nonnull align 8 d
 
 235:                                              ; preds = %174
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  invoke void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 98)
+  invoke void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 98)
           to label %.noexc139 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc139:                                        ; preds = %235
@@ -2483,7 +2483,7 @@ define void @_ZN6casadi19DeserializingStream6unpackERNSt7__cxx1112basic_stringIc
   %5 = alloca i32, align 4
   tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 115)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 105)
+  tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 105)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   br label %7
 
@@ -8069,7 +8069,7 @@ define void @_ZN6casadi19DeserializingStream6unpackERSo(ptr nocapture noundef no
   %6 = alloca i8, align 1
   tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 66)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 75)
+  tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 75)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   br label %8
 
@@ -8927,7 +8927,7 @@ define void @_ZN6casadi19DeserializingStream6unpackIbEEvRSt6vectorIT_SaIS3_EE(pt
   %6 = alloca i64, align 8
   tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 86)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 74)
+  tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 74)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   br label %8
 
@@ -8992,7 +8992,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %32, %39
 .lr.ph:                                           ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %_ZNSt14_Bit_referenceaSEb.exit
   %.08 = phi i64 [ %61, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 98)
+  call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 98)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %42 = load ptr, ptr %7, align 8
   %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi3getERc(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -9303,7 +9303,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 84:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 105)
+  call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 105)
   %85 = getelementptr inbounds i8, ptr %0, i64 32
   br label %86
 
@@ -11449,7 +11449,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 84:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull readonly align 8 dereferenceable(41) %0, i8 noundef signext 74)
+  call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 74)
   %85 = getelementptr inbounds i8, ptr %0, i64 32
   br label %86
 

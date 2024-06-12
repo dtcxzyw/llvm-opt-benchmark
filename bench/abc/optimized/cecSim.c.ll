@@ -1661,7 +1661,7 @@ Abc_TtIsConst1.exit:                              ; preds = %38, %.lr.ph.i, %24,
   %47 = getelementptr inbounds i64, ptr %.val41.val, i64 %46
   %48 = zext nneg i32 %42 to i64
   %49 = shl nuw nsw i64 %48, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %47, i8 0, i64 %49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 %49, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %26, %Abc_TtIsConst1.exit, %.lr.ph.preheader.i43
@@ -1749,7 +1749,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 .lr.ph.preheader.i:                               ; preds = %Abc_Clock.exit
   %45 = zext nneg i32 %.val78 to i64
   %46 = shl nuw nsw i64 %45, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val79.val, i8 0, i64 %46, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.val79.val, i8 0, i64 %46, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %Abc_Clock.exit, %.lr.ph.preheader.i
@@ -1764,7 +1764,7 @@ Abc_TtClear.exit:                                 ; preds = %Abc_Clock.exit, %.l
 .lr.ph.preheader.i80:                             ; preds = %49
   %51 = zext nneg i32 %48 to i64
   %52 = shl nuw nsw i64 %51, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %43, i8 -1, i64 %52, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 -1, i64 %52, i1 false)
   br label %Abc_TtFill.exit
 
 53:                                               ; preds = %Abc_TtClear.exit
@@ -1790,7 +1790,7 @@ Abc_TtFill.exit82:                                ; preds = %60
   %62 = lshr i32 %48, 1
   %63 = zext nneg i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %30, i8 -1, i64 %64, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %30, i8 -1, i64 %64, i1 false)
   %.pre = load i32, ptr %0, align 8
   %65 = icmp sgt i32 %.pre, 1
   br i1 %65, label %Abc_TtFill.exit84, label %Abc_TtFill.exit
@@ -1799,7 +1799,7 @@ Abc_TtFill.exit84:                                ; preds = %Abc_TtFill.exit82
   %66 = lshr i32 %.pre, 1
   %67 = zext nneg i32 %66 to i64
   %68 = shl nuw nsw i64 %67, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %43, i8 -1, i64 %68, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 -1, i64 %68, i1 false)
   %.pre103 = load i32, ptr %0, align 8
   %69 = icmp sgt i32 %.pre103, 1
   br i1 %69, label %Abc_TtFill.exit86, label %Abc_TtFill.exit
@@ -1809,7 +1809,7 @@ Abc_TtFill.exit86:                                ; preds = %Abc_TtFill.exit84
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds i64, ptr %34, i64 %71
   %73 = shl nuw nsw i64 %71, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %72, i8 -1, i64 %73, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %72, i8 -1, i64 %73, i1 false)
   %.pre104 = load i32, ptr %0, align 8
   %74 = icmp sgt i32 %.pre104, 1
   br i1 %74, label %.lr.ph.preheader.i87, label %Abc_TtFill.exit
@@ -1819,7 +1819,7 @@ Abc_TtFill.exit86:                                ; preds = %Abc_TtFill.exit84
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds i64, ptr %39, i64 %76
   %78 = shl nuw nsw i64 %76, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %77, i8 -1, i64 %78, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %77, i8 -1, i64 %78, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %60, %Abc_TtFill.exit82, %Abc_TtFill.exit84, %.lr.ph.preheader.i87, %Abc_TtFill.exit86, %.lr.ph.preheader.i80, %49, %55
@@ -1938,7 +1938,7 @@ Abc_TtFill.exit:                                  ; preds = %60, %Abc_TtFill.exi
   %137 = getelementptr inbounds i64, ptr %.val71.val, i64 %136
   %138 = zext nneg i32 %130 to i64
   %139 = shl nuw nsw i64 %138, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %137, i8 0, i64 %139, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %137, i8 0, i64 %139, i1 false)
   %.pre105 = load ptr, ptr %122, align 8
   br label %Abc_TtClear.exit94
 

@@ -6415,9 +6415,9 @@ define range(i32 -1, 2) i32 @Cba_StrCmp(ptr nocapture noundef readonly %0, ptr n
   %.033.in.lcssa.i = phi i64 [ %indvars.iv.i, %32 ], [ 0, %._crit_edge47.i ]
   %39 = and i64 %.033.in.lcssa.i, 2147483647
   %40 = getelementptr inbounds i8, ptr %3, i64 %39
-  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %40) #27
+  %41 = tail call i32 @atoi(ptr nocapture noundef nonnull %40) #27
   %42 = getelementptr inbounds i8, ptr %4, i64 %39
-  %43 = tail call i32 @atoi(ptr nocapture noundef readonly %42) #27
+  %43 = tail call i32 @atoi(ptr nocapture noundef %42) #27
   %44 = icmp slt i32 %41, %43
   br i1 %44, label %Cba_StrCmpInt.exit, label %45
 
@@ -6518,9 +6518,9 @@ define range(i32 -1, 2) i32 @Cba_StrCmp(ptr nocapture noundef readonly %0, ptr n
   %.033.in.lcssa.i29 = phi i64 [ %indvars.iv.i28, %82 ], [ 0, %._crit_edge47.i25 ]
   %89 = and i64 %.033.in.lcssa.i29, 2147483647
   %90 = getelementptr inbounds i8, ptr %3, i64 %89
-  %91 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %90) #27
+  %91 = tail call i32 @atoi(ptr nocapture noundef nonnull %90) #27
   %92 = getelementptr inbounds i8, ptr %4, i64 %89
-  %93 = tail call i32 @atoi(ptr nocapture noundef readonly %92) #27
+  %93 = tail call i32 @atoi(ptr nocapture noundef %92) #27
   %94 = icmp slt i32 %91, %93
   br i1 %94, label %Cba_StrCmpInt.exit, label %95
 
@@ -6609,10 +6609,10 @@ define void @Cba_NtkObjOrder(ptr nocapture noundef %0, ptr nocapture noundef %1,
   %.val.val.i = load ptr, ptr %34, align 8
   %35 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %.sink) #26
   %36 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %27, ptr noundef %35, i32 noundef %20) #26
-  %37 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #27
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
   %38 = add i64 %37, 1
   %39 = tail call noalias ptr @malloc(i64 noundef %38) #25
-  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %4) #26
+  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %4) #26
   %41 = load i32, ptr %8, align 4
   %42 = load i32, ptr %7, align 8
   %43 = icmp eq i32 %41, %42
@@ -10199,7 +10199,7 @@ Cba_ManRoot.exit:                                 ; preds = %1, %Cba_ManNtkIsOk.
   store i32 0, ptr %5, align 4
   %35 = getelementptr inbounds i8, ptr %20, i64 112
   %36 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(720) %35, ptr noundef nonnull readonly align 8 dereferenceable(720) %36, i64 720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %35, ptr noundef nonnull align 8 dereferenceable(720) %36, i64 720, i1 false)
   call void @Cba_ManGetClpStats(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %37 = getelementptr i8, ptr %30, i64 12
   %.val121 = load i32, ptr %37, align 4
@@ -11057,10 +11057,10 @@ define internal fastcc noalias noundef ptr @Cba_ManAlloc(ptr noundef %0, i32 nou
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #27
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #25
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #26
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %6, %9
@@ -13408,7 +13408,7 @@ Cba_ManRoot.exit:                                 ; preds = %2, %Cba_ManNtkIsOk.
   %30 = tail call ptr @Cba_NtkCollectOutFons(ptr noundef %28, ptr noundef %1)
   %31 = getelementptr inbounds i8, ptr %18, i64 112
   %32 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(720) %31, ptr noundef nonnull readonly align 8 dereferenceable(720) %32, i64 720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %31, ptr noundef nonnull align 8 dereferenceable(720) %32, i64 720, i1 false)
   %33 = getelementptr i8, ptr %1, i64 4
   %.val.i = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val.i, 0
@@ -15497,7 +15497,7 @@ Cba_ManRoot.exit9:                                ; preds = %Cba_ManRoot.exit, %
   %41 = tail call fastcc ptr @Cba_ManAlloc(ptr noundef %26, i32 noundef %28, ptr noundef %31, ptr noundef %34, ptr noundef %35, ptr noundef %37)
   %42 = getelementptr inbounds i8, ptr %41, i64 112
   %43 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(720) %42, ptr noundef nonnull readonly align 8 dereferenceable(720) %43, i64 720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %42, ptr noundef nonnull align 8 dereferenceable(720) %43, i64 720, i1 false)
   %.val2110.i = load i32, ptr %27, align 4
   %.not.not11.i = icmp sgt i32 %.val2110.i, 1
   br i1 %.not.not11.i, label %Cba_ManNtk.exit.lr.ph.i, label %Cba_ManDup.exit

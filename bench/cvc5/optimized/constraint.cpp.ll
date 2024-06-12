@@ -1749,7 +1749,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 define hidden void @_ZN4cvc58internal6theory5arith6linear15ValueCollection16mkFromConstraintEPNS3_10ConstraintE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::arith::linear::ValueCollection") align 8 %agg.result, ptr noundef %c) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %d_type.i = getelementptr inbounds i8, ptr %c, i64 4
   %0 = load i32, ptr %d_type.i, align 4
   switch i32 %0, label %sw.default [
@@ -23832,7 +23832,7 @@ if.then:                                          ; preds = %cond.end
 if.then.i130:                                     ; preds = %if.then
   %d_value.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %d_value.i4.i = getelementptr inbounds i8, ptr %7, i64 8
-  %call4.i.i.i.i.i = call noundef i32 @__gmpq_cmp(ptr noundef nonnull readonly %d_value.i4.i, ptr noundef nonnull readonly %d_value.i.i) #28
+  %call4.i.i.i.i.i = call noundef i32 @__gmpq_cmp(ptr noundef nonnull %d_value.i4.i, ptr noundef nonnull %d_value.i.i) #28
   %cmp3.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i, 0
   br i1 %cmp3.i.i.i.i, label %if.else.i, label %lor.rhs.i.i.i.i
 
@@ -23843,7 +23843,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.then.i130
 _ZNK4cvc58internal13DeltaRationalltERKS1_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %k.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %k5.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  %call.i.i.i.i.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull readonly %k5.i.i.i.i, ptr noundef nonnull readonly %k.i.i.i.i) #28
+  %call.i.i.i.i.i.i.i.i = call i32 @__gmpq_cmp(ptr noundef nonnull %k5.i.i.i.i, ptr noundef nonnull %k.i.i.i.i) #28
   %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4cvc58internal6theory5arith6linear10Constraint16unateFarkasSignsEPKS4_S6_.exit, label %if.else.i
 
@@ -24672,7 +24672,7 @@ define hidden void @_ZNK4cvc58internal6theory5arith6linear10Constraint19external
 entry:
   %antecedent = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %implied = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  call void @_ZN4cvc58internal6theory5arith6linear10Constraint15externalExplainERKSt6vectorIPKS4_SaIS7_EEm(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %antecedent, ptr noundef nonnull readonly align 8 dereferenceable(24) %b, i64 noundef -1)
+  call void @_ZN4cvc58internal6theory5arith6linear10Constraint15externalExplainERKSt6vectorIPKS4_SaIS7_EEm(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %antecedent, ptr noundef nonnull align 8 dereferenceable(24) %b, i64 noundef -1)
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
   %d_literal.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %d_literal.i, align 8, !noalias !215

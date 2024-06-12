@@ -9595,7 +9595,7 @@ define dso_local void @_ZN50ProxyLifetimeTests_TestNullAssignment_ToValue_Test8T
   store ptr %29, ptr %14, align 8
   %30 = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %30, ptr %15, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %31 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
           to label %.noexc130 unwind label %36
 

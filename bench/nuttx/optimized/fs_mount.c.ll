@@ -31,7 +31,7 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
   br i1 %16, label %56, label %.critedge
 
 .critedge:                                        ; preds = %5, %14
-  %17 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str) #5
+  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str) #5
   %.not34 = icmp eq i32 %17, 0
   br i1 %.not34, label %18, label %56
 

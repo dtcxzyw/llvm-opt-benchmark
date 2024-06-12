@@ -93,13 +93,13 @@ init_funcname_len.exit:                           ; preds = %.lr.ph.i, %13
   %24 = sub i64 %22, %23
   %25 = add i64 %24, 6
   %26 = alloca i8, i64 %25, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %26, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %26, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
   %.not.i.i = icmp eq ptr %21, %.016.lcssa.i
   br i1 %.not.i.i, label %concat_funcname.exit, label %27
 
 27:                                               ; preds = %init_funcname_len.exit
   %28 = getelementptr i8, ptr %26, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %28, ptr readonly align 1 %.016.lcssa.i, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %.016.lcssa.i, i64 %24, i1 false)
   br label %concat_funcname.exit
 
 concat_funcname.exit:                             ; preds = %init_funcname_len.exit, %27
@@ -153,7 +153,7 @@ define internal fastcc ptr @dln_open(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %17, ptr nonnull readonly align 1 %13, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %17, ptr nonnull align 1 %13, i64 %16, i1 false)
   br label %20
 
 ruby_nonempty_memcpy.exit.thread:                 ; preds = %12, %.thread
@@ -190,7 +190,7 @@ define internal fastcc ptr @dln_sym_func(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %10
 
 10:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %9, ptr readonly align 1 %6, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %6, i64 %8, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %5, %10

@@ -609,11 +609,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %treeish_name, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %treeish_name, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %treeish_name, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %treeish_name, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -622,7 +622,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %is_null_oid.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %gitmodules_oid, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gitmodules_oid, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i, align 8
@@ -721,7 +721,7 @@ sw.bb:                                            ; preds = %if.end11
   %call1.i.i = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i = add i32 %call1.i.i, %call.i.i
   %gitmodules_oid2.i = getelementptr inbounds i8, ptr %key_config.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %4 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %key_config.i, i64 96
   store i32 %4, ptr %algo3.i.i, align 8
@@ -760,7 +760,7 @@ sw.bb13:                                          ; preds = %if.end11
   %call1.i.i25 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i26 = add i32 %call1.i.i25, %call.i.i24
   %gitmodules_oid2.i27 = getelementptr inbounds i8, ptr %key_config.i21, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i27, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i27, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %9 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i29 = getelementptr inbounds i8, ptr %key_config.i21, i64 96
   store i32 %9, ptr %algo3.i.i29, align 8
@@ -828,7 +828,7 @@ sw.bb26:                                          ; preds = %if.end22
   %call1.i.i42 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i43 = add i32 %call1.i.i42, %call.i.i41
   %gitmodules_oid2.i44 = getelementptr inbounds i8, ptr %key_config.i38, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i44, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i44, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %18 = load i32, ptr %algo.i.i45, align 4
   %algo3.i.i46 = getelementptr inbounds i8, ptr %key_config.i38, i64 96
   store i32 %18, ptr %algo3.i.i46, align 8
@@ -867,7 +867,7 @@ sw.bb28:                                          ; preds = %if.end22
   %call1.i.i62 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i63 = add i32 %call1.i.i62, %call.i.i61
   %gitmodules_oid2.i64 = getelementptr inbounds i8, ptr %key_config.i58, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i64, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i64, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %23 = load i32, ptr %algo.i.i45, align 4
   %algo3.i.i66 = getelementptr inbounds i8, ptr %key_config.i58, i64 96
   store i32 %23, ptr %algo3.i.i66, align 8
@@ -1325,11 +1325,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid6, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %gitmodules_oid, ptr noundef nonnull dereferenceable(32) %gitmodules_oid6, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid6, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %gitmodules_oid, ptr noundef nonnull dereferenceable(20) %gitmodules_oid6, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -1385,11 +1385,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid6, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %gitmodules_oid, ptr noundef nonnull dereferenceable(32) %gitmodules_oid6, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid6, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %gitmodules_oid, ptr noundef nonnull dereferenceable(20) %gitmodules_oid6, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -1543,7 +1543,7 @@ if.end:                                           ; preds = %if.end19.i.i
   %call1.i.i.i = call i32 @strhash(ptr noundef %13) #14
   %add.i.i.i = add i32 %call1.i.i.i, %call.i.i.i
   %gitmodules_oid2.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i.i, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false)
   %algo.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
   %17 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 96
@@ -1594,7 +1594,7 @@ if.end.i79:                                       ; preds = %cache_lookup_name.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ignore.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %recommend_shallow.i, align 4
   %gitmodules_oid5.i = getelementptr inbounds i8, ptr %call1.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %gitmodules_oid5.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gitmodules_oid5.i, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false)
   %19 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call1.i, i64 96
   store i32 %19, ptr %algo3.i.i, align 4
@@ -1752,11 +1752,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %38, ptr noundef nonnull readonly dereferenceable(32) %call.i97, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %38, ptr noundef nonnull dereferenceable(32) %call.i97, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %38, ptr noundef nonnull readonly dereferenceable(20) %call.i97, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %38, ptr noundef nonnull dereferenceable(20) %call.i97, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i

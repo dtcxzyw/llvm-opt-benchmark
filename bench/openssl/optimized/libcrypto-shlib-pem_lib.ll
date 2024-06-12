@@ -300,12 +300,12 @@ if.then3:                                         ; preds = %if.then
 do.cond:                                          ; preds = %pem_free.exit21
   %7 = load ptr, ptr %nm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i)
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %name) #9
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %name) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %check_pem.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %do.cond
-  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(16) @.str.20) #9
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(16) @.str.20) #9
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end20.i
 
@@ -329,7 +329,7 @@ if.end.i.i:                                       ; preds = %if.end11.i
   %sext.i.i = and i64 %call.i.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %sext.i.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
-  %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i, ptr noundef nonnull readonly dereferenceable(12) @.str.22) #9
+  %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i, ptr noundef nonnull dereferenceable(12) @.str.22) #9
   %tobool.not.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i.i, label %if.end8.i.i, label %check_pem.exit
 
@@ -359,7 +359,7 @@ land.lhs.true.i:                                  ; preds = %if.then14.i
   br i1 %tobool16.not.i, label %check_pem.exit, label %check_pem.exit.thread
 
 if.end20.i:                                       ; preds = %if.end.i
-  %call21.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(11) @.str.23) #9
+  %call21.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(11) @.str.23) #9
   %cmp22.i = icmp eq i32 %call21.i, 0
   br i1 %cmp22.i, label %if.then23.i, label %if.end38.i
 
@@ -373,7 +373,7 @@ if.end.i38.i:                                     ; preds = %if.then23.i
   %sext.i39.i = and i64 %call.i31.i, 2147483647
   %add.ptr.i41.i = getelementptr inbounds i8, ptr %7, i64 %sext.i39.i
   %add.ptr5.i45.i = getelementptr inbounds i8, ptr %add.ptr.i41.i, i64 -10
-  %call6.i46.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i45.i, ptr noundef nonnull readonly dereferenceable(11) @.str.23) #9
+  %call6.i46.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i45.i, ptr noundef nonnull dereferenceable(11) @.str.23) #9
   %tobool.not.i47.i = icmp eq i32 %call6.i46.i, 0
   br i1 %tobool.not.i47.i, label %if.end8.i48.i, label %check_pem.exit
 
@@ -411,7 +411,7 @@ if.end38.i:                                       ; preds = %if.end20.i
   br i1 %cmp40.i, label %land.lhs.true41.i, label %if.end45.i
 
 land.lhs.true41.i:                                ; preds = %if.end38.i
-  %call42.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(14) @.str.25) #9
+  %call42.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(14) @.str.25) #9
   %cmp43.i = icmp eq i32 %call42.i, 0
   br i1 %cmp43.i, label %check_pem.exit.thread, label %if.end45.i
 
@@ -421,7 +421,7 @@ if.end45.i:                                       ; preds = %land.lhs.true41.i, 
   br i1 %cmp47.i, label %land.lhs.true48.i, label %if.end52.i
 
 land.lhs.true48.i:                                ; preds = %if.end45.i
-  %call49.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(12) @.str.27) #9
+  %call49.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(12) @.str.27) #9
   %cmp50.i = icmp eq i32 %call49.i, 0
   br i1 %cmp50.i, label %check_pem.exit.thread, label %if.end52.i
 
@@ -431,7 +431,7 @@ if.end52.i:                                       ; preds = %land.lhs.true48.i, 
   br i1 %cmp54.i, label %land.lhs.true55.i, label %if.end59.i
 
 land.lhs.true55.i:                                ; preds = %if.end52.i
-  %call56.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(20) @.str.29) #9
+  %call56.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(20) @.str.29) #9
   %cmp57.i = icmp eq i32 %call56.i, 0
   br i1 %cmp57.i, label %check_pem.exit.thread, label %if.end59.i
 
@@ -441,7 +441,7 @@ if.end59.i:                                       ; preds = %land.lhs.true55.i, 
   br i1 %cmp61.i, label %land.lhs.true62.i, label %if.end66.i
 
 land.lhs.true62.i:                                ; preds = %if.end59.i
-  %call63.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(20) @.str.30) #9
+  %call63.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(20) @.str.30) #9
   %cmp64.i = icmp eq i32 %call63.i, 0
   br i1 %cmp64.i, label %check_pem.exit.thread, label %if.end66.i
 
@@ -449,7 +449,7 @@ if.end66.i:                                       ; preds = %land.lhs.true62.i, 
   br i1 %cmp47.i, label %land.lhs.true69.i, label %if.end73.i
 
 land.lhs.true69.i:                                ; preds = %if.end66.i
-  %call70.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(20) @.str.30) #9
+  %call70.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(20) @.str.30) #9
   %cmp71.i = icmp eq i32 %call70.i, 0
   br i1 %cmp71.i, label %check_pem.exit.thread, label %if.end73.i
 
@@ -457,7 +457,7 @@ if.end73.i:                                       ; preds = %land.lhs.true69.i, 
   br i1 %cmp61.i, label %land.lhs.true76.i, label %if.end80.i
 
 land.lhs.true76.i:                                ; preds = %if.end73.i
-  %call77.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(6) @.str.31) #9
+  %call77.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(6) @.str.31) #9
   %cmp78.i = icmp eq i32 %call77.i, 0
   br i1 %cmp78.i, label %check_pem.exit.thread, label %if.end80.i
 
@@ -467,7 +467,7 @@ if.end80.i:                                       ; preds = %land.lhs.true76.i, 
   br i1 %cmp82.i, label %land.lhs.true83.i, label %if.end87.i
 
 land.lhs.true83.i:                                ; preds = %if.end80.i
-  %call84.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(6) @.str.31) #9
+  %call84.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(6) @.str.31) #9
   %cmp85.i = icmp eq i32 %call84.i, 0
   br i1 %cmp85.i, label %check_pem.exit.thread, label %if.end87.i
 
@@ -475,7 +475,7 @@ if.end87.i:                                       ; preds = %land.lhs.true83.i, 
   br i1 %cmp61.i, label %land.lhs.true90.i, label %if.end94.i
 
 land.lhs.true90.i:                                ; preds = %if.end87.i
-  %call91.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.33) #9
+  %call91.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.33) #9
   %cmp92.i = icmp eq i32 %call91.i, 0
   br i1 %cmp92.i, label %check_pem.exit.thread, label %if.end94.i
 
@@ -485,7 +485,7 @@ if.end94.i:                                       ; preds = %land.lhs.true90.i, 
   br i1 %cmp96.i, label %land.lhs.true97.i, label %check_pem.exit
 
 land.lhs.true97.i:                                ; preds = %if.end94.i
-  %call98.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.33) #9
+  %call98.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.33) #9
   %cmp99.i = icmp eq i32 %call98.i, 0
   br i1 %cmp99.i, label %check_pem.exit.thread, label %check_pem.exit
 
@@ -1367,7 +1367,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #10
-  %call.i = tail call range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef nonnull %call1, ptr noundef writeonly %name, ptr noundef %header, ptr noundef %data, ptr noundef writeonly %len, i32 noundef 2)
+  %call.i = tail call range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef nonnull %call1, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 2)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #10
   br label %return
 
@@ -1620,8 +1620,8 @@ if.end38.i:                                       ; preds = %if.end17.i46
 
 cond.true.i:                                      ; preds = %if.end38.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i41, i64 9
-  %call43.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.088) #9
-  %call44.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly %name.088, i64 noundef %call43.i) #9
+  %call43.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.088) #9
+  %call44.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %name.088, i64 noundef %call43.i) #9
   %cmp45.not.i = icmp eq i32 %call44.i, 0
   br i1 %cmp45.not.i, label %lor.lhs.false47.i, label %if.then52.i
 

@@ -124,7 +124,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %file) #7
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #7
   %add.i = add i64 %call.i, 1
   %call6.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef null, i32 noundef 0) #6
   store ptr %call6.i, ptr %arrayidx.i, align 8
@@ -132,7 +132,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp9.not.i, label %if.end15.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  %call14.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i, ptr noundef nonnull readonly dereferenceable(1) %file) #6
+  %call14.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i, ptr noundef nonnull dereferenceable(1) %file) #6
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.else.i, %if.then.i
@@ -156,7 +156,7 @@ if.then25.i:                                      ; preds = %lor.lhs.false20.i, 
   br label %return
 
 if.else28.i:                                      ; preds = %lor.lhs.false20.i
-  %call29.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %func) #7
+  %call29.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %func) #7
   %add30.i = add i64 %call29.i, 1
   %call31.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add30.i, ptr noundef null, i32 noundef 0) #6
   store ptr %call31.i, ptr %arrayidx17.i, align 8
@@ -164,7 +164,7 @@ if.else28.i:                                      ; preds = %lor.lhs.false20.i
   br i1 %cmp34.not.i, label %return, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.else28.i
-  %call39.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call31.i, ptr noundef nonnull readonly dereferenceable(1) %func) #6
+  %call39.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call31.i, ptr noundef nonnull dereferenceable(1) %func) #6
   br label %return
 
 return:                                           ; preds = %if.then36.i, %if.else28.i, %if.then25.i, %entry

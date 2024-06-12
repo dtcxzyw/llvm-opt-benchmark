@@ -1614,7 +1614,7 @@ pmix_strncpy.exit433:                             ; preds = %530, %533
   %579 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 1, ptr %579, align 8
   %580 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %580, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %580, i8 0, i64 64, i1 false)
   %581 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %582 = load ptr, ptr %581, align 8
   %.not6.i434 = icmp eq ptr %582, null
@@ -2643,7 +2643,7 @@ define void @pmix_ptl_base_process_msg(i32 %0, i16 signext %1, ptr noundef %2) #
   %50 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %53 = load ptr, ptr %52, align 8
   %.not6.i = icmp eq ptr %53, null

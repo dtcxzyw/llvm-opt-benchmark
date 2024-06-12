@@ -2442,7 +2442,7 @@ _ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11ch
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   %96 = getelementptr inbounds i8, ptr %0, i64 104
-  call fastcc void @_ZN5vcpkgL15serialize_arrayENS_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERS7_NS_13StringLiteralE(ptr nonnull @.str.24, i64 10, ptr noundef nonnull readonly align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.38, i64 5)
+  call fastcc void @_ZN5vcpkgL15serialize_arrayENS_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERS7_NS_13StringLiteralE(ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.38, i64 5)
   %97 = getelementptr inbounds i8, ptr %0, i64 208
   %98 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %97) #16
   br i1 %98, label %_ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_.exit123, label %99
@@ -2456,7 +2456,7 @@ _ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11ch
 
 _ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_.exit123: ; preds = %_ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_.exit122, %99
   %103 = getelementptr inbounds i8, ptr %0, i64 80
-  call fastcc void @_ZN5vcpkgL15serialize_arrayENS_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERS7_NS_13StringLiteralE(ptr nonnull @.str.22, i64 11, ptr noundef nonnull readonly align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.38, i64 5)
+  call fastcc void @_ZN5vcpkgL15serialize_arrayENS_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERS7_NS_13StringLiteralE(ptr nonnull @.str.22, i64 11, ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.38, i64 5)
   %104 = getelementptr inbounds i8, ptr %0, i64 160
   call fastcc void @_ZN5vcpkgL15serialize_arrayENS_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERS7_NS_13StringLiteralE(ptr nonnull @.str.32, i64 16, ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.8, i64 2)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %1) #16

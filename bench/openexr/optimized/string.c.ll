@@ -205,7 +205,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %exr_attr_string_init.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %alloc_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   %2 = load ptr, ptr %alloc_fn.i, align 8
   %add.i = add nuw nsw i32 %len, 1
@@ -291,7 +291,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %alloc_fn.i.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   %1 = load ptr, ptr %alloc_fn.i.i, align 8
   %call7.i.i = tail call ptr %1(i64 noundef 1) #4
@@ -353,7 +353,7 @@ if.then2.i28:                                     ; preds = %if.end.i10
   br label %return
 
 if.end6.i.i:                                      ; preds = %if.end.i10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %alloc_fn.i.i13 = getelementptr inbounds i8, ptr %ctxt, i64 88
   %6 = load ptr, ptr %alloc_fn.i.i13, align 8
   %add.i.i = add nuw nsw i32 %conv, 1
@@ -387,7 +387,7 @@ if.then5.i19:                                     ; preds = %exr_attr_string_ini
   br i1 %cmp6.i.not, label %if.end13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then5.i19
-  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull readonly %d, i64 noundef %call) #4
+  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %d, i64 noundef %call) #4
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.then5.i19
@@ -510,7 +510,7 @@ if.then7.i:                                       ; preds = %if.then5.i
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull readonly %d, i64 noundef %conv11.i) #4
+  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %d, i64 noundef %conv11.i) #4
   br label %if.end13.i
 
 if.else.i:                                        ; preds = %if.then7.i

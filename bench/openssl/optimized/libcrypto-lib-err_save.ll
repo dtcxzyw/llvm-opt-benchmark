@@ -506,7 +506,7 @@ if.then.i51:                                      ; preds = %lor.lhs.false.i, %e
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #7
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #7
   %add.i48 = add i64 %call.i, 1
   %call6.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i48, ptr noundef null, i32 noundef 0) #6
   store ptr %call6.i, ptr %arrayidx4.i, align 8
@@ -514,7 +514,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp9.not.i, label %if.end15.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  %call14.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i, ptr noundef nonnull readonly dereferenceable(1) %14) #6
+  %call14.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i, ptr noundef nonnull dereferenceable(1) %14) #6
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.else.i, %if.then.i51
@@ -534,7 +534,7 @@ if.then25.i:                                      ; preds = %lor.lhs.false20.i, 
   br label %err_set_debug.exit
 
 if.else28.i:                                      ; preds = %lor.lhs.false20.i
-  %call29.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #7
+  %call29.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #7
   %add30.i = add i64 %call29.i, 1
   %call31.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add30.i, ptr noundef null, i32 noundef 0) #6
   store ptr %call31.i, ptr %arrayidx7.i, align 8
@@ -542,7 +542,7 @@ if.else28.i:                                      ; preds = %lor.lhs.false20.i
   br i1 %cmp34.not.i, label %err_set_debug.exit, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.else28.i
-  %call39.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call31.i, ptr noundef nonnull readonly dereferenceable(1) %16) #6
+  %call39.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call31.i, ptr noundef nonnull dereferenceable(1) %16) #6
   br label %err_set_debug.exit
 
 err_set_debug.exit:                               ; preds = %if.then25.i, %if.else28.i, %if.then36.i

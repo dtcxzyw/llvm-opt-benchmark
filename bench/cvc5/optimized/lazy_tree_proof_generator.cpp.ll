@@ -2281,7 +2281,7 @@ entry:
 define hidden void @_ZThn16_N4cvc58internal22LazyTreeProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %this, ptr nocapture readnone %f) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofEv(ptr writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %0)
+  tail call void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofEv(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %0)
   ret void
 }
 

@@ -1038,7 +1038,7 @@ common.ret:                                       ; preds = %171, %47
   %132 = getelementptr inbounds i8, ptr %131, i64 %102
   store ptr %132, ptr %130, align 8, !alias.scope !128, !noalias !127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !125
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !127
   br label %137
 
@@ -1071,7 +1071,7 @@ common.ret:                                       ; preds = %171, %47
           to label %.noexc26 unwind label %142
 
 .noexc26:                                         ; preds = %141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false), !noalias !148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false), !noalias !148
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !150
   br label %152
 
@@ -1118,7 +1118,7 @@ common.ret:                                       ; preds = %171, %47
   %164 = extractvalue { i64, ptr } %162, 1
   %165 = icmp ne ptr %164, null
   tail call void @llvm.assume(i1 %165)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %164, ptr nonnull readonly align 1 %158, i64 %159, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %164, ptr nonnull align 1 %158, i64 %159, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit": ; preds = %.noexc31, %157

@@ -754,28 +754,28 @@ entry:
   store float 1.000000e+00, ptr %ref.tmp, align 4, !alias.scope !11
   %m.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %m.sroa.6.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m.sroa.2.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m.sroa.2.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
   store float 1.000000e+00, ptr %m.sroa.6.0.agg.result.sroa_idx.i, align 4, !alias.scope !11
   %m.sroa.7.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %m.sroa.11.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m.sroa.7.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m.sroa.7.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
   store float %div, ptr %m.sroa.11.0.agg.result.sroa_idx.i, align 4, !alias.scope !11
   %m.sroa.12.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   %m.sroa.16.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m.sroa.12.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m.sroa.12.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
   %mInv3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m.sroa.16.0.agg.result.sroa_idx.i, align 4, !alias.scope !11
   %minv.sroa.2.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
   %minv.sroa.6.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %minv.sroa.2.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.2.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
   store float 1.000000e+00, ptr %minv.sroa.6.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !11
   %minv.sroa.7.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %minv.sroa.11.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %minv.sroa.7.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.7.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
   store float %div2.i, ptr %minv.sroa.11.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !11
   %minv.sroa.12.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 108
   %minv.sroa.16.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %minv.sroa.12.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.12.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !11
   store float 1.000000e+00, ptr %minv.sroa.16.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !11
   %fneg = fneg float %zNear
   store float 1.000000e+00, ptr %ref.tmp1, align 4, !alias.scope !14
@@ -806,9 +806,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i)
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp1), !noalias !17
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i8, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i), !noalias !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   %mInv3.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %mInv3.i.i15, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i15, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp3.i)
   ret void
@@ -865,29 +865,29 @@ entry:
   store float %div5, ptr %ref.tmp, align 4, !alias.scope !20
   %m.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %m.sroa.6.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m.sroa.2.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m.sroa.2.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float %div5, ptr %m.sroa.6.0.agg.result.sroa_idx.i, align 4, !alias.scope !20
   %m.sroa.7.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %m.sroa.11.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m.sroa.7.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m.sroa.7.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float 1.000000e+00, ptr %m.sroa.11.0.agg.result.sroa_idx.i, align 4, !alias.scope !20
   %m.sroa.12.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   %m.sroa.16.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m.sroa.12.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m.sroa.12.0.agg.result.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float 1.000000e+00, ptr %m.sroa.16.0.agg.result.sroa_idx.i, align 4, !alias.scope !20
   %mInv3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   store float %div.i, ptr %mInv3.i.i, align 4, !alias.scope !20
   %minv.sroa.2.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
   %minv.sroa.6.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %minv.sroa.2.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.2.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float %div.i, ptr %minv.sroa.6.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !20
   %minv.sroa.7.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %minv.sroa.11.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %minv.sroa.7.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.7.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float 1.000000e+00, ptr %minv.sroa.11.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !20
   %minv.sroa.12.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 108
   %minv.sroa.16.0.mInv3.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %minv.sroa.12.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.12.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float 1.000000e+00, ptr %minv.sroa.16.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !20
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(64) %persp, i64 64, i1 false)
@@ -928,9 +928,9 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit: ; preds = %for.inc15.i, %i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i)
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6), !noalias !25
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i), !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   %mInv3.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %mInv3.i.i8, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i8, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp3.i)
   ret void
@@ -6828,7 +6828,7 @@ if.end4:                                          ; preds = %if.end
   %mInv.i = getelementptr inbounds i8, ptr %ref.tmp35, i64 64
   %mInv3.i.i17 = getelementptr inbounds i8, ptr %ref.tmp32, i64 64
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %mInv3.i.i17, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(64) %scale, i64 64, i1 false)
@@ -6869,9 +6869,9 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit: ; preds = %for.inc15.i, %i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i20)
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i19, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp37), !noalias !56
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3.i20, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i18, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i17), !noalias !56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i19, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i19, i64 64, i1 false)
   %mInv3.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %mInv3.i.i23, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i20, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i23, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i20, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i19)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp3.i20)
   br label %return
@@ -7592,10 +7592,10 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !71
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !71
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !71
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
   %n.i = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %n.i, align 8, !noalias !71
   %agg.tmp.sroa.2.0.n.sroa_idx.i = getelementptr inbounds i8, ptr %it, i64 48
@@ -7679,10 +7679,10 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i3)
   %mediumInterface.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !74
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %mediumInterface.i.i4, i8 0, i64 16, i1 false), !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i4, i8 0, i64 16, i1 false), !alias.scope !74
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i3, ptr noundef nonnull align 4 dereferenceable(128) %t, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i3, i64 24, i1 false)
   %n.i5 = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i6 = load <2 x float>, ptr %n.i5, align 8, !noalias !74
   %agg.tmp.sroa.2.0.n.sroa_idx.i7 = getelementptr inbounds i8, ptr %it, i64 48
@@ -7780,14 +7780,14 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %t.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !77
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !77
   %mInv.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !77
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %t.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %this, i64 64, i1 false), !noalias !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %this, i64 64, i1 false), !noalias !77
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %t.i, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
   %n.i = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %n.i, align 8, !noalias !77
   %agg.tmp.sroa.2.0.n.sroa_idx.i = getelementptr inbounds i8, ptr %it, i64 48
@@ -7873,14 +7873,14 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %t.i3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i4)
   %mediumInterface.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %mediumInterface.i.i5, i8 0, i64 16, i1 false), !alias.scope !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i5, i8 0, i64 16, i1 false), !alias.scope !80
   %mInv.i.i.i6 = getelementptr inbounds i8, ptr %t, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i3, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i6, i64 64, i1 false), !noalias !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i3, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i6, i64 64, i1 false), !noalias !80
   %mInv3.i.i.i7 = getelementptr inbounds i8, ptr %t.i3, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i7, ptr noundef nonnull readonly align 4 dereferenceable(64) %t, i64 64, i1 false), !noalias !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i7, ptr noundef nonnull align 4 dereferenceable(64) %t, i64 64, i1 false), !noalias !80
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i4, ptr noundef nonnull align 4 dereferenceable(128) %t.i3, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i4, i64 24, i1 false)
   %n.i8 = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i9 = load <2 x float>, ptr %n.i8, align 8, !noalias !80
   %agg.tmp.sroa.2.0.n.sroa_idx.i10 = getelementptr inbounds i8, ptr %it, i64 48

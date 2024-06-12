@@ -246,7 +246,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %glob_alloc_n.exit
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %32
 
 32:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %31, ptr nonnull readonly align 1 %.049, i64 %.048, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %.049, i64 %.048, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %32
@@ -471,7 +471,7 @@ glob_alloc_n.exit:                                ; preds = %.split141.us
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %49
 
 49:                                               ; preds = %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %44, ptr readonly align 1 %0, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %0, i64 %48, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %45, %49
@@ -531,7 +531,7 @@ ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcp
   br i1 %.not.i118.us, label %ruby_nonempty_memcpy.exit119.us, label %76
 
 76:                                               ; preds = %.critedge.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %50, ptr readonly align 1 %54, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %54, i64 %75, i1 false)
   br label %ruby_nonempty_memcpy.exit119.us
 
 ruby_nonempty_memcpy.exit119.us:                  ; preds = %53, %76, %.critedge.us
@@ -585,7 +585,7 @@ ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcp
   br i1 %.not.i118, label %ruby_nonempty_memcpy.exit119, label %101
 
 101:                                              ; preds = %.critedge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %50, ptr readonly align 1 %84, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %84, i64 %100, i1 false)
   br label %ruby_nonempty_memcpy.exit119
 
 ruby_nonempty_memcpy.exit119:                     ; preds = %83, %.critedge, %101
@@ -2605,7 +2605,7 @@ glob_alloc_n.exit:                                ; preds = %.critedge5
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %57
 
 57:                                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %54, ptr nonnull readonly align 1 %.073114144, i64 %51, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %.073114144, i64 %51, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %56, %57
@@ -2834,7 +2834,7 @@ glob_alloc_n.exit.i:                              ; preds = %57
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %62
 
 62:                                               ; preds = %61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %60, ptr nonnull readonly align 1 %.032.i, i64 %56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %.032.i, i64 %56, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %62, %61
@@ -2857,7 +2857,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %62, %61
 
 71:                                               ; preds = %68
   %72 = getelementptr i8, ptr %67, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %72, ptr nonnull readonly align 1 %.032.i, i64 %56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %.032.i, i64 %56, i1 false)
   br label %ruby_nonempty_memcpy.exit44.i
 
 ruby_nonempty_memcpy.exit44.i:                    ; preds = %71, %68
@@ -3130,7 +3130,7 @@ glob_alloc_n.exit.i355:                           ; preds = %165
   br i1 %.not.i.i356, label %ruby_nonempty_memcpy.exit.i357, label %177
 
 177:                                              ; preds = %176
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %175, ptr readonly align 1 %169, i64 %170, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %175, ptr align 1 %169, i64 %170, i1 false)
   br label %ruby_nonempty_memcpy.exit.i357
 
 ruby_nonempty_memcpy.exit.i357:                   ; preds = %177, %176
@@ -3276,7 +3276,7 @@ do_opendir.exit:                                  ; preds = %opendir_at.exit.i
   br i1 %.not.i.i.i, label %231, label %230
 
 230:                                              ; preds = %228
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %229, ptr nonnull readonly align 1 %224, i64 %225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %229, ptr nonnull align 1 %224, i64 %225, i1 false)
   br label %231
 
 231:                                              ; preds = %230, %228
@@ -3570,7 +3570,7 @@ glob_alloc_n.exit.i377:                           ; preds = %340
   br i1 %.not.i.i379, label %ruby_nonempty_memcpy.exit.i380, label %345
 
 345:                                              ; preds = %344
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %343, ptr nonnull readonly align 1 %1, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %343, ptr nonnull align 1 %1, i64 %24, i1 false)
   br label %ruby_nonempty_memcpy.exit.i380
 
 ruby_nonempty_memcpy.exit.i380:                   ; preds = %345, %344
@@ -3588,7 +3588,7 @@ ruby_nonempty_memcpy.exit.i380:                   ; preds = %345, %344
   br i1 %.not.i21.i, label %351, label %350
 
 350:                                              ; preds = %348
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %349, ptr nonnull readonly align 1 %329, i64 %327, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %349, ptr nonnull align 1 %329, i64 %327, i1 false)
   br label %351
 
 351:                                              ; preds = %350, %348
@@ -3933,7 +3933,7 @@ glob_alloc_n.exit399:                             ; preds = %468
   br i1 %.not.i400, label %ruby_nonempty_memcpy.exit, label %475
 
 475:                                              ; preds = %474
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %473, ptr readonly align 1 %469, i64 %471, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %473, ptr align 1 %469, i64 %471, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %474, %475
@@ -4072,7 +4072,7 @@ glob_alloc_n.exit.i408:                           ; preds = %._crit_edge509
   br i1 %.not.i.i410, label %ruby_nonempty_memcpy.exit.i411, label %523
 
 523:                                              ; preds = %522
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %521, ptr nonnull readonly align 1 %1, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %521, ptr nonnull align 1 %1, i64 %24, i1 false)
   br label %ruby_nonempty_memcpy.exit.i411
 
 ruby_nonempty_memcpy.exit.i411:                   ; preds = %523, %522
@@ -4090,7 +4090,7 @@ ruby_nonempty_memcpy.exit.i411:                   ; preds = %523, %522
   br i1 %.not.i21.i413, label %530, label %528
 
 528:                                              ; preds = %526
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %527, ptr nonnull readonly align 1 %473, i64 %.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %527, ptr nonnull align 1 %473, i64 %.0, i1 false)
   br label %530
 
 529:                                              ; preds = %glob_alloc_n.exit.i408
@@ -6040,7 +6040,7 @@ define internal range(i32 0, 2) i32 @fnmatch_brace(ptr noundef %0, i64 noundef %
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %9
-  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %2) #23
+  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %2) #23
   %.not3.i = icmp eq i32 %11, 0
   br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
 
@@ -6051,7 +6051,7 @@ rb_enc_asciicompat.exit:                          ; preds = %9
   br i1 %.not.i25, label %rb_enc_asciicompat.exit28, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit28:                        ; preds = %12
-  %14 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %8) #23
+  %14 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %8) #23
   %.not3.i27 = icmp eq i32 %14, 0
   br i1 %.not3.i27, label %15, label %rb_enc_asciicompat.exit.thread
 

@@ -952,7 +952,7 @@ enc_uint64.exit182.i:                             ; preds = %72
   br i1 %77, label %make_header.exit.thread, label %78
 
 78:                                               ; preds = %enc_uint64.exit182.i
-  %79 = call fastcc i32 @make_streamsInfo(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %25, i64 noundef %27, ptr noundef nonnull readonly %30, i32 noundef 1, i32 noundef 0)
+  %79 = call fastcc i32 @make_streamsInfo(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %25, i64 noundef %27, ptr noundef nonnull %30, i32 noundef 1, i32 noundef 0)
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %make_header.exit.thread, label %enc_uint64.exit190.i
 

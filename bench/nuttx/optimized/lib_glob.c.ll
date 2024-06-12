@@ -105,7 +105,7 @@ append.exit.thread:                               ; preds = %31
   store ptr null, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   %37 = add i64 %32, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull readonly align 1 %0, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 1 %0, i64 %37, i1 false)
   store ptr %34, ptr %6, align 8
   br label %38
 
@@ -452,7 +452,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   store ptr null, ptr %85, align 8
   %90 = getelementptr inbounds i8, ptr %85, i64 8
   %91 = add i64 %.3, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull readonly align 1 %0, i64 %91, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 1 %0, i64 %91, i1 false)
   %92 = icmp ne i64 %.3, 0
   %93 = and i1 %92, %88
   %or.cond.i = and i1 %62, %93

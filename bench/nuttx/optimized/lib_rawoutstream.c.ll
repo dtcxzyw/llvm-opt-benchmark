@@ -27,7 +27,7 @@ define internal void @rawoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 
 6:                                                ; preds = %14, %2
   %7 = load i32, ptr %5, align 8
-  %8 = call i64 @write(i32 noundef %7, ptr noundef nonnull readonly %3, i64 noundef 1) #4
+  %8 = call i64 @write(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 1) #4
   %9 = trunc i64 %8 to i32
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %14

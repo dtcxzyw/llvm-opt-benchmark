@@ -2726,7 +2726,7 @@ if.then13:                                        ; preds = %if.end5
 
 PACKET_copy_bytes.exit:                           ; preds = %if.end5
   store i64 %sub.i.i.i, ptr %peer_ecpointformats_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call7, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call7, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.i.i.i, i1 false)
   br label %return
 
 return:                                           ; preds = %PACKET_copy_bytes.exit, %if.end, %if.then13, %if.then4, %if.then
@@ -2911,7 +2911,7 @@ if.end19:                                         ; preds = %if.then8
 
 PACKET_copy_bytes.exit:                           ; preds = %if.end19
   %3 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call9, ptr align 1 %3, i64 %pkt.val21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call9, ptr align 1 %3, i64 %pkt.val21, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %pkt.val21
   store ptr %add.ptr.i.i, ptr %pkt, align 8
   %sub.i.i = sub i64 %pkt.val.i.i, %pkt.val21
@@ -3154,7 +3154,7 @@ if.then25:                                        ; preds = %if.end20
 
 if.end26:                                         ; preds = %if.end20
   %7 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call12, ptr align 1 %7, i64 %sub.i.i.i36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call12, ptr align 1 %7, i64 %sub.i.i.i36, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.i.i.i36
   store ptr %add.ptr.i.i, ptr %pkt, align 8
   %sub.i.i = sub i64 %pkt.val.i.i, %sub.i.i.i36

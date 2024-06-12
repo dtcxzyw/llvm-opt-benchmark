@@ -55,7 +55,7 @@ sw.bb.split:                                      ; preds = %entry
   store i64 0, ptr %ret.i, align 8
   %func5.i = getelementptr inbounds i8, ptr %arg.i, i64 40
   store ptr @qcow2_zlib_compress, ptr %func5.i, align 8
-  %call.i = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i)
+  %call.i = call i32 @qcow2_co_process(ptr noundef nonnull %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i)
   %2 = load i64, ptr %ret.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %arg.i)
   br label %sw.epilog
@@ -73,7 +73,7 @@ sw.bb1.split:                                     ; preds = %entry
   store i64 0, ptr %ret.i8, align 8
   %func5.i9 = getelementptr inbounds i8, ptr %arg.i4, i64 40
   store ptr @qcow2_zstd_compress, ptr %func5.i9, align 8
-  %call.i10 = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i4)
+  %call.i10 = call i32 @qcow2_co_process(ptr noundef nonnull %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i4)
   %3 = load i64, ptr %ret.i8, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %arg.i4)
   br label %sw.epilog
@@ -223,7 +223,7 @@ sw.bb.split:                                      ; preds = %entry
   store i64 0, ptr %ret.i, align 8
   %func5.i = getelementptr inbounds i8, ptr %arg.i, i64 40
   store ptr @qcow2_zlib_decompress, ptr %func5.i, align 8
-  %call.i = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i)
+  %call.i = call i32 @qcow2_co_process(ptr noundef nonnull %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i)
   %2 = load i64, ptr %ret.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %arg.i)
   br label %sw.epilog
@@ -241,7 +241,7 @@ sw.bb1.split:                                     ; preds = %entry
   store i64 0, ptr %ret.i8, align 8
   %func5.i9 = getelementptr inbounds i8, ptr %arg.i4, i64 40
   store ptr @qcow2_zstd_decompress, ptr %func5.i9, align 8
-  %call.i10 = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i4)
+  %call.i10 = call i32 @qcow2_co_process(ptr noundef nonnull %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i4)
   %3 = load i64, ptr %ret.i8, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %arg.i4)
   br label %sw.epilog

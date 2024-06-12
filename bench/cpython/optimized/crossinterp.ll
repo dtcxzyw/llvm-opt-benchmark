@@ -1120,7 +1120,7 @@ _xidata_clear.exit:                               ; preds = %do.body.i, %if.then
 define dso_local void @_PyCrossInterpreterData_Init(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, ptr noundef %shared, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   %interpid.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i, align 8
   store ptr %shared, ptr %data, align 8
@@ -1163,7 +1163,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_InitWithSize(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, i64 noundef %size, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -2285,7 +2285,7 @@ Py_DECREF.exit71.i:                               ; preds = %if.then1.i69.i, %if
   br i1 %cmp22.i, label %error.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %Py_DECREF.exit71.i
-  %call25.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull readonly %uncaught)
+  %call25.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull %uncaught)
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %error.i, label %if.end28.i
 
@@ -2440,7 +2440,7 @@ if.then3.i27:                                     ; preds = %if.then.i17
 
 if.end4.i:                                        ; preds = %if.then3.i27, %if.then.i17, %if.then14
   %tbexc.0.i = phi ptr [ null, %if.then3.i27 ], [ %call.i18, %if.then.i17 ], [ null, %if.then14 ]
-  %call5.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull readonly %uncaught9)
+  %call5.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull %uncaught9)
   tail call void @PyErr_SetObject(ptr noundef %40, ptr noundef %call5.i) #13
   %42 = load i64, ptr %call5.i, align 8
   %43 = and i64 %42, 2147483648
@@ -5075,7 +5075,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5126,7 +5126,7 @@ if.end5:                                          ; preds = %land.lhs.true, %ent
   %2 = load ptr, ptr %interp, align 8
   %3 = inttoptr i64 %call to ptr
   %4 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %3, ptr %data, align 8
@@ -5156,7 +5156,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5255,7 +5255,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5344,7 +5344,7 @@ entry:
   %cond = zext i1 %cmp to i64
   %1 = inttoptr i64 %cond to ptr
   %2 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %1, ptr %data, align 8
@@ -5370,7 +5370,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5492,7 +5492,7 @@ if.then.i22:                                      ; preds = %if.end28, %for.cond
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %7 = load ptr, ptr %interp, align 8
   %8 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %call1, ptr %data, align 8

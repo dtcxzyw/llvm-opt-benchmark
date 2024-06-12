@@ -183,7 +183,7 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %value, ptr nonnull %0, i64 %1)
+  %bcmp.i = tail call i32 @bcmp(ptr %value, ptr nonnull %0, i64 %1)
   %tobool10.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool10.not.i, label %if.then.i, label %for.inc.i
 

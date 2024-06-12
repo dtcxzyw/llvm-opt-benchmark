@@ -1236,7 +1236,7 @@ sdslen.exit22.i:                                  ; preds = %sw.bb13.i7.i, %sw.b
 if.end.i:                                         ; preds = %sdslen.exit22.i
   %sext.i = shl i64 %retval.0.i.i, 32
   %conv4.i = ashr exact i64 %sext.i, 32
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %1, i64 %conv4.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %1, i64 %conv4.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   %conv7.i = zext i1 %cmp6.i to i32
   br label %dictSdsKeyCompare.exit
@@ -1589,7 +1589,7 @@ sdslen.exit22.i:                                  ; preds = %sw.bb13.i7.i, %sw.b
 if.end.i:                                         ; preds = %sdslen.exit22.i
   %sext.i = shl i64 %retval.0.i.i, 32
   %conv4.i = ashr exact i64 %sext.i, 32
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %6, ptr nonnull readonly %7, i64 %conv4.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %6, ptr nonnull %7, i64 %conv4.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   %conv7.i = zext i1 %cmp6.i to i32
   br label %dictSdsKeyCompare.exit
@@ -17595,7 +17595,7 @@ entry:
   %call19 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #39
   %cmp = icmp eq ptr %call19, null
   %spec.select = select i1 %cmp, ptr %3, ptr %call19
-  %call.i = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.426) #39
+  %call.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.426) #39
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %checkForSentinelMode.exit
 

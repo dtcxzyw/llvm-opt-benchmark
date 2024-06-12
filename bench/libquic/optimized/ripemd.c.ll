@@ -1897,7 +1897,7 @@ define hidden noundef ptr @RIPEMD160(ptr nocapture noundef readonly %data, i64 n
 entry:
   %ctx = alloca %struct.RIPEMD160state_st, align 16
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 -1009589776, ptr %arrayidx8.i, align 16

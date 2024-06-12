@@ -1946,7 +1946,7 @@ sw.bb11.i:                                        ; preds = %sw.bb7.i, %if.end26
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit
 
 sw.default.i:                                     ; preds = %if.end26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %add.ptr27, i64 %rem, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %add.ptr27, i64 %rem, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit:  ; preds = %if.end26, %sw.bb11.i, %sw.default.i
@@ -1997,7 +1997,7 @@ sw.bb11.i25:                                      ; preds = %sw.bb7.i27, %if.end
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 sw.default.i39:                                   ; preds = %if.end28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr readonly align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41: ; preds = %if.end28, %sw.bb11.i25, %sw.default.i39
@@ -2065,7 +2065,7 @@ sw.bb11.i45:                                      ; preds = %sw.bb7.i47, %if.end
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61
 
 sw.default.i59:                                   ; preds = %if.end32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa, ptr readonly align 1 %Ptr.tr.ph.lcssa77, i64 %Size.tr.ph.lcssa75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa, ptr align 1 %Ptr.tr.ph.lcssa77, i64 %Size.tr.ph.lcssa75, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit61: ; preds = %if.end32, %sw.bb11.i45, %sw.default.i59
@@ -3426,7 +3426,7 @@ _ZL5getFDN4llvh9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10F
   %BufferMode.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_fd_ostreamE, i64 16), ptr %this, align 8
   %FD.i1 = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %retval.0.i, ptr %FD.i1, align 4
@@ -4176,7 +4176,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %_ZN4llvh9StringRefC2EPKc.exit
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %init.check
-  call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull writeonly align 8 dereferenceable(72) @_ZZN4llvh4outsEvE1S, ptr nonnull @.str.1, i64 1, ptr noundef nonnull writeonly align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72) @_ZZN4llvh4outsEvE1S, ptr nonnull @.str.1, i64 1, ptr noundef nonnull align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh14raw_fd_ostreamD2Ev, ptr nonnull @_ZZN4llvh4outsEvE1S, ptr nonnull @__dso_handle) #26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh4outsEvE1S) #26
   br label %init.end

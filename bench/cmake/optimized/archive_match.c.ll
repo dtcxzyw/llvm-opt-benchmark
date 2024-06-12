@@ -944,7 +944,7 @@ match_owner_id.exit36:                            ; preds = %32, %match_owner_id
   br i1 %.not13.i, label %65, label %62
 
 62:                                               ; preds = %60
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %47) #15
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %47) #15
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %66, label %65
 
@@ -1014,7 +1014,7 @@ match_owner_name_mbs.exit.thread:                 ; preds = %65, %49, %45, %.pre
   br i1 %.not13.i44, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull readonly dereferenceable(1) %75) #15
+  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %75) #15
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %94, label %93
 

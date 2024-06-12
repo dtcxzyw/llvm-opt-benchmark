@@ -11835,7 +11835,7 @@ thread-pre-split:                                 ; preds = %148, %157
   br label %327
 
 326:                                              ; preds = %318
-  call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %327
 
 327:                                              ; preds = %326, %322
@@ -11859,7 +11859,7 @@ thread-pre-split:                                 ; preds = %148, %157
   br label %tcp_update_recv_tstamps.exit
 
 341:                                              ; preds = %327
-  call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %285, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %285, i8 0, i64 16, i1 false)
   br label %tcp_update_recv_tstamps.exit
 
 tcp_update_recv_tstamps.exit:                     ; preds = %337, %341

@@ -39770,11 +39770,11 @@ if.end.i51:                                       ; preds = %land.lhs.true.i.i
   %22 = load ptr, ptr %m_args.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 40
   %23 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %call2.i = call noundef zeroext i1 @_ZN11bv_rewriter6is_bitEP4exprRj(ptr noundef nonnull align 8 dereferenceable(157) %this, ptr noundef %22, ptr noundef nonnull writeonly align 4 dereferenceable(4) %bit1)
+  %call2.i = call noundef zeroext i1 @_ZN11bv_rewriter6is_bitEP4exprRj(ptr noundef nonnull align 8 dereferenceable(157) %this, ptr noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %bit1)
   br i1 %call2.i, label %land.lhs.true14, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i51
-  %call5.i = call noundef zeroext i1 @_ZN11bv_rewriter6is_bitEP4exprRj(ptr noundef nonnull align 8 dereferenceable(157) %this, ptr noundef %23, ptr noundef nonnull writeonly align 4 dereferenceable(4) %bit1)
+  %call5.i = call noundef zeroext i1 @_ZN11bv_rewriter6is_bitEP4exprRj(ptr noundef nonnull align 8 dereferenceable(157) %this, ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %bit1)
   br i1 %call5.i, label %land.lhs.true14, label %if.end31
 
 land.lhs.true14:                                  ; preds = %if.end4.i, %if.end.i51

@@ -1779,14 +1779,14 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer11getSigned64Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull readonly %this) #13
+  %call.i.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull %this) #13
   ret i64 %call.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer13getUnsigned64Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull readonly %this) #13
+  %call.i.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull %this) #13
   ret i64 %call.i.i
 }
 
@@ -1902,7 +1902,7 @@ declare void @__gmpz_gcdext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integer3minERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly %b, ptr noundef nonnull readonly %a) #13
+  %call.i.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %b, ptr noundef nonnull %a) #13
   %cmp.i.i.i.i3 = icmp slt i32 %call.i.i.i.i, 0
   %cond-lvalue = select i1 %cmp.i.i.i.i3, ptr %b, ptr %a
   ret ptr %cond-lvalue
@@ -1911,7 +1911,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integer3maxERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly %a, ptr noundef nonnull readonly %b) #13
+  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %a, ptr noundef nonnull %b) #13
   %cmp.i.i.i3 = icmp slt i32 %call.i.i.i, 0
   %cond-lvalue = select i1 %cmp.i.i.i3, ptr %b, ptr %a
   ret ptr %cond-lvalue

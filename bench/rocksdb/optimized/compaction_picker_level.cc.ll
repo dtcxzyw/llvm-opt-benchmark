@@ -242,7 +242,7 @@ entry:
   store ptr %log_buffer, ptr %log_buffer_.i, align 8
   %start_level_.i = getelementptr inbounds i8, ptr %builder, i64 32
   %start_level_score_.i = getelementptr inbounds i8, ptr %builder, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %start_level_.i, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %start_level_.i, i8 -1, i64 16, i1 false)
   store double 0.000000e+00, ptr %start_level_score_.i, align 8
   %is_manual_.i = getelementptr inbounds i8, ptr %builder, i64 56
   store i8 0, ptr %is_manual_.i, align 8
@@ -251,8 +251,8 @@ entry:
   %files.i.i = getelementptr inbounds i8, ptr %builder, i64 72
   %files.i1.i = getelementptr inbounds i8, ptr %builder, i64 152
   %mutable_cf_options_.i = getelementptr inbounds i8, ptr %builder, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %files.i.i, i8 0, i64 72, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(76) %files.i1.i, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %files.i.i, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %files.i1.i, i8 0, i64 76, i1 false)
   store ptr %mutable_cf_options, ptr %mutable_cf_options_.i, align 8
   %ioptions_.i = getelementptr inbounds i8, ptr %builder, i64 240
   store ptr %0, ptr %ioptions_.i, align 8

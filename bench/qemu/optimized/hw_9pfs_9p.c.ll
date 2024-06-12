@@ -1904,7 +1904,7 @@ trace_v9fs_lcreate.exit:                          ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %trace_v9fs_lcreate.exit
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -2155,7 +2155,7 @@ trace_v9fs_symlink.exit:                          ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %trace_v9fs_symlink.exit
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -2354,7 +2354,7 @@ trace_v9fs_mknod.exit:                            ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %trace_v9fs_mknod.exit
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -2506,7 +2506,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %if.end
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %1, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -2890,7 +2890,7 @@ if.end4:                                          ; preds = %trace_v9fs_getattr.
 
 if.end9:                                          ; preds = %if.end4
   %11 = getelementptr inbounds i8, ptr %v9stat_dotl, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %11, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, i8 0, i64 152, i1 false)
   %st_mode.i = getelementptr inbounds i8, ptr %stbuf, i64 24
   %12 = load i32, ptr %st_mode.i, align 8
   %st_mode1.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 24
@@ -2950,7 +2950,7 @@ stat_to_v9stat_dotl.exit:                         ; preds = %if.end9, %if.end.i.
   store i64 %23, ptr %st_ctime_nsec.i, align 8
   store i64 2047, ptr %v9stat_dotl, align 8
   %qid.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 8
-  %call16.i = call fastcc noundef i32 @stat_to_qid(ptr noundef nonnull readonly %opaque, ptr noundef nonnull readonly %stbuf, ptr noundef nonnull writeonly %qid.i)
+  %call16.i = call fastcc noundef i32 @stat_to_qid(ptr noundef nonnull %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid.i)
   %conv11 = sext i32 %call16.i to i64
   %cmp12 = icmp slt i32 %call16.i, 0
   br i1 %cmp12, label %out, label %if.end15
@@ -4639,7 +4639,7 @@ trace_v9fs_link.exit:                             ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %trace_v9fs_link.exit
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %11, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -4855,7 +4855,7 @@ trace_v9fs_mkdir.exit:                            ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %trace_v9fs_mkdir.exit
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -5008,7 +5008,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %out_err, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %if.end
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %1, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %lor.lhs.false, label %out_err
 
@@ -5019,7 +5019,7 @@ lor.lhs.false:                                    ; preds = %name_is_illegal.exi
   br i1 %tobool.not.i9, label %out_err, label %name_is_illegal.exit13
 
 name_is_illegal.exit13:                           ; preds = %lor.lhs.false
-  %call.i11 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %3, i32 noundef 47) #27
+  %call.i11 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #27
   %cmp.i12.not = icmp eq ptr %call.i11, null
   br i1 %cmp.i12.not, label %sub_0, label %out_err
 
@@ -5155,7 +5155,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %if.end
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -6020,7 +6020,7 @@ if.end25:                                         ; preds = %for.body
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %if.end25
-  %call.i93 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %20, i32 noundef 47) #27
+  %call.i93 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i93, null
   br i1 %cmp.i.not, label %if.end30, label %out_nofid
 
@@ -6672,7 +6672,7 @@ trace_v9fs_create.exit:                           ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.i, label %out_nofid, label %name_is_illegal.exit
 
 name_is_illegal.exit:                             ; preds = %trace_v9fs_create.exit
-  %call.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %13, i32 noundef 47) #27
+  %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 47) #27
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %sub_0, label %out_nofid
 
@@ -9835,7 +9835,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %path27.val = load ptr, ptr %9, align 8
   %conv.i = zext i16 %path20.val to i64
   %sub.i = add nsw i64 %conv.i, -1
-  %call.i = call i32 @strncmp(ptr noundef readonly %path20.val19, ptr noundef readonly %path27.val, i64 noundef %sub.i) #27
+  %call.i = call i32 @strncmp(ptr noundef %path20.val19, ptr noundef %path27.val, i64 noundef %sub.i) #27
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %v9fs_path_is_ancestor.exit, label %if.end35
 
@@ -10436,7 +10436,7 @@ while.body:                                       ; preds = %if.end6, %if.end14
   %path.val = load ptr, ptr %5, align 8
   %conv.i = zext i16 %oldpath.val to i64
   %sub.i = add nsw i64 %conv.i, -1
-  %call.i = call i32 @strncmp(ptr noundef readonly %oldpath.val5, ptr noundef readonly %path.val, i64 noundef %sub.i) #27
+  %call.i = call i32 @strncmp(ptr noundef %oldpath.val5, ptr noundef %path.val, i64 noundef %sub.i) #27
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %v9fs_path_is_ancestor.exit, label %if.end14
 

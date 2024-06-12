@@ -2102,11 +2102,11 @@ entry:
 define void @_ZN7lodepng16lodepng_icc_initEPNS_10LodePNGICCE(ptr nocapture noundef writeonly %icc) local_unnamed_addr #6 {
 entry:
   %lut.i = getelementptr inbounds i8, ptr %icc, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i, i8 0, i64 16, i1 false)
   %lut.i3 = getelementptr inbounds i8, ptr %icc, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3, i8 0, i64 16, i1 false)
   %lut.i4 = getelementptr inbounds i8, ptr %icc, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -2141,11 +2141,11 @@ entry:
   %cond4 = select i1 %cmp, i32 16, i32 8
   call void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr nonnull sret(%struct.LodePNGColorMode) align 8 %tempmode, i32 noundef 6, i32 noundef %cond4)
   %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
   %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
   %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
   %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %1 = load i32, ptr %iccp_defined, align 8
   %tobool5.not = icmp eq i32 %1, 0
@@ -3748,11 +3748,11 @@ entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %info_png = getelementptr inbounds i8, ptr %state, i64 208
   %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
   %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
   %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
   %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %0 = load i32, ptr %iccp_defined, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -3842,7 +3842,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.c
   %add.i = add nuw nsw i64 %c.051.i, %mul10.i
   %arrayidx11.i = getelementptr inbounds float, ptr %in, i64 %add.i
   %8 = load float, ptr %arrayidx11.i, align 4
-  %call.i = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef nonnull readonly %arrayidx9.i, float noundef %8)
+  %call.i = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef nonnull %arrayidx9.i, float noundef %8)
   %arrayidx14.i = getelementptr inbounds float, ptr %out, i64 %add.i
   store float %call.i, ptr %arrayidx14.i, align 4
   %inc16.i = add nuw nsw i64 %c.051.i, 1
@@ -4128,11 +4128,11 @@ entry:
   %0 = load i32, ptr %bitdepth, align 4
   %cmp = icmp ugt i32 %0, 8
   %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
   %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
   %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
   %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %1 = load i32, ptr %iccp_defined, align 8
   %tobool.not = icmp eq i32 %1, 0
@@ -5040,11 +5040,11 @@ entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %info_png = getelementptr inbounds i8, ptr %state, i64 208
   %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
   %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
   %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
   %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %0 = load i32, ptr %iccp_defined, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -6428,7 +6428,7 @@ for.cond36.preheader.i:                           ; preds = %if.then.i
 
 if.then22.i:                                      ; preds = %if.then.i
   %chad.i = getelementptr inbounds i8, ptr %icc, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %chad.i, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, ptr noundef nonnull align 4 dereferenceable(36) %chad.i, i64 36, i1 false)
   %call.i = call fastcc noundef i32 @_ZN7lodepngL9invMatrixEPf(ptr noundef nonnull %a.i)
   %white27.i = getelementptr inbounds i8, ptr %icc, i64 72
   %23 = load float, ptr %white27.i, align 8

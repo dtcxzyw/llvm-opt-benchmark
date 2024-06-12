@@ -2977,12 +2977,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %98 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %97, i64 %.0293645
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 noundef 31, i64 noundef 38)
   %99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #27
-  %100 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %99, ptr noundef nonnull @.str.47, ptr noundef nonnull %13) #27
+  %100 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %99, ptr noundef nonnull @.str.47, ptr noundef nonnull %13) #27
   %.not.i336 = icmp eq i32 %100, 0
   br i1 %.not.i336, label %.sink.split.i, label %_ZN11PDBIOPlugin8mysscanfEPKcPf.exit
 
 .sink.split.i:                                    ; preds = %96
-  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %99, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #27
+  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %99, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #27
   %.not7.i = icmp eq i32 %101, 0
   %102 = load float, ptr %13, align 4
   %103 = fneg float %102
@@ -2996,12 +2996,12 @@ _ZN11PDBIOPlugin8mysscanfEPKcPf.exit:             ; preds = %96, %.sink.split.i
   %105 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %104, i64 %.0293645
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 noundef 39, i64 noundef 46)
   %106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
-  %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %106, ptr noundef nonnull @.str.47, ptr noundef nonnull %91) #27
+  %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %106, ptr noundef nonnull @.str.47, ptr noundef nonnull %91) #27
   %.not.i337 = icmp eq i32 %107, 0
   br i1 %.not.i337, label %.sink.split.i339, label %_ZN11PDBIOPlugin8mysscanfEPKcPf.exit341
 
 .sink.split.i339:                                 ; preds = %_ZN11PDBIOPlugin8mysscanfEPKcPf.exit
-  %108 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %106, ptr noundef nonnull @.str.48, ptr noundef nonnull %91) #27
+  %108 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %106, ptr noundef nonnull @.str.48, ptr noundef nonnull %91) #27
   %.not7.i338 = icmp eq i32 %108, 0
   %109 = load float, ptr %91, align 4
   %110 = fneg float %109
@@ -3015,12 +3015,12 @@ _ZN11PDBIOPlugin8mysscanfEPKcPf.exit341:          ; preds = %_ZN11PDBIOPlugin8my
   %112 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %111, i64 %.0293645
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 noundef 47, i64 noundef 54)
   %113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #27
-  %114 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %113, ptr noundef nonnull @.str.47, ptr noundef nonnull %92) #27
+  %114 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %113, ptr noundef nonnull @.str.47, ptr noundef nonnull %92) #27
   %.not.i342 = icmp eq i32 %114, 0
   br i1 %.not.i342, label %.sink.split.i344, label %_ZN11PDBIOPlugin8mysscanfEPKcPf.exit346
 
 .sink.split.i344:                                 ; preds = %_ZN11PDBIOPlugin8mysscanfEPKcPf.exit341
-  %115 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %113, ptr noundef nonnull @.str.48, ptr noundef nonnull %92) #27
+  %115 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %113, ptr noundef nonnull @.str.48, ptr noundef nonnull %92) #27
   %.not7.i343 = icmp eq i32 %115, 0
   %116 = load float, ptr %92, align 4
   %117 = fneg float %116

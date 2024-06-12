@@ -1575,7 +1575,7 @@ Abc_Clock.exit77:                                 ; preds = %19, %24
   %60 = getelementptr inbounds i32, ptr %.val68, i64 %59
   %61 = zext nneg i32 %.val to i64
   %62 = shl nuw nsw i64 %61, 2
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %60, i8 0, i64 %62, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %60, i8 0, i64 %62, i1 false)
   %.val69.pre = load i32, ptr %40, align 8
   br label %Gia_Sim2InfoZero.exit
 
@@ -1623,7 +1623,7 @@ Gia_Sim2InfoZero.exit:                            ; preds = %47, %.lr.ph.prehead
   %86 = mul nsw i32 %.val46.i, %.val39.i
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i32, ptr %.val40.i, i64 %87
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %88, i8 0, i64 %73, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %88, i8 0, i64 %73, i1 false)
   br label %Gia_Sim2InfoZero.exit.i
 
 Gia_Sim2InfoZero.exit.i:                          ; preds = %.lr.ph.preheader.i.i, %84

@@ -1968,7 +1968,7 @@ _ZN9grpc_core11HPackParser6StringD2Ev.exit.i:     ; preds = %if.end4.i.i31, %_ZN
   store i64 %conv.i16, ptr %wire_size3.i.i, align 8, !alias.scope !10
   %value4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %agg.result, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value4.i.i, i8 0, i64 16, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value4.i.i, i8 0, i64 16, i1 false), !alias.scope !10
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !10
   br label %return
 
@@ -2100,7 +2100,7 @@ _ZN9grpc_core11HPackParser6StringD2Ev.exit.i:     ; preds = %if.end4.i.i, %_ZNK9
   store i64 %conv2.i, ptr %wire_size3.i.i, align 8, !alias.scope !19
   %value4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value4.i.i, i8 0, i64 16, i1 false), !alias.scope !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value4.i.i, i8 0, i64 16, i1 false), !alias.scope !19
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !19
   br label %return
 
@@ -8366,7 +8366,7 @@ if.then.i224:                                     ; preds = %sw.epilog
           to label %.noexc225 unwind label %lpad
 
 .noexc225:                                        ; preds = %if.then.i224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !214
   br label %invoke.cont80
 
@@ -8379,7 +8379,7 @@ if.then6.i:                                       ; preds = %sw.epilog
           to label %.noexc226 unwind label %lpad
 
 .noexc226:                                        ; preds = %if.then6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !217
   br label %invoke.cont80
 
@@ -8395,7 +8395,7 @@ if.then12.i:                                      ; preds = %sw.epilog
           to label %.noexc227 unwind label %lpad
 
 .noexc227:                                        ; preds = %if.then12.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i10.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i10.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i10.i), !noalias !220
   br label %invoke.cont80
 

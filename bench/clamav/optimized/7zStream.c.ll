@@ -396,7 +396,7 @@ define internal i32 @SecToLook_Read(ptr nocapture noundef readonly %0, ptr nocap
 12:                                               ; preds = %9
   %13 = load ptr, ptr %4, align 8
   %14 = load i64, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr align 1 %13, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %13, i64 %14, i1 false)
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %2, align 8

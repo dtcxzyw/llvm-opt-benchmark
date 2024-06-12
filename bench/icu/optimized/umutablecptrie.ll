@@ -272,7 +272,7 @@ _ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEEC2EPS2_R10UErr
   %flags.i = getelementptr inbounds i8, ptr %call3, i64 64
   %flags27.i = getelementptr inbounds i8, ptr %other, i64 64
   %conv29.i = sext i32 %shr.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %flags.i, ptr nonnull readonly align 8 %flags27.i, i64 %conv29.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %flags.i, ptr nonnull align 8 %flags27.i, i64 %conv29.i, i1 false)
   %14 = load ptr, ptr %other, align 8
   %mul33.i = shl nsw i32 %shr.i, 2
   %conv34.i = sext i32 %mul33.i to i64
@@ -2139,7 +2139,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
 
 _ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %for.end.i.i.i, %do.body.i.i
   %retval.0.i76.i.i = phi i32 [ %82, %for.end.i.i.i ], [ -1, %do.body.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %mixedBlocks.i.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, i8 0, i64 28, i1 false)
   br label %for.body.i83.i.i
 
 for.body.i83.i.i:                                 ; preds = %for.body.i83.i.i, %_ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i
@@ -3049,7 +3049,7 @@ if.end111.i.i.i:                                  ; preds = %if.end22.i211.i.i.i
   store i32 %newLength.0.i194.i.i.i, ptr %length.i.i.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %163, i8 0, i64 %conv28.pre-phi.i202.i.i.i, i1 false)
   store i32 32, ptr %blockLength.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %longI3Blocks.i.i.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %longI3Blocks.i.i.i, i8 0, i64 28, i1 false)
   br i1 %hasLongI3Blocks.0.lcssa.i.i.i, label %if.then113.i.i.i, label %if.end117.i.i.i
 
 if.then113.i.i.i:                                 ; preds = %if.end111.i.i.i

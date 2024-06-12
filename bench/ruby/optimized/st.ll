@@ -82,7 +82,7 @@ get_power2.exit:                                  ; preds = %3
   %38 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %37, i32 3
   %39 = load i64, ptr %38, align 8
   %40 = shl i64 %39, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %35, i8 0, i64 %40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %40, i1 false)
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %27, %36
@@ -153,7 +153,7 @@ get_power2.exit.i:                                ; preds = %2
   %35 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %13, i32 3
   %36 = load i64, ptr %35, align 8
   %37 = shl i64 %36, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %.sink.i, i8 0, i64 %37, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.sink.i, i8 0, i64 %37, i1 false)
   br label %rb_st_init_existing_table_with_size.exit
 
 rb_st_init_existing_table_with_size.exit:         ; preds = %27, %34
@@ -300,7 +300,7 @@ define dso_local void @rb_st_clear(ptr nocapture noundef %0) local_unnamed_addr 
   %8 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %7, i32 3
   %9 = load i64, ptr %8, align 8
   %10 = shl i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %5, i8 0, i64 %10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %10, i1 false)
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %1, %6
@@ -970,7 +970,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr nocapture noundef %0
   %18 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %4, i32 3
   %19 = load i64, ptr %18, align 8
   %20 = shl i64 %19, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %16, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %16, i8 0, i64 %20, i1 false)
   br label %21
 
 21:                                               ; preds = %17, %14
@@ -1578,7 +1578,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %12
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %26
 
 26:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %16, ptr readonly align 1 %19, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %19, i64 %25, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %26
@@ -1595,7 +1595,7 @@ rbimpl_size_mul_or_raise.exit19:                  ; preds = %ruby_nonempty_memcp
 
 31:                                               ; preds = %rbimpl_size_mul_or_raise.exit19
   %32 = load ptr, ptr %13, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %32, ptr nonnull readonly align 1 %27, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %27, i64 %30, i1 false)
   br label %ruby_nonempty_memcpy.exit21
 
 ruby_nonempty_memcpy.exit21:                      ; preds = %31, %rbimpl_size_mul_or_raise.exit19, %ruby_nonempty_memcpy.exit
@@ -1608,7 +1608,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 48, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1652,7 +1652,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %12
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %27
 
 27:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %17, ptr readonly align 1 %20, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %20, i64 %26, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %27, %rbimpl_size_mul_or_raise.exit.i
@@ -1668,7 +1668,7 @@ rbimpl_size_mul_or_raise.exit19.i:                ; preds = %ruby_nonempty_memcp
   br i1 %.not.i20.i, label %rb_st_replace.exit, label %32
 
 32:                                               ; preds = %rbimpl_size_mul_or_raise.exit19.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %13, ptr nonnull readonly align 1 %28, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %28, i64 %31, i1 false)
   br label %rb_st_replace.exit
 
 rb_st_replace.exit:                               ; preds = %32, %rbimpl_size_mul_or_raise.exit19.i, %ruby_nonempty_memcpy.exit.i
@@ -3753,7 +3753,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %11
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %25
 
 25:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %18, ptr readonly align 1 %20, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %20, i64 %24, i1 false)
   %.pre.i = load ptr, ptr %19, align 8
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -4047,7 +4047,7 @@ update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.
   %84 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %83, i32 3
   %85 = load i64, ptr %84, align 8
   %86 = shl i64 %85, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %82, i8 0, i64 %86, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %82, i8 0, i64 %86, i1 false)
   %87 = load i64, ptr %16, align 8
   %88 = load i64, ptr %17, align 8
   %89 = icmp ult i64 %87, %88

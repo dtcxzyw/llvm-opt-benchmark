@@ -2875,7 +2875,7 @@ invoke.cont11.thread:                             ; preds = %call3.i.noexc
 if.else.i:                                        ; preds = %call3.i.noexc
   %19 = load ptr, ptr %block_ids.i, align 8
   %sub.i12 = add i32 %call3.i14, -1
-  %call5.i15 = invoke noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %seek_key.i, ptr noundef %19, i32 noundef 0, i32 noundef %sub.i12, ptr noundef nonnull writeonly %index, ptr noundef nonnull writeonly %prefix_may_exist)
+  %call5.i15 = invoke noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %seek_key.i, ptr noundef %19, i32 noundef 0, i32 noundef %sub.i12, ptr noundef nonnull %index, ptr noundef nonnull %prefix_may_exist)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %if.else.i

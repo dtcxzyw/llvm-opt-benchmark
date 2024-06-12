@@ -389,7 +389,7 @@ invoke.cont5:
   %first.i = getelementptr inbounds i8, ptr %centerCallback, i64 8
   store i8 1, ptr %first.i, align 8
   %ref.i = getelementptr inbounds i8, ptr %centerCallback, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %ref.i, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ref.i, i8 0, i64 36, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
   store <4 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0.000000e+00>, ptr %aabbMax, align 16
   %m_stridingMesh = getelementptr inbounds i8, ptr %this, i64 120
@@ -440,7 +440,7 @@ invoke.cont17:                                    ; preds = %cond.false.i, %cond
   store ptr getelementptr inbounds (i8, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i64 16), ptr %inertiaCallback, align 8
   %sum.i13 = getelementptr inbounds i8, ptr %inertiaCallback, i64 8
   %center10.i = getelementptr inbounds i8, ptr %inertiaCallback, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %sum.i13, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %sum.i13, i8 0, i64 48, i1 false)
   store <2 x float> %retval.sroa.0.0.i, ptr %center10.i, align 8
   %center.sroa.3.0.center10.i.sroa_idx = getelementptr inbounds i8, ptr %inertiaCallback, i64 64
   store <2 x float> %retval.sroa.3.0.i, ptr %center.sroa.3.0.center10.i.sroa_idx, align 8

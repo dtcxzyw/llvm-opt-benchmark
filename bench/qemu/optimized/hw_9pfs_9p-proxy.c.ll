@@ -3041,7 +3041,7 @@ if.else72:                                        ; preds = %sw.bb64
 
 if.end73:                                         ; preds = %sw.bb64
   %20 = getelementptr inbounds i8, ptr %response, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
   %21 = load <2 x i64>, ptr %prstfs, align 16
   store <2 x i64> %21, ptr %response, align 8
   %f_blocks3.i = getelementptr inbounds i8, ptr %response, i64 16

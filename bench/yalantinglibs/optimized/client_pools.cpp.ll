@@ -90617,9 +90617,9 @@ if.else:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %ref.tmp18) #23
   store i8 91, ptr %ref.tmp18, align 1, !alias.scope !1274
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp18, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEE12send_requestIZ9call_echoRNS_12client_poolsIS2_S3_EEiE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEEEE4typeESt4errcEEEESG_RNS2_6configEENKUlvE_clEv.prefix", i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEE12send_requestIZ9call_echoRNS_12client_poolsIS2_S3_EEiE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEEEE4typeESt4errcEEEESG_RNS2_6configEENKUlvE_clEv.prefix", i64 19, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp18, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.68, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.68, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp12, i64 %call14, i32 noundef 1, i64 22, ptr nonnull %ref.tmp18)
           to label %invoke.cont25 unwind label %lpad20
 
@@ -90994,9 +90994,9 @@ if.else74:                                        ; preds = %invoke.cont70
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %ref.tmp81) #23
   store i8 91, ptr %ref.tmp81, align 1, !alias.scope !1290
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i68 = getelementptr inbounds i8, ptr %ref.tmp81, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i68, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEE12send_requestIZ9call_echoRNS_12client_poolsIS2_S3_EEiE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEEEE4typeESt4errcEEEESG_RNS2_6configEENKUlvE0_clEv.prefix", i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i68, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEE12send_requestIZ9call_echoRNS_12client_poolsIS2_S3_EEiE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEEEE4typeESt4errcEEEESG_RNS2_6configEENKUlvE0_clEv.prefix", i64 19, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i69 = getelementptr inbounds i8, ptr %ref.tmp81, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i69, ptr noundef nonnull align 1 dereferenceable(3) @.str.68, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i69, ptr noundef nonnull align 1 dereferenceable(3) @.str.68, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp75, i64 %call77, i32 noundef 4, i64 22, ptr nonnull %ref.tmp81)
           to label %invoke.cont88 unwind label %lpad83
 

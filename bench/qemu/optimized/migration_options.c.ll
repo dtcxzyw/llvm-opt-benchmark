@@ -2027,7 +2027,7 @@ qobject_unref_impl.exit45:                        ; preds = %if.then39, %land.lh
 if.end57:                                         ; preds = %qobject_unref_impl.exit45, %land.lhs.true35, %if.end33
   %call.i = tail call ptr @migrate_get_current() #8
   %parameters.i = getelementptr inbounds i8, ptr %call.i, i64 520
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %tmp, ptr noundef nonnull align 8 dereferenceable(256) %parameters.i, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %tmp, ptr noundef nonnull align 8 dereferenceable(256) %parameters.i, i64 256, i1 false)
   %has_compress_level.i = getelementptr inbounds i8, ptr %params, i64 64
   %18 = load i8, ptr %has_compress_level.i, align 8
   %tobool.i = trunc i8 %18 to i1

@@ -1043,7 +1043,7 @@ entry:
   %state = alloca %struct.crypto_hash_sha256_state, align 8
   %count.i = getelementptr inbounds i8, ptr %state, i64 32
   store i64 0, ptr %count.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
   %call1 = call i32 @crypto_hash_sha256_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)
   %call2 = call i32 @crypto_hash_sha256_final(ptr noundef %state, ptr noundef %out)
   ret i32 0

@@ -4710,7 +4710,7 @@ define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias nocaptur
   store i32 %30, ptr %37, align 4
   %38 = sitofp i32 %30 to float
   %39 = fmul float %38, 0x3FA2E6AA00000000
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %7, align 4
   store float 1.000000e+00, ptr %9, align 4
   store float 1.000000e+00, ptr %10, align 4
@@ -29027,7 +29027,7 @@ _ZN6GLArea2trEPKcS1_i.exit:
   store i32 %67, ptr %74, align 4
   %75 = sitofp i32 %67 to float
   %76 = fmul float %75, 0x3FA2E6AA00000000
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %45, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %45, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %44, align 4
   store float 1.000000e+00, ptr %46, align 4
   store float 1.000000e+00, ptr %47, align 4

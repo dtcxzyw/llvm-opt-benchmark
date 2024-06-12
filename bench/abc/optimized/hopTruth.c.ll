@@ -402,7 +402,7 @@ Vec_IntFetch.exit:                                ; preds = %Vec_IntGrow.exit, %
 select.unfold.preheader.i:                        ; preds = %76
   %77 = zext nneg i32 %42 to i64
   %78 = shl nuw nsw i64 %77, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %.0.i, i8 0, i64 %78, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.0.i, i8 0, i64 %78, i1 false)
   br label %Hop_ManTruthClear.exit
 
 79:                                               ; preds = %73
@@ -411,7 +411,7 @@ select.unfold.preheader.i:                        ; preds = %76
 select.unfold.preheader.i72:                      ; preds = %79
   %80 = zext nneg i32 %42 to i64
   %81 = shl nuw nsw i64 %80, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %.0.i, i8 -1, i64 %81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.0.i, i8 -1, i64 %81, i1 false)
   br label %Hop_ManTruthClear.exit
 
 82:                                               ; preds = %Vec_IntFetch.exit

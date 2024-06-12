@@ -1312,14 +1312,14 @@ define internal fastcc void @perform_base_backup(ptr nocapture noundef readonly 
   %.0163257 = phi ptr [ null, %.lr.ph259 ], [ %.1164, %IsTLHistoryFileName.exit.thread ]
   %.0165256 = phi ptr [ null, %.lr.ph259 ], [ %.1166, %IsTLHistoryFileName.exit.thread ]
   %190 = getelementptr inbounds i8, ptr %189, i64 19
-  %191 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %190) #20
+  %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %190) #20
   switch i64 %191, label %IsTLHistoryFileName.exit.thread [
     i64 24, label %IsXLogFileName.exit
     i64 16, label %204
   ]
 
 IsXLogFileName.exit:                              ; preds = %188
-  %192 = call i64 @strspn(ptr noundef nonnull readonly %190, ptr noundef nonnull @.str.104) #20
+  %192 = call i64 @strspn(ptr noundef nonnull %190, ptr noundef nonnull @.str.104) #20
   %193 = icmp eq i64 %192, 24
   br i1 %193, label %194, label %IsTLHistoryFileName.exit.thread
 
@@ -1340,13 +1340,13 @@ IsXLogFileName.exit:                              ; preds = %188
   br label %IsTLHistoryFileName.exit.thread
 
 204:                                              ; preds = %188
-  %205 = call i64 @strspn(ptr noundef nonnull readonly %190, ptr noundef nonnull @.str.104) #20
+  %205 = call i64 @strspn(ptr noundef nonnull %190, ptr noundef nonnull @.str.104) #20
   %206 = icmp eq i64 %205, 8
   br i1 %206, label %IsTLHistoryFileName.exit, label %IsTLHistoryFileName.exit.thread
 
 IsTLHistoryFileName.exit:                         ; preds = %204
   %207 = getelementptr i8, ptr %189, i64 27
-  %208 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %207, ptr noundef nonnull dereferenceable(9) @.str.105) #20
+  %208 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull dereferenceable(9) @.str.105) #20
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %IsTLHistoryFileName.exit.thread
 
@@ -1386,7 +1386,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
   %223 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %224 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %222, ptr noundef nonnull @.str.103, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %224 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %222, ptr noundef nonnull @.str.103, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
   %225 = load i32, ptr %8, align 4
   %226 = zext i32 %225 to i64
   %227 = sext i32 %223 to i64
@@ -1433,7 +1433,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
   %247 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %248 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %245, ptr noundef nonnull @.str.103, ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #18
+  %248 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %245, ptr noundef nonnull @.str.103, ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #18
   %249 = load i32, ptr %6, align 4
   %250 = zext i32 %249 to i64
   %251 = sext i32 %247 to i64
@@ -1506,7 +1506,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
   %280 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %281 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %278, ptr noundef nonnull @.str.103, ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %281 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %278, ptr noundef nonnull @.str.103, ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %282 = load i32, ptr %4, align 4
   %283 = zext i32 %282 to i64
   %284 = sext i32 %280 to i64

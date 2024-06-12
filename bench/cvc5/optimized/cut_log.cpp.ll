@@ -553,7 +553,7 @@ entry:
   %d_cutVec = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %d_cutVec, align 8
   %inds.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %inds.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inds.i, i8 0, i64 16, i1 false)
   %d_mAtCreation = getelementptr inbounds i8, ptr %this, i64 56
   store i32 -1, ptr %d_mAtCreation, align 8
   %d_N = getelementptr inbounds i8, ptr %this, i64 60
@@ -3954,7 +3954,7 @@ entry:
   store double 0.000000e+00, ptr %d_cutRhs.i, align 8
   %d_cutVec.i = getelementptr inbounds i8, ptr %this, i64 32
   %inds.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %inds.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inds.i.i, i8 0, i64 16, i1 false)
   %d_mAtCreation.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 -1, ptr %d_mAtCreation.i, align 8
   %d_N.i = getelementptr inbounds i8, ptr %this, i64 60
@@ -3962,7 +3962,7 @@ entry:
   %d_rowId.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 -1, ptr %d_rowId.i, align 8
   %d_exactPrecision.i = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %d_exactPrecision.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_exactPrecision.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i64 16), ptr %this, align 8
   store i32 %nrows, ptr %d_cutVec.i, align 8
   %add.i = add i32 %nrows, 1
@@ -4029,7 +4029,7 @@ entry:
   store double 0.000000e+00, ptr %d_cutRhs.i, align 8
   %d_cutVec.i = getelementptr inbounds i8, ptr %this, i64 32
   %inds.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %inds.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inds.i.i, i8 0, i64 16, i1 false)
   %d_mAtCreation.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 -1, ptr %d_mAtCreation.i, align 8
   %d_N.i = getelementptr inbounds i8, ptr %this, i64 60
@@ -4037,7 +4037,7 @@ entry:
   %d_rowId.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 -1, ptr %d_rowId.i, align 8
   %d_exactPrecision.i = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %d_exactPrecision.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_exactPrecision.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i64 16), ptr %this, align 8
   store i32 1, ptr %d_cutVec.i, align 8
   %call.i1 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #26

@@ -613,7 +613,7 @@ define internal fastcc noundef ptr @get_egprs_data_block(ptr noundef %0, i32 nou
   br i1 %18, label %21, label %22
 
 21:                                               ; preds = %4
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %13, ptr readonly align 1 %20, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr align 1 %20, i64 %12, i1 false)
   br label %clone_aligned_buffer_lsbf.exit
 
 22:                                               ; preds = %4

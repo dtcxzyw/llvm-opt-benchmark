@@ -11803,7 +11803,7 @@ define i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writ
   %34 = add nuw nsw i64 %33, 1
   store i64 %34, ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   br label %68
 
 36:                                               ; preds = %24
@@ -11815,7 +11815,7 @@ define i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writ
   %41 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br label %68
 
 43:                                               ; preds = %24
@@ -11860,7 +11860,7 @@ default.unreachable:                              ; preds = %24
 
 68:                                               ; preds = %54, %43, %36, %32
   %69 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   %70 = add nuw nsw i64 %.024, 52
   br label %71
 

@@ -391,7 +391,7 @@ if.else8.i:                                       ; preds = %if.then4.i
 
 if.else9.i:                                       ; preds = %if.else.i61
   %add.i63 = add nsw i32 %26, %requested_digits
-  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %add.i63, ptr noundef nonnull %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr %buffer.coerce0, ptr noundef writeonly %length)
+  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %add.i63, ptr noundef nonnull %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr %buffer.coerce0, ptr noundef %length)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %_ZN17double_conversionL15FixupMultiply10EibPiPNS_6BignumES2_S2_S2_.exit

@@ -273,7 +273,7 @@ fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
   %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
   call void @trace2_cmd_error_va_fl(ptr noundef nonnull @.str.2, i32 noundef 61, ptr noundef nonnull %buf, ptr noundef nonnull %params) #16
   %5 = load i32, ptr @git_gettext_enabled, align 4
@@ -344,7 +344,7 @@ fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
   %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %fmt, ptr noundef nonnull %str_error.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
   call void %0(ptr noundef nonnull %buf, ptr noundef nonnull %params) #16
   call void @llvm.va_end.p0(ptr nonnull %params)
@@ -415,7 +415,7 @@ fmt_with_err.exit:                                ; preds = %if.end.i, %for.cond
   %conv2.lcssa.i = phi i64 [ 0, %entry ], [ %conv2.i, %for.cond.backedge.i ], [ %conv212.i, %if.end.i ]
   %arrayidx21.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv2.lcssa.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %warn, ptr noundef nonnull %str_error.i) #16
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %warn, ptr noundef nonnull %str_error.i) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %str_error.i)
   call void %0(ptr noundef nonnull %buf, ptr noundef nonnull %params) #16
   call void @llvm.va_end.p0(ptr nonnull %params)
@@ -451,7 +451,7 @@ entry:
   call void @llvm.va_copy.p0(ptr nonnull %params_copy, ptr %params)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #16
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef %params)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef %fmt, ptr noundef %params)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
   %.b = load i1, ptr @BUG_vfl.in_bug, align 4
   br i1 %.b, label %if.then, label %if.end
@@ -486,7 +486,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #16
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @llvm.va_start.p0(ptr nonnull %ap)

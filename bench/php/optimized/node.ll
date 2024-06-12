@@ -145,11 +145,11 @@ define hidden ptr @dom_node_get_node_name_attribute_or_element(ptr nocapture nou
   %25 = getelementptr inbounds i8, ptr %22, i64 16
   store i64 %19, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %9, i64 %11, i1 false)
   %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %11
   store i8 58, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %27, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %18, i1 false)
   br label %dom_node_concatenated_name_helper.exit
 
 29:                                               ; preds = %1, %7

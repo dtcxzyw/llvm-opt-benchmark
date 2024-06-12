@@ -3254,7 +3254,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i, %for.
   %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8, !noalias !23
   %.fca.1.load.i.i.i = load i32, ptr %.fca.1.gep.i.i.i, align 8, !noalias !23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !23
-  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i.i.i, i32 %.fca.1.load.i.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %status)
+  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i.i.i, i32 %.fca.1.load.i.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %19 = add i32 %18, 1
   br label %if.end14.i.i
 
@@ -3268,7 +3268,7 @@ if.then10.i.i:                                    ; preds = %if.else.i.i
   %.fca.0.load.i17.i.i = load ptr, ptr %retval.i16.i.i, align 8, !noalias !23
   %.fca.1.load.i20.i.i = load i32, ptr %.fca.1.gep.i19.i.i, align 8, !noalias !23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !23
-  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i17.i.i, i32 %.fca.1.load.i20.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %status)
+  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i17.i.i, i32 %.fca.1.load.i20.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.else.i.i, %if.then.i.i

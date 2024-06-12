@@ -1430,7 +1430,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i: ; preds = %while.body.i.
   store i8 %conv1.i.i, ptr %arrayidx3.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr197, i64 %inc2.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i, i8 0, i64 24, i1 false)
-  call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf14SourceCodeInfo8LocationEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull writeonly %add.ptr.i, i64 poison, ptr noundef nonnull align 8 dereferenceable(152) %__begin3.sroa.0.048.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i)
+  call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf14SourceCodeInfo8LocationEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr.i, i64 poison, ptr noundef nonnull align 8 dereferenceable(152) %__begin3.sroa.0.048.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i)
   %add.i387 = add i64 %inc2.i.i, %call7.i
   %incdec.ptr.i.i388 = getelementptr inbounds i8, ptr %__begin3.sroa.0.048.i, i64 152
   %cmp.i22.i = icmp eq ptr %incdec.ptr.i.i388, %48
@@ -14188,7 +14188,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i: ; preds = %while.body.i.
   store i8 %conv1.i.i, ptr %arrayidx3.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %inc2.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i, i8 0, i64 24, i1 false)
-  call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf19UninterpretedOptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull writeonly %add.ptr.i, i64 poison, ptr noundef nonnull align 8 dereferenceable(192) %__begin3.sroa.0.051.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i)
+  call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf19UninterpretedOptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr.i, i64 poison, ptr noundef nonnull align 8 dereferenceable(192) %__begin3.sroa.0.051.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i)
   %add.i66 = add i64 %inc2.i.i, %call7.i
   %incdec.ptr.i.i67 = getelementptr inbounds i8, ptr %__begin3.sroa.0.051.i, i64 192
   %cmp.i22.i = icmp eq ptr %incdec.ptr.i.i67, %15
@@ -16420,7 +16420,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i: ; preds = %while.body.i.
   store i8 %conv1.i.i, ptr %arrayidx3.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr18, i64 %inc2.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i, i8 0, i64 24, i1 false)
-  call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf19UninterpretedOptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull writeonly %add.ptr.i, i64 poison, ptr noundef nonnull align 8 dereferenceable(192) %__begin3.sroa.0.051.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i)
+  call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf19UninterpretedOptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr.i, i64 poison, ptr noundef nonnull align 8 dereferenceable(192) %__begin3.sroa.0.051.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8.i)
   %add.i62 = add i64 %inc2.i.i, %call7.i
   %incdec.ptr.i.i63 = getelementptr inbounds i8, ptr %__begin3.sroa.0.051.i, i64 192
   %cmp.i22.i = icmp eq ptr %incdec.ptr.i.i63, %16

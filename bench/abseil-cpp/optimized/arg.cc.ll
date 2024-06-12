@@ -4926,7 +4926,7 @@ if.end10:                                         ; preds = %if.end
   %agg.tmp12.sroa.0.0.copyload = load i64, ptr %arg.coerce, align 8
   %agg.tmp12.sroa.2.0.call15.sroa_idx = getelementptr inbounds i8, ptr %arg.coerce, i64 8
   %agg.tmp12.sroa.2.0.copyload = load ptr, ptr %agg.tmp12.sroa.2.0.call15.sroa_idx, align 8
-  %call2.i = tail call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgEPKwmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef readonly %agg.tmp12.sroa.2.0.copyload, i64 noundef %agg.tmp12.sroa.0.0.copyload, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out)
+  %call2.i = tail call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgEPKwmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %agg.tmp12.sroa.2.0.copyload, i64 noundef %agg.tmp12.sroa.0.0.copyload, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out)
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %if.end10

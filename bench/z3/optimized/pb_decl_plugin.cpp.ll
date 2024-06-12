@@ -3880,7 +3880,7 @@ _ZNK7pb_util12is_at_most_kEP4expr.exit:           ; preds = %_ZNK4decl13get_fami
 if.then:                                          ; preds = %_ZNK7pb_util12is_at_most_kEP4expr.exit
   %m_parameters.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %m_parameters.i.i.i.i, align 8, !noalias !46
-  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i32, ptr %k, align 8
   %8 = load i32, ptr %ref.tmp, align 8
   store i32 %8, ptr %k, align 8
@@ -4033,7 +4033,7 @@ _ZNK7pb_util13is_at_least_kEP4expr.exit:          ; preds = %_ZNK4decl13get_fami
 if.then:                                          ; preds = %_ZNK7pb_util13is_at_least_kEP4expr.exit
   %m_parameters.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %m_parameters.i.i.i.i, align 8, !noalias !51
-  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i32, ptr %k, align 8
   %8 = load i32, ptr %ref.tmp, align 8
   store i32 %8, ptr %k, align 8
@@ -4269,7 +4269,7 @@ _ZNK7pb_util5is_leEP4expr.exit:                   ; preds = %_ZNK4decl13get_fami
 if.then:                                          ; preds = %_ZNK7pb_util5is_leEP4expr.exit
   %m_parameters.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %m_parameters.i.i.i.i, align 8, !noalias !56
-  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i32, ptr %k, align 8
   %8 = load i32, ptr %ref.tmp, align 8
   store i32 %8, ptr %k, align 8
@@ -4396,7 +4396,7 @@ _ZNK7pb_util5is_geEP4expr.exit:                   ; preds = %_ZNK4decl13get_fami
 if.then:                                          ; preds = %_ZNK7pb_util5is_geEP4expr.exit
   %m_parameters.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %m_parameters.i.i.i.i, align 8, !noalias !61
-  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i32, ptr %k, align 8
   %8 = load i32, ptr %ref.tmp, align 8
   store i32 %8, ptr %k, align 8
@@ -4523,7 +4523,7 @@ _ZNK7pb_util5is_eqEP4expr.exit:                   ; preds = %_ZNK4decl13get_fami
 if.then:                                          ; preds = %_ZNK7pb_util5is_eqEP4expr.exit
   %m_parameters.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %m_parameters.i.i.i.i, align 8, !noalias !66
-  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZNK7pb_util11to_rationalERK9parameter(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i32, ptr %k, align 8
   %8 = load i32, ptr %ref.tmp, align 8
   store i32 %8, ptr %k, align 8

@@ -3290,7 +3290,7 @@ default.unreachable2829:                          ; preds = %444
   %1092 = zext i32 %1090 to i64
   %1093 = sub nsw i64 0, %1092
   %1094 = getelementptr inbounds i8, ptr %1062, i64 %1093
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1079, ptr noundef nonnull readonly align 1 dereferenceable(1) %1094, i64 %1092, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1079, ptr noundef nonnull align 1 dereferenceable(1) %1094, i64 %1092, i1 false)
   %1095 = getelementptr inbounds i8, ptr %1064, i64 60
   store i32 0, ptr %1095, align 4
   %1096 = load i32, ptr %1080, align 4
@@ -3309,7 +3309,7 @@ default.unreachable2829:                          ; preds = %444
   %1105 = sub nsw i64 0, %1104
   %1106 = getelementptr inbounds i8, ptr %1062, i64 %1105
   %1107 = zext i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1103, ptr readonly align 1 %1106, i64 %1107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1103, ptr align 1 %1106, i64 %1107, i1 false)
   %.not57.not.i = icmp ult i32 %1101, %1063
   br i1 %.not57.not.i, label %1108, label %1116
 
@@ -3319,7 +3319,7 @@ default.unreachable2829:                          ; preds = %444
   %1111 = zext i32 %1109 to i64
   %1112 = sub nsw i64 0, %1111
   %1113 = getelementptr inbounds i8, ptr %1062, i64 %1112
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1110, ptr readonly align 1 %1113, i64 %1111, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1110, ptr align 1 %1113, i64 %1111, i1 false)
   store i32 %1109, ptr %1099, align 4
   %1114 = load i32, ptr %1080, align 4
   %1115 = getelementptr inbounds i8, ptr %1064, i64 56
@@ -3624,7 +3624,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
   %50 = zext i32 %48 to i64
   %51 = sub nsw i64 0, %50
   %52 = getelementptr inbounds i8, ptr %22, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull readonly align 1 dereferenceable(1) %52, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %52, i64 %50, i1 false)
   %53 = getelementptr inbounds i8, ptr %20, i64 60
   store i32 0, ptr %53, align 4
   %54 = load i32, ptr %38, align 4
@@ -3640,7 +3640,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
   %60 = zext i32 %58 to i64
   %61 = getelementptr inbounds i8, ptr %37, i64 %60
   %62 = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr readonly align 1 %1, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %1, i64 %62, i1 false)
   %.not57.not.i = icmp ult i32 %59, %2
   br i1 %.not57.not.i, label %63, label %71
 
@@ -3650,7 +3650,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
   %66 = zext i32 %64 to i64
   %67 = sub nsw i64 0, %66
   %68 = getelementptr inbounds i8, ptr %22, i64 %67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr nonnull readonly align 1 %68, i64 %66, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr nonnull align 1 %68, i64 %66, i1 false)
   store i32 %64, ptr %57, align 4
   %69 = load i32, ptr %38, align 4
   %70 = getelementptr inbounds i8, ptr %20, i64 56

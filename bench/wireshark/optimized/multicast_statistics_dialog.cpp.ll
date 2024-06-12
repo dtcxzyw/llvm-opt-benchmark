@@ -2827,7 +2827,7 @@ define linkonce_odr void @_ZN27MulticastStatTreeWidgetItem16updateStreamInfoEPK1
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 %4, ptr %3, align 8
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %_ZL12copy_addressP8_addressPKS_.exit, label %10
@@ -2855,7 +2855,7 @@ _ZL12copy_addressP8_addressPKS_.exit:             ; preds = %2, %10
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store i32 %21, ptr %19, align 8
   %26 = icmp eq i32 %23, 0
   br i1 %26, label %_ZL12copy_addressP8_addressPKS_.exit13, label %27

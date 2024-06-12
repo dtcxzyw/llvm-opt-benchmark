@@ -482,7 +482,7 @@ if.end27.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
 
 if.then32.i.i.i:                                  ; preds = %if.end27.i.i.i
   %46 = load i64, ptr %hufDesSize.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr7.i.i.i, ptr nonnull readonly align 4 %hufDesBuffer.i.i.i, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr7.i.i.i, ptr nonnull align 4 %hufDesBuffer.i.i.i, i64 %46, i1 false)
   %add.ptr34.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i.i, i64 %46
   br label %if.end39.i.i.i
 
@@ -660,7 +660,7 @@ if.end53.thread.i.i.i:                            ; preds = %if.end37.i.i.i
   %conv49.i.i.i = trunc i32 %add48.i.i.i to i8
   store i8 %conv49.i.i.i, ptr %op.03.i.i.i, align 1
   %53 = load i64, ptr %fseTablesSize.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr38.i.i.i, ptr nonnull readonly align 4 %fseTablesBuffer.i.i.i, i64 %53, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr38.i.i.i, ptr nonnull align 4 %fseTablesBuffer.i.i.i, i64 %53, i1 false)
   %54 = load i64, ptr %fseTablesSize.i.i.i, align 8
   %add.ptr51.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr38.i.i.i, i64 %54
   %sub.ptr.rhs.cast555.i.i.i = ptrtoint ptr %add.ptr51.i.i.i to i64
@@ -746,7 +746,7 @@ do.end63.i:                                       ; preds = %do.end46.i, %do.con
   br i1 %tobool64.not.i, label %if.end72.i, label %do.end68.i
 
 do.end68.i:                                       ; preds = %do.end63.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %4, ptr noundef nonnull readonly align 8 dereferenceable(2064) %3, i64 2064, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %4, ptr noundef nonnull align 8 dereferenceable(2064) %3, i64 2064, i1 false)
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %do.end68.i, %do.end63.i
@@ -796,7 +796,7 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %if.then84.i
   %arrayidx.i.i122.i = getelementptr inbounds i8, ptr %op.1220.i, i64 2
   store i8 %conv1.i.i121.i, ptr %arrayidx.i.i122.i, align 1
   %add.ptr.i123.i = getelementptr inbounds i8, ptr %op.1220.i, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i123.i, ptr readonly align 1 %ip.1221.i, i64 %sub.ptr.sub91.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i123.i, ptr align 1 %ip.1221.i, i64 %sub.ptr.sub91.i, i1 false)
   %cmp.i125.i = icmp ult i64 %add3.i117.i, -119
   br i1 %cmp.i125.i, label %do.end115.i, label %ZSTD_compressSubBlock_multi.exit
 
@@ -807,7 +807,7 @@ do.end115.i:                                      ; preds = %ZSTD_noCompressBloc
 
 if.then119.i:                                     ; preds = %do.end115.i
   %rep120.i = getelementptr inbounds i8, ptr %3, i64 5616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %rep120.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 8 dereferenceable(12) %rep120.i, i64 12, i1 false)
   %cmp121198.i = icmp ult ptr %7, %sp.1222.i
   br i1 %cmp121198.i, label %for.body.lr.ph.i, label %for.end.i
 

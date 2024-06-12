@@ -5473,7 +5473,7 @@ _ZN5arrow10WeakFutureISt10shared_ptrINS_6BufferEEEC2ERKNS_6FutureIS3_EE.exit.i.i
   store ptr %57, ptr %_M_refcount.i.i.i.i.i.i.i.i6.i.i, align 8, !noalias !113
   store ptr null, ptr %_M_bound_args.i.i.i.i, align 8, !noalias !113
   %58 = getelementptr inbounds i8, ptr %agg.tmp6.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !noalias !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !noalias !113
   %59 = getelementptr inbounds i8, ptr %agg.tmp6.i.i, i64 40
   %60 = load ptr, ptr %47, align 8, !noalias !113
   store ptr %60, ptr %59, align 8, !noalias !113

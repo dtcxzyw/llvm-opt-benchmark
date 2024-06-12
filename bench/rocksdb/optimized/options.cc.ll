@@ -7518,7 +7518,7 @@ _ZN7rocksdb19ColumnFamilyOptions11OldDefaultsEii.exit: ; preds = %if.end.i
   %max_bytes_for_level_base.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i64 10485760, ptr %max_bytes_for_level_base.i, align 8
   %soft_pending_compaction_bytes_limit.i = getelementptr inbounds i8, ptr %this, i64 904
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %soft_pending_compaction_bytes_limit.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %soft_pending_compaction_bytes_limit.i, i8 0, i64 16, i1 false)
   %level0_stop_writes_trigger17.i = getelementptr inbounds i8, ptr %this, i64 832
   store i32 24, ptr %level0_stop_writes_trigger17.i, align 8
   %cmp.i3.not = icmp eq i32 %rocksdb_major_version, 4

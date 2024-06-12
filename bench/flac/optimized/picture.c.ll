@@ -138,7 +138,7 @@ if.then31:                                        ; preds = %safe_malloc_add_2op
   br label %sw.epilog
 
 if.else:                                          ; preds = %safe_malloc_add_2op_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %spec.addr.0148, i64 %sub.ptr.sub22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %spec.addr.0148, i64 %sub.ptr.sub22, i1 false)
   %arrayidx.i69 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub22
   store i8 0, ptr %arrayidx.i69, align 1
   %call32 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i, i32 noundef 0) #11
@@ -167,7 +167,7 @@ if.then45:                                        ; preds = %safe_malloc_add_2op
   br label %sw.epilog
 
 if.else46:                                        ; preds = %safe_malloc_add_2op_.exit.i71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr readonly align 1 %spec.addr.0148, i64 %sub.ptr.sub41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr align 1 %spec.addr.0148, i64 %sub.ptr.sub41, i1 false)
   %arrayidx.i76 = getelementptr inbounds i8, ptr %call.i.i.i73, i64 %sub.ptr.sub41
   store i8 0, ptr %arrayidx.i76, align 1
   %call47 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i73, i32 noundef 0) #11
@@ -183,7 +183,7 @@ sw.bb52:                                          ; preds = %if.then14
   %sub.ptr.rhs.cast54 = ptrtoint ptr %spec.addr.0148 to i64
   %sub.ptr.sub55 = sub i64 %sub.ptr.lhs.cast53, %sub.ptr.rhs.cast54
   %cmp.i79 = icmp eq ptr %p.0150, %spec.addr.0148
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %width.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %width.i, i8 0, i64 16, i1 false)
   br i1 %cmp.i79, label %sw.epilog, label %for.body.outer.i
 
 for.body.outer.i:                                 ; preds = %sw.bb52, %for.inc.thread.i
@@ -305,7 +305,7 @@ if.end77:                                         ; preds = %if.end6
   %data65 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 3, ptr %data65, align 8
   %width.i93 = getelementptr inbounds i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %width.i93, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %width.i93, i8 0, i64 16, i1 false)
   %.pr = load ptr, ptr %error_message, align 8
   %cmp78 = icmp eq ptr %.pr, null
   br i1 %cmp78, label %if.else84, label %if.then151
@@ -532,7 +532,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mime_type, ptr noundef nonnull readonly dereferenceable(1) %mime_type_in, i64 noundef 63) #11
+  %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mime_type, ptr noundef nonnull dereferenceable(1) %mime_type_in, i64 noundef 63) #11
   %arrayidx.i = getelementptr inbounds i8, ptr %mime_type, i64 63
   store i8 0, ptr %arrayidx.i, align 1
   store ptr null, ptr %error_message, align 8

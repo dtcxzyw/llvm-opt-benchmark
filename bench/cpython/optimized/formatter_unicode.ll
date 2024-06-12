@@ -1305,7 +1305,7 @@ cond.end82.i:                                     ; preds = %cond.false80.i, %if
 
 if.end88.i:                                       ; preds = %cond.end82.i
   %add89.i = add i64 %inumeric_chars.0.i39, %n_digits.0.i43
-  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef nonnull %spec.i, i64 noundef %n_prefix.1.i47, i32 noundef %sign_char.1.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef nonnull %locale.i, ptr noundef nonnull readonly %format, ptr noundef nonnull %maxchar.i)
+  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef nonnull %spec.i, i64 noundef %n_prefix.1.i47, i32 noundef %sign_char.1.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef nonnull %locale.i, ptr noundef nonnull %format, ptr noundef nonnull %maxchar.i)
   %cmp91.i = icmp eq i64 %call90.i, -1
   br i1 %cmp91.i, label %done.i, label %if.end94.i
 
@@ -2033,7 +2033,7 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %re_float_type.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %im_float_type.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %locale.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp_format.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %format, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp_format.i, ptr noundef nonnull align 8 dereferenceable(56) %format, i64 56, i1 false)
   store i32 127, ptr %maxchar.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %locale.i, i8 0, i64 32, i1 false)
   %precision2.i = getelementptr inbounds i8, ptr %format, i64 40

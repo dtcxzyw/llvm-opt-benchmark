@@ -176,7 +176,7 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   %75 = getelementptr inbounds i8, ptr %calloc, i64 128
   store ptr %72, ptr %75, align 8
   %76 = load ptr, ptr %53, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %76, i8 -1, i64 %62, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %76, i8 -1, i64 %62, i1 false)
   br i1 %68, label %.lr.ph91, label %.preheader
 
 .lr.ph91:                                         ; preds = %Vec_PtrAllocSimInfo.exit83
@@ -189,7 +189,7 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   %.val75.us = load ptr, ptr %74, align 8
   %78 = getelementptr inbounds ptr, ptr %.val75.us, i64 %indvars.iv101
   %79 = load ptr, ptr %78, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %79, i8 0, i64 %62, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %79, i8 0, i64 %62, i1 false)
   %80 = trunc nuw nsw i64 %indvars.iv101 to i32
   %81 = shl nuw i32 1, %80
   br label %82
@@ -260,7 +260,7 @@ Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
   %.val75 = load ptr, ptr %74, align 8
   %111 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv96
   %112 = load ptr, ptr %111, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %112, i8 0, i64 %62, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %112, i8 0, i64 %62, i1 false)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count104
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph91.split, !llvm.loop !8
@@ -2011,7 +2011,7 @@ define void @Abc_NtkDontCareSimulateSetElem2(ptr nocapture noundef readonly %0) 
   %13 = load i32, ptr %5, align 4
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %12, i8 0, i64 %15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %15, i1 false)
   %16 = load i32, ptr %6, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -2617,7 +2617,7 @@ Abc_Clock.exit:                                   ; preds = %4, %22
 Abc_Clock.exit83:                                 ; preds = %Abc_Clock.exit, %33
   %.0.i82.neg = phi i64 [ %.neg120, %33 ], [ 1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef nonnull readonly %0)
+  call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef nonnull %0)
   %37 = load ptr, ptr %30, align 8
   %.val.i.i = load ptr, ptr %37, align 8
   %38 = getelementptr i8, ptr %37, i64 16
@@ -2654,7 +2654,7 @@ Abc_Clock.exit83:                                 ; preds = %Abc_Clock.exit, %33
   br i1 %58, label %Abc_NtkDontCareWindow.exit, label %59
 
 59:                                               ; preds = %54, %Abc_Clock.exit83
-  %60 = call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull readonly %0)
+  %60 = call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull %0)
   br label %Abc_NtkDontCareWindow.exit
 
 Abc_NtkDontCareWindow.exit:                       ; preds = %54, %59
@@ -2711,7 +2711,7 @@ Abc_Clock.exit88:                                 ; preds = %74, %77
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
   %91 = shl nsw i64 %90, 2
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %3, i8 -1, i64 %91, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 -1, i64 %91, i1 false)
   %92 = getelementptr inbounds i8, ptr %0, i64 148
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, 1
@@ -2972,7 +2972,7 @@ Abc_Clock.exit99:                                 ; preds = %214, %217
   %231 = load i32, ptr %142, align 4
   %232 = sext i32 %231 to i64
   %233 = shl nsw i64 %232, 2
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %3, i8 -1, i64 %233, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 -1, i64 %233, i1 false)
   %234 = getelementptr inbounds i8, ptr %0, i64 152
   %235 = load i32, ptr %234, align 8
   %236 = add nsw i32 %235, 1
@@ -3111,7 +3111,7 @@ Abc_Clock.exit106:                                ; preds = %291, %294
   %308 = load i32, ptr %142, align 4
   %309 = sext i32 %308 to i64
   %310 = shl nsw i64 %309, 2
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %3, i8 -1, i64 %310, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 -1, i64 %310, i1 false)
   %311 = getelementptr inbounds i8, ptr %0, i64 156
   %312 = load i32, ptr %311, align 4
   %313 = add nsw i32 %312, 1

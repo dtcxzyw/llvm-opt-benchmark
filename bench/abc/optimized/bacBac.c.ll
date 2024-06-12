@@ -490,10 +490,10 @@ BacManReadBacLine.exit:                           ; preds = %.lr.ph.i
   %31 = tail call noalias dereferenceable_or_null(1328) ptr @calloc(i64 noundef 1, i64 noundef 1328) #20
   %32 = call ptr @Extra_FileDesignName(ptr noundef nonnull %3) #21
   store ptr %32, ptr %31, align 8
-  %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #17
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %34 = add i64 %33, 1
   %35 = call noalias ptr @malloc(i64 noundef %34) #19
-  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %3) #21
+  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %3) #21
   %37 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %35, ptr %37, align 8
   %38 = call ptr @Abc_NamStart(i32 noundef 1000, i32 noundef 24) #21
@@ -1225,10 +1225,10 @@ Vec_StrAlloc.exit:                                ; preds = %6, %13
   br i1 %.not.i27, label %Abc_UtilStrsav.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #17
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %28 = add i64 %27, 1
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #19
-  %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %0) #21
+  %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %0) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %25, %26
@@ -1325,7 +1325,7 @@ Vec_StrPushBuffer.exit:                           ; preds = %2, %10, %20
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds i8, ptr %24, i64 %25
   %27 = sext i32 %.val12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr readonly align 1 %.val, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %.val, i64 %27, i1 false)
   %28 = load i32, ptr %5, align 4
   %29 = add nsw i32 %28, %.val12
   store i32 %29, ptr %5, align 4
@@ -1375,7 +1375,7 @@ Vec_StrPushBuffer.exit18:                         ; preds = %Vec_StrPushBuffer.e
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
   %49 = sext i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr readonly align 1 %.val10, i64 %49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %.val10, i64 %49, i1 false)
   %50 = load i32, ptr %5, align 4
   %51 = add nsw i32 %50, %31
   store i32 %51, ptr %5, align 4
@@ -1427,7 +1427,7 @@ Vec_StrPushBuffer.exit23:                         ; preds = %Vec_StrPushBuffer.e
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %69, i64 %71
   %73 = sext i32 %55 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr readonly align 1 %.val9, i64 %73, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %.val9, i64 %73, i1 false)
   %74 = load i32, ptr %5, align 4
   %75 = add nsw i32 %74, %55
   store i32 %75, ptr %5, align 4

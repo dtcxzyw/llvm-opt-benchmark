@@ -648,7 +648,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRKiRiEEERS1_DpOT_.exit.i: ; pred
   %233 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %232, i1 true)
   %234 = shl nuw nsw i64 %233, 1
   %235 = xor i64 %234, 126
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_T0_T1_"(ptr %.sroa.0108.5.i, ptr %.sroa.12.5.i, i64 noundef %235, ptr nonnull readonly %5)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_T0_T1_"(ptr %.sroa.0108.5.i, ptr %.sroa.12.5.i, i64 noundef %235, ptr nonnull %5)
   %236 = icmp sgt i64 %231, 128
   br i1 %236, label %.lr.ph.i.i.i.i90.i, label %.preheader.i24.i.i.i.i
 

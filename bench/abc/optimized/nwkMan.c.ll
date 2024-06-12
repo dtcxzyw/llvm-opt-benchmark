@@ -377,10 +377,10 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr nocapt
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #16
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
   %39 = add i64 %38, 1
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #14
-  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %36) #15
+  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %36) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %35, %37
@@ -414,10 +414,10 @@ define noundef ptr @Nwk_FileNameGeneric(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %4 = add i64 %3, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #14
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #15
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %2
@@ -537,10 +537,10 @@ define void @Nwk_ManPrintStats(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not28, label %Nwk_FileNameGeneric.exit, label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %12
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #16
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #16
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #14
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %14) #15
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %14) #15
   %19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 46) #16
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %Nwk_FileNameGeneric.exit, label %20

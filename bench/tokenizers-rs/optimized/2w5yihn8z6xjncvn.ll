@@ -1055,7 +1055,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h3d75b919e7261d5fE(ptr noal
   %.val8.i.i.i = load i64, ptr %67, align 8, !noalias !250, !noundef !13
   %68 = sub i64 %.val10.i.i.i, %.val8.i.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i.i, i64 %.val8.i.i.i)
-  %69 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i.i, ptr nonnull readonly %.val.i.i.i, i64 %..i.i.i.i), !alias.scope !253, !noalias !250
+  %69 = tail call i32 @memcmp(ptr nonnull %.val9.i.i.i, ptr nonnull %.val.i.i.i, i64 %..i.i.i.i), !alias.scope !253, !noalias !250
   %70 = sext i32 %69 to i64
   %71 = icmp eq i32 %69, 0
   %spec.store.select.i.i.i.i = select i1 %71, i64 %68, i64 %70
@@ -1100,7 +1100,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h3d75b919e7261d5fE(ptr noal
   %.val8.i.i73.i = load i64, ptr %86, align 8, !noalias !250, !noundef !13
   %87 = sub i64 %.val10.i.i71.i, %.val8.i.i73.i
   %..i.i.i74.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i71.i, i64 %.val8.i.i73.i)
-  %88 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i70.i, ptr nonnull readonly %.val.i.i72.i, i64 %..i.i.i74.i), !alias.scope !257, !noalias !250
+  %88 = tail call i32 @memcmp(ptr nonnull %.val9.i.i70.i, ptr nonnull %.val.i.i72.i, i64 %..i.i.i74.i), !alias.scope !257, !noalias !250
   %89 = sext i32 %88 to i64
   %90 = icmp eq i32 %88, 0
   %spec.store.select.i.i.i75.i = select i1 %90, i64 %87, i64 %89
@@ -1146,7 +1146,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h3d75b919e7261d5fE(ptr noal
   %.val8.i.i82.i = load i64, ptr %106, align 8, !noalias !250, !noundef !13
   %107 = sub i64 %.val10.i.i80.i, %.val8.i.i82.i
   %..i.i.i83.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i80.i, i64 %.val8.i.i82.i)
-  %108 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i79.i, ptr nonnull readonly %.val.i.i81.i, i64 %..i.i.i83.i), !alias.scope !261, !noalias !250
+  %108 = tail call i32 @memcmp(ptr nonnull %.val9.i.i79.i, ptr nonnull %.val.i.i81.i, i64 %..i.i.i83.i), !alias.scope !261, !noalias !250
   %109 = sext i32 %108 to i64
   %110 = icmp eq i32 %108, 0
   %spec.store.select.i.i.i84.i = select i1 %110, i64 %107, i64 %109
@@ -1480,7 +1480,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h15feba4475106b3cE.exit: ; preds = %.
   %.val8.i.i.i60 = load i64, ptr %240, align 8, !noundef !13
   %241 = sub i64 %.val10.i.i.i58, %.val8.i.i.i60
   %..i.i.i.i61 = tail call i64 @llvm.umin.i64(i64 %.val10.i.i.i58, i64 %.val8.i.i.i60)
-  %242 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i.i57, ptr nonnull readonly %.val.i.i.i59, i64 %..i.i.i.i61), !alias.scope !289
+  %242 = tail call i32 @memcmp(ptr nonnull %.val9.i.i.i57, ptr nonnull %.val.i.i.i59, i64 %..i.i.i.i61), !alias.scope !289
   %243 = sext i32 %242 to i64
   %244 = icmp eq i32 %242, 0
   %spec.store.select.i.i.i.i62 = select i1 %244, i64 %241, i64 %243
@@ -1546,7 +1546,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h15feba4475106b3cE.exit: ; preds = %.
   %.val8.i.i46.i = load i64, ptr %269, align 8, !noundef !13
   %270 = sub i64 %.val10.i.i44.i, %.val8.i.i46.i
   %..i.i.i47.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i44.i, i64 %.val8.i.i46.i)
-  %271 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i43.i, ptr nonnull readonly %.val.i.i45.i, i64 %..i.i.i47.i), !alias.scope !293
+  %271 = tail call i32 @memcmp(ptr nonnull %.val9.i.i43.i, ptr nonnull %.val.i.i45.i, i64 %..i.i.i47.i), !alias.scope !293
   %272 = sext i32 %271 to i64
   %273 = icmp eq i32 %271, 0
   %spec.store.select.i.i.i48.i = select i1 %273, i64 %270, i64 %272
@@ -6434,7 +6434,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h8d
   %.val8.i.i.i = load i64, ptr %22, align 8, !noalias !1069, !noundef !13
   %23 = sub i64 %.val10.i.i.i, %.val8.i.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i.i, i64 %.val8.i.i.i)
-  %24 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i.i, ptr nonnull readonly %.val.i.i.i, i64 %..i.i.i.i), !alias.scope !1072, !noalias !1069
+  %24 = tail call i32 @memcmp(ptr nonnull %.val9.i.i.i, ptr nonnull %.val.i.i.i, i64 %..i.i.i.i), !alias.scope !1072, !noalias !1069
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i = select i1 %26, i64 %23, i64 %25
@@ -6488,7 +6488,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h8d
   %.val8.i.i22.i = load i64, ptr %41, align 8, !noalias !1069, !noundef !13
   %42 = sub i64 %.val10.i.i20.i, %.val8.i.i22.i
   %..i.i.i23.i = tail call i64 @llvm.umin.i64(i64 %.val10.i.i20.i, i64 %.val8.i.i22.i)
-  %43 = tail call i32 @memcmp(ptr nonnull readonly %.val9.i.i19.i, ptr nonnull readonly %.val.i.i21.i, i64 %..i.i.i23.i), !alias.scope !1081, !noalias !1069
+  %43 = tail call i32 @memcmp(ptr nonnull %.val9.i.i19.i, ptr nonnull %.val.i.i21.i, i64 %..i.i.i23.i), !alias.scope !1081, !noalias !1069
   %44 = sext i32 %43 to i64
   %45 = icmp eq i32 %43, 0
   %spec.store.select.i.i.i24.i = select i1 %45, i64 %42, i64 %44
@@ -11049,7 +11049,7 @@ define hidden void @"_ZN187_$LT$tokenizers..decoders..bpe.._..$LT$impl$u20$serde
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %1, ptr noundef nonnull readonly dereferenceable(6) @anon.ea43b57d861d21d1ae2fc34d6cb269da.101.llvm.838311727041459786, i64 6), !alias.scope !1926
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1, ptr noundef nonnull dereferenceable(6) @anon.ea43b57d861d21d1ae2fc34d6cb269da.101.llvm.838311727041459786, i64 6), !alias.scope !1926
   %4 = icmp ne i32 %bcmp.i, 0
   %spec.select = zext i1 %4 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.thread"
@@ -11131,17 +11131,17 @@ define hidden void @"_ZN186_$LT$tokenizers..decoders..strip.._..$LT$impl$u20$ser
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %1, ptr noundef nonnull readonly dereferenceable(7) @anon.ea43b57d861d21d1ae2fc34d6cb269da.102.llvm.838311727041459786, i64 7), !alias.scope !1930
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1, ptr noundef nonnull dereferenceable(7) @anon.ea43b57d861d21d1ae2fc34d6cb269da.102.llvm.838311727041459786, i64 7), !alias.scope !1930
   %4 = icmp eq i32 %bcmp.i, 0
   br i1 %4, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit18.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit14": ; preds = %3
-  %bcmp.i13 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %1, ptr noundef nonnull readonly dereferenceable(5) @anon.ea43b57d861d21d1ae2fc34d6cb269da.103.llvm.838311727041459786, i64 5), !alias.scope !1934
+  %bcmp.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1, ptr noundef nonnull dereferenceable(5) @anon.ea43b57d861d21d1ae2fc34d6cb269da.103.llvm.838311727041459786, i64 5), !alias.scope !1934
   %5 = icmp eq i32 %bcmp.i13, 0
   br i1 %5, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit18.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit18": ; preds = %3
-  %bcmp.i17 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull readonly dereferenceable(4) @anon.ea43b57d861d21d1ae2fc34d6cb269da.104.llvm.838311727041459786, i64 4), !alias.scope !1938
+  %bcmp.i17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @anon.ea43b57d861d21d1ae2fc34d6cb269da.104.llvm.838311727041459786, i64 4), !alias.scope !1938
   %6 = icmp eq i32 %bcmp.i17, 0
   br i1 %6, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit18.thread"
 

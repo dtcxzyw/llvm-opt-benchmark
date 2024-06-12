@@ -264,7 +264,7 @@ if.then17.i:                                      ; preds = %if.end13.i
   %sense_data_len.i.i = getelementptr inbounds i8, ptr %req, i64 368
   store i16 4608, ptr %sense_data_len.i.i, align 4
   %sense_data.i.i = getelementptr inbounds i8, ptr %req, i64 370
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(18) %sense_data.i.i, ptr noundef nonnull readonly align 16 dereferenceable(18) %sense_buf, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %sense_data.i.i, ptr noundef nonnull align 16 dereferenceable(18) %sense_buf, i64 18, i1 false)
   br label %ufs_build_scsi_response_upiu.exit
 
 ufs_build_scsi_response_upiu.exit:                ; preds = %if.end13.i, %if.then17.i
@@ -630,7 +630,7 @@ if.else.i.i:                                      ; preds = %if.then17.i
 ufs_build_upiu_sense_data.exit.i:                 ; preds = %if.then17.i
   %sense_data.i.i = getelementptr inbounds i8, ptr %0, i64 370
   %conv3.i.i = zext nneg i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %sense_data.i.i, ptr nonnull readonly align 1 %sense, i64 %conv3.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sense_data.i.i, ptr nonnull align 1 %sense, i64 %conv3.i.i, i1 false)
   br label %ufs_build_scsi_response_upiu.exit
 
 ufs_build_scsi_response_upiu.exit:                ; preds = %if.end13.i, %ufs_build_upiu_sense_data.exit.i

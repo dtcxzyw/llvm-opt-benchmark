@@ -436,7 +436,7 @@ Psr_ManWriteVerilogIos.exit.i:                    ; preds = %70, %52
   %103 = getelementptr i32, ptr %.val21.i.i.i, i64 %102
   %104 = getelementptr i8, ptr %103, i64 -4
   %105 = load i32, ptr %104, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull readonly %25, i32 noundef %105)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %105)
   %106 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 3, i64 1, ptr %11)
   %.val1922.i.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
   %107 = icmp sgt i32 %.val1922.i.i.i, 1
@@ -457,7 +457,7 @@ Psr_ManWriteVerilogIos.exit.i:                    ; preds = %70, %52
   %.val18.i.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
   %112 = getelementptr inbounds i32, ptr %.val18.i.i.i, i64 %indvars.iv.i.i.i
   %113 = load i32, ptr %112, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull readonly %25, i32 noundef %113)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %113)
   %114 = lshr exact i64 %indvars.iv25.i.i.i, 1
   %115 = add nuw nsw i64 %114, 1
   %116 = getelementptr inbounds [4 x ptr], ptr @__const.Psr_ManWriteVerilogMux.pStrs, i64 0, i64 %115
@@ -492,7 +492,7 @@ Ptr_TypeToName.exit.i.i:                          ; preds = %122, %switch.lookup
   %127 = getelementptr i32, ptr %Psr_BoxSignals.V.val45.i.i, i64 %126
   %128 = getelementptr i8, ptr %127, i64 -4
   %129 = load i32, ptr %128, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull readonly %25, i32 noundef %129)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %129)
   %.val48.i.i = load ptr, ptr %79, align 8
   %.val49.i.i = load ptr, ptr %80, align 8
   %130 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %indvars.iv.i20.i
@@ -529,7 +529,7 @@ Ptr_TypeToName.exit.i.i:                          ; preds = %122, %switch.lookup
   %.val.i56.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
   %144 = getelementptr inbounds i32, ptr %.val.i56.i.i, i64 %indvars.iv.i55.i.i
   %145 = load i32, ptr %144, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull readonly %25, i32 noundef %145)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %145)
   %146 = icmp eq i64 %indvars.iv.i55.i.i, %sext20.i.i.i
   %147 = select i1 %146, ptr @.str.1, ptr @.str.2
   %fputs.i57.i.i = tail call i32 @fputs(ptr nonnull %147, ptr %11)
@@ -579,7 +579,7 @@ Ptr_TypeToName.exit.i.i:                          ; preds = %122, %switch.lookup
   %169 = tail call ptr @Abc_NamStr(ptr noundef %.val20.i62.i.i, i32 noundef %166) #10
   %fputs.i63.i.i = tail call i32 @fputs(ptr %169, ptr %11)
   %fputc18.i.i.i = tail call i32 @fputc(i32 40, ptr %11)
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull readonly %25, i32 noundef %168)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %168)
   %.val21.i64.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
   %170 = add nsw i32 %.val21.i64.i.i, -2
   %171 = zext i32 %170 to i64
@@ -745,7 +745,7 @@ Bac_ObjNameStr.exit.i:                            ; preds = %Bac_ObjName.exit.th
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef %53)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef nonnull @.str.11)
   %54 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %54)
+  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull %0, i32 noundef %54)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef nonnull @.str.12)
   %55 = add nuw nsw i32 %.04966.i, 1
   %56 = zext nneg i32 %55 to i64
@@ -792,7 +792,7 @@ Bac_BoxBiNum.exit.i:                              ; preds = %64, %.preheader.i
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef %70)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef nonnull @.str.11)
   %71 = trunc nsw i64 %indvars.iv75.i to i32
-  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %71)
+  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull %0, i32 noundef %71)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef nonnull @.str.12)
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %.val.i = load i32, ptr %6, align 4
@@ -836,7 +836,7 @@ Bac_BoxBiNum.exit.i210:                           ; preds = %83, %80
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %79, ptr noundef nonnull @.str.46)
   %89 = trunc i64 %indvars.iv296 to i32
   %90 = add i32 %89, 1
-  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %90)
+  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull %0, i32 noundef %90)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %79, ptr noundef nonnull @.str.43)
   switch i32 %88, label %Bac_ManWriteAssign.exit [
     i32 0, label %91
@@ -879,7 +879,7 @@ Bac_BoxBiNum.exit.i210:                           ; preds = %83, %80
 99:                                               ; preds = %98, %96
   %100 = trunc i64 %indvars.iv296 to i32
   %101 = add i32 %100, -1
-  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %101)
+  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull %0, i32 noundef %101)
   br label %Bac_ManWriteAssign.exit
 
 102:                                              ; preds = %Bac_BoxBiNum.exit.i210
@@ -897,7 +897,7 @@ Bac_BoxBiNum.exit.i210:                           ; preds = %83, %80
 104:                                              ; preds = %103, %102
   %105 = trunc i64 %indvars.iv296 to i32
   %106 = add i32 %105, -1
-  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %106)
+  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull %0, i32 noundef %106)
   %switch.tableidx = add nsw i8 %16, -12
   %107 = icmp ult i8 %switch.tableidx, 8
   br i1 %107, label %switch.hole_check, label %108
@@ -926,7 +926,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 111:                                              ; preds = %.sink.split.i, %108
   %112 = trunc i64 %indvars.iv296 to i32
   %113 = add i32 %112, -2
-  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull readonly %0, i32 noundef %113)
+  tail call fastcc void @Bac_ManWriteSig(ptr noundef nonnull %0, i32 noundef %113)
   br label %Bac_ManWriteAssign.exit
 
 Bac_ManWriteAssign.exit:                          ; preds = %Bac_BoxBiNum.exit.i210, %91, %92, %93, %94, %95, %99, %111
@@ -3335,7 +3335,7 @@ Bac_ManFindRealNameId.exit:                       ; preds = %292, %295
   %302 = getelementptr i8, ptr %.val193, i64 48
   %.val193.val194 = load ptr, ptr %302, align 8
   %303 = tail call ptr @Abc_NamStr(ptr noundef %.val193.val, i32 noundef %.010.i) #10
-  %304 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %303) #13
+  %304 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %303) #13
   %305 = trunc i64 %304 to i32
   %306 = icmp sgt i32 %305, 0
   br i1 %306, label %.lr.ph.i319, label %.lr.ph.i249.preheader

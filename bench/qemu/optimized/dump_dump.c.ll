@@ -1096,7 +1096,7 @@ get_note_sizes.exit.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i, 
 
 note_name_equal.exit.i.i.i:                       ; preds = %get_note_sizes.exit.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %28, i64 12
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i, label %if.then56.i.i.i, label %if.end73.i.i.i
 
@@ -1398,7 +1398,7 @@ get_note_sizes.exit.i.i82.i.i:                    ; preds = %if.else.i.i.i79.i.i
 
 note_name_equal.exit.i115.i.i:                    ; preds = %get_note_sizes.exit.i.i82.i.i
   %add.ptr.i.i116.i.i = getelementptr i8, ptr %81, i64 12
-  %bcmp.i.i117.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i116.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
+  %bcmp.i.i117.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i116.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i.i118.i.i = icmp eq i32 %bcmp.i.i117.i.i, 0
   br i1 %cmp6.i.i118.i.i, label %if.then57.i.i.i, label %if.end75.i.i.i
 
@@ -2058,7 +2058,7 @@ if.end.i.i.i:                                     ; preds = %if.else12
   br i1 %cmp.i.i.i.i28, label %if.then1.i.i.i, label %if.else2.i.i.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %elf64_header.i.i.i, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %elf64_header.i.i.i, i8 0, i64 56, i1 false)
   store i32 1179403647, ptr %elf64_header.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %elf64_header.i.i.i, i64 4
   store i8 2, ptr %arrayidx.i.i.i.i, align 4
@@ -2124,7 +2124,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.else2.i.i.i:                                   ; preds = %if.end.i.i.i
   %183 = getelementptr inbounds i8, ptr %elf32_header.i.i.i, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %183, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %183, i8 0, i64 36, i1 false)
   store i32 1179403647, ptr %elf32_header.i.i.i, align 4
   store i8 1, ptr %183, align 4
   %184 = load i32, ptr %d_endian.i.i.i.i30, align 4
@@ -2312,7 +2312,7 @@ prepare_elf_section_hdrs.exit.i.i.i:              ; preds = %if.then7.i.i.i.i
 if.end.i22.i.i:                                   ; preds = %if.else.i.i.i.i.i47, %if.then.i.i.i.i.i55
   %shdr_size.0.i.i.i.i.i = phi i64 [ 64, %if.then.i.i.i.i.i55 ], [ 40, %if.else.i.i.i.i.i47 ]
   %shdr.0.i.i.i.i.i = phi ptr [ %shdr64.i.i.i.i.i, %if.then.i.i.i.i.i55 ], [ %shdr32.i.i.i.i.i, %if.else.i.i.i.i.i47 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %buff_hdr.0.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %shdr.0.i.i.i.i.i, i64 %shdr_size.0.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %buff_hdr.0.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %shdr.0.i.i.i.i.i, i64 %shdr_size.0.i.i.i.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %strtab.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %shdr32.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %shdr64.i.i.i.i.i)
@@ -2355,7 +2355,7 @@ if.end8.i.i:                                      ; preds = %write_elf_section_h
   br i1 %cmp.i.i29.i.i, label %if.then.i.i.i, label %if.else.i30.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end8.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %phdr64.i.i.i, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %phdr64.i.i.i, i8 0, i64 56, i1 false)
   %219 = load i32, ptr %d_endian.i.i.i.i30, align 4
   %cmp.i.i.i37.i.i = icmp eq i32 %219, 1
   %spec.select.i.i.i38.i.i = select i1 %cmp.i.i.i37.i.i, i32 4, i32 67108864
@@ -3119,7 +3119,7 @@ get_note_sizes.exit.i:                            ; preds = %if.else.i.i, %if.th
 
 note_name_equal.exit:                             ; preds = %get_note_sizes.exit.i
   %add.ptr.i = getelementptr i8, ptr %0, i64 12
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.end, label %return
 

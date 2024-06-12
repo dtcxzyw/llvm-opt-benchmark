@@ -1350,7 +1350,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN3zmq11mechanism_t12add_propertyEPhmPKcPKvm(ptr nocapture noundef writeonly %ptr_, i64 noundef %ptr_capacity_, ptr nocapture noundef readonly %name_, ptr nocapture noundef readonly %value_, i64 noundef %value_len_) local_unnamed_addr #0 align 2 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #30
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #30
   %cmp.i = icmp ugt i64 %call.i, 255
   br i1 %cmp.i, label %if.then.i, label %_ZL8name_lenPKc.exit
 
@@ -1416,7 +1416,7 @@ do.end13:                                         ; preds = %do.end, %if.then9
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN3zmq11mechanism_t12property_lenEPKcm(ptr nocapture noundef readonly %name_, i64 noundef %value_len_) local_unnamed_addr #0 align 2 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #30
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #30
   %cmp.i = icmp ugt i64 %call.i, 255
   br i1 %cmp.i, label %if.then.i, label %_ZL8name_lenPKc.exit
 
@@ -1551,7 +1551,7 @@ for.body:                                         ; preds = %_ZN3zmq11mechanism_
   %second = getelementptr inbounds i8, ptr %it.sroa.0.024, i64 64
   %call12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #25
   %call13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call12) #30
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #30
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #30
   %cmp.i.i = icmp ugt i64 %call.i.i, 255
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3zmq11mechanism_t12property_lenEPKcm.exit
 
@@ -1763,7 +1763,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i.i, %.noexc
   br i1 %tobool8.not.i.i, label %if.end37, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %land.lhs.true.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %add.ptr11, i64 %or10.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %add.ptr11, i64 %or10.i, i1 false)
   br label %if.end37
 
 if.else:                                          ; preds = %land.lhs.true, %if.end15
@@ -1891,12 +1891,12 @@ sw.bb:                                            ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit:            ; preds = %sw.bb
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_rep, i64 3)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_rep, i64 3)
   %cmp1.i = icmp eq i32 %bcmp.i, 0
   br label %return
 
 land.rhs.i60:                                     ; preds = %sw.bb
-  %bcmp.i61 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_router, i64 6)
+  %bcmp.i61 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_router, i64 6)
   %cmp1.i62 = icmp eq i32 %bcmp.i61, 0
   br label %return
 
@@ -1907,12 +1907,12 @@ sw.bb3:                                           ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit67:          ; preds = %sw.bb3
-  %bcmp.i65 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_req, i64 3)
+  %bcmp.i65 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_req, i64 3)
   %cmp1.i66 = icmp eq i32 %bcmp.i65, 0
   br label %return
 
 land.rhs.i69:                                     ; preds = %sw.bb3
-  %bcmp.i70 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_dealer, i64 6)
+  %bcmp.i70 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_dealer, i64 6)
   %cmp1.i71 = icmp eq i32 %bcmp.i70, 0
   br label %return
 
@@ -1923,17 +1923,17 @@ sw.bb8:                                           ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit77:          ; preds = %sw.bb8
-  %bcmp.i75 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_rep, i64 3)
+  %bcmp.i75 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_rep, i64 3)
   %cmp1.i76 = icmp eq i32 %bcmp.i75, 0
   br label %return
 
 _ZL9strequalsILm7EEbPKcmRAT__S0_.exit82:          ; preds = %sw.bb8
-  %bcmp.i80 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_dealer, i64 6)
+  %bcmp.i80 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_dealer, i64 6)
   %cmp1.i81 = icmp eq i32 %bcmp.i80, 0
   br i1 %cmp1.i81, label %return, label %land.rhs.i84
 
 land.rhs.i84:                                     ; preds = %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit82
-  %bcmp.i85 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_router, i64 6)
+  %bcmp.i85 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_router, i64 6)
   %cmp1.i86 = icmp eq i32 %bcmp.i85, 0
   br label %return
 
@@ -1944,17 +1944,17 @@ sw.bb14:                                          ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit92:          ; preds = %sw.bb14
-  %bcmp.i90 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_req, i64 3)
+  %bcmp.i90 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_req, i64 3)
   %cmp1.i91 = icmp eq i32 %bcmp.i90, 0
   br label %return
 
 _ZL9strequalsILm7EEbPKcmRAT__S0_.exit97:          ; preds = %sw.bb14
-  %bcmp.i95 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_dealer, i64 6)
+  %bcmp.i95 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_dealer, i64 6)
   %cmp1.i96 = icmp eq i32 %bcmp.i95, 0
   br i1 %cmp1.i96, label %return, label %land.rhs.i99
 
 land.rhs.i99:                                     ; preds = %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit97
-  %bcmp.i100 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_router, i64 6)
+  %bcmp.i100 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_router, i64 6)
   %cmp1.i101 = icmp eq i32 %bcmp.i100, 0
   br label %return
 
@@ -1963,7 +1963,7 @@ sw.bb21:                                          ; preds = %entry
   br i1 %cmp.i103, label %land.rhs.i104, label %return
 
 land.rhs.i104:                                    ; preds = %sw.bb21
-  %bcmp.i105 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_pull, i64 4)
+  %bcmp.i105 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_pull, i64 4)
   %cmp1.i106 = icmp eq i32 %bcmp.i105, 0
   br label %return
 
@@ -1972,7 +1972,7 @@ sw.bb23:                                          ; preds = %entry
   br i1 %cmp.i107, label %land.rhs.i108, label %return
 
 land.rhs.i108:                                    ; preds = %sw.bb23
-  %bcmp.i109 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_push, i64 4)
+  %bcmp.i109 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_push, i64 4)
   %cmp1.i110 = icmp eq i32 %bcmp.i109, 0
   br label %return
 
@@ -1983,12 +1983,12 @@ sw.bb25:                                          ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit116:         ; preds = %sw.bb25
-  %bcmp.i114 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_sub, i64 3)
+  %bcmp.i114 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_sub, i64 3)
   %cmp1.i115 = icmp eq i32 %bcmp.i114, 0
   br label %return
 
 land.rhs.i118:                                    ; preds = %sw.bb25
-  %bcmp.i119 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_xsub, i64 4)
+  %bcmp.i119 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_xsub, i64 4)
   %cmp1.i120 = icmp eq i32 %bcmp.i119, 0
   br label %return
 
@@ -1999,12 +1999,12 @@ sw.bb30:                                          ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit126:         ; preds = %sw.bb30
-  %bcmp.i124 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_pub, i64 3)
+  %bcmp.i124 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_pub, i64 3)
   %cmp1.i125 = icmp eq i32 %bcmp.i124, 0
   br label %return
 
 land.rhs.i128:                                    ; preds = %sw.bb30
-  %bcmp.i129 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_xpub, i64 4)
+  %bcmp.i129 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_xpub, i64 4)
   %cmp1.i130 = icmp eq i32 %bcmp.i129, 0
   br label %return
 
@@ -2015,12 +2015,12 @@ sw.bb35:                                          ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit136:         ; preds = %sw.bb35
-  %bcmp.i134 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_sub, i64 3)
+  %bcmp.i134 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_sub, i64 3)
   %cmp1.i135 = icmp eq i32 %bcmp.i134, 0
   br label %return
 
 land.rhs.i138:                                    ; preds = %sw.bb35
-  %bcmp.i139 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_xsub, i64 4)
+  %bcmp.i139 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_xsub, i64 4)
   %cmp1.i140 = icmp eq i32 %bcmp.i139, 0
   br label %return
 
@@ -2031,12 +2031,12 @@ sw.bb40:                                          ; preds = %entry
   ]
 
 _ZL9strequalsILm4EEbPKcmRAT__S0_.exit146:         ; preds = %sw.bb40
-  %bcmp.i144 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %type_, ptr noundef nonnull readonly dereferenceable(3) @_ZL15socket_type_pub, i64 3)
+  %bcmp.i144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %type_, ptr noundef nonnull dereferenceable(3) @_ZL15socket_type_pub, i64 3)
   %cmp1.i145 = icmp eq i32 %bcmp.i144, 0
   br label %return
 
 land.rhs.i148:                                    ; preds = %sw.bb40
-  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_xpub, i64 4)
+  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_xpub, i64 4)
   %cmp1.i150 = icmp eq i32 %bcmp.i149, 0
   br label %return
 
@@ -2045,7 +2045,7 @@ sw.bb45:                                          ; preds = %entry
   br i1 %cmp.i152, label %land.rhs.i153, label %return
 
 land.rhs.i153:                                    ; preds = %sw.bb45
-  %bcmp.i154 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_pair, i64 4)
+  %bcmp.i154 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_pair, i64 4)
   %cmp1.i155 = icmp eq i32 %bcmp.i154, 0
   br label %return
 
@@ -2054,7 +2054,7 @@ sw.bb47:                                          ; preds = %entry
   br i1 %cmp.i157, label %land.rhs.i158, label %return
 
 land.rhs.i158:                                    ; preds = %sw.bb47
-  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_client, i64 6)
+  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_client, i64 6)
   %cmp1.i160 = icmp eq i32 %bcmp.i159, 0
   br label %return
 
@@ -2063,7 +2063,7 @@ sw.bb49:                                          ; preds = %entry
   br i1 %cmp.i162, label %land.rhs.i163, label %return
 
 land.rhs.i163:                                    ; preds = %sw.bb49
-  %bcmp.i164 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_server, i64 6)
+  %bcmp.i164 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_server, i64 6)
   %cmp1.i165 = icmp eq i32 %bcmp.i164, 0
   br label %return
 
@@ -2072,7 +2072,7 @@ sw.bb51:                                          ; preds = %entry
   br i1 %cmp.i167, label %land.rhs.i168, label %return
 
 land.rhs.i168:                                    ; preds = %sw.bb51
-  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_dish, i64 4)
+  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_dish, i64 4)
   %cmp1.i170 = icmp eq i32 %bcmp.i169, 0
   br label %return
 
@@ -2081,7 +2081,7 @@ sw.bb53:                                          ; preds = %entry
   br i1 %cmp.i172, label %land.rhs.i173, label %return
 
 land.rhs.i173:                                    ; preds = %sw.bb53
-  %bcmp.i174 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %type_, ptr noundef nonnull readonly dereferenceable(5) @_ZL17socket_type_radio, i64 5)
+  %bcmp.i174 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %type_, ptr noundef nonnull dereferenceable(5) @_ZL17socket_type_radio, i64 5)
   %cmp1.i175 = icmp eq i32 %bcmp.i174, 0
   br label %return
 
@@ -2090,7 +2090,7 @@ sw.bb55:                                          ; preds = %entry
   br i1 %cmp.i176, label %land.rhs.i177, label %return
 
 land.rhs.i177:                                    ; preds = %sw.bb55
-  %bcmp.i178 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %type_, ptr noundef nonnull readonly dereferenceable(7) @_ZL19socket_type_scatter, i64 7)
+  %bcmp.i178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %type_, ptr noundef nonnull dereferenceable(7) @_ZL19socket_type_scatter, i64 7)
   %cmp1.i179 = icmp eq i32 %bcmp.i178, 0
   br label %return
 
@@ -2099,7 +2099,7 @@ sw.bb57:                                          ; preds = %entry
   br i1 %cmp.i180, label %land.rhs.i181, label %return
 
 land.rhs.i181:                                    ; preds = %sw.bb57
-  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %type_, ptr noundef nonnull readonly dereferenceable(6) @_ZL18socket_type_gather, i64 6)
+  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %type_, ptr noundef nonnull dereferenceable(6) @_ZL18socket_type_gather, i64 6)
   %cmp1.i183 = icmp eq i32 %bcmp.i182, 0
   br label %return
 
@@ -2108,7 +2108,7 @@ sw.bb59:                                          ; preds = %entry
   br i1 %cmp.i185, label %land.rhs.i186, label %return
 
 land.rhs.i186:                                    ; preds = %sw.bb59
-  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %type_, ptr noundef nonnull readonly dereferenceable(5) @_ZL17socket_type_dgram, i64 5)
+  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %type_, ptr noundef nonnull dereferenceable(5) @_ZL17socket_type_dgram, i64 5)
   %cmp1.i188 = icmp eq i32 %bcmp.i187, 0
   br label %return
 
@@ -2117,7 +2117,7 @@ sw.bb61:                                          ; preds = %entry
   br i1 %cmp.i190, label %land.rhs.i191, label %return
 
 land.rhs.i191:                                    ; preds = %sw.bb61
-  %bcmp.i192 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %type_, ptr noundef nonnull readonly dereferenceable(4) @_ZL16socket_type_peer, i64 4)
+  %bcmp.i192 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %type_, ptr noundef nonnull dereferenceable(4) @_ZL16socket_type_peer, i64 4)
   %cmp1.i193 = icmp eq i32 %bcmp.i192, 0
   br label %return
 
@@ -2126,7 +2126,7 @@ sw.bb63:                                          ; preds = %entry
   br i1 %cmp.i195, label %land.rhs.i196, label %return
 
 land.rhs.i196:                                    ; preds = %sw.bb63
-  %bcmp.i197 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %type_, ptr noundef nonnull readonly dereferenceable(7) @_ZL19socket_type_channel, i64 7)
+  %bcmp.i197 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %type_, ptr noundef nonnull dereferenceable(7) @_ZL19socket_type_channel, i64 7)
   %cmp1.i198 = icmp eq i32 %bcmp.i197, 0
   br label %return
 

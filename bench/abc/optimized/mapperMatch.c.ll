@@ -653,7 +653,7 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
   br label %63
 
 61:                                               ; preds = %.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 24, i1 false)
   %62 = getelementptr inbounds i8, ptr %4, i64 24
   store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %62, align 8
   br label %63

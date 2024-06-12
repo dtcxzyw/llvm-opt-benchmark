@@ -5313,45 +5313,45 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %129
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %65)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %66)
-  %138 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.71, i32 noundef 0)
+  %138 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.71, i32 noundef 0)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %135
   %139 = icmp ne i32 %138, 0
   %140 = zext i1 %139 to i8
-  %141 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.72, i32 noundef 10)
+  %141 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.72, i32 noundef 10)
           to label %.noexc49 unwind label %.loopexit.split-lp
 
 .noexc49:                                         ; preds = %.noexc
-  %142 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.73, i32 noundef 0)
+  %142 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.73, i32 noundef 0)
           to label %.noexc50 unwind label %.loopexit.split-lp
 
 .noexc50:                                         ; preds = %.noexc49
   %143 = icmp ne i32 %142, 0
   %144 = zext i1 %143 to i8
-  %145 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.74, i32 noundef 1)
+  %145 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.74, i32 noundef 1)
           to label %.noexc51 unwind label %.loopexit.split-lp
 
 .noexc51:                                         ; preds = %.noexc50
   %146 = icmp ne i32 %145, 0
   %147 = zext i1 %146 to i8
-  %148 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %148 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.75, i32 noundef 0)
           to label %.noexc52 unwind label %.loopexit.split-lp
 
 .noexc52:                                         ; preds = %.noexc51
-  %149 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.76, i32 noundef 1)
+  %149 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.76, i32 noundef 1)
           to label %.noexc53 unwind label %.loopexit.split-lp
 
 .noexc53:                                         ; preds = %.noexc52
-  %150 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.77, i32 noundef 0)
+  %150 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.77, i32 noundef 0)
           to label %.noexc54 unwind label %.loopexit.split-lp
 
 .noexc54:                                         ; preds = %.noexc53
-  %151 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.78, i32 noundef 0)
+  %151 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.78, i32 noundef 0)
           to label %.noexc55 unwind label %.loopexit.split-lp
 
 .noexc55:                                         ; preds = %.noexc54
-  %152 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.79, i32 noundef 0)
+  %152 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull @.str.79, i32 noundef 0)
           to label %.noexc56 unwind label %.loopexit.split-lp
 
 .noexc56:                                         ; preds = %.noexc55
@@ -5539,7 +5539,7 @@ switch.lookup:                                    ; preds = %183
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: ; preds = %.noexc49.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #25, !noalias !50
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %212
 
 210:                                              ; preds = %.noexc.i.i, %206
@@ -5583,7 +5583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i: ; preds = %.noexc51.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #25, !noalias !50
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %222
 
 220:                                              ; preds = %.noexc50.i.i, %216
@@ -5621,7 +5621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i
           to label %.noexc59 unwind label %.loopexit.split-lp
 
 .noexc59:                                         ; preds = %.noexc58
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %227
 
 227:                                              ; preds = %.noexc59
@@ -5654,7 +5654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i: ; preds = %.noexc56.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25, !noalias !50
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %236
 
 234:                                              ; preds = %.noexc55.i.i, %230
@@ -5725,7 +5725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
   br label %.body.i
 
 249:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %247
 
 .invoke.i.i:                                      ; preds = %246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
@@ -5752,7 +5752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
   br label %.body.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i: ; preds = %.noexc.i
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %256 unwind label %257
 
 256:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i
@@ -7875,7 +7875,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i105:             ; preds = %1152, %_ZL24dd_inte
   %1163 = sub i64 %1161, %1162
   %1164 = getelementptr inbounds i8, ptr %1158, i64 %1163
   %1165 = load i32, ptr %906, align 8, !noalias !71
-  %1166 = invoke fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18CartesianRankSetupN3gmx8ArrayRefIKiEEPK9t_commreci(ptr noundef nonnull readonly align 8 dereferenceable(232) %104, ptr noundef nonnull align 8 dereferenceable(80) %32, ptr %1158, ptr %1164, ptr noundef nonnull %906, i32 noundef %1165)
+  %1166 = invoke fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18CartesianRankSetupN3gmx8ArrayRefIKiEEPK9t_commreci(ptr noundef nonnull align 8 dereferenceable(232) %104, ptr noundef nonnull align 8 dereferenceable(80) %32, ptr %1158, ptr %1164, ptr noundef nonnull %906, i32 noundef %1165)
           to label %1167 unwind label %965, !noalias !65
 
 1167:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i105
@@ -8795,7 +8795,7 @@ _ZN18CartesianRankSetupaSERKS_.exit:              ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   %106 = load ptr, ptr %49, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull readonly align 8 dereferenceable(32) %98, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false)
   %107 = getelementptr inbounds i8, ptr %106, i64 2080
   store i32 0, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %106, i64 28
@@ -8820,7 +8820,7 @@ _ZN18CartesianRankSetupaSERKS_.exit:              ; preds = %.noexc10
   %116 = getelementptr inbounds i8, ptr %106, i64 344
   tail call void @_ZNSt15__uniq_ptr_implI15gmx_domdec_sortSt14default_deleteIS0_EE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull %115) #25
   %117 = getelementptr inbounds i8, ptr %106, i64 456
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %117, ptr noundef nonnull readonly align 8 dereferenceable(92) %99, i64 92, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %117, ptr noundef nonnull align 8 dereferenceable(92) %99, i64 92, i1 false)
   %118 = load i8, ptr %99, align 8
   %119 = trunc i8 %118 to i1
   br i1 %119, label %120, label %_ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i
@@ -8890,7 +8890,7 @@ _ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i: ; 
 147:                                              ; preds = %_ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i
   %148 = getelementptr inbounds i8, ptr %1, i64 56
   %149 = load ptr, ptr %148, align 8
-  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull readonly align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.139, i32 noundef %142, ptr noundef %149)
+  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.139, i32 noundef %142, ptr noundef %149)
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %147
@@ -8920,7 +8920,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %156, %_ZNSt6vectorI
   %157 = load i32, ptr %133, align 4
   %158 = getelementptr inbounds i8, ptr %1, i64 64
   %159 = load ptr, ptr %158, align 8
-  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull readonly align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.140, i32 noundef %157, ptr noundef %159)
+  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.140, i32 noundef %157, ptr noundef %159)
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc21:                                         ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
@@ -8950,7 +8950,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit89.i:                ; preds = %166, %_ZNSt6vectorI
   %167 = load i32, ptr %134, align 4
   %168 = getelementptr inbounds i8, ptr %1, i64 72
   %169 = load ptr, ptr %168, align 8
-  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.141, i32 noundef %167, ptr noundef %169)
+  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.141, i32 noundef %167, ptr noundef %169)
           to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc22:                                         ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit89.i
@@ -9892,7 +9892,7 @@ _ZL25receive_ddindex2simnodeidP12gmx_domdec_tP9t_commrec.exit.i: ; preds = %633,
   %646 = getelementptr inbounds i8, ptr %640, i64 264
   %647 = load i8, ptr %646, align 8
   %648 = load i32, ptr %304, align 8
-  %649 = invoke fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18CartesianRankSetupN3gmx8ArrayRefIKiEEPK9t_commreci(ptr noundef nonnull align 8 dereferenceable(232) %641, ptr noundef nonnull align 8 dereferenceable(80) %646, ptr %297, ptr %303, ptr noundef nonnull readonly %304, i32 noundef %648)
+  %649 = invoke fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18CartesianRankSetupN3gmx8ArrayRefIKiEEPK9t_commreci(ptr noundef nonnull align 8 dereferenceable(232) %641, ptr noundef nonnull align 8 dereferenceable(80) %646, ptr %297, ptr %303, ptr noundef nonnull %304, i32 noundef %648)
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc50:                                         ; preds = %645
@@ -9940,7 +9940,7 @@ _ZL25receive_ddindex2simnodeidP12gmx_domdec_tP9t_commrec.exit.i: ; preds = %633,
 
 _ZL16receive_vir_enerPK12gmx_domdec_tN3gmx8ArrayRefIKiEEPK9t_commrec.exit.sink.split.i: ; preds = %670, %.noexc52
   %.sink10.i = phi i32 [ %669, %.noexc52 ], [ %672, %670 ]
-  %676 = invoke fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18CartesianRankSetupN3gmx8ArrayRefIKiEEPK9t_commreci(ptr noundef nonnull align 8 dereferenceable(232) %641, ptr noundef nonnull align 8 dereferenceable(80) %646, ptr %297, ptr %303, ptr noundef nonnull readonly %304, i32 noundef %.sink10.i)
+  %676 = invoke fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18CartesianRankSetupN3gmx8ArrayRefIKiEEPK9t_commreci(ptr noundef nonnull align 8 dereferenceable(232) %641, ptr noundef nonnull align 8 dereferenceable(80) %646, ptr %297, ptr %303, ptr noundef nonnull %304, i32 noundef %.sink10.i)
           to label %.noexc53 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc53:                                         ; preds = %_ZL16receive_vir_enerPK12gmx_domdec_tN3gmx8ArrayRefIKiEEPK9t_commrec.exit.sink.split.i
@@ -10192,7 +10192,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread.i: ; preds = %_ZL8usingPmeRK2
 
 .thread.i.i:                                      ; preds = %._crit_edge.i.i67, %776, %742
   %.1.i.i58 = phi i32 [ %.0130.i.i, %776 ], [ %.sroa.speculated120.i.i, %._crit_edge.i.i67 ], [ 1, %742 ]
-  %802 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(40) %708, ptr noundef nonnull @.str.160, i32 noundef 0)
+  %802 = invoke fastcc noundef i32 @_ZL9dd_getenvRKN3gmx8MDLoggerEPKci(ptr noundef nonnull align 8 dereferenceable(40) %708, ptr noundef nonnull @.str.160, i32 noundef 0)
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc75:                                         ; preds = %.thread.i.i
@@ -10395,7 +10395,7 @@ _ZL19set_cell_limits_dlbRKN3gmx8MDLoggerEP12gmx_domdec_tfRK10t_inputrecPK11gmx_d
   %.val.i51.i = load i32, ptr %903, align 4
   %904 = and i32 %.val.i51.i, -2
   %spec.select.i.i52.i = icmp eq i32 %904, 4
-  invoke fastcc void @_ZL13writeSettingsPN3gmx10TextWriterEP12gmx_domdec_tRK10gmx_mtop_tRK10t_inputrecbfPK11gmx_ddbox_t(ptr noundef nonnull %13, ptr noundef nonnull %308, ptr noundef nonnull align 8 dereferenceable(768) %711, ptr noundef nonnull readonly align 8 dereferenceable(856) %712, i1 noundef zeroext %spec.select.i.i52.i, float noundef %710, ptr noundef nonnull %105)
+  invoke fastcc void @_ZL13writeSettingsPN3gmx10TextWriterEP12gmx_domdec_tRK10gmx_mtop_tRK10t_inputrecbfPK11gmx_ddbox_t(ptr noundef nonnull %13, ptr noundef nonnull %308, ptr noundef nonnull align 8 dereferenceable(768) %711, ptr noundef nonnull align 8 dereferenceable(856) %712, i1 noundef zeroext %spec.select.i.i52.i, float noundef %710, ptr noundef nonnull %105)
           to label %905 unwind label %915
 
 905:                                              ; preds = %901
@@ -10414,7 +10414,7 @@ _ZL19set_cell_limits_dlbRKN3gmx8MDLoggerEP12gmx_domdec_tfRK10t_inputrecPK11gmx_d
           to label %912 unwind label %915
 
 912:                                              ; preds = %911
-  invoke fastcc void @_ZL13writeSettingsPN3gmx10TextWriterEP12gmx_domdec_tRK10gmx_mtop_tRK10t_inputrecbfPK11gmx_ddbox_t(ptr noundef nonnull %13, ptr noundef nonnull %308, ptr noundef nonnull align 8 dereferenceable(768) %711, ptr noundef nonnull readonly align 8 dereferenceable(856) %712, i1 noundef zeroext true, float noundef %710, ptr noundef nonnull %105)
+  invoke fastcc void @_ZL13writeSettingsPN3gmx10TextWriterEP12gmx_domdec_tRK10gmx_mtop_tRK10t_inputrecbfPK11gmx_ddbox_t(ptr noundef nonnull %13, ptr noundef nonnull %308, ptr noundef nonnull align 8 dereferenceable(768) %711, ptr noundef nonnull align 8 dereferenceable(856) %712, i1 noundef zeroext true, float noundef %710, ptr noundef nonnull %105)
           to label %917 unwind label %915
 
 913:                                              ; preds = %899
@@ -11148,7 +11148,7 @@ _ZNSt6vectorIP10tmpi_comm_SaIS1_EE6resizeEm.exit.i.i: ; preds = %1231, %1237, %1
   store i32 0, ptr %1241, align 4
   %1242 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %1242, align 4
-  invoke fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr noundef nonnull readonly %308, i32 noundef 0, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr noundef nonnull %308, i32 noundef 0, ptr noundef nonnull %7)
           to label %.noexc103 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc103:                                        ; preds = %1240
@@ -11173,7 +11173,7 @@ _ZNSt6vectorIP10tmpi_comm_SaIS1_EE6resizeEm.exit.i.i: ; preds = %1231, %1237, %1
 1254:                                             ; preds = %.noexc104, %.lr.ph.i.i89
   %.03042.i.i = phi i32 [ 0, %.lr.ph.i.i89 ], [ %1255, %.noexc104 ]
   store i32 %.03042.i.i, ptr %1253, align 4
-  invoke fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr noundef nonnull readonly %308, i32 noundef 1, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr noundef nonnull %308, i32 noundef 1, ptr noundef nonnull %7)
           to label %.noexc104 unwind label %.loopexit.split-lp.loopexit
 
 .noexc104:                                        ; preds = %1254
@@ -11222,7 +11222,7 @@ _ZNSt6vectorIP10tmpi_comm_SaIS1_EE6resizeEm.exit.i.i: ; preds = %1231, %1237, %1
 1275:                                             ; preds = %.noexc105, %.lr.ph45.i.i
   %.043.i.i = phi i32 [ 0, %.lr.ph45.i.i ], [ %1276, %.noexc105 ]
   store i32 %.043.i.i, ptr %1274, align 4
-  invoke fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr noundef nonnull readonly %308, i32 noundef 2, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL22make_load_communicatorP12gmx_domdec_tiPi(ptr noundef nonnull %308, i32 noundef 2, ptr noundef nonnull %7)
           to label %.noexc105 unwind label %.loopexit
 
 .noexc105:                                        ; preds = %1275

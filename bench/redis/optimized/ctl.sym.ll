@@ -1380,7 +1380,7 @@ ctl_background_thread_stats_read.exit:            ; preds = %for.end19, %if.then
   %54 = load ptr, ptr @ctl_stats, align 8
   %arrayidx.i33 = getelementptr inbounds i8, ptr %54, i64 208
   %max_counter_per_bg_thd.i = getelementptr inbounds i8, ptr %41, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i33, ptr noundef nonnull readonly align 8 dereferenceable(64) %max_counter_per_bg_thd.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i33, ptr noundef nonnull align 8 dereferenceable(64) %max_counter_per_bg_thd.i, i64 64, i1 false)
   %n_waiting_thds.i.i = getelementptr inbounds i8, ptr %54, i64 244
   store atomic i32 0, ptr %n_waiting_thds.i.i monotonic, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @background_thread_lock, i64 64)) #14
@@ -1410,14 +1410,14 @@ if.then.i.i:                                      ; preds = %if.end.i
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %58 = load ptr, ptr @ctl_stats, align 8
   %mutex_prof_data = getelementptr inbounds i8, ptr %58, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull readonly align 8 dereferenceable(64) @background_thread_lock, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull align 8 dereferenceable(64) @background_thread_lock, i64 64, i1 false)
   %n_waiting_thds.i.i35 = getelementptr inbounds i8, ptr %58, i64 180
   store atomic i32 0, ptr %n_waiting_thds.i.i35 monotonic, align 4
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @background_thread_lock, i64 104) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @background_thread_lock, i64 64)) #14
   %59 = load ptr, ptr @ctl_stats, align 8
   %arrayidx42 = getelementptr inbounds i8, ptr %59, i64 272
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx42, ptr noundef nonnull readonly align 8 dereferenceable(64) @ctl_mtx, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx42, ptr noundef nonnull align 8 dereferenceable(64) @ctl_mtx, i64 64, i1 false)
   %n_waiting_thds.i.i36 = getelementptr inbounds i8, ptr %59, i64 308
   store atomic i32 0, ptr %n_waiting_thds.i.i36 monotonic, align 4
   %60 = load ptr, ptr @ctl_arenas, align 8
@@ -7086,7 +7086,7 @@ if.then12.i:                                      ; preds = %if.end6.i
 
 if.then23.i:                                      ; preds = %if.then12.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arena_i_decay_ms_ctl_impl.exit
 
@@ -7164,7 +7164,7 @@ if.then12.i:                                      ; preds = %if.end6.i
 
 if.then23.i:                                      ; preds = %if.then12.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arena_i_decay_ms_ctl_impl.exit
 
@@ -7767,7 +7767,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then8.i:                                       ; preds = %if.then.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arenas_decay_ms_ctl_impl.exit
 
@@ -7816,7 +7816,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then8.i:                                       ; preds = %if.then.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
   br label %arenas_decay_ms_ctl_impl.exit
 

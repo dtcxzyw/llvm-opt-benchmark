@@ -2339,7 +2339,7 @@ llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_up
   %1042 = getelementptr inbounds i8, ptr %2, i64 24
   %1043 = load ptr, ptr %1042, align 8
   %.val.i138 = load ptr, ptr %1043, align 8
-  %1044 = tail call fastcc ptr @type_lowering(ptr noundef readonly %.val.i138)
+  %1044 = tail call fastcc ptr @type_lowering(ptr noundef %.val.i138)
   %1045 = load ptr, ptr %1042, align 8
   %1046 = getelementptr inbounds i8, ptr %2, i64 32
   %1047 = load i8, ptr %1046, align 8
@@ -3333,13 +3333,13 @@ expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subs
   br label %1568
 
 1568:                                             ; preds = %1565, %1563
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
   %.not21.i.i = icmp eq ptr %1, null
   br i1 %.not21.i.i, label %llvm_emit_inc_dec_change.exit.i, label %1569
 
 1569:                                             ; preds = %1568
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %llvm_emit_inc_dec_change.exit.i
 
 llvm_emit_inc_dec_change.exit.i:                  ; preds = %1569, %1568
@@ -4572,7 +4572,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
   %180 = call ptr @LLVMConstInt(ptr noundef %170, i64 noundef %indvars.iv, i32 noundef %179) #10
   %181 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %180, ptr noundef %181) #10
-  %182 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %166, ptr noundef %163, ptr noundef nonnull %7, i32 noundef %164, ptr noundef nonnull writeonly %30)
+  %182 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %166, ptr noundef %163, ptr noundef nonnull %7, i32 noundef %164, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %183 = load i32, ptr %30, align 4
   %184 = call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %182, ptr noundef nonnull %29, i32 noundef %183) #10
@@ -9265,7 +9265,7 @@ define internal fastcc void @llvm_emit_const_expr(ptr noundef %0, ptr noundef %1
   %4 = alloca [2 x i64], align 16
   %5 = alloca [2 x ptr], align 16
   %.val = load ptr, ptr %2, align 8
-  %6 = tail call fastcc ptr @type_lowering(ptr noundef readonly %.val)
+  %6 = tail call fastcc ptr @type_lowering(ptr noundef %.val)
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
@@ -10513,7 +10513,7 @@ llvm_emit_array_gep_raw.exit70:                   ; preds = %121, %130
   %137 = call ptr @LLVMConstInt(ptr noundef %127, i64 noundef %indvars.iv, i32 noundef %136) #10
   %138 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %6, ptr noundef %137, ptr noundef %138) #10
-  %139 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %123, ptr noundef %90, ptr noundef nonnull %6, i32 noundef %124, ptr noundef nonnull writeonly %24)
+  %139 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %123, ptr noundef %90, ptr noundef nonnull %6, i32 noundef %124, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %140 = load i32, ptr %24, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %25, ptr noundef %139, ptr noundef %88, i32 noundef %140) #10
@@ -10541,7 +10541,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %llvm_emit_array_gep
   %155 = call ptr @LLVMConstInt(ptr noundef %145, i64 noundef %indvars.iv, i32 noundef %154) #10
   %156 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %155, ptr noundef %156) #10
-  %157 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %141, ptr noundef %90, ptr noundef nonnull %7, i32 noundef %142, ptr noundef nonnull writeonly %26)
+  %157 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %141, ptr noundef %90, ptr noundef nonnull %7, i32 noundef %142, ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %158 = load i32, ptr %26, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %27, ptr noundef %157, ptr noundef %88, i32 noundef %158) #10
@@ -13193,7 +13193,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %41, %47
   %54 = call ptr @LLVMConstInt(ptr noundef %44, i64 noundef %.0.i1921, i32 noundef %53) #10
   %55 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %54, ptr noundef %55) #10
-  %56 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %2, ptr noundef %37, ptr noundef nonnull %7, i32 noundef %5, ptr noundef nonnull writeonly %8)
+  %56 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %2, ptr noundef %37, ptr noundef nonnull %7, i32 noundef %5, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %57 = load ptr, ptr %40, align 8
   %58 = load i32, ptr %8, align 4
@@ -14187,7 +14187,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %76, %83
   %90 = call ptr @LLVMConstInt(ptr noundef %80, i64 noundef %indvars.iv148, i32 noundef %89) #10
   %91 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %6, ptr noundef %90, ptr noundef %91) #10
-  %92 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %66, ptr noundef %72, ptr noundef nonnull %6, i32 noundef %77, ptr noundef nonnull writeonly %7)
+  %92 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %66, ptr noundef %72, ptr noundef nonnull %6, i32 noundef %77, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %93 = load i32, ptr %7, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %8, ptr noundef %92, ptr noundef %69, i32 noundef %93) #10
@@ -14254,7 +14254,7 @@ llvm_emit_array_gep_raw.exit129:                  ; preds = %111, %123
   %131 = call ptr @LLVMConstInt(ptr noundef %120, i64 noundef %127, i32 noundef %130) #10
   %132 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %5, ptr noundef %131, ptr noundef %132) #10
-  %133 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %99, ptr noundef %104, ptr noundef nonnull %5, i32 noundef %117, ptr noundef nonnull writeonly %9)
+  %133 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %99, ptr noundef %104, ptr noundef nonnull %5, i32 noundef %117, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %134 = load i32, ptr %9, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %10, ptr noundef %133, ptr noundef %103, i32 noundef %134) #10
@@ -14824,7 +14824,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %223, %230
   %237 = call ptr @LLVMConstInt(ptr noundef %227, i64 noundef %indvars.iv, i32 noundef %236) #10
   %238 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %237, ptr noundef %238) #10
-  %239 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %182, ptr noundef %183, ptr noundef nonnull %4, i32 noundef %224, ptr noundef nonnull writeonly %10)
+  %239 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %182, ptr noundef %183, ptr noundef nonnull %4, i32 noundef %224, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %240 = load ptr, ptr %201, align 8
   %241 = load i32, ptr %10, align 4
@@ -15299,7 +15299,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %32, %41
   %49 = tail call ptr @LLVMConstInt(ptr noundef %38, i64 noundef %45, i32 noundef %48) #10
   %50 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %9, ptr noundef %49, ptr noundef %50) #10
-  %51 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull writeonly %10)
+  %51 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %52 = getelementptr inbounds i8, ptr %0, i64 168
   %53 = load ptr, ptr %52, align 8
@@ -15423,7 +15423,7 @@ llvm_emit_array_gep_raw.exit307:                  ; preds = %113, %119
   %126 = call ptr @LLVMConstInt(ptr noundef %116, i64 noundef %indvars.iv, i32 noundef %125) #10
   %127 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %8, ptr noundef %126, ptr noundef %127) #10
-  %128 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %2, ptr noundef nonnull writeonly %11)
+  %128 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %2, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %129 = icmp eq i64 %indvars.iv, %108
   %or.cond = and i1 %95, %129
@@ -16029,7 +16029,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %190, %212
   %220 = tail call ptr @LLVMConstInt(ptr noundef %209, i64 noundef %216, i32 noundef %219) #10
   %221 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %12, ptr noundef %220, ptr noundef %221) #10
-  %222 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %201, ptr noundef %203, ptr noundef nonnull %12, i32 noundef %206, ptr noundef nonnull writeonly %17)
+  %222 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %201, ptr noundef %203, ptr noundef nonnull %12, i32 noundef %206, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %223 = load i32, ptr %17, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %14, ptr noundef %222, ptr noundef %194, i32 noundef %223) #10
@@ -16094,7 +16094,7 @@ llvm_emit_array_gep_raw.exit198:                  ; preds = %238, %246
   %254 = call ptr @LLVMConstInt(ptr noundef %243, i64 noundef %250, i32 noundef %253) #10
   %255 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %8, ptr noundef %254, ptr noundef %255) #10
-  %256 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %239, ptr noundef %230, ptr noundef nonnull %8, i32 noundef %240, ptr noundef nonnull writeonly %11)
+  %256 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %239, ptr noundef %230, ptr noundef nonnull %8, i32 noundef %240, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %257 = load ptr, ptr %228, align 8
   %258 = call ptr @type_get_indexed_type(ptr noundef %257) #10
@@ -17652,7 +17652,7 @@ expr_is_vector_subscript.exit.thread:             ; preds = %expr_is_vector_subs
   br label %30
 
 30:                                               ; preds = %27, %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
@@ -17918,7 +17918,7 @@ type_flatten.exit149:                             ; preds = %50
 
 llvm_emit_bitassign_array.exit:                   ; preds = %80, %82
   %.0.i.i = phi i1 [ %81, %80 ], [ %..i.i, %82 ]
-  call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %70, i32 noundef %72, ptr noundef %75, i1 noundef zeroext %.0.i.i, ptr noundef readonly %12, ptr noundef %47)
+  call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %70, i32 noundef %72, ptr noundef %75, i1 noundef zeroext %.0.i.i, ptr noundef %12, ptr noundef %47)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %160
 
@@ -18437,7 +18437,7 @@ llvm_extract_bool_bit_from_array.exit.i:          ; preds = %50, %34
   %59 = tail call ptr @LLVMConstInt(ptr noundef %47, i64 noundef %55, i32 noundef %58) #10
   %60 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %5, ptr noundef %59, ptr noundef %60) #10
-  %61 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %36, ptr noundef %42, ptr noundef nonnull %5, i32 noundef %44, ptr noundef nonnull writeonly %6)
+  %61 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %36, ptr noundef %42, ptr noundef nonnull %5, i32 noundef %44, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %62 = load i32, ptr %6, align 4
   %63 = call ptr @llvm_load(ptr noundef %0, ptr noundef %38, ptr noundef %61, i32 noundef %62, ptr noundef nonnull @.str.3) #10
@@ -18530,7 +18530,7 @@ llvm_emit_array_gep_raw.exit.i:                   ; preds = %111, %102
   %118 = call ptr @LLVMConstInt(ptr noundef %108, i64 noundef %indvars.iv.i, i32 noundef %117) #10
   %119 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %118, ptr noundef %119) #10
-  %120 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %86, ptr noundef %104, ptr noundef nonnull %4, i32 noundef %105, ptr noundef nonnull writeonly %7)
+  %120 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %86, ptr noundef %104, ptr noundef nonnull %4, i32 noundef %105, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %121 = load i32, ptr %7, align 4
   %122 = call ptr @llvm_load(ptr noundef %0, ptr noundef %88, ptr noundef %120, i32 noundef %121, ptr noundef nonnull @.str.3) #10

@@ -2733,7 +2733,7 @@ if.then99.critedge.i:                             ; preds = %if.else.i11, %int12
   %sub107.i = add i32 %74, -1
   %idxprom.i = sext i32 %sub107.i to i64
   %arrayidx.i = getelementptr %struct.MemoryRegionSection, ptr %call103.i, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %section, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(64) %section, i64 64, i1 false)
   %75 = load ptr, ptr %tmp_sections101.i, align 8
   %76 = load i32, ptr %n_tmp_sections.i, align 8
   %sub110.i = add i32 %76, -1
@@ -4471,7 +4471,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %4 = load ptr, ptr %mem_sections.i, align 8
   %arrayidx.i = getelementptr %struct.MemoryRegionSection, ptr %4, i64 %indvars.iv.i
-  tail call fastcc void @vhost_sync_dirty_bitmap(ptr noundef nonnull readonly %dev, ptr noundef %arrayidx.i, i64 noundef %sub)
+  tail call fastcc void @vhost_sync_dirty_bitmap(ptr noundef nonnull %dev, ptr noundef %arrayidx.i, i64 noundef %sub)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i32, ptr %n_mem_sections.i, align 8
   %6 = sext i32 %5 to i64

@@ -13987,7 +13987,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %storage_.i, align 8, !noalias !150
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %31 = extractelement <2 x ptr> %30, i64 0
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr readonly %31)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr %31)
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %if.end23
@@ -19367,7 +19367,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %storage_.i, align 8, !noalias !235
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %31 = extractelement <2 x ptr> %30, i64 0
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr readonly %31)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr %31)
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %if.end23
@@ -48776,7 +48776,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %storage_.i, align 8, !noalias !733
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %31 = extractelement <2 x ptr> %30, i64 0
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr readonly %31)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr %31)
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %if.end23

@@ -495,7 +495,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not41.i, label %43, label %44
 
 43:                                               ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 16 %4, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %4, i64 %2, i1 false)
   br label %44
 
 44:                                               ; preds = %43, %41, %38, %35, %33

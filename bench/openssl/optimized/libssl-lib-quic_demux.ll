@@ -113,7 +113,7 @@ if.end.i:                                         ; preds = %entry
   %id.i = getelementptr inbounds i8, ptr %a, i64 9
   %id8.i = getelementptr inbounds i8, ptr %b, i64 9
   %conv11.i = zext nneg i8 %0 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i, i64 %conv11.i)
   %cmp12.i = icmp ne i32 %bcmp.i, 0
   %2 = zext i1 %cmp12.i to i32
   br label %ossl_quic_conn_id_eq.exit
@@ -332,7 +332,7 @@ lor.lhs.false:                                    ; preds = %entry
 demux_get_by_conn_id.exit:                        ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
   %dst_conn_id2.i = getelementptr inbounds i8, ptr %key.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i, ptr noundef nonnull align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
   %conns_by_id.i = getelementptr inbounds i8, ptr %demux, i64 40
   %1 = load ptr, ptr %conns_by_id.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key.i) #12
@@ -379,7 +379,7 @@ lor.lhs.false:                                    ; preds = %entry
 demux_get_by_conn_id.exit:                        ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
   %dst_conn_id2.i = getelementptr inbounds i8, ptr %key.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i, ptr noundef nonnull align 1 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
   %conns_by_id.i = getelementptr i8, ptr %demux, i64 40
   %1 = load ptr, ptr %conns_by_id.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key.i) #12
@@ -840,7 +840,7 @@ demux_identify_conn.exit.thread52.i:              ; preds = %if.end.i.i
   br label %if.then23.i
 
 demux_identify_conn.exit.i:                       ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %dst_conn_id.i.i, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i.i.i, ptr noundef nonnull align 1 dereferenceable(21) %dst_conn_id.i.i, i64 21, i1 false)
   %6 = load ptr, ptr %conns_by_id.i.i.i, align 8
   %call.i.i.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %6, ptr noundef nonnull %key.i.i.i) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i.i.i)

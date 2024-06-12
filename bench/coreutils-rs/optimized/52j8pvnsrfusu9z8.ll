@@ -90,7 +90,7 @@ define hidden void @_ZN3nix3sys4stat4stat17hefa52d4a9de306e5E(ptr noalias nocapt
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5), !noalias !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !12
   %9 = getelementptr inbounds i8, ptr %5, i64 %2
   store i8 0, ptr %9, align 1, !noalias !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !5
@@ -109,7 +109,7 @@ define hidden void @_ZN3nix3sys4stat4stat17hefa52d4a9de306e5E(ptr noalias nocapt
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !5, !nonnull !4, !align !14, !noundef !4
-  %19 = call noundef i32 @stat(ptr noundef nonnull readonly %18, ptr noundef nonnull %6), !noalias !15
+  %19 = call noundef i32 @stat(ptr noundef nonnull %18, ptr noundef nonnull %6), !noalias !15
   br label %20
 
 20:                                               ; preds = %16, %8
@@ -163,7 +163,7 @@ define hidden void @_ZN3nix3sys4stat5lstat17h6e61b7544b748b45E(ptr noalias nocap
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5), !noalias !17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !24
   %9 = getelementptr inbounds i8, ptr %5, i64 %2
   store i8 0, ptr %9, align 1, !noalias !17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !17
@@ -182,7 +182,7 @@ define hidden void @_ZN3nix3sys4stat5lstat17h6e61b7544b748b45E(ptr noalias nocap
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !17, !nonnull !4, !align !14, !noundef !4
-  %19 = call noundef i32 @lstat(ptr noundef nonnull readonly %18, ptr noundef nonnull %6), !noalias !25
+  %19 = call noundef i32 @lstat(ptr noundef nonnull %18, ptr noundef nonnull %6), !noalias !25
   br label %20
 
 20:                                               ; preds = %16, %8
@@ -247,7 +247,7 @@ define hidden void @_ZN3std2fs16symlink_metadata17h072e9ab961dd7b55E(ptr noalias
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !38
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbc1ae971999f82fbE.llvm.464580060634382159.exit"
 
 8:                                                ; preds = %3
@@ -288,7 +288,7 @@ define hidden void @_ZN3std2fs8metadata17h43bbb9498c956a9cE(ptr noalias nocaptur
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !44
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbc1ae971999f82fbE.llvm.464580060634382159.exit"
 
 8:                                                ; preds = %3
@@ -876,7 +876,7 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %31, %2
   %101 = extractvalue { i64, ptr } %100, 1
   %102 = icmp ne ptr %101, null
   tail call void @llvm.assume(i1 %102)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %96, i64 %98, i1 false)
   %103 = getelementptr inbounds i8, ptr %101, i64 %98
   %104 = icmp eq i64 %98, 0
   br i1 %104, label %.loopexit, label %.lr.ph.i.i
@@ -992,7 +992,7 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %31, %2
   %148 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
   %149 = sub i64 %134, %145
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %148, ptr nonnull readonly %150, i64 %145), !alias.scope !191
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %148, ptr nonnull %150, i64 %145), !alias.scope !191
   %151 = icmp eq i32 %bcmp.i.i, 0
   br i1 %151, label %154, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge"
 
@@ -1290,7 +1290,7 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %31, %2
   %101 = extractvalue { i64, ptr } %100, 1
   %102 = icmp ne ptr %101, null
   tail call void @llvm.assume(i1 %102)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %96, i64 %98, i1 false)
   %103 = getelementptr inbounds i8, ptr %101, i64 %98
   %104 = icmp eq i64 %98, 0
   br i1 %104, label %.loopexit, label %.lr.ph.i.i
@@ -1406,7 +1406,7 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %31, %2
   %148 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
   %149 = sub i64 %134, %145
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %148, ptr nonnull readonly %150, i64 %145), !alias.scope !274
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %148, ptr nonnull %150, i64 %145), !alias.scope !274
   %151 = icmp eq i32 %bcmp.i.i, 0
   br i1 %151, label %154, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit.backedge"
 

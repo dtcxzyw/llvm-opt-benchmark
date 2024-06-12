@@ -571,7 +571,7 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %21
   %.01115.i = phi ptr [ %24, %21 ], [ %5, %.lr.ph.i.preheader ]
-  %20 = call i32 @strncmp(ptr noundef nonnull %.01115.i, ptr noundef readonly %18, i64 noundef %19) #16
+  %20 = call i32 @strncmp(ptr noundef nonnull %.01115.i, ptr noundef %18, i64 noundef %19) #16
   %.not12.i = icmp eq i32 %20, 0
   br i1 %.not12.i, label %hwloc_ps_pidcmd__from_env.exit, label %21
 

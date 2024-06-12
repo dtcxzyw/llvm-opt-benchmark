@@ -452,7 +452,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
   %44 = ashr exact i64 %sext.i, 32
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
   %46 = sub nsw i32 %1, %43
-  %47 = call noundef i32 @_ZN6google8protobuf8internal15UTF8GenericScanEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef nonnull readonly @_ZN6google8protobuf8internalL27utf8acceptnonsurrogates_objE, ptr noundef %45, i32 noundef %46, ptr noundef nonnull %3)
+  %47 = call noundef i32 @_ZN6google8protobuf8internal15UTF8GenericScanEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef nonnull @_ZN6google8protobuf8internalL27utf8acceptnonsurrogates_objE, ptr noundef %45, i32 noundef %46, ptr noundef nonnull %3)
   %48 = load i32, ptr %3, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 %49
@@ -570,7 +570,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   %45 = ashr exact i64 %sext.i, 32
   %46 = getelementptr inbounds i8, ptr %0, i64 %45
   %47 = sub nsw i32 %4, %44
-  %48 = call noundef i32 @_ZN6google8protobuf8internal15UTF8GenericScanEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef nonnull readonly @_ZN6google8protobuf8internalL27utf8acceptnonsurrogates_objE, ptr noundef %46, i32 noundef %47, ptr noundef nonnull %3)
+  %48 = call noundef i32 @_ZN6google8protobuf8internal15UTF8GenericScanEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef nonnull @_ZN6google8protobuf8internalL27utf8acceptnonsurrogates_objE, ptr noundef %46, i32 noundef %47, ptr noundef nonnull %3)
   %49 = load i32, ptr %3, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 %50

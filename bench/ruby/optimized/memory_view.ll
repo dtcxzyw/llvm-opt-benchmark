@@ -982,7 +982,7 @@ define internal fastcc i64 @extract_item_member(ptr nocapture noundef readonly %
   br i1 %.not.i23, label %ruby_nonempty_memcpy.exit, label %28
 
 28:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %4, ptr readonly align 1 %11, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %11, i64 %9, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %27, %28
@@ -1016,7 +1016,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %27, %28
   br i1 %.not.i23, label %switch_endianness.exit, label %40
 
 40:                                               ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %4, ptr readonly align 1 %11, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %11, i64 %9, i1 false)
   br label %switch_endianness.exit
 
 switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39, %ruby_nonempty_memcpy.exit
@@ -1259,7 +1259,7 @@ define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly %
   br i1 %10, label %rb_memory_view_extract_item_member.exit, label %.preheader.preheader
 
 rb_memory_view_extract_item_member.exit:          ; preds = %7
-  %11 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef 0)
+  %11 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %.loopexit
 
 .preheader.preheader:                             ; preds = %7, %6
@@ -1506,7 +1506,7 @@ rb_memory_view_prepare_item_desc.exit:            ; preds = %75
   br i1 %96, label %rb_memory_view_extract_item_member.exit.i, label %.preheader.preheader.i
 
 rb_memory_view_extract_item_member.exit.i:        ; preds = %93
-  %97 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef nonnull readonly %87, i64 noundef 0)
+  %97 = call fastcc i64 @extract_item_member(ptr noundef nonnull %.051.i, ptr noundef nonnull %87, i64 noundef 0)
   br label %rb_memory_view_extract_item_members.exit
 
 .preheader.preheader.i:                           ; preds = %93, %92
@@ -1523,7 +1523,7 @@ rb_memory_view_extract_item_member.exit.i:        ; preds = %93
 
 .lr.ph.i10:                                       ; preds = %.preheader.i9, %.lr.ph.i10
   %.02226.i = phi i64 [ %104, %.lr.ph.i10 ], [ 0, %.preheader.i9 ]
-  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef readonly %99, i64 noundef %.02226.i)
+  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull %.051.i, ptr noundef %99, i64 noundef %.02226.i)
   %103 = call i64 @rb_ary_push(i64 noundef %98, i64 noundef %102) #16
   %104 = add nuw i64 %.02226.i, 1
   %105 = load i64, ptr %100, align 8

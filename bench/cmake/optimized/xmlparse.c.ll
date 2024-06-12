@@ -209,18 +209,18 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
 57:                                               ; preds = %43
   %58 = getelementptr inbounds i8, ptr %47, i64 160
   %59 = getelementptr inbounds i8, ptr %47, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %58, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, i8 0, i64 40, i1 false)
   store ptr %26, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %47, i64 208
   %61 = getelementptr inbounds i8, ptr %47, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
   store ptr %26, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %47, i64 8
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %47, i64 16
   store ptr null, ptr %47, align 8
   %64 = getelementptr inbounds i8, ptr %47, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store ptr %26, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %47, i64 40
   %66 = getelementptr inbounds i8, ptr %47, i64 48
@@ -228,7 +228,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   %67 = getelementptr inbounds i8, ptr %47, i64 56
   store ptr null, ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %47, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store ptr %26, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %47, i64 80
   %70 = getelementptr inbounds i8, ptr %47, i64 88
@@ -236,7 +236,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   %71 = getelementptr inbounds i8, ptr %47, i64 96
   store ptr null, ptr %69, align 8
   %72 = getelementptr inbounds i8, ptr %47, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   store ptr %26, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %47, i64 120
   %74 = getelementptr inbounds i8, ptr %47, i64 128
@@ -244,7 +244,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   %75 = getelementptr inbounds i8, ptr %47, i64 136
   store ptr null, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %47, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   store ptr %26, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %47, i64 264
   %78 = getelementptr inbounds i8, ptr %47, i64 288
@@ -283,12 +283,12 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %.sink4, i64 760
   %96 = getelementptr inbounds i8, ptr %.sink4, i64 800
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %95, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %93, i8 0, i64 17, i1 false)
   store ptr %26, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %.sink4, i64 808
   %98 = getelementptr inbounds i8, ptr %.sink4, i64 848
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
   store ptr %26, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %.sink4, i64 504
   store ptr @prologInitProcessor, ptr %99, align 8
@@ -312,7 +312,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   br i1 %107, label %copyString.exit.i, label %108
 
 108:                                              ; preds = %104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull readonly align 1 %0, i64 %103, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 1 %0, i64 %103, i1 false)
   br label %copyString.exit.i
 
 copyString.exit.i:                                ; preds = %108, %104
@@ -601,7 +601,7 @@ poolClear.exit57:                                 ; preds = %.lr.ph.i54, %59, %6
   br i1 %75, label %copyString.exit.i, label %76
 
 76:                                               ; preds = %72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %1, i64 %71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %1, i64 %71, i1 false)
   br label %copyString.exit.i
 
 copyString.exit.i:                                ; preds = %76, %72
@@ -936,7 +936,7 @@ define dso_local range(i32 0, 2) i32 @XML_SetEncoding(ptr noundef %0, ptr nounde
   br i1 %20, label %.sink.split, label %copyString.exit
 
 copyString.exit:                                  ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %1, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %1, i64 %15, i1 false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %7, %copyString.exit
@@ -1314,7 +1314,7 @@ poolCopyString.exit.i:                            ; preds = %._crit_edge.i.i
   br i1 %.not137.i, label %dtdCopy.exit.thread, label %207
 
 207:                                              ; preds = %poolCopyString.exit.i
-  %208 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %91, ptr noundef nonnull %205, i64 noundef 16)
+  %208 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %91, ptr noundef nonnull %205, i64 noundef 16)
   %.not138.i = icmp eq ptr %208, null
   br i1 %.not138.i, label %dtdCopy.exit.thread, label %.backedge292
 
@@ -1412,7 +1412,7 @@ poolCopyString.exit155.i:                         ; preds = %242
 
 250:                                              ; preds = %poolCopyString.exit155.i
   %251 = getelementptr inbounds i8, ptr %248, i64 1
-  %252 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %217, ptr noundef nonnull %251, i64 noundef 24)
+  %252 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %217, ptr noundef nonnull %251, i64 noundef 24)
   %.not135.i = icmp eq ptr %252, null
   br i1 %.not135.i, label %dtdCopy.exit.thread, label %253
 
@@ -1442,7 +1442,7 @@ poolCopyString.exit155.i:                         ; preds = %242
   br i1 %268, label %.sink.split.i, label %269
 
 269:                                              ; preds = %265
-  %270 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %266)
+  %270 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %266)
   %271 = load i64, ptr %219, align 8
   %272 = add i64 %271, -1
   %273 = and i64 %272, %270
@@ -1588,7 +1588,7 @@ poolCopyString.exit171.i:                         ; preds = %331
   br i1 %.not125.i, label %dtdCopy.exit.thread, label %339
 
 339:                                              ; preds = %poolCopyString.exit171.i
-  %340 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %317, ptr noundef nonnull %337, i64 noundef 40)
+  %340 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %317, ptr noundef nonnull %337, i64 noundef 40)
   %.not126.i = icmp eq ptr %340, null
   br i1 %.not126.i, label %dtdCopy.exit.thread, label %341
 
@@ -1621,7 +1621,7 @@ poolCopyString.exit171.i:                         ; preds = %331
   br i1 %356, label %lookup.exit189.i, label %357
 
 357:                                              ; preds = %353
-  %358 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %354)
+  %358 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %354)
   %359 = load i64, ptr %318, align 8
   %360 = add i64 %359, -1
   %361 = and i64 %360, %358
@@ -1713,7 +1713,7 @@ lookup.exit189.i:                                 ; preds = %391, %.lr.ph.i.i186
   br i1 %406, label %lookup.exit207.i, label %407
 
 407:                                              ; preds = %403
-  %408 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %404)
+  %408 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %404)
   %409 = load i64, ptr %219, align 8
   %410 = add i64 %409, -1
   %411 = and i64 %410, %408
@@ -1809,7 +1809,7 @@ lookup.exit207.i:                                 ; preds = %441, %.lr.ph.i.i204
   br i1 %458, label %lookup.exit225.i, label %459
 
 459:                                              ; preds = %452
-  %460 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %456)
+  %460 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %456)
   %461 = load i64, ptr %318, align 8
   %462 = add i64 %461, -1
   %463 = and i64 %462, %460
@@ -2022,7 +2022,7 @@ poolCopyString.exit.i124:                         ; preds = %554
   br i1 %.not66.i, label %dtdCopy.exit.thread, label %562
 
 562:                                              ; preds = %poolCopyString.exit.i124
-  %563 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %76, ptr noundef nonnull %560, i64 noundef 64)
+  %563 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull %560, i64 noundef 64)
   %.not67.i = icmp eq ptr %563, null
   br i1 %.not67.i, label %dtdCopy.exit.thread, label %564
 
@@ -2400,7 +2400,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr nocapture nound
   br i1 %32, label %lookup.exit.thread, label %33
 
 33:                                               ; preds = %27
-  %34 = tail call fastcc i64 @hash(ptr noundef nonnull readonly %0, ptr noundef %30)
+  %34 = tail call fastcc i64 @hash(ptr noundef nonnull %0, ptr noundef %30)
   %35 = load i64, ptr %17, align 8
   %36 = add i64 %35, -1
   %37 = and i64 %36, %34
@@ -3269,7 +3269,7 @@ define internal i32 @externalEntityInitProcessor(ptr noundef %0, ptr noundef %1,
 33:                                               ; preds = %17, %14, %7
   %.024.i = phi ptr [ %1, %7 ], [ %15, %17 ], [ %15, %14 ]
   store ptr @externalEntityInitProcessor3, ptr %8, align 8
-  %34 = call i32 @externalEntityInitProcessor3(ptr noundef nonnull %0, ptr noundef %.024.i, ptr noundef %2, ptr noundef writeonly %3)
+  %34 = call i32 @externalEntityInitProcessor3(ptr noundef nonnull %0, ptr noundef %.024.i, ptr noundef %2, ptr noundef %3)
   br label %externalEntityInitProcessor2.exit
 
 externalEntityInitProcessor2.exit:                ; preds = %20, %24, %25, %30, %31, %33
@@ -6150,7 +6150,7 @@ poolClear.exit778.i:                              ; preds = %.lr.ph.i775.i, %265
 272:                                              ; preds = %98
   %273 = getelementptr inbounds i8, ptr %0, i64 504
   store ptr @contentProcessor, ptr %273, align 8
-  %274 = call i32 @contentProcessor(ptr noundef nonnull %0, ptr noundef %.0564.i, ptr noundef %2, ptr noundef writeonly %3)
+  %274 = call i32 @contentProcessor(ptr noundef nonnull %0, ptr noundef %.0564.i, ptr noundef %2, ptr noundef %3)
   br label %doProlog.exit
 
 275:                                              ; preds = %98
@@ -11217,7 +11217,7 @@ poolStoreString.exit:                             ; preds = %208, %._crit_edge.i
   br i1 %219, label %lookup.exit, label %220
 
 220:                                              ; preds = %217
-  %221 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef nonnull %216)
+  %221 = call fastcc i64 @hash(ptr noundef %0, ptr noundef nonnull %216)
   %222 = load i64, ptr %94, align 8
   %223 = add i64 %222, -1
   %224 = and i64 %223, %221
@@ -13192,7 +13192,7 @@ define internal fastcc i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %14, label %lookup.exit.thread, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call fastcc i64 @hash(ptr noundef nonnull readonly %0, ptr noundef %11)
+  %16 = tail call fastcc i64 @hash(ptr noundef nonnull %0, ptr noundef %11)
   %17 = load i64, ptr %12, align 8
   %18 = add i64 %17, -1
   %19 = and i64 %18, %16
@@ -16374,7 +16374,7 @@ poolStoreString.exit:                             ; preds = %150, %._crit_edge.i
   br i1 %161, label %lookup.exit, label %162
 
 162:                                              ; preds = %159
-  %163 = call fastcc i64 @hash(ptr noundef nonnull readonly %0, ptr noundef nonnull %158)
+  %163 = call fastcc i64 @hash(ptr noundef nonnull %0, ptr noundef nonnull %158)
   %164 = load i64, ptr %23, align 8
   %165 = add i64 %164, -1
   %166 = and i64 %165, %163

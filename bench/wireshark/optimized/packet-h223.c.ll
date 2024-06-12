@@ -644,7 +644,7 @@ find_or_create_call_info_circ.exit.thread.i:      ; preds = %find_or_create_call
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds i8, ptr %1, i64 216
   %64 = load ptr, ptr %63, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i32 %60, ptr %58, align 8
   %65 = icmp eq i32 %62, 0
   br i1 %65, label %copy_address_wmem.exit.i.i, label %66

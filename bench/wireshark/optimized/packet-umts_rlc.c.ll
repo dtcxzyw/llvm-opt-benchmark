@@ -3437,7 +3437,7 @@ get_frags.exit:                                   ; preds = %136, %rlc_channel_c
   %244 = getelementptr inbounds i8, ptr %240, i64 32
   %245 = getelementptr inbounds i8, ptr %240, i64 40
   %246 = getelementptr inbounds i8, ptr %240, i64 4
-  %247 = call fastcc i32 @rlc_channel_assign(ptr noundef nonnull writeonly %246, i32 noundef %0, ptr noundef nonnull %2, ptr noundef %9)
+  %247 = call fastcc i32 @rlc_channel_assign(ptr noundef nonnull %246, i32 noundef %0, ptr noundef nonnull %2, ptr noundef %9)
   store i16 %7, ptr %244, align 8
   %248 = call ptr @wmem_file_scope() #14
   %249 = zext i16 %4 to i32

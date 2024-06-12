@@ -1161,7 +1161,7 @@ if.then.i:                                        ; preds = %if.end
   store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4
   store i64 %length, ptr %call4.i.i.i.i, align 8
   %storage.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i.i, ptr readonly align 1 %data, i64 %length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i.i, ptr align 1 %data, i64 %length, i1 false)
   br label %return
 
 _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i: ; preds = %if.end
@@ -1170,7 +1170,7 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i: ; preds = %i
   store i64 523986010114, ptr %2, align 8
   store i64 4083, ptr %call4.i.i.i8.i, align 8
   %storage.i.i11.i = getelementptr inbounds i8, ptr %call4.i.i.i8.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4083) %storage.i.i11.i, ptr noundef nonnull readonly align 1 dereferenceable(4083) %data, i64 4083, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4083) %storage.i.i11.i, ptr noundef nonnull align 1 dereferenceable(4083) %data, i64 4083, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 4083
   %sub.i = add i64 %length, -4083
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
@@ -6341,7 +6341,7 @@ if.then.i:                                        ; preds = %_ZNK4absl4Cord4size
   %_M_str.i.i = getelementptr inbounds i8, ptr %fragment.i, i64 8
   %8 = load ptr, ptr %_M_str.i.i, align 8
   %9 = load i64, ptr %fragment.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call3, ptr align 1 %8, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3, ptr align 1 %8, i64 %9, i1 false)
   br label %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit
 
 if.end.i:                                         ; preds = %_ZNK4absl4Cord4sizeEv.exit
@@ -8147,7 +8147,7 @@ if.then.i:                                        ; preds = %if.then
   %_M_str.i.i = getelementptr inbounds i8, ptr %fragment.i, i64 8
   %9 = load ptr, ptr %_M_str.i.i, align 8
   %10 = load i64, ptr %fragment.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %storage.i, ptr align 1 %9, i64 %10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i, ptr align 1 %9, i64 %10, i1 false)
   br label %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -8211,7 +8211,7 @@ if.then.i34:                                      ; preds = %invoke.cont
   %_M_str.i.i35 = getelementptr inbounds i8, ptr %fragment.i16, i64 8
   %16 = load ptr, ptr %_M_str.i.i35, align 8
   %17 = load i64, ptr %fragment.i16, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call5.i15, ptr align 1 %16, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i15, ptr align 1 %16, i64 %17, i1 false)
   br label %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit36
 
 if.end.i22:                                       ; preds = %invoke.cont

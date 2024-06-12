@@ -584,7 +584,7 @@ for.body26.i:                                     ; preds = %if.end.i, %for.inc4
 land.lhs.true35.i:                                ; preds = %for.body26.i
   %arrayidx36.i = getelementptr inbounds i8, ptr %call.i18.i, i64 24
   %46 = load ptr, ptr %arrayidx36.i, align 8
-  %call37.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %user.1, ptr noundef nonnull dereferenceable(1) %46) #6
+  %call37.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %user.1, ptr noundef nonnull dereferenceable(1) %46) #6
   %cmp38.i = icmp eq i32 %call37.i, 0
   br i1 %cmp38.i, label %if.then192, label %for.inc42.i
 
@@ -1302,7 +1302,7 @@ for.body.i9:                                      ; preds = %if.end.i, %for.inc.
 land.lhs.true.i:                                  ; preds = %for.body.i9
   %arrayidx14.i = getelementptr inbounds i8, ptr %call.i16.i, i64 24
   %18 = load ptr, ptr %arrayidx14.i, align 8
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %18) #6
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %18) #6
   %cmp16.i = icmp eq i32 %call15.i, 0
   br i1 %cmp16.i, label %if.then.i16, label %for.inc.i
 

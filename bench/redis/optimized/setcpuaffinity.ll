@@ -23,7 +23,7 @@ while.cond.loopexit:                              ; preds = %cond.end53
 
 while.body:                                       ; preds = %do.body, %while.cond.loopexit
   %q.0116 = phi ptr [ %cpulist, %do.body ], [ %incdec.ptr.i, %while.cond.loopexit ]
-  %call.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %q.0116, i32 noundef 44) #6
+  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %q.0116, i32 noundef 44) #6
   %tobool1.not.i = icmp eq ptr %call.i, null
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
   %0 = load i8, ptr %q.0116, align 1
@@ -52,10 +52,10 @@ if.end4:                                          ; preds = %next_num.exit
   br i1 %tobool.not.i24, label %while.body46.preheader, label %next_token.exit41
 
 next_token.exit41:                                ; preds = %if.end4
-  %call.i26 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 45) #6
+  %call.i26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 45) #6
   %tobool1.not.i29 = icmp ne ptr %call.i26, null
   %incdec.ptr.i30 = getelementptr inbounds i8, ptr %call.i26, i64 1
-  %call.i35 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 44) #6
+  %call.i35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 44) #6
   %tobool1.not.i38 = icmp eq ptr %call.i35, null
   %incdec.ptr.i39 = getelementptr inbounds i8, ptr %call.i35, i64 1
   %spec.select.i40 = select i1 %tobool1.not.i38, ptr null, ptr %incdec.ptr.i39
@@ -95,7 +95,7 @@ land.lhs.true16:                                  ; preds = %if.end14
   br i1 %tobool17.not, label %if.end38, label %cond.end
 
 cond.end:                                         ; preds = %land.lhs.true16
-  %call.i57 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %9, i32 noundef 58) #6
+  %call.i57 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #6
   %tobool1.not.i60 = icmp ne ptr %call.i57, null
   %incdec.ptr.i61 = getelementptr inbounds i8, ptr %call.i57, i64 1
   %spec.select.i62 = select i1 %tobool1.not.i60, ptr %incdec.ptr.i61, ptr null

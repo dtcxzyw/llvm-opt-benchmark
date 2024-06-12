@@ -561,9 +561,9 @@ entry:
   %mul.i.i = mul i64 %add.i, %slot_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %old_slots, i64 %mul.i.i
   %mul3.i = mul i64 %div11.i, %slot_size
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %6, ptr readonly align 1 %add.ptr.i.i, i64 %mul3.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %add.ptr.i.i, i64 %mul3.i, i1 false)
   %add.ptr.i13.i = getelementptr inbounds i8, ptr %6, i64 %mul.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i13.i, ptr readonly align 1 %old_slots, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i13.i, ptr align 1 %old_slots, i64 %mul.i.i, i1 false)
   ret void
 }
 

@@ -2090,7 +2090,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %conv.i.i = sext i32 %5 to i64
   %mul.i.i42 = mul nsw i64 %call.i, %conv.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %mul.i.i42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %value, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value, i64 32, i1 false)
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %6 = load i64, ptr %size_.i.i, align 8
   %add.i.i = add nsw i64 %6, 32

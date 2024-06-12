@@ -30,7 +30,7 @@ define dso_local i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noc
   br i1 %.not, label %.thread, label %14
 
 14:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   br label %copy_special_str.exit
 
 .thread:                                          ; preds = %10, %13

@@ -2521,7 +2521,7 @@ if.then.i.i:
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp586, ptr noundef nonnull @.str.311)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %115 = load i64, ptr %ref.tmp586, align 8
@@ -2558,7 +2558,7 @@ if.then.i.i423:                                   ; preds = %if.then.i.i414, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp590, ptr noundef nonnull @.str.70)
   %_M_manager.i.i415 = getelementptr inbounds i8, ptr %agg.tmp591, i64 16
   %_M_invoker.i416 = getelementptr inbounds i8, ptr %agg.tmp591, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp591, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp591, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_1E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i416, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i415, align 8
   %119 = load i64, ptr %ref.tmp590, align 8
@@ -2595,7 +2595,7 @@ if.then.i.i449:                                   ; preds = %if.then.i.i437, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp597, ptr noundef nonnull @.str.313)
   %_M_manager.i.i441 = getelementptr inbounds i8, ptr %agg.tmp598, i64 16
   %_M_invoker.i442 = getelementptr inbounds i8, ptr %agg.tmp598, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp598, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp598, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_2E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i442, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i441, align 8
   %123 = load i64, ptr %ref.tmp597, align 8
@@ -2632,7 +2632,7 @@ if.then.i.i475:                                   ; preds = %if.then.i.i463, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp604, ptr noundef nonnull @.str.107)
   %_M_manager.i.i467 = getelementptr inbounds i8, ptr %agg.tmp605, i64 16
   %_M_invoker.i468 = getelementptr inbounds i8, ptr %agg.tmp605, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp605, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp605, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_3E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i468, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_3E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i467, align 8
   %127 = load i64, ptr %ref.tmp604, align 8
@@ -2669,7 +2669,7 @@ if.then.i.i501:                                   ; preds = %if.then.i.i489, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp611, ptr noundef nonnull @.str.316)
   %_M_manager.i.i493 = getelementptr inbounds i8, ptr %agg.tmp612, i64 16
   %_M_invoker.i494 = getelementptr inbounds i8, ptr %agg.tmp612, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp612, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp612, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_4E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i494, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_4E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i493, align 8
   %131 = load i64, ptr %ref.tmp611, align 8
@@ -2706,7 +2706,7 @@ if.then.i.i527:                                   ; preds = %if.then.i.i515, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp618, ptr noundef nonnull @.str.318)
   %_M_manager.i.i519 = getelementptr inbounds i8, ptr %agg.tmp619, i64 16
   %_M_invoker.i520 = getelementptr inbounds i8, ptr %agg.tmp619, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp619, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp619, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_5E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i520, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_5E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i519, align 8
   %135 = load i64, ptr %ref.tmp618, align 8
@@ -2743,7 +2743,7 @@ if.then.i.i553:                                   ; preds = %if.then.i.i541, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp625, ptr noundef nonnull @.str.320)
   %_M_manager.i.i545 = getelementptr inbounds i8, ptr %agg.tmp626, i64 16
   %_M_invoker.i546 = getelementptr inbounds i8, ptr %agg.tmp626, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp626, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp626, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_6E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i546, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_6E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i545, align 8
   %139 = load i64, ptr %ref.tmp625, align 8
@@ -2780,7 +2780,7 @@ if.then.i.i579:                                   ; preds = %if.then.i.i567, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp632, ptr noundef nonnull @.str.321)
   %_M_manager.i.i571 = getelementptr inbounds i8, ptr %agg.tmp633, i64 16
   %_M_invoker.i572 = getelementptr inbounds i8, ptr %agg.tmp633, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp633, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp633, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_7E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i572, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_7E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i571, align 8
   %143 = load i64, ptr %ref.tmp632, align 8
@@ -2817,7 +2817,7 @@ if.then.i.i605:                                   ; preds = %if.then.i.i593, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp639, ptr noundef nonnull @.str.323)
   %_M_manager.i.i597 = getelementptr inbounds i8, ptr %agg.tmp640, i64 16
   %_M_invoker.i598 = getelementptr inbounds i8, ptr %agg.tmp640, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp640, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp640, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_8E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i598, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_8E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i597, align 8
   %147 = load i64, ptr %ref.tmp639, align 8
@@ -2854,7 +2854,7 @@ if.then.i.i631:                                   ; preds = %if.then.i.i619, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp646, ptr noundef nonnull @.str.324)
   %_M_manager.i.i623 = getelementptr inbounds i8, ptr %agg.tmp647, i64 16
   %_M_invoker.i624 = getelementptr inbounds i8, ptr %agg.tmp647, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp647, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp647, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_9E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i624, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE3$_9E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i623, align 8
   %151 = load i64, ptr %ref.tmp646, align 8
@@ -2891,7 +2891,7 @@ if.then.i.i657:                                   ; preds = %if.then.i.i645, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp653, ptr noundef nonnull @.str.133)
   %_M_manager.i.i649 = getelementptr inbounds i8, ptr %agg.tmp654, i64 16
   %_M_invoker.i650 = getelementptr inbounds i8, ptr %agg.tmp654, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp654, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp654, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_10E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i650, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_10E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i649, align 8
   %155 = load i64, ptr %ref.tmp653, align 8
@@ -2928,7 +2928,7 @@ if.then.i.i683:                                   ; preds = %if.then.i.i671, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp660, ptr noundef nonnull @.str.13)
   %_M_manager.i.i675 = getelementptr inbounds i8, ptr %agg.tmp661, i64 16
   %_M_invoker.i676 = getelementptr inbounds i8, ptr %agg.tmp661, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp661, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp661, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_11E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i676, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_11E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i675, align 8
   %159 = load i64, ptr %ref.tmp660, align 8
@@ -2965,7 +2965,7 @@ if.then.i.i709:                                   ; preds = %if.then.i.i697, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp667, ptr noundef nonnull @.str.41)
   %_M_manager.i.i701 = getelementptr inbounds i8, ptr %agg.tmp668, i64 16
   %_M_invoker.i702 = getelementptr inbounds i8, ptr %agg.tmp668, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp668, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp668, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_12E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i702, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_12E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i701, align 8
   %163 = load i64, ptr %ref.tmp667, align 8
@@ -3002,7 +3002,7 @@ if.then.i.i735:                                   ; preds = %if.then.i.i723, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp674, ptr noundef nonnull @.str.64)
   %_M_manager.i.i727 = getelementptr inbounds i8, ptr %agg.tmp675, i64 16
   %_M_invoker.i728 = getelementptr inbounds i8, ptr %agg.tmp675, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp675, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp675, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_13E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i728, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_13E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i727, align 8
   %167 = load i64, ptr %ref.tmp674, align 8
@@ -3039,7 +3039,7 @@ if.then.i.i761:                                   ; preds = %if.then.i.i749, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp681, ptr noundef nonnull @.str.76)
   %_M_manager.i.i753 = getelementptr inbounds i8, ptr %agg.tmp682, i64 16
   %_M_invoker.i754 = getelementptr inbounds i8, ptr %agg.tmp682, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp682, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp682, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_14E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i754, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_14E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i753, align 8
   %171 = load i64, ptr %ref.tmp681, align 8
@@ -3076,7 +3076,7 @@ if.then.i.i787:                                   ; preds = %if.then.i.i775, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp688, ptr noundef nonnull @.str.81)
   %_M_manager.i.i779 = getelementptr inbounds i8, ptr %agg.tmp689, i64 16
   %_M_invoker.i780 = getelementptr inbounds i8, ptr %agg.tmp689, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp689, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp689, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_15E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i780, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_15E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i779, align 8
   %175 = load i64, ptr %ref.tmp688, align 8
@@ -3113,7 +3113,7 @@ if.then.i.i813:                                   ; preds = %if.then.i.i801, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp695, ptr noundef nonnull @.str.99)
   %_M_manager.i.i805 = getelementptr inbounds i8, ptr %agg.tmp696, i64 16
   %_M_invoker.i806 = getelementptr inbounds i8, ptr %agg.tmp696, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp696, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp696, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_16E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i806, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_16E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i805, align 8
   %179 = load i64, ptr %ref.tmp695, align 8
@@ -3150,7 +3150,7 @@ if.then.i.i839:                                   ; preds = %if.then.i.i827, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp702, ptr noundef nonnull @.str.103)
   %_M_manager.i.i831 = getelementptr inbounds i8, ptr %agg.tmp703, i64 16
   %_M_invoker.i832 = getelementptr inbounds i8, ptr %agg.tmp703, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp703, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp703, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_17E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i832, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_17E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i831, align 8
   %183 = load i64, ptr %ref.tmp702, align 8
@@ -3187,7 +3187,7 @@ if.then.i.i865:                                   ; preds = %if.then.i.i853, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp709, ptr noundef nonnull @.str.105)
   %_M_manager.i.i857 = getelementptr inbounds i8, ptr %agg.tmp710, i64 16
   %_M_invoker.i858 = getelementptr inbounds i8, ptr %agg.tmp710, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp710, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp710, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_18E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i858, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_18E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i857, align 8
   %187 = load i64, ptr %ref.tmp709, align 8
@@ -3224,7 +3224,7 @@ if.then.i.i891:                                   ; preds = %if.then.i.i879, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp716, ptr noundef nonnull @.str.326)
   %_M_manager.i.i883 = getelementptr inbounds i8, ptr %agg.tmp717, i64 16
   %_M_invoker.i884 = getelementptr inbounds i8, ptr %agg.tmp717, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp717, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp717, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_19E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i884, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_19E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i883, align 8
   %191 = load i64, ptr %ref.tmp716, align 8
@@ -3261,7 +3261,7 @@ if.then.i.i917:                                   ; preds = %if.then.i.i905, %in
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp723, ptr noundef nonnull @.str.113)
   %_M_manager.i.i909 = getelementptr inbounds i8, ptr %agg.tmp724, i64 16
   %_M_invoker.i910 = getelementptr inbounds i8, ptr %agg.tmp724, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp724, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp724, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_20E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker.i910, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ15install_tacticsR14tactic_managerE4$_20E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i909, align 8
   %195 = load i64, ptr %ref.tmp723, align 8

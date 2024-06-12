@@ -284,7 +284,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %if.end17, label %for.body.i.i, !llvm.loop !7
 
 if.end17:                                         ; preds = %for.body.i.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %call10, ptr noundef nonnull dereferenceable(6) @qcrypto_block_luks_magic, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call10, ptr noundef nonnull dereferenceable(6) @qcrypto_block_luks_magic, i64 6)
   %cmp.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.not.i, label %if.end.i44, label %if.then.i
 
@@ -305,7 +305,7 @@ if.then4.i:                                       ; preds = %if.end.i44
 
 if.end8.i:                                        ; preds = %if.end.i44
   %cipher_name.i = getelementptr inbounds i8, ptr %call10, i64 8
-  %call11.i = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %cipher_name.i, i32 noundef 0, i64 noundef 32) #18
+  %call11.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %cipher_name.i, i32 noundef 0, i64 noundef 32) #18
   %tobool.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool.not.i, label %if.then12.i, label %if.end13.i
 
@@ -315,7 +315,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 
 if.end13.i:                                       ; preds = %if.end8.i
   %cipher_mode.i = getelementptr inbounds i8, ptr %call10, i64 40
-  %call16.i = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %cipher_mode.i, i32 noundef 0, i64 noundef 32) #18
+  %call16.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %cipher_mode.i, i32 noundef 0, i64 noundef 32) #18
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %if.then18.i, label %if.end19.i
 
@@ -325,7 +325,7 @@ if.then18.i:                                      ; preds = %if.end13.i
 
 if.end19.i:                                       ; preds = %if.end13.i
   %hash_spec.i = getelementptr inbounds i8, ptr %call10, i64 72
-  %call22.i = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %hash_spec.i, i32 noundef 0, i64 noundef 32) #18
+  %call22.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %hash_spec.i, i32 noundef 0, i64 noundef 32) #18
   %tobool23.not.i = icmp eq ptr %call22.i, null
   br i1 %tobool23.not.i, label %if.then24.i, label %if.end25.i
 
@@ -689,7 +689,7 @@ for.cond.i:                                       ; preds = %if.end.i60
 
 for.body.i58:                                     ; preds = %for.cond.i, %if.then28
   %i.05.i = phi i64 [ 0, %if.then28 ], [ %inc.i61, %for.cond.i ]
-  %call.i59 = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i, ptr noundef %password.0, ptr noundef %call29, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
+  %call.i59 = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i, ptr noundef %password.0, ptr noundef %call29, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp)
   %cmp1.i = icmp slt i32 %call.i59, 0
   br i1 %cmp1.i, label %fail, label %if.end.i60
 
@@ -1287,7 +1287,7 @@ for.cond.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i31.i:                                   ; preds = %for.cond.i.i, %if.end35.i
   %i.05.i.i = phi i64 [ 0, %if.end35.i ], [ %inc.i33.i, %for.cond.i.i ]
-  %call.i.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i.i, ptr noundef nonnull %call32.i, ptr noundef %call37.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
+  %call.i.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i.i, ptr noundef nonnull %call32.i, ptr noundef %call37.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp)
   %cmp1.i32.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp1.i32.i, label %if.then41.i, label %if.end.i.i
 
@@ -1310,7 +1310,7 @@ if.end42.i:                                       ; preds = %if.end.i.i
   br i1 %tobool45.not.i, label %qcrypto_block_luks_amend_add_keyslot.exit, label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end42.i
-  %call48.i = tail call fastcc i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %keyslot.0.i, ptr noundef nonnull %call44.i, ptr noundef %call37.i, i64 noundef %cond.i, ptr noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp)
+  %call48.i = tail call fastcc i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %keyslot.0.i, ptr noundef nonnull %call44.i, ptr noundef %call37.i, i64 noundef %cond.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %tobool49.not.i = icmp eq i32 %call48.i, 0
   br i1 %tobool49.not.i, label %qcrypto_block_luks_amend_add_keyslot.exit, label %if.then50.i
 
@@ -1405,7 +1405,7 @@ if.end24.i:                                       ; preds = %if.then17.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   %conv28.i = and i64 %21, 7
-  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
+  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp)
   switch i32 %call29.i, label %if.end38.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 0, label %if.then35.i
@@ -1451,7 +1451,7 @@ if.then48.i:                                      ; preds = %qcrypto_block_luks_
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end49.i:                                       ; preds = %qcrypto_block_luks_count_active_slots.exit.i, %if.end38.i
-  %call50.i = tail call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv19.i, ptr noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp)
+  %call50.i = tail call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv19.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %if.then52.i
 
@@ -1470,7 +1470,7 @@ if.then57.i:                                      ; preds = %if.else54.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then57.i
   %i.076.i = phi i64 [ 0, %if.then57.i ], [ %inc.i, %for.inc.i ]
-  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
+  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp)
   switch i32 %call61.i, label %for.inc.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 1, label %if.then68.i
@@ -1537,7 +1537,7 @@ for.body87.i:                                     ; preds = %for.body87.i.prehea
 
 if.end91.i:                                       ; preds = %for.body87.i
   %conv92.i = trunc nuw nsw i64 %i.177.i to i32
-  %call93.i = call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv92.i, ptr noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp)
+  %call93.i = call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv92.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %tobool94.not.i = icmp eq i32 %call93.i, 0
   br i1 %tobool94.not.i, label %for.inc97.i, label %if.then95.i
 

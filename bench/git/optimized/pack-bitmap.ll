@@ -140,14 +140,14 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local ptr @pack_bitmap_filename(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %pack_name = getelementptr inbounds i8, ptr %p, i64 240
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name) #19
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name) #19
   %cmp.i.i = icmp ult i64 %call.i, 5
   br i1 %cmp.i.i, label %if.then, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
   %sub.i.i = add i64 %call.i, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %pack_name, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.end, label %if.then
 
@@ -236,14 +236,14 @@ for.body.i7:                                      ; preds = %for.inc.i, %for.bod
   %p.06.i = phi ptr [ %call.i6, %for.body.lr.ph.i ], [ %10, %for.inc.i ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i)
   %pack_name.i.i.i = getelementptr inbounds i8, ptr %p.06.i, i64 240
-  %call.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name.i.i.i) #19
+  %call.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i.i.i) #19
   %cmp.i.i.i.i.i = icmp ult i64 %call.i.i.i.i, 5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %for.body.i7
   %sub.i.i.i.i.i = add i64 %call.i.i.i.i, -5
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %pack_name.i.i.i, i64 %sub.i.i.i.i.i
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
   %tobool.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %pack_bitmap_filename.exit.i.i, label %if.then.i.i.i
 
@@ -889,11 +889,11 @@ if.end28:                                         ; preds = %xsize_t.exit
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end28
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %call30, ptr noundef nonnull readonly dereferenceable(32) %8, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %call30, ptr noundef nonnull dereferenceable(32) %8, i64 32)
   br label %hasheq.exit
 
 if.end.i.i:                                       ; preds = %if.end28
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %call30, ptr noundef nonnull readonly dereferenceable(20) %8, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %call30, ptr noundef nonnull dereferenceable(20) %8, i64 20)
   br label %hasheq.exit
 
 hasheq.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
@@ -1114,11 +1114,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp8, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp8, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp8, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp8, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -1516,11 +1516,11 @@ if.end.i.i.i.i15:                                 ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i15
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(32) %arrayidx119.i, i64 32)
+  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull dereferenceable(32) %arrayidx119.i, i64 32)
   br label %oideq_by_value.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i15
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %arrayidx119.i, i64 20)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull dereferenceable(20) %arrayidx119.i, i64 20)
   br label %oideq_by_value.exit.i.i
 
 oideq_by_value.exit.i.i:                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -1976,7 +1976,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i
   %oid.i = getelementptr inbounds i8, ptr %28, i64 4
-  %call.i.i = call fastcc i32 @bitmap_position(ptr noundef readonly %call4, ptr noundef nonnull %oid.i)
+  %call.i.i = call fastcc i32 @bitmap_position(ptr noundef %call4, ptr noundef nonnull %oid.i)
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
   br i1 %cmp.i.i, label %bitmap_walk_contains.exit.i, label %if.end.i
 
@@ -2083,7 +2083,7 @@ for.body71.i:                                     ; preds = %for.inc87.i, %for.b
 
 if.end.i35.i:                                     ; preds = %for.body71.i
   %oid75.i = getelementptr inbounds i8, ptr %42, i64 4
-  %call.i36.i = call fastcc i32 @bitmap_position(ptr noundef readonly %call4, ptr noundef nonnull %oid75.i)
+  %call.i36.i = call fastcc i32 @bitmap_position(ptr noundef %call4, ptr noundef nonnull %oid75.i)
   %cmp.i37.i = icmp sgt i32 %call.i36.i, -1
   br i1 %cmp.i37.i, label %bitmap_walk_contains.exit43.i, label %if.else.i60
 
@@ -2546,7 +2546,7 @@ if.then3:                                         ; preds = %lor.lhs.false
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
   br label %return
 
 if.then10:                                        ; preds = %lor.lhs.false
@@ -2573,7 +2573,7 @@ for.body.i.i:                                     ; preds = %if.then12, %for.inc
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %oid.i.i = getelementptr inbounds i8, ptr %3, i64 4
-  %call2.i.i = tail call fastcc i32 @bitmap_position(ptr noundef nonnull readonly %bitmap_git, ptr noundef nonnull %oid.i.i)
+  %call2.i.i = tail call fastcc i32 @bitmap_position(ptr noundef nonnull %bitmap_git, ptr noundef nonnull %oid.i.i)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %for.inc.i.i, label %if.end5.i.i
 
@@ -2631,7 +2631,7 @@ if.end.i:                                         ; preds = %for.body7.i
   br i1 %tobool18.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call19.i = call fastcc i64 @get_size_by_pos(ptr noundef nonnull readonly %bitmap_git, i32 noundef %add14.i)
+  %call19.i = call fastcc i64 @get_size_by_pos(ptr noundef nonnull %bitmap_git, i32 noundef %add14.i)
   %cmp20.not.i = icmp ult i64 %call19.i, %2
   br i1 %cmp20.not.i, label %for.inc.i, label %if.then22.i
 
@@ -2701,7 +2701,7 @@ land.lhs.true44.i:                                ; preds = %land.lhs.true41.i
 
 land.lhs.true47.i:                                ; preds = %land.lhs.true44.i
   %conv48.i = trunc i64 %add.i.i to i32
-  %call49.i = call fastcc i64 @get_size_by_pos(ptr noundef nonnull readonly %bitmap_git, i32 noundef %conv48.i)
+  %call49.i = call fastcc i64 @get_size_by_pos(ptr noundef nonnull %bitmap_git, i32 noundef %conv48.i)
   %cmp50.not.i = icmp ult i64 %call49.i, %2
   br i1 %cmp50.not.i, label %for.inc54.i, label %if.then52.i
 
@@ -2733,8 +2733,8 @@ if.then18:                                        ; preds = %land.lhs.true
   br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
   br label %return
 
 if.then26:                                        ; preds = %lor.lhs.false
@@ -2757,21 +2757,21 @@ if.end.i33:                                       ; preds = %if.then28
   br i1 %cond.i, label %if.then6.thread.i, label %if.then3.i
 
 if.then6.thread.i:                                ; preds = %if.end.i33
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
   br label %if.then9.thread.i
 
 if.then3.i:                                       ; preds = %if.end.i33
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 4)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 4)
   %cond15.i = icmp eq i32 %22, 1
   br i1 %cond15.i, label %if.then9.thread.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
   %cond16.i = icmp eq i32 %22, 2
   br i1 %cond16.i, label %if.then12.i, label %filter_bitmap_object_type.exit
 
 if.then9.thread.i:                                ; preds = %if.then3.i, %if.then6.thread.i
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
   br label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then9.thread.i, %if.then6.i
@@ -2779,7 +2779,7 @@ if.then12.i:                                      ; preds = %if.then9.thread.i, 
 
 filter_bitmap_object_type.exit:                   ; preds = %if.then6.i, %if.then12.i
   %.sink.i = phi i32 [ 3, %if.then12.i ], [ 2, %if.then6.i ]
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef %.sink.i)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef %.sink.i)
   br label %return
 
 for.cond:                                         ; preds = %for.body
@@ -3450,7 +3450,7 @@ cond.false:                                       ; preds = %if.end
   %positions1.i = getelementptr inbounds i8, ptr %bitmap_git, i64 144
   %7 = load ptr, ptr %positions1.i, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp5.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp5.i, ptr noundef nonnull align 4 dereferenceable(36) %oid, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i.i)
   %8 = load i32, ptr %7, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
@@ -3513,11 +3513,11 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp5.i, i64 32)
+  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull dereferenceable(32) %byval-temp5.i, i64 32)
   br label %oideq_by_value.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp5.i, i64 20)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull dereferenceable(20) %byval-temp5.i, i64 20)
   br label %oideq_by_value.exit.i.i
 
 oideq_by_value.exit.i.i:                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -4909,7 +4909,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %tobool.not.i, label %land.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %call.i = tail call fastcc i32 @bitmap_position(ptr noundef nonnull readonly %bitmap_git, ptr noundef %oid)
+  %call.i = tail call fastcc i32 @bitmap_position(ptr noundef nonnull %bitmap_git, ptr noundef %oid)
   %cmp.i = icmp sgt i32 %call.i, -1
   br i1 %cmp.i, label %land.rhs.i, label %land.end
 
@@ -5271,14 +5271,14 @@ for.body6:                                        ; preds = %for.end, %pack_bitm
   %res.116 = phi i32 [ %or9, %pack_bitmap_filename.exit ], [ %res.0.lcssa, %for.end ]
   %p.015 = phi ptr [ %1, %pack_bitmap_filename.exit ], [ %call3, %for.end ]
   %pack_name.i = getelementptr inbounds i8, ptr %p.015, i64 240
-  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name.i) #19
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i) #19
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %for.body6
   %sub.i.i.i = add i64 %call.i.i, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pack_name.i, i64 %sub.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %pack_bitmap_filename.exit, label %if.then.i
 
@@ -5666,7 +5666,7 @@ entry:
   store ptr %xor_with, ptr %xor, align 8
   %flags2 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 %flags, ptr %flags2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -5978,11 +5978,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %call10, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %call10, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %call10, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %call10, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -6038,7 +6038,7 @@ if.then81.i:                                      ; preds = %if.end71.i
   %60 = load ptr, ptr %keys82.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %60, i64 %idxprom83.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %call10, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull align 8 dereferenceable(36) %call10, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
   %not.i = xor i32 %shl87.i, -1
   %61 = load ptr, ptr %flags.i, align 8
@@ -6062,7 +6062,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %65 = load ptr, ptr %keys109.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %65, i64 %idxprom110.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %call10, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull align 8 dereferenceable(36) %call10, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
   %not116.i = xor i32 %shl115.i, -1
   %66 = load ptr, ptr %flags.i, align 8
@@ -6188,7 +6188,7 @@ if.then7:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.then7
   %oid = getelementptr inbounds i8, ptr %commit, i64 4
   %3 = load ptr, ptr %_data, align 8
-  %call.i = tail call fastcc i32 @bitmap_position(ptr noundef readonly %3, ptr noundef nonnull %oid)
+  %call.i = tail call fastcc i32 @bitmap_position(ptr noundef %3, ptr noundef nonnull %oid)
   %cmp.i = icmp sgt i32 %call.i, -1
   br i1 %cmp.i, label %bitmap_walk_contains.exit, label %if.end11
 
@@ -6692,11 +6692,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp24, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp24, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp24, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp24, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -6752,7 +6752,7 @@ if.then81.i:                                      ; preds = %if.end71.i
   %59 = load ptr, ptr %keys82.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %59, i64 %idxprom83.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp24, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp24, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
   %not.i = xor i32 %shl87.i, -1
   %60 = load ptr, ptr %flags.i, align 8
@@ -6776,7 +6776,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %64 = load ptr, ptr %keys109.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %64, i64 %idxprom110.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp24, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp24, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
   %not116.i = xor i32 %shl115.i, -1
   %65 = load ptr, ptr %flags.i, align 8
@@ -6930,7 +6930,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
   %oid.i = getelementptr inbounds i8, ptr %0, i64 4
-  %call2.i = tail call fastcc i32 @bitmap_position(ptr noundef readonly %bitmap_git, ptr noundef nonnull %oid.i)
+  %call2.i = tail call fastcc i32 @bitmap_position(ptr noundef %bitmap_git, ptr noundef nonnull %oid.i)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %for.inc.i, label %if.end5.i
 

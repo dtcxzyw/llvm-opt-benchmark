@@ -208,7 +208,7 @@ if.end:                                           ; preds = %for.body, %if.then,
   %on_destroy = getelementptr inbounds i8, ptr %stack, i64 56
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %stack, i64 72
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %stack, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %on_destroy, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %on_destroy, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZ23grpc_channel_stack_initiPFvPvN4absl12lts_202308026StatusEES1_PPK19grpc_channel_filtermRKN9grpc_core11ChannelArgsEPKcP18grpc_channel_stackE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZ23grpc_channel_stack_initiPFvPvN4absl12lts_202308026StatusEES1_PPK19grpc_channel_filtermRKN9grpc_core11ChannelArgsEPKcP18grpc_channel_stackE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i.i.i, align 8
   %event_engine = getelementptr inbounds i8, ptr %stack, i64 88

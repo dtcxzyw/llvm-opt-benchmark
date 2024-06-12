@@ -1336,7 +1336,7 @@ define internal noundef i32 @follow_cdc_data_tap_listener(ptr nocapture noundef 
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %1, i64 240
   %23 = load ptr, ptr %22, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %19, ptr %17, align 8
   %24 = icmp eq i32 %21, 0
   br i1 %24, label %copy_address.exit, label %25
@@ -1363,7 +1363,7 @@ copy_address.exit:                                ; preds = %14, %25
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %1, i64 216
   %39 = load ptr, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store i32 %35, ptr %33, align 8
   %40 = icmp eq i32 %37, 0
   br i1 %40, label %copy_address.exit37, label %copy_address.exit37.sink.split
@@ -1377,7 +1377,7 @@ copy_address.exit:                                ; preds = %14, %25
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %1, i64 216
   %48 = load ptr, ptr %47, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store i32 %44, ptr %42, align 8
   %49 = icmp eq i32 %46, 0
   br i1 %49, label %copy_address.exit38, label %50
@@ -1405,7 +1405,7 @@ copy_address.exit38:                              ; preds = %41, %50
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %1, i64 240
   %65 = load ptr, ptr %64, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 %61, ptr %59, align 8
   %66 = icmp eq i32 %63, 0
   br i1 %66, label %copy_address.exit37, label %copy_address.exit37.sink.split

@@ -322,7 +322,7 @@ entry:
   %converter = alloca %"class.arrow::internal::(anonymous namespace)::SparseCSXMatrixConverter", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %axis_.i = getelementptr inbounds i8, ptr %converter, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %converter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %converter, i8 0, i64 32, i1 false)
   store i8 %axis, ptr %axis_.i, align 8
   %tensor_.i = getelementptr inbounds i8, ptr %converter, i64 40
   store ptr %tensor, ptr %tensor_.i, align 8

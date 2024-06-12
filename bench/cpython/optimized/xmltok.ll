@@ -2457,7 +2457,7 @@ if.end55.i:                                       ; preds = %sw.bb47.i
 
 sw.bb60.i:                                        ; preds = %if.end55.i
   %add.ptr61.i = getelementptr i8, ptr %ptr, i64 3
-  %call62.i = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr61.i, ptr noundef nonnull %end, ptr noundef writeonly %nextTokPtr)
+  %call62.i = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr61.i, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb63.i:                                        ; preds = %if.end55.i
@@ -2498,7 +2498,7 @@ sw.epilog.i:                                      ; preds = %if.end55.i
 
 sw.bb66.i:                                        ; preds = %if.end.i
   %add.ptr67.i = getelementptr i8, ptr %ptr, i64 2
-  %call68.i = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr67.i, ptr noundef nonnull %end, ptr noundef writeonly %nextTokPtr)
+  %call68.i = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr67.i, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb69.i:                                        ; preds = %if.end.i
@@ -3031,7 +3031,7 @@ sw.default285.i:                                  ; preds = %while.body219.i
 sw.epilog286.i:                                   ; preds = %while.body219.i, %while.body219.i, %lor.lhs.false274.i, %lor.lhs.false256.i, %lor.lhs.false238.i
   %.sink = phi i64 [ 3, %lor.lhs.false238.i ], [ 4, %lor.lhs.false256.i ], [ 5, %lor.lhs.false274.i ], [ 2, %while.body219.i ], [ 2, %while.body219.i ]
   %add.ptr280.i = getelementptr i8, ptr %ptr.addr.1.pn290.i, i64 %.sink
-  %call287.i = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr280.i, ptr noundef nonnull %end, ptr noundef writeonly %nextTokPtr)
+  %call287.i = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr280.i, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 gt.i:                                             ; preds = %while.body.i, %while.body219.i
@@ -8311,7 +8311,7 @@ cond.end68.i:                                     ; preds = %if.end54.i
 
 sw.bb70.i:                                        ; preds = %cond.end68.i
   %add.ptr71.i = getelementptr i8, ptr %ptr, i64 6
-  %call72.i = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr71.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
+  %call72.i = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr71.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb73.i:                                        ; preds = %cond.end68.i
@@ -8358,7 +8358,7 @@ sw.epilog.i:                                      ; preds = %cond.end68.i, %if.e
 
 sw.bb76.i:                                        ; preds = %cond.end.i
   %add.ptr77.i = getelementptr i8, ptr %ptr, i64 4
-  %call78.i = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr77.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
+  %call78.i = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr77.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb79.i:                                        ; preds = %cond.end.i
@@ -8850,7 +8850,7 @@ if.then266.i:                                     ; preds = %sw.bb248.i
 
 sw.bb268.i:                                       ; preds = %cond.end246.i, %cond.end246.i, %sw.bb248.i
   %add.ptr269.i = getelementptr i8, ptr %ptr.addr.0.pn336.i, i64 4
-  %call300.i = tail call fastcc i32 @little2_scanAtts(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr269.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
+  %call300.i = tail call fastcc i32 @little2_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr269.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 if.end277.i:                                      ; preds = %cond.end246.i
@@ -14368,7 +14368,7 @@ cond.end70.i:                                     ; preds = %if.end55.i
 
 sw.bb72.i:                                        ; preds = %cond.end70.i
   %add.ptr73.i = getelementptr i8, ptr %ptr, i64 6
-  %call74.i = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr73.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
+  %call74.i = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr73.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb75.i:                                        ; preds = %cond.end70.i
@@ -14415,7 +14415,7 @@ sw.epilog.i:                                      ; preds = %cond.end70.i, %if.e
 
 sw.bb78.i:                                        ; preds = %cond.end.i
   %add.ptr79.i = getelementptr i8, ptr %ptr, i64 4
-  %call80.i = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr79.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
+  %call80.i = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr79.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb81.i:                                        ; preds = %cond.end.i
@@ -14917,7 +14917,7 @@ if.then271.i:                                     ; preds = %sw.bb253.i
 
 sw.bb273.i:                                       ; preds = %cond.end251.i, %cond.end251.i, %sw.bb253.i
   %add.ptr274.i = getelementptr i8, ptr %ptr.addr.0.pn336.i, i64 4
-  %call305.i = tail call fastcc i32 @big2_scanAtts(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr274.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
+  %call305.i = tail call fastcc i32 @big2_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr274.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 if.end282.i:                                      ; preds = %cond.end251.i

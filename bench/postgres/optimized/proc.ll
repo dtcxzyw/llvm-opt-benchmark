@@ -623,7 +623,7 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
 
 79:                                               ; preds = %78, %76, %74, %46
   %80 = load ptr, ptr @MyProc, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %80, i64 840
@@ -677,7 +677,7 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
   %108 = getelementptr inbounds i8, ptr %.pre, i64 160
   store i32 0, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %.pre, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
   %110 = getelementptr inbounds i8, ptr %.pre, i64 700
   store i8 0, ptr %110, align 4
   %111 = getelementptr inbounds i8, ptr %.pre, i64 708
@@ -1052,7 +1052,7 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   %43 = sdiv exact i64 %42, 888
   %44 = trunc i64 %43 to i32
   store i32 %44, ptr @MyProcNumber, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %45 = getelementptr inbounds i8, ptr %25, i64 32
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %25, i64 840

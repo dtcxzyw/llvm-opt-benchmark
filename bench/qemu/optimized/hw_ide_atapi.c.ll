@@ -392,7 +392,7 @@ sw.epilog.thread24.i:                             ; preds = %sw.bb4.i
   %42 = load i32, ptr %lba, align 4
   store i8 0, ptr %41, align 1
   %add.ptr.i.i = getelementptr i8, ptr %41, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %add.ptr.i.i, i8 -1, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i.i, i8 -1, i64 10, i1 false)
   %arrayidx1.i.i = getelementptr i8, ptr %41, i64 11
   store i8 0, ptr %arrayidx1.i.i, align 1
   %add.ptr2.i.i = getelementptr i8, ptr %41, i64 12
@@ -412,7 +412,7 @@ sw.epilog.thread24.i:                             ; preds = %sw.bb4.i
   %arrayidx3.i.i = getelementptr i8, ptr %41, i64 15
   store i8 1, ptr %arrayidx3.i.i, align 1
   %add.ptr5.i.i = getelementptr i8, ptr %41, i64 2064
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(288) %add.ptr5.i.i, i8 0, i64 288, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(288) %add.ptr5.i.i, i8 0, i64 288, i1 false)
   br label %cd_read_sector_sync.exit
 
 if.then11.thread:                                 ; preds = %trace_cd_read_sector_sync.exit.i
@@ -1059,7 +1059,7 @@ if.then5:                                         ; preds = %if.end
   %10 = load i32, ptr %lba, align 4
   store i8 0, ptr %9, align 1
   %add.ptr.i = getelementptr i8, ptr %9, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %add.ptr.i, i8 -1, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i, i8 -1, i64 10, i1 false)
   %arrayidx1.i = getelementptr i8, ptr %9, i64 11
   store i8 0, ptr %arrayidx1.i, align 1
   %add.ptr2.i = getelementptr i8, ptr %9, i64 12
@@ -1079,7 +1079,7 @@ if.then5:                                         ; preds = %if.end
   %arrayidx3.i = getelementptr i8, ptr %9, i64 15
   store i8 1, ptr %arrayidx3.i, align 1
   %add.ptr5.i = getelementptr i8, ptr %9, i64 2064
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(288) %add.ptr5.i, i8 0, i64 288, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(288) %add.ptr5.i, i8 0, i64 288, i1 false)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
@@ -2804,7 +2804,7 @@ if.then17:                                        ; preds = %if.then14
   %10 = load ptr, ptr %io_buffer, align 8
   store i8 0, ptr %10, align 1
   %add.ptr.i = getelementptr i8, ptr %10, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %add.ptr.i, i8 -1, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i, i8 -1, i64 10, i1 false)
   %arrayidx1.i = getelementptr i8, ptr %10, i64 11
   store i8 0, ptr %arrayidx1.i, align 1
   %add.ptr2.i = getelementptr i8, ptr %10, i64 12
@@ -2824,7 +2824,7 @@ if.then17:                                        ; preds = %if.then14
   %arrayidx3.i = getelementptr i8, ptr %10, i64 15
   store i8 1, ptr %arrayidx3.i, align 1
   %add.ptr5.i = getelementptr i8, ptr %10, i64 2064
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(288) %add.ptr5.i, i8 0, i64 288, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(288) %add.ptr5.i, i8 0, i64 288, i1 false)
   %.pre = load i32, ptr %lba, align 4
   %.pre49.pre = load i32, ptr %io_buffer_size, align 8
   br label %if.end20

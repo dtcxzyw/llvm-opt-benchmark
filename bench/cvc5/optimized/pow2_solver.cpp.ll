@@ -10416,21 +10416,21 @@ if.end:                                           ; preds = %while.body.lr.ph, %
           to label %.noexc13 unwind label %lpad14
 
 .noexc13:                                         ; preds = %if.end
-  %call4.i.i4.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i2.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i.i)
+  %call4.i.i4.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i2.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
           to label %call4.i.i.noexc.i unwind label %lpad.i
 
 call4.i.i.noexc.i:                                ; preds = %.noexc13
   br i1 %call4.i.i4.i, label %if.then.i.i, label %if.else33.i.i
 
 if.then.i.i:                                      ; preds = %call4.i.i.noexc.i
-  %call4.i1.i5.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i3.i)
+  %call4.i1.i5.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i3.i)
           to label %call4.i1.i.noexc.i unwind label %lpad.i
 
 call4.i1.i.noexc.i:                               ; preds = %if.then.i.i
   br i1 %call4.i1.i5.i, label %if.end62.i.i, label %if.end62.sink.split.i.i
 
 if.else33.i.i:                                    ; preds = %call4.i.i.noexc.i
-  %call4.i3.i6.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i2.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i3.i)
+  %call4.i3.i6.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i2.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i3.i)
           to label %call4.i3.i.noexc.i unwind label %lpad.i
 
 call4.i3.i.noexc.i:                               ; preds = %if.else33.i.i
@@ -10438,7 +10438,7 @@ call4.i3.i.noexc.i:                               ; preds = %if.else33.i.i
 
 if.end62.sink.split.i.i:                          ; preds = %call4.i3.i.noexc.i, %call4.i1.i.noexc.i
   %__b.coerce.sink5.i.i = phi ptr [ %add.ptr.i2.i, %call4.i1.i.noexc.i ], [ %add.ptr.i.i, %call4.i3.i.noexc.i ]
-  %call4.i4.i7.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %__b.coerce.sink5.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i3.i)
+  %call4.i4.i7.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp11.i, ptr noundef nonnull align 8 dereferenceable(8) %__b.coerce.sink5.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i3.i)
           to label %call4.i4.i.noexc.i unwind label %lpad.i
 
 call4.i4.i.noexc.i:                               ; preds = %if.end62.sink.split.i.i
@@ -10462,7 +10462,7 @@ while.body.i.i11:                                 ; preds = %invoke.cont.i, %if.
 
 while.cond3.i.i:                                  ; preds = %call4.i.i.noexc13.i, %while.body.i.i11
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i11 ], [ %incdec.ptr.i.i.i, %call4.i.i.noexc13.i ]
-  %call4.i.i14.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp21.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %__first.sroa.0.1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %__first.coerce)
+  %call4.i.i14.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp21.i, ptr noundef nonnull align 8 dereferenceable(8) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce)
           to label %call4.i.i.noexc13.i unwind label %lpad25.loopexit.split-lp.loopexit.i
 
 call4.i.i.noexc13.i:                              ; preds = %while.cond3.i.i
@@ -10472,7 +10472,7 @@ call4.i.i.noexc13.i:                              ; preds = %while.cond3.i.i
 while.cond10.i.i:                                 ; preds = %call4.i.i.noexc13.i, %call4.i2.i.noexc.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %call4.i2.i.noexc.i ], [ %__last.sroa.0.0.i.i, %call4.i.i.noexc13.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %call4.i2.i15.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp21.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull readonly align 8 dereferenceable(8) %__last.sroa.0.1.i.i)
+  %call4.i2.i15.i = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %agg.tmp21.i, ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__last.sroa.0.1.i.i)
           to label %call4.i2.i.noexc.i unwind label %lpad25.loopexit.i
 
 call4.i2.i.noexc.i:                               ; preds = %while.cond10.i.i
@@ -10566,7 +10566,7 @@ while.body:                                       ; preds = %entry, %_ZN4cvc58in
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
   %add.ptr.i18 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %sub3
-  %call4.i = tail call fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__comp, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i18)
+  %call4.i = tail call fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__comp, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i18)
   %spec.select = select i1 %call4.i, i64 %sub3, i64 %mul
   %add.ptr.i19 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %spec.select
   %add.ptr.i20 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__holeIndex.addr.086
@@ -10736,7 +10736,7 @@ land.rhs.i:                                       ; preds = %invoke.cont, %_ZN4c
   %__parent.043.in.i = add nsw i64 %__holeIndex.addr.042.i, -1
   %__parent.043.i = sdiv i64 %__parent.043.in.i, 2
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %__parent.043.i
-  %call2.i.i64 = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__cmp, ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %agg.tmp37)
+  %call2.i.i64 = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__cmp, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp37)
           to label %call2.i.i.noexc unwind label %lpad39.loopexit
 
 call2.i.i.noexc:                                  ; preds = %land.rhs.i
@@ -11499,7 +11499,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__i.sroa.0.050 = phi ptr [ %__i.sroa.0.047, %for.body.lr.ph ], [ %__i.sroa.0.0, %for.inc ]
   %__first.coerce.pn49 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %__i.sroa.0.050, %for.inc ]
-  %call4.i = call fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__comp, ptr noundef nonnull readonly align 8 dereferenceable(8) %__i.sroa.0.050, ptr noundef nonnull readonly align 8 dereferenceable(8) %__first.coerce)
+  %call4.i = call fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__comp, ptr noundef nonnull align 8 dereferenceable(8) %__i.sroa.0.050, ptr noundef nonnull align 8 dereferenceable(8) %__first.coerce)
   br i1 %call4.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %for.body
@@ -11781,7 +11781,7 @@ while.cond.preheader:                             ; preds = %if.then.i.i, %if.el
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
   %__last.sroa.0.0 = phi ptr [ %__last.coerce, %while.cond.preheader ], [ %__next.sroa.0.0, %while.cond.backedge ]
   %__next.sroa.0.0 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -8
-  %call2.i1 = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__comp, ptr noundef nonnull readonly align 8 dereferenceable(8) %__val, ptr noundef nonnull readonly align 8 dereferenceable(8) %__next.sroa.0.0)
+  %call2.i1 = invoke fastcc noundef zeroext i1 @"_ZNSt5_BindIFZN4cvc58internal6theory5arith2nl10Pow2Solver21sortPow2sBasedOnModelEvE3$_0St12_PlaceholderILi1EES7_ILi2EENS4_7NlModelEEEclIJRNS1_12NodeTemplateILb1EEESG_EbEET0_DpOT_"(ptr noundef nonnull align 8 dereferenceable(384) %__comp, ptr noundef nonnull align 8 dereferenceable(8) %__val, ptr noundef nonnull align 8 dereferenceable(8) %__next.sroa.0.0)
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %while.cond

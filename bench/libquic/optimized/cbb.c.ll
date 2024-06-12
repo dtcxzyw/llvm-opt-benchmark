@@ -18,7 +18,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
 define hidden range(i32 0, 2) i32 @CBB_init(ptr nocapture noundef writeonly %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call = tail call noalias ptr @malloc(i64 noundef %initial_capacity) #13
   %cmp = icmp ne i64 %initial_capacity, 0
   %cmp1 = icmp eq ptr %call, null
@@ -61,7 +61,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @CBB_init_fixed(ptr nocapture noundef writeonly %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end

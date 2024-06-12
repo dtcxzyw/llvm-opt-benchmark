@@ -259,7 +259,7 @@ entry:
   %converter = alloca %"class.arrow::internal::(anonymous namespace)::SparseCSFTensorConverter", align 16
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %tensor_.i = getelementptr inbounds i8, ptr %converter, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %converter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %converter, i8 0, i64 32, i1 false)
   store ptr %tensor, ptr %tensor_.i, align 16
   %index_value_type_.i = getelementptr inbounds i8, ptr %converter, i64 40
   store ptr %index_value_type, ptr %index_value_type_.i, align 8
@@ -2581,7 +2581,7 @@ _ZN5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensorC2EPKNS_16Spar
   %cond.i.i.i = select i1 %tobool.i.i.i, ptr %22, ptr null
   store ptr %cond.i.i.i, ptr %raw_data_.i, align 8
   %strides_.i = getelementptr inbounds i8, ptr %builder, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %strides_.i, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %strides_.i, i8 0, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__s.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)

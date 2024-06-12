@@ -1722,7 +1722,7 @@ if.then48:                                        ; preds = %if.then40
   store ptr %conv, ptr %conv3.i.i.i55, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_15ConicE, i64 16), ptr %call49, align 8
   %location.i.i = getelementptr inbounds i8, ptr %call49, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %location.i.i, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %location.i.i, i8 0, i64 96, i1 false)
   store double 1.000000e+00, ptr %trafo.i.i, align 8
   %a2.i.i.i = getelementptr inbounds i8, ptr %trafo.i.i, i64 8
   %b2.i.i.i = getelementptr inbounds i8, ptr %trafo.i.i, i64 40
@@ -1809,7 +1809,7 @@ if.then60:                                        ; preds = %if.end52
   store ptr %conv, ptr %conv3.i.i.i59, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_15ConicE, i64 16), ptr %call61, align 8
   %location.i.i60 = getelementptr inbounds i8, ptr %call61, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %location.i.i60, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %location.i.i60, i8 0, i64 96, i1 false)
   store double 1.000000e+00, ptr %trafo.i.i57, align 8
   %a2.i.i.i62 = getelementptr inbounds i8, ptr %trafo.i.i57, i64 8
   %b2.i.i.i63 = getelementptr inbounds i8, ptr %trafo.i.i57, i64 40

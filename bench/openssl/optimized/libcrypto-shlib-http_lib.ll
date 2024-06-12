@@ -638,7 +638,7 @@ lor.lhs.false:                                    ; preds = %entry, %if.end, %if
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %server) #5
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %server) #5
   %cmp5.i = icmp eq ptr %no_proxy, null
   br i1 %cmp5.i, label %if.end9.i, label %if.end19.i
 
@@ -654,7 +654,7 @@ if.end14.i:                                       ; preds = %if.end9.i
 
 if.end19.i:                                       ; preds = %if.end14.i, %if.end9.i, %if.end.i
   %no_proxy.addr.122.i = phi ptr [ %call13.i, %if.end14.i ], [ %call8.i, %if.end9.i ], [ %no_proxy, %if.end.i ]
-  %call18.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %no_proxy.addr.122.i, ptr noundef nonnull readonly dereferenceable(1) %server) #5
+  %call18.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %no_proxy.addr.122.i, ptr noundef nonnull dereferenceable(1) %server) #5
   %cmp20.not24.i = icmp eq ptr %call18.i, null
   br i1 %cmp20.not24.i, label %return, label %land.rhs.i
 
@@ -682,7 +682,7 @@ lor.rhs.i:                                        ; preds = %land.lhs.true.i, %l
 
 while.body.i:                                     ; preds = %lor.rhs.i, %land.lhs.true.i
   %add.ptr.i = getelementptr inbounds i8, ptr %found.125.i, i64 1
-  %call47.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %server) #5
+  %call47.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %server) #5
   %cmp20.not.i = icmp eq ptr %call47.i, null
   br i1 %cmp20.not.i, label %return, label %land.rhs.i, !llvm.loop !6
 

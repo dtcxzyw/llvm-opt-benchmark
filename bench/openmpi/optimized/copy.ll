@@ -1473,7 +1473,7 @@ define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef %0, ptr nocapture noun
   %492 = getelementptr inbounds i8, ptr %490, i64 48
   store i32 1, ptr %492, align 8
   %493 = getelementptr inbounds i8, ptr %490, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %493, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %493, i8 0, i64 64, i1 false)
   %494 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %495 = load ptr, ptr %494, align 8
   %.not6.i = icmp eq ptr %495, null
@@ -3098,7 +3098,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr nocapture noundef writeonly %0, ptr noc
   %262 = getelementptr inbounds i8, ptr %260, i64 48
   store i32 1, ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %260, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %263, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %263, i8 0, i64 64, i1 false)
   %264 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %265 = load ptr, ptr %264, align 8
   %.not6.i = icmp eq ptr %265, null
@@ -3639,7 +3639,7 @@ pmix20_bfrop_copy_info.exit:                      ; preds = %.lr.ph.i.i, %22
   %30 = load ptr, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 520
   %32 = getelementptr inbounds i8, ptr %15, i64 520
-  %33 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %31, ptr noundef nonnull readonly %32)
+  %33 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %31, ptr noundef nonnull %32)
   %.not15 = icmp eq i32 %33, 0
   br i1 %.not15, label %36, label %34
 

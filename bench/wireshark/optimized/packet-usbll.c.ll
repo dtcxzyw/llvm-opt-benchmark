@@ -1280,14 +1280,14 @@ tt_store_transaction.exit.i:                      ; preds = %usbll_is_periodic_s
   %311 = getelementptr inbounds i8, ptr %287, i64 10
   store i8 0, ptr %311, align 2
   %312 = getelementptr inbounds i8, ptr %287, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %312, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %312, i8 0, i64 20, i1 false)
   store i32 1, ptr %293, align 4
   %313 = getelementptr inbounds i8, ptr %293, i64 4
   store i32 0, ptr %313, align 4
   %314 = getelementptr inbounds i8, ptr %293, i64 10
   store i8 0, ptr %314, align 2
   %315 = getelementptr inbounds i8, ptr %293, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %315, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %315, i8 0, i64 20, i1 false)
   %316 = call ptr @wmem_file_scope() #13
   %317 = call noalias ptr @wmem_alloc0(ptr noundef %316, i64 noundef 20) #13
   %318 = getelementptr inbounds i8, ptr %1, i64 20
@@ -2603,7 +2603,7 @@ switch.lookup195:                                 ; preds = %876
   store i8 %893, ptr %894, align 2
   %895 = getelementptr inbounds i8, ptr %5, i64 8
   store i16 0, ptr %895, align 4
-  %896 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef nonnull readonly %.0132136147159173185)
+  %896 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef nonnull %.0132136147159173185)
   %897 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %896, ptr %897, align 4
   %898 = call ptr @proto_tree_get_parent_tree(ptr noundef %11) #13
@@ -3300,7 +3300,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %44 = getelementptr inbounds i8, ptr %41, i64 10
   store i8 0, ptr %44, align 2
   %45 = getelementptr inbounds i8, ptr %41, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %45, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %45, i8 0, i64 20, i1 false)
   %46 = getelementptr ptr, ptr %37, i64 %indvars.iv17.i
   %47 = load ptr, ptr %46, align 8
   store i32 1, ptr %47, align 4
@@ -3311,7 +3311,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %50 = getelementptr inbounds i8, ptr %47, i64 10
   store i8 0, ptr %50, align 2
   %51 = getelementptr inbounds i8, ptr %47, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %51, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, i8 0, i64 20, i1 false)
   br label %52
 
 52:                                               ; preds = %52, %39
@@ -3319,12 +3319,12 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %53 = load ptr, ptr %40, align 8
   %54 = getelementptr %struct.usbll_endpoint_info, ptr %53, i64 %indvars.iv.i.i
   %55 = getelementptr inbounds i8, ptr %54, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %55, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %55, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %54, i8 0, i64 11, i1 false)
   %56 = load ptr, ptr %46, align 8
   %57 = getelementptr %struct.usbll_endpoint_info, ptr %56, i64 %indvars.iv.i.i
   %58 = getelementptr inbounds i8, ptr %57, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %58, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %58, i8 0, i64 20, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %57, i8 0, i64 11, i1 false)
@@ -3407,7 +3407,7 @@ usbll_ep_type_from_urb_type.exit:                 ; preds = %81, %80, %79, %78, 
   %89 = getelementptr inbounds i8, ptr %65, i64 10
   store i8 0, ptr %89, align 2
   %90 = getelementptr inbounds i8, ptr %65, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %90, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %90, i8 0, i64 20, i1 false)
   br label %91
 
 91:                                               ; preds = %83, %86, %usbll_init_endpoint_tables.exit
@@ -3438,7 +3438,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
   %10 = getelementptr inbounds i8, ptr %7, i64 10
   store i8 0, ptr %10, align 2
   %11 = getelementptr inbounds i8, ptr %7, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %11, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   %12 = load ptr, ptr @ep_info_out, align 8
   %13 = getelementptr ptr, ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8
@@ -3450,7 +3450,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
   %17 = getelementptr inbounds i8, ptr %14, i64 10
   store i8 0, ptr %17, align 2
   %18 = getelementptr inbounds i8, ptr %14, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
   br label %19
 
 19:                                               ; preds = %3, %19
@@ -3458,12 +3458,12 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef %0) unname
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr %struct.usbll_endpoint_info, ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds i8, ptr %21, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %22, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %21, i8 0, i64 11, i1 false)
   %23 = load ptr, ptr %13, align 8
   %24 = getelementptr %struct.usbll_endpoint_info, ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds i8, ptr %24, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %24, i8 0, i64 11, i1 false)

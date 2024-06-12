@@ -616,7 +616,7 @@ lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %23, %.preheader.i.i
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds i8, ptr %1, i64 216
   %60 = load ptr, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store i32 %56, ptr %54, align 8
   %61 = icmp eq i32 %58, 0
   br i1 %61, label %copy_address_wmem.exit.i, label %62
@@ -643,7 +643,7 @@ copy_address_wmem.exit.i:                         ; preds = %62, %52
   %74 = load i32, ptr %73, align 4
   %75 = getelementptr inbounds i8, ptr %1, i64 240
   %76 = load ptr, ptr %75, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   store i32 %72, ptr %71, align 8
   %77 = icmp eq i32 %74, 0
   br i1 %77, label %copy_address_wmem.exit30.i, label %78

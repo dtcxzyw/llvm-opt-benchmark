@@ -2799,7 +2799,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
 
 106:                                              ; preds = %103
   %107 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 7, i64 1, ptr %5)
-  tail call void @Io_NtkWriteSubcktFanins(ptr noundef %5, ptr noundef nonnull readonly %101)
+  tail call void @Io_NtkWriteSubcktFanins(ptr noundef %5, ptr noundef nonnull %101)
   %fputc.i = tail call i32 @fputc(i32 10, ptr %5)
   %.pre133 = load ptr, ptr %94, align 8
   br label %108

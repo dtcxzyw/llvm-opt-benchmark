@@ -5192,7 +5192,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cvHin(ptr noundef %0, doub
   %50 = load ptr, ptr %49, align 8
   tail call void @N_VAbs(ptr noundef %50, ptr noundef %48) #13
   %51 = load ptr, ptr %49, align 8
-  %52 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %51, ptr noundef %46)
+  %52 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %46)
   tail call void @N_VInv(ptr noundef %46, ptr noundef %46) #13
   tail call void @N_VLinearSum(double noundef 1.000000e-01, ptr noundef %48, double noundef 1.000000e+00, ptr noundef %46, ptr noundef %46) #13
   %53 = getelementptr inbounds i8, ptr %0, i64 472
@@ -5224,7 +5224,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cvHin(ptr noundef %0, doub
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 600
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %68, ptr noundef %66)
+  %69 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %68, ptr noundef %66)
   %70 = getelementptr inbounds i8, ptr %0, i64 140
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
@@ -5281,7 +5281,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cvHin(ptr noundef %0, doub
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 752
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %101, ptr noundef %99)
+  %102 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %101, ptr noundef %99)
   %103 = getelementptr inbounds i8, ptr %0, i64 140
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, 0
@@ -7464,7 +7464,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr nocapture noun
   tail call void @N_VScale(double noundef %16, ptr noundef %18, ptr noundef %9) #13
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
+  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %cvQuadSensEwtSetEE.exit
 

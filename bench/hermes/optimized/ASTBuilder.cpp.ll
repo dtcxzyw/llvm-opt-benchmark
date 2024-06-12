@@ -2440,7 +2440,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i2692, %_ZN
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i, i64 7)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %84, align 8
-  %call.i4.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly @.str.136, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull @.str.136, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #13
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
@@ -2478,7 +2478,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %87, align 8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %agg.tmp4.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 7)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %agg.tmp4.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull dereferenceable(7) @.str.136, i64 7)
   %88 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %88, label %if.then.i.i.i2695, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i
 
@@ -2524,7 +2524,7 @@ while.body.i.i.i.i.i45.i:                         ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i59.i: ; preds = %while.body.i.i.i.i.i45.i
   %.sroa.speculated.i.i.i.i.i.i.i.i57.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i56.i, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i = load ptr, ptr %93, align 8
-  %call.i4.i.i.i.i.i.i.i.i61.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i, ptr noundef nonnull readonly @.str.138, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i) #13
+  %call.i4.i.i.i.i.i.i.i.i61.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i, ptr noundef nonnull @.str.138, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i) #13
   %tobool.i.not.i.i.i.i.i.i.i.i62.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i61.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i62.i, label %if.end.i.i.i.i.i.i.i.i.i72.i, label %if.then.i.i.i.i.i.i.i.i.i63.i
 
@@ -2562,7 +2562,7 @@ land.lhs.true.i.i.i27.i:                          ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i38.i:                             ; preds = %land.lhs.true.i.i.i27.i
   %agg.tmp4.sroa.0.0.copyload.i.i.i29.i = load ptr, ptr %96, align 8
-  %bcmp.i.i.i39.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i, ptr noundef nonnull readonly dereferenceable(5) @.str.138, i64 5)
+  %bcmp.i.i.i39.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i, ptr noundef nonnull dereferenceable(5) @.str.138, i64 5)
   %97 = icmp eq i32 %bcmp.i.i.i39.i, 0
   br i1 %97, label %if.then.i.i40.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i
 
@@ -2963,7 +2963,7 @@ while.body.i.i.i.i.i.i2846:                       ; preds = %if.then108, %_ZN9__
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i2859: ; preds = %while.body.i.i.i.i.i.i2846
   %.sroa.speculated.i.i.i.i.i.i.i.i.i2860 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i2857, i64 4)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i2861 = load ptr, ptr %164, align 8
-  %call.i4.i.i.i.i.i.i.i.i.i2862 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i2861, ptr noundef nonnull readonly @.str.262, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i2860) #13
+  %call.i4.i.i.i.i.i.i.i.i.i2862 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i2861, ptr noundef nonnull @.str.262, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i2860) #13
   %tobool.i.not.i.i.i.i.i.i.i.i.i2863 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i.i2862, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i2863, label %if.end.i.i.i.i.i.i.i.i.i.i2873, label %if.then.i.i.i.i.i.i.i.i.i.i2864
 
@@ -3001,7 +3001,7 @@ land.lhs.true.i.i.i.i2709:                        ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i.i2838:                           ; preds = %land.lhs.true.i.i.i.i2709
   %agg.tmp4.sroa.0.0.copyload.i.i.i.i2839 = load ptr, ptr %167, align 8
-  %bcmp.i.i.i.i2840 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i.i.i2839, ptr noundef nonnull readonly dereferenceable(4) @.str.262, i64 4)
+  %bcmp.i.i.i.i2840 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i.i.i2839, ptr noundef nonnull dereferenceable(4) @.str.262, i64 4)
   %168 = icmp eq i32 %bcmp.i.i.i.i2840, 0
   br i1 %168, label %if.then.i.i.i2841, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i2714
 
@@ -3134,7 +3134,7 @@ while.body.i.i.i.i.i45.i2780:                     ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i59.i2793: ; preds = %while.body.i.i.i.i.i45.i2780
   %.sroa.speculated.i.i.i.i.i.i.i.i57.i2794 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i56.i2791, i64 6)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i2795 = load ptr, ptr %183, align 8
-  %call.i4.i.i.i.i.i.i.i.i61.i2796 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i2795, ptr noundef nonnull readonly @.str.264, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i2794) #13
+  %call.i4.i.i.i.i.i.i.i.i61.i2796 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i2795, ptr noundef nonnull @.str.264, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i2794) #13
   %tobool.i.not.i.i.i.i.i.i.i.i62.i2797 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i61.i2796, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i62.i2797, label %if.end.i.i.i.i.i.i.i.i.i72.i2807, label %if.then.i.i.i.i.i.i.i.i.i63.i2798
 
@@ -3172,7 +3172,7 @@ land.lhs.true.i.i.i27.i2745:                      ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i38.i2772:                         ; preds = %land.lhs.true.i.i.i27.i2745
   %agg.tmp4.sroa.0.0.copyload.i.i.i29.i2773 = load ptr, ptr %186, align 8
-  %bcmp.i.i.i39.i2774 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i2773, ptr noundef nonnull readonly dereferenceable(6) @.str.264, i64 6)
+  %bcmp.i.i.i39.i2774 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i.i29.i2773, ptr noundef nonnull dereferenceable(6) @.str.264, i64 6)
   %187 = icmp eq i32 %bcmp.i.i.i39.i2774, 0
   br i1 %187, label %if.then.i.i40.i2775, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i2750
 
@@ -3218,7 +3218,7 @@ while.body.i.i.i.i.i105.i:                        ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i119.i: ; preds = %while.body.i.i.i.i.i105.i
   %.sroa.speculated.i.i.i.i.i.i.i.i117.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i116.i, i64 3)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i = load ptr, ptr %192, align 8
-  %call.i4.i.i.i.i.i.i.i.i121.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i, ptr noundef nonnull readonly @.str.266, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i117.i) #13
+  %call.i4.i.i.i.i.i.i.i.i121.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i, ptr noundef nonnull @.str.266, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i117.i) #13
   %tobool.i.not.i.i.i.i.i.i.i.i122.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i121.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i122.i, label %if.end.i.i.i.i.i.i.i.i.i132.i, label %if.then.i.i.i.i.i.i.i.i.i123.i
 
@@ -3256,7 +3256,7 @@ land.lhs.true.i.i.i87.i:                          ; preds = %_ZSt11lower_boundIP
 
 land.rhs.i.i.i.i98.i:                             ; preds = %land.lhs.true.i.i.i87.i
   %agg.tmp4.sroa.0.0.copyload.i.i.i89.i = load ptr, ptr %195, align 8
-  %bcmp.i.i.i99.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp4.sroa.0.0.copyload.i.i.i89.i, ptr noundef nonnull readonly dereferenceable(3) @.str.266, i64 3)
+  %bcmp.i.i.i99.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp4.sroa.0.0.copyload.i.i.i89.i, ptr noundef nonnull dereferenceable(3) @.str.266, i64 3)
   %196 = icmp eq i32 %bcmp.i.i.i99.i, 0
   br i1 %196, label %if.then.i.i100.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i93.i
 
@@ -4551,7 +4551,7 @@ if.then824:                                       ; preds = %if.then819
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7512:                ; preds = %if.then819
-  %call.i = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.112, i64 9, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg1821)
+  %call.i = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.112, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg1821)
   %349 = load ptr, ptr %this, align 8
   %call840 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %349, i64 noundef 8)
   %350 = load ptr, ptr %arg0820, align 8
@@ -4751,7 +4751,7 @@ if.end.i.i15501:                                  ; preds = %if.end.i.i15349
 
 if.then945:                                       ; preds = %if.end.i.i15501
   store ptr null, ptr %arg0946, align 8
-  %call.i3224 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg0946)
+  %call.i3224 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0946)
   br i1 %call.i3224, label %if.end954, label %if.then949
 
 if.then949:                                       ; preds = %if.then945
@@ -6170,7 +6170,7 @@ if.end.i.i15976:                                  ; preds = %if.end.i.i15938
 
 if.then1618:                                      ; preds = %if.end.i.i15976
   store ptr null, ptr %arg01619, align 8
-  %call.i3600 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg01619)
+  %call.i3600 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01619)
   br i1 %call.i3600, label %if.end1627, label %if.then1622
 
 if.then1622:                                      ; preds = %if.then1618
@@ -6763,7 +6763,7 @@ if.then1880:                                      ; preds = %if.then1874
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8702:                ; preds = %if.then1874
-  %call.i3736 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.264, i64 6, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg11876)
+  %call.i3736 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.264, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg11876)
   %call1896 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg21877)
   br i1 %call1896, label %if.end1902, label %if.then1897
 
@@ -8901,7 +8901,7 @@ if.end.i.i16774:                                  ; preds = %if.end2964
 if.then2968:                                      ; preds = %if.end.i.i16774
   store ptr null, ptr %arg02969, align 8
   store ptr null, ptr %arg12970, align 8
-  %call.i4263 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg02969)
+  %call.i4263 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02969)
   br i1 %call.i4263, label %_ZN4llvh9StringRefC2EPKc.exit9912, label %if.then2973
 
 if.then2973:                                      ; preds = %if.then2968
@@ -8980,7 +8980,7 @@ if.end.i.i16793:                                  ; preds = %if.end2964.thread16
 if.then2994:                                      ; preds = %if.end.i.i16793
   store ptr null, ptr %arg02995, align 8
   store ptr null, ptr %arg12996, align 8
-  %call.i4281 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg02995)
+  %call.i4281 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02995)
   br i1 %call.i4281, label %_ZN4llvh9StringRefC2EPKc.exit9942, label %if.then2999
 
 if.then2999:                                      ; preds = %if.then2994
@@ -9321,7 +9321,7 @@ if.end.i.i16964:                                  ; preds = %if.end3135
 if.then3139:                                      ; preds = %if.end.i.i16964
   store ptr null, ptr %arg03140, align 8
   store ptr null, ptr %arg13141, align 8
-  %call.i4362 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.129, i64 5, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg03140)
+  %call.i4362 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03140)
   br i1 %call.i4362, label %_ZN4llvh9StringRefC2EPKc.exit10112, label %if.then3144
 
 if.then3144:                                      ; preds = %if.then3139
@@ -9336,7 +9336,7 @@ if.then3144:                                      ; preds = %if.then3139
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10112:               ; preds = %if.then3139
-  %call.i4368 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.266, i64 3, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg13141)
+  %call.i4368 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13141)
   br i1 %call.i4368, label %if.end3157, label %if.then3152
 
 if.then3152:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10112
@@ -12749,7 +12749,7 @@ if.then4921:                                      ; preds = %_ZN4llvh9StringRefC
 
 _ZN4llvh9StringRefC2EPKc.exit12092:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12082
   %call4928 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg34901)
-  %call.i5276 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.183, i64 8, ptr noundef nonnull writeonly align 8 dereferenceable(8) %arg44902)
+  %call.i5276 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg44902)
   %1151 = load ptr, ptr %this, align 8
   %call4946 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %1151, i64 noundef 8)
   %1152 = load ptr, ptr %arg04898, align 8

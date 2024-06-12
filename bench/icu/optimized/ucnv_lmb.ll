@@ -1754,7 +1754,7 @@ while.body.i:                                     ; preds = %lor.lhs.false.i, %i
 
 if.then6.i:                                       ; preds = %while.body.i
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #9
-  %call9.i = call i32 @strncmp(ptr noundef nonnull %13, ptr noundef nonnull readonly %11, i64 noundef %call.i) #9
+  %call9.i = call i32 @strncmp(ptr noundef nonnull %13, ptr noundef nonnull %11, i64 noundef %call.i) #9
   %cmp10.i = icmp eq i32 %call9.i, 0
   br i1 %cmp10.i, label %if.then11.i, label %if.end19.i
 

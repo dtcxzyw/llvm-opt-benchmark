@@ -18952,7 +18952,7 @@ test_is_selected.exit.thread:                     ; preds = %genBenchmarkRandomD
 
 test_is_selected.exit:                            ; preds = %genBenchmarkRandomData.exit
   store i8 44, ptr %buf.i, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %add.ptr.i153, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.16447, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %add.ptr.i153, ptr noundef nonnull align 1 dereferenceable(11) @.str.16447, i64 11, i1 false)
   store i8 44, ptr %arrayidx3.i, align 4
   store i8 0, ptr %arrayidx6.i155, align 1
   %call8.i156 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) %buf.i) #21
@@ -18989,7 +18989,7 @@ test_is_selected.exit194.thread:                  ; preds = %if.end169
 test_is_selected.exit194:                         ; preds = %if.end169.thread, %if.end169
   %164 = phi ptr [ %163, %if.end169.thread ], [ %.pre776, %if.end169 ]
   store i8 44, ptr %buf.i177, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i181, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16451, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i181, ptr noundef nonnull align 1 dereferenceable(10) @.str.16451, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i186, align 1
   store i8 0, ptr %arrayidx6.i189, align 4
   %call8.i190 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) %buf.i177) #21
@@ -19030,7 +19030,7 @@ test_is_selected.exit230.thread:                  ; preds = %if.end177
 test_is_selected.exit230:                         ; preds = %if.end177.thread, %if.end177
   %167 = phi ptr [ %164, %if.end177.thread ], [ %.pre777, %if.end177 ]
   store i8 44, ptr %buf.i213, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i217, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.16454, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i217, ptr noundef nonnull align 1 dereferenceable(3) @.str.16454, i64 3, i1 false)
   store i8 44, ptr %arrayidx3.i222, align 4
   store i8 0, ptr %arrayidx6.i225, align 1
   %call8.i226 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) %buf.i213) #21
@@ -19060,7 +19060,7 @@ test_is_selected.exit248.thread:                  ; preds = %if.end182
 test_is_selected.exit248:                         ; preds = %if.end182.thread, %if.end182
   %170 = phi ptr [ %167, %if.end182.thread ], [ %.pre778, %if.end182 ]
   store i8 44, ptr %buf.i231, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i235, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.16457, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i235, ptr noundef nonnull align 1 dereferenceable(3) @.str.16457, i64 3, i1 false)
   store i8 44, ptr %arrayidx3.i240, align 4
   store i8 0, ptr %arrayidx6.i243, align 1
   %call8.i244 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(1) %buf.i231) #21
@@ -19120,7 +19120,7 @@ test_is_selected.exit284.thread:                  ; preds = %if.end192
 test_is_selected.exit284:                         ; preds = %if.end192.thread, %if.end192
   %176 = phi ptr [ %173, %if.end192.thread ], [ %.pre780, %if.end192 ]
   store i8 44, ptr %buf.i267, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i271, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.16463, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i271, ptr noundef nonnull align 1 dereferenceable(5) @.str.16463, i64 5, i1 false)
   store i8 44, ptr %arrayidx3.i276, align 2
   store i8 0, ptr %arrayidx6.i279, align 1
   %call8.i280 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(1) %buf.i267) #21
@@ -19150,7 +19150,7 @@ test_is_selected.exit302.thread:                  ; preds = %if.end197
 test_is_selected.exit302:                         ; preds = %if.end197.thread, %if.end197
   %179 = phi ptr [ %176, %if.end197.thread ], [ %.pre781, %if.end197 ]
   store i8 44, ptr %buf.i285, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i289, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.16466, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i289, ptr noundef nonnull align 1 dereferenceable(5) @.str.16466, i64 5, i1 false)
   store i8 44, ptr %arrayidx3.i294, align 2
   store i8 0, ptr %arrayidx6.i297, align 1
   %call8.i298 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(1) %buf.i285) #21
@@ -19363,7 +19363,7 @@ test_is_selected.exit428.thread:                  ; preds = %if.end235
 test_is_selected.exit428:                         ; preds = %if.end235.thread, %if.end235
   %201 = phi ptr [ %197, %if.end235.thread ], [ %.pre788, %if.end235 ]
   store i8 44, ptr %buf.i411, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i415, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.16488, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i415, ptr noundef nonnull align 1 dereferenceable(7) @.str.16488, i64 7, i1 false)
   store i8 44, ptr %arrayidx3.i420, align 8
   store i8 0, ptr %arrayidx6.i423, align 1
   %call8.i424 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(1) %buf.i411) #21
@@ -19393,7 +19393,7 @@ test_is_selected.exit446.thread:                  ; preds = %if.end240
 test_is_selected.exit446:                         ; preds = %if.end240.thread, %if.end240
   %204 = phi ptr [ %201, %if.end240.thread ], [ %.pre789, %if.end240 ]
   store i8 44, ptr %buf.i429, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i433, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i433, ptr noundef nonnull align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
   store i8 44, ptr %arrayidx3.i438, align 1
   store i8 0, ptr %arrayidx6.i441, align 8
   %call8.i442 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %buf.i429) #21
@@ -19404,7 +19404,7 @@ test_is_selected.exit446:                         ; preds = %if.end240.thread, %
 test_is_selected.exit464:                         ; preds = %test_is_selected.exit446
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i447)
   store i8 44, ptr %buf.i447, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i451, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16492, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i451, ptr noundef nonnull align 1 dereferenceable(10) @.str.16492, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i456, align 1
   store i8 0, ptr %arrayidx6.i459, align 4
   %call8.i460 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %buf.i447) #21
@@ -19415,7 +19415,7 @@ test_is_selected.exit464:                         ; preds = %test_is_selected.ex
 test_is_selected.exit482:                         ; preds = %test_is_selected.exit464
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i465)
   store i8 44, ptr %buf.i465, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i469, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16493, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i469, ptr noundef nonnull align 1 dereferenceable(10) @.str.16493, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i474, align 1
   store i8 0, ptr %arrayidx6.i477, align 4
   %call8.i478 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %buf.i465) #21
@@ -19426,7 +19426,7 @@ test_is_selected.exit482:                         ; preds = %test_is_selected.ex
 test_is_selected.exit500:                         ; preds = %test_is_selected.exit482
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i483)
   store i8 44, ptr %buf.i483, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i487, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16494, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i487, ptr noundef nonnull align 1 dereferenceable(10) @.str.16494, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i492, align 1
   store i8 0, ptr %arrayidx6.i495, align 4
   %call8.i496 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %buf.i483) #21
@@ -19437,7 +19437,7 @@ test_is_selected.exit500:                         ; preds = %test_is_selected.ex
 test_is_selected.exit518:                         ; preds = %test_is_selected.exit500
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i501)
   store i8 44, ptr %buf.i501, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i505, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16495, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i505, ptr noundef nonnull align 1 dereferenceable(10) @.str.16495, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i510, align 1
   store i8 0, ptr %arrayidx6.i513, align 4
   %call8.i514 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %buf.i501) #21
@@ -19467,7 +19467,7 @@ test_is_selected.exit536.thread:                  ; preds = %if.end257
 test_is_selected.exit536:                         ; preds = %if.end257.thread, %if.end257
   %207 = phi ptr [ %204, %if.end257.thread ], [ %.pre790, %if.end257 ]
   store i8 44, ptr %buf.i519, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i523, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i523, ptr noundef nonnull align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
   store i8 44, ptr %arrayidx3.i528, align 1
   store i8 0, ptr %arrayidx6.i531, align 8
   %call8.i532 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull dereferenceable(1) %buf.i519) #21
@@ -19478,7 +19478,7 @@ test_is_selected.exit536:                         ; preds = %if.end257.thread, %
 test_is_selected.exit554:                         ; preds = %test_is_selected.exit536
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i537)
   store i8 44, ptr %buf.i537, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i541, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16492, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i541, ptr noundef nonnull align 1 dereferenceable(10) @.str.16492, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i546, align 1
   store i8 0, ptr %arrayidx6.i549, align 4
   %call8.i550 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull dereferenceable(1) %buf.i537) #21
@@ -19508,7 +19508,7 @@ test_is_selected.exit572.thread:                  ; preds = %if.end265
 test_is_selected.exit572:                         ; preds = %if.end265.thread, %if.end265
   %210 = phi ptr [ %207, %if.end265.thread ], [ %.pre791, %if.end265 ]
   store i8 44, ptr %buf.i555, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i559, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i559, ptr noundef nonnull align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
   store i8 44, ptr %arrayidx3.i564, align 1
   store i8 0, ptr %arrayidx6.i567, align 8
   %call8.i568 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %210, ptr noundef nonnull dereferenceable(1) %buf.i555) #21
@@ -19519,7 +19519,7 @@ test_is_selected.exit572:                         ; preds = %if.end265.thread, %
 test_is_selected.exit590:                         ; preds = %test_is_selected.exit572
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i573)
   store i8 44, ptr %buf.i573, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i577, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16493, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i577, ptr noundef nonnull align 1 dereferenceable(10) @.str.16493, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i582, align 1
   store i8 0, ptr %arrayidx6.i585, align 4
   %call8.i586 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %210, ptr noundef nonnull dereferenceable(1) %buf.i573) #21
@@ -19549,7 +19549,7 @@ test_is_selected.exit608.thread:                  ; preds = %if.end273
 test_is_selected.exit608:                         ; preds = %if.end273.thread, %if.end273
   %213 = phi ptr [ %210, %if.end273.thread ], [ %.pre792, %if.end273 ]
   store i8 44, ptr %buf.i591, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i595, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i595, ptr noundef nonnull align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
   store i8 44, ptr %arrayidx3.i600, align 1
   store i8 0, ptr %arrayidx6.i603, align 8
   %call8.i604 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) %buf.i591) #21
@@ -19560,7 +19560,7 @@ test_is_selected.exit608:                         ; preds = %if.end273.thread, %
 test_is_selected.exit626:                         ; preds = %test_is_selected.exit608
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i609)
   store i8 44, ptr %buf.i609, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i613, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16494, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i613, ptr noundef nonnull align 1 dereferenceable(10) @.str.16494, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i618, align 1
   store i8 0, ptr %arrayidx6.i621, align 4
   %call8.i622 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) %buf.i609) #21
@@ -19590,7 +19590,7 @@ test_is_selected.exit644.thread:                  ; preds = %if.end281
 test_is_selected.exit644:                         ; preds = %if.end281.thread, %if.end281
   %216 = phi ptr [ %213, %if.end281.thread ], [ %.pre793, %if.end281 ]
   store i8 44, ptr %buf.i627, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i631, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i631, ptr noundef nonnull align 1 dereferenceable(6) @.str.16491, i64 6, i1 false)
   store i8 44, ptr %arrayidx3.i636, align 1
   store i8 0, ptr %arrayidx6.i639, align 8
   %call8.i640 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull dereferenceable(1) %buf.i627) #21
@@ -19601,7 +19601,7 @@ test_is_selected.exit644:                         ; preds = %if.end281.thread, %
 test_is_selected.exit662:                         ; preds = %test_is_selected.exit644
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i645)
   store i8 44, ptr %buf.i645, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i649, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.16495, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i649, ptr noundef nonnull align 1 dereferenceable(10) @.str.16495, i64 10, i1 false)
   store i8 44, ptr %arrayidx3.i654, align 1
   store i8 0, ptr %arrayidx6.i657, align 4
   %call8.i658 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull dereferenceable(1) %buf.i645) #21

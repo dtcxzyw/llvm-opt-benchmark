@@ -17936,7 +17936,7 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt13shared_futur
   store i64 %284, ptr %292, align 8
   store ptr null, ptr %283, align 8
   %293 = getelementptr inbounds i8, ptr %289, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %293, ptr noundef nonnull align 8 dereferenceable(24) %285, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %293, ptr noundef nonnull align 8 dereferenceable(24) %285, i64 24, i1 false)
   store ptr %289, ptr %3, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %3, ptr noundef null)
           to label %294 unwind label %299

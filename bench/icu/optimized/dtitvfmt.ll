@@ -2044,7 +2044,7 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
 .noexc7:                                          ; preds = %.noexc
   %9 = load ptr, ptr %fFromCalendar.i, align 8
   %10 = load ptr, ptr %fToCalendar.i, align 8
-  %call11.i8 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7518DateIntervalFormat10formatImplERNS_8CalendarES2_RNS_13UnicodeStringERaRNS_20FieldPositionHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1900) %this, ptr noundef nonnull align 8 dereferenceable(618) %9, ptr noundef nonnull align 8 dereferenceable(618) %10, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, ptr noundef nonnull writeonly align 1 dereferenceable(1) %ignore, ptr noundef nonnull align 8 dereferenceable(12) %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call11.i8 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7518DateIntervalFormat10formatImplERNS_8CalendarES2_RNS_13UnicodeStringERaRNS_20FieldPositionHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1900) %this, ptr noundef nonnull align 8 dereferenceable(618) %9, ptr noundef nonnull align 8 dereferenceable(618) %10, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, ptr noundef nonnull align 1 dereferenceable(1) %ignore, ptr noundef nonnull align 8 dereferenceable(12) %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then3.i, %invoke.cont5, %.noexc7
@@ -2247,7 +2247,7 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
 .noexc26:                                         ; preds = %.noexc
   %10 = load ptr, ptr %fFromCalendar.i, align 8
   %11 = load ptr, ptr %fToCalendar.i, align 8
-  %call11.i27 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7518DateIntervalFormat10formatImplERNS_8CalendarES2_RNS_13UnicodeStringERaRNS_20FieldPositionHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1900) %this, ptr noundef nonnull align 8 dereferenceable(618) %10, ptr noundef nonnull align 8 dereferenceable(618) %11, ptr noundef nonnull align 8 dereferenceable(64) %string, ptr noundef nonnull writeonly align 1 dereferenceable(1) %firstIndex, ptr noundef nonnull align 8 dereferenceable(12) %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call11.i27 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7518DateIntervalFormat10formatImplERNS_8CalendarES2_RNS_13UnicodeStringERaRNS_20FieldPositionHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1900) %this, ptr noundef nonnull align 8 dereferenceable(618) %10, ptr noundef nonnull align 8 dereferenceable(618) %11, ptr noundef nonnull align 8 dereferenceable(64) %string, ptr noundef nonnull align 1 dereferenceable(1) %firstIndex, ptr noundef nonnull align 8 dereferenceable(12) %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.then3.i, %invoke.cont17, %.noexc26

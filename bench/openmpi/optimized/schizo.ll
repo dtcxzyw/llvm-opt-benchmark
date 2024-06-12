@@ -465,7 +465,7 @@ define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
   %.011.i.i = phi ptr [ %.0.i.i, %8 ], [ %.09.i.i, %1 ]
   %4 = getelementptr inbounds i8, ptr %.011.i.i, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(18) @.str.24) #9
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.24) #9
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
@@ -562,7 +562,7 @@ define dso_local void @psched_schizo_init() local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null

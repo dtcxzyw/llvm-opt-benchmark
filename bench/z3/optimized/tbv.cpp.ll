@@ -103,7 +103,7 @@ entry:
   %m_num_bytes.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i.i, align 4
   %conv.i = zext i32 %0 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %call.i, i8 85, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i, i8 85, i64 %conv.i, i1 false)
   ret ptr %call.i
 }
 
@@ -125,7 +125,7 @@ entry:
   %m_num_bytes.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i.i, align 4
   %conv.i = zext i32 %0 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %call.i, i8 -86, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i, i8 -86, i64 %conv.i, i1 false)
   ret ptr %call.i
 }
 
@@ -179,7 +179,7 @@ entry:
   %m_num_bytes.i.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i.i.i, align 4
   %conv.i.i = zext i32 %0 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
   %m_num_bits.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %1 = load i32, ptr %m_num_bits.i.i, align 8
   %cmp.not20 = icmp ult i32 %1, 2
@@ -831,7 +831,7 @@ if.then:                                          ; preds = %_ZNK8rational9is_ui
   %m_num_bytes.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %4 = load i32, ptr %m_num_bytes.i.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %call.i.i.i11, i8 -86, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i.i11, i8 -86, i64 %conv.i.i.i, i1 false)
   %m_num_bits.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %5 = load i32, ptr %m_num_bits.i.i.i, align 8
   %cmp.not20.i = icmp ult i32 %5, 2
@@ -889,7 +889,7 @@ if.end:                                           ; preds = %entry, %_ZNK8ration
   %m_num_bytes.i.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %8 = load i32, ptr %m_num_bytes.i.i.i, align 4
   %conv.i.i = zext i32 %8 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
   %m_num_bits.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %9 = load i32, ptr %m_num_bits.i.i, align 8
   %cmp.not31 = icmp ult i32 %9, 2

@@ -2188,7 +2188,7 @@ Abc_TtClear.exit:                                 ; preds = %36
   %46 = getelementptr inbounds i64, ptr %.val36.val, i64 %45
   %47 = zext nneg i32 %.val35.val to i64
   %48 = shl nuw nsw i64 %47, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %46, i8 0, i64 %48, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %46, i8 0, i64 %48, i1 false)
   %.val39.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.val39.pre, i64 32
   %.val39.val.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -2204,7 +2204,7 @@ Abc_TtClear.exit:                                 ; preds = %36
   %53 = getelementptr inbounds i64, ptr %.val40.val, i64 %52
   %54 = zext nneg i32 %.val39.val.pre to i64
   %55 = shl nuw nsw i64 %54, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %53, i8 0, i64 %55, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %53, i8 0, i64 %55, i1 false)
   br label %Abc_TtClear.exit44
 
 Abc_TtClear.exit44:                               ; preds = %36, %Abc_TtClear.exit, %.lr.ph.preheader.i43
@@ -4032,7 +4032,7 @@ Abc_Clock.exit143:                                ; preds = %229, %232
   %252 = getelementptr inbounds i64, ptr %.val119.val, i64 %251
   %253 = zext nneg i32 %.val118.val to i64
   %254 = shl nuw nsw i64 %253, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %252, i8 -1, i64 %254, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %252, i8 -1, i64 %254, i1 false)
   br label %Abc_TtFill.exit
 
 255:                                              ; preds = %243
@@ -4048,7 +4048,7 @@ Abc_Clock.exit143:                                ; preds = %229, %232
   %260 = getelementptr inbounds i64, ptr %.val117.val, i64 %259
   %261 = zext nneg i32 %.val118.val to i64
   %262 = shl nuw nsw i64 %261, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %260, i8 0, i64 %262, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %260, i8 0, i64 %262, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %.lr.ph.preheader.i145, %255, %.lr.ph.preheader.i144, %247
@@ -13552,10 +13552,10 @@ define noundef ptr @Sbd_ManDerive(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #31
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #31
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #27
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #29
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #29
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %7
@@ -13567,10 +13567,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %7
   br i1 %.not.i74, label %Abc_UtilStrsav.exit75, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #31
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #31
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #27
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #29
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #29
   br label %Abc_UtilStrsav.exit75
 
 Abc_UtilStrsav.exit75:                            ; preds = %Abc_UtilStrsav.exit, %15

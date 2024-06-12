@@ -7568,7 +7568,7 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %256, %251
   br i1 %282, label %283, label %.thread.i.i.i
 
 283:                                              ; preds = %280
-  %284 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull writeonly %11)
+  %284 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull %11)
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 285:                                              ; preds = %263
@@ -7616,12 +7616,12 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %256, %251
 306:                                              ; preds = %.thread.i.i.i, %285
   %307 = phi ptr [ %288, %.thread.i.i.i ], [ %286, %285 ]
   %308 = call i32 @tvb_captured_length(ptr noundef nonnull %307) #10
-  %309 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef nonnull %307, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef 0, i32 noundef %308, ptr noundef nonnull writeonly %11)
+  %309 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef nonnull %307, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef 0, i32 noundef %308, ptr noundef nonnull %11)
   %310 = add i32 %309, %258
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 311:                                              ; preds = %dissect_dcm_pdv_header.exit.i.i.i
-  %312 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull writeonly %11)
+  %312 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull %11)
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i: ; preds = %311, %306, %283
@@ -10434,7 +10434,7 @@ define internal fastcc ptr @dcm_export_create_header(ptr %.408.val, ptr nocaptur
   br i1 %.not.i, label %dcm_export_create_tag_str.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 1
   %spec.select.i = add i32 %16, %15
@@ -10456,7 +10456,7 @@ define internal fastcc ptr @dcm_export_create_header(ptr %.408.val, ptr nocaptur
 26:                                               ; preds = %13
   %27 = getelementptr i8, ptr %5, i64 166
   %28 = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %27, ptr nonnull readonly align 1 %1, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %1, i64 %28, i1 false)
   br label %dcm_export_create_tag_str.exit
 
 dcm_export_create_tag_str.exit:                   ; preds = %4, %13, %26
@@ -10465,7 +10465,7 @@ dcm_export_create_tag_str.exit:                   ; preds = %4, %13, %26
   br i1 %.not.i27, label %dcm_export_create_tag_str.exit30, label %29
 
 29:                                               ; preds = %dcm_export_create_tag_str.exit
-  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #14
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %31 = trunc i64 %30 to i32
   %32 = and i32 %31, 1
   %spec.select.i28 = add i32 %32, %31
@@ -10498,7 +10498,7 @@ dcm_export_create_tag_str.exit:                   ; preds = %4, %13, %26
   %49 = zext nneg i32 %40 to i64
   %50 = getelementptr i8, ptr %5, i64 %49
   %51 = zext i32 %spec.select.i28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %50, ptr nonnull readonly align 1 %2, i64 %51, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %2, i64 %51, i1 false)
   br label %dcm_export_create_tag_str.exit30
 
 dcm_export_create_tag_str.exit30:                 ; preds = %dcm_export_create_tag_str.exit, %29, %34, %39, %48
@@ -10507,7 +10507,7 @@ dcm_export_create_tag_str.exit30:                 ; preds = %dcm_export_create_t
   br i1 %.not.i31, label %dcm_export_create_tag_str.exit34, label %52
 
 52:                                               ; preds = %dcm_export_create_tag_str.exit30
-  %53 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #14
+  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %54 = trunc i64 %53 to i32
   %55 = and i32 %54, 1
   %spec.select.i32 = add i32 %55, %54
@@ -10540,7 +10540,7 @@ dcm_export_create_tag_str.exit30:                 ; preds = %dcm_export_create_t
   %72 = zext nneg i32 %63 to i64
   %73 = getelementptr i8, ptr %5, i64 %72
   %74 = zext i32 %spec.select.i32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %73, ptr nonnull readonly align 1 %3, i64 %74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull align 1 %3, i64 %74, i1 false)
   br label %dcm_export_create_tag_str.exit34
 
 dcm_export_create_tag_str.exit34:                 ; preds = %dcm_export_create_tag_str.exit30, %71
@@ -10567,7 +10567,7 @@ dcm_export_create_tag_str.exit34:                 ; preds = %dcm_export_create_t
 
 dcm_export_create_tag_str.exit37:                 ; preds = %81
   %85 = getelementptr i8, ptr %78, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %85, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.352, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %85, ptr noundef nonnull align 1 dereferenceable(28) @.str.352, i64 28, i1 false)
   %86 = icmp ugt i32 %.013.i33, 470
   br i1 %86, label %dcm_export_create_tag_str.exit40, label %87
 
@@ -10592,7 +10592,7 @@ dcm_export_create_tag_str.exit37:                 ; preds = %81
 97:                                               ; preds = %93
   %98 = add nuw nsw i32 %.013.i33, 54
   %99 = getelementptr i8, ptr %89, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %99, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.353, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %99, ptr noundef nonnull align 1 dereferenceable(10) @.str.353, i64 10, i1 false)
   br label %dcm_export_create_tag_str.exit40
 
 dcm_export_create_tag_str.exit40:                 ; preds = %62, %57, %52, %81, %76, %dcm_export_create_tag_str.exit34, %dcm_export_create_tag_str.exit37, %87, %93, %97
@@ -10724,7 +10724,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 52:                                               ; preds = %.lr.ph.i
   %53 = load i32, ptr @ett_assoc_info_uid, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.407, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_pdu_maxlen, i32 noundef %53)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.407, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_pdu_maxlen, i32 noundef %53)
   %.not86.i = icmp eq i32 %.0831.i, 0
   br i1 %.not86.i, label %54, label %55
 
@@ -10739,7 +10739,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 57:                                               ; preds = %.lr.ph.i
   %58 = load i32, ptr @ett_assoc_info_uid, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.410, i32 noundef 2, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_info_uid, i32 noundef %58)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.410, i32 noundef 2, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_info_uid, i32 noundef %58)
   %.not85.i = icmp eq i32 %.0831.i, 0
   br i1 %.not85.i, label %59, label %60
 
@@ -10754,7 +10754,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 62:                                               ; preds = %.lr.ph.i
   %63 = load i32, ptr @ett_assoc_info_version, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.412, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_info_version, i32 noundef %63)
+  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.412, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @hf_dcm_info_version, i32 noundef %63)
   %.not.i = icmp eq i32 %.0831.i, 0
   br i1 %.not.i, label %64, label %65
 

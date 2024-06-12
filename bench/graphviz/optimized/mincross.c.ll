@@ -2135,7 +2135,7 @@ reorder.exit.i:                                   ; preds = %494, %488, %._crit_
 
 mincross_step.exit:                               ; preds = %reorder.exit.i, %130
   %501 = xor i1 %105, true
-  tail call fastcc void @transpose(ptr noundef readonly %0, i1 noundef zeroext %501)
+  tail call fastcc void @transpose(ptr noundef %0, i1 noundef zeroext %501)
   %502 = tail call i32 @ncross(ptr poison)
   %.not65 = icmp sgt i32 %502, %.3125
   br i1 %.not65, label %542, label %503
@@ -5033,7 +5033,7 @@ define internal fastcc void @ordered_edges(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(4) @.str.14) #28
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.14) #28
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %sub_0
 
@@ -5121,7 +5121,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not15.i, label %56, label %35
 
 35:                                               ; preds = %.lr.ph.i23
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %34, ptr noundef nonnull readonly dereferenceable(4) @.str.14) #28
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(4) @.str.14) #28
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %sub_0.i
 

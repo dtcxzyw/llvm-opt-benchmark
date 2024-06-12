@@ -2136,11 +2136,11 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef %0, ptr nocap
   br i1 %.not.i, label %36, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = call i32 @unpackstr_xmalloc_escaped(ptr noundef writeonly %32, ptr noundef nonnull %4, ptr noundef %2)
+  %35 = call i32 @unpackstr_xmalloc_escaped(ptr noundef %32, ptr noundef nonnull %4, ptr noundef %2)
   br label %unpackstr_xmalloc_chooser.exit
 
 36:                                               ; preds = %.lr.ph
-  %37 = call i32 @unpackstr_xmalloc(ptr noundef writeonly %32, ptr noundef nonnull %4, ptr noundef %2)
+  %37 = call i32 @unpackstr_xmalloc(ptr noundef %32, ptr noundef nonnull %4, ptr noundef %2)
   br label %unpackstr_xmalloc_chooser.exit
 
 unpackstr_xmalloc_chooser.exit:                   ; preds = %34, %36

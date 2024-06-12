@@ -805,7 +805,7 @@ read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
   %49 = sext i32 %spec.select.i to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.sroa.2.0.i, ptr align 1 %48, i64 %49, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.2.0.i, ptr align 1 %48, i64 %49, i1 false)
   %50 = load i32, ptr %45, align 4
   %51 = add nsw i32 %50, %spec.select.i
   store i32 %51, ptr %45, align 4

@@ -7438,7 +7438,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
 11:                                               ; preds = %8, %3
   store ptr null, ptr %4, align 8
   %12 = tail call i32 @linker_find_linker_type()
-  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
+  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
   store ptr null, ptr %5, align 8
   %13 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %13, null

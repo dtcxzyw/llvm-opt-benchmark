@@ -134,7 +134,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef %0) 
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %2, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %23, i8 0, i64 22, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %23, i8 0, i64 22, i1 false)
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 1, ptr %24, align 1
   %25 = getelementptr inbounds i8, ptr %2, i64 12

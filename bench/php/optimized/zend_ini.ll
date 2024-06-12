@@ -2276,7 +2276,7 @@ define i64 @zend_ini_parse_uquantity(ptr noundef %0, ptr nocapture noundef write
 ; Function Attrs: nounwind uwtable
 define i64 @zend_ini_parse_quantity_warn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 0, ptr noundef nonnull writeonly %3)
+  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %6
@@ -2322,7 +2322,7 @@ declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i64 @zend_ini_parse_uquantity_warn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 1, ptr noundef nonnull writeonly %3)
+  %4 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %6
@@ -2613,7 +2613,7 @@ define noundef i32 @OnUpdateLong(ptr nocapture noundef readonly %0, ptr noundef 
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull writeonly %7)
+  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %zend_ini_parse_quantity_warn.exit, label %11
@@ -2663,7 +2663,7 @@ define range(i32 -1, 1) i32 @OnUpdateLongGEZero(ptr nocapture noundef readonly %
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull writeonly %7)
+  %9 = call fastcc i64 @zend_ini_parse_quantity_internal(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %zend_ini_parse_quantity_warn.exit, label %11

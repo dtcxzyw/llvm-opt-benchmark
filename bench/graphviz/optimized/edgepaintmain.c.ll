@@ -111,7 +111,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(9) @.str.9, i64 noundef 8) #9
+  %18 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(9) @.str.9, i64 noundef 8) #9
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.thread78.i, label %21
 
@@ -120,7 +120,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %60
 
 21:                                               ; preds = %17
-  %22 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(6) @.str.10, i64 noundef 5) #9
+  %22 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #9
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.thread82.i, label %.thread.i
 
@@ -129,7 +129,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %67
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(13) @.str.11, i64 noundef 12) #9
+  %26 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(13) @.str.11, i64 noundef 12) #9
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.thread86.i, label %.thread.i
 
@@ -138,7 +138,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %76
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(12) @.str.12, i64 noundef 11) #9
+  %30 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(12) @.str.12, i64 noundef 11) #9
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.thread94.i, label %.thread.i
 
@@ -147,7 +147,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %93
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(10) @.str.13, i64 noundef 9) #9
+  %34 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.13, i64 noundef 9) #9
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread90.i, label %.thread.i
 
@@ -156,7 +156,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %81
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(14) @.str.14, i64 noundef 13) #9
+  %38 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(14) @.str.14, i64 noundef 13) #9
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread98.i, label %.thread75.i
 

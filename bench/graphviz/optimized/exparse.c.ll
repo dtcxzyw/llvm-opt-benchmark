@@ -2084,7 +2084,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
 233:                                              ; preds = %231
   %234 = load ptr, ptr %212, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 80
-  %236 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %235, ptr noundef nonnull dereferenceable(6) @.str.21) #26
+  %236 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %235, ptr noundef nonnull dereferenceable(6) @.str.21) #26
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %.loopexit1007, label %238
 
@@ -5434,7 +5434,7 @@ extypename.exit941:                               ; preds = %1887, %1894
   store i32 80, ptr %2115, align 8
   %2119 = load ptr, ptr @expr, align 8
   %2120 = getelementptr inbounds i8, ptr %2119, i64 80
-  %2121 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2120, ptr noundef nonnull dereferenceable(6) @.str.21) #26
+  %2121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2120, ptr noundef nonnull dereferenceable(6) @.str.21) #26
   %2122 = icmp eq i32 %2121, 0
   br i1 %2122, label %2147, label %2123
 

@@ -6412,7 +6412,7 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %0, i64 440
   %123 = load ptr, ptr %122, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(336) %2, i8 0, i64 336, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %2, i8 0, i64 336, i1 false)
   %124 = getelementptr inbounds i8, ptr %0, i64 400
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %2, i64 24

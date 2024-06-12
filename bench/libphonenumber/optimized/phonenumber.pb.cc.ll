@@ -110,7 +110,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %0, %2
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 24), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 32), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 48), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 48), i8 0, i64 20, i1 false)
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 68), align 4
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E)
   ret void
@@ -2509,7 +2509,7 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %21, %_ZNK6google8pr
   %24 = getelementptr inbounds i8, ptr %.sink19, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %.sink19, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false)
   %26 = getelementptr inbounds i8, ptr %.sink19, i64 68
   store i32 1, ptr %26, align 4
   ret ptr %.sink19
@@ -2547,7 +2547,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberE
   %12 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %13, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, i8 0, i64 20, i1 false)
   %14 = getelementptr inbounds i8, ptr %2, i64 68
   store i32 1, ptr %14, align 4
   ret ptr %2

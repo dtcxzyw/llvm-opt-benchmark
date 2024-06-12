@@ -1200,7 +1200,7 @@ define dso_local ptr @uv_err_name(i32 noundef %0) local_unnamed_addr #0 {
 define internal fastcc ptr @uv__unknown_err_code(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.82, i32 noundef %0) #24
-  %4 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
+  %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
   %5 = add i64 %4, 1
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %uv__strdup.exit, label %uv__malloc.exit.i
@@ -1212,7 +1212,7 @@ uv__malloc.exit.i:                                ; preds = %1
   br i1 %8, label %uv__strdup.exit, label %9
 
 9:                                                ; preds = %uv__malloc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 16 %2, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 16 %2, i64 %5, i1 false)
   br label %uv__strdup.exit
 
 uv__strdup.exit:                                  ; preds = %1, %uv__malloc.exit.i, %9

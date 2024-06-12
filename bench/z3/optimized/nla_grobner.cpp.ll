@@ -2440,7 +2440,7 @@ _ZN2lp11explanationC2Ev.exit.i:                   ; preds = %invoke.cont15
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %exp.i, i64 24
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
-  invoke void @_ZN3nla7grobner7explainERKN2dd6solver8equationERN2lp11explanationE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %eq, ptr noundef nonnull align 8 dereferenceable(32) %exp.i)
+  invoke void @_ZN3nla7grobner7explainERKN2dd6solver8equationERN2lp11explanationE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %eq, ptr noundef nonnull align 8 dereferenceable(32) %exp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN2lp11explanationC2Ev.exit.i
@@ -3058,7 +3058,7 @@ _ZN2lp11explanationC2Ev.exit.i182:                ; preds = %invoke.cont73
   store i32 0, ptr %m_size.i.i.i.i185, align 4
   %m_num_deleted.i.i.i.i186 = getelementptr inbounds i8, ptr %exp.i177, i64 24
   store i32 0, ptr %m_num_deleted.i.i.i.i186, align 8
-  invoke void @_ZN3nla7grobner7explainERKN2dd6solver8equationERN2lp11explanationE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %eq, ptr noundef nonnull align 8 dereferenceable(32) %exp.i177)
+  invoke void @_ZN3nla7grobner7explainERKN2dd6solver8equationERN2lp11explanationE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %eq, ptr noundef nonnull align 8 dereferenceable(32) %exp.i177)
           to label %invoke.cont.i188 unwind label %lpad.i187
 
 invoke.cont.i188:                                 ; preds = %_ZN2lp11explanationC2Ev.exit.i182
@@ -4341,7 +4341,7 @@ _ZN2lp11explanationC2Ev.exit.i:                   ; preds = %invoke.cont115
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %exp.i, i64 24
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
-  invoke void @_ZN3nla7grobner7explainERKN2dd6solver8equationERN2lp11explanationE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(32) %eq, ptr noundef nonnull align 8 dereferenceable(32) %exp.i)
+  invoke void @_ZN3nla7grobner7explainERKN2dd6solver8equationERN2lp11explanationE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %eq, ptr noundef nonnull align 8 dereferenceable(32) %exp.i)
           to label %invoke.cont.i unwind label %lpad.i409
 
 invoke.cont.i:                                    ; preds = %_ZN2lp11explanationC2Ev.exit.i
@@ -6171,7 +6171,7 @@ if.then.i.i:                                      ; preds = %_ZN6vectorIjLb0EjE3
   %30 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %29, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %30, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  call fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3nla7grobner13set_level2varEvE3$_0EEEvT_S8_T0_T1_"(ptr noundef nonnull %incdec.ptr2.ptr.i.i.i, ptr noundef nonnull %add.ptr.i50, i64 noundef %mul.i.i, ptr nonnull readonly %weighted_vars)
+  call fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3nla7grobner13set_level2varEvE3$_0EEEvT_S8_T0_T1_"(ptr noundef nonnull %incdec.ptr2.ptr.i.i.i, ptr noundef nonnull %add.ptr.i50, i64 noundef %mul.i.i, ptr nonnull %weighted_vars)
   %cmp.i.i.i51 = icmp ugt i32 %28, 16
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 12
   br i1 %cmp.i.i.i51, label %for.body.i.i.i.i, label %if.else.i.i.i
@@ -29572,7 +29572,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

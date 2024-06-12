@@ -665,7 +665,7 @@ readline.exit.i:                                  ; preds = %.split.i.i, %.split
   %.024.i.i.i = phi ptr [ %.01825.i.i.i, %188 ], [ null, %172 ]
   %181 = getelementptr inbounds i8, ptr %.01825.i.i.i, i64 8
   %182 = load ptr, ptr %181, align 8
-  %183 = call i32 @strncmp(ptr noundef %182, ptr noundef nonnull readonly %169, i64 noundef %.0113.i.i) #21
+  %183 = call i32 @strncmp(ptr noundef %182, ptr noundef nonnull %169, i64 noundef %.0113.i.i) #21
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %188
 
@@ -750,7 +750,7 @@ remove_option.exit.i.i:                           ; preds = %188, %189, %172
   %.024.i.i64.i = phi ptr [ %.01825.i.i63.i, %225 ], [ null, %210 ]
   %218 = getelementptr inbounds i8, ptr %.01825.i.i63.i, i64 8
   %219 = load ptr, ptr %218, align 8
-  %220 = call i32 @strncmp(ptr noundef %219, ptr noundef nonnull readonly %207, i64 noundef %.025.i.i) #21
+  %220 = call i32 @strncmp(ptr noundef %219, ptr noundef nonnull %207, i64 noundef %.025.i.i) #21
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %225
 
@@ -801,12 +801,12 @@ remove_option.exit.i67.i:                         ; preds = %225, %226, %210
   ]
 
 240:                                              ; preds = %237, %237
-  %241 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %238, i32 noundef 61) #21
+  %241 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %238, i32 noundef 61) #21
   %.not.i71.i = icmp eq ptr %241, null
   br i1 %.not.i71.i, label %.preheader.i74.i, label %246
 
 .preheader.i74.i:                                 ; preds = %240
-  %242 = call i64 @strspn(ptr noundef nonnull readonly %238, ptr noundef nonnull @.str.46) #21
+  %242 = call i64 @strspn(ptr noundef nonnull %238, ptr noundef nonnull @.str.46) #21
   %243 = getelementptr inbounds i8, ptr %238, i64 %242
   %244 = load i8, ptr %243, align 1
   %245 = icmp eq i8 %244, 0
@@ -833,7 +833,7 @@ remove_option.exit.i67.i:                         ; preds = %225, %226, %210
   %.024.i.i81.i = phi ptr [ %.01825.i.i80.i, %258 ], [ null, %.split.i76.i ]
   %251 = getelementptr inbounds i8, ptr %.01825.i.i80.i, i64 8
   %252 = load ptr, ptr %251, align 8
-  %253 = call i32 @strncmp(ptr noundef %252, ptr noundef nonnull readonly %248, i64 noundef %249) #21
+  %253 = call i32 @strncmp(ptr noundef %252, ptr noundef nonnull %248, i64 noundef %249) #21
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %255, label %258
 
@@ -897,7 +897,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   %.024.i24.i.i = phi ptr [ %.01825.i23.i.i, %284 ], [ null, %.split18.i.i ]
   %277 = getelementptr inbounds i8, ptr %.01825.i23.i.i, i64 8
   %278 = load ptr, ptr %277, align 8
-  %279 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %278, ptr noundef nonnull readonly dereferenceable(1) %248, i64 noundef 3) #21
+  %279 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %278, ptr noundef nonnull dereferenceable(1) %248, i64 noundef 3) #21
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %281, label %284
 

@@ -148,7 +148,7 @@ Curl_sock_assign_addr.exit:                       ; preds = %5, %9, %10
   %13 = getelementptr inbounds i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %spec.select.sroa.sel16.v.sroa.sel.v.sroa.sel, ptr align 2 %14, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %spec.select.sroa.sel16.v.sroa.sel.v.sroa.sel, ptr align 2 %14, i64 %15, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 600
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
@@ -1103,7 +1103,7 @@ define internal noundef i32 @cf_socket_cntrl(ptr nocapture noundef readonly %0, 
   %.val19.i = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %.val19.i, i64 256
   %33 = getelementptr inbounds i8, ptr %.val.i, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(46) %32, ptr noundef nonnull readonly align 8 dereferenceable(46) %33, i64 46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %32, ptr noundef nonnull align 8 dereferenceable(46) %33, i64 46, i1 false)
   %.val20.i = load ptr, ptr %6, align 8
   tail call fastcc void @set_local_ip(ptr %.val20.i, ptr noundef %1)
   %34 = load ptr, ptr %11, align 8
@@ -1403,7 +1403,7 @@ define dso_local i32 @Curl_cf_tcp_create(ptr nocapture noundef writeonly %0, ptr
   %23 = getelementptr inbounds i8, ptr %3, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %22, ptr align 2 %24, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 2 %24, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %8, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %26, i64 noundef 65536, i64 noundef 1) #13
   %27 = call i32 @Curl_cf_create(ptr noundef nonnull %6, ptr noundef nonnull @Curl_cft_tcp, ptr noundef nonnull %8) #13
@@ -1711,7 +1711,7 @@ define dso_local i32 @Curl_cf_udp_create(ptr nocapture noundef writeonly %0, ptr
   %23 = getelementptr inbounds i8, ptr %3, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %22, ptr align 2 %24, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 2 %24, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %8, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %26, i64 noundef 65536, i64 noundef 1) #13
   %27 = call i32 @Curl_cf_create(ptr noundef nonnull %6, ptr noundef nonnull @Curl_cft_udp, ptr noundef nonnull %8) #13
@@ -1782,7 +1782,7 @@ define dso_local i32 @Curl_cf_unix_create(ptr nocapture noundef writeonly %0, pt
   %23 = getelementptr inbounds i8, ptr %3, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %22, ptr align 2 %24, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 2 %24, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %8, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %26, i64 noundef 65536, i64 noundef 1) #13
   %27 = call i32 @Curl_cf_create(ptr noundef nonnull %6, ptr noundef nonnull @Curl_cft_unix, ptr noundef nonnull %8) #13

@@ -1087,11 +1087,11 @@ dopr_outch.exit.i:                                ; preds = %423, %405
 
 450:                                              ; preds = %448
   %451 = sext i32 %.6 to i64
-  %452 = call i64 @strnlen(ptr noundef nonnull readonly %spec.store.select2, i64 noundef %451) #15
+  %452 = call i64 @strnlen(ptr noundef nonnull %spec.store.select2, i64 noundef %451) #15
   br label %455
 
 453:                                              ; preds = %448
-  %454 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select2) #15
+  %454 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select2) #15
   br label %455
 
 455:                                              ; preds = %453, %450
@@ -1107,11 +1107,11 @@ dopr_outch.exit.i:                                ; preds = %423, %405
 
 .thread.i:                                        ; preds = %455
   call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %spec.select.i.i253, ptr noundef %0)
-  call fastcc void @dostr(ptr noundef nonnull readonly %spec.store.select2, i32 noundef %.0.i250, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %spec.store.select2, i32 noundef %.0.i250, ptr noundef %0)
   br label %fmtchar.exit
 
 459:                                              ; preds = %455
-  call fastcc void @dostr(ptr noundef nonnull readonly %spec.store.select2, i32 noundef %.0.i250, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %spec.store.select2, i32 noundef %.0.i250, ptr noundef %0)
   %460 = icmp slt i32 %spec.select.i.i253, 0
   br i1 %460, label %461, label %fmtchar.exit
 

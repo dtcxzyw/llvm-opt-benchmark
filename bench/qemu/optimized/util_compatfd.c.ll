@@ -30,7 +30,7 @@ if.then.i:                                        ; preds = %if.end
   br label %qemu_signalfd_compat.exit
 
 if.end.i:                                         ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %mask, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %mask, i64 128, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %fds.i, i64 4
   %0 = load i32, ptr %arrayidx.i, align 4
   %fd.i = getelementptr inbounds i8, ptr %call.i, i64 128

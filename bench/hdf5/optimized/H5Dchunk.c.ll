@@ -3978,7 +3978,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_write(ptr nocapture noundef %0,
   %231 = load i32, ptr %230, align 8
   %232 = zext i32 %231 to i64
   %233 = shl nuw nsw i64 %232, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %227, ptr align 8 %228, i64 %233, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %227, ptr align 8 %228, i64 %233, i1 false)
   %234 = getelementptr inbounds i8, ptr %225, i64 3672
   store i64 %217, ptr %234, align 8
   %235 = load i64, ptr %109, align 8
@@ -4345,7 +4345,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_write(ptr nocapture noundef %0,
   %459 = load i32, ptr %458, align 8
   %460 = zext i32 %459 to i64
   %461 = shl nuw nsw i64 %460, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %455, ptr align 8 %456, i64 %461, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %455, ptr align 8 %456, i64 %461, i1 false)
   %462 = getelementptr inbounds i8, ptr %453, i64 3672
   store i64 %445, ptr %462, align 8
   %463 = load i64, ptr %364, align 8
@@ -4821,7 +4821,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_direct_write(ptr noundef %0, i32 noundef
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
   %80 = shl nuw nsw i64 %79, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %73, ptr align 8 %75, i64 %80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %73, ptr align 8 %75, i64 %80, i1 false)
   %81 = load i64, ptr %46, align 8
   %82 = getelementptr inbounds i8, ptr %71, i64 3672
   store i64 %81, ptr %82, align 8
@@ -5112,7 +5112,7 @@ H5D__chunk_cinfo_cache_found.exit:                ; preds = %62, %.preheader.i
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
   %103 = shl nuw nsw i64 %102, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %97, ptr align 8 %98, i64 %103, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %97, ptr align 8 %98, i64 %103, i1 false)
   %104 = load i64, ptr %11, align 8
   %105 = getelementptr inbounds i8, ptr %95, i64 3672
   store i64 %104, ptr %105, align 8
@@ -6770,7 +6770,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_flush_entry(ptr noundef 
   %149 = load i32, ptr %148, align 8
   %150 = zext i32 %149 to i64
   %151 = shl nuw nsw i64 %150, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %145, ptr align 8 %146, i64 %151, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %145, ptr align 8 %146, i64 %151, i1 false)
   %152 = load i64, ptr %27, align 8
   %153 = getelementptr inbounds i8, ptr %143, i64 3672
   store i64 %152, ptr %153, align 8

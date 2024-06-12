@@ -662,7 +662,7 @@ for.body:                                         ; preds = %invoke.cont16, %for
   %20 = load ptr, ptr %__begin1.0603, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lower.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %upper.i)
-  %call.i52 = invoke noundef zeroext i1 @_ZN15elim_bounds_cfg8is_boundEP4exprRP3varS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly %20, ptr noundef nonnull align 8 dereferenceable(8) %lower.i, ptr noundef nonnull align 8 dereferenceable(8) %upper.i)
+  %call.i52 = invoke noundef zeroext i1 @_ZN15elim_bounds_cfg8is_boundEP4exprRP3varS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %lower.i, ptr noundef nonnull align 8 dereferenceable(8) %upper.i)
           to label %invoke.cont22 unwind label %lpad17.loopexit
 
 invoke.cont22:                                    ; preds = %for.body

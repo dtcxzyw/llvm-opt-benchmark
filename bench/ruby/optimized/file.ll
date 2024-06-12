@@ -326,7 +326,7 @@ file_path_convert.exit:                           ; preds = %RB_ENCODING_GET.exi
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %file_path_convert.exit
-  %23 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %21) #23
+  %23 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %21) #23
   %.not3.i.i = icmp eq i32 %23, 0
   br i1 %.not3.i.i, label %check_path_encoding.exit, label %rb_enc_asciicompat.exit.thread.i
 
@@ -473,7 +473,7 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %9, %1
   br i1 %.not.i, label %stat_new_0.exit, label %12
 
 12:                                               ; preds = %RTYPEDDATA_GET_DATA.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull readonly align 8 dereferenceable(144) %0, i64 144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %0, i64 144, i1 false)
   %13 = getelementptr inbounds i8, ptr %11, i64 144
   store i8 1, ptr %13, align 8
   br label %stat_new_0.exit
@@ -1143,7 +1143,7 @@ RSTRING_PTR.exit20:                               ; preds = %16, %10, %RSTRING_P
 20:                                               ; preds = %RSTRING_PTR.exit20
   %21 = getelementptr inbounds i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #23
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #23
   %24 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %23) #22
   %25 = inttoptr i64 %1 to ptr
   %26 = load i64, ptr %25, align 8, !noalias !39
@@ -1162,7 +1162,7 @@ RSTRING_PTR.exit.i:                               ; preds = %29, %20
   br i1 %.not.i.i21, label %copy_home_path.exit, label %30
 
 30:                                               ; preds = %RSTRING_PTR.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.2.0.i.i, ptr readonly align 1 %22, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i.i, ptr align 1 %22, i64 %23, i1 false)
   br label %copy_home_path.exit
 
 copy_home_path.exit:                              ; preds = %RSTRING_PTR.exit.i, %30
@@ -1222,7 +1222,7 @@ define hidden noundef i64 @rb_default_home_dir(i64 noundef returned %0) local_un
 
 RSTRING_PTR.exit:                                 ; preds = %14, %19
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %19 ], [ %18, %14 ]
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.sroa.2.0.i) #23
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i) #23
   %21 = tail call i64 @rb_str_resize(i64 noundef %0, i64 noundef %20) #22
   %22 = inttoptr i64 %0 to ptr
   %23 = load i64, ptr %22, align 8, !noalias !45
@@ -1241,7 +1241,7 @@ RSTRING_PTR.exit.i:                               ; preds = %26, %RSTRING_PTR.ex
   br i1 %.not.i.i13, label %copy_home_path.exit, label %27
 
 27:                                               ; preds = %RSTRING_PTR.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.2.0.i.i, ptr readonly align 1 %.sroa.2.0.i, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i.i, ptr align 1 %.sroa.2.0.i, i64 %20, i1 false)
   br label %copy_home_path.exit
 
 copy_home_path.exit:                              ; preds = %RSTRING_PTR.exit.i, %27
@@ -1251,7 +1251,7 @@ copy_home_path.exit:                              ; preds = %RSTRING_PTR.exit.i,
   br label %42
 
 31:                                               ; preds = %1
-  %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
   %33 = tail call i64 @rb_str_resize(i64 noundef %0, i64 noundef %32) #22
   %34 = inttoptr i64 %0 to ptr
   %35 = load i64, ptr %34, align 8, !noalias !48
@@ -1270,7 +1270,7 @@ RSTRING_PTR.exit.i16:                             ; preds = %38, %31
   br i1 %.not.i.i18, label %copy_home_path.exit19, label %39
 
 39:                                               ; preds = %RSTRING_PTR.exit.i16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.2.0.i.i17, ptr nonnull readonly align 1 %2, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i.i17, ptr nonnull align 1 %2, i64 %32, i1 false)
   br label %copy_home_path.exit19
 
 copy_home_path.exit19:                            ; preds = %RSTRING_PTR.exit.i16, %39
@@ -1392,7 +1392,7 @@ RSTRING_PTR.exit322:                              ; preds = %48, %44, %rb_enc_pa
   br i1 %.not.i323, label %ruby_nonempty_memcpy.exit, label %49
 
 49:                                               ; preds = %RSTRING_PTR.exit322
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0256, ptr nonnull readonly align 1 %26, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0256, ptr nonnull align 1 %26, i64 %42, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit322, %49
@@ -1583,7 +1583,7 @@ RSTRING_PTR.exit.i:                               ; preds = %126, %122
   br i1 %.not.i48.i, label %ruby_nonempty_memcpy.exit.i, label %127
 
 127:                                              ; preds = %RSTRING_PTR.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.2.0.i.i, ptr readonly align 1 %.1.i, i64 %.142.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i.i, ptr align 1 %.1.i, i64 %.142.i, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %127, %RSTRING_PTR.exit.i
@@ -1969,7 +1969,7 @@ ruby_nonempty_memcpy.exit378:                     ; preds = %243, %RSTRING_PTR.e
   %.9265 = phi ptr [ %260, %RSTRING_PTR.exit376 ], [ %.7263, %243 ]
   %.7 = phi ptr [ %.sroa.2.0.i375, %RSTRING_PTR.exit376 ], [ %.6, %243 ]
   %261 = getelementptr i8, ptr %.9265, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %261, ptr readonly align 1 %.1248, i64 %252, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %261, ptr align 1 %.1248, i64 %252, i1 false)
   %262 = getelementptr i8, ptr %261, i64 %252
   %263 = getelementptr i8, ptr %.7, i64 %246
   store i8 47, ptr %262, align 1
@@ -2034,7 +2034,7 @@ ruby_nonempty_memcpy.exit385:                     ; preds = %272, %RSTRING_PTR.e
   %.12 = phi ptr [ %.7263, %272 ], [ %287, %RSTRING_PTR.exit383 ]
   %.10 = phi ptr [ %.6, %272 ], [ %.sroa.2.0.i382, %RSTRING_PTR.exit383 ]
   %288 = getelementptr i8, ptr %.12, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %288, ptr readonly align 1 %.1248, i64 %279, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %288, ptr align 1 %.1248, i64 %279, i1 false)
   %289 = getelementptr i8, ptr %288, i64 %279
   %290 = ptrtoint ptr %289 to i64
   %291 = sub i64 %290, %.pre-phi
@@ -3710,7 +3710,7 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rbimpl_str_cat_cstr(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #23
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %4 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %3) #22
   ret void
 }
@@ -4891,7 +4891,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
 
 rb_stat_new.exit:                                 ; preds = %37, %45
   %47 = phi ptr [ %46, %45 ], [ %44, %37 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef nonnull readonly align 8 dereferenceable(144) %6, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
   %48 = getelementptr inbounds i8, ptr %47, i64 144
   store i8 1, ptr %48, align 8
   ret i64 %39
@@ -4982,7 +4982,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
 
 rb_stat_new.exit:                                 ; preds = %33, %41
   %43 = phi ptr [ %42, %41 ], [ %40, %33 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull readonly align 8 dereferenceable(144) %6, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
   %44 = getelementptr inbounds i8, ptr %43, i64 144
   store i8 1, ptr %44, align 8
   ret i64 %35
@@ -5227,7 +5227,7 @@ utime_internal_i.exit:                            ; preds = %rb_check_arity.exit
   %27 = getelementptr i8, ptr %1, i64 16
   %28 = add nsw i32 %0, -2
   store ptr %.0.i, ptr %4, align 8
-  %29 = call fastcc range(i64 1, 0) i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef readonly %27, ptr noundef nonnull %4)
+  %29 = call fastcc range(i64 1, 0) i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef %27, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret i64 %29
@@ -5418,7 +5418,7 @@ utime_internal_i.exit:                            ; preds = %rb_check_arity.exit
   %27 = getelementptr i8, ptr %1, i64 16
   %28 = add nsw i32 %0, -2
   store ptr %.0.i, ptr %4, align 8
-  %29 = call fastcc range(i64 1, 0) i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef readonly %27, ptr noundef nonnull %4)
+  %29 = call fastcc range(i64 1, 0) i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef %27, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret i64 %29
@@ -6287,7 +6287,7 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %14
-  %21 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %19) #23
+  %21 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %19) #23
   %.not3.i.i = icmp eq i32 %21, 0
   br i1 %.not3.i.i, label %check_path_encoding.exit, label %rb_enc_asciicompat.exit.thread.i
 
@@ -6874,7 +6874,7 @@ define internal i64 @rb_io_stat(i64 noundef %0) #0 {
 
 rb_stat_new.exit:                                 ; preds = %16, %24
   %26 = phi ptr [ %25, %24 ], [ %23, %16 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull readonly align 8 dereferenceable(144) %2, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(144) %2, i64 144, i1 false)
   %27 = getelementptr inbounds i8, ptr %26, i64 144
   store i8 1, ptr %27, align 8
   ret i64 %18
@@ -6943,7 +6943,7 @@ RSTRING_PTR.exit:                                 ; preds = %11, %16
 
 rb_stat_new.exit:                                 ; preds = %26, %34
   %36 = phi ptr [ %35, %34 ], [ %33, %26 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull readonly align 8 dereferenceable(144) %3, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull align 8 dereferenceable(144) %3, i64 144, i1 false)
   %37 = getelementptr inbounds i8, ptr %36, i64 144
   store i8 1, ptr %37, align 8
   br label %38
@@ -10190,7 +10190,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit72
   br i1 %.not.i.i73, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %38
-  %41 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %39) #23
+  %41 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %39) #23
   %.not3.i.i = icmp eq i32 %41, 0
   br i1 %.not3.i.i, label %check_path_encoding.exit, label %rb_enc_asciicompat.exit.thread.i
 
@@ -10287,7 +10287,7 @@ RARRAY_AREF.exit79:                               ; preds = %rb_array_len.exit76
   br i1 %.not.i.i81, label %rb_enc_asciicompat.exit.i84, label %rb_enc_asciicompat.exit.thread.i82
 
 rb_enc_asciicompat.exit.i84:                      ; preds = %76
-  %79 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %77) #23
+  %79 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %77) #23
   %.not3.i.i85 = icmp eq i32 %79, 0
   br i1 %.not3.i.i85, label %check_path_encoding.exit86, label %rb_enc_asciicompat.exit.thread.i82
 

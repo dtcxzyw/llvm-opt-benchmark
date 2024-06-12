@@ -6189,7 +6189,7 @@ define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr nocapture noundef
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %.071, i64 8
   %84 = load ptr, ptr %83, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 %80, ptr %79, align 8
   %85 = icmp eq i32 %82, 0
   br i1 %85, label %copy_address_wmem.exit, label %86
@@ -6229,7 +6229,7 @@ copy_address_wmem.exit:                           ; preds = %77, %86
   %103 = load i32, ptr %102, align 4
   %104 = getelementptr inbounds i8, ptr %.072, i64 8
   %105 = load ptr, ptr %104, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
   store i32 %101, ptr %100, align 8
   %106 = icmp eq i32 %103, 0
   br i1 %106, label %copy_address_wmem.exit81, label %107

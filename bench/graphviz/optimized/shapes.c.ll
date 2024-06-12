@@ -3276,7 +3276,7 @@ gv_alloc.exit:                                    ; preds = %1
 
 145:                                              ; preds = %136
   %146 = load ptr, ptr %141, align 8
-  %147 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %146, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #29
+  %147 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(7) @.str.2) #29
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %185
 
@@ -3475,7 +3475,7 @@ gv_alloc.exit:                                    ; preds = %1
   br i1 %269, label %270, label %275
 
 270:                                              ; preds = %263
-  %271 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %267, ptr noundef nonnull readonly dereferenceable(6) @.str.14) #29
+  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %267, ptr noundef nonnull dereferenceable(6) @.str.14) #29
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %275
 
@@ -4354,7 +4354,7 @@ define noundef ptr @find_user_shape(ptr nocapture noundef readonly %0) local_unn
   %6 = getelementptr inbounds ptr, ptr %2, i64 %.06
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #29
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #29
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %4
 
@@ -4371,14 +4371,14 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.1) #29
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.1) #29
   %7 = icmp eq i32 %6, 0
   %spec.select = select i1 %7, ptr %0, ptr @.str.2
   br label %8
 
 8:                                                ; preds = %5, %2
   %.0 = phi ptr [ %0, %2 ], [ %spec.select, %5 ]
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #29
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.2) #29
   %10 = icmp eq i32 %9, 0
   %11 = load ptr, ptr @Shapes, align 16
   %.not1522 = icmp eq ptr %11, null
@@ -4388,7 +4388,7 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
 .lr.ph:                                           ; preds = %8, %15
   %12 = phi ptr [ %17, %15 ], [ %11, %8 ]
   %.01323 = phi ptr [ %16, %15 ], [ @Shapes, %8 ]
-  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %.0) #29
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %.0) #29
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %user_shape.exit, label %15
 
@@ -4418,7 +4418,7 @@ define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1
   %21 = getelementptr inbounds ptr, ptr %18, i64 %.06.i.i
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %.0) #29
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %.0) #29
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %user_shape.exit, label %19
 
@@ -4490,14 +4490,14 @@ gv_alloc.exit.i:                                  ; preds = %gv_recalloc.exit.i
   %55 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.pre.i
   store ptr %50, ptr %55, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) @Shapes, i64 32, i1 false)
-  %56 = tail call noalias ptr @strdup(ptr noundef readonly %.0) #25
+  %56 = tail call noalias ptr @strdup(ptr noundef %.0) #25
   store ptr %56, ptr %50, align 8
   %57 = load ptr, ptr @Lib, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %find_user_shape.exit.sink.split.i
 
 59:                                               ; preds = %gv_alloc.exit.i
-  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #29
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.2) #29
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %find_user_shape.exit.sink.split.i, label %62
 
@@ -6108,13 +6108,13 @@ gv_alloc.exit:                                    ; preds = %4
 72:                                               ; preds = %69, %67, %65
   %.1152 = phi ptr [ %.0151.ph252.ph, %67 ], [ %.0151.ph252.ph, %65 ], [ %spec.select197, %69 ]
   store i8 0, ptr %.1152, align 1
-  %73 = tail call noalias ptr @strdup(ptr noundef readonly %3) #25
+  %73 = tail call noalias ptr @strdup(ptr noundef %3) #25
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %gv_strdup.exit
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %78 = add i64 %77, 1
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.4, i64 noundef %78) #27
   tail call fastcc void @graphviz_exit() #28
@@ -7202,7 +7202,7 @@ findFill.exit:                                    ; preds = %106, %110
 
 139:                                              ; preds = %132
   %140 = load ptr, ptr %135, align 8
-  %141 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %140, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #29
+  %141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull dereferenceable(7) @.str.2) #29
   %142 = icmp eq i32 %141, 0
   br label %143
 
@@ -7454,7 +7454,7 @@ findFill.exit:                                    ; preds = %106, %110
 
 246:                                              ; preds = %._crit_edge285
   %247 = load ptr, ptr %242, align 8
-  %248 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %247, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #29
+  %248 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %247, ptr noundef nonnull dereferenceable(7) @.str.2) #29
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %250, label %.preheader
 
@@ -7735,7 +7735,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   %11 = phi ptr [ %8, %.lr.ph ], [ %80, %.loopexit ]
   %.05485 = phi ptr [ %7, %.lr.ph ], [ %.155, %.loopexit ]
   %.05684 = phi i32 [ 0, %.lr.ph ], [ %.157, %.loopexit ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(7) @.str.95) #29
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.95) #29
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %17
 
@@ -7745,7 +7745,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   br label %.loopexit
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(8) @.str.96) #29
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.96) #29
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.preheader, label %22
 
@@ -7758,7 +7758,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   br i1 %.not70, label %.loopexit.loopexit, label %.preheader
 
 22:                                               ; preds = %17
-  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(10) @.str.97) #29
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(10) @.str.97) #29
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.preheader90, label %27
 
@@ -7771,7 +7771,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   br i1 %.not69, label %.loopexit.loopexit86, label %.preheader90
 
 27:                                               ; preds = %22
-  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(6) @.str.98) #29
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.98) #29
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
 
@@ -7781,7 +7781,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   br label %.loopexit
 
 33:                                               ; preds = %27
-  %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(7) @.str.99) #29
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.99) #29
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.preheader91, label %38
 
@@ -7794,7 +7794,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture nou
   br i1 %.not68, label %.loopexit.loopexit87, label %.preheader91
 
 38:                                               ; preds = %33
-  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(8) @.str.100) #29
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.100) #29
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %isBox.exit.thread
 
@@ -7845,7 +7845,7 @@ isBox.exit:                                       ; preds = %55
   br i1 %.not67, label %.loopexit.loopexit89, label %.preheader93
 
 isBox.exit.thread:                                ; preds = %41, %44, %48, %55, %isBox.exit, %38
-  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(7) @.str.101) #29
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.101) #29
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %isEllipse.exit.thread
 
@@ -8675,7 +8675,7 @@ findFill.exit:                                    ; preds = %59, %63
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %81, ptr noundef nonnull readonly dereferenceable(8) @.str.77) #29
+  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(8) @.str.77) #29
   %83 = icmp eq i32 %82, 0
   %84 = or i32 %54, 4
   %spec.select = select i1 %83, i32 %84, i32 %54
@@ -8748,7 +8748,7 @@ define internal fastcc ptr @map_rec_port(ptr noundef readonly %0, ptr nocapture 
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %1) #29
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #29
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 

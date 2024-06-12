@@ -16,7 +16,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
@@ -248,8 +248,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha3, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha3, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
   br label %wc_Sha3Final.exit
 
@@ -275,7 +275,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3GetHash.exit, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull readonly align 8 dereferenceable(416) %sha3, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
   %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 343
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -317,7 +317,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
   call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %tmpSha3.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %tmpSha3.i, i64 28, i1 false)
   br label %wc_Sha3GetHash.exit
 
 wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Final.exit.i
@@ -335,7 +335,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %dst, ptr noundef nonnull readonly align 8 dereferenceable(416) %src, i64 416, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %dst, ptr noundef nonnull align 8 dereferenceable(416) %src, i64 416, i1 false)
   br label %wc_Sha3Copy.exit
 
 wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
@@ -352,7 +352,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
@@ -419,8 +419,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha3, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
   br label %wc_Sha3Final.exit
 
@@ -446,7 +446,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3GetHash.exit, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull readonly align 8 dereferenceable(416) %sha3, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
   %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 335
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -488,7 +488,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
   call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %tmpSha3.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %tmpSha3.i, i64 32, i1 false)
   br label %wc_Sha3GetHash.exit
 
 wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Final.exit.i
@@ -506,7 +506,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %dst, ptr noundef nonnull readonly align 8 dereferenceable(416) %src, i64 416, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %dst, ptr noundef nonnull align 8 dereferenceable(416) %src, i64 416, i1 false)
   br label %wc_Sha3Copy.exit
 
 wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
@@ -523,7 +523,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
@@ -590,8 +590,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %sha3, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %sha3, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
   br label %wc_Sha3Final.exit
 
@@ -617,7 +617,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3GetHash.exit, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull readonly align 8 dereferenceable(416) %sha3, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
   %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 303
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -659,7 +659,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
   call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %tmpSha3.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %tmpSha3.i, i64 48, i1 false)
   br label %wc_Sha3GetHash.exit
 
 wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Final.exit.i
@@ -677,7 +677,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %dst, ptr noundef nonnull readonly align 8 dereferenceable(416) %src, i64 416, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %dst, ptr noundef nonnull align 8 dereferenceable(416) %src, i64 416, i1 false)
   br label %wc_Sha3Copy.exit
 
 wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
@@ -694,7 +694,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
@@ -761,8 +761,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha3, i64 64, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha3, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
   br label %wc_Sha3Final.exit
 
@@ -788,7 +788,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3GetHash.exit, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull readonly align 8 dereferenceable(416) %sha3, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
   %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 271
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -830,7 +830,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
   call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %tmpSha3.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %tmpSha3.i, i64 64, i1 false)
   br label %wc_Sha3GetHash.exit
 
 wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Final.exit.i
@@ -848,7 +848,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %dst, ptr noundef nonnull readonly align 8 dereferenceable(416) %src, i64 416, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %dst, ptr noundef nonnull align 8 dereferenceable(416) %src, i64 416, i1 false)
   br label %wc_Sha3Copy.exit
 
 wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i

@@ -55,11 +55,11 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3zmq13do_getsockoptEPvPmPKvm.exit
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %optval_, ptr readonly align 1 %call, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %optval_, ptr align 1 %call, i64 %add, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %optval_, i64 %add
   %1 = load i64, ptr %optvallen_, align 8
   %sub.i = sub i64 %1, %add
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   store i64 %add, ptr %optvallen_, align 8
   br label %_ZN3zmq13do_getsockoptEPvPmPKvm.exit
 
@@ -2047,11 +2047,11 @@ if.then.i:                                        ; preds = %sw.bb10
 
 if.end.i:                                         ; preds = %sw.bb10
   %routing_id = getelementptr inbounds i8, ptr %this, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %optval_, ptr nonnull readonly align 1 %routing_id, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %optval_, ptr nonnull align 1 %routing_id, i64 %conv, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %optval_, i64 %conv
   %5 = load i64, ptr %optvallen_, align 8
   %sub.i = sub i64 %5, %conv
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   store i64 %conv, ptr %optvallen_, align 8
   br label %return
 

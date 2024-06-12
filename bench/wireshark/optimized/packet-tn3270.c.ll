@@ -2473,7 +2473,7 @@ dissect_unknown_data.exit.i.i:                    ; preds = %174, %._crit_edge.i
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %200
-  %204 = tail call fastcc i32 @dissect_orders_and_data(ptr noundef %44, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i187.i, ptr noundef readonly %4)
+  %204 = tail call fastcc i32 @dissect_orders_and_data(ptr noundef %44, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i187.i, ptr noundef %4)
   %205 = add i32 %204, %.0.i187.i
   br label %206
 

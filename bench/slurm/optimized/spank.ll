@@ -225,7 +225,7 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not, label %55, label %6
 
 6:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(48) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 40, i1 false)
   store i32 10855680, ptr %5, align 16
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %1, ptr %7, align 16

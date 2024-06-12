@@ -106,14 +106,14 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   %32 = getelementptr inbounds i8, ptr %0, i64 272
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.137, i64 84
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str, ptr noundef nonnull readonly dereferenceable(1) %34) #9
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str, ptr noundef nonnull dereferenceable(1) %34) #9
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %ompi_mca_osc_monitoring_set_template.exit, label %.lr.ph53
 
 37:                                               ; preds = %.lr.ph53
   %38 = getelementptr inbounds [5 x %struct.osc_monitoring_components_list_t], ptr @osc_monitoring_components_list, i64 0, i64 %indvars.iv.next.i
   %.sroa.0.0.copyload2.i = load ptr, ptr %38, align 16
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload2.i, ptr noundef nonnull readonly dereferenceable(1) %34) #9
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload2.i, ptr noundef nonnull dereferenceable(1) %34) #9
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %ompi_mca_osc_monitoring_set_template.exit.loopexit, label %.lr.ph53, !llvm.loop !6
 

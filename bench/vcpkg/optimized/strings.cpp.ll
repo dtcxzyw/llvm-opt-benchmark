@@ -592,7 +592,7 @@ define dso_local noundef ptr @_ZN5vcpkg7Strings29case_insensitive_ascii_searchEN
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %2, i64 1
   %11 = icmp eq i64 %3, 1
-  %12 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef readonly %0, ptr noundef readonly %5, ptr readonly %2)
+  %12 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef %0, ptr noundef %5, ptr %2)
   br i1 %11, label %"_ZSt6searchIPKcS1_N12_GLOBAL__N_13$_3EET_S4_S4_T0_S5_T1_.exit", label %.preheader49.i.i
 
 .preheader49.i.i:                                 ; preds = %9
@@ -600,7 +600,7 @@ define dso_local noundef ptr @_ZN5vcpkg7Strings29case_insensitive_ascii_searchEN
   br i1 %13, label %"_ZSt6searchIPKcS1_N12_GLOBAL__N_13$_3EET_S4_S4_T0_S5_T1_.exit", label %.lr.ph.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i
-  %14 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef nonnull %17, ptr noundef readonly %5, ptr readonly %2)
+  %14 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef nonnull %17, ptr noundef %5, ptr %2)
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %"_ZSt6searchIPKcS1_N12_GLOBAL__N_13$_3EET_S4_S4_T0_S5_T1_.exit", label %.lr.ph.i.i, !llvm.loop !36
 
@@ -653,7 +653,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_c
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %2, i64 1
   %11 = icmp eq i64 %3, 1
-  %12 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef readonly %0, ptr noundef readonly %5, ptr readonly %2)
+  %12 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef %0, ptr noundef %5, ptr %2)
   br i1 %11, label %_ZN5vcpkg7Strings29case_insensitive_ascii_searchENS_10StringViewES1_.exit, label %.preheader49.i.i.i
 
 .preheader49.i.i.i:                               ; preds = %9
@@ -661,7 +661,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg7Strings31case_insensitive_ascii_c
   br i1 %13, label %_ZN5vcpkg7Strings29case_insensitive_ascii_searchENS_10StringViewES1_.exit, label %.lr.ph.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %.preheader.i.i.i
-  %14 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef nonnull %17, ptr noundef readonly %5, ptr readonly %2)
+  %14 = tail call fastcc noundef ptr @"_ZSt9__find_ifIPKcN9__gnu_cxx5__ops18_Iter_comp_to_iterIN12_GLOBAL__N_13$_3ES1_EEET_S8_S8_T0_"(ptr noundef nonnull %17, ptr noundef %5, ptr %2)
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %_ZN5vcpkg7Strings29case_insensitive_ascii_searchENS_10StringViewES1_.exit, label %.lr.ph.i.i.i, !llvm.loop !36
 

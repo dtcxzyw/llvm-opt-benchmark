@@ -1780,12 +1780,12 @@ entry:
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %name, i32 noundef 46) #22
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 46) #22
   %tobool1.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 1
   %spec.select.i.i = select i1 %tobool1.not.i.i, ptr %name, ptr %add.ptr.i.i
   %call4.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i) #22
-  %call5.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %internal_doc, ptr noundef %spec.select.i.i, i64 noundef %call4.i.i) #22
+  %call5.i.i = tail call i32 @strncmp(ptr noundef nonnull %internal_doc, ptr noundef %spec.select.i.i, i64 noundef %call4.i.i) #22
   %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
   br i1 %tobool6.not.i.i, label %if.end8.i.i, label %lor.lhs.false
 
@@ -1850,12 +1850,12 @@ entry:
   br i1 %tobool.not.i, label %if.end4, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %name, i32 noundef 46) #22
+  %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 46) #22
   %tobool1.not.i = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 1
   %spec.select.i = select i1 %tobool1.not.i, ptr %name, ptr %add.ptr.i
   %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #22
-  %call5.i = tail call i32 @strncmp(ptr noundef nonnull readonly %internal_doc, ptr noundef %spec.select.i, i64 noundef %call4.i) #22
+  %call5.i = tail call i32 @strncmp(ptr noundef nonnull %internal_doc, ptr noundef %spec.select.i, i64 noundef %call4.i) #22
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end8.i, label %if.end4
 
@@ -1912,12 +1912,12 @@ entry:
   br i1 %tobool.not.i, label %if.then3, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %name, i32 noundef 46) #22
+  %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 46) #22
   %tobool1.not.i = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 1
   %spec.select.i = select i1 %tobool1.not.i, ptr %name, ptr %add.ptr.i
   %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #22
-  %call5.i = tail call i32 @strncmp(ptr noundef nonnull readonly %internal_doc, ptr noundef %spec.select.i, i64 noundef %call4.i) #22
+  %call5.i = tail call i32 @strncmp(ptr noundef nonnull %internal_doc, ptr noundef %spec.select.i, i64 noundef %call4.i) #22
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end8.i, label %if.then3
 
@@ -9915,12 +9915,12 @@ if.end4.i.i97:                                    ; preds = %if.end.i97.i
 
 if.end.i.i.i99.i:                                 ; preds = %if.end4.i.i97
   %136 = load ptr, ptr %6, align 8
-  %call.i.i.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %136, i32 noundef 46) #22
+  %call.i.i.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %136, i32 noundef 46) #22
   %tobool1.not.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   %add.ptr.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 1
   %spec.select.i.i.i.i = select i1 %tobool1.not.i.i.i.i, ptr %136, ptr %add.ptr.i.i.i.i
   %call4.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i.i.i) #22
-  %call5.i.i.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %135, ptr noundef %spec.select.i.i.i.i, i64 noundef %call4.i.i.i.i) #22
+  %call5.i.i.i.i = tail call i32 @strncmp(ptr noundef nonnull %135, ptr noundef %spec.select.i.i.i.i, i64 noundef %call4.i.i.i.i) #22
   %tobool6.not.i.i.i.i = icmp eq i32 %call5.i.i.i.i, 0
   br i1 %tobool6.not.i.i.i.i, label %if.end8.i.i.i.i, label %if.end4.i.i.i
 
@@ -20290,7 +20290,7 @@ type_mro_impl.exit:                               ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal ptr @type___subclasses__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %call.i = tail call ptr @_PyType_GetSubclasses(ptr noundef readonly %self)
+  %call.i = tail call ptr @_PyType_GetSubclasses(ptr noundef %self)
   ret ptr %call.i
 }
 
@@ -23457,7 +23457,7 @@ if.end18.i:                                       ; preds = %if.end13.i
   br i1 %cmp.i61.not, label %mro_invoke.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end18.i
-  %call.i40 = tail call fastcc ptr @solid_base(ptr noundef nonnull readonly %type)
+  %call.i40 = tail call fastcc ptr @solid_base(ptr noundef nonnull %type)
   %cmp22.i = icmp sgt i64 %call10.val.i, 0
   br i1 %cmp22.i, label %for.body.lr.ph.i, label %mro_invoke.exit
 
@@ -27517,7 +27517,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
   br i1 %cmp1.not.i.i, label %if.else83.i, label %do.body.i.i, !llvm.loop !15
 
 if.else83.i:                                      ; preds = %for.cond.i, %if.end.i.i, %if.then.i.i, %if.then.i76, %if.then.i54, %if.then.i48
-  %call84.i = tail call i32 @PyType_IsSubtype(ptr noundef readonly %0, ptr noundef nonnull @PyDict_Type)
+  %call84.i = tail call i32 @PyType_IsSubtype(ptr noundef %0, ptr noundef nonnull @PyDict_Type)
   %tobool85.not.i = icmp eq i32 %call84.i, 0
   br i1 %tobool85.not.i, label %if.end96.i, label %if.end96.sink.split.i
 

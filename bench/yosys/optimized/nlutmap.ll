@@ -392,7 +392,7 @@ define internal void @_ZN12_GLOBAL__N_111NlutmapPass7executeESt6vectorINSt7__cxx
   %38 = alloca %"class.std::vector", align 8
   %39 = alloca %"class.std::vector.8", align 8
   %40 = alloca %"struct.(anonymous namespace)::NlutmapWorker", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %36, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %36, i8 0, i64 25, i1 false)
   invoke void (ptr, ptr, ...) @_ZN5Yosys10log_headerEPNS_5RTLIL6DesignEPKcz(ptr noundef %2, ptr noundef nonnull @.str.14)
           to label %41 unwind label %.loopexit.split-lp205
 
@@ -735,7 +735,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge1603
   %.sroa.0166.01600 = phi ptr [ %131, %.lr.ph1602 ], [ %2341, %_ZN12_GLOBAL__N_113NlutmapWorkerD2Ev.exit ]
   %186 = load ptr, ptr %.sroa.0166.01600, align 8
   store ptr %36, ptr %40, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %134, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %134, i8 0, i64 48, i1 false)
   store ptr %186, ptr %135, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)

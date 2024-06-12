@@ -430,7 +430,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 n
   br label %uv_if_indextoname.exit
 
 22:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr nonnull align 16 %4, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 16 %4, i64 %18, i1 false)
   %23 = getelementptr inbounds i8, ptr %1, i64 %18
   store i8 0, ptr %23, align 1
   store i64 %18, ptr %2, align 8

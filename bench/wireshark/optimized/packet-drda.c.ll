@@ -2077,7 +2077,7 @@ define internal noundef i32 @dissect_drda_pkgnamcsn(ptr noundef %0, ptr noundef 
   %6 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %5) #6
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %6, i32 noundef 8) #6
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %6, i32 noundef 0, i32 noundef %7) #6
-  %9 = tail call i32 @dissect_drda_pkgnam(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr readnone poison)
+  %9 = tail call i32 @dissect_drda_pkgnam(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr poison)
   %10 = load i32, ptr @hf_drda_pkgcnstkn, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %6, i32 noundef %9, i32 noundef 8, i32 noundef 2) #6
   %12 = add i32 %9, 8
@@ -3108,7 +3108,7 @@ dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup
   %262 = add i32 %261, %257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   %263 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %262) #6
-  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef nonnull readonly %3)
+  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef nonnull %3)
   %265 = add i32 %264, %262
   %266 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %265) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
@@ -3453,7 +3453,7 @@ dissect_drda_sqldoptgrp.exit.i:                   ; preds = %415, %409, %dissect
 
 475:                                              ; preds = %418
   %476 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %472) #6
-  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef nonnull readonly %3)
+  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef nonnull %3)
   %478 = add i32 %477, %472
   br label %dissect_drda_sqldagrp.exit
 
@@ -3600,7 +3600,7 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %84 = load i32, ptr %83, align 4
   %85 = getelementptr inbounds i8, ptr %1, i64 240
   %86 = load ptr, ptr %85, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %82, ptr %40, align 8
   %87 = icmp eq i32 %84, 0
   br i1 %87, label %drda_set_server.exit.i, label %88
@@ -3633,7 +3633,7 @@ drda_set_server.exit.i:                           ; preds = %88, %75
   %103 = load i32, ptr %102, align 4
   %104 = getelementptr inbounds i8, ptr %1, i64 216
   %105 = load ptr, ptr %104, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %101, ptr %40, align 8
   %106 = icmp eq i32 %103, 0
   br i1 %106, label %drda_set_server.exit26.i, label %107
@@ -3673,7 +3673,7 @@ drda_set_server.exit26.i:                         ; preds = %107, %96
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds i8, ptr %1, i64 240
   %126 = load ptr, ptr %125, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %122, ptr %40, align 8
   %127 = icmp eq i32 %124, 0
   br i1 %127, label %drda_set_server.exit27.i, label %128
@@ -4049,7 +4049,7 @@ define internal fastcc void @drda_set_server(ptr nocapture noundef writeonly %0,
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %7, ptr %6, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %copy_address_wmem.exit, label %13

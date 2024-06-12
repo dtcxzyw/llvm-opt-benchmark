@@ -7490,7 +7490,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %34, label %dissect_nfs3_post_op_attr.exit
 
 34:                                               ; preds = %28
-  %35 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 2)
+  %35 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %28, %34
@@ -7574,7 +7574,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %7, %12, %15
   br i1 %cond.i, label %24, label %dissect_nfs3_post_op_attr.exit
 
 24:                                               ; preds = %dissect_nfs3_status.exit
-  %25 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 2)
+  %25 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %dissect_nfs3_status.exit, %24
@@ -7664,7 +7664,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %9, %14, %17
   br i1 %cond.i, label %27, label %dissect_nfs3_post_op_attr.exit
 
 27:                                               ; preds = %21
-  %28 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 2)
+  %28 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %21, %27
@@ -7711,7 +7711,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %33, %36
   br i1 %cond.i22, label %48, label %dissect_nfs3_post_op_attr.exit24
 
 48:                                               ; preds = %42
-  %49 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 2)
+  %49 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit24
 
 dissect_nfs3_post_op_attr.exit24:                 ; preds = %42, %48
@@ -7796,7 +7796,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -7840,7 +7840,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i32, label %50, label %dissect_nfs3_post_op_attr.exit34
 
 50:                                               ; preds = %44
-  %51 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %47, ptr noundef nonnull @.str, i32 noundef 2)
+  %51 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %47, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit34
 
 dissect_nfs3_post_op_attr.exit34:                 ; preds = %44, %50
@@ -8047,7 +8047,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef readonly %3)
+  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef %3)
   br label %28
 
 28:                                               ; preds = %26, %20
@@ -8147,7 +8147,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef readonly %3)
+  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef %3)
   br label %28
 
 28:                                               ; preds = %26, %20
@@ -8253,7 +8253,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef readonly %3)
+  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef %3)
   br label %28
 
 28:                                               ; preds = %26, %20
@@ -8378,7 +8378,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef readonly %3)
+  %27 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef %22, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef %3)
   br label %28
 
 28:                                               ; preds = %26, %20
@@ -8689,7 +8689,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -8713,7 +8713,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i24, label %37, label %dissect_nfs3_post_op_attr.exit26
 
 37:                                               ; preds = %31
-  %38 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 2)
+  %38 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit26
 
 dissect_nfs3_post_op_attr.exit26:                 ; preds = %31, %37
@@ -8801,7 +8801,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -8830,7 +8830,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i27, label %43, label %dissect_nfs3_post_op_attr.exit29
 
 43:                                               ; preds = %37
-  %44 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 2)
+  %44 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit29
 
 dissect_nfs3_post_op_attr.exit29:                 ; preds = %37, %43
@@ -8919,7 +8919,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -8948,7 +8948,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i28, label %43, label %dissect_nfs3_post_op_attr.exit30
 
 43:                                               ; preds = %37
-  %44 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 2)
+  %44 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit30
 
 dissect_nfs3_post_op_attr.exit30:                 ; preds = %37, %43
@@ -9027,7 +9027,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -9072,7 +9072,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i43, label %54, label %dissect_nfs3_post_op_attr.exit45
 
 54:                                               ; preds = %48
-  %55 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 2)
+  %55 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit45
 
 dissect_nfs3_post_op_attr.exit45:                 ; preds = %48, %54
@@ -9151,7 +9151,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -9205,7 +9205,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i54, label %67, label %dissect_nfs3_post_op_attr.exit56
 
 67:                                               ; preds = %61
-  %68 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %64, ptr noundef nonnull @.str, i32 noundef 2)
+  %68 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %64, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit56
 
 dissect_nfs3_post_op_attr.exit56:                 ; preds = %61, %67
@@ -9284,7 +9284,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   br i1 %cond.i, label %26, label %dissect_nfs3_post_op_attr.exit
 
 26:                                               ; preds = %20
-  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
+  %27 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
 dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
@@ -9334,7 +9334,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   br i1 %cond.i45, label %56, label %dissect_nfs3_post_op_attr.exit47
 
 56:                                               ; preds = %50
-  %57 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %53, ptr noundef nonnull @.str, i32 noundef 2)
+  %57 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef %1, ptr noundef %0, i32 noundef 8, ptr noundef %53, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit47
 
 dissect_nfs3_post_op_attr.exit47:                 ; preds = %50, %56
@@ -9766,7 +9766,7 @@ define internal i32 @dissect_nfs3_entryplus(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %cond.i, label %30, label %32
 
 30:                                               ; preds = %5
-  %31 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %28, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef readonly %4)
+  %31 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %28, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull @.str.2261, ptr noundef null, ptr noundef %4)
   br label %32
 
 32:                                               ; preds = %30, %5
@@ -10410,7 +10410,7 @@ dissect_nfs4_open_claim.exit:                     ; preds = %.thread.i, %235, %2
   br label %dissect_nfs4_layoutreturn.exit
 
 268:                                              ; preds = %50
-  %269 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %52, ptr noundef nonnull @.str.801, ptr noundef nonnull %13, ptr noundef readonly %4)
+  %269 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %52, ptr noundef nonnull @.str.801, ptr noundef nonnull %13, ptr noundef %4)
   br label %dissect_nfs4_layoutreturn.exit
 
 270:                                              ; preds = %50
@@ -10868,7 +10868,7 @@ dissect_nfs4_newtime.exit:                        ; preds = %dissect_nfs4_newoff
   %579 = load i32, ptr @hf_nfs4_length, align 4
   %580 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %576, i32 noundef %579, i32 noundef %578) #18
   %581 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %580, ptr noundef %576, ptr noundef null)
-  %582 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %581, ptr noundef %2, ptr noundef %576, ptr noundef readonly %4, i32 noundef 0)
+  %582 = call fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %581, ptr noundef %2, ptr noundef %576, ptr noundef %4, i32 noundef 0)
   %583 = add nuw i32 %.176.i, 1
   %exitcond82.not.i = icmp eq i32 %583, %567
   br i1 %exitcond82.not.i, label %dissect_nfs4_layoutreturn.exit, label %.lr.ph78.i, !llvm.loop !9
@@ -11792,7 +11792,7 @@ define internal fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef
   %33 = load ptr, ptr %7, align 8
   %34 = sub i32 %32, %spec.select
   call void @proto_item_set_len(ptr noundef %33, i32 noundef %34) #18
-  %35 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.1843, ptr noundef nonnull %8, ptr noundef readonly %4)
+  %35 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.1843, ptr noundef nonnull %8, ptr noundef %4)
   %36 = call fastcc i32 @dissect_nfs4_io_latency(ptr noundef %0, i32 noundef %35, ptr noundef %3, ptr noundef nonnull @.str.1937)
   %37 = call fastcc i32 @dissect_nfs4_io_latency(ptr noundef %0, i32 noundef %36, ptr noundef %3, ptr noundef nonnull @.str.1938)
   %38 = load i32, ptr @ett_nfs4_io_time, align 4
@@ -12057,7 +12057,7 @@ define internal i32 @dissect_nfs4_fattr_value(ptr noundef %0, i32 noundef %1, pt
   br label %dissect_nfs4_fattr_acl.exit
 
 90:                                               ; preds = %8
-  %91 = tail call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef nonnull @.str.2324, ptr noundef null, ptr noundef readonly %3)
+  %91 = tail call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef nonnull @.str.2324, ptr noundef null, ptr noundef %3)
   br label %dissect_nfs4_fattr_acl.exit
 
 92:                                               ; preds = %8
@@ -13542,7 +13542,7 @@ switch.early.test:                                ; preds = %dissect_nfs4_status
   br label %dissect_nfsdata_reduced.exit
 
 106:                                              ; preds = %81
-  %107 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %62, ptr noundef nonnull @.str.1843, ptr noundef nonnull %26, ptr noundef readonly %4)
+  %107 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %62, ptr noundef nonnull @.str.1843, ptr noundef nonnull %26, ptr noundef %4)
   br label %dissect_nfsdata_reduced.exit
 
 108:                                              ; preds = %81
@@ -14069,7 +14069,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %315, %328, %331
 .lr.ph211.i:                                      ; preds = %411, %.lr.ph211.i
   %.1209.i = phi i32 [ %442, %.lr.ph211.i ], [ %439, %411 ]
   %.0180208.i = phi i32 [ %443, %.lr.ph211.i ], [ 0, %411 ]
-  %442 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.1209.i, ptr noundef %2, ptr noundef %441, ptr noundef nonnull @.str.2427, ptr noundef null, ptr noundef readonly %4)
+  %442 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.1209.i, ptr noundef %2, ptr noundef %441, ptr noundef nonnull @.str.2427, ptr noundef null, ptr noundef %4)
   %443 = add nuw i32 %.0180208.i, 1
   %exitcond232.not.i = icmp eq i32 %443, %436
   br i1 %exitcond232.not.i, label %.loopexit.i, label %.lr.ph211.i, !llvm.loop !27
@@ -14118,7 +14118,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %315, %328, %331
 .lr.ph194.i:                                      ; preds = %.lr.ph199.i, %.lr.ph194.i
   %.4193.i = phi i32 [ %470, %.lr.ph194.i ], [ %469, %.lr.ph199.i ]
   %.0184192.i = phi i32 [ %471, %.lr.ph194.i ], [ 0, %.lr.ph199.i ]
-  %470 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.4193.i, ptr noundef %2, ptr noundef %461, ptr noundef nonnull @.str.2431, ptr noundef null, ptr noundef readonly %4)
+  %470 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %.4193.i, ptr noundef %2, ptr noundef %461, ptr noundef nonnull @.str.2431, ptr noundef null, ptr noundef %4)
   %471 = add nuw i32 %.0184192.i, 1
   %exitcond229.not.i = icmp eq i32 %471, %468
   br i1 %exitcond229.not.i, label %._crit_edge.i472, label %.lr.ph194.i, !llvm.loop !28
@@ -15004,11 +15004,11 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
   %42 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %27, ptr noundef %40, ptr noundef null)
   %43 = load i32, ptr @hf_nfs4_cb_truncate, align 4
   %44 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %40, i32 noundef %43, i32 noundef %42) #18
-  %45 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %44, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef readonly %3)
+  %45 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %44, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef %3)
   br label %dissect_nfs4_cb_layoutrecall.exit.i
 
 46:                                               ; preds = %34
-  %47 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef readonly %3)
+  %47 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef %3)
   store i32 0, ptr @dissect_nfs4_fattrs.fattr_obj_type, align 4
   %48 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @dissect_nfs4_fattrs.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfs4_cb_layoutrecall.exit.i
@@ -15029,7 +15029,7 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
   ]
 
 59:                                               ; preds = %49
-  %60 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef readonly %3)
+  %60 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef %3)
   %61 = load i32, ptr @hf_nfs4_offset, align 4
   %62 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %40, i32 noundef %61, i32 noundef %60) #18
   %63 = load i32, ptr @hf_nfs4_length, align 4
@@ -15102,7 +15102,7 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
   br i1 %exitcond40.not.i.i, label %dissect_nfs4_cb_layoutrecall.exit.i, label %.lr.ph36.i.i, !llvm.loop !48
 
 106:                                              ; preds = %34
-  %107 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef readonly %3)
+  %107 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef %3)
   %108 = load i32, ptr @ett_nfs4_lock_owner, align 4
   %109 = call ptr @proto_tree_add_subtree(ptr noundef %40, ptr noundef %0, i32 noundef %107, i32 noundef 4, i32 noundef %108, ptr noundef null, ptr noundef nonnull @.str.1859) #18
   %110 = load i32, ptr @hf_nfs4_clientid, align 4
@@ -15112,7 +15112,7 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
   br label %dissect_nfs4_cb_layoutrecall.exit.i
 
 114:                                              ; preds = %34
-  %115 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef readonly %3)
+  %115 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef %3)
   %116 = call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %115, ptr noundef %40, ptr noundef null)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %117 = load i32, ptr @hf_nfs4_status, align 4

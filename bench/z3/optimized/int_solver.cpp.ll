@@ -455,7 +455,7 @@ _ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i: ; preds = %if.then
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i, %for.body.i
   %__begin1.07.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %22, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i ]
-  %call4.i = call noundef zeroext i1 @_ZN2lp10int_solver7patcher30patch_basic_column_on_row_cellEjRKNS_8row_cellI8rationalEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %__begin1.07.i)
+  %call4.i = call noundef zeroext i1 @_ZN2lp10int_solver7patcher30patch_basic_column_on_row_cellEjRKNS_8row_cellI8rationalEE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %__begin1.07.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.07.i, i64 40
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   %or.cond.i = select i1 %call4.i, i1 true, i1 %cmp.not.i
@@ -12597,7 +12597,7 @@ land.rhs.i17:                                     ; preds = %do.body.i, %invoke.
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i17
-  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.028.i, ptr noundef nonnull align 8 dereferenceable(16) %__carry.i, ptr nonnull %score, ptr nonnull readonly %this)
+  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.028.i, ptr noundef nonnull align 8 dereferenceable(16) %__carry.i, ptr nonnull %score, ptr nonnull %this)
           to label %invoke.cont16.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont16.i:                                  ; preds = %for.body.i
@@ -12664,7 +12664,7 @@ for.cond25.i:                                     ; preds = %for.end.i, %for.bod
   br i1 %cmp26.not.i, label %for.end32.i, label %for.body27.i
 
 for.body27.i:                                     ; preds = %for.cond25.i
-  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.1.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.pn.i, ptr nonnull %score, ptr nonnull readonly %this)
+  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.1.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.pn.i, ptr nonnull %score, ptr nonnull %this)
           to label %for.cond25.i unwind label %lpad.loopexit.i, !llvm.loop !72
 
 for.end32.i:                                      ; preds = %for.cond25.i

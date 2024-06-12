@@ -409,7 +409,7 @@ if.then:                                          ; preds = %entry
 for.body.preheader.i:                             ; preds = %if.then
   %0 = zext nneg i32 %sz to i64
   %1 = shl nuw nsw i64 %0, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %dst, i8 0, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %dst, i8 0, i64 %1, i1 false)
   br label %if.end80
 
 if.end:                                           ; preds = %entry
@@ -554,7 +554,7 @@ if.then:                                          ; preds = %entry
 for.body.preheader.i:                             ; preds = %if.then
   %0 = zext i32 %dst_sz to i64
   %1 = shl nuw nsw i64 %0, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %dst, i8 0, i64 %1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %dst, i8 0, i64 %1, i1 false)
   br label %for.end110
 
 if.end:                                           ; preds = %entry

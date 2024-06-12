@@ -331,7 +331,7 @@ if.then13.i.i:                                    ; preds = %if.then30.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then13.i.i
   %arrayidx18.i.i = getelementptr i8, ptr %arrayidx17.i, i64 4
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %arrayidx18.i.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx18.i.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.end21.i.i, label %if.end49.i
 
@@ -397,7 +397,7 @@ if.then13.i16.i:                                  ; preds = %if.then42.i
 
 lor.lhs.false.i19.i:                              ; preds = %if.then13.i16.i
   %arrayidx18.i20.i = getelementptr i8, ptr %arrayidx17.i, i64 4
-  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %arrayidx18.i20.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %bcmp.i21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx18.i20.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %tobool.not.i22.i = icmp eq i32 %bcmp.i21.i, 0
   br i1 %tobool.not.i22.i, label %if.end21.i24.i, label %if.end49.i
 

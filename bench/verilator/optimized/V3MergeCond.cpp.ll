@@ -1616,7 +1616,7 @@ _ZN12VNUser2InUseC2Ev.exit.i:                     ; preds = %_ZN12VNUser1InUseC2
           to label %_ZN12VNUser3InUseC2Ev.exit.i unwind label %127
 
 _ZN12VNUser3InUseC2Ev.exit.i:                     ; preds = %_ZN12VNUser2InUseC2Ev.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %10, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 80, i1 false)
   store i64 8, ptr %24, align 8
   %40 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
           to label %.noexc17.i unwind label %129
@@ -1917,7 +1917,7 @@ _ZN12_GLOBAL__N_125CodeMotionOptimizeVisitorD2Ev.exit.i.i: ; preds = %_ZN12_GLOB
 
 .body20.i:                                        ; preds = %131, %110, %81
   %eh.lpad-body21.i = phi { ptr, i32 } [ %82, %81 ], [ %132, %131 ], [ %.pn.i.i.i, %110 ]
-  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %10) #23
+  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #23
   br label %.body.i
 
 133:                                              ; preds = %87
@@ -1939,7 +1939,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %134, %133
 
 137:                                              ; preds = %136, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i
   store ptr null, ptr %33, align 8
-  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %10) #23
+  call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #23
   invoke void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser3InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser3InUse10s_userBusyE)
           to label %_ZN12VNUser3InUseD2Ev.exit.i unwind label %138
 
@@ -6016,7 +6016,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN20As
 65:                                               ; preds = %64
   %66 = ptrtoint ptr %63 to i64
   %67 = sub i64 %66, %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %61, ptr nonnull align 8 %19, i64 %67, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %61, ptr nonnull align 8 %19, i64 %67, i1 false)
   br label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 68:                                               ; preds = %58
@@ -6029,7 +6029,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN20As
   %.pre.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %72
   %73 = getelementptr inbounds ptr, ptr %61, i64 %54
   %74 = getelementptr inbounds ptr, ptr %73, i64 %.pre.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %74, ptr align 8 %19, i64 %71, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %74, ptr align 8 %19, i64 %71, i1 false)
   br label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 75:                                               ; preds = %53
@@ -6064,7 +6064,7 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.e
 87:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
   %88 = ptrtoint ptr %86 to i64
   %89 = sub i64 %88, %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %85, ptr align 8 %19, i64 %89, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr align 8 %19, i64 %89, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_114StmtPropertiesES3_ET0_T_S5_S4_.exit26.i.i.i.i
 
 _ZSt4copyIPPN12_GLOBAL__N_114StmtPropertiesES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %87, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i

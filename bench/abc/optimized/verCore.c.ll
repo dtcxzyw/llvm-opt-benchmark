@@ -892,7 +892,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 364:                                              ; preds = %361
   %365 = load ptr, ptr %363, align 8
-  %366 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %365, ptr noundef nonnull readonly dereferenceable(1) %351) #21
+  %366 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %365, ptr noundef nonnull dereferenceable(1) %351) #21
   %.not30.i.us.us.i.i.i = icmp eq i32 %366, 0
   br i1 %.not30.i.us.us.i.i.i, label %.critedge2.split.loop.exit.i.us.us.i.i.i, label %368
 
@@ -4106,7 +4106,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %42, align 8
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %30) #21
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %30) #21
   %.not30.i.us.us = icmp eq i32 %45, 0
   br i1 %.not30.i.us.us, label %.critedge2.split.loop.exit.i.us.us, label %47
 

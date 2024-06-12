@@ -8314,7 +8314,7 @@ _ZL12free_addressP8_address.exit:                 ; preds = %_ZL12copy_addressP8
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 176
   %27 = load ptr, ptr %26, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 %23, ptr %2, align 8
   %28 = icmp eq i32 %25, 0
   br i1 %28, label %_ZL12copy_addressP8_addressPKS_.exit1.thread, label %_ZL12copy_addressP8_addressPKS_.exit1

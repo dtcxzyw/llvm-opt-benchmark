@@ -655,7 +655,7 @@ define noundef i64 @_ZNK5faiss16ZnSphereCodecAlt6encodeEPKf(ptr nocapture nounde
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i64 @_ZNK5faiss13ZnSphereCodec17search_and_encodeEPKf(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly %1)
+  %7 = tail call noundef i64 @_ZNK5faiss13ZnSphereCodec17search_and_encodeEPKf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 8:                                                ; preds = %2
@@ -694,7 +694,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 20:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 112
-  %22 = invoke noundef i64 @_ZNK5faiss16ZnSphereCodecRec15encode_centroidEPKf(ptr noundef nonnull readonly align 8 dereferenceable(112) %21, ptr noundef readonly %.sroa.0.0)
+  %22 = invoke noundef i64 @_ZNK5faiss16ZnSphereCodecRec15encode_centroidEPKf(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef %.sroa.0.0)
           to label %_ZNK5faiss16ZnSphereCodecRec6encodeEPKf.exit unwind label %24
 
 _ZNK5faiss16ZnSphereCodecRec6encodeEPKf.exit:     ; preds = %20
@@ -2921,7 +2921,7 @@ define noundef float @_ZNK5faiss14ZnSphereSearch6searchEPKfPfS3_PiS4_(ptr nocapt
   %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 true)
   %21 = shl nuw nsw i64 %20, 1
   %22 = xor i64 %21, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_SB_T0_T1_"(ptr noundef %4, ptr noundef nonnull %17, i64 noundef %22, ptr readonly %3)
+  tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_SB_T0_T1_"(ptr noundef %4, ptr noundef nonnull %17, i64 noundef %22, ptr %3)
   %23 = icmp sgt i32 %7, 16
   %scevgep.i.i.i = getelementptr i8, ptr %4, i64 4
   br i1 %23, label %.preheader.i, label %57

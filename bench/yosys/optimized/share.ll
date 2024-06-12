@@ -2278,13 +2278,13 @@ define internal void @_ZN12_GLOBAL__N_19SharePass7executeESt6vectorINSt7__cxx111
   %81 = alloca %"struct.(anonymous namespace)::ShareWorkerConfig", align 8
   %82 = alloca %"class.std::vector.125", align 8
   %83 = getelementptr inbounds i8, ptr %48, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
   %84 = getelementptr inbounds i8, ptr %48, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %84, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, i8 0, i64 48, i1 false)
   %85 = getelementptr inbounds i8, ptr %48, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %85, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, i8 0, i64 48, i1 false)
   %86 = getelementptr inbounds i8, ptr %48, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %86, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %86, i8 0, i64 48, i1 false)
   store i32 -1, ptr %48, align 8
   %87 = getelementptr inbounds i8, ptr %48, i64 4
   store i8 0, ptr %87, align 4

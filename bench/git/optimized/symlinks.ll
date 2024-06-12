@@ -20,7 +20,7 @@ define dso_local range(i32 0, 5) i32 @threaded_has_symlink_leading_path(ptr noun
 entry:
   %flags.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i, i32 noundef 5, i32 noundef 0)
+  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i, i32 noundef 5, i32 noundef 0)
   %0 = load i32, ptr %flags.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
   %and = and i32 %0, 4
@@ -32,7 +32,7 @@ define dso_local range(i32 0, 5) i32 @has_symlink_leading_path(ptr nocapture nou
 entry:
   %flags.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 5, i32 noundef 0)
+  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 5, i32 noundef 0)
   %0 = load i32, ptr %flags.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   %and.i = and i32 %0, 4
@@ -93,7 +93,7 @@ define dso_local range(i32 0, 2) i32 @has_dirs_only_path(ptr nocapture noundef r
 entry:
   %flags.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 33, i32 noundef %prefix_len)
+  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 33, i32 noundef %prefix_len)
   %0 = load i32, ptr %flags.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   %and.i = and i32 %0, 1
@@ -229,7 +229,7 @@ land.lhs.true.i18:                                ; preds = %while.body.i16
   br i1 %tobool3.not.i, label %do_remove_scheduled_dirs.exit, label %lor.lhs.false.i19
 
 lor.lhs.false.i19:                                ; preds = %land.lhs.true.i18, %while.body.i16
-  %call.i.i = tail call i32 @rmdir(ptr noundef readonly %.pre8.i) #12
+  %call.i.i = tail call i32 @rmdir(ptr noundef %.pre8.i) #12
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %do_remove_scheduled_dirs.exit
 
@@ -314,7 +314,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %tobool3.not.i, label %do_remove_scheduled_dirs.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %while.body.i
-  %call.i.i = tail call i32 @rmdir(ptr noundef readonly %.pre8.i) #12
+  %call.i.i = tail call i32 @rmdir(ptr noundef %.pre8.i) #12
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %do_remove_scheduled_dirs.exit
 

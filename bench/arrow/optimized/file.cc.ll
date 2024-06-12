@@ -9713,7 +9713,7 @@ _ZN5arrow2io16MemoryMappedFile13WriteInternalEPKvl.exit: ; preds = %_ZN5arrow6St
   %position_.i.i = getelementptr inbounds i8, ptr %15, i64 56
   %18 = load i64, ptr %position_.i.i, align 8, !noalias !346
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %nbytes, i1 false), !noalias !346
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %nbytes, i1 false), !noalias !346
   %19 = load ptr, ptr %memory_map_, align 8, !noalias !346
   %position_.i2.i = getelementptr inbounds i8, ptr %19, i64 56
   %20 = load i64, ptr %position_.i2.i, align 8, !noalias !346
@@ -9874,7 +9874,7 @@ _ZN5arrow2io16MemoryMappedFile13WriteInternalEPKvl.exit: ; preds = %_ZN5arrow6St
   %position_.i.i = getelementptr inbounds i8, ptr %15, i64 56
   %18 = load i64, ptr %position_.i.i, align 8, !noalias !366
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %nbytes, i1 false), !noalias !366
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %nbytes, i1 false), !noalias !366
   %19 = load ptr, ptr %memory_map_, align 8, !noalias !366
   %position_.i2.i = getelementptr inbounds i8, ptr %19, i64 56
   %20 = load i64, ptr %position_.i2.i, align 8, !noalias !366

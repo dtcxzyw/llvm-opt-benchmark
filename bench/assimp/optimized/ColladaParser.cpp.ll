@@ -22503,7 +22503,7 @@ for.body.i.preheader:                             ; preds = %for.body171
 for.body.i:                                       ; preds = %for.body.i.preheader, %.noexc230
   %it.sroa.0.025.i = phi ptr [ %incdec.ptr.i.i200, %.noexc230 ], [ %49, %for.body.i.preheader ]
   %51 = load i64, ptr %gep671, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i, i64 noundef %51, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i, i64 noundef %51, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc230 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc230:                                        ; preds = %for.body.i
@@ -22528,7 +22528,7 @@ for.body20.i:                                     ; preds = %for.body20.i.prehea
   %56 = load i64, ptr %mOffset.i, align 8
   %add.ptr.i14.i = getelementptr i64, ptr %55, i64 %56
   %57 = load i64, ptr %add.ptr.i14.i, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i, i64 noundef %57, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i, i64 noundef %57, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc231 unwind label %lpad.loopexit
 
 .noexc231:                                        ; preds = %for.body20.i
@@ -22624,7 +22624,7 @@ for.body.i241.preheader:                          ; preds = %for.body179
 for.body.i241:                                    ; preds = %for.body.i241.preheader, %.noexc290
   %it.sroa.0.025.i242 = phi ptr [ %incdec.ptr.i.i244, %.noexc290 ], [ %66, %for.body.i241.preheader ]
   %68 = load i64, ptr %gep666, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i242, i64 noundef %68, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i242, i64 noundef %68, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc290 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc290:                                        ; preds = %for.body.i241
@@ -22649,7 +22649,7 @@ for.body20.i249:                                  ; preds = %for.body20.i249.pre
   %73 = load i64, ptr %mOffset.i251, align 8
   %add.ptr.i14.i252 = getelementptr i64, ptr %72, i64 %73
   %74 = load i64, ptr %add.ptr.i14.i252, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i250, i64 noundef %74, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i250, i64 noundef %74, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc291 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc291:                                        ; preds = %for.body20.i249
@@ -22744,7 +22744,7 @@ for.body.i302.preheader:                          ; preds = %for.body188
 for.body.i302:                                    ; preds = %for.body.i302.preheader, %.noexc351
   %it.sroa.0.025.i303 = phi ptr [ %incdec.ptr.i.i305, %.noexc351 ], [ %83, %for.body.i302.preheader ]
   %85 = load i64, ptr %gep661, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i303, i64 noundef %85, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i303, i64 noundef %85, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc351 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc351:                                        ; preds = %for.body.i302
@@ -22769,7 +22769,7 @@ for.body20.i310:                                  ; preds = %for.body20.i310.pre
   %90 = load i64, ptr %mOffset.i312, align 8
   %add.ptr.i14.i313 = getelementptr i64, ptr %89, i64 %90
   %91 = load i64, ptr %add.ptr.i14.i313, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i311, i64 noundef %91, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i311, i64 noundef %91, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc352 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc352:                                        ; preds = %for.body20.i310
@@ -22852,16 +22852,16 @@ for.inc190:                                       ; preds = %_ZNSt6vectorImSaImE
 
 sw.bb193:                                         ; preds = %for.body167
   %rem.i = and i64 %currentPrimitive.0677, 1
-  invoke void @_ZN6Assimp13ColladaParser10CopyVertexEmmmmRNS_7Collada4MeshERSt6vectorINS1_12InputChannelESaIS5_EEmRKS4_ImSaImEE(ptr noundef nonnull readnone align 8 dereferenceable(772) %this, i64 noundef %rem.i, i64 noundef %numOffsets.0.lcssa, i64 noundef 1, i64 noundef %perVertexOffset.0.lcssa, ptr noundef nonnull align 8 dereferenceable(704) %pMesh, ptr noundef nonnull readonly align 8 dereferenceable(24) %pPerIndexChannels, i64 noundef %currentPrimitive.0677, ptr noundef nonnull readonly align 8 dereferenceable(24) %indices)
+  invoke void @_ZN6Assimp13ColladaParser10CopyVertexEmmmmRNS_7Collada4MeshERSt6vectorINS1_12InputChannelESaIS5_EEmRKS4_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(772) %this, i64 noundef %rem.i, i64 noundef %numOffsets.0.lcssa, i64 noundef 1, i64 noundef %perVertexOffset.0.lcssa, ptr noundef nonnull align 8 dereferenceable(704) %pMesh, ptr noundef nonnull align 8 dereferenceable(24) %pPerIndexChannels, i64 noundef %currentPrimitive.0677, ptr noundef nonnull align 8 dereferenceable(24) %indices)
           to label %.noexc357 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc357:                                        ; preds = %sw.bb193
   %.33.i = xor i64 %rem.i, 1
-  invoke void @_ZN6Assimp13ColladaParser10CopyVertexEmmmmRNS_7Collada4MeshERSt6vectorINS1_12InputChannelESaIS5_EEmRKS4_ImSaImEE(ptr noundef nonnull readnone align 8 dereferenceable(772) %this, i64 noundef %.33.i, i64 noundef %numOffsets.0.lcssa, i64 noundef 1, i64 noundef %perVertexOffset.0.lcssa, ptr noundef nonnull align 8 dereferenceable(704) %pMesh, ptr noundef nonnull readonly align 8 dereferenceable(24) %pPerIndexChannels, i64 noundef %currentPrimitive.0677, ptr noundef nonnull readonly align 8 dereferenceable(24) %indices)
+  invoke void @_ZN6Assimp13ColladaParser10CopyVertexEmmmmRNS_7Collada4MeshERSt6vectorINS1_12InputChannelESaIS5_EEmRKS4_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(772) %this, i64 noundef %.33.i, i64 noundef %numOffsets.0.lcssa, i64 noundef 1, i64 noundef %perVertexOffset.0.lcssa, ptr noundef nonnull align 8 dereferenceable(704) %pMesh, ptr noundef nonnull align 8 dereferenceable(24) %pPerIndexChannels, i64 noundef %currentPrimitive.0677, ptr noundef nonnull align 8 dereferenceable(24) %indices)
           to label %.noexc358 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc358:                                        ; preds = %.noexc357
-  invoke void @_ZN6Assimp13ColladaParser10CopyVertexEmmmmRNS_7Collada4MeshERSt6vectorINS1_12InputChannelESaIS5_EEmRKS4_ImSaImEE(ptr noundef nonnull readnone align 8 dereferenceable(772) %this, i64 noundef 2, i64 noundef %numOffsets.0.lcssa, i64 noundef 1, i64 noundef %perVertexOffset.0.lcssa, ptr noundef nonnull align 8 dereferenceable(704) %pMesh, ptr noundef nonnull readonly align 8 dereferenceable(24) %pPerIndexChannels, i64 noundef %currentPrimitive.0677, ptr noundef nonnull readonly align 8 dereferenceable(24) %indices)
+  invoke void @_ZN6Assimp13ColladaParser10CopyVertexEmmmmRNS_7Collada4MeshERSt6vectorINS1_12InputChannelESaIS5_EEmRKS4_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(772) %this, i64 noundef 2, i64 noundef %numOffsets.0.lcssa, i64 noundef 1, i64 noundef %perVertexOffset.0.lcssa, ptr noundef nonnull align 8 dereferenceable(704) %pMesh, ptr noundef nonnull align 8 dereferenceable(24) %pPerIndexChannels, i64 noundef %currentPrimitive.0677, ptr noundef nonnull align 8 dereferenceable(24) %indices)
           to label %sw.epilog222 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb195:                                         ; preds = %for.body167
@@ -22887,7 +22887,7 @@ for.body.i366.preheader:                          ; preds = %for.body200
 for.body.i366:                                    ; preds = %for.body.i366.preheader, %.noexc415
   %it.sroa.0.025.i367 = phi ptr [ %incdec.ptr.i.i369, %.noexc415 ], [ %102, %for.body.i366.preheader ]
   %104 = load i64, ptr %gep655, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i367, i64 noundef %104, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i367, i64 noundef %104, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc415 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc415:                                        ; preds = %for.body.i366
@@ -22912,7 +22912,7 @@ for.body20.i374:                                  ; preds = %for.body20.i374.pre
   %109 = load i64, ptr %mOffset.i376, align 8
   %add.ptr.i14.i377 = getelementptr i64, ptr %108, i64 %109
   %110 = load i64, ptr %add.ptr.i14.i377, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i375, i64 noundef %110, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i375, i64 noundef %110, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc416 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc416:                                        ; preds = %for.body20.i374
@@ -23020,7 +23020,7 @@ for.body.i432.preheader:                          ; preds = %for.body213
 for.body.i432:                                    ; preds = %for.body.i432.preheader, %.noexc481
   %it.sroa.0.025.i433 = phi ptr [ %incdec.ptr.i.i435, %.noexc481 ], [ %119, %for.body.i432.preheader ]
   %121 = load i64, ptr %gep, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i433, i64 noundef %121, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it.sroa.0.025.i433, i64 noundef %121, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc481 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc481:                                        ; preds = %for.body.i432
@@ -23045,7 +23045,7 @@ for.body20.i440:                                  ; preds = %for.body20.i440.pre
   %126 = load i64, ptr %mOffset.i442, align 8
   %add.ptr.i14.i443 = getelementptr i64, ptr %125, i64 %126
   %127 = load i64, ptr %add.ptr.i14.i443, align 8
-  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i441, i64 noundef %127, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
+  invoke void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS_7Collada12InputChannelEmRNS1_4MeshE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %it12.sroa.0.027.i441, i64 noundef %127, ptr noundef nonnull align 8 dereferenceable(704) %pMesh)
           to label %.noexc482 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc482:                                        ; preds = %for.body20.i440

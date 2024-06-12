@@ -942,7 +942,7 @@ define internal void @xfrm_policy_queue_process(ptr noundef %0) #1 align 16 {
   ]
 
 30:                                               ; preds = %15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %31 = getelementptr inbounds i8, ptr %3, i64 12
   %32 = getelementptr inbounds i8, ptr %4, i64 44
   %33 = getelementptr inbounds i8, ptr %3, i64 52
@@ -992,14 +992,14 @@ define internal void @xfrm_policy_queue_process(ptr noundef %0) #1 align 16 {
   br label %83
 
 59:                                               ; preds = %15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   %60 = getelementptr inbounds i8, ptr %4, i64 56
   %61 = getelementptr inbounds i8, ptr %3, i64 12
   %62 = getelementptr inbounds i8, ptr %3, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %60, ptr noundef align 4 dereferenceable(16) %61, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %60, ptr noundef align 4 dereferenceable(16) %61, i64 16, i1 false)
   %63 = getelementptr inbounds i8, ptr %4, i64 40
   %64 = getelementptr inbounds i8, ptr %3, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %63, ptr noundef align 4 dereferenceable(16) %64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %63, ptr noundef align 4 dereferenceable(16) %64, i64 16, i1 false)
   %65 = load i16, ptr %62, align 4
   %66 = getelementptr inbounds i8, ptr %3, i64 54
   %67 = load i16, ptr %66, align 2
@@ -1276,7 +1276,7 @@ __xfrm_decode_session.exit:                       ; preds = %15, %96
   br label %__xfrm_decode_session.exit15
 
 223:                                              ; preds = %211
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %224 = load i32, ptr %180, align 4
   %225 = load i32, ptr %194, align 4
   %226 = load i16, ptr %181, align 4
@@ -1310,9 +1310,9 @@ __xfrm_decode_session.exit:                       ; preds = %15, %96
   br label %246
 
 236:                                              ; preds = %211
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %179, ptr noundef align 4 dereferenceable(16) %180, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %182, ptr noundef align 4 dereferenceable(16) %183, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %179, ptr noundef align 4 dereferenceable(16) %180, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %182, ptr noundef align 4 dereferenceable(16) %183, i64 16, i1 false)
   %237 = load i16, ptr %181, align 4
   %238 = load i16, ptr %184, align 2
   store i16 %237, ptr %185, align 2
@@ -7925,7 +7925,7 @@ __xfrm_decode_session.exit.thread:                ; preds = %2
   br label %118
 
 10:                                               ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %11 = getelementptr inbounds i8, ptr %3, i64 12
   %12 = getelementptr inbounds i8, ptr %4, i64 44
   %13 = getelementptr inbounds i8, ptr %3, i64 52
@@ -7975,14 +7975,14 @@ __xfrm_decode_session.exit.thread:                ; preds = %2
   br label %63
 
 39:                                               ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   %40 = getelementptr inbounds i8, ptr %4, i64 56
   %41 = getelementptr inbounds i8, ptr %3, i64 12
   %42 = getelementptr inbounds i8, ptr %3, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %40, ptr noundef align 4 dereferenceable(16) %41, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %40, ptr noundef align 4 dereferenceable(16) %41, i64 16, i1 false)
   %43 = getelementptr inbounds i8, ptr %4, i64 40
   %44 = getelementptr inbounds i8, ptr %3, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %43, ptr noundef align 4 dereferenceable(16) %44, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %43, ptr noundef align 4 dereferenceable(16) %44, i64 16, i1 false)
   %45 = load i16, ptr %42, align 4
   %46 = getelementptr inbounds i8, ptr %3, i64 54
   %47 = load i16, ptr %46, align 2

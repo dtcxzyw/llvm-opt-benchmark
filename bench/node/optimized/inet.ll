@@ -758,7 +758,7 @@ if.end106.i:                                      ; preds = %if.end85.i
   br i1 %cmp107.not.i, label %if.end110.i, label %inet_pton6.exit
 
 if.end110.i:                                      ; preds = %for.body.i, %if.end106.i, %for.cond.preheader.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %dst, ptr noundef nonnull align 16 dereferenceable(16) %tmp.i13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %dst, ptr noundef nonnull align 16 dereferenceable(16) %tmp.i13, i64 16, i1 false)
   br label %inet_pton6.exit
 
 inet_pton6.exit:                                  ; preds = %if.then29.i, %if.end25.i, %if.else.i21, %if.then18.i, %if.then.i23, %land.lhs.true.i, %inet_pton4.exit.thread.i, %if.then68.i, %if.then88.i, %if.end106.i, %if.end110.i

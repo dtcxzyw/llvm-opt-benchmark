@@ -3667,11 +3667,11 @@ H5S__hyper_rebuild.exit64:                        ; preds = %54, %55
   br label %.loopexit.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %.loopexit67
-  %196 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly %.1, ptr noundef readonly %165) #16
+  %196 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef %.1, ptr noundef %165) #16
   br label %H5S__hyper_spans_shape_same.exit
 
 .loopexit.i:                                      ; preds = %.preheader.i, %194
-  %197 = call fastcc zeroext i1 @H5S__hyper_spans_shape_same_helper(ptr noundef readonly %.1, ptr noundef readonly %165, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %197 = call fastcc zeroext i1 @H5S__hyper_spans_shape_same_helper(ptr noundef %.1, ptr noundef %165, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
   br label %H5S__hyper_spans_shape_same.exit
 
 H5S__hyper_spans_shape_same.exit:                 ; preds = %.critedge.i, %.loopexit.i
@@ -6348,7 +6348,7 @@ define range(i32 0, 2) i32 @H5S_hyper_normalize_offset(ptr nocapture noundef %0,
   %57 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %58 = add i64 %57, 1
   store i64 %58, ptr @H5S_hyper_op_gen_g, align 8
-  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %55, i32 noundef %52, ptr noundef nonnull readonly %21, i64 noundef %57)
+  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %55, i32 noundef %52, ptr noundef nonnull %21, i64 noundef %57)
   %.pre = load i32, ptr %11, align 8
   br label %H5S__hyper_adjust_s.exit
 
@@ -6444,7 +6444,7 @@ define noundef i32 @H5S_hyper_denormalize_offset(ptr nocapture noundef %0, ptr n
   %40 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %41 = add i64 %40, 1
   store i64 %41, ptr @H5S_hyper_op_gen_g, align 8
-  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull readonly %1, i64 noundef %40)
+  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull %1, i64 noundef %40)
   %.pre = load i32, ptr %3, align 8
   br label %H5S__hyper_adjust_s.exit
 
@@ -14199,7 +14199,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_get_version_enc_size(ptr
 51:                                               ; preds = %27
   %52 = zext i32 %32 to i64
   %53 = shl nuw nsw i64 %52, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr align 8 %.037.i, i64 %53, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 8 %.037.i, i64 %53, i1 false)
   br label %H5S__hyper_bounds.exit.thread
 
 54:                                               ; preds = %36

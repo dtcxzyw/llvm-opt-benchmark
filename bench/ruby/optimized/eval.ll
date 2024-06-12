@@ -206,7 +206,7 @@ define hidden i64 @rb_decorate_message(i64 noundef %0, i64 noundef %1, i32 nound
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %8
-  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %9) #28
+  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %9) #28
   %.not3.i = icmp eq i32 %11, 0
   br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
 
@@ -696,11 +696,11 @@ rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, 
 32:                                               ; preds = %29
   store i32 1831951131, ptr %10, align 16
   %33 = getelementptr inbounds i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(9) %33, ptr noundef nonnull readonly align 16 dereferenceable(9) @rb_error_write.traceback, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %33, ptr noundef nonnull align 16 dereferenceable(9) @rb_error_write.traceback, i64 9, i1 false)
   %34 = getelementptr inbounds i8, ptr %10, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %34, ptr noundef nonnull readonly align 1 dereferenceable(3) @reset, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) @reset, i64 3, i1 false)
   %35 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(26) %35, ptr noundef nonnull readonly align 1 dereferenceable(26) getelementptr inbounds (i8, ptr @rb_error_write.traceback, i64 9), i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %35, ptr noundef nonnull align 1 dereferenceable(26) getelementptr inbounds (i8, ptr @rb_error_write.traceback, i64 9), i64 26, i1 false)
   br label %36
 
 36:                                               ; preds = %32, %29

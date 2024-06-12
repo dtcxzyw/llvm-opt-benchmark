@@ -658,7 +658,7 @@ _ZN3ue2L10packedSizeE10RepeatTypeRKNS_5depthES3_j.exit: ; preds = %if.end8
   %add.i87.i = add nuw nsw i32 %0, 8
   %div21.i = lshr i32 %add.i87.i, 3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %rsi.i24)
-  call void @_ZN3ue215RepeatStateInfoC2E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i24, i32 noundef 6, ptr noundef nonnull readonly align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull readonly align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)
+  call void @_ZN3ue215RepeatStateInfoC2E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i24, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)
   %packedCtrlSize.i25 = getelementptr inbounds i8, ptr %rsi.i24, i64 4
   %4 = load i32, ptr %packedCtrlSize.i25, align 4
   %table.i.i26 = getelementptr inbounds i8, ptr %rsi.i24, i64 56
@@ -729,7 +729,7 @@ if.end27:                                         ; preds = %if.then25, %_ZNK3ue
 
 if.then29:                                        ; preds = %if.end27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %rsi.i44)
-  call void @_ZN3ue215RepeatStateInfoC2E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i44, i32 noundef 5, ptr noundef nonnull readonly align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull readonly align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)
+  call void @_ZN3ue215RepeatStateInfoC2E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i44, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)
   %7 = load i32, ptr %rsi.i44, align 8
   %table.i.i45 = getelementptr inbounds i8, ptr %rsi.i44, i64 56
   %8 = load ptr, ptr %table.i.i45, align 8

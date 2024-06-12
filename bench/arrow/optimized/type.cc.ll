@@ -17012,11 +17012,11 @@ entry:
 define void @_ZN5arrow10Date32TypeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %id_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 16, ptr %id_.i.i.i.i, align 8
   %children_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Date32TypeE, i64 16), ptr %this, align 8
   ret void
 }
@@ -17025,11 +17025,11 @@ entry:
 define void @_ZN5arrow10Date64TypeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %id_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 17, ptr %id_.i.i.i.i, align 8
   %children_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Date64TypeE, i64 16), ptr %this, align 8
   ret void
 }
@@ -17128,11 +17128,11 @@ define void @_ZN5arrow10Time32TypeC2ENS_8TimeUnit4typeE(ptr nocapture noundef no
 entry:
   %ref.tmp4 = alloca %"class.arrow::util::ArrowLog", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %id_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 19, ptr %id_.i.i.i.i, align 8
   %children_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
   %unit_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %unit, ptr %unit_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Time32TypeE, i64 16), ptr %this, align 8
@@ -17272,11 +17272,11 @@ define void @_ZN5arrow10Time64TypeC2ENS_8TimeUnit4typeE(ptr nocapture noundef no
 entry:
   %ref.tmp4 = alloca %"class.arrow::util::ArrowLog", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %id_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 20, ptr %id_.i.i.i.i, align 8
   %children_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i.i.i, i8 0, i64 24, i1 false)
   %unit_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %unit, ptr %unit_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow10Time64TypeE, i64 16), ptr %this, align 8
@@ -24063,7 +24063,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %mul.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %mul.i.i.i.i.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !787
+  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !787
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
@@ -24147,7 +24147,7 @@ for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %mul.i39.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 6
   %add.ptr.i40.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i.i, i64 %mul.i39.i.i.i.i
   %add.ptr1.i41.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i40.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !821
+  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !821
   %mul2.i42.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 3
   %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i42.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !822)
@@ -33149,7 +33149,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 sw.bb.i:                                          ; preds = %entry
-  call void @_ZNK5arrow9FieldPath8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(24) %this)
+  call void @_ZNK5arrow9FieldPath8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
   br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK5arrow8FieldRef8ToStringEvE7VisitorJRKSt7variantIJNSA_9FieldPathES8_St6vectorISB_SaISB_EEEEEEDcOT0_DpOT1_.exit
 
 sw.bb2.i:                                         ; preds = %entry
@@ -69717,7 +69717,7 @@ invoke.cont8.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   %cond.i.i.i.i.i5.i.i.i.i = phi ptr [ null, %invoke.cont.i.i.thread.i.i.i.i ], [ %call5.i.i.i.i2.i6.i.i6.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i5.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i6.i.i.i.i, align 8, !noalias !1839
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !1839
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !1839
   %call5.i.i.i.i2.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %_ZNSt12_Vector_baseIN5arrow9FieldPathESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %lpad.i7.thread.i.i.i.i, !noalias !1839
 
@@ -69774,7 +69774,7 @@ if.then.i.i.i.i10.i.i.i.i:                        ; preds = %lpad11.body.i.i.i.i
   br label %ehcleanup.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont3.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !1839
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !1839
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt6vectorIN5arrow9FieldPathESaIS6_EEEEOZNKS5_8FieldRef7FindAllERKS4_ISt10shared_ptrINS5_5FieldEESaISD_EEE7VisitorRKSt7variantIJS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ISA_SaISA_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SV_.exit
 
 ehcleanup.i.i.i.i:                                ; preds = %if.then.i.i.i.i10.i.i.i.i, %lpad11.body.i.i.i.i, %lpad7.i.i.i.i, %lpad2.i.i.i.i
@@ -70057,7 +70057,7 @@ for.body.i.lr.ph:                                 ; preds = %_ZNSt6vectorIN5arro
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE.exit.i
   %ref_it.i.sroa.0.057 = phi ptr [ %ref_it.i.sroa.0.054, %for.body.i.lr.ph ], [ %ref_it.i.sroa.0.0, %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE.exit.i ]
   %.pn56 = phi ptr [ %55, %for.body.i.lr.ph ], [ %ref_it.i.sroa.0.057, %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE.exit.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(48) %next_matches.i, i8 0, i64 48, i1 false), !noalias !1855
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %next_matches.i, i8 0, i64 48, i1 false), !noalias !1855
   %matches.val.i45 = load ptr, ptr %57, align 8, !noalias !1855
   %matches.val11.i46 = load ptr, ptr %58, align 16, !noalias !1855
   %cmp.i51.not = icmp eq ptr %matches.val11.i46, %matches.val.i45

@@ -752,7 +752,7 @@ inet_pton4.exit.thread.i:                         ; preds = %108, %104, %93, %._
   br i1 %.not86.i, label %.thread100.i, label %inet_pton6.exit
 
 .thread100.i:                                     ; preds = %.lr.ph.i26, %142, %.preheader.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   br label %inet_pton6.exit
 
 inet_pton6.exit:                                  ; preds = %77, %75, %78, %.thread.i, %59, %86, %inet_pton4.exit.thread.i, %120, %129, %142, %.thread100.i

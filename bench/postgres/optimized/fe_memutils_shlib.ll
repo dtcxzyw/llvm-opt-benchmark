@@ -345,7 +345,7 @@ define noalias ptr @pstrdup(ptr noundef readonly %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #13
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #13
   %.not5.i = icmp eq ptr %6, null
   br i1 %.not5.i, label %7, label %pg_strdup.exit
 

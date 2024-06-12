@@ -470,7 +470,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %p.013.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %p.013.i
   %11 = load i32, ptr %arrayidx.i.i, align 4
-  tail call void @_ZN18OpenImageIO_v2_6_08DeepData11set_samplesEli(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %p.013.i, i32 noundef %11)
+  tail call void @_ZN18OpenImageIO_v2_6_08DeepData11set_samplesEli(ptr noundef nonnull align 8 dereferenceable(20) %this, i64 noundef %p.013.i, i32 noundef %11)
   %inc.i = add nuw nsw i64 %p.013.i, 1
   %12 = load i64, ptr %m_npixels, align 8
   %cmp4.i = icmp slt i64 %inc.i, %12
@@ -3235,7 +3235,7 @@ _ZNK18OpenImageIO_v2_6_08DeepData7samplesEl.exit.i: ; preds = %if.then3
   br i1 %cmp.i, label %if.then.i, label %_ZN18OpenImageIO_v2_6_08DeepData14insert_samplesElii.exit
 
 if.then.i:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl.exit.i
-  tail call void @_ZN18OpenImageIO_v2_6_08DeepData12set_capacityEli(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %pixel, i32 noundef %samps)
+  tail call void @_ZN18OpenImageIO_v2_6_08DeepData12set_capacityEli(ptr noundef nonnull align 8 dereferenceable(20) %this, i64 noundef %pixel, i32 noundef %samps)
   %.pre29.i = load ptr, ptr %this, align 8
   %m_nsamples.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre29.i, i64 72
   %.pre = load ptr, ptr %m_nsamples.i.phi.trans.insert, align 8
@@ -5108,7 +5108,7 @@ _ZNK18OpenImageIO_v2_6_08DeepData7samplesEl.exit.i: ; preds = %if.end.i.i, %if.t
 
 if.then.i:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl.exit.i
   %add.i = add nsw i32 %retval.0.i.i, 1
-  tail call void @_ZN18OpenImageIO_v2_6_08DeepData12set_capacityEli(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %pixel, i32 noundef %add.i)
+  tail call void @_ZN18OpenImageIO_v2_6_08DeepData12set_capacityEli(ptr noundef nonnull align 8 dereferenceable(20) %this, i64 noundef %pixel, i32 noundef %add.i)
   %.pre29.i = load ptr, ptr %this, align 8
   br label %if.end.i119
 
@@ -11992,7 +11992,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIPiS0_ET0_
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i48, 2
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__last, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i.i.i, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i48, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i48, i1 false)
   br label %if.end26
 
 if.end3.i:                                        ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit52.thread

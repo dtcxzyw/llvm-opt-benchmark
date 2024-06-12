@@ -3307,7 +3307,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i396: ; preds = %1142, %1138
           to label %1155 unwind label %1267
 
 1155:                                             ; preds = %1154
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef nonnull %14, i1 noundef zeroext false, i1 noundef zeroext %1037)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull align 8 dereferenceable(36) %107, ptr noundef nonnull %14, i1 noundef zeroext false, i1 noundef zeroext %1037)
           to label %1156 unwind label %1269
 
 1156:                                             ; preds = %1155
@@ -3474,7 +3474,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i142.i: ; preds = %1195, %_ZN5Yos
           to label %1205 unwind label %1277
 
 1205:                                             ; preds = %1204
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef nonnull %23, i1 noundef zeroext false, i1 noundef zeroext %1037)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull align 8 dereferenceable(36) %107, ptr noundef nonnull %23, i1 noundef zeroext false, i1 noundef zeroext %1037)
           to label %1206 unwind label %1279
 
 1206:                                             ; preds = %1205
@@ -3826,7 +3826,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i173.i: ; preds = %1293, %1289
           to label %1306 unwind label %1392
 
 1306:                                             ; preds = %1305
-  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull readonly align 8 dereferenceable(36) %107, ptr noundef nonnull %25, i1 noundef zeroext false, i1 noundef zeroext %1037)
+  invoke fastcc void @_ZN12_GLOBAL__N_113MaccmapWorker3addEN5Yosys5RTLIL7SigSpecEbb(ptr noundef nonnull align 8 dereferenceable(36) %107, ptr noundef nonnull %25, i1 noundef zeroext false, i1 noundef zeroext %1037)
           to label %1307 unwind label %1394
 
 1307:                                             ; preds = %1306

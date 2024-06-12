@@ -322,7 +322,7 @@ define hidden noundef i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, 
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef readonly %storemerge.i, ptr noundef nonnull %.014.i.i)
+  %20 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %storemerge.i, ptr noundef nonnull %.014.i.i)
   br i1 %20, label %lxb_selectors_descendant_reverse.exit.thread67.i, label %21
 
 21:                                               ; preds = %19, %.lr.ph.i.i
@@ -332,7 +332,7 @@ define hidden noundef i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, 
   br i1 %.not.i.i, label %lxb_selectors_find_by_reverse.exit.thread, label %.lr.ph.i.i
 
 22:                                               ; preds = %14
-  %23 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef readonly %storemerge.i, ptr noundef %.046.i)
+  %23 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %storemerge.i, ptr noundef %.046.i)
   %24 = icmp ne ptr %.046.i, null
   %or.cond.not.i = select i1 %23, i1 %24, i1 false
   br i1 %or.cond.not.i, label %lxb_selectors_descendant_reverse.exit.thread67.i, label %lxb_selectors_find_by_reverse.exit.thread
@@ -367,7 +367,7 @@ define hidden noundef i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, 
   br i1 %37, label %38, label %.preheader.i
 
 38:                                               ; preds = %34
-  %39 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef readonly %storemerge.i, ptr noundef nonnull %.0.i53.i)
+  %39 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %storemerge.i, ptr noundef nonnull %.0.i53.i)
   br i1 %39, label %lxb_selectors_descendant_reverse.exit.thread67.i, label %lxb_selectors_find_by_reverse.exit.thread
 
 40:                                               ; preds = %14
@@ -384,7 +384,7 @@ define hidden noundef i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, 
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.lr.ph.i58.i
-  %45 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef readonly %storemerge.i, ptr noundef nonnull %.014.i59.i)
+  %45 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %storemerge.i, ptr noundef nonnull %.014.i59.i)
   br i1 %45, label %lxb_selectors_descendant_reverse.exit.thread67.i, label %46
 
 46:                                               ; preds = %44, %.lr.ph.i58.i

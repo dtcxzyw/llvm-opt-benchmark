@@ -121,7 +121,7 @@ if.end.i:                                         ; preds = %entry
   %2 = load i64, ptr %in, align 1
   store i64 %2, ptr %B.i, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull readonly align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr.i, i64 %sub.i, i1 false)
   %add.ptr4.i = getelementptr inbounds i8, ptr %out, i64 %sub.i
   %cmp727.not.i = icmp eq i64 %sub.i, 0
   %arrayidx.i = getelementptr inbounds i8, ptr %B.i, i64 7
@@ -265,7 +265,7 @@ if.else22:                                        ; preds = %if.end4
 
 for.cond8.preheader.us.preheader.i:               ; preds = %if.else22
   %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %out, i64 %div27, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %out, i64 %div27, i1 false)
   %6 = and i64 %inlen, 16777215
   %aiv.sroa.4.0.insert.insert41 = tail call i64 @llvm.bswap.i64(i64 %6)
   %aiv.sroa.3.0.insert.shift34 = shl nuw nsw i64 %shr, 32
@@ -390,7 +390,7 @@ for.body.us.preheader.i:                          ; preds = %if.else
   %5 = load i64, ptr %in, align 1
   store i64 %5, ptr %B.i, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull readonly align 1 %add.ptr.i, i64 %sub10, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr.i, i64 %sub10, i1 false)
   %add.ptr4.i = getelementptr inbounds i8, ptr %out, i64 %sub10
   %arrayidx.i = getelementptr inbounds i8, ptr %B.i, i64 7
   %arrayidx20.i = getelementptr inbounds i8, ptr %B.i, i64 6

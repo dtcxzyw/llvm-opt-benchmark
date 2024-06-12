@@ -6448,7 +6448,7 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i:                      ; preds = %if.then19.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i
   %49 = phi i64 [ %and7.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i ], [ %sub.i35.i.i.i.i.i.i, %if.then19.i.i.i.i.i.i ]
   %50 = ashr i32 %46, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %50, i64 noundef %49)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %50, i64 noundef %49)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i22.i.i.i
@@ -6464,7 +6464,7 @@ if.then10.i.i.i.i.i.i:                            ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i = sub nsw i32 64, %sub12.i.i.i.i.i.i
   %sh_prom.i29.i.i.i.i.i.i = zext nneg i32 %sub.i28.i.i.i.i.i.i to i64
   %shl.i30.i.i.i.i.i.i = shl i64 %sub.i.i27.i.i.i.i.i.i, %sh_prom.i29.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %div11.i.i.i.i.i.i, i64 noundef %shl.i30.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %div11.i.i.i.i.i.i, i64 noundef %shl.i30.i.i.i.i.i.i)
           to label %if.end14.i.i.i.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end14.i.i.i.i.i.i:                             ; preds = %if.then10.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i
@@ -7209,7 +7209,7 @@ if.then3.i.i.i.i.i.i250:                          ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i160:                   ; preds = %if.then19.i.i.i.i.i.i155, %if.then3.i.i.i.i.i.i250
   %146 = phi i64 [ %and7.i.i.i.i.i.i262, %if.then3.i.i.i.i.i.i250 ], [ %sub.i35.i.i.i.i.i.i159, %if.then19.i.i.i.i.i.i155 ]
   %147 = ashr i32 %143, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %147, i64 noundef %146)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %147, i64 noundef %146)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i142
 
 if.end8.i.i.i.i.i.i131:                           ; preds = %if.end.i.i.i22.i.i.i127
@@ -7225,7 +7225,7 @@ if.then10.i.i.i.i.i.i133:                         ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i139 = sub nsw i32 64, %sub12.i.i.i.i.i.i135
   %sh_prom.i29.i.i.i.i.i.i140 = zext nneg i32 %sub.i28.i.i.i.i.i.i139 to i64
   %shl.i30.i.i.i.i.i.i141 = shl i64 %sub.i.i27.i.i.i.i.i.i138, %sh_prom.i29.i.i.i.i.i.i140
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %div11.i.i.i.i.i.i134, i64 noundef %shl.i30.i.i.i.i.i.i141)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %div11.i.i.i.i.i.i134, i64 noundef %shl.i30.i.i.i.i.i.i141)
           to label %if.end14.i.i.i.i.i.i146 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i142
 
 if.end14.i.i.i.i.i.i146:                          ; preds = %if.then10.i.i.i.i.i.i133, %if.end8.i.i.i.i.i.i131
@@ -8368,7 +8368,7 @@ if.then3.i.i.i.i.i.i730:                          ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i451:                   ; preds = %if.then19.i.i.i.i.i.i446, %if.then3.i.i.i.i.i.i730
   %299 = phi i64 [ %and7.i.i.i.i.i.i742, %if.then3.i.i.i.i.i.i730 ], [ %sub.i35.i.i.i.i.i.i450, %if.then19.i.i.i.i.i.i446 ]
   %300 = ashr i32 %296, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %300, i64 noundef %299)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %300, i64 noundef %299)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i429
 
 if.end8.i.i.i.i.i.i418:                           ; preds = %if.end.i.i.i22.i.i.i414
@@ -8384,7 +8384,7 @@ if.then10.i.i.i.i.i.i420:                         ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i426 = sub nsw i32 64, %sub12.i.i.i.i.i.i422
   %sh_prom.i29.i.i.i.i.i.i427 = zext nneg i32 %sub.i28.i.i.i.i.i.i426 to i64
   %shl.i30.i.i.i.i.i.i428 = shl i64 %sub.i.i27.i.i.i.i.i.i425, %sh_prom.i29.i.i.i.i.i.i427
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %div11.i.i.i.i.i.i421, i64 noundef %shl.i30.i.i.i.i.i.i428)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %div11.i.i.i.i.i.i421, i64 noundef %shl.i30.i.i.i.i.i.i428)
           to label %if.end14.i.i.i.i.i.i433 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i429
 
 if.end14.i.i.i.i.i.i433:                          ; preds = %if.then10.i.i.i.i.i.i420, %if.end8.i.i.i.i.i.i418
@@ -9527,7 +9527,7 @@ if.then3.i.i.i.i.i.i1155:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i927:                   ; preds = %if.then19.i.i.i.i.i.i922, %if.then3.i.i.i.i.i.i1155
   %452 = phi i64 [ %and7.i.i.i.i.i.i1167, %if.then3.i.i.i.i.i.i1155 ], [ %sub.i35.i.i.i.i.i.i926, %if.then19.i.i.i.i.i.i922 ]
   %453 = ashr i32 %449, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %453, i64 noundef %452)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %453, i64 noundef %452)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i909
 
 if.end8.i.i.i.i.i.i898:                           ; preds = %if.end.i.i.i22.i.i.i894
@@ -9543,7 +9543,7 @@ if.then10.i.i.i.i.i.i900:                         ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i906 = sub nsw i32 64, %sub12.i.i.i.i.i.i902
   %sh_prom.i29.i.i.i.i.i.i907 = zext nneg i32 %sub.i28.i.i.i.i.i.i906 to i64
   %shl.i30.i.i.i.i.i.i908 = shl i64 %sub.i.i27.i.i.i.i.i.i905, %sh_prom.i29.i.i.i.i.i.i907
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %div11.i.i.i.i.i.i901, i64 noundef %shl.i30.i.i.i.i.i.i908)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %div11.i.i.i.i.i.i901, i64 noundef %shl.i30.i.i.i.i.i.i908)
           to label %if.end14.i.i.i.i.i.i913 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i909
 
 if.end14.i.i.i.i.i.i913:                          ; preds = %if.then10.i.i.i.i.i.i900, %if.end8.i.i.i.i.i.i898
@@ -10686,7 +10686,7 @@ if.then3.i.i.i.i.i.i1635:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i1356:                  ; preds = %if.then19.i.i.i.i.i.i1351, %if.then3.i.i.i.i.i.i1635
   %605 = phi i64 [ %and7.i.i.i.i.i.i1647, %if.then3.i.i.i.i.i.i1635 ], [ %sub.i35.i.i.i.i.i.i1355, %if.then19.i.i.i.i.i.i1351 ]
   %606 = ashr i32 %602, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %606, i64 noundef %605)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %606, i64 noundef %605)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1334
 
 if.end8.i.i.i.i.i.i1323:                          ; preds = %if.end.i.i.i22.i.i.i1319
@@ -10702,7 +10702,7 @@ if.then10.i.i.i.i.i.i1325:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i1331 = sub nsw i32 64, %sub12.i.i.i.i.i.i1327
   %sh_prom.i29.i.i.i.i.i.i1332 = zext nneg i32 %sub.i28.i.i.i.i.i.i1331 to i64
   %shl.i30.i.i.i.i.i.i1333 = shl i64 %sub.i.i27.i.i.i.i.i.i1330, %sh_prom.i29.i.i.i.i.i.i1332
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %div11.i.i.i.i.i.i1326, i64 noundef %shl.i30.i.i.i.i.i.i1333)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %div11.i.i.i.i.i.i1326, i64 noundef %shl.i30.i.i.i.i.i.i1333)
           to label %if.end14.i.i.i.i.i.i1338 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1334
 
 if.end14.i.i.i.i.i.i1338:                         ; preds = %if.then10.i.i.i.i.i.i1325, %if.end8.i.i.i.i.i.i1323
@@ -11845,7 +11845,7 @@ if.then3.i.i.i.i.i.i1926:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i1836:                  ; preds = %if.then19.i.i.i.i.i.i1831, %if.then3.i.i.i.i.i.i1926
   %758 = phi i64 [ %and7.i.i.i.i.i.i1938, %if.then3.i.i.i.i.i.i1926 ], [ %sub.i35.i.i.i.i.i.i1835, %if.then19.i.i.i.i.i.i1831 ]
   %759 = ashr i32 %755, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %759, i64 noundef %758)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %759, i64 noundef %758)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1814
 
 if.end8.i.i.i.i.i.i1803:                          ; preds = %if.end.i.i.i22.i.i.i1799
@@ -11861,7 +11861,7 @@ if.then10.i.i.i.i.i.i1805:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i1811 = sub nsw i32 64, %sub12.i.i.i.i.i.i1807
   %sh_prom.i29.i.i.i.i.i.i1812 = zext nneg i32 %sub.i28.i.i.i.i.i.i1811 to i64
   %shl.i30.i.i.i.i.i.i1813 = shl i64 %sub.i.i27.i.i.i.i.i.i1810, %sh_prom.i29.i.i.i.i.i.i1812
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %div11.i.i.i.i.i.i1806, i64 noundef %shl.i30.i.i.i.i.i.i1813)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %div11.i.i.i.i.i.i1806, i64 noundef %shl.i30.i.i.i.i.i.i1813)
           to label %if.end14.i.i.i.i.i.i1818 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1814
 
 if.end14.i.i.i.i.i.i1818:                         ; preds = %if.then10.i.i.i.i.i.i1805, %if.end8.i.i.i.i.i.i1803
@@ -12600,7 +12600,7 @@ if.then3.i.i.i.i.i.i2397:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i2127:                  ; preds = %if.then19.i.i.i.i.i.i2122, %if.then3.i.i.i.i.i.i2397
   %855 = phi i64 [ %and7.i.i.i.i.i.i2409, %if.then3.i.i.i.i.i.i2397 ], [ %sub.i35.i.i.i.i.i.i2126, %if.then19.i.i.i.i.i.i2122 ]
   %856 = ashr i32 %852, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %856, i64 noundef %855)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %856, i64 noundef %855)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2105
 
 if.end8.i.i.i.i.i.i2094:                          ; preds = %if.end.i.i.i22.i.i.i2090
@@ -12616,7 +12616,7 @@ if.then10.i.i.i.i.i.i2096:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i2102 = sub nsw i32 64, %sub12.i.i.i.i.i.i2098
   %sh_prom.i29.i.i.i.i.i.i2103 = zext nneg i32 %sub.i28.i.i.i.i.i.i2102 to i64
   %shl.i30.i.i.i.i.i.i2104 = shl i64 %sub.i.i27.i.i.i.i.i.i2101, %sh_prom.i29.i.i.i.i.i.i2103
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %div11.i.i.i.i.i.i2097, i64 noundef %shl.i30.i.i.i.i.i.i2104)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %div11.i.i.i.i.i.i2097, i64 noundef %shl.i30.i.i.i.i.i.i2104)
           to label %if.end14.i.i.i.i.i.i2109 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2105
 
 if.end14.i.i.i.i.i.i2109:                         ; preds = %if.then10.i.i.i.i.i.i2096, %if.end8.i.i.i.i.i.i2094
@@ -13759,7 +13759,7 @@ if.then3.i.i.i.i.i.i2688:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i2598:                  ; preds = %if.then19.i.i.i.i.i.i2593, %if.then3.i.i.i.i.i.i2688
   %1008 = phi i64 [ %and7.i.i.i.i.i.i2700, %if.then3.i.i.i.i.i.i2688 ], [ %sub.i35.i.i.i.i.i.i2597, %if.then19.i.i.i.i.i.i2593 ]
   %1009 = ashr i32 %1005, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %1009, i64 noundef %1008)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %1009, i64 noundef %1008)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2576
 
 if.end8.i.i.i.i.i.i2565:                          ; preds = %if.end.i.i.i22.i.i.i2561
@@ -13775,7 +13775,7 @@ if.then10.i.i.i.i.i.i2567:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i2573 = sub nsw i32 64, %sub12.i.i.i.i.i.i2569
   %sh_prom.i29.i.i.i.i.i.i2574 = zext nneg i32 %sub.i28.i.i.i.i.i.i2573 to i64
   %shl.i30.i.i.i.i.i.i2575 = shl i64 %sub.i.i27.i.i.i.i.i.i2572, %sh_prom.i29.i.i.i.i.i.i2574
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %div11.i.i.i.i.i.i2568, i64 noundef %shl.i30.i.i.i.i.i.i2575)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %div11.i.i.i.i.i.i2568, i64 noundef %shl.i30.i.i.i.i.i.i2575)
           to label %if.end14.i.i.i.i.i.i2580 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2576
 
 if.end14.i.i.i.i.i.i2580:                         ; preds = %if.then10.i.i.i.i.i.i2567, %if.end8.i.i.i.i.i.i2565
@@ -14524,7 +14524,7 @@ if.then10.i.i.i.i.i.i2850:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i2856 = sub nsw i32 64, %sub12.i.i.i.i.i.i2852
   %sh_prom.i29.i.i.i.i.i.i2857 = zext nneg i32 %sub.i28.i.i.i.i.i.i2856 to i64
   %shl.i30.i.i.i.i.i.i2858 = shl i64 %sub.i.i27.i.i.i.i.i.i2855, %sh_prom.i29.i.i.i.i.i.i2857
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %div11.i.i.i.i.i.i2851, i64 noundef %shl.i30.i.i.i.i.i.i2858)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %div11.i.i.i.i.i.i2851, i64 noundef %shl.i30.i.i.i.i.i.i2858)
           to label %if.end14.i.i.i.i.i.i2859 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end14.i.i.i.i.i.i2859:                         ; preds = %if.then10.i.i.i.i.i.i2850, %if.end8.i.i.i.i.i.i2848
@@ -14830,7 +14830,7 @@ if.then19.i.i.i.i.i.i2872:                        ; preds = %for.end.i.i.i24.i.i
 if.then19.i.i.i.i.i.invoke.i:                     ; preds = %if.then19.i.i.i.i.i.i2872, %if.then3.i.i.i.i.i.i2963
   %1137 = phi i64 [ %sub.i35.i.i.i.i.i.i2876, %if.then19.i.i.i.i.i.i2872 ], [ %and7.i.i.i.i.i.i2975, %if.then3.i.i.i.i.i.i2963 ]
   %1138 = ashr i32 %1102, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %1138, i64 noundef %1137)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %1138, i64 noundef %1137)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiiSV_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiiSV_.exit.i.i.i: ; preds = %if.then19.i.i.i.i.i.invoke.i, %for.end.i.i.i24.i.i.i2870, %if.else.i.i.i2809
@@ -15294,7 +15294,7 @@ if.then3.i.i.i.i.i.i3254:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i3164:                  ; preds = %if.then19.i.i.i.i.i.i3159, %if.then3.i.i.i.i.i.i3254
   %1206 = phi i64 [ %and7.i.i.i.i.i.i3266, %if.then3.i.i.i.i.i.i3254 ], [ %sub.i35.i.i.i.i.i.i3163, %if.then19.i.i.i.i.i.i3159 ]
   %1207 = ashr i32 %1203, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %1207, i64 noundef %1206)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %1207, i64 noundef %1206)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiiSV_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3142
 
 if.end8.i.i.i.i.i.i3131:                          ; preds = %if.end.i.i.i22.i.i.i3127
@@ -15310,7 +15310,7 @@ if.then10.i.i.i.i.i.i3133:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i3139 = sub nsw i32 64, %sub12.i.i.i.i.i.i3135
   %sh_prom.i29.i.i.i.i.i.i3140 = zext nneg i32 %sub.i28.i.i.i.i.i.i3139 to i64
   %shl.i30.i.i.i.i.i.i3141 = shl i64 %sub.i.i27.i.i.i.i.i.i3138, %sh_prom.i29.i.i.i.i.i.i3140
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %div11.i.i.i.i.i.i3134, i64 noundef %shl.i30.i.i.i.i.i.i3141)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %div11.i.i.i.i.i.i3134, i64 noundef %shl.i30.i.i.i.i.i.i3141)
           to label %if.end14.i.i.i.i.i.i3146 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3142
 
 if.end14.i.i.i.i.i.i3146:                         ; preds = %if.then10.i.i.i.i.i.i3133, %if.end8.i.i.i.i.i.i3131
@@ -29600,7 +29600,7 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i:                      ; preds = %if.then19.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i
   %49 = phi i64 [ %and7.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i ], [ %sub.i35.i.i.i.i.i.i, %if.then19.i.i.i.i.i.i ]
   %50 = ashr i32 %46, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %50, i64 noundef %49)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %50, i64 noundef %49)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i22.i.i.i
@@ -29616,7 +29616,7 @@ if.then10.i.i.i.i.i.i:                            ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i = sub nsw i32 64, %sub12.i.i.i.i.i.i
   %sh_prom.i29.i.i.i.i.i.i = zext nneg i32 %sub.i28.i.i.i.i.i.i to i64
   %shl.i30.i.i.i.i.i.i = shl i64 %sub.i.i27.i.i.i.i.i.i, %sh_prom.i29.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %div11.i.i.i.i.i.i, i64 noundef %shl.i30.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIbEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i, i32 noundef %div11.i.i.i.i.i.i, i64 noundef %shl.i30.i.i.i.i.i.i)
           to label %if.end14.i.i.i.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end14.i.i.i.i.i.i:                             ; preds = %if.then10.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i
@@ -30361,7 +30361,7 @@ if.then3.i.i.i.i.i.i250:                          ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i160:                   ; preds = %if.then19.i.i.i.i.i.i155, %if.then3.i.i.i.i.i.i250
   %146 = phi i64 [ %and7.i.i.i.i.i.i262, %if.then3.i.i.i.i.i.i250 ], [ %sub.i35.i.i.i.i.i.i159, %if.then19.i.i.i.i.i.i155 ]
   %147 = ashr i32 %143, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %147, i64 noundef %146)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %147, i64 noundef %146)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i142
 
 if.end8.i.i.i.i.i.i131:                           ; preds = %if.end.i.i.i22.i.i.i127
@@ -30377,7 +30377,7 @@ if.then10.i.i.i.i.i.i133:                         ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i139 = sub nsw i32 64, %sub12.i.i.i.i.i.i135
   %sh_prom.i29.i.i.i.i.i.i140 = zext nneg i32 %sub.i28.i.i.i.i.i.i139 to i64
   %shl.i30.i.i.i.i.i.i141 = shl i64 %sub.i.i27.i.i.i.i.i.i138, %sh_prom.i29.i.i.i.i.i.i140
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %div11.i.i.i.i.i.i134, i64 noundef %shl.i30.i.i.i.i.i.i141)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIaEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i51, i32 noundef %div11.i.i.i.i.i.i134, i64 noundef %shl.i30.i.i.i.i.i.i141)
           to label %if.end14.i.i.i.i.i.i146 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i142
 
 if.end14.i.i.i.i.i.i146:                          ; preds = %if.then10.i.i.i.i.i.i133, %if.end8.i.i.i.i.i.i131
@@ -31520,7 +31520,7 @@ if.then3.i.i.i.i.i.i730:                          ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i451:                   ; preds = %if.then19.i.i.i.i.i.i446, %if.then3.i.i.i.i.i.i730
   %299 = phi i64 [ %and7.i.i.i.i.i.i742, %if.then3.i.i.i.i.i.i730 ], [ %sub.i35.i.i.i.i.i.i450, %if.then19.i.i.i.i.i.i446 ]
   %300 = ashr i32 %296, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %300, i64 noundef %299)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %300, i64 noundef %299)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i429
 
 if.end8.i.i.i.i.i.i418:                           ; preds = %if.end.i.i.i22.i.i.i414
@@ -31536,7 +31536,7 @@ if.then10.i.i.i.i.i.i420:                         ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i426 = sub nsw i32 64, %sub12.i.i.i.i.i.i422
   %sh_prom.i29.i.i.i.i.i.i427 = zext nneg i32 %sub.i28.i.i.i.i.i.i426 to i64
   %shl.i30.i.i.i.i.i.i428 = shl i64 %sub.i.i27.i.i.i.i.i.i425, %sh_prom.i29.i.i.i.i.i.i427
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %div11.i.i.i.i.i.i421, i64 noundef %shl.i30.i.i.i.i.i.i428)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIsEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i336, i32 noundef %div11.i.i.i.i.i.i421, i64 noundef %shl.i30.i.i.i.i.i.i428)
           to label %if.end14.i.i.i.i.i.i433 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i429
 
 if.end14.i.i.i.i.i.i433:                          ; preds = %if.then10.i.i.i.i.i.i420, %if.end8.i.i.i.i.i.i418
@@ -32679,7 +32679,7 @@ if.then3.i.i.i.i.i.i1155:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i927:                   ; preds = %if.then19.i.i.i.i.i.i922, %if.then3.i.i.i.i.i.i1155
   %452 = phi i64 [ %and7.i.i.i.i.i.i1167, %if.then3.i.i.i.i.i.i1155 ], [ %sub.i35.i.i.i.i.i.i926, %if.then19.i.i.i.i.i.i922 ]
   %453 = ashr i32 %449, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %453, i64 noundef %452)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %453, i64 noundef %452)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i909
 
 if.end8.i.i.i.i.i.i898:                           ; preds = %if.end.i.i.i22.i.i.i894
@@ -32695,7 +32695,7 @@ if.then10.i.i.i.i.i.i900:                         ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i906 = sub nsw i32 64, %sub12.i.i.i.i.i.i902
   %sh_prom.i29.i.i.i.i.i.i907 = zext nneg i32 %sub.i28.i.i.i.i.i.i906 to i64
   %shl.i30.i.i.i.i.i.i908 = shl i64 %sub.i.i27.i.i.i.i.i.i905, %sh_prom.i29.i.i.i.i.i.i907
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %div11.i.i.i.i.i.i901, i64 noundef %shl.i30.i.i.i.i.i.i908)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIiEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i816, i32 noundef %div11.i.i.i.i.i.i901, i64 noundef %shl.i30.i.i.i.i.i.i908)
           to label %if.end14.i.i.i.i.i.i913 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i909
 
 if.end14.i.i.i.i.i.i913:                          ; preds = %if.then10.i.i.i.i.i.i900, %if.end8.i.i.i.i.i.i898
@@ -33838,7 +33838,7 @@ if.then3.i.i.i.i.i.i1635:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i1356:                  ; preds = %if.then19.i.i.i.i.i.i1351, %if.then3.i.i.i.i.i.i1635
   %605 = phi i64 [ %and7.i.i.i.i.i.i1647, %if.then3.i.i.i.i.i.i1635 ], [ %sub.i35.i.i.i.i.i.i1355, %if.then19.i.i.i.i.i.i1351 ]
   %606 = ashr i32 %602, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %606, i64 noundef %605)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %606, i64 noundef %605)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1334
 
 if.end8.i.i.i.i.i.i1323:                          ; preds = %if.end.i.i.i22.i.i.i1319
@@ -33854,7 +33854,7 @@ if.then10.i.i.i.i.i.i1325:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i1331 = sub nsw i32 64, %sub12.i.i.i.i.i.i1327
   %sh_prom.i29.i.i.i.i.i.i1332 = zext nneg i32 %sub.i28.i.i.i.i.i.i1331 to i64
   %shl.i30.i.i.i.i.i.i1333 = shl i64 %sub.i.i27.i.i.i.i.i.i1330, %sh_prom.i29.i.i.i.i.i.i1332
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %div11.i.i.i.i.i.i1326, i64 noundef %shl.i30.i.i.i.i.i.i1333)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIlEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1241, i32 noundef %div11.i.i.i.i.i.i1326, i64 noundef %shl.i30.i.i.i.i.i.i1333)
           to label %if.end14.i.i.i.i.i.i1338 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1334
 
 if.end14.i.i.i.i.i.i1338:                         ; preds = %if.then10.i.i.i.i.i.i1325, %if.end8.i.i.i.i.i.i1323
@@ -34997,7 +34997,7 @@ if.then3.i.i.i.i.i.i1926:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i1836:                  ; preds = %if.then19.i.i.i.i.i.i1831, %if.then3.i.i.i.i.i.i1926
   %758 = phi i64 [ %and7.i.i.i.i.i.i1938, %if.then3.i.i.i.i.i.i1926 ], [ %sub.i35.i.i.i.i.i.i1835, %if.then19.i.i.i.i.i.i1831 ]
   %759 = ashr i32 %755, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %759, i64 noundef %758)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %759, i64 noundef %758)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1814
 
 if.end8.i.i.i.i.i.i1803:                          ; preds = %if.end.i.i.i22.i.i.i1799
@@ -35013,7 +35013,7 @@ if.then10.i.i.i.i.i.i1805:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i1811 = sub nsw i32 64, %sub12.i.i.i.i.i.i1807
   %sh_prom.i29.i.i.i.i.i.i1812 = zext nneg i32 %sub.i28.i.i.i.i.i.i1811 to i64
   %shl.i30.i.i.i.i.i.i1813 = shl i64 %sub.i.i27.i.i.i.i.i.i1810, %sh_prom.i29.i.i.i.i.i.i1812
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %div11.i.i.i.i.i.i1806, i64 noundef %shl.i30.i.i.i.i.i.i1813)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedInEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i1721, i32 noundef %div11.i.i.i.i.i.i1806, i64 noundef %shl.i30.i.i.i.i.i.i1813)
           to label %if.end14.i.i.i.i.i.i1818 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1814
 
 if.end14.i.i.i.i.i.i1818:                         ; preds = %if.then10.i.i.i.i.i.i1805, %if.end8.i.i.i.i.i.i1803
@@ -35752,7 +35752,7 @@ if.then3.i.i.i.i.i.i2397:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i2127:                  ; preds = %if.then19.i.i.i.i.i.i2122, %if.then3.i.i.i.i.i.i2397
   %855 = phi i64 [ %and7.i.i.i.i.i.i2409, %if.then3.i.i.i.i.i.i2397 ], [ %sub.i35.i.i.i.i.i.i2126, %if.then19.i.i.i.i.i.i2122 ]
   %856 = ashr i32 %852, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %856, i64 noundef %855)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %856, i64 noundef %855)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2105
 
 if.end8.i.i.i.i.i.i2094:                          ; preds = %if.end.i.i.i22.i.i.i2090
@@ -35768,7 +35768,7 @@ if.then10.i.i.i.i.i.i2096:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i2102 = sub nsw i32 64, %sub12.i.i.i.i.i.i2098
   %sh_prom.i29.i.i.i.i.i.i2103 = zext nneg i32 %sub.i28.i.i.i.i.i.i2102 to i64
   %shl.i30.i.i.i.i.i.i2104 = shl i64 %sub.i.i27.i.i.i.i.i.i2101, %sh_prom.i29.i.i.i.i.i.i2103
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %div11.i.i.i.i.i.i2097, i64 noundef %shl.i30.i.i.i.i.i.i2104)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIfEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2012, i32 noundef %div11.i.i.i.i.i.i2097, i64 noundef %shl.i30.i.i.i.i.i.i2104)
           to label %if.end14.i.i.i.i.i.i2109 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2105
 
 if.end14.i.i.i.i.i.i2109:                         ; preds = %if.then10.i.i.i.i.i.i2096, %if.end8.i.i.i.i.i.i2094
@@ -36911,7 +36911,7 @@ if.then3.i.i.i.i.i.i2688:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i2598:                  ; preds = %if.then19.i.i.i.i.i.i2593, %if.then3.i.i.i.i.i.i2688
   %1008 = phi i64 [ %and7.i.i.i.i.i.i2700, %if.then3.i.i.i.i.i.i2688 ], [ %sub.i35.i.i.i.i.i.i2597, %if.then19.i.i.i.i.i.i2593 ]
   %1009 = ashr i32 %1005, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %1009, i64 noundef %1008)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %1009, i64 noundef %1008)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiiSU_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2576
 
 if.end8.i.i.i.i.i.i2565:                          ; preds = %if.end.i.i.i22.i.i.i2561
@@ -36927,7 +36927,7 @@ if.then10.i.i.i.i.i.i2567:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i2573 = sub nsw i32 64, %sub12.i.i.i.i.i.i2569
   %sh_prom.i29.i.i.i.i.i.i2574 = zext nneg i32 %sub.i28.i.i.i.i.i.i2573 to i64
   %shl.i30.i.i.i.i.i.i2575 = shl i64 %sub.i.i27.i.i.i.i.i.i2572, %sh_prom.i29.i.i.i.i.i.i2574
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %div11.i.i.i.i.i.i2568, i64 noundef %shl.i30.i.i.i.i.i.i2575)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedIdEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUliE_EEvSD_T_EUlSU_E_EEvPKmiibSU_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2483, i32 noundef %div11.i.i.i.i.i.i2568, i64 noundef %shl.i30.i.i.i.i.i.i2575)
           to label %if.end14.i.i.i.i.i.i2580 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2576
 
 if.end14.i.i.i.i.i.i2580:                         ; preds = %if.then10.i.i.i.i.i.i2567, %if.end8.i.i.i.i.i.i2565
@@ -37676,7 +37676,7 @@ if.then10.i.i.i.i.i.i2850:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i2856 = sub nsw i32 64, %sub12.i.i.i.i.i.i2852
   %sh_prom.i29.i.i.i.i.i.i2857 = zext nneg i32 %sub.i28.i.i.i.i.i.i2856 to i64
   %shl.i30.i.i.i.i.i.i2858 = shl i64 %sub.i.i27.i.i.i.i.i.i2855, %sh_prom.i29.i.i.i.i.i.i2857
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %div11.i.i.i.i.i.i2851, i64 noundef %shl.i30.i.i.i.i.i.i2858)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %div11.i.i.i.i.i.i2851, i64 noundef %shl.i30.i.i.i.i.i.i2858)
           to label %if.end14.i.i.i.i.i.i2859 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end14.i.i.i.i.i.i2859:                         ; preds = %if.then10.i.i.i.i.i.i2850, %if.end8.i.i.i.i.i.i2848
@@ -37982,7 +37982,7 @@ if.then19.i.i.i.i.i.i2872:                        ; preds = %for.end.i.i.i24.i.i
 if.then19.i.i.i.i.i.invoke.i:                     ; preds = %if.then19.i.i.i.i.i.i2872, %if.then3.i.i.i.i.i.i2963
   %1137 = phi i64 [ %sub.i35.i.i.i.i.i.i2876, %if.then19.i.i.i.i.i.i2872 ], [ %and7.i.i.i.i.i.i2975, %if.then3.i.i.i.i.i.i2963 ]
   %1138 = ashr i32 %1102, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %1138, i64 noundef %1137)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i2774, i32 noundef %1138, i64 noundef %1137)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiiSV_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_10StringViewEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiiSV_.exit.i.i.i: ; preds = %if.then19.i.i.i.i.i.invoke.i, %for.end.i.i.i24.i.i.i2870, %if.else.i.i.i2809
@@ -38446,7 +38446,7 @@ if.then3.i.i.i.i.i.i3254:                         ; preds = %if.end.i.i.i22.i.i.
 if.then3.i.i.i.i.i.invoke.i3164:                  ; preds = %if.then19.i.i.i.i.i.i3159, %if.then3.i.i.i.i.i.i3254
   %1206 = phi i64 [ %and7.i.i.i.i.i.i3266, %if.then3.i.i.i.i.i.i3254 ], [ %sub.i35.i.i.i.i.i.i3163, %if.then19.i.i.i.i.i.i3159 ]
   %1207 = ashr i32 %1203, 6
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %1207, i64 noundef %1206)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %1207, i64 noundef %1206)
           to label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiiSV_.exit.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3142
 
 if.end8.i.i.i.i.i.i3131:                          ; preds = %if.end.i.i.i22.i.i.i3127
@@ -38462,7 +38462,7 @@ if.then10.i.i.i.i.i.i3133:                        ; preds = %if.end8.i.i.i.i.i.i
   %sub.i28.i.i.i.i.i.i3139 = sub nsw i32 64, %sub12.i.i.i.i.i.i3135
   %sh_prom.i29.i.i.i.i.i.i3140 = zext nneg i32 %sub.i28.i.i.i.i.i.i3139 to i64
   %shl.i30.i.i.i.i.i.i3141 = shl i64 %sub.i.i27.i.i.i.i.i.i3138, %sh_prom.i29.i.i.i.i.i.i3140
-  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %div11.i.i.i.i.i.i3134, i64 noundef %shl.i30.i.i.i.i.i.i3141)
+  invoke fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE10applyTypedINS0_9TimestampEEEvRKNS0_17SelectivityVectorERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISI_EERKSG_IKNS0_4TypeEERS4_RSI_EUliE_EEvSE_T_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i3049, i32 noundef %div11.i.i.i.i.i.i3134, i64 noundef %shl.i30.i.i.i.i.i.i3141)
           to label %if.end14.i.i.i.i.i.i3146 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3142
 
 if.end14.i.i.i.i.i.i3146:                         ; preds = %if.then10.i.i.i.i.i.i3133, %if.end8.i.i.i.i.i.i3131

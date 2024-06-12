@@ -3553,7 +3553,7 @@ entry:
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr %property.coerce0, i64 %property.coerce1)
   %2 = load ptr, ptr %this, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %2, ptr %call.i.i.i) #15
-  %call3.i = tail call noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %call.i.i)
+  %call3.i = tail call noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %call.i.i)
   ret ptr %call3.i
 }
 

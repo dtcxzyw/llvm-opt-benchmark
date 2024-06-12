@@ -641,7 +641,7 @@ Abc_NodeLeavesRemove.exit.i:                      ; preds = %274, %Extra_TruthCo
 .preheader29.i.i.i:                               ; preds = %.lr.ph117.i
   %287 = zext nneg i32 %.val71116.i to i64
   %288 = shl nuw nsw i64 %287, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 8 %.val205.i.i, i64 %288, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %.val205.i.i, i64 %288, i1 false)
   %289 = icmp sgt i32 %281, 0
   br i1 %289, label %.preheader.us.preheader.i.i.i, label %Abc_NodeDecomposeSort.exit.i.i
 
@@ -969,7 +969,7 @@ Abc_Base2Log.exit.i.i:                            ; preds = %.lr.ph.i.i84.i, %._
 select.unfold.preheader.i227.i.i:                 ; preds = %Abc_Base2Log.exit.i.i
   %405 = zext nneg i32 %spec.select.i.i.i to i64
   %406 = shl nuw nsw i64 %405, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %303, i8 0, i64 %406, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %303, i8 0, i64 %406, i1 false)
   br label %Extra_TruthClear.exit.i.i
 
 Extra_TruthClear.exit.i.i:                        ; preds = %select.unfold.preheader.i227.i.i, %Abc_Base2Log.exit.i.i
@@ -1095,7 +1095,7 @@ Extra_TruthOr.exit.i.i:                           ; preds = %select.unfold.i240.
   br i1 %453, label %select.unfold.preheader.i244.i.i, label %Extra_TruthClear.exit245.i.i
 
 select.unfold.preheader.i244.i.i:                 ; preds = %460
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %447, i8 0, i64 %455, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %447, i8 0, i64 %455, i1 false)
   br label %Extra_TruthClear.exit245.i.i
 
 Extra_TruthClear.exit245.i.i:                     ; preds = %select.unfold.preheader.i244.i.i, %460
@@ -1135,7 +1135,7 @@ Extra_TruthClear.exit245.i.i:                     ; preds = %select.unfold.prehe
   br i1 %453, label %select.unfold.preheader.i247.i.i.us.us.us, label %Extra_TruthFill.exit.i.i.us.us.us
 
 select.unfold.preheader.i247.i.i.us.us.us:        ; preds = %.lr.ph327.i.i.us.us.us
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %469, i8 -1, i64 %455, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %469, i8 -1, i64 %455, i1 false)
   br label %Extra_TruthFill.exit.i.i.us.us.us
 
 Extra_TruthFill.exit.i.i.us.us.us:                ; preds = %select.unfold.preheader.i247.i.i.us.us.us, %.lr.ph327.i.i.us.us.us
@@ -1234,7 +1234,7 @@ Extra_TruthAnd.exit253.i.i.us.us.us.us:           ; preds = %select.unfold.i250.
 .lr.ph327.i.i.us175.us:                           ; preds = %.lr.ph327.i.i.us175.us, %.lr.ph327.preheader.i.i.us189
   %indvars.iv401.i.i.us176.us = phi i64 [ 0, %.lr.ph327.preheader.i.i.us189 ], [ %indvars.iv.next402.i.i.us183.us, %.lr.ph327.i.i.us175.us ]
   %505 = load ptr, ptr %305, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %505, i8 -1, i64 %455, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %505, i8 -1, i64 %455, i1 false)
   %506 = load i32, ptr %447, align 4
   %507 = load i32, ptr %505, align 4
   %508 = or i32 %507, %506

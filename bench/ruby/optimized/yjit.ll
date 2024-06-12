@@ -2052,7 +2052,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_array_const_ptr.
 
 18:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %19 = ashr exact i64 %sext, 29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %0, ptr readonly align 1 %.0.i6, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %.0.i6, i64 %19, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %18

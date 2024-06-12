@@ -1070,7 +1070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
 .critedge53.thread:                               ; preds = %121, %.critedge53
   %176 = getelementptr inbounds i8, ptr %18, i64 16
   %177 = getelementptr inbounds i8, ptr %18, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN3nix23userNamespacesSupportedEvENK3$_0clEvEUlvE_E9_M_invokeERKSt9_Any_data", ptr %177, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN3nix23userNamespacesSupportedEvENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %176, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #25
@@ -1376,7 +1376,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN3nix30mountAndPidNamespacesSuppo
   %9 = alloca %"class.std::allocator", align 1
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN3nix30mountAndPidNamespacesSupportedEvENK3$_0clEvEUlvE_E9_M_invokeERKSt9_Any_data", ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN3nix30mountAndPidNamespacesSupportedEvENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %10, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25

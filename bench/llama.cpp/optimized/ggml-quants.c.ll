@@ -1333,7 +1333,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp23.i, label %for.cond26.preheader.i, label %if.end34.i
 
 for.cond26.preheader.i:                           ; preds = %for.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr13, i8 0, i64 16, i1 false), !alias.scope !56, !noalias !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr13, i8 0, i64 16, i1 false), !alias.scope !56, !noalias !65
   br label %make_qkx2_quants.exit
 
 if.end34.i:                                       ; preds = %for.end.i
@@ -1457,7 +1457,7 @@ for.end192.i:                                     ; preds = %for.body169.us.i
   br i1 %cmp193.i, label %for.inc210.i, label %for.body200.preheader.i
 
 for.body200.preheader.i:                          ; preds = %for.end192.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr13, ptr noundef nonnull align 16 dereferenceable(16) %Laux, i64 16, i1 false), !alias.scope !70, !noalias !71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr13, ptr noundef nonnull align 16 dereferenceable(16) %Laux, i64 16, i1 false), !alias.scope !70, !noalias !71
   br label %for.inc210.i
 
 for.inc210.i:                                     ; preds = %for.body200.preheader.i, %for.end192.i, %for.end146.i
@@ -2513,7 +2513,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp23.i, label %for.cond26.preheader.i, label %if.end34.i
 
 for.cond26.preheader.i:                           ; preds = %for.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %add.ptr31, i8 0, i64 32, i1 false), !alias.scope !119, !noalias !127
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr31, i8 0, i64 32, i1 false), !alias.scope !119, !noalias !127
   br label %make_qkx2_quants.exit
 
 if.end34.i:                                       ; preds = %for.end.i
@@ -2637,7 +2637,7 @@ for.end192.i:                                     ; preds = %for.body169.i
   br i1 %cmp193.i, label %for.inc210.i, label %for.body200.preheader.i
 
 for.body200.preheader.i:                          ; preds = %for.end192.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %add.ptr31, ptr noundef nonnull align 16 dereferenceable(32) %Laux, i64 32, i1 false), !alias.scope !129, !noalias !130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr31, ptr noundef nonnull align 16 dereferenceable(32) %Laux, i64 32, i1 false), !alias.scope !129, !noalias !130
   br label %for.inc210.i
 
 for.inc210.i:                                     ; preds = %for.body200.preheader.i, %for.end192.i, %for.end146.i
@@ -3154,7 +3154,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp23.i, label %for.cond26.preheader.i, label %if.end34.i
 
 for.cond26.preheader.i:                           ; preds = %for.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %add.ptr31, i8 0, i64 32, i1 false), !alias.scope !169, !noalias !177
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr31, i8 0, i64 32, i1 false), !alias.scope !169, !noalias !177
   br label %make_qkx2_quants.exit
 
 if.end34.i:                                       ; preds = %for.end.i
@@ -3278,7 +3278,7 @@ for.end192.i:                                     ; preds = %for.body169.i
   br i1 %cmp193.i, label %for.inc210.i, label %for.body200.preheader.i
 
 for.body200.preheader.i:                          ; preds = %for.end192.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %add.ptr31, ptr noundef nonnull align 16 dereferenceable(32) %Laux, i64 32, i1 false), !alias.scope !179, !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr31, ptr noundef nonnull align 16 dereferenceable(32) %Laux, i64 32, i1 false), !alias.scope !179, !noalias !180
   br label %for.inc210.i
 
 for.inc210.i:                                     ; preds = %for.body200.preheader.i, %for.end192.i, %for.end146.i
@@ -3793,7 +3793,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp4.i, label %for.body9.preheader.i, label %if.end15.i
 
 for.body9.preheader.i:                            ; preds = %for.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %add.ptr6, i8 0, i64 16, i1 false), !alias.scope !215, !noalias !212
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr6, i8 0, i64 16, i1 false), !alias.scope !215, !noalias !212
   br label %make_qx_quants.exit
 
 if.end15.i:                                       ; preds = %for.end.i

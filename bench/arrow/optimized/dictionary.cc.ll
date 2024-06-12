@@ -4989,7 +4989,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %for.body.i
   %retval.sroa.4.8.insert.ext.i.i = zext i32 %add.i.i.i to i64
   %retval.sroa.4.8.insert.shift.i.i = shl nuw i64 %retval.sroa.4.8.insert.ext.i.i, 32
   %retval.sroa.2.8.insert.insert.i.i = add nuw nsw i64 %retval.sroa.4.8.insert.shift.i.i, %indvars.iv.i
-  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %resolver, ptr nonnull %parent_pos.i, i64 %retval.sroa.2.8.insert.insert.i.i, ptr noundef nonnull %3) #23, !noalias !86
+  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %resolver, ptr nonnull %parent_pos.i, i64 %retval.sroa.2.8.insert.insert.i.i, ptr noundef nonnull %3) #23, !noalias !86
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %5 = load ptr, ptr %ref.tmp.i, align 8, !noalias !92
   store ptr %5, ptr %agg.result, align 8, !alias.scope !92

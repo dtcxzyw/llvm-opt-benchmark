@@ -559,9 +559,9 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %333 = call ptr @slurm_cred_get_signature(ptr noundef nonnull %324) #9
   store ptr %333, ptr %327, align 8
   %334 = getelementptr inbounds i8, ptr %327, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %334, ptr noundef nonnull readonly align 8 dereferenceable(128) %4, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %334, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
   %335 = getelementptr inbounds i8, ptr %327, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %335, ptr noundef nonnull readonly align 8 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %335, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   br label %srun_info_create.exit
 
 srun_info_create.exit:                            ; preds = %323, %332

@@ -2150,7 +2150,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
   %75 = zext i32 %.1 to i64
   %76 = getelementptr i8, ptr %4, i64 %75
   %77 = zext i32 %.030.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %76, ptr align 1 %.pr.i, i64 %77, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %.pr.i, i64 %77, i1 false)
   br i1 %.not35.i, label %79, label %78
 
 78:                                               ; preds = %74
@@ -2198,7 +2198,7 @@ canonify_unencrypted_header.exit:                 ; preds = %79
 92:                                               ; preds = %88
   %93 = getelementptr inbounds i8, ptr %89, i64 8
   %94 = load ptr, ptr %93, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %94, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %94, i64 16, i1 false)
   %95 = add i32 %1, -4
   %96 = zext i32 %95 to i64
   %97 = getelementptr i8, ptr %0, i64 %96

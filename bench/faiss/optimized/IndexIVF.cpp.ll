@@ -5350,7 +5350,7 @@ define void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef non
   store i32 1, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 80
   %23 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %22, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %22, i8 0, i64 5, i1 false)
   store i32 39, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 256, ptr %24, align 4
@@ -5583,7 +5583,7 @@ define void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store i32 1, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %12, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %12, i8 0, i64 5, i1 false)
   store i32 39, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 256, ptr %14, align 4

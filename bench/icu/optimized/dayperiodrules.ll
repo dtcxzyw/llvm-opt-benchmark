@@ -627,7 +627,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %invoke.cont5, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %call1, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call1, i8 0, i64 20, i1 false)
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end, %new.notnull
@@ -1823,7 +1823,7 @@ for.body26:                                       ; preds = %for.cond23.preheade
   %call29 = call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp30 = icmp eq i32 %call29, 0
   %19 = load ptr, ptr %key.addr, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(5) @.str.19) #21
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(5) @.str.19) #21
   %cmp.i39 = icmp eq i32 %call.i, 0
   br i1 %cmp30, label %if.then31, label %if.else
 
@@ -1831,12 +1831,12 @@ if.then31:                                        ; preds = %for.body26
   br i1 %cmp.i39, label %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then31
-  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.20) #21
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.20) #21
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.21) #21
+  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.21) #21
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit, label %sub_0.i40
 
@@ -1991,12 +1991,12 @@ if.else:                                          ; preds = %for.body26
   br i1 %cmp.i39, label %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit64, label %if.else.i52
 
 if.else.i52:                                      ; preds = %if.else
-  %call1.i53 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.20) #21
+  %call1.i53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.20) #21
   %cmp2.i54 = icmp eq i32 %call1.i53, 0
   br i1 %cmp2.i54, label %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit64, label %if.else4.i55
 
 if.else4.i55:                                     ; preds = %if.else.i52
-  %call5.i56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.21) #21
+  %call5.i56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.21) #21
   %cmp6.i57 = icmp eq i32 %call5.i56, 0
   br i1 %cmp6.i57, label %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit64, label %sub_0.i58
 

@@ -1368,7 +1368,7 @@ proto_item_set_generated.exit869:                 ; preds = %266, %269, %272
   %331 = load i32, ptr @hf_stun_att_length, align 4
   %332 = zext i16 %298 to i32
   %333 = call ptr @proto_tree_add_uint(ptr noundef %.0778, i32 noundef %331, ptr noundef %0, i32 noundef %297, i32 noundef 2, i32 noundef %332) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   switch i16 %.0779, label %816 [
     i16 2, label %334
     i16 4, label %334
@@ -1887,7 +1887,7 @@ proto_item_set_generated.exit872:                 ; preds = %543, %552, %555
   br i1 %.not5.i877, label %.thread928.sink.split, label %.thread928.sink.split.sink.split
 
 .thread885:                                       ; preds = %560
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %.thread882
 
 593:                                              ; preds = %573

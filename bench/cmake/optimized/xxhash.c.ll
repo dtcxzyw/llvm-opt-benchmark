@@ -140,7 +140,7 @@ define dso_local noundef i32 @ZSTD_XXH32_freeState(ptr nocapture noundef %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @ZSTD_XXH32_copyState(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %0, ptr noundef nonnull readonly align 1 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
 
@@ -193,7 +193,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr nocapture noundef %0, ptr no
 22:                                               ; preds = %5
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = getelementptr inbounds i8, ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %1, i64 %2, i1 false)
   %25 = load i32, ptr %17, align 4
   %26 = add i32 %25, %7
   br label %.sink.split
@@ -207,7 +207,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr nocapture noundef %0, ptr no
   %30 = getelementptr inbounds i8, ptr %29, i64 %19
   %31 = sub i32 16, %18
   %32 = zext i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %30, ptr nonnull readonly align 1 %1, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %1, i64 %32, i1 false)
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load <4 x i32>, ptr %33, align 4
   %35 = load <4 x i32>, ptr %29, align 1
@@ -287,7 +287,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr nocapture noundef %0, ptr no
   %78 = ptrtoint ptr %6 to i64
   %79 = ptrtoint ptr %.2 to i64
   %80 = sub i64 %78, %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %77, ptr nonnull readonly align 1 %.2, i64 %80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %.2, i64 %80, i1 false)
   %81 = trunc i64 %80 to i32
   br label %.sink.split
 
@@ -575,7 +575,7 @@ define dso_local noundef i32 @ZSTD_XXH64_freeState(ptr nocapture noundef %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @ZSTD_XXH64_copyState(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(88) %0, ptr noundef nonnull readonly align 1 dereferenceable(88) %1, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %0, ptr noundef nonnull align 1 dereferenceable(88) %1, i64 88, i1 false)
   ret void
 }
 
@@ -616,7 +616,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
   %17 = trunc i64 %2 to i32
   %18 = load i32, ptr %9, align 8
   %19 = add i32 %18, %17
@@ -631,7 +631,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %23 = getelementptr inbounds i8, ptr %22, i64 %11
   %24 = sub i32 32, %10
   %25 = zext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %23, ptr nonnull readonly align 1 %1, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.val = load i64, ptr %22, align 1
@@ -739,7 +739,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %93 = ptrtoint ptr %6 to i64
   %94 = ptrtoint ptr %.2 to i64
   %95 = sub i64 %93, %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %92, ptr readonly align 1 %.2, i64 %95, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %.2, i64 %95, i1 false)
   %96 = trunc i64 %95 to i32
   br label %.sink.split
 

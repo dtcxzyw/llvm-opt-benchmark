@@ -225,7 +225,7 @@ define dso_local void @appendStringInfoString(ptr nocapture noundef %0, ptr noca
   %9 = getelementptr i8, ptr %5, i64 %8
   %sext = shl i64 %3, 32
   %10 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %1, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %1, i64 %10, i1 false)
   %11 = load i32, ptr %6, align 8
   %12 = add i32 %11, %4
   store i32 %12, ptr %6, align 8

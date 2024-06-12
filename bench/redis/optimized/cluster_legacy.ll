@@ -2213,7 +2213,7 @@ clusterLookupNode.exit468:                        ; preds = %if.end.i461
 if.then478:                                       ; preds = %if.end.i461, %if.end475, %clusterLookupNode.exit468
   %call.i469 = call noalias dereferenceable_or_null(2368) ptr @zmalloc(i64 noundef 2368) #36
   %name1.i = getelementptr inbounds i8, ptr %call.i469, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %add.ptr465, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull align 1 dereferenceable(40) %add.ptr465, i64 40, i1 false)
   %shard_id.i472 = getelementptr inbounds i8, ptr %call.i469, i64 48
   call void @getRandomHexChars(ptr noundef nonnull %shard_id.i472, i64 noundef 40) #32
   %call4.i = call i64 @mstime() #32
@@ -5949,7 +5949,7 @@ do.end:                                           ; preds = %do.body, %if.end14
   %name19 = getelementptr inbounds i8, ptr %node, i64 8
   %call.i = call fastcc ptr @createClusterMsgSendBlock(i32 noundef 3, i32 noundef 2296)
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 2272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %name19, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %data.i, ptr noundef nonnull align 1 dereferenceable(40) %name19, i64 40, i1 false)
   call void @clusterBroadcastMessage(ptr noundef %call.i)
   %refcount.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %15 = load i32, ptr %refcount.i.i, align 8
@@ -6684,7 +6684,7 @@ land.lhs.true166:                                 ; preds = %land.lhs.true162
 if.then171:                                       ; preds = %land.lhs.true166
   %call.i98 = call noalias dereferenceable_or_null(2368) ptr @zmalloc(i64 noundef 2368) #36
   %name1.i = getelementptr inbounds i8, ptr %call.i98, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull readonly align 1 dereferenceable(40) %g.0124, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %name1.i, ptr noundef nonnull align 1 dereferenceable(40) %g.0124, i64 40, i1 false)
   %shard_id.i = getelementptr inbounds i8, ptr %call.i98, i64 48
   call void @getRandomHexChars(ptr noundef nonnull %shard_id.i, i64 noundef 40) #32
   %call4.i102 = call i64 @mstime() #32
@@ -6972,7 +6972,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %ip, ptr noundef nonnull readonly align 1 dereferenceable(46) %myip, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %ip, ptr noundef nonnull align 1 dereferenceable(46) %myip, i64 45, i1 false)
   %arrayidx2.i = getelementptr inbounds i8, ptr %ip, i64 45
   store i8 0, ptr %arrayidx2.i, align 1
   br label %if.end9

@@ -1427,21 +1427,21 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
   %71 = alloca %"class.std::vector", align 8
   %72 = alloca %"class.std::vector.89", align 8
   %73 = alloca %"struct.Yosys::RTLIL::IdString", align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %69, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %69, i8 0, i64 48, i1 false)
   %74 = getelementptr inbounds i8, ptr %69, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %74, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %74, i8 0, i64 48, i1 false)
   %75 = getelementptr inbounds i8, ptr %69, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %69, i64 140
   store i32 0, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %69, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %77, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %77, i8 0, i64 48, i1 false)
   %78 = getelementptr inbounds i8, ptr %69, i64 216
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %78, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %78, i8 0, i64 48, i1 false)
   %79 = getelementptr inbounds i8, ptr %69, i64 272
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %79, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %79, i8 0, i64 48, i1 false)
   %80 = getelementptr inbounds i8, ptr %69, i64 328
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %80, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, i8 0, i64 48, i1 false)
   invoke void @_ZN5Yosys9CellTypes5setupEPNS_5RTLIL6DesignE(ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef %2)
           to label %81 unwind label %98
 
@@ -71602,7 +71602,7 @@ _ZN5Yosys6SigMap5clearEv.exit:                    ; preds = %_ZN5Yosys7hashlib5i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %602 = load ptr, ptr %592, align 8
   %603 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %602, i64 %indvars.iv.next.i.i, i32 0, i32 1
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %603)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %603)
   %.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i, 0
   br i1 %.not.i.i107, label %_ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvE20RewriteSigSpecWorkerEEvRT_.exit.i, label %.lr.ph.i.i
 
@@ -71635,7 +71635,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_
   %615 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %614, i64 %indvars.iv.next57.i, i32 0, i32 1
   %616 = load ptr, ptr %615, align 8
   %617 = getelementptr inbounds i8, ptr %616, i64 72
-  call fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvE20RewriteSigSpecWorkerEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %617, ptr noundef nonnull readonly align 8 dereferenceable(8) %27)
+  call fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvE20RewriteSigSpecWorkerEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %617, ptr noundef nonnull align 8 dereferenceable(8) %27)
   %618 = getelementptr inbounds i8, ptr %616, i64 200
   %619 = load ptr, ptr %618, align 8
   %620 = getelementptr inbounds i8, ptr %616, i64 208
@@ -71647,7 +71647,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_
   %.sroa.06.010.i.i = phi ptr [ %638, %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvE20RewriteSigSpecWorkerEEvRT_.exit.i.i ], [ %619, %.lr.ph48.i ]
   %622 = load ptr, ptr %.sroa.06.010.i.i, align 8
   %623 = getelementptr inbounds i8, ptr %622, i64 8
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %623)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %623)
   %624 = getelementptr inbounds i8, ptr %622, i64 72
   %625 = load ptr, ptr %624, align 8
   %626 = getelementptr inbounds i8, ptr %622, i64 80
@@ -71657,9 +71657,9 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_
 
 .lr.ph.i.i.i108:                                  ; preds = %.lr.ph.i21.i, %.lr.ph.i.i.i108
   %.sroa.020.025.i.i.i = phi ptr [ %629, %.lr.ph.i.i.i108 ], [ %625, %.lr.ph.i21.i ]
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.020.025.i.i.i)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.020.025.i.i.i)
   %628 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i.i, i64 64
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %628)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %628)
   %629 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i.i, i64 128
   %.not.i.i.i = icmp eq ptr %629, %627
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i109, label %.lr.ph.i.i.i108
@@ -71675,11 +71675,11 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_
 .lr.ph29.i.i.i:                                   ; preds = %._crit_edge.i.i.i109, %.lr.ph29.i.i.i
   %.sroa.016.027.i.i.i = phi ptr [ %637, %.lr.ph29.i.i.i ], [ %631, %._crit_edge.i.i.i109 ]
   %634 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 64
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %634)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %634)
   %635 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 128
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %635)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %635)
   %636 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 192
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %636)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %636)
   %637 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i.i, i64 288
   %.not23.i.i.i = icmp eq ptr %637, %633
   br i1 %.not23.i.i.i, label %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvE20RewriteSigSpecWorkerEEvRT_.exit.i.i, label %.lr.ph29.i.i.i
@@ -71703,9 +71703,9 @@ _ZN5Yosys5RTLIL7Process16rewrite_sigspecsIZN12_GLOBAL__N_116EquivMiterWorker13co
 
 .lr.ph53.i:                                       ; preds = %._crit_edge49.i, %.lr.ph53.i
   %.sroa.026.051.i = phi ptr [ %644, %.lr.ph53.i ], [ %640, %._crit_edge49.i ]
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.026.051.i)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.026.051.i)
   %643 = getelementptr inbounds i8, ptr %.sroa.026.051.i, i64 64
-  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %643)
+  call fastcc void @_ZZN12_GLOBAL__N_116EquivMiterWorker13copy_to_miterEvEN20RewriteSigSpecWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %643)
   %644 = getelementptr inbounds i8, ptr %.sroa.026.051.i, i64 128
   %.not40.i = icmp eq ptr %644, %642
   br i1 %.not40.i, label %.loopexit1137, label %.lr.ph53.i

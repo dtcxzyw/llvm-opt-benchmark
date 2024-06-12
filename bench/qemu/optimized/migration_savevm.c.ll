@@ -790,7 +790,7 @@ for.body.i:                                       ; preds = %if.then7, %for.inc.
   %se.010.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.07.i, %if.then7 ]
   %instance_id.09.i = phi i32 [ %instance_id.1.i, %for.inc.i ], [ 0, %if.then7 ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %idstr4, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr4, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -874,7 +874,7 @@ if.end:                                           ; preds = %entry, %save_state_
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %se.019.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.017.i, %if.end ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.019.i, i64 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %idstr) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %idstr) #19
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i, label %if.end.i
 
@@ -891,7 +891,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %if.then2, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %for.body.i
-  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %idstr) #19
+  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %idstr) #19
   %tobool8.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool8.not.i, label %for.inc.i, label %land.lhs.true9.i
 
@@ -902,7 +902,7 @@ land.lhs.true9.i:                                 ; preds = %if.end.i
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true9.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %idstr) #19
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %idstr) #19
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %land.lhs.true17.i, label %for.inc.i
 
@@ -1135,7 +1135,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %se.019.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.017.i, %entry ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.019.i, i64 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %0) #19
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i, label %if.end.i
 
@@ -1152,7 +1152,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %for.body.i
-  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %call7.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %0) #19
   %tobool8.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool8.not.i, label %for.inc.i, label %land.lhs.true9.i
 
@@ -1163,7 +1163,7 @@ land.lhs.true9.i:                                 ; preds = %if.end.i
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true9.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #19
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %land.lhs.true17.i, label %for.inc.i
 
@@ -1332,7 +1332,7 @@ for.body.i:                                       ; preds = %cond.true, %for.inc
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #19
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -1376,7 +1376,7 @@ for.body.i32:                                     ; preds = %if.then33, %for.inc
   %se.010.i = phi ptr [ %se.0.i37, %for.inc.i35 ], [ %se.07.i, %if.then33 ]
   %instance_id.09.i = phi i32 [ %instance_id.1.i36, %for.inc.i35 ], [ 0, %if.then33 ]
   %idstr1.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
-  %call.i33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %idstr2747, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
+  %call.i33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr2747, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
   %cmp.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp.i34, label %land.lhs.true.i40, label %for.inc.i35
 
@@ -4429,7 +4429,7 @@ trace_qemu_loadvm_state_section_startfull.exit.i: ; preds = %if.else.i.i.i, %if.
 for.body.i.i:                                     ; preds = %trace_qemu_loadvm_state_section_startfull.exit.i, %for.inc.i.i
   %se.019.i.i = phi ptr [ %se.0.i.i, %for.inc.i.i ], [ %se.017.i.i, %trace_qemu_loadvm_state_section_startfull.exit.i ]
   %idstr1.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 16
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull readonly dereferenceable(1) %idstr.i) #19
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
@@ -4446,7 +4446,7 @@ lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   br i1 %cmp4.i.i, label %if.end16.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %for.body.i.i
-  %call7.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull readonly dereferenceable(1) %idstr.i) #19
+  %call7.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
   %tobool8.not.i.i = icmp eq ptr %call7.i.i, null
   br i1 %tobool8.not.i.i, label %for.inc.i.i, label %land.lhs.true9.i.i
 
@@ -4457,7 +4457,7 @@ land.lhs.true9.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool10.not.i.i, label %for.inc.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %land.lhs.true9.i.i
-  %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %idstr.i) #19
+  %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
   %tobool16.not.i.i = icmp eq i32 %call15.i.i, 0
   br i1 %tobool16.not.i.i, label %land.lhs.true17.i.i, label %for.inc.i.i
 

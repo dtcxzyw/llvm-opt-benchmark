@@ -296,7 +296,7 @@ entry:
   %len.i = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load i32, ptr %len.i, align 8
   %conv.i = sext i32 %1 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr readonly %op, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %op, i64 %conv.i)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %equal.exit, label %if.then
 
@@ -324,7 +324,7 @@ entry:
   %len.i = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load i32, ptr %len.i, align 8
   %conv.i = sext i32 %1 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr readonly %str, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %str, i64 %conv.i)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %equal.exit, label %return
 
@@ -1890,14 +1890,13 @@ for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds [23 x ptr], ptr @read_punct.kw, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #27
-  %call1.i = tail call i32 @strncmp(ptr noundef readonly %p, ptr noundef readonly %0, i64 noundef %call.i) #27
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %call1.i = tail call i32 @strncmp(ptr noundef %p, ptr noundef %0, i64 noundef %call.i) #27
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
-  %conv5 = trunc i64 %call4 to i32
+  %conv5 = trunc i64 %call.i to i32
   br label %return
 
 for.end:                                          ; preds = %for.cond
@@ -1965,7 +1964,7 @@ if.then.i:                                        ; preds = %entry.tail.i
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %entry.tail.i, %entry
-  %call1.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.109)
+  %call1.i = tail call noalias ptr @fopen(ptr noundef nonnull %path, ptr noundef nonnull @.str.109)
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %read_file.exit.thread, label %if.end3.i
 

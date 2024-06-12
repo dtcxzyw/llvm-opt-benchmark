@@ -179,7 +179,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %98 = fmul double %97, %96
   %99 = extractelement <2 x double> %93, i64 0
   %100 = call double @llvm.fmuladd.f64(double %94, double %99, double %98)
-  %101 = call fastcc i32 @computeSavings(ptr noundef readonly %0, ptr noundef %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
+  %101 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %104
 
@@ -229,7 +229,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %133 = load double, ptr %64, align 8
   %134 = fsub double %133, %100
   store double %134, ptr %64, align 8
-  call fastcc void @updateRefs(ptr noundef readonly %0, ptr noundef nonnull %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %73, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %38)
   br label %.backedge.i
 
 135:                                              ; preds = %112

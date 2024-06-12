@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -56,8 +56,8 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr nocapture noundef %0, i6
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = getelementptr i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %12
 
 12:                                               ; preds = %12, %5
@@ -114,8 +114,8 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0
   %18 = getelementptr inbounds i8, ptr %5, i64 4
   %19 = getelementptr i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %19, i8 0, i64 104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %19, i8 0, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %20
 
 20:                                               ; preds = %20, %12
@@ -150,7 +150,7 @@ blake2s_init_param.exit:                          ; preds = %20
   store i64 0, ptr %33, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 48
   %39 = getelementptr inbounds i8, ptr %38, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 16 %6, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 16 %6, i64 %35, i1 false)
   %40 = load i32, ptr %19, align 8
   %41 = add i32 %40, 64
   store i32 %41, ptr %19, align 8
@@ -1722,8 +1722,8 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly %0, i64 nou
   %27 = getelementptr inbounds i8, ptr %8, i64 4
   %28 = getelementptr inbounds i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %27, i8 0, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(104) %28, i8 0, i64 104, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %28, i8 0, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %29
 
 29:                                               ; preds = %29, %22
@@ -1760,7 +1760,7 @@ blake2s_init.exit:                                ; preds = %29
   store i64 0, ptr %40, align 16
   %45 = getelementptr inbounds i8, ptr %9, i64 48
   %46 = getelementptr inbounds i8, ptr %45, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %2, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %2, i64 %42, i1 false)
   %47 = getelementptr inbounds i8, ptr %9, i64 32
   %48 = load i32, ptr %47, align 16
   %49 = add i32 %48, 64
@@ -1878,7 +1878,7 @@ blake2s_set_lastblock.exit.i:                     ; preds = %92, %78
   br i1 %exitcond.not.i, label %113, label %97, !llvm.loop !9
 
 113:                                              ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
   %114 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
   %115 = call ptr %114(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 32) #8
   br label %blake2s_final.exit

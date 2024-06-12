@@ -3050,7 +3050,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then6.i.i
   %idx.ext.i.i.i = zext i32 %38 to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %39, i64 %idx.ext.i.i.i
   %conv.i.i.i35.i = zext i32 %mul.i.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i35.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i35.i, i1 false)
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.end.i.i.i.i, %if.then6.i.i, %if.end.i.i
@@ -6111,7 +6111,7 @@ if.then.i.i1087.i:                                ; preds = %for.end139.i
   %retval.sroa.2.8.insert.ext.i.i.i.i = zext i32 %463 to i64
   %arrayZ.i.i1088.i = getelementptr inbounds i8, ptr %this, i64 184
   %464 = load ptr, ptr %arrayZ.i.i1088.i, align 8
-  call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %464, i64 noundef %retval.sroa.2.8.insert.ext.i.i.i.i, i64 noundef 8, ptr noundef nonnull readonly @_ZN9hb_pair_tIjjE3cmpEPKvS2_)
+  call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %464, i64 noundef %retval.sroa.2.8.insert.ext.i.i.i.i, i64 noundef 8, ptr noundef nonnull @_ZN9hb_pair_tIjjE3cmpEPKvS2_)
   br label %if.end168.i
 
 if.else141.i:                                     ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit761.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit619.i, %if.end65.if.else141_crit_edge.i
@@ -6606,7 +6606,7 @@ if.end12.i.i:                                     ; preds = %if.end.i1414.i
   br i1 %tobool.not.i17.i.i, label %_ZL9hb_memsetPvij.exit.i.i, label %if.end.i.i1420.i
 
 if.end.i.i1420.i:                                 ; preds = %if.end12.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8.i.i, i8 0, i64 %530, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8.i.i, i8 0, i64 %530, i1 false)
   %.pre1515.i = load i32, ptr %mask.i1338.i, align 4
   br label %_ZL9hb_memsetPvij.exit.i.i
 
@@ -7705,7 +7705,7 @@ if.then.i.i154.i:                                 ; preds = %for.end.i449
   %retval.sroa.2.8.insert.ext.i.i.i.i451 = zext i32 %659 to i64
   %arrayZ.i.i155.i = getelementptr inbounds i8, ptr %this, i64 200
   %660 = load ptr, ptr %arrayZ.i.i155.i, align 8
-  call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %660, i64 noundef %retval.sroa.2.8.insert.ext.i.i.i.i451, i64 noundef 8, ptr noundef nonnull readonly @_ZN9hb_pair_tIjjE3cmpEPKvS2_)
+  call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %660, i64 noundef %retval.sroa.2.8.insert.ext.i.i.i.i451, i64 noundef 8, ptr noundef nonnull @_ZN9hb_pair_tIjjE3cmpEPKvS2_)
   br label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5qsortEPFiPKvS4_E.exit.i
 
 _ZN11hb_vector_tI9hb_pair_tIjjELb1EE5qsortEPFiPKvS4_E.exit.i: ; preds = %if.then.i.i154.i, %for.end.i449
@@ -10546,7 +10546,7 @@ if.end.i.i.i.i.i65:                               ; preds = %_ZN11hb_vector_tIjL
   %length.i.i.i = getelementptr inbounds i8, ptr %features.i.i, i64 4
   %mul.i.i.i.i = shl nuw nsw i32 %add.i.i.i.i.i, 2
   %conv.i.i.i32.i.i = zext nneg i32 %mul.i.i.i.i to i64
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %malloc.i.i, i8 0, i64 %conv.i.i.i32.i.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc.i.i, i8 0, i64 %conv.i.i.i32.i.i, i1 false)
   br label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit.i.i
 
 _ZN11hb_vector_tIjLb0EE6resizeEibb.exit.i.i:      ; preds = %if.end.i.i.i.i.i65, %if.end.i.thread.i.i
@@ -10704,7 +10704,7 @@ if.end.i.i.i87.i.i:                               ; preds = %_ZN11hb_vector_tIjL
   %length.i79.i.i = getelementptr inbounds i8, ptr %scripts.i.i, i64 4
   %mul.i.i85.i.i = shl nuw nsw i32 %add.i.i.i63.i.i, 2
   %conv.i.i.i91.i.i = zext nneg i32 %mul.i.i85.i.i to i64
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %malloc353.i.i, i8 0, i64 %conv.i.i.i91.i.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc353.i.i, i8 0, i64 %conv.i.i.i91.i.i, i1 false)
   br label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit114.i.i
 
 _ZN11hb_vector_tIjLb0EE6resizeEibb.exit114.i.i:   ; preds = %if.end.i.i.i87.i.i, %if.end.i78.thread.i.i
@@ -11397,7 +11397,7 @@ if.end.i.i.i.i67.i:                               ; preds = %if.then6.i.i.i
   %idx.ext.i.i.i.i = zext i32 %154 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %155, i64 %idx.ext.i.i.i.i
   %conv.i.i10.i.i.i = zext i32 %mul.i.i.i66.i to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i.i, i8 0, i64 %conv.i.i10.i.i.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i.i, i8 0, i64 %conv.i.i10.i.i.i, i1 false)
   br label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.end.i.i.i.i67.i, %if.then6.i.i.i, %if.end.i1.i.i
@@ -11677,7 +11677,7 @@ if.end.i.i.i.i.i184:                              ; preds = %_ZN11hb_vector_tIjL
   %length.i.i.i186 = getelementptr inbounds i8, ptr %features.i.i127, i64 4
   %mul.i.i.i.i187 = shl nuw nsw i32 %add.i.i.i.i.i171, 2
   %conv.i.i.i32.i.i188 = zext nneg i32 %mul.i.i.i.i187 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %malloc.i.i182, i8 0, i64 %conv.i.i.i32.i.i188, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc.i.i182, i8 0, i64 %conv.i.i.i32.i.i188, i1 false)
   br label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit.i.i189
 
 _ZN11hb_vector_tIjLb0EE6resizeEibb.exit.i.i189:   ; preds = %if.end.i.i.i.i.i184, %if.end.i.thread.i.i679
@@ -11835,7 +11835,7 @@ if.end.i.i.i87.i.i344:                            ; preds = %_ZN11hb_vector_tIjL
   %length.i79.i.i346 = getelementptr inbounds i8, ptr %scripts.i.i128, i64 4
   %mul.i.i85.i.i347 = shl nuw nsw i32 %add.i.i.i63.i.i331, 2
   %conv.i.i.i91.i.i348 = zext nneg i32 %mul.i.i85.i.i347 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %malloc353.i.i342, i8 0, i64 %conv.i.i.i91.i.i348, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc353.i.i342, i8 0, i64 %conv.i.i.i91.i.i348, i1 false)
   br label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit114.i.i349
 
 _ZN11hb_vector_tIjLb0EE6resizeEibb.exit114.i.i349: ; preds = %if.end.i.i.i87.i.i344, %if.end.i78.thread.i.i652
@@ -12516,7 +12516,7 @@ if.end.i.i.i.i67.i255:                            ; preds = %if.then6.i.i.i251
   %idx.ext.i.i.i.i257 = zext i32 %294 to i64
   %add.ptr.i.i.i.i258 = getelementptr inbounds %struct.hb_bit_page_t, ptr %295, i64 %idx.ext.i.i.i.i257
   %conv.i.i10.i.i.i259 = zext i32 %mul.i.i.i66.i253 to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i.i258, i8 0, i64 %conv.i.i10.i.i.i259, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i.i258, i8 0, i64 %conv.i.i10.i.i.i259, i1 false)
   br label %if.end15.i.i.i250
 
 if.end15.i.i.i250:                                ; preds = %if.end.i.i.i.i67.i255, %if.then6.i.i.i251, %if.end.i1.i.i248
@@ -15636,7 +15636,7 @@ if.else.i:                                        ; preds = %if.then24
   br i1 %tobool.not.i.i, label %_ZL9hb_memsetPvij.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %incdec.ptr.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %incdec.ptr.i, i8 0, i64 %11, i1 false)
   br label %_ZL9hb_memsetPvij.exit.i
 
 _ZL9hb_memsetPvij.exit.i:                         ; preds = %if.end.i.i, %if.else.i
@@ -15667,7 +15667,7 @@ if.else.i49:                                      ; preds = %if.else
   br i1 %tobool.not.i.i59, label %if.end30.sink.split, label %if.end.i.i60
 
 if.end.i.i60:                                     ; preds = %if.else.i49
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %incdec.ptr.i55, i8 0, i64 %13, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %incdec.ptr.i55, i8 0, i64 %13, i1 false)
   br label %if.end30.sink.split
 
 if.end30.sink.split:                              ; preds = %if.end.i.i60, %if.else.i49, %if.else, %_ZL9hb_memsetPvij.exit.i, %if.then.i36
@@ -15778,7 +15778,7 @@ if.else.i137:                                     ; preds = %if.then37
   br i1 %tobool.not.i.i147, label %_ZN13hb_bit_page_t9del_rangeEjj.exit164, label %if.end.i.i148
 
 if.end.i.i148:                                    ; preds = %if.else.i137
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %incdec.ptr.i143, i8 0, i64 %21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %incdec.ptr.i143, i8 0, i64 %21, i1 false)
   br label %_ZN13hb_bit_page_t9del_rangeEjj.exit164
 
 _ZN13hb_bit_page_t9del_rangeEjj.exit164:          ; preds = %if.else.i137, %if.end.i.i148, %if.then37
@@ -15857,7 +15857,7 @@ if.else.i:                                        ; preds = %if.end13
   br i1 %tobool.not.i.i, label %_ZN13hb_bit_page_t9add_rangeEjj.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %incdec.ptr.i, i8 -1, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %incdec.ptr.i, i8 -1, i64 %2, i1 false)
   br label %_ZN13hb_bit_page_t9add_rangeEjj.exit
 
 _ZN13hb_bit_page_t9add_rangeEjj.exit:             ; preds = %if.end13, %if.else.i, %if.end.i.i
@@ -15897,7 +15897,7 @@ if.else.i36:                                      ; preds = %if.end18
   br i1 %tobool.not.i.i45, label %_ZN13hb_bit_page_t9add_rangeEjj.exit59, label %if.end.i.i46
 
 if.end.i.i46:                                     ; preds = %if.else.i36
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %incdec.ptr.i41, i8 -1, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %incdec.ptr.i41, i8 -1, i64 %4, i1 false)
   br label %_ZN13hb_bit_page_t9add_rangeEjj.exit59
 
 _ZN13hb_bit_page_t9add_rangeEjj.exit59:           ; preds = %if.end18, %if.else.i36, %if.end.i.i46
@@ -15951,7 +15951,7 @@ if.else.i72:                                      ; preds = %if.end30
   br i1 %tobool.not.i.i81, label %_ZN13hb_bit_page_t9add_rangeEjj.exit95, label %if.end.i.i82
 
 if.end.i.i82:                                     ; preds = %if.else.i72
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %incdec.ptr.i77, i8 -1, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %incdec.ptr.i77, i8 -1, i64 %6, i1 false)
   br label %_ZN13hb_bit_page_t9add_rangeEjj.exit95
 
 _ZN13hb_bit_page_t9add_rangeEjj.exit95:           ; preds = %if.end30, %if.else.i72, %if.end.i.i82
@@ -16149,7 +16149,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %15 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %16, i64 %idx.ext.i.i
   %conv.i.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
   br label %if.end24
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i, %if.end.i
@@ -16570,7 +16570,7 @@ if.end.i.i.i40:                                   ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %47 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %48, i64 %idx.ext.i.i
   %conv.i.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit: ; preds = %if.end.i37, %if.then6.i, %if.end.i.i.i40
@@ -16692,7 +16692,7 @@ if.end.i.i:                                       ; preds = %if.then6
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %6, i64 %idx.ext.i
   %conv.i.i10 = zext i32 %mul.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end, %if.end.i.i, %if.then6
@@ -19356,7 +19356,7 @@ if.end12:                                         ; preds = %if.end4
   br i1 %tobool.not.i17, label %_ZL9hb_memsetPvij.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %5, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
@@ -24761,7 +24761,7 @@ if.end12.i:                                       ; preds = %if.end.i68
   br i1 %tobool.not.i17.i, label %_ZL9hb_memsetPvij.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end12.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8.i, i8 0, i64 %26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8.i, i8 0, i64 %26, i1 false)
   br label %_ZL9hb_memsetPvij.exit.i
 
 _ZL9hb_memsetPvij.exit.i:                         ; preds = %if.end.i.i, %if.end12.i
@@ -25122,7 +25122,7 @@ if.end12.i:                                       ; preds = %if.end.i65
   br i1 %tobool.not.i17.i, label %_ZL9hb_memsetPvij.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end12.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8.i, i8 0, i64 %26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8.i, i8 0, i64 %26, i1 false)
   br label %_ZL9hb_memsetPvij.exit.i
 
 _ZL9hb_memsetPvij.exit.i:                         ; preds = %if.end.i.i, %if.end12.i
@@ -47295,7 +47295,7 @@ if.end12:                                         ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.end12
   %conv.i = and i64 %mul7, 4294967280
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %conv.i, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
@@ -47461,7 +47461,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %8, i64 %idx.ext.i.i
   %conv.i.i10.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end.i.i.i, %if.then6.i, %if.end.i1
@@ -81247,7 +81247,7 @@ if.end.i.i.i205:                                  ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %58 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %59, i64 %idx.ext.i.i
   %conv.i.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
   br label %_ZN12hb_bit_set_t6resizeEjbb.exit
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i, %if.end.i136
@@ -81547,7 +81547,7 @@ if.end.i.i.i224:                                  ; preds = %if.then6.i220
   %idx.ext.i.i226 = zext i32 %108 to i64
   %add.ptr.i.i227 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %109, i64 %idx.ext.i.i226
   %conv.i.i.i228 = zext i32 %mul.i.i222 to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i227, i8 0, i64 %conv.i.i.i228, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i227, i8 0, i64 %conv.i.i.i228, i1 false)
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit259
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit259: ; preds = %if.end.i215, %if.then6.i220, %if.end.i.i.i224
@@ -85241,7 +85241,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !592
   call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5)
   %glyph_set = getelementptr inbounds i8, ptr %c, i64 16
-  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %it, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
+  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %it, ptr noundef nonnull align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !592
   %7 = load i32, ptr %it, align 8
   %.off.i.i.i.i.i.i = add i32 %7, -1
@@ -85288,10 +85288,10 @@ if.end12:                                         ; preds = %"_ZNK9hb_iter_tI16h
   %conv4.i.i12 = zext i8 %18 to i32
   %add.i.i13 = or disjoint i32 %shl.i.i10, %conv4.i.i12
   %mul = mul nuw nsw i32 %add.i.i13, %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %ref.tmp18, ptr noundef nonnull readonly align 8 dereferenceable(64) %it, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(64) %it, i64 64, i1 false)
   %f.i.i.i = getelementptr inbounds i8, ptr %ref.tmp18, i64 64
   store ptr @_ZL9hb_second, ptr %f.i.i.i, align 8, !alias.scope !595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %__begin3, ptr noundef nonnull readonly align 8 dereferenceable(72) %ref.tmp18, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__begin3, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp18, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i.i), !noalias !600
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !605
   call void @_ZNK13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE7__end__Ev(ptr nonnull sret(%struct.hb_zip_iter_t.1082) align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp18), !noalias !610
@@ -87072,12 +87072,12 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit.i.i.i: ; preds = %i
   br i1 %cmp.i.i.not.i.i.i, label %"_ZorIN23hb_bit_set_invertible_t6iter_tE24hb_filter_iter_factory_tIRKN2OT6Layout6Common8CoverageERK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSE_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISE_Efp_EEEOSE_OSK_.exit", label %land.rhs.i.i.i, !llvm.loop !635
 
 "_ZorIN23hb_bit_set_invertible_t6iter_tE24hb_filter_iter_factory_tIRKN2OT6Layout6Common8CoverageERK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSE_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISE_Efp_EEEOSE_OSK_.exit": ; preds = %land.rhs.i.i.i, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit.i.i.i, %if.end15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %__begin0, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp16, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__begin0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !636)
   call void @llvm.experimental.noalias.scope.decl(metadata !639)
   call void @llvm.experimental.noalias.scope.decl(metadata !642)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i.i), !noalias !645
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp16, i64 16, i1 false), !noalias !645
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, i64 16, i1 false), !noalias !645
   %v.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i.i, i64 8
   %16 = load i32, ptr %v.i.i.i.i.i.i.i, align 8, !noalias !645
   %cmp.i.i.not2.i.i.i.i.i = icmp eq i32 %16, -1
@@ -87691,10 +87691,10 @@ _ZN23hb_bit_set_invertible_t3addEj.exit383:       ; preds = %if.end8.i.i.i.i.i.i
   store i64 %.fca.1.load.i98, ptr %83, align 8, !noalias !650
   call fastcc void @"_ZN16hb_filter_iter_tIN23hb_bit_set_invertible_t6iter_tER8hb_set_tRK4$_10LPv0EEC2ERKS1_S3_S6_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(16) %it.i.i, ptr noundef nonnull align 8 dereferenceable(72) %klass2_glyphs, ptr noundef nonnull align 1 dereferenceable(1) @_ZL11hb_identity)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i.i), !noalias !647
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %__begin3, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp37, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__begin3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !653
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i.i107), !noalias !658
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i107, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp37, i64 16, i1 false), !noalias !658
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i107, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37, i64 16, i1 false), !noalias !658
   %v.i.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %retval.i.i.i.i.i107, i64 8
   %84 = load i32, ptr %v.i.i.i.i.i.i.i108, align 8, !noalias !658
   %cmp.i.i.not2.i.i.i.i.i109 = icmp eq i32 %84, -1
@@ -89734,12 +89734,12 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %13
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !670
   call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
-  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
+  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !670
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %base_iter, ptr noundef nonnull readonly align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %base_iter, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
   %f.i.i.i60 = getelementptr inbounds i8, ptr %base_iter, i64 64
   store ptr @_ZL9hb_second, ptr %f.i.i.i60, align 8, !alias.scope !673
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %__begin0, ptr noundef nonnull readonly align 8 dereferenceable(72) %base_iter, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__begin0, ptr noundef nonnull align 8 dereferenceable(72) %base_iter, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i.i), !noalias !678
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !683
   call void @_ZNK13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE7__end__Ev(ptr nonnull sret(%struct.hb_zip_iter_t.1082) align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %base_iter), !noalias !688
@@ -91550,9 +91550,9 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %13
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !709
   call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i58, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
-  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
+  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !709
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %lig_iter, ptr noundef nonnull readonly align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %lig_iter, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
   %f.i.i.i63 = getelementptr inbounds i8, ptr %lig_iter, i64 64
   store ptr @_ZL9hb_second, ptr %f.i.i.i63, align 8, !alias.scope !712
   %35 = load i8, ptr %ligatureArray, align 1
@@ -91565,7 +91565,7 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %13
   %idx.ext.i.i.i70 = zext nneg i32 %add.i.i.i.i.i68 to i64
   %add.ptr.i.i.i71 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i70
   %retval.0.i.i72 = select i1 %cmp.i.i.i69, ptr @_hb_NullPool, ptr %add.ptr.i.i.i71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %__begin0, ptr noundef nonnull readonly align 8 dereferenceable(72) %lig_iter, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__begin0, ptr noundef nonnull align 8 dereferenceable(72) %lig_iter, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i.i), !noalias !717
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !722
   call void @_ZNK13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE7__end__Ev(ptr nonnull sret(%struct.hb_zip_iter_t.1082) align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %lig_iter), !noalias !727
@@ -92591,12 +92591,12 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %13
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !738
   call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
-  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
+  call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !738
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %mark2_iter, ptr noundef nonnull readonly align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mark2_iter, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
   %f.i.i.i60 = getelementptr inbounds i8, ptr %mark2_iter, i64 64
   store ptr @_ZL9hb_second, ptr %f.i.i.i60, align 8, !alias.scope !741
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %__begin0, ptr noundef nonnull readonly align 8 dereferenceable(72) %mark2_iter, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__begin0, ptr noundef nonnull align 8 dereferenceable(72) %mark2_iter, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i.i), !noalias !746
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !751
   call void @_ZNK13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE7__end__Ev(ptr nonnull sret(%struct.hb_zip_iter_t.1082) align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(44) %mark2_iter), !noalias !756
@@ -98451,7 +98451,7 @@ if.end.i.i.i16:                                   ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.contour_point_t, ptr %15, i64 %idx.ext.i.i
   %conv.i.i10.i = zext i32 %mul.i.i to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end.i.i.i16, %if.then6.i, %if.end.i15
@@ -99647,7 +99647,7 @@ if.end16:                                         ; preds = %_ZN11hb_vector_tI15
 if.end.i42:                                       ; preds = %if.end16
   %mul = mul nuw nsw i32 %add, 12
   %conv.i43 = zext nneg i32 %mul to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %add.ptr.i41, i8 0, i64 %conv.i43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i41, i8 0, i64 %conv.i43, i1 false)
   %cmp82 = icmp sgt i16 %add.i.i, 0
   br i1 %cmp82, label %for.body, label %for.end
 

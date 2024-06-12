@@ -2760,10 +2760,10 @@ define ptr @Abc_NtkAigToGia(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val136) #18
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val136) #18
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %.val136) #15
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.val136) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -2775,10 +2775,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %7
   br i1 %.not.i156, label %Abc_UtilStrsav.exit157, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val137) #18
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val137) #18
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #16
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %.val137) #15
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %.val137) #15
   br label %Abc_UtilStrsav.exit157
 
 Abc_UtilStrsav.exit157:                           ; preds = %Abc_UtilStrsav.exit, %14

@@ -1175,7 +1175,7 @@ SHA1Update.exit:                                  ; preds = %if.then11.i, %if.el
   %arrayidx28.i = getelementptr inbounds i8, ptr %c, i64 %idxprom27.i
   %sub29.i = xor i32 %i.1.i, 1
   %conv30.i = zext nneg i32 %sub29.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26.i, ptr nonnull readonly align 1 %arrayidx28.i, i64 %conv30.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26.i, ptr nonnull align 1 %arrayidx28.i, i64 %conv30.i, i1 false)
   %7 = load i32, ptr %count, align 4
   %and787 = and i32 %7, 504
   %cmp8.not88 = icmp eq i32 %and787, 448
@@ -1217,7 +1217,7 @@ SHA1Update.exit50:                                ; preds = %if.then11.i35, %if.
   %arrayidx28.i32 = getelementptr inbounds i8, ptr %c, i64 %idxprom27.i31
   %sub29.i33 = xor i32 %i.1.i27, 1
   %conv30.i34 = zext nneg i32 %sub29.i33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26.i30, ptr nonnull readonly align 1 %arrayidx28.i32, i64 %conv30.i34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx26.i30, ptr nonnull align 1 %arrayidx28.i32, i64 %conv30.i34, i1 false)
   %12 = load i32, ptr %count, align 4
   %and7 = and i32 %12, 504
   %cmp8.not = icmp eq i32 %and7, 448

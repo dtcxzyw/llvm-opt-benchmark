@@ -485,7 +485,7 @@ If_ManImproveNodeFaninCost.exit.i24.i.i:          ; preds = %209, %205
 
 If_ManImproveNodeFaninCompact_int.exit.i:         ; preds = %If_ManImproveNodeFaninCost.exit.i.i.i, %If_ManImproveNodeFaninCost.exit.i24.i.i
   %.lcssa.sink.i.i = phi ptr [ %191, %If_ManImproveNodeFaninCost.exit.i24.i.i ], [ %158, %If_ManImproveNodeFaninCost.exit.i.i.i ]
-  call void @If_ManImproveNodeFaninUpdate(ptr readnone poison, ptr noundef nonnull %.lcssa.sink.i.i, ptr noundef nonnull %13, ptr noundef nonnull %30)
+  call void @If_ManImproveNodeFaninUpdate(ptr poison, ptr noundef nonnull %.lcssa.sink.i.i, ptr noundef nonnull %13, ptr noundef nonnull %30)
   %.val.i.i26.i = load i32, ptr %15, align 4
   %216 = icmp sgt i32 %.val.i.i26.i, 0
   br i1 %216, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i, !llvm.loop !8
@@ -1718,7 +1718,7 @@ If_ManImproveNodeFaninCost.exit.i24:              ; preds = %64, %60
 
 If_ManImproveNodeFaninCompact1.exit.thread.sink.split: ; preds = %If_ManImproveNodeFaninCost.exit.i, %If_ManImproveNodeFaninCost.exit.i24
   %.lcssa.sink = phi ptr [ %46, %If_ManImproveNodeFaninCost.exit.i24 ], [ %11, %If_ManImproveNodeFaninCost.exit.i ]
-  tail call void @If_ManImproveNodeFaninUpdate(ptr readnone poison, ptr noundef nonnull %.lcssa.sink, ptr noundef nonnull %3, ptr noundef %4)
+  tail call void @If_ManImproveNodeFaninUpdate(ptr poison, ptr noundef nonnull %.lcssa.sink, ptr noundef nonnull %3, ptr noundef %4)
   br label %If_ManImproveNodeFaninCompact1.exit.thread
 
 If_ManImproveNodeFaninCompact1.exit.thread:       ; preds = %70, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split, %5, %thread-pre-split

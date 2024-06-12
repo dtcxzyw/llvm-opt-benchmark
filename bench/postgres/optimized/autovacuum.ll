@@ -2800,7 +2800,7 @@ extract_autovac_opts.exit.i:                      ; preds = %293
   %321 = load i8, ptr %320, align 1
   %322 = trunc i8 %321 to i1
   %323 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %322, i32 noundef %319) #18
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull writeonly %3, ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %324 = load i8, ptr %318, align 1
   %325 = icmp eq i8 %324, 116
   br i1 %325, label %recheck_relation_needs_vacanalyze.exit.thread.i, label %recheck_relation_needs_vacanalyze.exit.i

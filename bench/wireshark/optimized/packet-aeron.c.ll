@@ -740,7 +740,7 @@ aeron_frame_info_add.exit:                        ; preds = %132, %107, %105
   %148 = add i32 %.0101170, 12
   %149 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %148) #9
   %150 = load i32, ptr %53, align 4
-  %151 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %149, i32 noundef %150)
+  %151 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %149, i32 noundef %150)
   %152 = add i32 %.0101170, 16
   %153 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %152) #9
   %154 = add i32 %.0101170, 20
@@ -871,7 +871,7 @@ dissect_aeron_pad.exit:                           ; preds = %140, %145, %proto_i
   %221 = add i32 %.0101170, 12
   %222 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %221) #9
   %223 = load i32, ptr %53, align 4
-  %224 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %222, i32 noundef %223)
+  %224 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %222, i32 noundef %223)
   %225 = add i32 %.0101170, 16
   %226 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %225) #9
   %227 = add i32 %.0101170, 20
@@ -1011,7 +1011,7 @@ dissect_aeron_heartbeat.exit:                     ; preds = %217, %proto_item_se
   %296 = add i32 %.0101170, 12
   %297 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %296) #9
   %298 = load i32, ptr %53, align 4
-  %299 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %297, i32 noundef %298)
+  %299 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %297, i32 noundef %298)
   %300 = add i32 %.0101170, 16
   %301 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %300) #9
   %302 = add i32 %.0101170, 20
@@ -1171,7 +1171,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %.not48.i.i, label %390, label %381
 
 381:                                              ; preds = %378, %377
-  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %373, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %11)
+  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %373, ptr noundef nonnull %1, ptr noundef nonnull %11)
   br label %390
 
 383:                                              ; preds = %374
@@ -1184,7 +1184,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %387, label %390, label %388
 
 388:                                              ; preds = %384
-  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef nonnull %376, ptr noundef nonnull readonly %11)
+  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef nonnull %376, ptr noundef nonnull %11)
   %.not46.i.i = icmp eq ptr %389, null
   br i1 %.not46.i.i, label %390, label %aeron_msg_process.exit.i
 
@@ -1403,7 +1403,7 @@ dissect_aeron_data.exit:                          ; preds = %287, %293, %488, %4
   %497 = add i32 %.0101170, 8
   %498 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %497) #9
   %499 = load i32, ptr %53, align 4
-  %500 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %498, i32 noundef %499)
+  %500 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %498, i32 noundef %499)
   %501 = add i32 %.0101170, 12
   %502 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %501) #9
   %503 = add i32 %.0101170, 16
@@ -1498,7 +1498,7 @@ dissect_aeron_nak.exit:                           ; preds = %493, %496, %proto_i
   %556 = add i32 %.0101170, 8
   %557 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %556) #9
   %558 = load i32, ptr %53, align 4
-  %559 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %557, i32 noundef %558)
+  %559 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %557, i32 noundef %558)
   %560 = add i32 %.0101170, 12
   %561 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %560) #9
   %562 = add i32 %.0101170, 16
@@ -1707,7 +1707,7 @@ dissect_aeron_sm.exit:                            ; preds = %551, %573, %662, %6
   %671 = add i32 %.0101170, 8
   %672 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %671) #9
   %673 = load i32, ptr %53, align 4
-  %674 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %672, i32 noundef %673)
+  %674 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %672, i32 noundef %673)
   %675 = add i32 %.0101170, 12
   %676 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %675) #9
   %677 = add i32 %.0101170, 32
@@ -1830,7 +1830,7 @@ proto_item_set_generated.exit.i144:               ; preds = %689, %686, %670
   %762 = add i32 %.0101170, 12
   %763 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %762) #9
   %764 = load i32, ptr %53, align 4
-  %765 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %139, i32 noundef %763, i32 noundef %764)
+  %765 = call fastcc ptr @aeron_transport_add(ptr noundef %139, i32 noundef %763, i32 noundef %764)
   %766 = add i32 %.0101170, 16
   %767 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %766) #9
   %768 = add i32 %.0101170, 20
@@ -2172,7 +2172,7 @@ aeron_is_address_multicast.exit:                  ; preds = %24, %23, %19, %18, 
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds i8, ptr %0, i64 216
   %58 = load ptr, ptr %57, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i32 %54, ptr %14, align 8
   %59 = icmp eq i32 %56, 0
   br i1 %59, label %copy_address_wmem.exit, label %60
@@ -2201,7 +2201,7 @@ copy_address_wmem.exit:                           ; preds = %51, %60
   %72 = getelementptr inbounds i8, ptr %8, i64 16
   store i16 %71, ptr %72, align 8
   %73 = load i32, ptr %4, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 %67, ptr %16, align 8
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %copy_address_wmem.exit108, label %75
@@ -2226,7 +2226,7 @@ copy_address_wmem.exit108:                        ; preds = %copy_address_wmem.e
 84:                                               ; preds = %aeron_is_address_multicast.exit, %aeron_is_address_multicast.exit
   %85 = load ptr, ptr %6, align 8
   %86 = load i32, ptr %4, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i32 %.val, ptr %14, align 8
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %copy_address_wmem.exit109, label %88
@@ -2256,7 +2256,7 @@ copy_address_wmem.exit109:                        ; preds = %84, %88
   %102 = load i32, ptr %101, align 4
   %103 = getelementptr inbounds i8, ptr %0, i64 216
   %104 = load ptr, ptr %103, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 %100, ptr %16, align 8
   %105 = icmp eq i32 %102, 0
   br i1 %105, label %copy_address_wmem.exit110, label %106
@@ -2371,7 +2371,7 @@ aeron_is_address_multicast.exit114:               ; preds = %129, %128, %124, %1
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds i8, ptr %0, i64 216
   %163 = load ptr, ptr %162, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   store i32 %159, ptr %119, align 8
   %164 = icmp eq i32 %161, 0
   br i1 %164, label %copy_address_wmem.exit115, label %165
@@ -2400,7 +2400,7 @@ copy_address_wmem.exit115:                        ; preds = %156, %165
   %177 = getelementptr inbounds i8, ptr %8, i64 16
   store i16 %176, ptr %177, align 8
   %178 = load i32, ptr %4, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
   store i32 %172, ptr %121, align 8
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %copy_address_wmem.exit116, label %180
@@ -2425,7 +2425,7 @@ copy_address_wmem.exit116:                        ; preds = %copy_address_wmem.e
 189:                                              ; preds = %aeron_is_address_multicast.exit114, %aeron_is_address_multicast.exit114
   %190 = load ptr, ptr %6, align 8
   %191 = load i32, ptr %4, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   store i32 %.val106, ptr %119, align 8
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %copy_address_wmem.exit117, label %193
@@ -2455,7 +2455,7 @@ copy_address_wmem.exit117:                        ; preds = %189, %193
   %207 = load i32, ptr %206, align 4
   %208 = getelementptr inbounds i8, ptr %0, i64 216
   %209 = load ptr, ptr %208, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
   store i32 %205, ptr %121, align 8
   %210 = icmp eq i32 %207, 0
   br i1 %210, label %copy_address_wmem.exit118, label %211
@@ -2610,7 +2610,7 @@ define internal fastcc ptr @aeron_transport_add(ptr nocapture noundef readonly %
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds i8, ptr %50, i64 8
   %55 = load ptr, ptr %54, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   store i32 %51, ptr %49, align 8
   %56 = icmp eq i32 %53, 0
   br i1 %56, label %copy_address_wmem.exit, label %57
@@ -2635,7 +2635,7 @@ copy_address_wmem.exit:                           ; preds = %39, %57
   %68 = load i32, ptr %67, align 4
   %69 = getelementptr inbounds i8, ptr %65, i64 8
   %70 = load ptr, ptr %69, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %66, ptr %64, align 8
   %71 = icmp eq i32 %68, 0
   br i1 %71, label %copy_address_wmem.exit44, label %72
@@ -2947,7 +2947,7 @@ cmp_address.exit.thread.i.i.i:                    ; preds = %cmp_address.exit.th
   %148 = load i32, ptr %147, align 4
   %149 = getelementptr inbounds i8, ptr %0, i64 216
   %150 = load ptr, ptr %149, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
   store i32 %146, ptr %144, align 8
   %151 = icmp eq i32 %148, 0
   br i1 %151, label %copy_address_wmem.exit.i.i, label %152

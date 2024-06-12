@@ -649,7 +649,7 @@ format_number.exit.thread:                        ; preds = %._crit_edge.i26.i, 
   br i1 %149, label %.preheader.i.i, label %151
 
 .preheader.i.i:                                   ; preds = %150
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %148, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %148, i8 48, i64 6, i1 false)
   br label %format_number.exit155.thread323
 
 151:                                              ; preds = %150
@@ -756,7 +756,7 @@ format_number.exit155.thread:                     ; preds = %._crit_edge.i26.i15
   br i1 %185, label %.preheader.i.i164, label %187
 
 .preheader.i.i164:                                ; preds = %186
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %184, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %184, i8 48, i64 6, i1 false)
   br label %format_number.exit185.thread329
 
 187:                                              ; preds = %186
@@ -863,7 +863,7 @@ format_number.exit185.thread:                     ; preds = %._crit_edge.i26.i18
   br i1 %221, label %.preheader.i.i194, label %223
 
 .preheader.i.i194:                                ; preds = %222
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %220, i8 48, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %220, i8 48, i64 11, i1 false)
   br label %format_number.exit215.thread335
 
 223:                                              ; preds = %222
@@ -970,7 +970,7 @@ format_number.exit215.thread:                     ; preds = %._crit_edge.i26.i21
   br i1 %258, label %259, label %.preheader.i.i224
 
 .preheader.i.i224:                                ; preds = %257
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %256, i8 48, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %256, i8 48, i64 11, i1 false)
   br label %format_number.exit245.thread341
 
 259:                                              ; preds = %257
@@ -1068,7 +1068,7 @@ format_number.exit245.thread:                     ; preds = %._crit_edge.i26.i24
   br i1 %294, label %.preheader.i.i254, label %296
 
 .preheader.i.i254:                                ; preds = %295
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %293, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %293, i8 48, i64 6, i1 false)
   br label %format_number.exit275.thread347
 
 296:                                              ; preds = %295
@@ -1175,7 +1175,7 @@ format_number.exit275.thread:                     ; preds = %._crit_edge.i26.i27
   br i1 %330, label %.preheader.i.i284, label %332
 
 .preheader.i.i284:                                ; preds = %331
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %329, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %329, i8 48, i64 6, i1 false)
   br label %format_number.exit305.thread353
 
 332:                                              ; preds = %331

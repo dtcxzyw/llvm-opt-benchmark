@@ -172,7 +172,7 @@ Vec_PtrAlloc.exit234.i:                           ; preds = %64, %Vec_PtrAlloc.e
   %72 = shl nsw i32 %.val202.val.i, 1
   %73 = tail call ptr @Aig_ManStart(i32 noundef %72) #9
   %74 = tail call noalias dereferenceable_or_null(10) ptr @malloc(i64 noundef 10) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %74, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.8, i64 10, i1 false) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %74, ptr noundef nonnull align 1 dereferenceable(10) @.str.8, i64 10, i1 false) #9
   store ptr %74, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %73, i64 8
   store ptr null, ptr %75, align 8
@@ -278,10 +278,10 @@ Vec_PtrPush.exit.i:                               ; preds = %114, %Vec_PtrGrow.e
   br i1 %.not.i235.i, label %Abc_UtilStrsav.exit.i, label %125
 
 125:                                              ; preds = %Vec_PtrPush.exit.i
-  %126 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %124) #12
+  %126 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #12
   %127 = add i64 %126, 1
   %128 = tail call noalias ptr @malloc(i64 noundef %127) #10
-  %129 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull readonly dereferenceable(1) %124) #9
+  %129 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(1) %124) #9
   br label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %125, %Vec_PtrPush.exit.i
@@ -542,10 +542,10 @@ Vec_PtrPush.exit256.i:                            ; preds = %239, %Vec_PtrGrow.e
   br i1 %.not.i257.i, label %Abc_UtilStrsav.exit258.i, label %253
 
 253:                                              ; preds = %Vec_PtrPush.exit256.i
-  %254 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %252) #12
+  %254 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #12
   %255 = add i64 %254, 1
   %256 = tail call noalias ptr @malloc(i64 noundef %255) #10
-  %257 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull readonly dereferenceable(1) %252) #9
+  %257 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(1) %252) #9
   br label %Abc_UtilStrsav.exit258.i
 
 Abc_UtilStrsav.exit258.i:                         ; preds = %253, %Vec_PtrPush.exit256.i
@@ -1083,7 +1083,7 @@ Vec_PtrAlloc.exit328.i:                           ; preds = %522, %Vec_PtrAlloc.
   %530 = shl nsw i32 %.val293.val.i, 1
   %531 = tail call ptr @Aig_ManStart(i32 noundef %530) #9
   %532 = tail call noalias dereferenceable_or_null(10) ptr @malloc(i64 noundef 10) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %532, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.8, i64 10, i1 false) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %532, ptr noundef nonnull align 1 dereferenceable(10) @.str.8, i64 10, i1 false) #9
   store ptr %532, ptr %531, align 8
   %533 = getelementptr inbounds i8, ptr %531, i64 8
   store ptr null, ptr %533, align 8
@@ -1189,10 +1189,10 @@ Vec_PtrPush.exit.i72:                             ; preds = %572, %Vec_PtrGrow.e
   br i1 %.not.i329.i, label %Abc_UtilStrsav.exit.i73, label %583
 
 583:                                              ; preds = %Vec_PtrPush.exit.i72
-  %584 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %582) #12
+  %584 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %582) #12
   %585 = add i64 %584, 1
   %586 = tail call noalias ptr @malloc(i64 noundef %585) #10
-  %587 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %586, ptr noundef nonnull readonly dereferenceable(1) %582) #9
+  %587 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %586, ptr noundef nonnull dereferenceable(1) %582) #9
   br label %Abc_UtilStrsav.exit.i73
 
 Abc_UtilStrsav.exit.i73:                          ; preds = %583, %Vec_PtrPush.exit.i72
@@ -1274,7 +1274,7 @@ Vec_PtrPush.exit336.i:                            ; preds = %614, %Vec_PtrGrow.e
   %.0254.lcssa.i = phi ptr [ %.val294.i, %Vec_PtrAlloc.exit328.i ], [ %544, %Vec_PtrPush.exit336.i ]
   %623 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %531) #9
   %624 = tail call noalias dereferenceable_or_null(11) ptr @malloc(i64 noundef 11) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %624, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.9, i64 11, i1 false) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %624, ptr noundef nonnull align 1 dereferenceable(11) @.str.9, i64 11, i1 false) #9
   %625 = load ptr, ptr @vecPiNames, align 8
   %626 = getelementptr inbounds i8, ptr %625, i64 4
   %627 = load i32, ptr %626, align 4
@@ -1447,10 +1447,10 @@ Vec_PtrPush.exit350.i:                            ; preds = %695, %Vec_PtrGrow.e
   br i1 %.not.i351.i, label %Abc_UtilStrsav.exit352.i, label %709
 
 709:                                              ; preds = %Vec_PtrPush.exit350.i
-  %710 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %708) #12
+  %710 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %708) #12
   %711 = add i64 %710, 1
   %712 = tail call noalias ptr @malloc(i64 noundef %711) #10
-  %713 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %712, ptr noundef nonnull readonly dereferenceable(1) %708) #9
+  %713 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %712, ptr noundef nonnull dereferenceable(1) %708) #9
   br label %Abc_UtilStrsav.exit352.i
 
 Abc_UtilStrsav.exit352.i:                         ; preds = %709, %Vec_PtrPush.exit350.i
@@ -1598,7 +1598,7 @@ Vec_PtrPush.exit366.i:                            ; preds = %775, %Vec_PtrGrow.e
   %781 = getelementptr inbounds ptr, ptr %777, i64 %780
   store ptr %749, ptr %781, align 8
   %782 = tail call noalias dereferenceable_or_null(9) ptr @malloc(i64 noundef 9) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %782, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.13, i64 9, i1 false) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %782, ptr noundef nonnull align 1 dereferenceable(9) @.str.13, i64 9, i1 false) #9
   %783 = load ptr, ptr @vecLoNames, align 8
   %784 = getelementptr inbounds i8, ptr %783, i64 4
   %785 = load i32, ptr %784, align 4

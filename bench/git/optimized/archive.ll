@@ -188,7 +188,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path_in_archive, ptr noundef nonnull align 8 dereferenceable(24) @__const.reject_entry.sb, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %content, ptr noundef nonnull align 8 dereferenceable(24) @__const.reject_entry.sb, i64 24, i1 false)
   %call = tail call ptr @null_oid() #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %fake_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %call, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %fake_oid, ptr noundef nonnull align 4 dereferenceable(32) %call, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %fake_oid, i64 32
@@ -694,7 +694,7 @@ queue_directory.exit:                             ; preds = %st_add.exit22.i
   %len13.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   store i32 %call12.i, ptr %len13.i, align 8
   %oid14.i = getelementptr inbounds i8, ptr %call6.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid14.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid14.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   %29 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call6.i, i64 40
@@ -1181,7 +1181,7 @@ if.then221.i:                                     ; preds = %if.end217.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then221.i
   %26 = load ptr, ptr @archivers, align 8
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_hint) #20
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_hint) #20
   %wide.trip.count.i.i = zext nneg i32 %25 to i64
   br label %for.body.i.i
 
@@ -1190,7 +1190,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx.i.i, align 8
   %28 = load ptr, ptr %27, align 8
-  %call1.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %28) #20
+  %call1.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #20
   %sub.i.i.i = sub i64 %call.i.i.i, %call1.i.i.i
   %conv.i.i.i = trunc i64 %sub.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv.i.i.i, 2
@@ -1207,7 +1207,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
 match_extension.exit.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %idx.ext.i.i.i = and i64 %sub.i.i.i, 2147483647
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %name_hint, i64 %idx.ext.i.i.i
-  %call7.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %28) #20
+  %call7.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(1) %28) #20
   %tobool.not.i.not.i.i = icmp eq i32 %call7.i.i.i, 0
   br i1 %tobool.not.i.not.i.i, label %archive_format_from_filename.exit.i, label %for.inc.i.i
 
@@ -1259,7 +1259,7 @@ for.body.i28.i:                                   ; preds = %for.cond.i.i, %for.
   %arrayidx.i30.i = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i29.i
   %34 = load ptr, ptr %arrayidx.i30.i, align 8
   %35 = load ptr, ptr %34, align 8
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %35) #20
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %35) #20
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %lor.lhs.false233.i, label %for.cond.i.i
 
@@ -1575,7 +1575,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr @archivers, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %filename) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #20
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
@@ -1584,7 +1584,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load ptr, ptr %2, align 8
-  %call1.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #20
+  %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   %sub.i = sub i64 %call.i, %call1.i
   %conv.i = trunc i64 %sub.i to i32
   %cmp.i = icmp slt i32 %conv.i, 2
@@ -1601,7 +1601,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
 match_extension.exit:                             ; preds = %lor.lhs.false.i
   %idx.ext.i = and i64 %sub.i, 2147483647
   %add.ptr.i = getelementptr inbounds i8, ptr %filename, i64 %idx.ext.i
-  %call7.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %3) #20
+  %call7.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %3) #20
   %tobool.not.i.not = icmp eq i32 %call7.i, 0
   br i1 %tobool.not.i.not, label %return, label %for.inc
 

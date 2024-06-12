@@ -113,12 +113,12 @@ gv_calloc.exit:                                   ; preds = %10
   %42 = getelementptr inbounds i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(4) @.str) #18
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(4) @.str) #18
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %36
-  %48 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(8) @.str.1) #18
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(8) @.str.1) #18
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %isBox.exit.thread
 
@@ -627,7 +627,7 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(4) @.str) #18
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(4) @.str) #18
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %70
 
@@ -637,7 +637,7 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   br label %153
 
 70:                                               ; preds = %.loopexit
-  %71 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(8) @.str.1) #18
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(8) @.str.1) #18
   %72 = icmp eq i32 %71, 0
   %73 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %73, 4

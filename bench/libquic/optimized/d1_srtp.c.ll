@@ -59,7 +59,7 @@ while.body.i:                                     ; preds = %if.end.i, %cond.end
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef readonly %ptr.0, i64 noundef %cond) #6
+  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %ptr.0, i64 noundef %cond) #6
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then5, label %if.end.i
 
@@ -131,7 +131,7 @@ entry:
 define hidden range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles.i = getelementptr inbounds i8, ptr %ctx, i64 568
-  %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull writeonly %srtp_profiles.i)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i)
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext
 }
@@ -140,7 +140,7 @@ entry:
 define hidden range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles.i = getelementptr inbounds i8, ptr %ssl, i64 328
-  %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull writeonly %srtp_profiles.i)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i)
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext
 }

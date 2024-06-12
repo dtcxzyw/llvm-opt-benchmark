@@ -273,7 +273,7 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit:    ; preds = %87, %89, %91, %93
 
 _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %103, %105, %107, %109
   %.not238 = icmp ne i32 %3, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %13, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %13, i8 0, i64 36, i1 false)
   %110 = fpext <2 x float> %54 to <2 x double>
   %111 = fdiv <2 x double> <double 0x401921FB54442D18, double 0x401921FB54442D18>, %110
   %112 = fptrunc <2 x double> %111 to <2 x float>

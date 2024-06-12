@@ -1080,7 +1080,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEEE, i64 0) #28
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEEE, i64 0) #28
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -1900,7 +1900,7 @@ invoke.cont:                                      ; preds = %invoke.cont4.i.i
   %v_.i3.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store double %5, ptr %v_.i3.i.i, align 8
   %hnq_.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %hnq_.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hnq_.i.i.i, i8 0, i64 24, i1 false)
   %rng_.i.i = getelementptr inbounds i8, ptr %call, i64 96
   store i64 3337843704530833496, ptr %rng_.i.i, align 16
   %ref.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 104
@@ -51712,7 +51712,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_125ZipfDistributionTyp
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i) #28
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_125ZipfDistributionTypedTestENS0_11TemplateSelINS2_44ZipfDistributionTypedTest_SerializeTest_TestEEENS0_5TypesIiJlhtjmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_125ZipfDistributionTypedTestENS0_11TemplateSelINS2_44ZipfDistributionTypedTest_SerializeTest_TestEEENS0_5TypesIiJlhtjmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 lpad.i8.i:                                        ; preds = %call.i.noexc.i.i, %invoke.cont7.i

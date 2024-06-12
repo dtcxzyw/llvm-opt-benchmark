@@ -26724,7 +26724,7 @@ define noalias noundef nonnull ptr @rocksdb_filterpolicy_create_bloom_format(dou
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ40rocksdb_filterpolicy_create_bloom_formatE7Wrapper, i64 16), ptr %call, align 8
   %call1 = tail call noundef ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef %bits_per_key, i1 noundef zeroext %original_format)
   %rep_ = getelementptr inbounds i8, ptr %call, i64 56
@@ -26749,7 +26749,7 @@ define noalias noundef nonnull ptr @rocksdb_filterpolicy_create_bloom_full(doubl
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   %options_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ40rocksdb_filterpolicy_create_bloom_formatE7Wrapper, i64 16), ptr %call.i, align 8
   %call1.i = tail call noundef ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef %bits_per_key, i1 noundef zeroext false)
   %rep_.i = getelementptr inbounds i8, ptr %call.i, i64 56
@@ -26766,7 +26766,7 @@ define noalias noundef nonnull ptr @rocksdb_filterpolicy_create_bloom(double nou
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   %options_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ40rocksdb_filterpolicy_create_bloom_formatE7Wrapper, i64 16), ptr %call.i, align 8
   %call1.i = tail call noundef ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef %bits_per_key, i1 noundef zeroext true)
   %rep_.i = getelementptr inbounds i8, ptr %call.i, i64 56
@@ -26783,7 +26783,7 @@ define noalias noundef nonnull ptr @rocksdb_filterpolicy_create_ribbon_format(do
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ41rocksdb_filterpolicy_create_ribbon_formatE7Wrapper, i64 16), ptr %call, align 8
   %call1 = tail call noundef ptr @_ZN7rocksdb21NewRibbonFilterPolicyEdi(double noundef %bloom_equivalent_bits_per_key, i32 noundef %bloom_before_level)
   %rep_ = getelementptr inbounds i8, ptr %call, i64 56
@@ -26808,7 +26808,7 @@ define noalias noundef nonnull ptr @rocksdb_filterpolicy_create_ribbon(double no
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   %options_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ41rocksdb_filterpolicy_create_ribbon_formatE7Wrapper, i64 16), ptr %call.i, align 8
   %call1.i = tail call noundef ptr @_ZN7rocksdb21NewRibbonFilterPolicyEdi(double noundef %bloom_equivalent_bits_per_key, i32 noundef -1)
   %rep_.i = getelementptr inbounds i8, ptr %call.i, i64 56
@@ -26825,7 +26825,7 @@ define noalias noundef nonnull ptr @rocksdb_filterpolicy_create_ribbon_hybrid(do
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #38
   %options_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ41rocksdb_filterpolicy_create_ribbon_formatE7Wrapper, i64 16), ptr %call.i, align 8
   %call1.i = tail call noundef ptr @_ZN7rocksdb21NewRibbonFilterPolicyEdi(double noundef %bloom_equivalent_bits_per_key, i32 noundef %bloom_before_level)
   %rep_.i = getelementptr inbounds i8, ptr %call.i, i64 56

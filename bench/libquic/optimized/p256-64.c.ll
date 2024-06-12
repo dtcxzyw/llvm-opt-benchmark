@@ -239,7 +239,7 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %sub41.i.i.i = add nuw nsw i128 %10, %shl13.i.i.i
   %add56.i.i.i = sub nuw nsw i128 %sub41.i.i.i, %add.i.i20.i
   store i128 %add56.i.i.i, ptr %arrayidx10.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull readonly %z1, ptr noundef nonnull %ftmp.i)
+  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %z1, ptr noundef nonnull %ftmp.i)
   %11 = load i128, ptr %tmp.i, align 16
   %12 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i25.i = add i128 %12, 1267650600228229401496703205376
@@ -1692,7 +1692,7 @@ for.end84.i:                                      ; preds = %for.body77.i
   store i128 %add52.i.i1145.i, ptr %arrayidx5.i1151.i, align 16
   %arrayidx7.i1153.i = getelementptr inbounds i8, ptr %e64.i, i64 48
   store i128 %add56.i.i1147.i, ptr %arrayidx7.i1153.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull readonly %z1)
+  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull %z1)
   %142 = load i128, ptr %tmp.i, align 16
   %143 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i1156.i = add i128 %143, 1267650600228229401496703205376
@@ -3044,7 +3044,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %sub41.i.i2188.i = add nuw nsw i128 %273, %shl13.i.i2173.i
   %add56.i.i2195.i = sub nuw nsw i128 %sub41.i.i2188.i, %add.i.i2166.i
   store i128 %add56.i.i2195.i, ptr %arrayidx10.i1304.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull readonly %z1)
+  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull %z1)
   %274 = load i128, ptr %tmp.i, align 16
   %275 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i2198.i = add i128 %275, 1267650600228229401496703205376
@@ -3935,7 +3935,7 @@ if.then113:                                       ; preds = %for.body111
   %34 = load i64, ptr %arrayidx114.i211, align 8
   %conv9.i19.i = zext i64 %34 to i128
   store i128 %conv9.i19.i, ptr %arrayidx10.i20.i, align 16
-  call fastcc void @point_add(ptr noundef nonnull %felem_x3.i, ptr noundef nonnull %felem_y3.i, ptr noundef nonnull %felem_z3.i, ptr noundef nonnull %felem_x1.i, ptr noundef nonnull %felem_y1.i, ptr noundef nonnull %felem_z1.i, i32 noundef 0, ptr noundef readonly %arrayidx139, ptr noundef nonnull readonly %arrayidx145, ptr noundef nonnull readonly %arrayidx150)
+  call fastcc void @point_add(ptr noundef nonnull %felem_x3.i, ptr noundef nonnull %felem_y3.i, ptr noundef nonnull %felem_z3.i, ptr noundef nonnull %felem_x1.i, ptr noundef nonnull %felem_y1.i, ptr noundef nonnull %felem_z1.i, i32 noundef 0, ptr noundef %arrayidx139, ptr noundef nonnull %arrayidx145, ptr noundef nonnull %arrayidx150)
   %35 = load i128, ptr %arrayidx.i.i, align 16
   %add.i.i = add i128 %35, 18446744069414584320
   %36 = load i128, ptr %arrayidx1.i.i, align 16
@@ -6872,7 +6872,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv113.i.i796 = trunc i128 %add98.i.i792 to i64
   %arrayidx114.i.i797 = getelementptr inbounds i8, ptr %small2.i, i64 24
   store i64 %conv113.i.i796, ptr %arrayidx114.i.i797, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull writeonly %tmp, ptr noundef nonnull readonly %small4, ptr noundef nonnull %small2.i)
+  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small4, ptr noundef nonnull %small2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i)
   %168 = load i128, ptr %tmp, align 16
   %add.i798 = add i128 %168, 1267650600228229401427983728624
@@ -7015,7 +7015,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv113.i.i937 = trunc i128 %add98.i.i933 to i64
   %arrayidx114.i.i938 = getelementptr inbounds i8, ptr %small2.i884, i64 24
   store i64 %conv113.i.i937, ptr %arrayidx114.i.i938, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull writeonly %tmp, ptr noundef readonly %y2, ptr noundef nonnull %small2.i884)
+  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef %y2, ptr noundef nonnull %small2.i884)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i884)
   %193 = load i128, ptr %tmp, align 16
   %194 = load i128, ptr %arrayidx8.i, align 16
@@ -7570,7 +7570,7 @@ if.end83:                                         ; preds = %if.end
   %conv113.i.i1515 = trunc i128 %add98.i.i1511 to i64
   %arrayidx114.i.i1516 = getelementptr inbounds i8, ptr %small2.i1462, i64 24
   store i64 %conv113.i.i1515, ptr %arrayidx114.i.i1516, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull writeonly %tmp, ptr noundef nonnull readonly %small1, ptr noundef nonnull %small2.i1462)
+  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small1, ptr noundef nonnull %small2.i1462)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i1462)
   call fastcc void @felem_mul(ptr noundef nonnull %tmp2, ptr noundef nonnull %ftmp6, ptr noundef nonnull %ftmp2)
   %272 = load i128, ptr %tmp2, align 16
@@ -8207,7 +8207,7 @@ entry:
   %conv113.i.i176 = trunc i128 %add98.i.i172 to i64
   %arrayidx114.i.i177 = getelementptr inbounds i8, ptr %small2.i, i64 24
   store i64 %conv113.i.i176, ptr %arrayidx114.i.i177, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull writeonly %tmp, ptr noundef nonnull readonly %small1, ptr noundef nonnull %small2.i)
+  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small1, ptr noundef nonnull %small2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i)
   %32 = load i128, ptr %tmp, align 16
   %33 = load i128, ptr %arrayidx8.i774, align 16
@@ -8700,7 +8700,7 @@ entry:
   %conv113.i.i626 = trunc i128 %add98.i.i622 to i64
   %arrayidx114.i.i627 = getelementptr inbounds i8, ptr %small2.i573, i64 24
   store i64 %conv113.i.i626, ptr %arrayidx114.i.i627, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull writeonly %tmp, ptr noundef nonnull readonly %small2, ptr noundef nonnull %small2.i573)
+  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small2, ptr noundef nonnull %small2.i573)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i573)
   %93 = load i64, ptr %small1, align 16
   %conv.i628 = zext i64 %93 to i128

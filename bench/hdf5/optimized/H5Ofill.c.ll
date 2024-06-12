@@ -352,7 +352,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_encode(ptr noundef %0, i1
 33:                                               ; preds = %15
   %34 = getelementptr inbounds i8, ptr %3, i64 4
   %35 = load i64, ptr %16, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %34, ptr nonnull align 1 %32, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %32, i64 %35, i1 false)
   br label %H5O__fill_old_encode.exit
 
 H5O__fill_old_encode.exit:                        ; preds = %33, %15, %8, %11
@@ -1193,7 +1193,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   br i1 %.not58.i, label %H5O__fill_new_encode.exit, label %59
 
 59:                                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %53, ptr nonnull align 1 %58, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %58, i64 %54, i1 false)
   br label %H5O__fill_new_encode.exit
 
 60:                                               ; preds = %15
@@ -1244,7 +1244,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   %92 = getelementptr inbounds i8, ptr %4, i64 64
   %93 = load ptr, ptr %92, align 8
   %94 = load i64, ptr %68, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %91, ptr align 1 %93, i64 %94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %93, i64 %94, i1 false)
   br label %H5O__fill_new_encode.exit
 
 95:                                               ; preds = %73

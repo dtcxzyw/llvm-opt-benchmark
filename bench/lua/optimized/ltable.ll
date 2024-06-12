@@ -102,7 +102,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   br i1 %cmp6.i, label %findindex.exit, label %if.else.i31
 
 if.else.i31:                                      ; preds = %cond.end.i
-  %call9.i = tail call fastcc ptr @getgeneric(ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %key, i32 noundef 1)
+  %call9.i = tail call fastcc ptr @getgeneric(ptr noundef nonnull %t, ptr noundef nonnull %key, i32 noundef 1)
   %tt_10.i = getelementptr inbounds i8, ptr %call9.i, i64 8
   %5 = load i8, ptr %tt_10.i, align 8
   %cmp12.i = icmp eq i8 %5, 32
@@ -1796,7 +1796,7 @@ if.end46:                                         ; preds = %while.body.i
   store i64 %call32.val72, ptr %key.i, align 8
   %tt_.i75 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i8 %call32.val, ptr %tt_.i75, align 8
-  %call.i76 = call fastcc ptr @mainpositionTV(ptr noundef nonnull readonly %t, ptr noundef nonnull %key.i)
+  %call.i76 = call fastcc ptr @mainpositionTV(ptr noundef nonnull %t, ptr noundef nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i)
   %cmp48.not = icmp eq ptr %call.i76, %call32
   br i1 %cmp48.not, label %if.else71, label %while.cond

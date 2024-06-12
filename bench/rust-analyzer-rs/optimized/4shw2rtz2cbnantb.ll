@@ -599,7 +599,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %3 = alloca { { { i64, [1 x i64] } } }, align 8
   %4 = alloca { { { i64, [1 x i64] } }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %5 = load i64, ptr %4, align 8, !range !79, !alias.scope !76, !noalias !73, !noundef !4
   %6 = getelementptr inbounds i8, ptr %4, i64 8

@@ -621,8 +621,8 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io18BufferOutputStreamE, i64 152), ptr %0, align 8
   %buffer_.i = getelementptr inbounds i8, ptr %call, i64 8
   %capacity_.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %buffer_.i, i8 0, i64 17, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %capacity_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %buffer_.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %capacity_.i, i8 0, i64 24, i1 false)
   call void @_ZNSt12__shared_ptrIN5arrow2io18BufferOutputStreamELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %ptr, ptr noundef nonnull %call)
   %2 = load ptr, ptr %ptr, align 16
   invoke void @_ZN5arrow2io18BufferOutputStream5ResetElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 noundef %initial_capacity, ptr noundef %pool)

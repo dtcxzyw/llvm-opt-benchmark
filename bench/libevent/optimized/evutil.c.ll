@@ -126,7 +126,7 @@ entry:
   %st = alloca %struct.stat, align 8
   store ptr null, ptr %content_out, align 8
   store i64 0, ptr %len_out, align 8
-  %call.i = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %filename, i32 noundef 524288, i32 noundef 0) #30
+  %call.i = tail call i32 (ptr, i32, ...) @open(ptr noundef %filename, i32 noundef 524288, i32 noundef 0) #30
   %cmp.i = icmp sgt i32 %call.i, -1
   br i1 %cmp.i, label %if.end, label %lor.lhs.false.i
 
@@ -137,7 +137,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call3.i = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %filename, i32 noundef 0, i32 noundef 0) #30
+  %call3.i = tail call i32 (ptr, i32, ...) @open(ptr noundef %filename, i32 noundef 0, i32 noundef 0) #30
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end6.i
 
@@ -2334,7 +2334,7 @@ entry:
   br i1 %tobool.not.i, label %evutil_vsnprintf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i32 @vsnprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly %format, ptr noundef nonnull %ap) #30
+  %call.i = call i32 @vsnprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef %format, ptr noundef nonnull %ap) #30
   %0 = getelementptr i8, ptr %buf, i64 %buflen
   %arrayidx.i = getelementptr i8, ptr %0, i64 -1
   store i8 0, ptr %arrayidx.i, align 1
@@ -3689,7 +3689,7 @@ do.body:                                          ; preds = %if.then
 
 if.then10:                                        ; preds = %entry
   %sin6_addr = getelementptr inbounds i8, ptr %sa, i64 8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %sin6_addr, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %sin6_addr, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end21, label %lor.lhs.false.i
 

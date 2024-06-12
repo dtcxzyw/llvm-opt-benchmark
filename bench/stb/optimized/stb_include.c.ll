@@ -453,7 +453,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %add.i = add i64 %sub, %textlen.0109
   %call.i = call ptr @realloc(ptr noundef %text.0111, i64 noundef %add.i) #15
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %textlen.0109
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %add.ptr, i64 %sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr, i64 %sub, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %temp, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false) #16
   store i64 2319670605422534688, ptr %add.ptr5, align 2
   store i8 0, ptr %arrayidx2.i, align 2
@@ -483,7 +483,7 @@ if.end:                                           ; preds = %stb_include_itoa.ex
   %add.i41 = add i64 %call28, %add.i
   %call.i42 = call ptr @realloc(ptr noundef %call.i, i64 noundef %add.i41) #15
   %add.ptr.i43 = getelementptr inbounds i8, ptr %call.i42, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i43, ptr nonnull readonly align 16 %temp, i64 %call28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i43, ptr nonnull align 16 %temp, i64 %call28, i1 false)
   br i1 %cmp13, label %if.then35, label %if.else42
 
 if.then35:                                        ; preds = %if.end
@@ -494,7 +494,7 @@ if.then38:                                        ; preds = %if.then35
   %add.i45 = add i64 %call39, %add.i41
   %call.i46 = call ptr @realloc(ptr noundef %call.i42, i64 noundef %add.i45) #15
   %add.ptr.i47 = getelementptr inbounds i8, ptr %call.i46, i64 %add.i41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i47, ptr nonnull readonly align 1 %inject, i64 %call39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i47, ptr nonnull align 1 %inject, i64 %call39, i1 false)
   br label %if.end60
 
 if.else42:                                        ; preds = %if.end
@@ -545,7 +545,7 @@ if.end57:                                         ; preds = %stb_include_file.ex
   %add.i53 = add i64 %call58, %add.i41
   %call.i54 = call ptr @realloc(ptr noundef %call.i42, i64 noundef %add.i53) #15
   %add.ptr.i55 = getelementptr inbounds i8, ptr %call.i54, i64 %add.i41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i55, ptr nonnull readonly align 1 %call4.i, i64 %call58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i55, ptr nonnull align 1 %call4.i, i64 %call58, i1 false)
   call void @free(ptr noundef nonnull %call4.i) #16
   br label %if.end60
 
@@ -585,7 +585,7 @@ stb_include_itoa.exit70:                          ; preds = %for.body5.i58
   %add.i71 = add i64 %call75, %textlen.1
   %call.i72 = call ptr @realloc(ptr noundef %text.1, i64 noundef %add.i71) #15
   %add.ptr.i73 = getelementptr inbounds i8, ptr %call.i72, i64 %textlen.1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i73, ptr nonnull readonly align 16 %temp, i64 %call75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i73, ptr nonnull align 16 %temp, i64 %call75, i1 false)
   %end = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 1
   %6 = load i32, ptr %end, align 4
   %conv79 = sext i32 %6 to i64
@@ -603,7 +603,7 @@ for.end:                                          ; preds = %stb_include_itoa.ex
   %add.i75 = add i64 %add, %textlen.0.lcssa
   %call.i76 = call ptr @realloc(ptr noundef %text.0.lcssa, i64 noundef %add.i75) #15
   %add.ptr.i77 = getelementptr inbounds i8, ptr %call.i76, i64 %textlen.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i77, ptr readonly align 1 %add.ptr81, i64 %add, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i77, ptr align 1 %add.ptr81, i64 %add, i1 false)
   br i1 %cmp108, label %for.body.preheader.i80, label %stb_include_free_includes.exit87
 
 for.body.preheader.i80:                           ; preds = %for.end

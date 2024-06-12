@@ -2452,7 +2452,7 @@ invoke.cont9:                                     ; preds = %if.then8
   br i1 %cmp.i25, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont9
-  invoke void @_ZN6Assimp11COBImporter22UnsupportedChunk_AsciiERNS_12LineSplitterERKNS_3COB9ChunkInfoEPKc(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(51) %splitter, ptr noundef nonnull readonly align 4 dereferenceable(16) %ci, ptr noundef nonnull @.str.90)
+  invoke void @_ZN6Assimp11COBImporter22UnsupportedChunk_AsciiERNS_12LineSplitterERKNS_3COB9ChunkInfoEPKc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(51) %splitter, ptr noundef nonnull align 4 dereferenceable(16) %ci, ptr noundef nonnull @.str.90)
           to label %if.end11 unwind label %lpad
 
 if.end.i:                                         ; preds = %invoke.cont9
@@ -2611,7 +2611,7 @@ invoke.cont45:                                    ; preds = %if.then44
   br i1 %cmp.i99, label %if.then.i101, label %if.end47
 
 if.then.i101:                                     ; preds = %invoke.cont45
-  invoke void @_ZN6Assimp11COBImporter22UnsupportedChunk_AsciiERNS_12LineSplitterERKNS_3COB9ChunkInfoEPKc(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(51) %splitter, ptr noundef nonnull readonly align 4 dereferenceable(16) %ci, ptr noundef nonnull @.str.62)
+  invoke void @_ZN6Assimp11COBImporter22UnsupportedChunk_AsciiERNS_12LineSplitterERKNS_3COB9ChunkInfoEPKc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(51) %splitter, ptr noundef nonnull align 4 dereferenceable(16) %ci, ptr noundef nonnull @.str.62)
           to label %if.end47 unwind label %lpad
 
 if.end47:                                         ; preds = %if.end41, %invoke.cont45, %if.then.i101, %land.rhs.i91

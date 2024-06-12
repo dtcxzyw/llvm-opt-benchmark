@@ -523,7 +523,7 @@ buffer_reserve.exit:                              ; preds = %trace_buffer_move.e
   %buffer1.i = getelementptr inbounds i8, ptr %to, i64 32
   %16 = load ptr, ptr %buffer1.i, align 8
   %add.ptr.i = getelementptr i8, ptr %16, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %15, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %15, i64 %14, i1 false)
   %17 = load i64, ptr %offset, align 8
   %add.i = add i64 %17, %14
   store i64 %add.i, ptr %offset, align 8

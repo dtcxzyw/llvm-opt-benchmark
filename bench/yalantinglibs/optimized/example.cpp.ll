@@ -10878,9 +10878,9 @@ if.else.i.i:                                      ; preds = %invoke.cont10.i.i
   %call14.i.i = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
   store i8 91, ptr %ref.tmp17.i.i, align 1, !alias.scope !77
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp17.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp17.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i, i64 %call14.i.i, i32 noundef 4, i64 26, ptr nonnull %ref.tmp17.i.i)
           to label %invoke.cont23.i.i unwind label %lpad.i.i
 
@@ -11302,9 +11302,9 @@ if.else.i66.i:                                    ; preds = %invoke.cont10.i59.i
   %call14.i67.i = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
   store i8 91, ptr %ref.tmp17.i10.i, align 1, !alias.scope !80
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i68.i = getelementptr inbounds i8, ptr %ref.tmp17.i10.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i68.i, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i68.i, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE4EZ21test_coro_http_servervE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i69.i = getelementptr inbounds i8, ptr %ref.tmp17.i10.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i69.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i69.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i9.i, i64 %call14.i67.i, i32 noundef 4, i64 26, ptr nonnull %ref.tmp17.i10.i)
           to label %invoke.cont23.i70.i unwind label %lpad.i52.i
 
@@ -11798,9 +11798,9 @@ if.else.i.i244:                                   ; preds = %invoke.cont10.i.i77
   %call14.i.i245 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
   store i8 91, ptr %ref.tmp17.i.i22, align 1, !alias.scope !83
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i246 = getelementptr inbounds i8, ptr %ref.tmp17.i.i22, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i246, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i246, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i247 = getelementptr inbounds i8, ptr %ref.tmp17.i.i22, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i247, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i247, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i21, i64 %call14.i.i245, i32 noundef 4, i64 26, ptr nonnull %ref.tmp17.i.i22)
           to label %invoke.cont23.i.i248 unwind label %lpad.i.i68
 
@@ -12222,9 +12222,9 @@ if.else.i66.i152:                                 ; preds = %invoke.cont10.i59.i
   %call14.i67.i153 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
   store i8 91, ptr %ref.tmp17.i10.i18, align 1, !alias.scope !86
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i68.i154 = getelementptr inbounds i8, ptr %ref.tmp17.i10.i18, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i68.i154, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i68.i154, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i69.i155 = getelementptr inbounds i8, ptr %ref.tmp17.i10.i18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i69.i155, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i69.i155, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i9.i17, i64 %call14.i67.i153, i32 noundef 4, i64 26, ptr nonnull %ref.tmp17.i10.i18)
           to label %invoke.cont23.i70.i156 unwind label %lpad.i52.i128
 
@@ -12745,9 +12745,9 @@ if.else.i3.i:                                     ; preds = %invoke.cont10.i.i39
   %call14.i.i407 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
   store i8 91, ptr %ref.tmp17.i.i346, align 1, !alias.scope !89
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i408 = getelementptr inbounds i8, ptr %ref.tmp17.i.i346, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i408, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i.i.i408, ptr noundef nonnull align 1 dereferenceable(23) @"__const._ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ21test_coro_http_servervE3$_2EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.prefix", i64 23, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i409 = getelementptr inbounds i8, ptr %ref.tmp17.i.i346, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i409, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i.i.i409, ptr noundef nonnull align 1 dereferenceable(3) @.str.992, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i345, i64 %call14.i.i407, i32 noundef 4, i64 26, ptr nonnull %ref.tmp17.i.i346)
           to label %invoke.cont23.i.i410 unwind label %lpad.i.i392
 
@@ -12946,7 +12946,7 @@ call5.i.i.i.i.i.i.i.noexc.i.i:                    ; preds = %if.end33.i.i477
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i101.i.i, i64 24
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i101.i.i, i64 40
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i101.i.i, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_2E9_M_invokeERKSt9_Any_dataS6_S8_", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i101.i.i, ptr %_M_node.i.i.i.i.i.i, align 8
@@ -85980,7 +85980,7 @@ if.then106.i:                                     ; preds = %if.end90.i
 
 _ZN7cinatra6detailL13parse_requestEPKcS2_PS2_PmS3_S4_PiPNS_11http_headerES4_mS5_.exit: ; preds = %if.end97.i, %if.then106.i
   %buf.addr.3.i = phi ptr [ %incdec.ptr98.i, %if.end97.i ], [ %incdec.ptr107.i, %if.then106.i ]
-  %call111.i = call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf.addr.3.i, ptr noundef %add.ptr, ptr noundef writeonly %headers, ptr noundef nonnull %num_headers, i64 noundef %0, ptr noundef nonnull writeonly %r)
+  %call111.i = call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf.addr.3.i, ptr noundef %add.ptr, ptr noundef %headers, ptr noundef nonnull %num_headers, i64 noundef %0, ptr noundef nonnull %r)
   %cmp4 = icmp eq ptr %call111.i, null
   br i1 %cmp4, label %_ZN7cinatra6detailL13parse_requestEPKcS2_PS2_PmS3_S4_PiPNS_11http_headerES4_mS5_.exit.if.then5_crit_edge, label %if.end6
 
@@ -96842,7 +96842,7 @@ entry:
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN7cinatra17coro_http_requestERNS0_18coro_http_responseEEZ21test_coro_http_servervE3$_0E9_M_invokeERKSt9_Any_dataS2_S4_", ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN7cinatra17coro_http_requestERNS0_18coro_http_responseEEZ21test_coro_http_servervE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i, ptr %_M_node.i.i.i, align 8
@@ -97688,7 +97688,7 @@ entry:
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_1E9_M_invokeERKSt9_Any_dataS6_S8_", ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i, ptr %_M_node.i.i.i, align 8
@@ -98575,7 +98575,7 @@ if.then5.i:
   %v = getelementptr inbounds i8, ptr %p, i64 8
   %p2 = getelementptr inbounds i8, ptr %p, i64 16
   %handler_ = getelementptr inbounds i8, ptr %base, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %handler, ptr noundef nonnull readonly align 8 dereferenceable(16) %handler_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler, ptr noundef nonnull align 8 dereferenceable(16) %handler_, i64 16, i1 false)
   store ptr null, ptr %p2, align 8
   %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %3 = load ptr, ptr %2, align 8
@@ -118862,7 +118862,7 @@ entry.resume:
 _ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS5_.exit.i.i: ; preds = %entry.resume
   %1 = load ptr, ptr %client1.reload.addr, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %0, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp8.reload.addr, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8.reload.addr, i8 0, i64 16, i1 false)
   %on_ws_close_.i = getelementptr inbounds i8, ptr %1, i64 3912
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
@@ -118912,7 +118912,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 _ZNSt8functionIFvN7cinatra9resp_dataEEEC2EOS3_.exit.i.i: ; preds = %_ZN7cinatra16coro_http_client11on_ws_closeESt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEE.exit, %if.then.i.i
   %9 = load ptr, ptr %client1.reload.addr, align 8
   %_M_manager.i.i6 = getelementptr inbounds i8, ptr %0, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp12.reload.addr, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.reload.addr, i8 0, i64 16, i1 false)
   %on_ws_msg_.i = getelementptr inbounds i8, ptr %9, i64 3880
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i9)
   %_M_invoker.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp.i.i9, i64 24

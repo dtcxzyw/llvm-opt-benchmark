@@ -754,7 +754,7 @@ IsValidCipherSuite.exit:                          ; preds = %if.end8.i, %if.else
 
 if.end21:                                         ; preds = %IsValidCipherSuite.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %cert.i)
-  %call.i64 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.60) #20
+  %call.i64 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.60) #20
   %cmp.i = icmp eq ptr %call.i64, null
   br i1 %cmp.i, label %IsValidCert.exit.thread115, label %if.end.i
 
@@ -804,7 +804,7 @@ IsValidCert.exit:                                 ; preds = %for.end.i
   br i1 %cmp15.i.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %IsValidCert.exit.thread115, %IsValidCert.exit
-  %call.i.i = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.61) #20
+  %call.i.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.61) #20
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end35, label %IsSslVersion.exit
 
@@ -1118,7 +1118,7 @@ if.end212:                                        ; preds = %for.body202
 
 for.end221:                                       ; preds = %if.end212, %if.end196, %if.then210
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %cert.i79)
-  %call.i80 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.68) #20
+  %call.i80 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @.str.68) #20
   %cmp.i81 = icmp eq ptr %call.i80, null
   br i1 %cmp.i81, label %IsValidCA.exit.thread124, label %if.end.i82
 

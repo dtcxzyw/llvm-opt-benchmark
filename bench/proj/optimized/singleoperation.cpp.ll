@@ -8032,7 +8032,7 @@ define hidden void @_ZNK5osgeo4proj9operation23OperationParameterValue12_exportT
 ; Function Attrs: uwtable
 define hidden void @_ZThn16_NK5osgeo4proj9operation23OperationParameterValue12_exportToWKTEPNS0_2io12WKTFormatterE(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZNK5osgeo4proj9operation23OperationParameterValue12_exportToWKTEPNS0_2io12WKTFormatterEPKNS1_13MethodMappingE(ptr noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noundef %1, ptr noundef null)
+  tail call void @_ZNK5osgeo4proj9operation23OperationParameterValue12_exportToWKTEPNS0_2io12WKTFormatterEPKNS1_13MethodMappingE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1, ptr noundef null)
   ret void
 }
 
@@ -28447,7 +28447,7 @@ _ZNK5osgeo4proj9operation15SingleOperation14parameterValueEi.exit.i1240: ; preds
 393:                                              ; preds = %388
   %394 = getelementptr inbounds i8, ptr %390, i64 8
   %395 = load ptr, ptr %394, align 8
-  %396 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %395, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6RADIANE) #41
+  %396 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %395, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6RADIANE) #41
   br label %_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEiRKNS0_6common13UnitOfMeasureE.exit
 
 _ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEiRKNS0_6common13UnitOfMeasureE.exit: ; preds = %_ZNK5osgeo4proj9operation15SingleOperation14parameterValueEi.exit.i1240, %388, %393

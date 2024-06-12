@@ -851,7 +851,7 @@ define dso_local i64 @multirange_out(ptr nocapture noundef readonly %0) local_un
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = call ptr @multirange_get_range(ptr noundef readonly %12, ptr noundef %6, i32 noundef %20)
+  %21 = call ptr @multirange_get_range(ptr noundef %12, ptr noundef %6, i32 noundef %20)
   %22 = getelementptr ptr, ptr %19, i64 %indvars.iv.i
   store ptr %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1047,7 +1047,7 @@ define dso_local i64 @multirange_send(ptr nocapture noundef readonly %0) local_u
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %29 = tail call ptr @multirange_get_range(ptr noundef readonly %21, ptr noundef %5, i32 noundef %28)
+  %29 = tail call ptr @multirange_get_range(ptr noundef %21, ptr noundef %5, i32 noundef %28)
   %30 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
   store ptr %29, ptr %30, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2151,7 +2151,7 @@ multirange_get_typcache.exit:                     ; preds = %24, %34
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %41 ]
   %45 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %46 = tail call ptr @multirange_get_range(ptr noundef readonly %39, ptr noundef %5, i32 noundef %45)
+  %46 = tail call ptr @multirange_get_range(ptr noundef %39, ptr noundef %5, i32 noundef %45)
   %47 = getelementptr ptr, ptr %44, i64 %indvars.iv.i
   store ptr %46, ptr %47, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2178,7 +2178,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i19:                                       ; preds = %51, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %.lr.ph.i19 ], [ 0, %51 ]
   %55 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %56 = tail call ptr @multirange_get_range(ptr noundef readonly %48, ptr noundef %9, i32 noundef %55)
+  %56 = tail call ptr @multirange_get_range(ptr noundef %48, ptr noundef %9, i32 noundef %55)
   %57 = getelementptr ptr, ptr %54, i64 %indvars.iv.i20
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
@@ -2280,7 +2280,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %40 ]
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %45 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %5, i32 noundef %44)
+  %45 = tail call ptr @multirange_get_range(ptr noundef %30, ptr noundef %5, i32 noundef %44)
   %46 = getelementptr ptr, ptr %43, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2308,7 +2308,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i15:                                       ; preds = %50, %.lr.ph.i15
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %.lr.ph.i15 ], [ 0, %50 ]
   %54 = trunc nuw nsw i64 %indvars.iv.i16 to i32
-  %55 = tail call ptr @multirange_get_range(ptr noundef readonly %47, ptr noundef %9, i32 noundef %54)
+  %55 = tail call ptr @multirange_get_range(ptr noundef %47, ptr noundef %9, i32 noundef %54)
   %56 = getelementptr ptr, ptr %53, i64 %indvars.iv.i16
   store ptr %55, ptr %56, align 8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
@@ -2522,7 +2522,7 @@ multirange_get_typcache.exit:                     ; preds = %16, %26
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %42 ]
   %46 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %47 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %5, i32 noundef %46)
+  %47 = tail call ptr @multirange_get_range(ptr noundef %30, ptr noundef %5, i32 noundef %46)
   %48 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
   store ptr %47, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2548,7 +2548,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i16:                                       ; preds = %51, %.lr.ph.i16
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %.lr.ph.i16 ], [ 0, %51 ]
   %55 = trunc nuw nsw i64 %indvars.iv.i17 to i32
-  %56 = tail call ptr @multirange_get_range(ptr noundef readonly %30, ptr noundef %9, i32 noundef %55)
+  %56 = tail call ptr @multirange_get_range(ptr noundef %30, ptr noundef %9, i32 noundef %55)
   %57 = getelementptr ptr, ptr %54, i64 %indvars.iv.i17
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -2960,7 +2960,7 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %57 ]
   %61 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %62 = call ptr @multirange_get_range(ptr noundef readonly %33, ptr noundef %53, i32 noundef %61)
+  %62 = call ptr @multirange_get_range(ptr noundef %33, ptr noundef %53, i32 noundef %61)
   %63 = getelementptr ptr, ptr %60, i64 %indvars.iv.i
   store ptr %62, ptr %63, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3090,7 +3090,7 @@ multirange_get_typcache.exit:                     ; preds = %19, %29
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %45 ]
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %50 = call ptr @multirange_get_range(ptr noundef readonly %41, ptr noundef %35, i32 noundef %49)
+  %50 = call ptr @multirange_get_range(ptr noundef %41, ptr noundef %35, i32 noundef %49)
   %51 = getelementptr ptr, ptr %48, i64 %indvars.iv.i
   store ptr %50, ptr %51, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3118,7 +3118,7 @@ multirange_deserialize.exit:                      ; preds = %multirange_deserial
 .lr.ph.i13:                                       ; preds = %56, %.lr.ph.i13
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.lr.ph.i13 ], [ 0, %56 ]
   %60 = trunc nuw nsw i64 %indvars.iv.i14 to i32
-  %61 = call ptr @multirange_get_range(ptr noundef readonly %52, ptr noundef %39, i32 noundef %60)
+  %61 = call ptr @multirange_get_range(ptr noundef %52, ptr noundef %39, i32 noundef %60)
   %62 = getelementptr ptr, ptr %59, i64 %indvars.iv.i14
   store ptr %61, ptr %62, align 8
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1

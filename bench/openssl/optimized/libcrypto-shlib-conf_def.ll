@@ -1086,7 +1086,7 @@ if.end286:                                        ; preds = %if.then277
   br i1 %cmp.not.i, label %if.then290, label %ossl_ends_with_dirsep.exit
 
 ossl_ends_with_dirsep.exit:                       ; preds = %if.end286
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call282) #14
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call282) #14
   %105 = getelementptr i8, ptr %call282, i64 %call.i
   %add.ptr.i = getelementptr i8, ptr %105, i64 -1
   %.pre.i306 = load i8, ptr %add.ptr.i, align 1

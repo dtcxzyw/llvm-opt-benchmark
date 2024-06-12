@@ -773,12 +773,12 @@ _ZNK6hermes2vm15StringPrimitive2atEj.exit.i:      ; preds = %_ZNK6hermes2vm15Str
   br i1 %cmp7.i, label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull readonly %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
+  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
   br label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit
 
 _ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit: ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %if.else.i
   %.sink.i = phi i32 [ 0, %if.else.i ], [ 1, %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i ]
-  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull readonly %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
+  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
   %call16.i = call noundef zeroext i1 @_ZN4llvh3sys4path11remove_dotsERNS_15SmallVectorImplIcEEbNS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %canonicalPath, i1 noundef zeroext true, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %appendToCanonical.i)
   %22 = load ptr, ptr %canonicalPath, align 8

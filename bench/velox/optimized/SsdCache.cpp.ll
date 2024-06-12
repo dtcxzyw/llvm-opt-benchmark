@@ -2751,7 +2751,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %dst, ptr noundef nonnull align 8 dereferenceable(12) %src, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %dst, ptr noundef nonnull align 8 dereferenceable(12) %src, i64 12, i1 false)
   %0 = getelementptr inbounds i8, ptr %dst, i64 16
   %1 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load ptr, ptr %1, align 8
@@ -2765,7 +2765,7 @@ sw.bb:                                            ; preds = %entry
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %dst, i64 32
   %5 = getelementptr inbounds i8, ptr %src, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   br label %sw.bb1
 
 sw.bb1:                                           ; preds = %sw.bb, %entry

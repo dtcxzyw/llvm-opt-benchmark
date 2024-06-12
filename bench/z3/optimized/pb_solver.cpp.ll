@@ -21861,7 +21861,7 @@ entry:
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull %s)
   %m_constraints.i = getelementptr inbounds i8, ptr %this, i64 744
-  tail call void @_ZN2pb6solver16copy_constraintsEPS0_RK10ptr_vectorINS_10constraintEE(ptr nonnull readonly align 8 poison, ptr noundef nonnull %call.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_constraints.i)
+  tail call void @_ZN2pb6solver16copy_constraintsEPS0_RK10ptr_vectorINS_10constraintEE(ptr nonnull align 8 poison, ptr noundef nonnull %call.i, ptr noundef nonnull align 8 dereferenceable(8) %m_constraints.i)
   ret ptr %call.i
 }
 
@@ -21897,7 +21897,7 @@ entry:
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull %1)
   %m_constraints.i = getelementptr inbounds i8, ptr %this, i64 744
-  tail call void @_ZN2pb6solver16copy_constraintsEPS0_RK10ptr_vectorINS_10constraintEE(ptr nonnull readonly align 8 poison, ptr noundef nonnull %call.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %m_constraints.i)
+  tail call void @_ZN2pb6solver16copy_constraintsEPS0_RK10ptr_vectorINS_10constraintEE(ptr nonnull align 8 poison, ptr noundef nonnull %call.i, ptr noundef nonnull align 8 dereferenceable(8) %m_constraints.i)
   ret ptr %call.i
 }
 

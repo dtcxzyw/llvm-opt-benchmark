@@ -475,7 +475,7 @@ list_length.exit64:                               ; preds = %list_length.exit62,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i8 0, ptr %8, align 1
   store i32 0, ptr %6, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %79, ptr noundef nonnull %6, i32 noundef %112, ptr noundef nonnull writeonly %8)
+  call fastcc void @findoprnd_recurse(ptr noundef %79, ptr noundef nonnull %6, i32 noundef %112, ptr noundef nonnull %8)
   %113 = load i32, ptr %6, align 4
   %.not.i65 = icmp eq i32 %113, %112
   br i1 %.not.i65, label %findoprnd.exit, label %114
@@ -2341,7 +2341,7 @@ switch.early.test:                                ; preds = %73
   %106 = load i32, ptr %105, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %104, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull writeonly %3)
+  call fastcc void @findoprnd_recurse(ptr noundef %104, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %3)
   %107 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %107, %7
   br i1 %.not.i, label %findoprnd.exit, label %108

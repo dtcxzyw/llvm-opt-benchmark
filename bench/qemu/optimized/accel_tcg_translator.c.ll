@@ -416,7 +416,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i
@@ -578,7 +578,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i
@@ -748,7 +748,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i
@@ -917,7 +917,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i

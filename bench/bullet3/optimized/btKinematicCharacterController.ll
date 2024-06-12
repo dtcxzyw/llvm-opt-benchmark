@@ -266,7 +266,7 @@ _ZN30btKinematicCharacterController10setGravityERK9btVector3.exit.i: ; preds = %
   br label %invoke.cont37
 
 if.end.i:                                         ; preds = %invoke.cont9
-  invoke void @_ZN30btKinematicCharacterController11setUpVectorERK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef nonnull readonly align 4 dereferenceable(16) %up)
+  invoke void @_ZN30btKinematicCharacterController11setUpVectorERK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef nonnull align 4 dereferenceable(16) %up)
           to label %invoke.cont37 unwind label %lpad10
 
 invoke.cont37:                                    ; preds = %if.end.i, %_ZN30btKinematicCharacterController10setGravityERK9btVector3.exit.i

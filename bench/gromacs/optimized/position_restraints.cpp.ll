@@ -146,7 +146,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
   %72 = sext i32 %69 to i64
   %73 = getelementptr inbounds [3 x float], ptr %3, i64 %72
   %74 = getelementptr inbounds i8, ptr %71, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %73, ptr noundef readonly %71, ptr noundef nonnull readonly %74, ptr noundef nonnull %10, ptr noundef nonnull %11, float noundef %34, ptr noundef %30, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %73, ptr noundef %71, ptr noundef nonnull %74, ptr noundef nonnull %10, ptr noundef nonnull %11, float noundef %34, ptr noundef %30, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %75 = getelementptr inbounds i8, ptr %71, i64 12
   %76 = getelementptr inbounds i8, ptr %71, i64 36
   br label %77
@@ -1012,7 +1012,7 @@ define void @_Z16fbposres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_K
   %62 = getelementptr inbounds %union.t_iparams, ptr %25, i64 %61
   %63 = sext i32 %60 to i64
   %64 = getelementptr inbounds [3 x float], ptr %3, i64 %63
-  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %64, ptr noundef readonly %62, ptr noundef readonly %62, ptr noundef nonnull %9, ptr noundef nonnull %9, float noundef 0.000000e+00, ptr noundef %29, i32 noundef %31, i32 noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %64, ptr noundef %62, ptr noundef %62, ptr noundef nonnull %9, ptr noundef nonnull %9, float noundef 0.000000e+00, ptr noundef %29, i32 noundef %31, i32 noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12)
   store <2 x float> zeroinitializer, ptr %13, align 8
   store float 0.000000e+00, ptr %50, align 8
   %65 = getelementptr inbounds i8, ptr %62, i64 16

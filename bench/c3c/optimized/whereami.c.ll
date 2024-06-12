@@ -32,7 +32,7 @@ get_executable_path_raw.exit.thread33:            ; preds = %4
 get_executable_path_raw.exit:                     ; preds = %4
   %sext.i = shl i64 %5, 32
   %7 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4294967296 null, ptr nonnull align 1 %3, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4294967296 null, ptr nonnull align 1 %3, i64 %7, i1 false)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
   %8 = icmp slt i32 %6, 0
   br i1 %8, label %34, label %9
@@ -55,7 +55,7 @@ get_executable_path_raw.exit:                     ; preds = %4
 17:                                               ; preds = %14
   %sext.i29 = shl i64 %15, 32
   %18 = ashr exact i64 %sext.i29, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %12, ptr nonnull align 1 %13, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %13, i64 %18, i1 false)
   br label %get_executable_path_raw.exit31
 
 get_executable_path_raw.exit31:                   ; preds = %9, %14, %17

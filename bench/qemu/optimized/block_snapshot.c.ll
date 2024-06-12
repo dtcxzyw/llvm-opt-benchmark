@@ -1205,7 +1205,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i
   %name5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
-  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull readonly dereferenceable(1) %name) #8
+  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %if.end15, label %for.cond.i
 
@@ -1219,7 +1219,7 @@ if.end15.thread:                                  ; preds = %bdrv_all_snapshots_
   br label %if.end19
 
 if.end15:                                         ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %sn1, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx.i, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn1, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx.i, i64 416, i1 false)
   call void @g_free(ptr noundef %.pre.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   %call14 = call i32 @bdrv_snapshot_delete(ptr noundef %0, ptr noundef nonnull %sn1, ptr noundef nonnull %name12, ptr noundef %errp)
@@ -1478,7 +1478,7 @@ for.body.lr.ph.i.us:                              ; preds = %for.cond.preheader.
 for.body.i.us:                                    ; preds = %for.cond.i.us, %for.body.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %for.body.lr.ph.i.us ], [ %indvars.iv.next.i.us, %for.cond.i.us ]
   %name5.i.us = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i.us, i64 %indvars.iv.i.us, i32 1
-  %call6.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i.us, ptr noundef nonnull readonly dereferenceable(1) %name) #8
+  %call6.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i.us, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool.not.i.us = icmp eq i32 %call6.i.us, 0
   br i1 %tobool.not.i.us, label %if.end11.us, label %for.cond.i.us
 
@@ -1543,7 +1543,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %name5.i = getelementptr %struct.QEMUSnapshotInfo, ptr %.pre.i, i64 %indvars.iv.i, i32 1
-  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull readonly dereferenceable(1) %name) #8
+  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %if.end11, label %for.cond.i
 

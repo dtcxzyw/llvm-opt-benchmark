@@ -179,7 +179,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6131387b9db428dbE
   resume { ptr, i32 } %6
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17ha517872c1c7144b6E.exit: ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }

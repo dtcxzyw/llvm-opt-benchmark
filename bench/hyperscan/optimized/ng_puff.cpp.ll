@@ -1033,7 +1033,7 @@ if.else156.i:                                     ; preds = %if.else153.i
   %agg.tmp157.sroa.0.0.copyload.i = load ptr, ptr %add.ptr.i.i248.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %puff_escapes.i.i)
   %props.i.i.i = getelementptr inbounds i8, ptr %agg.tmp157.sroa.0.0.copyload.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %puff_escapes.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %puff_escapes.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i, i64 32, i1 false)
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.else156.i
@@ -1847,7 +1847,7 @@ do.end24.i.i:                                     ; preds = %if.then.i384.i
   store i8 0, ptr %auto_restart.i30.i.i, align 1
   store i8 0, ptr %simple_exhaust.i31.i.i, align 2
   store i32 %99, ptr %report.i32.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reach.i33.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reach.i33.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, i64 32, i1 false)
   %vtable27.i.i = load ptr, ptr %rose, align 8
   %vfn28.i.i = getelementptr inbounds i8, ptr %vtable27.i.i, i64 64
   %130 = load ptr, ptr %vfn28.i.i, align 8
@@ -1918,7 +1918,7 @@ _ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detai
   store i8 0, ptr %quiet.i.i.i.i, align 8, !alias.scope !106
   store i32 0, ptr %offsetAdjust.i.i.i.i, align 4, !alias.scope !106
   store i32 %146, ptr %onmatch.i.i.i.i, align 8, !alias.scope !106
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %revNfaIndex.i.i.i.i, i8 0, i64 12, i1 false), !alias.scope !106
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %revNfaIndex.i.i.i.i, i8 0, i64 12, i1 false), !alias.scope !106
   store i32 -1, ptr %ekey.i.i.i.i, align 8, !alias.scope !106
   store i64 %retval.0.i38.i.i, ptr %topSquashDistance.i.i.i, align 8, !alias.scope !106
   br i1 %tobool297.i, label %for.body.i.i.i391.i, label %if.end42.i.i
@@ -1973,7 +1973,7 @@ do.end45.i.invoke.i:                              ; preds = %do.end45.i.i, %do.e
   store i8 %frombool1.i.i.i, ptr %auto_restart.i.i.sink.i, align 1
   store i8 %retval.0.i.i381.i, ptr %simple_exhaust.i.i.sink.i, align 2
   store i32 %99, ptr %report.i.i.sink.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reach.i.i.sink.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reach.i.i.sink.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, i64 32, i1 false)
   %vtable.i.i = load ptr, ptr %rose, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %150 = load ptr, ptr %vfn.i.i, align 8

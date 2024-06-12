@@ -1896,7 +1896,7 @@ if.then:                                          ; preds = %sw.bb
   %tobool.not.i = icmp eq i32 %use_stdin, 0
   %1 = load ptr, ptr @stdin, align 8
   %cond.i = select i1 %tobool.not.i, ptr null, ptr %1
-  tail call fastcc void @add_patterns_from_input(ptr noundef %call, i32 noundef %argc, ptr noundef readonly %argv, ptr noundef %cond.i)
+  tail call fastcc void @add_patterns_from_input(ptr noundef %call, i32 noundef %argc, ptr noundef %argv, ptr noundef %cond.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %existing.i, i8 0, i64 136, i1 false)
   %2 = load i32, ptr @core_sparse_checkout_cone, align 4
   %use_cone_patterns.i = getelementptr inbounds i8, ptr %existing.i, i64 32
@@ -1995,7 +1995,7 @@ add_patterns_literal.exit:                        ; preds = %if.else
   %tobool3.not.i = icmp eq i32 %use_stdin, 0
   %8 = load ptr, ptr @stdin, align 8
   %cond.i18 = select i1 %tobool3.not.i, ptr null, ptr %8
-  tail call fastcc void @add_patterns_from_input(ptr noundef %call, i32 noundef %argc, ptr noundef readonly %argv, ptr noundef %cond.i18)
+  tail call fastcc void @add_patterns_from_input(ptr noundef %call, i32 noundef %argc, ptr noundef %argv, ptr noundef %cond.i18)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry

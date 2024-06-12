@@ -437,7 +437,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 define noundef nonnull ptr @WHIRLPOOL(ptr noundef %inp, i64 noundef %bytes, ptr noundef writeonly %md) local_unnamed_addr #2 {
 entry:
   %ctx = alloca %struct.WHIRLPOOL_CTX, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(168) %ctx, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %ctx, i8 0, i64 168, i1 false)
   %cmp10.i = icmp ugt i64 %bytes, 1152921504606846975
   br i1 %cmp10.i, label %while.body.i, label %while.end.i
 
@@ -558,7 +558,7 @@ WHIRLPOOL_Final.exit:                             ; preds = %for.inc39.i
   %spec.store.select = select i1 %cmp, ptr @WHIRLPOOL.m, ptr %md
   %data27.i = getelementptr inbounds i8, ptr %ctx, i64 64
   call void @whirlpool_block(ptr noundef nonnull %ctx, ptr noundef nonnull %data27.i, i64 noundef 1) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %spec.store.select, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %spec.store.select, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 64, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 168) #6
   ret ptr %spec.store.select
 }

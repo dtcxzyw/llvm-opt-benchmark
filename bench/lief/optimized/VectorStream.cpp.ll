@@ -822,7 +822,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %44
   store i32 1, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF12VectorStreamE, i64 16), ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %45, ptr %57, align 8

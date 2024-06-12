@@ -119,7 +119,7 @@ if.then.us:                                       ; preds = %for.body.us
 if.end3.i.us:                                     ; preds = %if.then.us
   %idx.ext.i.us = zext i32 %mul.us to i64
   %add.ptr.i.us = getelementptr i8, ptr %vd, i64 %idx.ext.i.us
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end3.i.us, %if.then.us, %if.end.us
@@ -151,7 +151,7 @@ if.end3.i29:                                      ; preds = %for.end
   %idx.ext.i31 = zext i32 %mul11 to i64
   %add.ptr.i32 = getelementptr i8, ptr %vd, i64 %idx.ext.i31
   %conv.i33 = zext i32 %sub.i30 to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
   br label %vext_set_elems_1s.exit34
 
 vext_set_elems_1s.exit34:                         ; preds = %for.end, %if.end3.i29
@@ -251,7 +251,7 @@ if.then.us:                                       ; preds = %for.body.us
 if.end3.i.us:                                     ; preds = %if.then.us
   %idx.ext.i.us = zext i32 %mul.us to i64
   %add.ptr.i.us = getelementptr i8, ptr %vd, i64 %idx.ext.i.us
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.us, i8 -1, i64 %conv.i25, i1 false)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end3.i.us, %if.then.us, %if.end.us
@@ -283,7 +283,7 @@ if.end3.i29:                                      ; preds = %for.end
   %idx.ext.i31 = zext i32 %mul11 to i64
   %add.ptr.i32 = getelementptr i8, ptr %vd, i64 %idx.ext.i31
   %conv.i33 = zext i32 %sub.i30 to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i32, i8 -1, i64 %conv.i33, i1 false)
   br label %vext_set_elems_1s.exit34
 
 vext_set_elems_1s.exit34:                         ; preds = %for.end, %if.end3.i29

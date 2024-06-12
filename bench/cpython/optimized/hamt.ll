@@ -2799,7 +2799,7 @@ if.end4:                                          ; preds = %if.end
   %h_root = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load ptr, ptr %h_root, align 8
   %3 = getelementptr inbounds i8, ptr %iter, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %3, i8 0, i64 121, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %3, i8 0, i64 121, i1 false)
   store ptr %2, ptr %iter, align 8
   br label %do.body
 
@@ -3142,7 +3142,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   %h_root.i = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i, align 8
   br label %hamt_baseiter_new.exit
 
@@ -3183,7 +3183,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   %h_root.i = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i, align 8
   br label %hamt_baseiter_new.exit
 
@@ -3233,7 +3233,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   %h_root.i = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %h_root.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i, align 8
   br label %hamt_baseiter_new.exit
 
@@ -3407,7 +3407,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %h_root.i = getelementptr inbounds i8, ptr %v, i64 16
   %5 = load ptr, ptr %h_root.i, align 8
   %6 = getelementptr inbounds i8, ptr %iter.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %6, i8 0, i64 121, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %6, i8 0, i64 121, i1 false)
   store ptr %5, ptr %iter.i, align 8
   br label %do.body.i
 
@@ -3418,7 +3418,7 @@ do.body.i:                                        ; preds = %if.end14.i, %if.end
 
 if.then6.i:                                       ; preds = %do.body.i
   %7 = load ptr, ptr %v_key.i, align 8
-  %call7.i = call fastcc i32 @hamt_find(ptr noundef readonly %w, ptr noundef %7, ptr noundef nonnull %w_val.i)
+  %call7.i = call fastcc i32 @hamt_find(ptr noundef %w, ptr noundef %7, ptr noundef nonnull %w_val.i)
   switch i32 %call7.i, label %default.unreachable [
     i32 0, label %_PyHamt_Eq.exit
     i32 1, label %if.end8
@@ -3490,7 +3490,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterKeys.exit
 
@@ -4995,7 +4995,7 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #3
 define internal range(i32 -1, 2) i32 @hamt_tp_contains(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
 entry:
   %val = alloca ptr, align 8
-  %call.i = call fastcc i32 @hamt_find(ptr noundef readonly %self, ptr noundef %key, ptr noundef nonnull writeonly %val)
+  %call.i = call fastcc i32 @hamt_find(ptr noundef %self, ptr noundef %key, ptr noundef nonnull %val)
   %switch.offset = add nsw i32 %call.i, -1
   ret i32 %switch.offset
 }
@@ -5153,7 +5153,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterItems.exit
 
@@ -5187,7 +5187,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterKeys.exit
 
@@ -5221,7 +5221,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %h_root.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %h_root.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(121) %2, i8 0, i64 121, i1 false)
   store ptr %1, ptr %hi_iter.i.i, align 8
   br label %_PyHamt_NewIterValues.exit
 

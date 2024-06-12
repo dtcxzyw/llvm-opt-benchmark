@@ -3988,7 +3988,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageC2Ev.exit
 
 _ZN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageC2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, i64 16), i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, i64 16), i8 0, i64 12, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, i64 8), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, i64 16), align 8
@@ -4046,7 +4046,7 @@ entry:
 define internal void @_ZL124InitDefaultsscc_info_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4056,7 +4056,7 @@ entry:
 define internal void @_ZL124InitDefaultsscc_info_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, i64 40), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4079,7 +4079,7 @@ entry:
 define internal void @_ZL120InitDefaultsscc_info_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4089,7 +4089,7 @@ entry:
 define internal void @_ZL120InitDefaultsscc_info_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4099,7 +4099,7 @@ entry:
 define internal void @_ZL120InitDefaultsscc_info_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, i64 40), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4109,7 +4109,7 @@ entry:
 define internal void @_ZL126InitDefaultsscc_info_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4119,7 +4119,7 @@ entry:
 define internal void @_ZL126InitDefaultsscc_info_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, i64 40), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4129,7 +4129,7 @@ entry:
 define internal void @_ZL122InitDefaultsscc_info_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4139,7 +4139,7 @@ entry:
 define internal void @_ZL122InitDefaultsscc_info_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, i64 40), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4210,7 +4210,7 @@ entry:
 define internal void @_ZL122InitDefaultsscc_info_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, i64 32), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -4220,7 +4220,7 @@ entry:
 define internal void @_ZL122InitDefaultsscc_info_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eprotov() #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, i64 8), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, i64 40), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, align 8
   ret void
@@ -61164,7 +61164,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
   %call.i.sink = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   %corecursive_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %corecursive_.i.i.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %corecursive_.i.i.i, i8 0, i64 12, i1 false)
   ret ptr %call.i.sink
 }
 
@@ -61177,7 +61177,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61220,7 +61220,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61238,7 +61238,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %key_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
@@ -61259,7 +61259,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61302,7 +61302,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61320,7 +61320,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %key_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
@@ -61341,7 +61341,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61384,7 +61384,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61402,7 +61402,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %key_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
@@ -61423,7 +61423,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61466,7 +61466,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61484,7 +61484,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %key_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
@@ -61505,7 +61505,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61548,7 +61548,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -61566,7 +61566,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %key_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
@@ -61587,7 +61587,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -62130,7 +62130,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i.i
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
   %corecursive_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %corecursive_.i.i.i.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %corecursive_.i.i.i.i, i8 0, i64 12, i1 false)
   ret ptr %call.i.i
 }
 
@@ -62430,7 +62430,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -62446,7 +62446,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -63039,7 +63039,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -63055,7 +63055,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -63073,7 +63073,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
@@ -63626,7 +63626,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -63642,7 +63642,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -64215,7 +64215,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -64231,7 +64231,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -64249,7 +64249,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
@@ -64802,7 +64802,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -64818,7 +64818,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -65427,7 +65427,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -65443,7 +65443,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -65461,7 +65461,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
@@ -66044,7 +66044,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -66060,7 +66060,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -66457,7 +66457,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -66473,7 +66473,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -66491,7 +66491,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
@@ -66864,7 +66864,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -66880,7 +66880,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -67277,7 +67277,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 16), ptr %call, align 8
@@ -67293,7 +67293,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -67311,7 +67311,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
@@ -67684,7 +67684,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal12MapEnt
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 16), ptr %call, align 8
@@ -67700,7 +67700,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -86110,7 +86110,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNK6google8protobu
 return:                                           ; preds = %if.then.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i.i, %.noexc
   %call.sink = phi ptr [ %call, %.noexc ], [ %call, %if.then.i.i.i.i.i ], [ %call11.i25, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call11.i25, %if.then.i.i.i.i.i.i ]
   %corecursive_.i.i.i.i = getelementptr inbounds i8, ptr %call.sink, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %corecursive_.i.i.i.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %corecursive_.i.i.i.i, i8 0, i64 12, i1 false)
   ret ptr %call.sink
 }
 
@@ -101949,7 +101949,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -105540,7 +105540,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -105558,7 +105558,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -108790,7 +108790,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -112381,7 +112381,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -112399,7 +112399,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -115976,7 +115976,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -117006,7 +117006,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -117024,7 +117024,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -118034,7 +118034,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -119064,7 +119064,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -119082,7 +119082,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -120092,7 +120092,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -121122,7 +121122,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -121140,7 +121140,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -122150,7 +122150,7 @@ if.then4:                                         ; preds = %if.else
 if.then.i.i.i.i:                                  ; preds = %if.then4
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then4
@@ -137960,7 +137960,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i22, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE6ParserINS1_12MapFieldLiteIS5_iiLS8_5ELS8_5ELi0EEENS0_3MapIiiEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -138023,7 +138023,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i39:                                ; preds = %if.end72
   %call.i.i.i.i40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i41, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i41, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE6ParserINS1_12MapFieldLiteIS5_iiLS8_5ELS8_5ELi0EEENS0_3MapIiiEEE8NewEntryEv.exit42
 
 if.else.i.i.i.i26:                                ; preds = %if.end72
@@ -138126,7 +138126,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -138426,7 +138426,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i22, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_3ELS8_3ELi0EEENS0_3MapIllEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -138444,7 +138444,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %34, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_3ELS8_3ELi0EEENS0_3MapIllEEE8NewEntryEv.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_3ELS8_3ELi0EEENS0_3MapIllEEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -138485,7 +138485,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i37:                                ; preds = %if.end72
   %call.i.i.i.i38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i.i38, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i39, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i39, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_3ELS8_3ELi0EEENS0_3MapIllEEE8NewEntryEv.exit40
 
 if.else.i.i.i.i26:                                ; preds = %if.end72
@@ -138503,7 +138503,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30: ; preds = %if
   %_internal_metadata_.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call2.i8.i.i.i31, i64 8
   store ptr %42, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i32, align 8
   %key_.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call2.i8.i.i.i31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i33, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i33, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_3ELS8_3ELi0EEENS0_3MapIllEEE8NewEntryEv.exit40
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_3ELS8_3ELi0EEENS0_3MapIllEEE8NewEntryEv.exit40: ; preds = %if.then.i.i.i.i37, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30
@@ -138586,7 +138586,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -138604,7 +138604,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 8
   store ptr %1, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EE8NewEntryEv.exit
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
@@ -138874,7 +138874,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i22, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE6ParserINS1_12MapFieldLiteIS5_jjLS8_13ELS8_13ELi0EEENS0_3MapIjjEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -138937,7 +138937,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i39:                                ; preds = %if.end72
   %call.i.i.i.i40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i41, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i41, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE6ParserINS1_12MapFieldLiteIS5_jjLS8_13ELS8_13ELi0EEENS0_3MapIjjEEE8NewEntryEv.exit42
 
 if.else.i.i.i.i26:                                ; preds = %if.end72
@@ -139040,7 +139040,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -139340,7 +139340,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i22, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_4ELS8_4ELi0EEENS0_3MapImmEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -139358,7 +139358,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %34, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_4ELS8_4ELi0EEENS0_3MapImmEEE8NewEntryEv.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_4ELS8_4ELi0EEENS0_3MapImmEEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -139399,7 +139399,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i37:                                ; preds = %if.end72
   %call.i.i.i.i38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i.i38, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i39, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i39, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_4ELS8_4ELi0EEENS0_3MapImmEEE8NewEntryEv.exit40
 
 if.else.i.i.i.i26:                                ; preds = %if.end72
@@ -139417,7 +139417,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30: ; preds = %if
   %_internal_metadata_.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call2.i8.i.i.i31, i64 8
   store ptr %42, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i32, align 8
   %key_.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call2.i8.i.i.i31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i33, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i33, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_4ELS8_4ELi0EEENS0_3MapImmEEE8NewEntryEv.exit40
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_4ELS8_4ELi0EEENS0_3MapImmEEE8NewEntryEv.exit40: ; preds = %if.then.i.i.i.i37, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30
@@ -139500,7 +139500,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -139518,7 +139518,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 8
   store ptr %1, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EE8NewEntryEv.exit
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
@@ -139798,7 +139798,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i22:                                ; preds = %if.end64
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE6ParserINS1_12MapFieldLiteIS5_iiLS8_17ELS8_17ELi0EEENS0_3MapIiiEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -139861,7 +139861,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i39:                                ; preds = %if.end72
   %call.i.i.i.i40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i41, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i41, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE6ParserINS1_12MapFieldLiteIS5_iiLS8_17ELS8_17ELi0EEENS0_3MapIiiEEE8NewEntryEv.exit42
 
 if.else.i.i.i.i26:                                ; preds = %if.end72
@@ -139969,7 +139969,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -140270,7 +140270,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i22:                                ; preds = %if.end64
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_18ELS8_18ELi0EEENS0_3MapIllEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -140288,7 +140288,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %34, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_18ELS8_18ELi0EEENS0_3MapIllEEE8NewEntryEv.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_18ELS8_18ELi0EEENS0_3MapIllEEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i22, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -140329,7 +140329,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i37:                                ; preds = %if.end72
   %call.i.i.i.i38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i.i38, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i39, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i39, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_18ELS8_18ELi0EEENS0_3MapIllEEE8NewEntryEv.exit40
 
 if.else.i.i.i.i26:                                ; preds = %if.end72
@@ -140347,7 +140347,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30: ; preds = %if
   %_internal_metadata_.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call2.i8.i.i.i31, i64 8
   store ptr %42, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i32, align 8
   %key_.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call2.i8.i.i.i31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i33, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i33, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_18ELS8_18ELi0EEENS0_3MapIllEEE8NewEntryEv.exit40
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_18ELS8_18ELi0EEENS0_3MapIllEEE8NewEntryEv.exit40: ; preds = %if.then.i.i.i.i37, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30
@@ -140432,7 +140432,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -140450,7 +140450,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 8
   store ptr %1, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EE8NewEntryEv.exit
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
@@ -140683,7 +140683,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE6ParserINS1_12MapFieldLiteIS5_jjLS8_7ELS8_7ELi0EEENS0_3MapIjjEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -140746,7 +140746,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i40:                                ; preds = %if.end72
   %call.i.i.i.i41 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.i.i.i41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i42, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i42, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE6ParserINS1_12MapFieldLiteIS5_jjLS8_7ELS8_7ELi0EEENS0_3MapIjjEEE8NewEntryEv.exit43
 
 if.else.i.i.i.i27:                                ; preds = %if.end72
@@ -140809,7 +140809,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -141064,7 +141064,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_6ELS8_6ELi0EEENS0_3MapImmEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -141082,7 +141082,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %29, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_6ELS8_6ELi0EEENS0_3MapImmEEE8NewEntryEv.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_6ELS8_6ELi0EEENS0_3MapImmEEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -141123,7 +141123,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i38:                                ; preds = %if.end72
   %call.i.i.i.i39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %call.i.i.i.i39, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i40, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i40, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_6ELS8_6ELi0EEENS0_3MapImmEEE8NewEntryEv.exit41
 
 if.else.i.i.i.i27:                                ; preds = %if.end72
@@ -141141,7 +141141,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31: ; preds = %if
   %_internal_metadata_.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call2.i8.i.i.i32, i64 8
   store ptr %37, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i33, align 8
   %key_.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call2.i8.i.i.i32, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i34, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i34, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_6ELS8_6ELi0EEENS0_3MapImmEEE8NewEntryEv.exit41
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE6ParserINS1_12MapFieldLiteIS5_mmLS8_6ELS8_6ELi0EEENS0_3MapImmEEE8NewEntryEv.exit41: ; preds = %if.then.i.i.i.i38, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31
@@ -141182,7 +141182,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -141200,7 +141200,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 8
   store ptr %1, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EE8NewEntryEv.exit
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
@@ -141433,7 +141433,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE6ParserINS1_12MapFieldLiteIS5_iiLS8_15ELS8_15ELi0EEENS0_3MapIiiEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -141496,7 +141496,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i40:                                ; preds = %if.end72
   %call.i.i.i.i41 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.i.i.i41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i42, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i42, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE6ParserINS1_12MapFieldLiteIS5_iiLS8_15ELS8_15ELi0EEENS0_3MapIiiEEE8NewEntryEv.exit43
 
 if.else.i.i.i.i27:                                ; preds = %if.end72
@@ -141559,7 +141559,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -141814,7 +141814,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_16ELS8_16ELi0EEENS0_3MapIllEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -141832,7 +141832,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %_internal_metadata_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %29, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_16ELS8_16ELi0EEENS0_3MapIllEEE8NewEntryEv.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_16ELS8_16ELi0EEENS0_3MapIllEEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -141873,7 +141873,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i38:                                ; preds = %if.end72
   %call.i.i.i.i39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %call.i.i.i.i39, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i40, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i.i40, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_16ELS8_16ELi0EEENS0_3MapIllEEE8NewEntryEv.exit41
 
 if.else.i.i.i.i27:                                ; preds = %if.end72
@@ -141891,7 +141891,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31: ; preds = %if
   %_internal_metadata_.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call2.i8.i.i.i32, i64 8
   store ptr %37, ptr %_internal_metadata_.i.i.i.i.i.i.i.i.i33, align 8
   %key_.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call2.i8.i.i.i32, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i34, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i.i34, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_16ELS8_16ELi0EEENS0_3MapIllEEE8NewEntryEv.exit41
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE6ParserINS1_12MapFieldLiteIS5_llLS8_16ELS8_16ELi0EEENS0_3MapIllEEE8NewEntryEv.exit41: ; preds = %if.then.i.i.i.i38, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31
@@ -141932,7 +141932,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -141950,7 +141950,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 8
   store ptr %1, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
   %key_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EE8NewEntryEv.exit
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
@@ -142213,7 +142213,7 @@ if.end64:                                         ; preds = %if.end.i.i8, %land.
 if.then.i.i.i.i:                                  ; preds = %if.end64
   %call.i.i.i.i23 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i23, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE6ParserINS1_12MapFieldLiteIS5_ifLS8_5ELS8_2ELi0EEENS0_3MapIifEEE8NewEntryEv.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end64
@@ -142276,7 +142276,7 @@ if.end72:                                         ; preds = %land.rhs, %if.else6
 if.then.i.i.i.i40:                                ; preds = %if.end72
   %call.i.i.i.i41 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.i.i.i41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i42, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i.i42, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE6ParserINS1_12MapFieldLiteIS5_ifLS8_5ELS8_2ELi0EEENS0_3MapIifEEE8NewEntryEv.exit43
 
 if.else.i.i.i.i27:                                ; preds = %if.end72
@@ -142339,7 +142339,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EE8NewEntryEv.exit
 
 if.else.i.i.i:                                    ; preds = %entry

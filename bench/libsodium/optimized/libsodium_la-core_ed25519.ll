@@ -379,9 +379,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %y_, ptr noundef nonnull align 1 dereferenceable(32) %y, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %x_, ptr noundef nonnull %y_, i64 noundef 32) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %x_, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull align 16 dereferenceable(64) %x_, i64 64, i1 false)
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %t.i) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i, i64 32, i1 false)
   call void @sodium_memzero(ptr noundef nonnull %t.i, i64 noundef 64) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t.i)
   ret void
@@ -415,24 +415,24 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 32, i1 false)
   %0 = getelementptr inbounds i8, ptr %s_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %y, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_.i, ptr noundef nonnull align 1 dereferenceable(32) %y, i64 32, i1 false)
   call void @sodium_sub(ptr noundef nonnull %t_.i, ptr noundef nonnull %s_.i, i64 noundef 64) #6
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %t_.i) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %y_.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %y_.i, ptr noundef nonnull align 16 dereferenceable(32) %t_.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %y_.i, ptr noundef nonnull align 16 dereferenceable(32) %t_.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t_.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %s_.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %x_.i)
   %1 = getelementptr inbounds i8, ptr %x_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %x_.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %x, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %x_.i, ptr noundef nonnull align 1 dereferenceable(32) %x, i64 32, i1 false)
   %2 = getelementptr inbounds i8, ptr %y_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %x_.i, ptr noundef nonnull %y_.i, i64 noundef 32) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i.i, ptr noundef nonnull readonly align 16 dereferenceable(64) %x_.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i.i, ptr noundef nonnull align 16 dereferenceable(64) %x_.i, i64 64, i1 false)
   call void @_sodium_sc25519_reduce(ptr noundef nonnull %t.i.i) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %z, ptr noundef nonnull align 16 dereferenceable(32) %t.i.i, i64 32, i1 false)
   call void @sodium_memzero(ptr noundef nonnull %t.i.i, i64 noundef 64) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %x_.i)

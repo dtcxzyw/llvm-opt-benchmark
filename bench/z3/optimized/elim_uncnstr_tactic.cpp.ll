@@ -13481,7 +13481,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then12
   %this.val.val4.i.i = load i32, ptr %49, align 8
   %50 = zext i32 %num to i64
   %51 = load ptr, ptr %args, align 8
-  %call.i114191.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i, i32 %this.val.val4.i.i, ptr readonly %this.val77.i, ptr noundef %51)
+  %call.i114191.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i, i32 %this.val.val4.i.i, ptr %this.val77.i, ptr noundef %51)
   br i1 %call.i114191.i, label %for.cond.i.i, label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit
 
 for.cond.i.i:                                     ; preds = %for.body.lr.ph.i.i, %for.body.i.i
@@ -13493,7 +13493,7 @@ for.cond.i.i:                                     ; preds = %for.body.lr.ph.i.i,
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i.i
   %52 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i114.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i, i32 %this.val.val4.i.i, ptr readonly %this.val77.i, ptr noundef %52)
+  %call.i114.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i, i32 %this.val.val4.i.i, ptr %this.val77.i, ptr noundef %52)
   br i1 %call.i114.i, label %for.cond.i.i, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i: ; preds = %for.body.i.i
@@ -13564,7 +13564,7 @@ for.body.lr.ph.i128.i:                            ; preds = %if.then12
   %this.val.val4.i130.i = load i32, ptr %64, align 8
   %65 = zext i32 %num to i64
   %66 = load ptr, ptr %args, align 8
-  %call.i135188.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i129.i, i32 %this.val.val4.i130.i, ptr readonly %this.val79.i, ptr noundef %66)
+  %call.i135188.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i129.i, i32 %this.val.val4.i130.i, ptr %this.val79.i, ptr noundef %66)
   br i1 %call.i135188.i, label %for.cond.i137.i, label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg17process_basic_appEP9func_decljPKP4expr.exit
 
 for.cond.i137.i:                                  ; preds = %for.body.lr.ph.i128.i, %for.body.i131.i
@@ -13576,7 +13576,7 @@ for.cond.i137.i:                                  ; preds = %for.body.lr.ph.i128
 for.body.i131.i:                                  ; preds = %for.cond.i137.i
   %arrayidx.i134.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i138.i
   %67 = load ptr, ptr %arrayidx.i134.i, align 8
-  %call.i135.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i129.i, i32 %this.val.val4.i130.i, ptr readonly %this.val79.i, ptr noundef %67)
+  %call.i135.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i129.i, i32 %this.val.val4.i130.i, ptr %this.val79.i, ptr noundef %67)
   br i1 %call.i135.i, label %for.cond.i137.i, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit141.i, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit141.i: ; preds = %for.body.i131.i
@@ -13831,7 +13831,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %_ZNK4decl13get_decl
   %this.val.val4.i.i.i = load i32, ptr %99, align 8
   %100 = zext i32 %num to i64
   %101 = load ptr, ptr %args, align 8
-  %call.i53.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i, i32 %this.val.val4.i.i.i, ptr readonly %this.val21.i.i48, ptr noundef %101)
+  %call.i53.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i, i32 %this.val.val4.i.i.i, ptr %this.val21.i.i48, ptr noundef %101)
   br i1 %call.i53.i.i, label %for.cond.i.i.i, label %if.end12.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.lr.ph.i.i.i, %for.body.i.i.i
@@ -13843,7 +13843,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.lr.ph.i.i.
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i.i.i
   %102 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %call.i.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i, i32 %this.val.val4.i.i.i, ptr readonly %this.val21.i.i48, ptr noundef %102)
+  %call.i.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i, i32 %this.val.val4.i.i.i, ptr %this.val21.i.i48, ptr noundef %102)
   br i1 %call.i.i.i, label %for.cond.i.i.i, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i.i, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i.i: ; preds = %for.body.i.i.i
@@ -14182,7 +14182,7 @@ for.body.lr.ph.i.i.i118:                          ; preds = %if.then21
   %144 = getelementptr i8, ptr %this.val21.i.i119, i64 8
   %this.val.val4.i.i.i121 = load i32, ptr %144, align 8
   %145 = zext i32 %num to i64
-  %call.i70.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i120, i32 %this.val.val4.i.i.i121, ptr readonly %this.val22.i.i, ptr noundef %.pre73.i.i)
+  %call.i70.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i120, i32 %this.val.val4.i.i.i121, ptr %this.val22.i.i, ptr noundef %.pre73.i.i)
   br i1 %call.i70.i.i, label %for.cond.i.i.i137, label %invoke.cont14.i.i
 
 for.cond.i.i.i137:                                ; preds = %for.body.lr.ph.i.i.i118, %for.body.i.i.i140
@@ -14194,7 +14194,7 @@ for.cond.i.i.i137:                                ; preds = %for.body.lr.ph.i.i.
 for.body.i.i.i140:                                ; preds = %for.cond.i.i.i137
   %arrayidx.i.i.i141 = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i.i.i138
   %146 = load ptr, ptr %arrayidx.i.i.i141, align 8
-  %call.i.i.i142 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i120, i32 %this.val.val4.i.i.i121, ptr readonly %this.val22.i.i, ptr noundef %146)
+  %call.i.i.i142 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i.i120, i32 %this.val.val4.i.i.i121, ptr %this.val22.i.i, ptr noundef %146)
   br i1 %call.i.i.i142, label %for.cond.i.i.i137, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i.i143, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i.i143: ; preds = %for.body.i.i.i140
@@ -14590,7 +14590,7 @@ for.body.lr.ph.i.i67.i:                           ; preds = %if.then21
   %this.val.val4.i.i69.i = load i32, ptr %198, align 8
   %199 = zext i32 %num to i64
   %200 = load ptr, ptr %args, align 8
-  %call.i17.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i68.i, i32 %this.val.val4.i.i69.i, ptr readonly %this.val13.i.i, ptr noundef %200)
+  %call.i17.i.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i68.i, i32 %this.val.val4.i.i69.i, ptr %this.val13.i.i, ptr noundef %200)
   br i1 %call.i17.i.i, label %for.cond.i.i71.i, label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_concatEP9func_decljPKP4expr.exit.i
 
 for.cond.i.i71.i:                                 ; preds = %for.body.lr.ph.i.i67.i, %for.body.i.i74.i
@@ -14602,7 +14602,7 @@ for.cond.i.i71.i:                                 ; preds = %for.body.lr.ph.i.i6
 for.body.i.i74.i:                                 ; preds = %for.cond.i.i71.i
   %arrayidx.i.i75.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i.i72.i
   %201 = load ptr, ptr %arrayidx.i.i75.i, align 8
-  %call.i.i76.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i68.i, i32 %this.val.val4.i.i69.i, ptr readonly %this.val13.i.i, ptr noundef %201)
+  %call.i.i76.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i.i68.i, i32 %this.val.val4.i.i69.i, ptr %this.val13.i.i, ptr noundef %201)
   br i1 %call.i.i76.i, label %for.cond.i.i71.i, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i77.i, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i77.i: ; preds = %for.body.i.i74.i
@@ -15254,7 +15254,7 @@ for.body.lr.ph.i.i75:                             ; preds = %if.then21
   %287 = getelementptr i8, ptr %this.val38.i, i64 8
   %this.val.val4.i.i76 = load i32, ptr %287, align 8
   %288 = zext i32 %num to i64
-  %call.i134142.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i131.i, i32 %this.val.val4.i.i76, ptr readonly %this.val39.i, ptr noundef %.pre.i74)
+  %call.i134142.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i131.i, i32 %this.val.val4.i.i76, ptr %this.val39.i, ptr noundef %.pre.i74)
   br i1 %call.i134142.i, label %for.cond.i.i78, label %_ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg14process_bv_appEP9func_decljPKP4expr.exit
 
 for.cond.i.i78:                                   ; preds = %for.body.lr.ph.i.i75, %for.body.i.i81
@@ -15266,7 +15266,7 @@ for.cond.i.i78:                                   ; preds = %for.body.lr.ph.i.i7
 for.body.i.i81:                                   ; preds = %for.cond.i.i78
   %arrayidx.i133.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i.i79
   %289 = load ptr, ptr %arrayidx.i133.i, align 8
-  %call.i134.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i131.i, i32 %this.val.val4.i.i76, ptr readonly %this.val39.i, ptr noundef %289)
+  %call.i134.i = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val.val.i131.i, i32 %this.val.val4.i.i76, ptr %this.val39.i, ptr noundef %289)
   br i1 %call.i134.i, label %for.cond.i.i78, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i82, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit.i82: ; preds = %for.body.i.i81
@@ -16042,7 +16042,7 @@ if.end26:                                         ; preds = %sw.bb
 
 for.body.lr.ph.i:                                 ; preds = %land.rhs.i.i.i, %land.lhs.true7, %_ZNK8seq_util3str9is_concatEPK4expr.exit.i, %land.lhs.true.i, %land.lhs.true3, %land.lhs.true10, %if.end26
   %26 = zext i32 %num to i64
-  %call.i3361 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val16.val, i32 %this.val16.val21, ptr readonly %this.val17, ptr noundef %2)
+  %call.i3361 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val16.val, i32 %this.val16.val21, ptr %this.val17, ptr noundef %2)
   br i1 %call.i3361, label %for.cond.i, label %return
 
 for.cond.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
@@ -16054,7 +16054,7 @@ for.cond.i:                                       ; preds = %for.body.lr.ph.i, %
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i
   %27 = load ptr, ptr %arrayidx.i, align 8
-  %call.i33 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val16.val, i32 %this.val16.val21, ptr readonly %this.val17, ptr noundef %27)
+  %call.i33 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEP4expr(ptr %this.val16.val, i32 %this.val16.val21, ptr %this.val17, ptr noundef %27)
   br i1 %call.i33, label %for.cond.i, label %_ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit, !llvm.loop !42
 
 _ZNK12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfg7uncnstrEjPKP4expr.exit: ; preds = %for.body.i, %for.cond.i

@@ -1055,7 +1055,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 invoke.cont2:                                     ; preds = %invoke.cont, %if.then.i.i
   %growth_.i5 = getelementptr inbounds i8, ptr %appenderOp, i64 32
   store i64 16, ptr %growth_.i5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
   %queue_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %queue, ptr %queue_.i.i.i, align 8
   %growth_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
@@ -1132,7 +1132,7 @@ if.then:                                          ; preds = %"_ZZN8proxygen2hq16
   br label %cleanup
 
 invoke.cont5:                                     ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit"
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %agg.tmp4, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp4, i8 0, i64 17, i1 false)
   %queue_.i.i.i13 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   %18 = load ptr, ptr %queue_.i.i4, align 8
   store ptr %18, ptr %queue_.i.i.i13, align 8
@@ -2262,7 +2262,7 @@ invoke.cont9.i:                                   ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i:                                         ; preds = %invoke.cont9.i
@@ -2335,7 +2335,7 @@ invoke.cont9.i:                                   ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i:                                         ; preds = %invoke.cont9.i
@@ -3227,7 +3227,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont10
   br i1 %cmp.i.i, label %if.then.i29, label %if.end.i
 
 if.then.i29:                                      ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i:                                         ; preds = %invoke.cont9.i
@@ -3600,7 +3600,7 @@ invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph
   %__begin214.sroa.0.0156 = phi ptr [ %20, %invoke.cont23.lr.ph ], [ %__begin214.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
   %__begin214.sroa.8.0155 = phi ptr [ %23, %invoke.cont23.lr.ph ], [ %__begin214.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
   %26 = load i64, ptr %__begin214.sroa.0.0156, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
   %27 = load ptr, ptr %queue_.i.i36, align 8
   store ptr %27, ptr %queue_.i.i.i, align 8
   %28 = load i64, ptr %growth_.i37, align 8
@@ -3669,7 +3669,7 @@ if.then.i.i.i.i54:                                ; preds = %_ZNK5folly10IOBufQu
 invoke.cont28:                                    ; preds = %if.then.i.i.i.i54, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %invoke.cont25
   %second26 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0156, i64 8
   %41 = load i64, ptr %second26, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %agg.tmp27, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp27, i8 0, i64 17, i1 false)
   %42 = load ptr, ptr %queue_.i.i36, align 8
   store ptr %42, ptr %queue_.i.i.i60, align 8
   %43 = load i64, ptr %growth_.i37, align 8
@@ -6005,7 +6005,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont10
   br i1 %cmp.i.i, label %if.then.i29, label %if.end.i
 
 if.then.i29:                                      ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i:                                         ; preds = %invoke.cont9.i
@@ -7033,7 +7033,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont10
   br i1 %cmp.i.i, label %if.then.i29, label %if.end.i
 
 if.then.i29:                                      ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i:                                         ; preds = %invoke.cont9.i
@@ -7722,7 +7722,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont16
   br i1 %cmp.i.i, label %if.then.i19, label %if.end.i16
 
 if.then.i19:                                      ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i16:                                       ; preds = %invoke.cont9.i
@@ -8355,7 +8355,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont16
   br i1 %cmp.i.i, label %if.then.i19, label %if.end.i16
 
 if.then.i19:                                      ; preds = %invoke.cont9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
   br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
 
 if.end.i16:                                       ; preds = %invoke.cont9.i

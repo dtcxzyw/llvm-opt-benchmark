@@ -29,7 +29,7 @@ define hidden noundef ptr @pj_latlong(ptr noundef writeonly %0) local_unnamed_ad
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %6, align 8
@@ -77,7 +77,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_latlongP8PJconsts(pt
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   %4 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %5, align 8
@@ -108,7 +108,7 @@ define hidden noundef ptr @pj_longlat(ptr noundef writeonly %0) local_unnamed_ad
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %6, align 8
@@ -156,7 +156,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_longlatP8PJconsts(pt
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   %4 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %5, align 8
@@ -185,7 +185,7 @@ define hidden noundef ptr @pj_latlon(ptr noundef writeonly %0) local_unnamed_add
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %6, align 8
@@ -233,7 +233,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_latlonP8PJconsts(ptr
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   %4 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %5, align 8
@@ -262,7 +262,7 @@ define hidden noundef ptr @pj_lonlat(ptr noundef writeonly %0) local_unnamed_add
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %6, align 8
@@ -310,7 +310,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_lonlatP8PJconsts(ptr
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   %4 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @_ZL15latlong_inverse5PJ_XYP8PJconsts, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZL15latlong_forward5PJ_LPP8PJconsts, ptr %5, align 8

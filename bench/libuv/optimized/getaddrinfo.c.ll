@@ -437,7 +437,7 @@ if.then11.i:                                      ; preds = %if.end7.i
   br label %uv_if_indextoname.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %buffer, ptr nonnull align 16 %ifname_buf.i, i64 %call9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer, ptr nonnull align 16 %ifname_buf.i, i64 %call9.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %buffer, i64 %call9.i
   store i8 0, ptr %arrayidx.i, align 1
   store i64 %call9.i, ptr %size, align 8

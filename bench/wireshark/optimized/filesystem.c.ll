@@ -110,7 +110,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_basename(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 47) #19
+  %2 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #19
   %3 = icmp eq ptr %2, null
   %4 = getelementptr i8, ptr %2, i64 1
   %.0 = select i1 %3, ptr %0, ptr %4
@@ -119,7 +119,7 @@ define ptr @get_basename(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @get_dirname(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 47) #19
+  %2 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
@@ -442,7 +442,7 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   br i1 %.not.i, label %file_exists.exit.thread, label %98
 
 98:                                               ; preds = %92
-  %99 = call i32 @stat(ptr noundef nonnull readonly %97, ptr noundef nonnull %2) #20
+  %99 = call i32 @stat(ptr noundef nonnull %97, ptr noundef nonnull %2) #20
   %.not4.i = icmp eq i32 %99, 0
   br i1 %.not4.i, label %104, label %100
 
@@ -467,7 +467,7 @@ file_exists.exit.thread:                          ; preds = %92, %100
 
 106:                                              ; preds = %87, %105, %89, %85
   store ptr %.1, ptr @progfile_dir, align 8
-  %107 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %.1, i32 noundef 47) #19
+  %107 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
   %.not.i80 = icmp eq ptr %107, null
   br i1 %.not.i80, label %trim_progfile_dir.exit, label %108
 
@@ -500,7 +500,7 @@ trim_progfile_dir.exit:                           ; preds = %106, %108, %112
 
 120:                                              ; preds = %trim_progfile_dir.exit
   %121 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %117) #20
-  %122 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %121, i32 noundef 47) #19
+  %122 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %121, i32 noundef 47) #19
   %.not.i81 = icmp eq ptr %122, null
   br i1 %.not.i81, label %trim_last_dir_from_path.exit, label %123
 
@@ -916,7 +916,7 @@ define noundef zeroext i1 @has_global_profiles() local_unnamed_addr #7 {
   %3 = tail call ptr @get_datafile_dir()
   %4 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.26) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  %5 = call i32 @stat(ptr noundef readonly %4, ptr noundef nonnull %2) #20
+  %5 = call i32 @stat(ptr noundef %4, ptr noundef nonnull %2) #20
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %test_for_directory.exit, label %7
 
@@ -953,7 +953,7 @@ test_for_directory.exit.thread:                   ; preds = %7, %test_for_direct
   %19 = phi ptr [ %16, %.lr.ph ], [ %30, %test_for_directory.exit14.thread20 ]
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %4, ptr noundef nonnull @.str.10, ptr noundef nonnull %19) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1)
-  %21 = call i32 @stat(ptr noundef readonly %20, ptr noundef nonnull %1) #20
+  %21 = call i32 @stat(ptr noundef %20, ptr noundef nonnull %1) #20
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %test_for_directory.exit14, label %23
 
@@ -1344,7 +1344,7 @@ define zeroext i1 @profile_exists(ptr noundef %0, i1 noundef zeroext %1) local_u
 5:                                                ; preds = %2
   %6 = tail call ptr @get_profile_dir(ptr noundef %0, i1 noundef zeroext %1)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %7 = call i32 @stat(ptr noundef readonly %6, ptr noundef nonnull %3) #20
+  %7 = call i32 @stat(ptr noundef %6, ptr noundef nonnull %3) #20
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %13
 
@@ -1399,7 +1399,7 @@ define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr nocapture no
   br i1 %.not.i.i, label %file_exists.exit.thread.i, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = call i32 @stat(ptr noundef nonnull readonly %15, ptr noundef nonnull %5) #20
+  %17 = call i32 @stat(ptr noundef nonnull %15, ptr noundef nonnull %5) #20
   %.not4.i.i = icmp eq i32 %17, 0
   br i1 %.not4.i.i, label %22, label %18
 
@@ -1439,7 +1439,7 @@ reset_default_profile.exit:                       ; preds = %25, %8, %24
 28:                                               ; preds = %2
   %29 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %30 = call i32 @stat(ptr noundef readonly %29, ptr noundef nonnull %4) #20
+  %30 = call i32 @stat(ptr noundef %29, ptr noundef nonnull %4) #20
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %test_for_directory.exit, label %32
 
@@ -1480,7 +1480,7 @@ test_for_directory.exit.thread:                   ; preds = %32, %test_for_direc
   %44 = phi ptr [ %41, %.lr.ph.i10 ], [ %55, %.thread.i ]
   %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %29, ptr noundef nonnull @.str.10, ptr noundef nonnull %44) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %46 = call i32 @stat(ptr noundef readonly %45, ptr noundef nonnull %3) #20
+  %46 = call i32 @stat(ptr noundef %45, ptr noundef nonnull %3) #20
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %test_for_directory.exit.i, label %48
 
@@ -1606,7 +1606,7 @@ define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr nound
   %22 = phi ptr [ %19, %.lr.ph.i ], [ %35, %test_for_directory.exit.thread.i ]
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %12, ptr noundef nonnull @.str.10, ptr noundef nonnull %22) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
-  %24 = call i32 @stat(ptr noundef readonly %23, ptr noundef nonnull %8) #20
+  %24 = call i32 @stat(ptr noundef %23, ptr noundef nonnull %8) #20
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %test_for_directory.exit.i, label %26
 
@@ -1658,7 +1658,7 @@ test_for_directory.exit.thread.i:                 ; preds = %34, %test_for_direc
   br i1 %.not.i29, label %test_for_regular_file.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = call i32 @stat(ptr noundef nonnull readonly %41, ptr noundef nonnull %7) #20
+  %44 = call i32 @stat(ptr noundef nonnull %41, ptr noundef nonnull %7) #20
   %.not4.i = icmp eq i32 %44, 0
   br i1 %.not4.i, label %test_for_regular_file.exit, label %test_for_regular_file.exit.thread
 

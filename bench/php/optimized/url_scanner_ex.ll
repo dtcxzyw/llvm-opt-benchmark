@@ -3717,7 +3717,7 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   %.1224.i.i = phi i64 [ %.0223.i.i, %20 ], [ %18, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = getelementptr inbounds i8, ptr %24, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr readonly align 1 %0, i64 %1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %0, i64 %1, i1 false)
   %26 = load ptr, ptr %13, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   store i64 %.1224.i.i, ptr %27, align 8
@@ -5106,7 +5106,7 @@ define internal fastcc void @handle_form(ptr noundef %0) unnamed_addr #0 {
   br label %86
 
 86:                                               ; preds = %81, %67
-  %87 = tail call i32 @strcasecmp(ptr noundef nonnull %78, ptr noundef nonnull readonly %51) #17
+  %87 = tail call i32 @strcasecmp(ptr noundef nonnull %78, ptr noundef nonnull %51) #17
   %.not94.i.i = icmp eq i32 %87, 0
   %88 = load i32, ptr %75, align 4
   %89 = and i32 %88, 64

@@ -120,7 +120,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   store i32 %process, ptr %call, align 8
   %last_cpu_time_.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %last_cpu_time_.i, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %last_cpu_time_.i, i8 0, i64 36, i1 false)
   %call.i1 = invoke noundef i32 @_ZN4base7SysInfo18NumberOfProcessorsEv()
           to label %invoke.cont unwind label %lpad
 
@@ -549,7 +549,7 @@ define dso_local noundef zeroext i1 @_ZN4base14ProcessMetrics14GetMemoryBytesEPm
 entry:
   %ws_usage = alloca %"struct.base::WorkingSetKBytes", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ws_usage, i8 0, i64 24, i1 false)
-  %call.i = call noundef zeroext i1 @_ZNK4base14ProcessMetrics24GetWorkingSetKBytesStatmEPNS_16WorkingSetKBytesE(ptr noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef nonnull writeonly %ws_usage)
+  %call.i = call noundef zeroext i1 @_ZNK4base14ProcessMetrics24GetWorkingSetKBytesStatmEPNS_16WorkingSetKBytesE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %ws_usage)
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1481,7 +1481,7 @@ declare noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__
 define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN4base21GetSystemCommitChargeEv() local_unnamed_addr #0 {
 entry:
   %meminfo = alloca %"struct.base::SystemMemoryInfoKB", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %meminfo, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %meminfo, i8 0, i64 72, i1 false)
   %call = call noundef zeroext i1 @_ZN4base19GetSystemMemoryInfoEPNS_18SystemMemoryInfoKBE(ptr noundef nonnull %meminfo)
   br i1 %call, label %if.end, label %return
 

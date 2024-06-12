@@ -130,7 +130,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cond.i, label %sw.bb.i, label %sw.epilog.i
 
 sw.bb.i:                                          ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %myName, ptr noundef nonnull align 1 dereferenceable(5) @.str.10, i64 5, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %myName, ptr noundef nonnull align 1 dereferenceable(5) @.str.10, i64 5, i1 false) #16
   br label %_ZL23ucnv_copyPlatformStringPc18UConverterPlatform.exit
 
 sw.epilog.i:                                      ; preds = %if.end

@@ -229,7 +229,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp3.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %for.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call, ptr nonnull readonly align 1 %s, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr nonnull align 1 %s, i64 %mul, i1 false)
   br label %return
 
 return:                                           ; preds = %for.end, %if.then5, %entry

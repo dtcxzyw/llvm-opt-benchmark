@@ -214,7 +214,7 @@ Vec_PtrPush.exit.i:                               ; preds = %94, %Vec_PtrGrow.ex
   store ptr %106, ptr %107, align 8
   %108 = sext i32 %.pre110.i to i64
   %109 = shl nsw i64 %108, 2
-  call void @llvm.memset.p0.i64(ptr writeonly align 4 %106, i8 -1, i64 %109, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %106, i8 -1, i64 %109, i1 false)
   %110 = icmp sgt i32 %.pre111.i, 0
   br i1 %110, label %.lr.ph104.i, label %._crit_edge105.i
 

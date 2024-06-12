@@ -1109,7 +1109,7 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %412
   store i32 %420, ptr %421, align 8
   %422 = getelementptr inbounds i8, ptr %407, i64 120
   %423 = getelementptr inbounds i8, ptr %346, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %422, ptr noundef nonnull readonly align 8 dereferenceable(16) %423, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %422, ptr noundef nonnull align 8 dereferenceable(16) %423, i64 16, i1 false)
   %424 = call fastcc ptr @find_latest_rrpd(ptr noundef nonnull %349)
   %.not48.i.i = icmp eq ptr %424, null
   br i1 %.not48.i.i, label %update_rrpd_rte_data.exit, label %425
@@ -1165,7 +1165,7 @@ find_temp_rsp_rrpd.exit54.i.i:                    ; preds = %438
   store i32 %446, ptr %447, align 8
   %448 = getelementptr inbounds i8, ptr %433, i64 120
   %449 = getelementptr inbounds i8, ptr %346, i64 216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %448, ptr noundef nonnull readonly align 8 dereferenceable(16) %449, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %448, ptr noundef nonnull align 8 dereferenceable(16) %449, i64 16, i1 false)
   br label %update_rrpd_rte_data.exit
 
 .loopexit.i.i:                                    ; preds = %443, %429

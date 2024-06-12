@@ -1116,7 +1116,7 @@ define range(i32 0, 21) i32 @cli_bcomp_compare_check(ptr noundef readonly %0, i6
   %44 = zext i32 %.0100.lcssa.i to i64
   %45 = getelementptr inbounds i8, ptr %24, i64 %44
   %46 = zext i32 %37 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %45, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %45, i64 %46, i1 false)
   %47 = getelementptr inbounds i8, ptr %40, i64 %46
   store i8 0, ptr %47, align 1
   %48 = and i16 %13, 240

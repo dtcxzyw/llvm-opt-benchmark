@@ -44,9 +44,9 @@ define range(i64 0, 4294967296) i64 @zfp_encode_block_double_2(ptr nocapture nou
 
 exponent_block_double.exit.thread.i:              ; preds = %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 256 dereferenceable(128) %9, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(128) %9, i8 0, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 256 dereferenceable(128) %7, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   br label %rev_fwd_reversible_double.exit.i
 
 exponent_block_double.exit.i:                     ; preds = %20
@@ -94,7 +94,7 @@ rev_fwd_cast_double.exit.i:                       ; preds = %27
 
 rev_fwd_reversible_double.exit.i:                 ; preds = %36, %exponent_block_double.exit.thread.i
   %43 = phi i32 [ -1023, %exponent_block_double.exit.thread.i ], [ %24, %36 ]
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(128) %1, ptr noundef nonnull dereferenceable(128) %7, i64 128)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(128) %1, ptr noundef nonnull dereferenceable(128) %7, i64 128)
   %.not.i35.not.i = icmp eq i32 %bcmp.i.i, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br i1 %.not.i35.not.i, label %44, label %93
@@ -179,7 +179,7 @@ stream_write_bits.exit.i:                         ; preds = %56, %49
   br label %rev_encode_block_double_2.exit
 
 93:                                               ; preds = %rev_fwd_reversible_double.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 256 dereferenceable(128) %9, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 256 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   br label %94
 
 94:                                               ; preds = %100, %93

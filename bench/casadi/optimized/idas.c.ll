@@ -3565,7 +3565,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
   %124 = getelementptr inbounds i8, ptr %0, i64 848
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %106, align 8
-  %127 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %123, ptr noundef readonly %125, i32 noundef %126)
+  %127 = tail call double @IDASensWrmsNorm(ptr noundef nonnull %0, ptr noundef %123, ptr noundef %125, i32 noundef %126)
   %128 = fcmp olt double %127, %.0361
   %..i418 = select i1 %128, double %.0361, double %127
   br label %129
@@ -4149,7 +4149,7 @@ IDAWrmsNorm.exit:                                 ; preds = %462, %465
   %476 = load ptr, ptr %302, align 8
   %477 = load ptr, ptr %303, align 8
   %478 = load i32, ptr %307, align 8
-  %479 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %476, ptr noundef readonly %477, i32 noundef %478)
+  %479 = tail call double @IDASensWrmsNorm(ptr noundef nonnull %0, ptr noundef %476, ptr noundef %477, i32 noundef %478)
   %480 = fcmp olt double %479, %.0359
   %..i420 = select i1 %480, double %.0359, double %479
   br label %481
@@ -6504,7 +6504,7 @@ IDAWrmsNorm.exit.i213.i:                          ; preds = %1699, %1696
 ._crit_edge.i216.i:                               ; preds = %.lr.ph.i226.i, %1715
   %1734 = load ptr, ptr %303, align 8
   %1735 = load i32, ptr %307, align 8
-  %1736 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %1716, ptr noundef readonly %1734, i32 noundef %1735)
+  %1736 = tail call double @IDASensWrmsNorm(ptr noundef nonnull %0, ptr noundef %1716, ptr noundef %1734, i32 noundef %1735)
   %1737 = fcmp olt double %1736, %.0234.i.i
   %..i257.i.i = select i1 %1737, double %.0234.i.i, double %1736
   br label %1738
@@ -9283,7 +9283,7 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
   tail call void @N_VScale(double noundef %16, ptr noundef %18, ptr noundef %9) #13
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc i32 @IDAQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
+  %21 = tail call fastcc i32 @IDAQuadEwtSet(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %IDAQuadSensEwtSetEE.exit
 

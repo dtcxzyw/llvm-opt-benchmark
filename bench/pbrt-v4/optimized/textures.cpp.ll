@@ -3309,9 +3309,9 @@ ehcleanup23:                                      ; preds = %lpad16, %lpad.i27, 
 if.else:                                          ; preds = %invoke.cont21
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i32)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i32, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i32, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !45
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !45
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !45
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !45
@@ -3691,9 +3691,9 @@ ehcleanup31:                                      ; preds = %lpad22, %lpad.i33, 
 if.else:                                          ; preds = %invoke.cont29
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i41)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i41, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i41, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !54
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i41, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !54
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !54
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !54
@@ -4188,9 +4188,9 @@ entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !63
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !63
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !63
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !63
@@ -6457,9 +6457,9 @@ entry:
   %ref.tmp25 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !103
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !103
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !103
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !103
@@ -10810,9 +10810,9 @@ entry:
   %ref.tmp.i = alloca %"class.pbrt::Transform", align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !123
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !123
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !123
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !123
@@ -10858,9 +10858,9 @@ entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i)
   %mInv.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !126
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !126
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !126
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !126
@@ -11099,9 +11099,9 @@ if.else81:                                        ; preds = %if.else73
 if.then83:                                        ; preds = %if.else81
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
   %mInv.i.i.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i.i, i64 64, i1 false), !noalias !129
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i.i, i64 64, i1 false), !noalias !129
   %mInv3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !129
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromTexture, i64 64, i1 false), !noalias !129
   %vtable.i.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !129
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !129

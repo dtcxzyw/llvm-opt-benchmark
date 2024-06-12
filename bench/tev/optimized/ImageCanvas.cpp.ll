@@ -4651,7 +4651,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
-  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %3, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull %12), !noalias !131
+  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %3, ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %12), !noalias !131
   %22 = getelementptr inbounds i8, ptr %12, i64 236
   %23 = getelementptr inbounds i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %23, i8 0, i64 32, i1 false), !alias.scope !134, !noalias !131
@@ -5268,7 +5268,7 @@ define dso_local void @_ZN3tev11ImageCanvas4drawEP10NVGcontext(ptr noundef nonnu
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge.i:     ; preds = %13
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %3, align 8, !noalias !151
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %7, i8 0, i64 32, i1 false), !alias.scope !157
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, i8 0, i64 32, i1 false), !alias.scope !157
   br label %15
 
 15:                                               ; preds = %15, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge.i
@@ -5287,7 +5287,7 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit.i: ; preds = %15
   br label %_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit
 
 _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %13
-  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %4, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull %14), !noalias !151
+  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %4, ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %14), !noalias !151
   %21 = getelementptr inbounds i8, ptr %14, i64 236
   %22 = getelementptr inbounds i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %22, i8 0, i64 32, i1 false), !alias.scope !158, !noalias !151
@@ -13554,10 +13554,10 @@ _ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit173: ; preds = %_ZNSt3
   store <2 x ptr> %486, ptr %484, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %452, i8 0, i64 16, i1 false)
   %487 = getelementptr inbounds i8, ptr %476, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %487, ptr noundef nonnull align 16 dereferenceable(24) %460, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, ptr noundef nonnull align 16 dereferenceable(24) %460, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %460, i8 0, i64 24, i1 false)
   %488 = getelementptr inbounds i8, ptr %476, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %488, ptr noundef nonnull align 8 dereferenceable(24) %462, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %488, ptr noundef nonnull align 8 dereferenceable(24) %462, i64 24, i1 false)
   %489 = getelementptr inbounds i8, ptr %476, i64 104
   %490 = load ptr, ptr %474, align 16
   store ptr %490, ptr %489, align 8
@@ -71901,11 +71901,11 @@ define internal fastcc void @"_ZN3tev18invokeTaskDetachedIZNS_11ImageCanvas16can
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   %22 = getelementptr inbounds i8, ptr %10, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   %24 = getelementptr inbounds i8, ptr %10, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 104
   %26 = getelementptr inbounds i8, ptr %10, i64 80
   %27 = load ptr, ptr %26, align 8

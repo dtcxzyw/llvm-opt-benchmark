@@ -525,7 +525,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !45
   store i64 %165, ptr %0, align 8, !alias.scope !40, !noalias !43
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1429,7 +1429,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !131
   store i64 %165, ptr %0, align 8, !alias.scope !126, !noalias !129
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2333,7 +2333,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !215
   store i64 %165, ptr %0, align 8, !alias.scope !210, !noalias !213
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3237,7 +3237,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !299
   store i64 %165, ptr %0, align 8, !alias.scope !294, !noalias !297
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4141,7 +4141,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !383
   store i64 %165, ptr %0, align 8, !alias.scope !378, !noalias !381
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5045,7 +5045,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !467
   store i64 %165, ptr %0, align 8, !alias.scope !462, !noalias !465
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5949,7 +5949,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !551
   store i64 %165, ptr %0, align 8, !alias.scope !546, !noalias !549
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6853,7 +6853,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !635
   store i64 %165, ptr %0, align 8, !alias.scope !630, !noalias !633
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7757,7 +7757,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !719
   store i64 %165, ptr %0, align 8, !alias.scope !714, !noalias !717
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8661,7 +8661,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !803
   store i64 %165, ptr %0, align 8, !alias.scope !798, !noalias !801
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9565,7 +9565,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !887
   store i64 %165, ptr %0, align 8, !alias.scope !882, !noalias !885
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10469,7 +10469,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !971
   store i64 %165, ptr %0, align 8, !alias.scope !966, !noalias !969
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11373,7 +11373,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1055
   store i64 %165, ptr %0, align 8, !alias.scope !1050, !noalias !1053
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12277,7 +12277,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1139
   store i64 %165, ptr %0, align 8, !alias.scope !1134, !noalias !1137
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13181,7 +13181,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1223
   store i64 %165, ptr %0, align 8, !alias.scope !1218, !noalias !1221
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14085,7 +14085,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1307
   store i64 %165, ptr %0, align 8, !alias.scope !1302, !noalias !1305
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14989,7 +14989,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1391
   store i64 %165, ptr %0, align 8, !alias.scope !1386, !noalias !1389
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15893,7 +15893,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %166 = extractvalue { i64, ptr } %160, 1
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1475
   store i64 %165, ptr %0, align 8, !alias.scope !1470, !noalias !1473
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8

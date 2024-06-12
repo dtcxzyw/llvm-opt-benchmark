@@ -88,7 +88,7 @@ define hidden range(i32 -1, 2) i32 @pppdump_open(ptr noundef %0, ptr noundef %1,
   store i32 0, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %23, i64 8224
   %50 = getelementptr inbounds i8, ptr %23, i64 8248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   store i32 1, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %23, i64 8252
   store i32 0, ptr %51, align 4
@@ -98,7 +98,7 @@ define hidden range(i32 -1, 2) i32 @pppdump_open(ptr noundef %0, ptr noundef %1,
   %54 = getelementptr inbounds i8, ptr %23, i64 16504
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %23, i64 16480
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   store i64 5, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 19, ptr %56, align 8
@@ -285,7 +285,7 @@ define internal range(i32 0, 2) i32 @pppdump_seek_read(ptr nocapture noundef rea
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 8224
   %33 = getelementptr inbounds i8, ptr %26, i64 8248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i32 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %26, i64 8252
   store i32 0, ptr %34, align 4
@@ -295,7 +295,7 @@ define internal range(i32 0, 2) i32 @pppdump_seek_read(ptr nocapture noundef rea
   %37 = getelementptr inbounds i8, ptr %26, i64 16504
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %26, i64 16480
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i64 1048576, ptr %38, align 8
   %39 = load i64, ptr %15, align 8
   %40 = load ptr, ptr %25, align 8

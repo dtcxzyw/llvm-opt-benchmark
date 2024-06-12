@@ -231,7 +231,7 @@ define dso_local noundef ptr @archive_entry_clone(ptr noundef %0) local_unnamed_
   unreachable
 
 62:                                               ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %51, i64 %49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %51, i64 %49, i1 false)
   br label %archive_entry_copy_mac_metadata.exit
 
 archive_entry_copy_mac_metadata.exit:             ; preds = %56, %62

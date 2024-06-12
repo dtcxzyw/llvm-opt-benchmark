@@ -771,7 +771,7 @@ define hidden i32 @mbedtls_md_file(ptr noundef %0, ptr nocapture noundef readonl
 
 10:                                               ; preds = %7
   tail call void @setbuf(ptr noundef nonnull %8, ptr noundef null) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %11 = call i32 @mbedtls_md_setup(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef 0)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %.loopexit
@@ -1056,7 +1056,7 @@ define hidden i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %10 = call i32 @mbedtls_md_setup(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 1)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %mbedtls_md_hmac_update.exit.thread

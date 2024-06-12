@@ -1712,12 +1712,12 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIbE9Pa
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 41
-  %6 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef readonly %1, ptr noundef nonnull @.str.9, ptr noundef readonly %4)
+  %6 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %4)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef readonly %1, ptr noundef nonnull @.str.30, ptr noundef readonly %4)
+  %8 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef %4)
   %.not30.i = icmp eq ptr %8, null
   br i1 %.not30.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.exit, label %9
 
@@ -2019,7 +2019,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIiE9Pa
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %7 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef readonly %5)
+  %7 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %5)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pi.exit, label %8
 
@@ -2163,7 +2163,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIfE9Pa
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %7 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef readonly %5)
+  %7 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %5)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pf.exit, label %8
 
@@ -2305,7 +2305,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIPKcE9
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef readonly %4)
+  %6 = tail call fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEPKcS3_S3_(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %4)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_PS3_.exit, label %7
 

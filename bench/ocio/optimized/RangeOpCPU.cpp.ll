@@ -215,7 +215,7 @@ entry:
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
   %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
@@ -315,7 +315,7 @@ entry:
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
   %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
@@ -405,7 +405,7 @@ entry:
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
   %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
@@ -485,7 +485,7 @@ entry:
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
   %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8

@@ -1588,7 +1588,7 @@ mi_page_usable_block_size.exit:                   ; preds = %if.then.i.i, %if.el
   %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ %28, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i)
   call void @llvm.assume(i1 true) [ "align"(ptr %call48, i64 8) ]
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %call48, i8 0, i64 %retval.0.i.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %call48, i8 0, i64 %retval.0.i.i, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end36, %land.rhs

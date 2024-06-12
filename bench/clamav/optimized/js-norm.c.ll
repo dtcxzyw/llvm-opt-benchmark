@@ -673,7 +673,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
   br i1 %or.cond.i104.i, label %230, label %.thread149.i.i
 
 230:                                              ; preds = %224
-  %231 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.073.i, ptr noundef nonnull dereferenceable(1) %225) #19
+  %231 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.073.i, ptr noundef nonnull dereferenceable(1) %225) #19
   %.not143.i.i = icmp eq i32 %231, 0
   br i1 %.not143.i.i, label %232, label %.thread149.i.i
 
@@ -1556,7 +1556,7 @@ textbuf_clean.exit.i:                             ; preds = %69, %62
   %119 = getelementptr inbounds i8, ptr %115, i64 1
   %120 = add nuw nsw i64 %.022.i.i, 4294967295
   %121 = and i64 %120, 4294967295
-  %122 = tail call i32 @strncmp(ptr noundef nonnull readonly %94, ptr noundef nonnull %119, i64 noundef %121) #19
+  %122 = tail call i32 @strncmp(ptr noundef nonnull %94, ptr noundef nonnull %119, i64 noundef %121) #19
   %.not.i.i.i = icmp eq i32 %122, 0
   br i1 %.not.i.i.i, label %123, label %select.unfold.i.i
 
@@ -1634,7 +1634,7 @@ parseOperator.exit.i:                             ; preds = %123
   %161 = getelementptr inbounds i8, ptr %157, i64 1
   %162 = add nuw nsw i64 %.022.i108.i, 4294967295
   %163 = and i64 %162, 4294967295
-  %164 = tail call i32 @strncmp(ptr noundef nonnull readonly %136, ptr noundef nonnull %161, i64 noundef %163) #19
+  %164 = tail call i32 @strncmp(ptr noundef nonnull %136, ptr noundef nonnull %161, i64 noundef %163) #19
   %.not.i.i113.i = icmp eq i32 %164, 0
   br i1 %.not.i.i113.i, label %165, label %select.unfold.i109.i
 
@@ -2066,7 +2066,7 @@ scope_declare.exit109:                            ; preds = %248, %252
   %298 = phi ptr [ %294, %295 ], [ %.pre.i110, %286 ]
   store i64 %.pre-phi.i111, ptr %20, align 8
   %299 = getelementptr inbounds %struct.token, ptr %298, i64 %297
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   br label %add_token.exit
 
 add_token.exit:                                   ; preds = %291, %296
@@ -2321,7 +2321,7 @@ yyget_text.exit122:                               ; preds = %397, %401
   %416 = phi ptr [ %412, %413 ], [ %.pre.i123, %.thread ]
   store i64 %.pre-phi.i124, ptr %20, align 8
   %417 = getelementptr inbounds %struct.token, ptr %416, i64 %415
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %417, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %417, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   br label %add_token.exit129
 
 add_token.exit129:                                ; preds = %409, %414
@@ -3993,7 +3993,7 @@ textbuffer_putc.exit97:                           ; preds = %99, %104
   br i1 %.not86, label %textbuffer_append.exit, label %.lr.ph120
 
 108:                                              ; preds = %90
-  %109 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %89) #19
+  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #19
   %110 = load i64, ptr %40, align 8
   %111 = add i64 %110, %109
   %112 = load i64, ptr %41, align 8
@@ -4019,7 +4019,7 @@ textbuffer_putc.exit97:                           ; preds = %99, %104
   %120 = phi i64 [ %.pre9.i.i, %118 ], [ %110, %108 ]
   %121 = phi ptr [ %117, %118 ], [ %.pre.i.i, %108 ]
   %122 = getelementptr inbounds i8, ptr %121, i64 %120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr nonnull readonly align 1 %89, i64 %109, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr nonnull align 1 %89, i64 %109, i1 false)
   %123 = load i64, ptr %40, align 8
   %124 = add i64 %123, %109
   store i64 %124, ptr %40, align 8
@@ -4559,7 +4559,7 @@ textbuffer_putc.exit52:                           ; preds = %69, %74
   %105 = getelementptr inbounds i8, ptr %101, i64 1
   %106 = add i64 %80, 4294967294
   %107 = and i64 %106, 4294967295
-  %108 = tail call i32 @strncmp(ptr noundef nonnull readonly %86, ptr noundef nonnull %105, i64 noundef %107) #19
+  %108 = tail call i32 @strncmp(ptr noundef nonnull %86, ptr noundef nonnull %105, i64 noundef %107) #19
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %109, label %117
 

@@ -318,7 +318,7 @@ if.then.i.i6:                                     ; preds = %if.then.i
 
 while.body:                                       ; preds = %if.then.i.i6, %if.then.i
   %26 = phi i32 [ %.pre, %if.then.i.i6 ], [ %21, %if.then.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %in_slice, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %in_slice, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %add.i = add i32 %26, 1
   store i32 %add.i, ptr %current.i, align 8
   %27 = load ptr, ptr %in_slice, align 8

@@ -2598,7 +2598,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance10from_vmctx17h15130f
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8, !alias.scope !352, !noalias !357, !noundef !4
   %11 = load i64, ptr %3, align 8, !alias.scope !355, !noalias !359, !noundef !4
-  tail call void @_ZN16wasmtime_runtime8instance8Instance19defined_memory_grow17h4c9528454d5e781bE.llvm.3622975676230304285(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %8, i32 noundef %10, i64 noundef %11), !noalias !360
+  tail call void @_ZN16wasmtime_runtime8instance8Instance19defined_memory_grow17h4c9528454d5e781bE.llvm.3622975676230304285(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %8, i32 noundef %10, i64 noundef %11), !noalias !360
   ret void
 }
 
@@ -4141,7 +4141,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h15130f8c9f639b05E.llvm.362
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   %55 = getelementptr inbounds i8, ptr %49, i64 16
   %56 = load i32, ptr %55, align 8, !alias.scope !526, !noalias !527, !noundef !4
-  tail call void @_ZN16wasmtime_runtime8instance8Instance19defined_memory_grow17h4c9528454d5e781bE.llvm.3622975676230304285(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %54, i32 noundef %56, i64 noundef %3), !noalias !530
+  tail call void @_ZN16wasmtime_runtime8instance8Instance19defined_memory_grow17h4c9528454d5e781bE.llvm.3622975676230304285(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %54, i32 noundef %56, i64 noundef %3), !noalias !530
   br label %60
 
 57:                                               ; preds = %4
@@ -4330,7 +4330,7 @@ _ZN16wasmtime_runtime8instance8Instance10set_memory17h73018f49c6468f88E.llvm.362
   %101 = zext i32 %96 to i64
   %102 = getelementptr inbounds i8, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8, !noalias !578, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %77
 
 104:                                              ; preds = %69
@@ -6016,7 +6016,7 @@ _ZN16wasmtime_runtime8instance8Instance19get_exported_global17hb4022f0f28640a02E
   store ptr %.0.i, ptr %110, align 8, !alias.scope !825
   %111 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %106, ptr %111, align 8, !alias.scope !825
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %109, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %109, i64 16, i1 false)
   ret void
 }
 
@@ -6174,7 +6174,7 @@ _ZN16wasmtime_runtime8instance8Instance19get_exported_memory17hfc393a61d516ae0aE
   store ptr %.05.i, ptr %109, align 8, !alias.scope !849
   %110 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %.06.i, ptr %110, align 8, !alias.scope !849
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   %111 = load <2 x i64>, ptr %107, align 8, !alias.scope !881, !noalias !884
   store <2 x i64> %111, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !849
@@ -6332,7 +6332,7 @@ _ZN16wasmtime_runtime8instance8Instance18get_exported_table17hff5ba4fc53d31b83E.
   %106 = getelementptr inbounds [0 x { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }], ptr %105, i64 0, i64 %20
   %107 = getelementptr inbounds i8, ptr %0, i64 24
   store <2 x ptr> %87, ptr %107, align 8, !alias.scope !889
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %106, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %106, i64 24, i1 false)
   ret void
 }
 

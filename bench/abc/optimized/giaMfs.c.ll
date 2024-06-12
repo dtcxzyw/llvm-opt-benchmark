@@ -2309,10 +2309,10 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge471, %18
   br i1 %.not.i366, label %Abc_UtilStrsav.exit, label %198
 
 198:                                              ; preds = %Vec_IntAlloc.exit
-  %199 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %197) #20
+  %199 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %197) #20
   %200 = add i64 %199, 1
   %201 = call noalias ptr @malloc(i64 noundef %200) #17
-  %202 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull readonly dereferenceable(1) %197) #16
+  %202 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(1) %197) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntAlloc.exit, %198
@@ -2324,10 +2324,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntAlloc.exit, 
   br i1 %.not.i367, label %Abc_UtilStrsav.exit368, label %206
 
 206:                                              ; preds = %Abc_UtilStrsav.exit
-  %207 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %205) #20
+  %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #20
   %208 = add i64 %207, 1
   %209 = call noalias ptr @malloc(i64 noundef %208) #17
-  %210 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %209, ptr noundef nonnull readonly dereferenceable(1) %205) #16
+  %210 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %209, ptr noundef nonnull dereferenceable(1) %205) #16
   br label %Abc_UtilStrsav.exit368
 
 Abc_UtilStrsav.exit368:                           ; preds = %Abc_UtilStrsav.exit, %206

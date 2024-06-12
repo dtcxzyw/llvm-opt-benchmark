@@ -148,7 +148,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04.i
   %0 = load ptr, ptr %arrayidx.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #5
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %ossl_ec_curve_nist2nid_int.exit, label %for.cond.i
 

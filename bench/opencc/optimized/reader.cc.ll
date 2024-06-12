@@ -119,7 +119,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEPKc(ptr nocapture noundef nonnul
 
 11:                                               ; preds = %2
   call void @_ZN6marisa8grimoire2io6ReaderC1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3)
-  %12 = call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.5)
+  %12 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.5)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %20
 

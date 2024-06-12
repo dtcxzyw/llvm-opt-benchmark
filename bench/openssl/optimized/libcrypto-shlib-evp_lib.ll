@@ -286,7 +286,7 @@ if.end.i:                                         ; preds = %sw.bb7
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = call i32 @ossl_asn1_type_get_octetstring_int(ptr noundef nonnull %type, ptr noundef nonnull %tl.i, ptr noundef nonnull %iv.i, i32 noundef %call.i) #13
   %conv.i16 = zext nneg i32 %call.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %asn1_params, ptr nonnull align 16 %iv.i, i64 %conv.i16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %asn1_params, ptr nonnull align 16 %iv.i, i64 %conv.i16, i1 false)
   %iv_len.i = getelementptr inbounds i8, ptr %asn1_params, i64 16
   store i32 %call.i, ptr %iv_len.i, align 4
   br label %evp_cipher_get_asn1_aead_params.exit

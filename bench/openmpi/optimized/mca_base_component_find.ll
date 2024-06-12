@@ -284,7 +284,7 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
 .lr.ph.i:                                         ; preds = %6, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %6 ]
   %11 = phi ptr [ %10, %8 ], [ %7, %6 ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %11) #7
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %11) #7
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %component_in_list.exit, label %8
 
@@ -331,7 +331,7 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %25
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i27, %25 ], [ 0, %.lr.ph.i25.preheader ]
   %28 = phi ptr [ %27, %25 ], [ %21, %.lr.ph.i25.preheader ]
-  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %28) #7
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %28) #7
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %component_in_list.exit, label %25
 

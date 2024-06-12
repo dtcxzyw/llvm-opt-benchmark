@@ -1940,8 +1940,8 @@ if.end11:                                         ; preds = %if.then9, %if.end7
   store i32 %19, ptr %ref.tmp.i.i, align 8
   %d_violated.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %d_handle.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %d_violated.i.i.i, i8 0, i64 14, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %d_handle.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %d_violated.i.i.i, i8 0, i64 14, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %d_handle.i.i.i, i8 0, i64 20, i1 false)
   %20 = load ptr, ptr %d_image.i, align 8
   %add.ptr.i2.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ErrorInformation", ptr %20, i64 %conv.i4.i
   %call5.i.i = invoke noundef nonnull align 8 dereferenceable(44) ptr @_ZN4cvc58internal6theory5arith6linear16ErrorInformationaSERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i2.i.i, ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i.i)
@@ -2129,7 +2129,7 @@ entry:
   %d_inFocus.i = getelementptr inbounds i8, ptr %ref.tmp, i64 21
   store i8 0, ptr %d_inFocus.i, align 1
   %d_handle.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %d_handle.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %d_handle.i, i8 0, i64 20, i1 false)
   invoke void @_ZN4cvc58internal8DenseMapINS0_6theory5arith6linear16ErrorInformationEE3setEjRKS5_(ptr noundef nonnull align 8 dereferenceable(72) %d_errInfo, i32 noundef %v, ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -2843,8 +2843,8 @@ while.body.i:                                     ; preds = %_ZN4cvc58internal8D
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %7, i64 %conv.i.i
   store i32 -1, ptr %add.ptr.i.i.i, align 4
   store i32 %4, ptr %ref.tmp.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %d_violated.i.i.i, i8 0, i64 14, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %d_handle.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %d_violated.i.i.i, i8 0, i64 14, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %d_handle.i.i.i, i8 0, i64 20, i1 false)
   %8 = load ptr, ptr %d_image.i.i, align 8
   %add.ptr.i2.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ErrorInformation", ptr %8, i64 %conv.i.i
   %call5.i.i = invoke noundef nonnull align 8 dereferenceable(44) ptr @_ZN4cvc58internal6theory5arith6linear16ErrorInformationaSERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i2.i.i, ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i.i)
@@ -3159,8 +3159,8 @@ while.body.i:                                     ; preds = %_ZN4cvc58internal8D
   %add.ptr.i.i.i1 = getelementptr inbounds i32, ptr %14, i64 %conv.i.i
   store i32 -1, ptr %add.ptr.i.i.i1, align 4
   store i32 %11, ptr %ref.tmp.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %d_violated.i.i.i, i8 0, i64 14, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %d_handle.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %d_violated.i.i.i, i8 0, i64 14, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %d_handle.i.i.i, i8 0, i64 20, i1 false)
   %15 = load ptr, ptr %d_image.i.i, align 8
   %add.ptr.i2.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ErrorInformation", ptr %15, i64 %conv.i.i
   %call5.i.i = invoke noundef nonnull align 8 dereferenceable(44) ptr @_ZN4cvc58internal6theory5arith6linear16ErrorInformationaSERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i2.i.i, ptr noundef nonnull align 8 dereferenceable(44) %ref.tmp.i.i)
@@ -4843,8 +4843,8 @@ for.inc.i.i.i:                                    ; preds = %for.inc.i.i.i, %for
   store i32 %3, ptr %__cur.08.i.i.i, align 8
   %d_violated.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   %d_handle.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %d_violated.i.i.i.i.i, i8 0, i64 14, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %d_handle.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %d_violated.i.i.i.i.i, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %d_handle.i.i.i.i.i, i8 0, i64 20, i1 false)
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -4878,8 +4878,8 @@ for.inc.i.i.i29:                                  ; preds = %for.inc.i.i.i29, %_
   store i32 %5, ptr %__cur.08.i.i.i30, align 8
   %d_violated.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.08.i.i.i30, i64 8
   %d_handle.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__cur.08.i.i.i30, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %d_violated.i.i.i.i.i32, i8 0, i64 14, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %d_handle.i.i.i.i.i33, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %d_violated.i.i.i.i.i32, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %d_handle.i.i.i.i.i33, i8 0, i64 20, i1 false)
   %dec.i.i.i34 = add i64 %__n.addr.07.i.i.i31, -1
   %incdec.ptr.i.i.i35 = getelementptr inbounds i8, ptr %__cur.08.i.i.i30, i64 48
   %cmp.not.i.i.i36 = icmp eq i64 %dec.i.i.i34, 0

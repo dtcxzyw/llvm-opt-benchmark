@@ -408,7 +408,7 @@ if.else.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %entry
   %hth_prime_idx.i = getelementptr inbounds i8, ptr %head, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %head, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %head, i8 0, i64 20, i1 false)
   store i32 -1, ptr %hth_prime_idx.i, align 4
   ret void
 }
@@ -829,7 +829,7 @@ if.then12.i:                                      ; preds = %if.end9.i
 gettime.exit:                                     ; preds = %if.then5.i, %if.end7.i, %if.end9.i, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   %timeheap = getelementptr inbounds i8, ptr %retval.0.i94, i64 840
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %timeheap, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %timeheap, i8 0, i64 24, i1 false)
   %ev_signal_pair = getelementptr inbounds i8, ptr %retval.0.i94, i64 160
   store i32 -1, ptr %ev_signal_pair, align 8
   %arrayidx29 = getelementptr inbounds i8, ptr %retval.0.i94, i64 164
@@ -997,7 +997,7 @@ for.body.i.us:                                    ; preds = %for.body.us103, %fo
   br i1 %cmp2.not.i.us, label %for.inc.i.us, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.i.us
-  %call.i79.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %31) #32
+  %call.i79.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %31) #32
   %cmp4.i.us = icmp eq i32 %call.i79.us, 0
   br i1 %cmp4.i.us, label %for.inc.us108, label %for.inc.i.us
 
@@ -1051,7 +1051,7 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %40) #32
+  %call.i79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %40) #32
   %cmp4.i = icmp eq i32 %call.i79, 0
   br i1 %cmp4.i, label %for.inc, label %for.inc.i
 
@@ -1487,7 +1487,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   store i32 1, ptr @event_debug_mode_on_, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) @global_debug_map, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @global_debug_map, i8 0, i64 20, i1 false)
   store i32 -1, ptr getelementptr inbounds (i8, ptr @global_debug_map, i64 20), align 4
   ret void
 }
@@ -1607,7 +1607,7 @@ if.else.i.i:                                      ; preds = %if.then.i14
   br label %event_debug_map_HT_CLEAR.exit
 
 event_debug_map_HT_CLEAR.exit:                    ; preds = %for.end, %if.then.i.i, %if.else.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) @global_debug_map, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @global_debug_map, i8 0, i64 20, i1 false)
   store i32 -1, ptr getelementptr inbounds (i8, ptr @global_debug_map, i64 20), align 4
   %17 = load ptr, ptr @event_debug_map_lock_, align 8
   %tobool5.not = icmp eq ptr %17, null
@@ -4786,7 +4786,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool1.not.i, label %event_mm_strdup_.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %method) #32
+  %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %method) #32
   %cmp.i = icmp eq i64 %call3.i, -1
   br i1 %cmp.i, label %event_mm_strdup_.exit.thread, label %if.end5.i
 
@@ -4797,7 +4797,7 @@ if.end5.i:                                        ; preds = %if.then2.i
   br i1 %tobool7.not.i, label %event_mm_strdup_.exit.thread, label %event_mm_strdup_.exit.thread20
 
 event_mm_strdup_.exit.thread20:                   ; preds = %if.end5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call6.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %method, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call6.i, ptr noundef nonnull align 1 dereferenceable(1) %method, i64 %add.i, i1 false)
   %avoid_method22 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store ptr %call6.i, ptr %avoid_method22, align 8
   br label %do.body
@@ -4811,7 +4811,7 @@ event_mm_strdup_.exit.thread:                     ; preds = %if.then2.i, %if.end
   br label %if.then4
 
 event_mm_strdup_.exit:                            ; preds = %if.end.i
-  %call11.i = tail call noalias ptr @strdup(ptr noundef nonnull readonly %method) #26
+  %call11.i = tail call noalias ptr @strdup(ptr noundef nonnull %method) #26
   %avoid_method = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store ptr %call11.i, ptr %avoid_method, align 8
   %cmp3 = icmp eq ptr %call11.i, null
@@ -5827,7 +5827,7 @@ if.end17:                                         ; preds = %land.lhs.true, %lor
 if.then20:                                        ; preds = %land.lhs.true, %lor.lhs.false
   %ev_timeout.le = getelementptr inbounds i8, ptr %13, i64 104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ev_timeout.le, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i, ptr noundef nonnull align 8 dereferenceable(16) %ev_timeout.le, i64 16, i1 false)
   %tv_usec.i18 = getelementptr inbounds i8, ptr %timeout.i, i64 8
   %19 = load i64, ptr %tv_usec.i18, align 8
   %and.i = and i64 %19, 1048575

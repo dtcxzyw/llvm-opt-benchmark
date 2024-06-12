@@ -11473,7 +11473,7 @@ _ZN3tev10ThreadPool6globalEv.exit67:              ; preds = %402, %399, %395
   %486 = getelementptr inbounds i8, ptr %476, i64 16
   store i64 %477, ptr %480, align 8, !noalias !254
   store i64 %478, ptr %481, align 8, !noalias !254
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %482, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !254
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %482, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !254
   store i32 %475, ptr %483, align 4, !noalias !254
   store ptr %474, ptr %484, align 8, !noalias !254
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %486)
@@ -12441,7 +12441,7 @@ _ZN3tev10ThreadPool6globalEv.exit137:             ; preds = %754, %751, %748
   %838 = getelementptr inbounds i8, ptr %828, i64 16
   store i64 %829, ptr %832, align 8, !noalias !308
   store i64 %830, ptr %833, align 8, !noalias !308
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %834, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !308
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %834, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !308
   store i32 %827, ptr %835, align 4, !noalias !308
   store ptr %826, ptr %836, align 8, !noalias !308
   invoke void @_ZNSt3__17promiseIvEC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %838)
@@ -13761,7 +13761,7 @@ define dso_local void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_str
 "_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.us.i": ; preds = %27
   %28 = getelementptr inbounds i8, ptr %.sroa.02.013.us.i, i64 16
   %29 = load ptr, ptr %28, align 8
-  %bcmp.i.i.us.i = tail call i32 @bcmp(ptr %29, ptr nonnull readonly %17, i64 %23)
+  %bcmp.i.i.us.i = tail call i32 @bcmp(ptr %29, ptr nonnull %17, i64 %23)
   %30 = icmp eq i32 %bcmp.i.i.us.i, 0
   br i1 %30, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPN3tev12ChannelGroupEEEZNS2_5Image21decomposeChannelGroupERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SG_SG_T0_.exit", label %"_ZZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clINS_12ChannelGroupEEEDaRKT_.exit.thread7.us.i"
 
@@ -16617,7 +16617,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
           to label %.noexc.i unwind label %251
 
 .noexc.i:                                         ; preds = %.noexc
-  invoke void @_ZNK3tev9ImageData15channelsInLayerENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::vector") align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(176) %144, ptr noundef nonnull %6)
+  invoke void @_ZNK3tev9ImageData15channelsInLayerENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::vector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(176) %144, ptr noundef nonnull %6)
           to label %158 unwind label %177, !noalias !387
 
 158:                                              ; preds = %.noexc.i
@@ -22363,7 +22363,7 @@ _ZNSt3__14__fs10filesystem28recursive_directory_iteratorD2B8ne190000Ev.exit22.i:
           to label %_ZNKSt3__14__fs10filesystem28recursive_directory_iteratordeB8ne190000Ev.exit.i unwind label %76
 
 _ZNKSt3__14__fs10filesystem28recursive_directory_iteratordeB8ne190000Ev.exit.i: ; preds = %72
-  invoke fastcc void @"_ZZN3tev22BackgroundImagesLoader39checkDirectoriesForNewFilesAndLoadThoseEvENK3$_0clINSt3__14__fs10filesystem15directory_entryEEEDaRKT_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(80) %73)
+  invoke fastcc void @"_ZZN3tev22BackgroundImagesLoader39checkDirectoriesForNewFilesAndLoadThoseEvENK3$_0clINSt3__14__fs10filesystem15directory_entryEEEDaRKT_"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(80) %73)
           to label %74 unwind label %76
 
 74:                                               ; preds = %_ZNKSt3__14__fs10filesystem28recursive_directory_iteratordeB8ne190000Ev.exit.i
@@ -22482,7 +22482,7 @@ _ZNSt3__14__fs10filesystem18directory_iteratorD2B8ne190000Ev.exit34.i: ; preds =
           to label %_ZNKSt3__14__fs10filesystem18directory_iteratordeB8ne190000Ev.exit.i unwind label %121
 
 _ZNKSt3__14__fs10filesystem18directory_iteratordeB8ne190000Ev.exit.i: ; preds = %117
-  invoke fastcc void @"_ZZN3tev22BackgroundImagesLoader39checkDirectoriesForNewFilesAndLoadThoseEvENK3$_0clINSt3__14__fs10filesystem15directory_entryEEEDaRKT_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(80) %118)
+  invoke fastcc void @"_ZZN3tev22BackgroundImagesLoader39checkDirectoriesForNewFilesAndLoadThoseEvENK3$_0clINSt3__14__fs10filesystem15directory_entryEEEDaRKT_"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(80) %118)
           to label %119 unwind label %121
 
 119:                                              ; preds = %_ZNKSt3__14__fs10filesystem18directory_iteratordeB8ne190000Ev.exit.i
@@ -67634,7 +67634,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret ptr %2
 }
 
@@ -67643,7 +67643,7 @@ define internal void @"_ZNKSt3__110__function6__funcIZN3tev9ImageData13multiplyA
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev9ImageData13multiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   ret void
 }
 
@@ -67772,7 +67772,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret ptr %2
 }
 
@@ -67781,7 +67781,7 @@ define internal void @"_ZNKSt3__110__function6__funcIZN3tev9ImageData15unmultipl
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev9ImageData15unmultiplyAlphaEiE3$_0NS_9allocatorIS4_EEFvRNS2_7ChannelERKS7_EEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   ret void
 }
 

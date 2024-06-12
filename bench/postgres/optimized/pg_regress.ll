@@ -893,7 +893,7 @@ add_stringlist_item.exit162:                      ; preds = %add_stringlist_item
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %37)
   %202 = load ptr, ptr @outputdir, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %36)
-  %203 = call i32 @stat(ptr noundef readonly %202, ptr noundef nonnull %36) #23
+  %203 = call i32 @stat(ptr noundef %202, ptr noundef nonnull %36) #23
   %.not.i.i163 = icmp eq i32 %203, 0
   %204 = getelementptr inbounds i8, ptr %36, i64 24
   %205 = load i32, ptr %204, align 8
@@ -956,7 +956,7 @@ make_directory.exit.i:                            ; preds = %208, %193
   %237 = load ptr, ptr @outputdir, align 8
   %238 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 1024, ptr noundef nonnull @.str.142, ptr noundef %237) #23
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %35)
-  %239 = call i32 @stat(ptr noundef nonnull readonly %37, ptr noundef nonnull %35) #23
+  %239 = call i32 @stat(ptr noundef nonnull %37, ptr noundef nonnull %35) #23
   %.not.i3.i = icmp eq i32 %239, 0
   %240 = getelementptr inbounds i8, ptr %35, i64 24
   %241 = load i32, ptr %240, align 8
@@ -1335,7 +1335,7 @@ unlimit_core_size.exit:                           ; preds = %420, %421, %424
 
 427:                                              ; preds = %unlimit_core_size.exit
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %30)
-  %428 = call i32 @stat(ptr noundef nonnull readonly %426, ptr noundef nonnull %30) #23
+  %428 = call i32 @stat(ptr noundef nonnull %426, ptr noundef nonnull %30) #23
   %.not.i169 = icmp eq i32 %428, 0
   %429 = getelementptr inbounds i8, ptr %30, i64 24
   %430 = load i32, ptr %429, align 8
@@ -1372,7 +1372,7 @@ make_directory.exit:                              ; preds = %438
   %446 = load ptr, ptr @outputdir, align 8
   %447 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %39, i64 noundef 4096, ptr noundef nonnull @.str.43, ptr noundef %446) #23
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %29)
-  %448 = call i32 @stat(ptr noundef nonnull readonly %39, ptr noundef nonnull %29) #23
+  %448 = call i32 @stat(ptr noundef nonnull %39, ptr noundef nonnull %29) #23
   %.not.i171 = icmp eq i32 %448, 0
   %449 = getelementptr inbounds i8, ptr %29, i64 24
   %450 = load i32, ptr %449, align 8
@@ -3691,7 +3691,7 @@ define internal fastcc noundef zeroext i1 @results_differ(ptr nocapture noundef 
   br i1 %.not.i, label %get_expectfile.exit.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1, i32 noundef 46) #26
+  %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #26
   %.not14.i = icmp eq ptr %9, null
   br i1 %.not14.i, label %get_expectfile.exit.thread, label %10
 
@@ -3704,7 +3704,7 @@ define internal fastcc noundef zeroext i1 @results_differ(ptr nocapture noundef 
 .lr.ph.i:                                         ; preds = %10, %20
   %.019.i = phi ptr [ %.0.i, %20 ], [ %.017.i, %10 ]
   %12 = load ptr, ptr %.019.i, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #26
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #26
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
 
@@ -3805,7 +3805,7 @@ file_line_count.exit:                             ; preds = %45, %52
 55:                                               ; preds = %file_line_count.exit, %99
   %.035103 = phi i32 [ %.0.i48, %file_line_count.exit ], [ %.2, %99 ]
   %.036102 = phi i32 [ 0, %file_line_count.exit ], [ %100, %99 ]
-  %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #26
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
   %57 = shl i64 %56, 32
   %sext.i = add i64 %57, 12884901888
   %58 = ashr exact i64 %sext.i, 32
@@ -3819,7 +3819,7 @@ file_line_count.exit:                             ; preds = %45, %52
   br i1 %.not21.i, label %get_alternative_expectfile.exit.thread79, label %62
 
 62:                                               ; preds = %60
-  %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %4) #23
+  %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %4) #23
   %64 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %59, i32 noundef 46) #26
   %.not22.i = icmp eq ptr %64, null
   br i1 %.not22.i, label %65, label %.split
@@ -3838,7 +3838,7 @@ get_alternative_expectfile.exit.thread79:         ; preds = %60, %65
   %66 = getelementptr i8, ptr %64, i64 1
   %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %61, i64 noundef %58, ptr noundef nonnull @.str.238, ptr noundef nonnull %59, i32 noundef %.036102, ptr noundef %66) #23
   call void @free(ptr noundef nonnull %59) #23
-  %68 = call noalias ptr @fopen(ptr noundef nonnull readonly %61, ptr noundef nonnull @.str.9)
+  %68 = call noalias ptr @fopen(ptr noundef nonnull %61, ptr noundef nonnull @.str.9)
   %.not.i51.not = icmp eq ptr %68, null
   br i1 %.not.i51.not, label %file_exists.exit, label %69
 

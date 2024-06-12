@@ -209,7 +209,7 @@ sub_1.i:                                          ; preds = %33
   br i1 %39, label %response_is_continuation.exit.thread, label %response_is_continuation.exit
 
 response_is_continuation.exit:                    ; preds = %33, %sub_1.i, %.tail.i
-  %40 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.76, i64 noundef 4) #5
+  %40 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.76, i64 noundef 4) #5
   %.not195 = icmp eq i32 %40, 0
   br i1 %.not195, label %response_is_continuation.exit.thread, label %41
 

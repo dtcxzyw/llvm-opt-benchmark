@@ -128,11 +128,11 @@ if.then14.i:                                      ; preds = %do.body.i
 
 if.end15.i:                                       ; preds = %if.end
   %cmp16.i = icmp ne i64 %in_num, 0
-  %call18.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef readonly %out_sg, i64 noundef %out_num, i1 noundef zeroext %cmp16.i, i1 noundef zeroext false)
+  %call18.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef %out_sg, i64 noundef %out_num, i1 noundef zeroext %cmp16.i, i1 noundef zeroext false)
   br i1 %call18.i, label %if.end29.i, label %vhost_svq_add_split.exit.thread
 
 if.end29.i:                                       ; preds = %if.end15.i
-  %call30.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef readonly %in_sg, i64 noundef %in_num, i1 noundef zeroext false, i1 noundef zeroext true)
+  %call30.i = tail call fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr noundef nonnull %svq, ptr noundef %call.i, ptr noundef %in_sg, i64 noundef %in_num, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %call30.i, label %if.end16, label %vhost_svq_add_split.exit.thread
 
 vhost_svq_add_split.exit.thread:                  ; preds = %if.then14.i, %do.body.i, %if.end15.i, %if.end29.i

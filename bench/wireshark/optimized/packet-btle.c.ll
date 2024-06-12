@@ -2402,7 +2402,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
 
 699:                                              ; preds = %.thread2929
   %700 = getelementptr inbounds i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %700, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %700, i8 0, i64 24, i1 false)
   %701 = getelementptr inbounds i8, ptr %1, i64 160
   store i32 7, ptr %701, align 8
   %702 = getelementptr inbounds i8, ptr %1, i64 164
@@ -6866,7 +6866,7 @@ define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture nou
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %4, ptr %1, align 8
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %alloc_address_wmem.exit, label %10

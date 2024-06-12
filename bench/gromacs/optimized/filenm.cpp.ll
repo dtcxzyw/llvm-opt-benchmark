@@ -82,14 +82,14 @@ define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr nocapture noundef readonly %0, 
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
 14:                                               ; preds = %.lr.ph.i
   %15 = load i32, ptr %8, align 8
   %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
@@ -148,14 +148,14 @@ define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr nocapture noundef read
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
 14:                                               ; preds = %.lr.ph.i
   %15 = load i32, ptr %8, align 8
   %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
@@ -229,14 +229,14 @@ define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr nocapture noundef read
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
 14:                                               ; preds = %.lr.ph.i
   %15 = load i32, ptr %8, align 8
   %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
@@ -389,14 +389,14 @@ define noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr nocapture noundef readonl
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 
 14:                                               ; preds = %.lr.ph.i
   %15 = load i32, ptr %8, align 8
   %16 = tail call noundef ptr @_Z10ftp2defopti(i32 noundef %15)
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #12
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZL13getFileOptionPKciPK8t_filenm.exit, label %19
 

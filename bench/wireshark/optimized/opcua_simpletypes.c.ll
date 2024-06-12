@@ -1639,7 +1639,7 @@ define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 203:                                              ; preds = %133
   %204 = load i32, ptr @hf_opcua_XmlElement, align 4
-  %205 = call ptr @parseByteString(ptr noundef %12, ptr noundef %1, ptr noundef nonnull readonly %2, ptr noundef nonnull %8, i32 noundef %204)
+  %205 = call ptr @parseByteString(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef %204)
   br label %217
 
 206:                                              ; preds = %133

@@ -36979,7 +36979,7 @@ do.body.i.i.i:                                    ; preds = %for.inc.i.i.i, %do.
   %i.0372.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.1.i.i, i64 %conv.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i.i.i.i.i), !noalias !1306
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %data.1.i.i, i64 16, i1 false), !noalias !1311
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %data.1.i.i, i64 16, i1 false), !noalias !1311
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !1311
   invoke void @_ZNK5arrow10Decimal1288ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i, i32 noundef %2)
           to label %.noexc12 unwind label %lpad7.loopexit
@@ -37127,7 +37127,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
 
 do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i.i138.i.i.i), !noalias !1339
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i138.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %data.3.i.i, i64 16, i1 false), !noalias !1342
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i138.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %data.3.i.i, i64 16, i1 false), !noalias !1342
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i137.i.i.i), !noalias !1342
   invoke void @_ZNK5arrow10Decimal1288ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i137.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i138.i.i.i, i32 noundef %2)
           to label %.noexc15 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -37597,7 +37597,7 @@ do.body.i.i.i:                                    ; preds = %for.inc.i.i.i, %do.
   %i.0372.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.1.i.i, i64 %conv.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %value.i.i.i.i.i), !noalias !1390
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i, i64 32, i1 false), !noalias !1395
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i, i64 32, i1 false), !noalias !1395
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !1395
   invoke void @_ZNK5arrow10Decimal2568ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, i32 noundef %2)
           to label %.noexc12 unwind label %lpad7.loopexit
@@ -37745,7 +37745,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
 
 do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %value.i.i138.i.i.i), !noalias !1423
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i138.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i, i64 32, i1 false), !noalias !1426
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i138.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i, i64 32, i1 false), !noalias !1426
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i137.i.i.i), !noalias !1426
   invoke void @_ZNK5arrow10Decimal2568ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i137.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i.i138.i.i.i, i32 noundef %2)
           to label %.noexc15 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -41819,7 +41819,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.noexc.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0323.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1322.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0326.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull readonly %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1322.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1322.i.i.i.i)
           to label %.noexc51.i unwind label %lpad52.loopexit.i, !noalias !1837
 
 .noexc51.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i
@@ -41907,7 +41907,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull readonly %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.3315.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.3315.i.i.i.i)
           to label %.noexc52.i unwind label %lpad52.loopexit.split-lp.loopexit.i, !noalias !1837
 
 .noexc52.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
@@ -42437,7 +42437,7 @@ for.cond.preheader.i.i.i.i531:                    ; preds = %call.i.i.i.noexc.i4
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i534:             ; preds = %for.cond.preheader.i.i.i.i531, %for.inc.i.i.i.i540
   %i.0323.i.i.i.i535 = phi i64 [ %inc.i.i.i.i541, %for.inc.i.i.i.i540 ], [ 0, %for.cond.preheader.i.i.i.i531 ]
   %position.1322.i.i.i.i536 = phi i64 [ %inc12.i.i.i.i542, %for.inc.i.i.i.i540 ], [ %position.0326.i.i.i.i447, %for.cond.preheader.i.i.i.i531 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i315, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.1322.i.i.i.i536)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i315, ptr nonnull %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.1322.i.i.i.i536)
           to label %.noexc51.i538 unwind label %lpad47.loopexit.i, !noalias !1868
 
 .noexc51.i538:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i534
@@ -42525,7 +42525,7 @@ for.body52.i.i.i.i465:                            ; preds = %for.inc99.i.i.i.i47
   br i1 %tobool.i.not.i.i.i.i472, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i480, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i473
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i473:          ; preds = %for.body52.i.i.i.i465
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i316, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.3315.i.i.i.i466)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i316, ptr nonnull %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.3315.i.i.i.i466)
           to label %.noexc52.i475 unwind label %lpad47.loopexit.split-lp.loopexit.i, !noalias !1868
 
 .noexc52.i475:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i473
@@ -43055,7 +43055,7 @@ for.cond.preheader.i.i.i.i832:                    ; preds = %call.i.i.i.noexc.i7
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i835:             ; preds = %for.cond.preheader.i.i.i.i832, %for.inc.i.i.i.i842
   %i.0323.i.i.i.i836 = phi i64 [ %inc.i.i.i.i843, %for.inc.i.i.i.i842 ], [ 0, %for.cond.preheader.i.i.i.i832 ]
   %position.1322.i.i.i.i837 = phi i64 [ %inc12.i.i.i.i844, %for.inc.i.i.i.i842 ], [ %position.0326.i.i.i.i746, %for.cond.preheader.i.i.i.i832 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i596, ptr nonnull readonly %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.1322.i.i.i.i837)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i596, ptr nonnull %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.1322.i.i.i.i837)
           to label %.noexc51.i840 unwind label %lpad47.loopexit.i838, !noalias !1898
 
 .noexc51.i840:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i835
@@ -43143,7 +43143,7 @@ for.body52.i.i.i.i765:                            ; preds = %for.inc99.i.i.i.i77
   br i1 %tobool.i.not.i.i.i.i772, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i781, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i773
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i773:          ; preds = %for.body52.i.i.i.i765
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i597, ptr nonnull readonly %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.3315.i.i.i.i766)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i597, ptr nonnull %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.3315.i.i.i.i766)
           to label %.noexc52.i776 unwind label %lpad47.loopexit.split-lp.loopexit.i774, !noalias !1898
 
 .noexc52.i776:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i773
@@ -43673,7 +43673,7 @@ for.cond.preheader.i.i.i.i1134:                   ; preds = %call.i.i.i.noexc.i1
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i1137:            ; preds = %for.cond.preheader.i.i.i.i1134, %for.inc.i.i.i.i1144
   %i.0323.i.i.i.i1138 = phi i64 [ %inc.i.i.i.i1145, %for.inc.i.i.i.i1144 ], [ 0, %for.cond.preheader.i.i.i.i1134 ]
   %position.1322.i.i.i.i1139 = phi i64 [ %inc12.i.i.i.i1146, %for.inc.i.i.i.i1144 ], [ %position.0326.i.i.i.i1048, %for.cond.preheader.i.i.i.i1134 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i898, ptr nonnull readonly %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.1322.i.i.i.i1139)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i898, ptr nonnull %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.1322.i.i.i.i1139)
           to label %.noexc51.i1142 unwind label %lpad47.loopexit.i1140, !noalias !1928
 
 .noexc51.i1142:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i1137
@@ -43761,7 +43761,7 @@ for.body52.i.i.i.i1067:                           ; preds = %for.inc99.i.i.i.i10
   br i1 %tobool.i.not.i.i.i.i1074, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i1083, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1075
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i1075:         ; preds = %for.body52.i.i.i.i1067
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i899, ptr nonnull readonly %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.3315.i.i.i.i1068)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i899, ptr nonnull %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.3315.i.i.i.i1068)
           to label %.noexc52.i1078 unwind label %lpad47.loopexit.split-lp.loopexit.i1076, !noalias !1928
 
 .noexc52.i1078:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1075
@@ -45242,7 +45242,7 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb3.i.i.i
@@ -45378,7 +45378,7 @@ sw.bb4.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %sw.bb4.i.i.i
@@ -45505,7 +45505,7 @@ sw.bb7.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i79.i.i.i, label %if.end.i81.i.i.i, label %if.then.i80.i.i.i
 
 if.then.i80.i.i.i:                                ; preds = %sw.bb7.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i81.i.i.i:                                 ; preds = %sw.bb7.i.i.i
@@ -45622,7 +45622,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i140.i.i.i, label %if.end.i142.i.i.i, label %if.then.i141.i.i.i
 
 if.then.i141.i.i.i:                               ; preds = %sw.epilog.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i142.i.i.i:                                ; preds = %sw.epilog.i.i.i
@@ -45758,7 +45758,7 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb3.i.i.i
@@ -45894,7 +45894,7 @@ sw.bb4.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %sw.bb4.i.i.i
@@ -46025,7 +46025,7 @@ sw.bb7.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i82.i.i.i, label %if.end.i84.i.i.i, label %if.then.i83.i.i.i
 
 if.then.i83.i.i.i:                                ; preds = %sw.bb7.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i84.i.i.i:                                 ; preds = %sw.bb7.i.i.i
@@ -46156,7 +46156,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i157.i.i.i, label %if.end.i159.i.i.i, label %if.then.i158.i.i.i
 
 if.then.i158.i.i.i:                               ; preds = %sw.epilog.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i159.i.i.i:                                ; preds = %sw.epilog.i.i.i
@@ -46350,7 +46350,7 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   br i1 %spec.select.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb3.i.i.i
@@ -46617,7 +46617,7 @@ sw.bb4.i.i.i:                                     ; preds = %entry
   br i1 %spec.select.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %sw.bb4.i.i.i
@@ -47136,7 +47136,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   br i1 %spec.select.i.i341.i.i.i, label %if.end.i343.i.i.i, label %if.then.i342.i.i.i
 
 if.then.i342.i.i.i:                               ; preds = %sw.epilog.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i343.i.i.i:                                ; preds = %sw.epilog.i.i.i
@@ -68247,7 +68247,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5a
   %7 = load i32, ptr %offsets.1.i, align 4, !noalias !2117
   %sub.i.i.i = sub nsw i32 %7, %cur_offset.1.i
   %conv.i.i.i = sext i32 %sub.i.i.i to i64
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %conv.i.i.i, ptr nonnull readonly %add.ptr.i.i8.i), !noalias !2116
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %conv.i.i.i, ptr nonnull %add.ptr.i.i8.i), !noalias !2116
   call void @llvm.experimental.noalias.scope.decl(metadata !2120)
   %8 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2123
   store ptr %8, ptr %agg.result, align 8, !alias.scope !2123
@@ -68310,7 +68310,7 @@ _ZN5arrow6StatusD2Ev.exit175.i.i:                 ; preds = %for.body52.i.i
   %17 = load i32, ptr %offsets.3.i, align 4, !noalias !2131
   %sub.i137.i.i = sub nsw i32 %17, %cur_offset.2.i
   %conv.i138.i.i = sext i32 %sub.i137.i.i to i64
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %conv.i138.i.i, ptr nonnull readonly %add.ptr.i136.i.i), !noalias !2116
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %conv.i138.i.i, ptr nonnull %add.ptr.i136.i.i), !noalias !2116
   call void @llvm.experimental.noalias.scope.decl(metadata !2134)
   %18 = load ptr, ptr %ref.tmp57.i.i, align 8, !noalias !2137
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2137
@@ -68815,7 +68815,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5a
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %storemerge.i, i64 %cur_offset.1.i
   %7 = load i64, ptr %offsets.1.i, align 8, !noalias !2175
   %sub.i.i.i = sub nsw i64 %7, %cur_offset.1.i
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %sub.i.i.i, ptr nonnull readonly %add.ptr.i.i8.i), !noalias !2174
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %sub.i.i.i, ptr nonnull %add.ptr.i.i8.i), !noalias !2174
   call void @llvm.experimental.noalias.scope.decl(metadata !2178)
   %8 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2181
   store ptr %8, ptr %agg.result, align 8, !alias.scope !2181
@@ -68876,7 +68876,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i:                 ; preds = %for.body52.i.i
   %add.ptr.i134.i.i = getelementptr inbounds i8, ptr %storemerge.i, i64 %cur_offset.2.i
   %17 = load i64, ptr %offsets.3.i, align 8, !noalias !2189
   %sub.i135.i.i = sub nsw i64 %17, %cur_offset.2.i
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %sub.i135.i.i, ptr nonnull readonly %add.ptr.i134.i.i), !noalias !2174
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %sub.i135.i.i, ptr nonnull %add.ptr.i134.i.i), !noalias !2174
   call void @llvm.experimental.noalias.scope.decl(metadata !2192)
   %18 = load ptr, ptr %ref.tmp57.i.i, align 8, !noalias !2195
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2195
@@ -69878,7 +69878,7 @@ _ZN5arrow6StatusD2Ev.exit.preheader.i.i:          ; preds = %for.cond.preheader.
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i
   %data.1.i = phi ptr [ %data.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %add.ptr.i.i.i, %for.inc.i.i ]
   %i.0311.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %conv.i, ptr readonly %data.1.i), !noalias !2246
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %conv.i, ptr %data.1.i), !noalias !2246
   call void @llvm.experimental.noalias.scope.decl(metadata !2247)
   %7 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2250
   store ptr %7, ptr %agg.result, align 8, !alias.scope !2250
@@ -69932,7 +69932,7 @@ for.body52.i.i:                                   ; preds = %for.inc99.i.i, %for
   br i1 %tobool.i.not.i.i, label %_ZN5arrow6StatusD2Ev.exit253.i.i, label %_ZN5arrow6StatusD2Ev.exit178.i.i
 
 _ZN5arrow6StatusD2Ev.exit178.i.i:                 ; preds = %for.body52.i.i
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %conv.i, ptr readonly %data.3.i), !noalias !2246
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %conv.i, ptr %data.3.i), !noalias !2246
   call void @llvm.experimental.noalias.scope.decl(metadata !2255)
   %15 = load ptr, ptr %ref.tmp57.i.i, align 8, !noalias !2258
   store ptr %15, ptr %agg.result, align 8, !alias.scope !2258
@@ -79421,7 +79421,7 @@ do.body.i.i.i:                                    ; preds = %for.inc.i.i.i, %do.
   %i.0370.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.1.i.i, i64 %conv.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i.i.i.i.i), !noalias !3313
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %data.1.i.i, i64 16, i1 false), !noalias !3318
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %data.1.i.i, i64 16, i1 false), !noalias !3318
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !3318
   invoke void @_ZNK5arrow10Decimal1288ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i.i.i.i, i32 noundef %2)
           to label %.noexc12 unwind label %lpad7.loopexit
@@ -79567,7 +79567,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
 
 do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i.i138.i.i.i), !noalias !3346
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i138.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %data.3.i.i, i64 16, i1 false), !noalias !3349
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i138.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %data.3.i.i, i64 16, i1 false), !noalias !3349
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i137.i.i.i), !noalias !3349
   invoke void @_ZNK5arrow10Decimal1288ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i137.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i.i138.i.i.i, i32 noundef %2)
           to label %.noexc15 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -80035,7 +80035,7 @@ do.body.i.i.i:                                    ; preds = %for.inc.i.i.i, %do.
   %i.0370.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.1.i.i, i64 %conv.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %value.i.i.i.i.i), !noalias !3397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.1.i.i, i64 32, i1 false), !noalias !3402
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.1.i.i, i64 32, i1 false), !noalias !3402
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !3402
   invoke void @_ZNK5arrow10Decimal2568ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, i32 noundef %2)
           to label %.noexc12 unwind label %lpad7.loopexit
@@ -80181,7 +80181,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
 
 do.body55.i.i.i:                                  ; preds = %for.body52.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %value.i.i138.i.i.i), !noalias !3430
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i138.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %data.3.i.i, i64 32, i1 false), !noalias !3433
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i138.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %data.3.i.i, i64 32, i1 false), !noalias !3433
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i137.i.i.i), !noalias !3433
   invoke void @_ZNK5arrow10Decimal2568ToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i137.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i.i138.i.i.i, i32 noundef %2)
           to label %.noexc15 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -84122,7 +84122,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.noexc.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0322.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1321.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0325.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1321.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1321.i.i.i.i)
           to label %.noexc51.i unwind label %lpad47.loopexit.i, !noalias !3844
 
 .noexc51.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i
@@ -84209,7 +84209,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.3314.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.3314.i.i.i.i)
           to label %.noexc52.i unwind label %lpad47.loopexit.split-lp.loopexit.i, !noalias !3844
 
 .noexc52.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
@@ -84738,7 +84738,7 @@ for.cond.preheader.i.i.i.i548:                    ; preds = %call.i.i.i.noexc.i4
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i551:             ; preds = %for.cond.preheader.i.i.i.i548, %for.inc.i.i.i.i558
   %i.0322.i.i.i.i552 = phi i64 [ %inc.i.i.i.i559, %for.inc.i.i.i.i558 ], [ 0, %for.cond.preheader.i.i.i.i548 ]
   %position.1321.i.i.i.i553 = phi i64 [ %inc12.i.i.i.i560, %for.inc.i.i.i.i558 ], [ %position.0325.i.i.i.i464, %for.cond.preheader.i.i.i.i548 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i314, ptr nonnull readonly %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.1321.i.i.i.i553)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i314, ptr nonnull %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.1321.i.i.i.i553)
           to label %.noexc51.i556 unwind label %lpad47.loopexit.i554, !noalias !3874
 
 .noexc51.i556:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i551
@@ -84825,7 +84825,7 @@ for.body52.i.i.i.i483:                            ; preds = %for.inc99.i.i.i.i49
   br i1 %tobool.i.not.i.i.i.i490, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i499, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i491
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i491:          ; preds = %for.body52.i.i.i.i483
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i315, ptr nonnull readonly %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.3314.i.i.i.i484)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i315, ptr nonnull %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.3314.i.i.i.i484)
           to label %.noexc52.i494 unwind label %lpad47.loopexit.split-lp.loopexit.i492, !noalias !3874
 
 .noexc52.i494:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i491
@@ -85354,7 +85354,7 @@ for.cond.preheader.i.i.i.i848:                    ; preds = %call.i.i.i.noexc.i7
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i851:             ; preds = %for.cond.preheader.i.i.i.i848, %for.inc.i.i.i.i858
   %i.0322.i.i.i.i852 = phi i64 [ %inc.i.i.i.i859, %for.inc.i.i.i.i858 ], [ 0, %for.cond.preheader.i.i.i.i848 ]
   %position.1321.i.i.i.i853 = phi i64 [ %inc12.i.i.i.i860, %for.inc.i.i.i.i858 ], [ %position.0325.i.i.i.i764, %for.cond.preheader.i.i.i.i848 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i614, ptr nonnull readonly %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.1321.i.i.i.i853)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i614, ptr nonnull %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.1321.i.i.i.i853)
           to label %.noexc51.i856 unwind label %lpad47.loopexit.i854, !noalias !3904
 
 .noexc51.i856:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i851
@@ -85441,7 +85441,7 @@ for.body52.i.i.i.i783:                            ; preds = %for.inc99.i.i.i.i79
   br i1 %tobool.i.not.i.i.i.i790, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i799, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i791
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i791:          ; preds = %for.body52.i.i.i.i783
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i615, ptr nonnull readonly %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.3314.i.i.i.i784)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i615, ptr nonnull %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.3314.i.i.i.i784)
           to label %.noexc52.i794 unwind label %lpad47.loopexit.split-lp.loopexit.i792, !noalias !3904
 
 .noexc52.i794:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i791
@@ -85970,7 +85970,7 @@ for.cond.preheader.i.i.i.i1148:                   ; preds = %call.i.i.i.noexc.i1
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i1151:            ; preds = %for.cond.preheader.i.i.i.i1148, %for.inc.i.i.i.i1158
   %i.0322.i.i.i.i1152 = phi i64 [ %inc.i.i.i.i1159, %for.inc.i.i.i.i1158 ], [ 0, %for.cond.preheader.i.i.i.i1148 ]
   %position.1321.i.i.i.i1153 = phi i64 [ %inc12.i.i.i.i1160, %for.inc.i.i.i.i1158 ], [ %position.0325.i.i.i.i1064, %for.cond.preheader.i.i.i.i1148 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i914, ptr nonnull readonly %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.1321.i.i.i.i1153)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i914, ptr nonnull %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.1321.i.i.i.i1153)
           to label %.noexc51.i1156 unwind label %lpad47.loopexit.i1154, !noalias !3934
 
 .noexc51.i1156:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i1151
@@ -86057,7 +86057,7 @@ for.body52.i.i.i.i1083:                           ; preds = %for.inc99.i.i.i.i10
   br i1 %tobool.i.not.i.i.i.i1090, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i1099, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1091
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i1091:         ; preds = %for.body52.i.i.i.i1083
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i915, ptr nonnull readonly %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.3314.i.i.i.i1084)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i915, ptr nonnull %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.3314.i.i.i.i1084)
           to label %.noexc52.i1094 unwind label %lpad47.loopexit.split-lp.loopexit.i1092, !noalias !3934
 
 .noexc52.i1094:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1091
@@ -86801,7 +86801,7 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb3.i.i.i
@@ -86936,7 +86936,7 @@ sw.bb4.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %sw.bb4.i.i.i
@@ -87062,7 +87062,7 @@ sw.bb7.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i78.i.i.i, label %if.end.i80.i.i.i, label %if.then.i79.i.i.i
 
 if.then.i79.i.i.i:                                ; preds = %sw.bb7.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i80.i.i.i:                                 ; preds = %sw.bb7.i.i.i
@@ -87178,7 +87178,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i138.i.i.i, label %if.end.i140.i.i.i, label %if.then.i139.i.i.i
 
 if.then.i139.i.i.i:                               ; preds = %sw.epilog.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 if.end.i140.i.i.i:                                ; preds = %sw.epilog.i.i.i
@@ -87313,7 +87313,7 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb3.i.i.i
@@ -87448,7 +87448,7 @@ sw.bb4.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %sw.bb4.i.i.i
@@ -87578,7 +87578,7 @@ sw.bb7.i.i.i:                                     ; preds = %entry
   br i1 %cmp.i.i.i81.i.i.i, label %if.end.i83.i.i.i, label %if.then.i82.i.i.i
 
 if.then.i82.i.i.i:                                ; preds = %sw.bb7.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i83.i.i.i:                                 ; preds = %sw.bb7.i.i.i
@@ -87708,7 +87708,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i155.i.i.i, label %if.end.i157.i.i.i, label %if.then.i156.i.i.i
 
 if.then.i156.i.i.i:                               ; preds = %sw.epilog.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i157.i.i.i:                                ; preds = %sw.epilog.i.i.i
@@ -87844,7 +87844,7 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   br i1 %spec.select.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb3.i.i.i
@@ -88110,7 +88110,7 @@ sw.bb4.i.i.i:                                     ; preds = %entry
   br i1 %spec.select.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i13.i.i.i:                                 ; preds = %sw.bb4.i.i.i
@@ -88627,7 +88627,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   br i1 %spec.select.i.i339.i.i.i, label %if.end.i341.i.i.i, label %if.then.i340.i.i.i
 
 if.then.i340.i.i.i:                               ; preds = %sw.epilog.i.i.i
-  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
+  call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 if.end.i341.i.i.i:                                ; preds = %sw.epilog.i.i.i

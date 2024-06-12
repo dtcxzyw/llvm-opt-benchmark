@@ -544,13 +544,13 @@ _ZN6cineon13GenericHeaderC2Ev.exit:               ; preds = %arrayctor.loop.i
   %count.i.i = getelementptr inbounds i8, ptr %this, i64 1032
   store i32 -1, ptr %count.i.i, align 4
   %format.i.i = getelementptr inbounds i8, ptr %this, i64 1036
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %format.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %format.i.i, i8 0, i64 32, i1 false)
   %framePosition.i.i = getelementptr inbounds i8, ptr %this, i64 1068
   store i32 -1, ptr %framePosition.i.i, align 4
   %frameRate.i.i = getelementptr inbounds i8, ptr %this, i64 1072
   store float 0x7FF0000000000000, ptr %frameRate.i.i, align 4
   %frameId.i.i = getelementptr inbounds i8, ptr %this, i64 1076
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(972) %frameId.i.i, i8 0, i64 972, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(972) %frameId.i.i, i8 0, i64 972, i1 false)
   ret void
 }
 
@@ -627,13 +627,13 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 -1, ptr %count.i, align 4
   %format.i = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %format.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %format.i, i8 0, i64 32, i1 false)
   %framePosition.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 -1, ptr %framePosition.i, align 4
   %frameRate.i = getelementptr inbounds i8, ptr %this, i64 48
   store float 0x7FF0000000000000, ptr %frameRate.i, align 4
   %frameId.i = getelementptr inbounds i8, ptr %this, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(972) %frameId.i, i8 0, i64 972, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(972) %frameId.i, i8 0, i64 972, i1 false)
   ret void
 }
 
@@ -1470,13 +1470,13 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 1032
   store i32 -1, ptr %count.i, align 4
   %format.i = getelementptr inbounds i8, ptr %this, i64 1036
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %format.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %format.i, i8 0, i64 32, i1 false)
   %framePosition.i = getelementptr inbounds i8, ptr %this, i64 1068
   store i32 -1, ptr %framePosition.i, align 4
   %frameRate.i = getelementptr inbounds i8, ptr %this, i64 1072
   store float 0x7FF0000000000000, ptr %frameRate.i, align 4
   %frameId.i = getelementptr inbounds i8, ptr %this, i64 1076
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(972) %frameId.i, i8 0, i64 972, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(972) %frameId.i, i8 0, i64 972, i1 false)
   ret void
 }
 

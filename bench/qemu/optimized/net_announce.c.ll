@@ -483,9 +483,9 @@ trace_qemu_announce_self_iter.exit:               ; preds = %if.end6, %land.lhs.
 
 if.then14:                                        ; preds = %trace_qemu_announce_self_iter.exit
   %20 = load ptr, ptr %conf, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %buf, i8 -1, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %buf, i8 -1, i64 6, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %20, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(6) %20, i64 6, i1 false)
   %call.i13 = tail call zeroext i16 @htons(i16 noundef zeroext -32715) #15
   %add.ptr1.i = getelementptr inbounds i8, ptr %buf, i64 12
   store i16 %call.i13, ptr %add.ptr1.i, align 4
@@ -503,13 +503,13 @@ if.then14:                                        ; preds = %trace_qemu_announce
   %add.ptr9.i = getelementptr inbounds i8, ptr %buf, i64 20
   store i16 %call8.i, ptr %add.ptr9.i, align 4
   %add.ptr10.i = getelementptr inbounds i8, ptr %buf, i64 22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %add.ptr10.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %20, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr10.i, ptr noundef nonnull align 1 dereferenceable(6) %20, i64 6, i1 false)
   %add.ptr11.i = getelementptr inbounds i8, ptr %buf, i64 28
   store i32 0, ptr %add.ptr11.i, align 4
   %add.ptr12.i = getelementptr inbounds i8, ptr %buf, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %add.ptr12.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %20, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %add.ptr12.i, ptr noundef nonnull align 1 dereferenceable(6) %20, i64 6, i1 false)
   %add.ptr13.i = getelementptr inbounds i8, ptr %buf, i64 38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(22) %add.ptr13.i, i8 0, i64 22, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %add.ptr13.i, i8 0, i64 22, i1 false)
   %call19 = tail call ptr @qemu_get_queue(ptr noundef nonnull %nic) #11
   %call21 = call i64 @qemu_send_packet_raw(ptr noundef %call19, ptr noundef nonnull %buf, i32 noundef 60) #11
   %21 = load ptr, ptr %nic, align 8

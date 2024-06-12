@@ -1992,7 +1992,7 @@ pmix_obj_run_destructors.exit255:                 ; preds = %.lr.ph.i252, %193
   %216 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %217, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %217, i8 0, i64 64, i1 false)
   %218 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %219 = load ptr, ptr %218, align 8
   %.not6.i257 = icmp eq ptr %219, null

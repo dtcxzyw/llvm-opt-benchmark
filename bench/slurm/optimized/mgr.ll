@@ -348,7 +348,7 @@ define dso_local ptr @mgr_launch_tasks_setup(ptr noundef %0, ptr noundef %1, i16
 
 46:                                               ; preds = %44, %25
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   %47 = load ptr, ptr %16, align 8
   %48 = load i16, ptr %19, align 8
   %49 = zext i16 %48 to i32
@@ -365,7 +365,7 @@ define dso_local ptr @mgr_launch_tasks_setup(ptr noundef %0, ptr noundef %1, i16
   store i16 %2, ptr %56, align 2
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %4, i32 noundef %40) #15
   %57 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull readonly align 8 dereferenceable(12) %11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false)
   %58 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %35, ptr %58, align 8
   %.not18.i = icmp eq i32 %10, 0
@@ -4480,7 +4480,7 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
 66:                                               ; preds = %.sink.split.i, %61
   %67 = getelementptr inbounds i8, ptr %3, i64 20
   %68 = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull readonly align 8 dereferenceable(12) %68, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %68, i64 12, i1 false)
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #15
   %69 = getelementptr inbounds i8, ptr %2, i64 192
   store ptr %3, ptr %69, align 8

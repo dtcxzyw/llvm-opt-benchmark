@@ -1772,17 +1772,17 @@ broken_check_hec.exit:                            ; preds = %142
   %.ph1032 = phi i1 [ false, %.thread1027 ], [ %.not11.i, %458 ]
   %.09081023.ph = phi ptr [ null, %.thread1027 ], [ %spec.select.i985, %458 ]
   %487 = getelementptr inbounds i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
   %488 = getelementptr inbounds i8, ptr %1, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %488, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %488, i8 0, i64 24, i1 false)
   br label %503
 
 489:                                              ; preds = %411
   %490 = icmp sgt i32 %.0910, -1
   %491 = getelementptr inbounds i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %491, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %491, i8 0, i64 24, i1 false)
   %492 = getelementptr inbounds i8, ptr %1, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %492, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %492, i8 0, i64 24, i1 false)
   %or.cond31 = select i1 %413, i1 true, i1 %414
   %or.cond33.not = or i1 %98, %or.cond31
   br i1 %or.cond33.not, label %503, label %493
@@ -1812,9 +1812,9 @@ broken_check_hec.exit:                            ; preds = %142
   %504 = phi i1 [ %.ph1032, %.thread1033 ], [ false, %489 ]
   %505 = phi i1 [ %.ph1031, %.thread1033 ], [ %490, %489 ]
   %506 = getelementptr inbounds i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %506, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %506, i8 0, i64 24, i1 false)
   %507 = getelementptr inbounds i8, ptr %1, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %507, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %507, i8 0, i64 24, i1 false)
   br label %508
 
 508:                                              ; preds = %493, %503, %464

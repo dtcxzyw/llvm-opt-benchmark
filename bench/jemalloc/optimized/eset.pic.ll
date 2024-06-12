@@ -32,7 +32,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %eset, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %eset, i8 0, i64 32, i1 false)
   %lru = getelementptr inbounds i8, ptr %eset, i64 9632
   store ptr null, ptr %lru, align 8
   %state4 = getelementptr inbounds i8, ptr %eset, i64 9648

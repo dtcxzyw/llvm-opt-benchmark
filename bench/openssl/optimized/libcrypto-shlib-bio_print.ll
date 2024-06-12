@@ -1875,7 +1875,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %truncated.i)
   store ptr %buf, ptr %buf.addr.i, align 8
   store i64 %n, ptr %n.addr.i, align 8
-  %call.i = call fastcc i32 @_dopr(ptr noundef nonnull %buf.addr.i, ptr noundef null, ptr noundef nonnull %n.addr.i, ptr noundef nonnull %retlen.i, ptr noundef nonnull %truncated.i, ptr noundef readonly %format, ptr noundef nonnull %args)
+  %call.i = call fastcc i32 @_dopr(ptr noundef nonnull %buf.addr.i, ptr noundef null, ptr noundef nonnull %n.addr.i, ptr noundef nonnull %retlen.i, ptr noundef nonnull %truncated.i, ptr noundef %format, ptr noundef nonnull %args)
   %tobool.not.i = icmp ne i32 %call.i, 0
   %0 = load i32, ptr %truncated.i, align 4
   %tobool1.not.i = icmp eq i32 %0, 0

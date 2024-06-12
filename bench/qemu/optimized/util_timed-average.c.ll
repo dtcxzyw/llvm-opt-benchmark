@@ -23,11 +23,11 @@ entry:
   %windows = getelementptr inbounds i8, ptr %ta, i64 8
   store i64 -1, ptr %windows, align 8
   %max.i = getelementptr inbounds i8, ptr %ta, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i, i8 0, i64 24, i1 false)
   %arrayidx4 = getelementptr i8, ptr %ta, i64 48
   store i64 -1, ptr %arrayidx4, align 8
   %max.i12 = getelementptr i8, ptr %ta, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i12, i8 0, i64 24, i1 false)
   %div611 = lshr i64 %div, 1
   %add = add i64 %call, %div611
   %expiration = getelementptr inbounds i8, ptr %ta, i64 40
@@ -71,7 +71,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
   %add.i.i = sub i64 %sub1.i.i, %rem.i.i
@@ -157,7 +157,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
   %add.i.i = sub i64 %sub1.i.i, %rem.i.i
@@ -215,7 +215,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
   %add.i.i = sub i64 %sub1.i.i, %rem.i.i
@@ -283,7 +283,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
   %add.i.i = sub i64 %sub1.i.i, %rem.i.i
@@ -339,7 +339,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
   %add.i.i = sub i64 %sub1.i.i, %rem.i.i

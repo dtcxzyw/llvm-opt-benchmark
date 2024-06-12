@@ -156,7 +156,7 @@ define dso_local void @_Z7WarningPKcz(ptr nocapture noundef readonly %0, ...) lo
   %3 = load ptr, ptr @stderr, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.2, i64 16, i64 1, ptr %3) #26
   %5 = load ptr, ptr @stderr, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef readonly %0, ptr noundef nonnull %2) #27
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #27
   %7 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7)
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -181,7 +181,7 @@ define dso_local void @_Z5ErrorPKcz(ptr nocapture noundef readonly %0, ...) loca
   %3 = load ptr, ptr @stderr, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.3, i64 14, i64 1, ptr %3) #26
   %5 = load ptr, ptr @stderr, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef readonly %0, ptr noundef nonnull %2) #27
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #27
   %7 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7)
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -206,7 +206,7 @@ define dso_local void @_Z4InfoPKcz(ptr nocapture noundef readonly %0, ...) local
   %3 = load ptr, ptr @stdout, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.4, i64 7, i64 1, ptr %3)
   %5 = load ptr, ptr @stdout, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef readonly %0, ptr noundef nonnull %2) #29
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #29
   %7 = load ptr, ptr @stdout, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7)
   call void @llvm.va_end.p0(ptr nonnull %2)

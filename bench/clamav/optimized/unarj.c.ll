@@ -103,7 +103,7 @@ is_arj_archive.exit:                              ; preds = %13
   br i1 %.not26.i.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr nonnull align 1 %26, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr nonnull align 1 %26, i64 %spec.select.i.i, i1 false)
   %.not.i7 = icmp ugt i64 %23, 1
   br i1 %.not.i7, label %27, label %arj_read_main_header.exit.thread
 
@@ -153,7 +153,7 @@ fmap_readn.exit.i:                                ; preds = %22
   br i1 %.not26.i94.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit96.i
 
 fmap_readn.exit96.i:                              ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %5, ptr nonnull align 1 %48, i64 %spec.select.i93.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %48, i64 %spec.select.i93.i, i1 false)
   %.not84.i = icmp ugt i64 %41, 29
   br i1 %.not84.i, label %49, label %arj_read_main_header.exit.thread
 
@@ -438,7 +438,7 @@ is_arj_archive.exit:                              ; preds = %17
   br i1 %.not26.i.i, label %arj_read_file_header.exit, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %26
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %3, ptr nonnull align 1 %30, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %30, i64 %spec.select.i.i, i1 false)
   %.not.i7 = icmp ugt i64 %27, 1
   br i1 %.not.i7, label %31, label %arj_read_file_header.exit
 
@@ -488,7 +488,7 @@ fmap_readn.exit.i:                                ; preds = %26
   br i1 %.not26.i114.i, label %arj_read_file_header.exit, label %fmap_readn.exit116.i
 
 fmap_readn.exit116.i:                             ; preds = %49
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %4, ptr nonnull align 1 %52, i64 %spec.select.i113.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %52, i64 %spec.select.i113.i, i1 false)
   %.not97.i = icmp ugt i64 %45, 29
   br i1 %.not97.i, label %53, label %arj_read_file_header.exit
 

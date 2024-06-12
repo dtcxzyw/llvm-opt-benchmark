@@ -18365,7 +18365,7 @@ invoke.cont1216:                                  ; preds = %lor.rhs.i3593, %if.
   store ptr %407, ptr %_M_right.i.i.i.i.i3612, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i3613, align 8
   %d_term_trie1218 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i3599, i64 160
-  invoke void @_ZN4cvc58internal6theory11quantifiers11SubsumeTrie17getLeavesInternalERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEbRSt3mapIiS8_St4lessIiESaISt4pairIKiS8_EEEji(ptr noundef nonnull align 8 dereferenceable(56) %d_term_trie1218, ptr noundef nonnull readonly align 8 dereferenceable(24) %d_vals1199, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %possible_cond, i32 noundef 0, i32 noundef -2)
+  invoke void @_ZN4cvc58internal6theory11quantifiers11SubsumeTrie17getLeavesInternalERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEbRSt3mapIiS8_St4lessIiESaISt4pairIKiS8_EEEji(ptr noundef nonnull align 8 dereferenceable(56) %d_term_trie1218, ptr noundef nonnull align 8 dereferenceable(24) %d_vals1199, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %possible_cond, i32 noundef 0, i32 noundef -2)
           to label %invoke.cont1221 unwind label %lpad1220
 
 invoke.cont1221:                                  ; preds = %invoke.cont1216

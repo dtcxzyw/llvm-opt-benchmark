@@ -319,7 +319,7 @@ define void @zend_llist_copy(ptr nocapture noundef %0, ptr nocapture noundef rea
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 %4, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %6, ptr %10, align 8
@@ -363,7 +363,7 @@ zend_llist_add_element.exit:                      ; preds = %19, %21
   store ptr %23, ptr %12, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 16
   %27 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull readonly align 1 %16, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %16, i64 %27, i1 false)
   %28 = load i64, ptr %13, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %13, align 8

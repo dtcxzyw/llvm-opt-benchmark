@@ -1566,7 +1566,7 @@ if.then20:                                        ; preds = %if.end17
   store ptr %18, ptr %wr_object.i, align 8
   %wr_prev.i = getelementptr inbounds i8, ptr %call18, i64 40
   %cmp.not.i.i.i = icmp eq ptr %19, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %wr_prev.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i, i8 0, i64 16, i1 false)
   br i1 %cmp.not.i.i.i, label %init_weakref.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then20
@@ -2572,7 +2572,7 @@ if.then.i29:                                      ; preds = %if.else
   %wr_object.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %ob, ptr %wr_object.i.i, align 8
   %wr_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp781, label %if.then.i.i.i.i, label %if.then14
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i29
@@ -2851,7 +2851,7 @@ if.then.i30:                                      ; preds = %if.else
   %wr_object.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %ob, ptr %wr_object.i.i, align 8
   %wr_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp779, label %if.then.i.i.i.i, label %if.then14
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i30

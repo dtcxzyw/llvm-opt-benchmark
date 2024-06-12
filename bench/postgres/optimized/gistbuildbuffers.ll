@@ -396,7 +396,7 @@ WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeB
   %83 = getelementptr i8, ptr %79, i64 8
   %84 = zext i32 %82 to i64
   %85 = getelementptr i8, ptr %83, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull readonly align 2 %2, i64 %80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull align 2 %2, i64 %80, i1 false)
   %86 = load i32, ptr %6, align 4
   %87 = getelementptr inbounds i8, ptr %0, i64 60
   %88 = load i32, ptr %87, align 4

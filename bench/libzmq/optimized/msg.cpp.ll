@@ -375,7 +375,7 @@ if.else.i:                                        ; preds = %entry
   %content.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %content.i, align 8
   %cmp25.i = icmp ult i64 %size_, -40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br i1 %cmp25.i, label %if.end.i, label %_ZN3zmq5msg_t9init_sizeEm.exit
 
 if.end.i:                                         ; preds = %if.else.i
@@ -479,7 +479,7 @@ if.else.i:                                        ; preds = %entry
   %content.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %content.i, align 8
   %cmp25.i = icmp ult i64 %size_, -40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br i1 %cmp25.i, label %if.end.i, label %_ZN3zmq5msg_t9init_sizeEm.exit
 
 if.end.i:                                         ; preds = %if.else.i
@@ -553,7 +553,7 @@ if.else.i:                                        ; preds = %entry
   %content.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %content.i, align 8
   %cmp25.i = icmp ult i64 %size_, -40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br i1 %cmp25.i, label %if.end.i, label %_ZN3zmq5msg_t9init_sizeEm.exit
 
 if.end.i:                                         ; preds = %if.else.i
@@ -816,7 +816,7 @@ if.end5:                                          ; preds = %if.end
   %flags.i = getelementptr inbounds i8, ptr %src_, i64 43
   %size.i = getelementptr inbounds i8, ptr %src_, i64 41
   store i8 0, ptr %size.i, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end5, %if.then
@@ -1700,14 +1700,14 @@ if.then3.i:                                       ; preds = %if.end.i
   %refcnt.i = getelementptr inbounds i8, ptr %call4.i, i64 256
   store i32 0, ptr %refcnt.i, align 4
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %call18.i = tail call ptr @strncpy(ptr noundef %call4.i, ptr noundef readonly %group_, i64 noundef %call) #22
+  %call18.i = tail call ptr @strncpy(ptr noundef %call4.i, ptr noundef %group_, i64 noundef %call) #22
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %call4.i, i64 0, i64 %call
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %group25.i = getelementptr inbounds i8, ptr %this, i64 49
-  %call27.i = tail call ptr @strncpy(ptr noundef nonnull %group25.i, ptr noundef readonly %group_, i64 noundef %call) #22
+  %call27.i = tail call ptr @strncpy(ptr noundef nonnull %group25.i, ptr noundef %group_, i64 noundef %call) #22
   %arrayidx31.i = getelementptr inbounds [15 x i8], ptr %group25.i, i64 0, i64 %call
   store i8 0, ptr %arrayidx31.i, align 1
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit

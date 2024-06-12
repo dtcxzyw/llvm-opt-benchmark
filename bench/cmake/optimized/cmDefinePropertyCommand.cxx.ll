@@ -1221,14 +1221,14 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIPKPKcZ23cmDefineProperty
   %.029.val.i.i.i.i = load ptr, ptr %.029116.i.i.i.i, align 8
   %10 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %11 = extractvalue { i64, ptr } %10, 0
-  %12 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.029.val.i.i.i.i) #14
+  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029.val.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
   %13 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0
   br i1 %13, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %14 = extractvalue { i64, ptr } %10, 1
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %14, ptr readonly %.029.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %14, ptr %.029.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i)
   %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   %16 = icmp ule i64 %12, %11
   %or.cond.i.i.i.i = and i1 %16, %15
@@ -1243,14 +1243,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.
   %.val31.i.i.i.i = load ptr, ptr %17, align 8
   %18 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %19 = extractvalue { i64, ptr } %18, 0
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val31.i.i.i.i) #14
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val31.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i40.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %20)
   %21 = icmp eq i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i, 0
   br i1 %21, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit45.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i"
   %22 = extractvalue { i64, ptr } %18, 1
-  %bcmp.i.i.i42.i.i.i.i = tail call i32 @bcmp(ptr %22, ptr readonly %.val31.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i)
+  %bcmp.i.i.i42.i.i.i.i = tail call i32 @bcmp(ptr %22, ptr %.val31.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i)
   %23 = icmp eq i32 %bcmp.i.i.i42.i.i.i.i, 0
   %24 = icmp ule i64 %20, %19
   %or.cond84.i.i.i.i = and i1 %24, %23
@@ -1265,14 +1265,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i: ; preds = %"_ZN9
   %.val33.i.i.i.i = load ptr, ptr %25, align 8
   %26 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %27 = extractvalue { i64, ptr } %26, 0
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val33.i.i.i.i) #14
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val33.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i46.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %28)
   %29 = icmp eq i64 %.sroa.speculated.i.i.i.i.i46.i.i.i.i, 0
   br i1 %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit51.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit45.thread.i.i.i.i"
   %30 = extractvalue { i64, ptr } %26, 1
-  %bcmp.i.i.i48.i.i.i.i = tail call i32 @bcmp(ptr %30, ptr readonly %.val33.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i46.i.i.i.i)
+  %bcmp.i.i.i48.i.i.i.i = tail call i32 @bcmp(ptr %30, ptr %.val33.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i46.i.i.i.i)
   %31 = icmp eq i32 %bcmp.i.i.i48.i.i.i.i, 0
   %32 = icmp ule i64 %28, %27
   %or.cond86.i.i.i.i = and i1 %32, %31
@@ -1287,14 +1287,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i: ; preds = %"_ZN9
   %.val35.i.i.i.i = load ptr, ptr %33, align 8
   %34 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %35 = extractvalue { i64, ptr } %34, 0
-  %36 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val35.i.i.i.i) #14
+  %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val35.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i52.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %36)
   %37 = icmp eq i64 %.sroa.speculated.i.i.i.i.i52.i.i.i.i, 0
   br i1 %37, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit57.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i53.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i53.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit51.thread.i.i.i.i"
   %38 = extractvalue { i64, ptr } %34, 1
-  %bcmp.i.i.i54.i.i.i.i = tail call i32 @bcmp(ptr %38, ptr readonly %.val35.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i52.i.i.i.i)
+  %bcmp.i.i.i54.i.i.i.i = tail call i32 @bcmp(ptr %38, ptr %.val35.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i52.i.i.i.i)
   %39 = icmp eq i32 %bcmp.i.i.i54.i.i.i.i, 0
   %40 = icmp ule i64 %36, %35
   %or.cond88.i.i.i.i = and i1 %40, %39
@@ -1329,14 +1329,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i53.i.i.i.i: ; preds = %"_ZN9
   %.029.val37.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i, align 8
   %46 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %47 = extractvalue { i64, ptr } %46, 0
-  %48 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.029.val37.i.i.i.i) #14
+  %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029.val37.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i58.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %47, i64 %48)
   %49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i58.i.i.i.i, 0
   br i1 %49, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit63.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i59.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i59.i.i.i.i: ; preds = %45
   %50 = extractvalue { i64, ptr } %46, 1
-  %bcmp.i.i.i60.i.i.i.i = tail call i32 @bcmp(ptr %50, ptr readonly %.029.val37.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i58.i.i.i.i)
+  %bcmp.i.i.i60.i.i.i.i = tail call i32 @bcmp(ptr %50, ptr %.029.val37.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i58.i.i.i.i)
   %51 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i, 0
   %52 = icmp ule i64 %48, %47
   %or.cond90.i.i.i.i = and i1 %52, %51
@@ -1355,14 +1355,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i59.i.i.i.i: ; preds = %45
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8
   %55 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %56 = extractvalue { i64, ptr } %55, 0
-  %57 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1.val.i.i.i.i) #14
+  %57 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.val.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i64.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %56, i64 %57)
   %58 = icmp eq i64 %.sroa.speculated.i.i.i.i.i64.i.i.i.i, 0
   br i1 %58, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit69.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i65.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i65.i.i.i.i: ; preds = %54
   %59 = extractvalue { i64, ptr } %55, 1
-  %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr %59, ptr readonly %.1.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i64.i.i.i.i)
+  %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr %59, ptr %.1.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i64.i.i.i.i)
   %60 = icmp eq i32 %bcmp.i.i.i66.i.i.i.i, 0
   %61 = icmp ule i64 %57, %56
   %or.cond92.i.i.i.i = and i1 %61, %60
@@ -1381,14 +1381,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i65.i.i.i.i: ; preds = %54
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8
   %64 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %65 = extractvalue { i64, ptr } %64, 0
-  %66 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.2.val.i.i.i.i) #14
+  %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2.val.i.i.i.i) #14
   %.sroa.speculated.i.i.i.i.i70.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %66)
   %67 = icmp eq i64 %.sroa.speculated.i.i.i.i.i70.i.i.i.i, 0
   br i1 %67, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit75.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i71.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i71.i.i.i.i: ; preds = %63
   %68 = extractvalue { i64, ptr } %64, 1
-  %bcmp.i.i.i72.i.i.i.i = tail call i32 @bcmp(ptr %68, ptr readonly %.2.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i70.i.i.i.i)
+  %bcmp.i.i.i72.i.i.i.i = tail call i32 @bcmp(ptr %68, ptr %.2.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i70.i.i.i.i)
   %69 = icmp eq i32 %bcmp.i.i.i72.i.i.i.i, 0
   %70 = icmp ule i64 %66, %65
   %or.cond94.i.i.i.i = and i1 %70, %69

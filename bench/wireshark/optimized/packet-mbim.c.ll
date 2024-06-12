@@ -11269,7 +11269,7 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   store i32 %46, ptr %5, align 4
   store ptr null, ptr %7, align 8
   %47 = load i32, ptr @hf_mbim_event_entry_device_service_id, align 4
-  %48 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %44, i32 noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1)
+  %48 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %44, i32 noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1)
   %49 = load i32, ptr @hf_mbim_event_entry_cid_count, align 4
   %50 = load i32, ptr %5, align 4
   %51 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %44, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
@@ -14765,7 +14765,7 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   store i32 %49, ptr %5, align 4
   store ptr null, ptr %7, align 8
   %50 = load i32, ptr @hf_mbim_device_service_element_device_service_id, align 4
-  %51 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %47, i32 noundef %50, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1)
+  %51 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %50, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1)
   %52 = load i32, ptr %5, align 4
   %53 = load i32, ptr @hf_mbim_device_service_element_dss_payload, align 4
   %54 = load i32, ptr @ett_mbim_bitmap, align 4
@@ -18330,9 +18330,9 @@ mbim_dissect_tps.exit:                            ; preds = %.lr.ph.i80, %125
   %142 = load i32, ptr @ett_mbim_pair_list, align 4
   %143 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %141, i32 noundef 0, i32 noundef %142, ptr noundef null, ptr noundef nonnull @.str.2558) #10
   %144 = load i32, ptr @hf_mbim_device_service_id, align 4
-  %145 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %143, i32 noundef %144, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1)
+  %145 = call fastcc zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %143, i32 noundef %144, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1)
   %146 = load ptr, ptr %10, align 8
-  %147 = call fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %143, ptr noundef nonnull %9, i8 noundef zeroext %145, ptr noundef %146)
+  %147 = call fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef %1, ptr noundef %143, ptr noundef nonnull %9, i8 noundef zeroext %145, ptr noundef %146)
   %148 = load i32, ptr @hf_mbim_ms_wake_reason_command_payload_offset, align 4
   %149 = load i32, ptr %9, align 4
   %150 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %143, i32 noundef %148, ptr noundef %0, i32 noundef %149, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #10

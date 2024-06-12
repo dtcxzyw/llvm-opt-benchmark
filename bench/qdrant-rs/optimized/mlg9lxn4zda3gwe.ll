@@ -627,7 +627,7 @@ define void @_ZN6common3cpu25linux_low_thread_priority17h6657dd750c3b1684E(ptr n
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4bd5aa929a0e360E.exit.i"
 
 14:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !116
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4bd5aa929a0e360E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4bd5aa929a0e360E.exit.i": ; preds = %14, %13
@@ -682,7 +682,7 @@ define void @_ZN6common3cpu26linux_high_thread_priority17he36007dab0a7fcb6E(ptr 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4bd5aa929a0e360E.exit.i"
 
 14:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !131
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !131
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4bd5aa929a0e360E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc4bd5aa929a0e360E.exit.i": ; preds = %14, %13

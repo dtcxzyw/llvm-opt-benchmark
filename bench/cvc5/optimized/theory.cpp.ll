@@ -3269,7 +3269,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %3 = load ptr, ptr %assert_it.sroa.0.013.i, align 8, !noalias !37
   store ptr %3, ptr %agg.tmp.i, align 8, !alias.scope !37
-  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 dereferenceable(408) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(48) %call2)
+  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(48) %call2)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %assert_it.sroa.0.013.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i, !llvm.loop !31
@@ -3289,7 +3289,7 @@ for.body13.i:                                     ; preds = %if.then.i, %for.bod
   %shared_it.sroa.0.015.i = phi ptr [ %incdec.ptr.i7.i, %for.body13.i ], [ %4, %if.then.i ]
   %6 = load ptr, ptr %shared_it.sroa.0.015.i, align 8
   store ptr %6, ptr %agg.tmp14.i, align 8
-  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 dereferenceable(408) %this, ptr noundef nonnull %agg.tmp14.i, ptr noundef nonnull align 8 dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(48) %call2)
+  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %agg.tmp14.i, ptr noundef nonnull align 8 dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(48) %call2)
   %incdec.ptr.i7.i = getelementptr inbounds i8, ptr %shared_it.sroa.0.015.i, i64 8
   %cmp.i6.not.i = icmp eq ptr %incdec.ptr.i7.i, %5
   br i1 %cmp.i6.not.i, label %_ZNK4cvc58internal6theory6Theory20collectAssertedTermsERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEbRKS3_INS0_4kind6Kind_tES6_ISC_ESaISC_EE.exit, label %for.body13.i, !llvm.loop !32

@@ -423,7 +423,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %srp_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 800
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %srp_ctx.i, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %srp_ctx.i, i8 0, i64 128, i1 false)
   %strength.i = getelementptr inbounds i8, ptr %ctx, i64 912
   store i32 1024, ptr %strength.i, align 8
   br label %ssl_ctx_srp_ctx_init_intern.exit

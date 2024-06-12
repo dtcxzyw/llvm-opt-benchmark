@@ -1552,7 +1552,7 @@ common.resume:                                    ; preds = %139, %.body, %29
   %67 = extractvalue { ptr, i64 } %63, 1
   %68 = icmp ne ptr %66, null
   tail call void @llvm.assume(i1 %68)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %61, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %61, i64 %62, i1 false)
   %69 = getelementptr inbounds i8, ptr %16, i64 24
   store i8 %59, ptr %69, align 8
   store ptr %66, ptr %16, align 8
@@ -2427,7 +2427,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hdf5c3b63911b2c6cE.exit.i.i": ; preds = %249
   %.fca.1.extract.val.i.i = load ptr, ptr %.fca.1.extract.i.i, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.fca.1.extract.val.i.i, ptr nonnull readonly %.val.i.i.i.i, i64 %.val2.i.i.i.i), !alias.scope !330, !noalias !334
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.fca.1.extract.val.i.i, ptr nonnull %.val.i.i.i.i, i64 %.val2.i.i.i.i), !alias.scope !330, !noalias !334
   %253 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %253, label %.loopexit130.i, label %.critedge.backedge.i.i
 
@@ -2615,7 +2615,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   br i1 %or.cond.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hf5e778b3d5c38b37E.exit.i.i", label %.critedge.backedge.i66.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hf5e778b3d5c38b37E.exit.i.i": ; preds = %299
-  %bcmp.i.i.i.i70.i = call i32 @bcmp(ptr nonnull readonly %.fca.1.extract.val.i63.i, ptr nonnull readonly %.val.i.i.i61.i, i64 %.val4.i.i.i.i), !alias.scope !369, !noalias !373
+  %bcmp.i.i.i.i70.i = call i32 @bcmp(ptr nonnull %.fca.1.extract.val.i63.i, ptr nonnull %.val.i.i.i61.i, i64 %.val4.i.i.i.i), !alias.scope !369, !noalias !373
   %305 = icmp eq i32 %bcmp.i.i.i.i70.i, 0
   br i1 %305, label %.loopexit.i, label %.critedge.backedge.i66.i
 
@@ -3404,7 +3404,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h47e5103135e2c275E.exit.i.i.i": ; preds = %523
   %.fca.1.extract.val.i.i.i = load ptr, ptr %.fca.1.extract.i.i.i, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.fca.1.extract.val.i.i.i, ptr nonnull readonly %.val.i.i.i.i.i, i64 %.val1.i.i.i.i.i), !alias.scope !544, !noalias !548
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.fca.1.extract.val.i.i.i, ptr nonnull %.val.i.i.i.i.i, i64 %.val1.i.i.i.i.i), !alias.scope !544, !noalias !548
   %527 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %527, label %.loopexit75.i.i, label %.critedge.backedge.i.i.i
 
@@ -3563,7 +3563,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   br i1 %or.cond.i.i81, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h31fda07a05f34886E.exit.i.i.i", label %.backedge.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h31fda07a05f34886E.exit.i.i.i": ; preds = %558
-  %bcmp.i.i.i.i44.i.i = call i32 @bcmp(ptr nonnull readonly %.fca.1.extract.val.i36.i.i, ptr nonnull readonly %.val.i.i.i43.i.i, i64 %.val1.i.i.i38.i.i), !alias.scope !566, !noalias !570
+  %bcmp.i.i.i.i44.i.i = call i32 @bcmp(ptr nonnull %.fca.1.extract.val.i36.i.i, ptr nonnull %.val.i.i.i43.i.i, i64 %.val1.i.i.i38.i.i), !alias.scope !566, !noalias !570
   %564 = icmp eq i32 %bcmp.i.i.i.i44.i.i, 0
   br i1 %564, label %.loopexit.i.i, label %.backedge.i.i.i
 
@@ -3910,7 +3910,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a98d3877e18402cE.exit.i.i": ; preds = %648
   %.fca.1.extract.val.i.i122 = load ptr, ptr %.fca.1.extract.i.i103, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i123 = call i32 @bcmp(ptr nonnull readonly %.fca.1.extract.val.i.i122, ptr nonnull readonly %.val.i.i.i.i102, i64 %.val2.i.i.i.i101), !alias.scope !638, !noalias !642
+  %bcmp.i.i.i.i.i123 = call i32 @bcmp(ptr nonnull %.fca.1.extract.val.i.i122, ptr nonnull %.val.i.i.i.i102, i64 %.val2.i.i.i.i101), !alias.scope !638, !noalias !642
   %652 = icmp eq i32 %bcmp.i.i.i.i.i123, 0
   br i1 %652, label %.loopexit.i110, label %.critedge.backedge.i.i106
 

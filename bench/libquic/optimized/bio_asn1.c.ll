@@ -524,11 +524,11 @@ if.end4:                                          ; preds = %if.end
   store i32 20, ptr %bufsize.i, align 8
   %bufpos.i = getelementptr inbounds i8, ptr %call, i64 20
   %asn1_tag.i = getelementptr inbounds i8, ptr %call, i64 36
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %bufpos.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bufpos.i, i8 0, i64 16, i1 false)
   store i32 4, ptr %asn1_tag.i, align 4
   %ex_buf.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 0, ptr %call, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ex_buf.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ex_buf.i, i8 0, i64 16, i1 false)
   %init = getelementptr inbounds i8, ptr %b, i64 24
   store i32 1, ptr %init, align 8
   %ptr = getelementptr inbounds i8, ptr %b, i64 48

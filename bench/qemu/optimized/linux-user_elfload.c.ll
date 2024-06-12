@@ -123,7 +123,7 @@ if.end.i:                                         ; preds = %if.then13
   br i1 %or.cond27.i.i, label %if.then4.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ga.i, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ga.i, i8 0, i64 56, i1 false)
   %8 = load i64, ptr @reserved_va, align 8
   %tobool4.not.i.i = icmp eq i64 %8, 0
   br i1 %tobool4.not.i.i, label %if.else.i.i, label %if.then5.i.i
@@ -235,7 +235,7 @@ if.end.i17:                                       ; preds = %if.else14
   br i1 %or.cond27.i.i20, label %if.end6.i, label %if.end3.i.i21
 
 if.end3.i.i21:                                    ; preds = %if.end.i17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ga.i14, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ga.i14, i8 0, i64 56, i1 false)
   %18 = or i64 %1, %guest_loaddr
   %brmerge.not = icmp eq i64 %18, 0
   br i1 %brmerge.not, label %if.then1.i, label %if.then1.sink.split.i
@@ -306,7 +306,7 @@ if.end6.loopexit.i:                               ; preds = %pgb_try_mmap_skip_b
 
 if.end6.i:                                        ; preds = %if.end6.loopexit.i, %if.end.i17
   %28 = phi i64 [ %.pre.i, %if.end6.loopexit.i ], [ %1, %if.end.i17 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ga.i14, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ga.i14, i8 0, i64 56, i1 false)
   %tobool4.not.i26.i = icmp eq i64 %28, 0
   %arrayidx21.i.i39 = getelementptr inbounds i8, ptr %ga.i14, i64 8
   br i1 %tobool4.not.i26.i, label %if.else.i33.i, label %if.then5.i27.i
@@ -2162,7 +2162,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub23 = sub i32 %len.045, %cond
   %idx.ext24 = sext i32 %sub22 to i64
   %add.ptr25 = getelementptr i8, ptr %scratch, i64 %idx.ext24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr25, ptr readonly align 1 %add.ptr19, i64 %idx.ext18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr align 1 %add.ptr19, i64 %idx.ext18, i1 false)
   %cmp27 = icmp eq i32 %sub22, 0
   br i1 %cmp27, label %if.then29, label %if.end32
 

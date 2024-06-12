@@ -976,7 +976,7 @@ InitBlockEncoder.exit:                            ; preds = %StoreCompressedMeta
   %block_len_.i = getelementptr inbounds i8, ptr %call4, i64 920
   store i64 %cond.i, ptr %block_len_.i, align 8
   %entropy_ix_.i = getelementptr inbounds i8, ptr %call4, i64 928
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %entropy_ix_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entropy_ix_.i, i8 0, i64 24, i1 false)
   %command_split = getelementptr inbounds i8, ptr %mb, i64 48
   %24 = load i64, ptr %command_split, align 8
   %types13 = getelementptr inbounds i8, ptr %mb, i64 64
@@ -1013,7 +1013,7 @@ InitBlockEncoder.exit229:                         ; preds = %InitBlockEncoder.ex
   %block_len_.i227 = getelementptr inbounds i8, ptr %call4, i64 1872
   store i64 %cond.i226, ptr %block_len_.i227, align 8
   %entropy_ix_.i228 = getelementptr inbounds i8, ptr %call4, i64 1880
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %entropy_ix_.i228, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entropy_ix_.i228, i8 0, i64 24, i1 false)
   %conv = zext i32 %1 to i64
   %distance_split = getelementptr inbounds i8, ptr %mb, i64 96
   %30 = load i64, ptr %distance_split, align 8
@@ -1051,7 +1051,7 @@ InitBlockEncoder.exit242:                         ; preds = %InitBlockEncoder.ex
   %block_len_.i240 = getelementptr inbounds i8, ptr %call4, i64 2824
   store i64 %cond.i239, ptr %block_len_.i240, align 8
   %entropy_ix_.i241 = getelementptr inbounds i8, ptr %call4, i64 2832
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %entropy_ix_.i241, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entropy_ix_.i241, i8 0, i64 24, i1 false)
   tail call fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef nonnull %call4, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   tail call fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef nonnull %command_enc6, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   tail call fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef nonnull %distance_enc7, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
@@ -2570,7 +2570,7 @@ for.body20.lr.ph.i:                               ; preds = %for.end15.i
   br i1 %cmp5.not.i.i, label %for.body20.lr.ph.split.us.i, label %for.body20.i
 
 for.body20.lr.ph.split.us.i:                      ; preds = %for.body20.lr.ph.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %call, i8 0, i64 %mul, i1 false), !noalias !39
+  tail call void @llvm.memset.p0.i64(ptr align 4 %call, i8 0, i64 %mul, i1 false), !noalias !39
   br label %for.cond1.preheader.preheader.i
 
 for.body20.i:                                     ; preds = %for.body20.lr.ph.i, %MoveToFront.exit.i

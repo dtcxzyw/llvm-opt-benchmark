@@ -594,7 +594,7 @@ define internal range(i32 0, 13) i32 @dissect_udpcp(ptr noundef %0, ptr noundef 
   %221 = load i32, ptr %220, align 4
   %222 = getelementptr inbounds i8, ptr %1, i64 240
   %223 = load ptr, ptr %222, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %217, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %217, i8 0, i64 24, i1 false)
   store i32 %219, ptr %217, align 8
   %224 = icmp eq i32 %221, 0
   br i1 %224, label %copy_address.exit, label %225

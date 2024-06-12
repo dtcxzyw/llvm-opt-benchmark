@@ -8797,7 +8797,7 @@ define linkonce_odr void @_ZN3nix16GitInputAccessor15getSubmoduleRevERKNS_9Canon
   tail call void @_ZN3nix4HashC1ENS_13HashAlgorithmE(ptr noundef nonnull align 8 dereferenceable(73) %0, i8 noundef signext 43)
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load i64, ptr %0, align 8, !alias.scope !41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull readonly align 1 %29, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 1 %29, i64 %31, i1 false)
   ret void
 
 32:                                               ; preds = %26, %27
@@ -10093,7 +10093,7 @@ define linkonce_odr void @_ZN3nix11GitRepoImpl10resolveRefENSt7__cxx1112basic_st
   call void @_ZN3nix4HashC1ENS_13HashAlgorithmE(ptr noundef nonnull align 8 dereferenceable(73) %0, i8 noundef signext 43)
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i64, ptr %0, align 8, !alias.scope !57
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull readonly align 1 %4, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %4, i64 %19, i1 false)
   br label %_ZNSt10unique_ptrI13git_referenceN3nix7DeleterIXadL_Z18git_reference_freeEEEEED2Ev.exit27
 
 20:                                               ; preds = %3
@@ -10298,7 +10298,7 @@ _ZN3nix6SetterISt10unique_ptrI13git_referenceNS_7DeleterIXadL_Z18git_reference_f
 90:                                               ; preds = %89
   %91 = getelementptr inbounds i8, ptr %0, i64 8
   %92 = load i64, ptr %0, align 8, !alias.scope !60
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull readonly align 1 %76, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull align 1 %76, i64 %92, i1 false)
   %93 = load ptr, ptr %7, align 8
   %.not.i25 = icmp eq ptr %93, null
   br i1 %.not.i25, label %_ZNSt10unique_ptrI13git_referenceN3nix7DeleterIXadL_Z18git_reference_freeEEEEED2Ev.exit, label %94
@@ -10437,7 +10437,7 @@ define linkonce_odr void @_ZN3nix11GitRepoImpl14getWorkdirInfoEv(ptr dead_on_unw
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i8, ptr %7, i64 8
   %41 = load i64, ptr %7, align 8, !alias.scope !63
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull readonly align 1 %4, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 1 %4, i64 %41, i1 false)
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load i8, ptr %16, align 8
   %44 = trunc i8 %43 to i1
@@ -68279,7 +68279,7 @@ define linkonce_odr void @_ZN3nix27GitFileSystemObjectSinkImpl4syncEv(ptr dead_o
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %0, align 8, !alias.scope !435
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 8 %3, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %3, i64 %6, i1 false)
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 40

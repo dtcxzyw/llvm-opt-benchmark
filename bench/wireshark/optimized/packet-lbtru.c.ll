@@ -493,7 +493,7 @@ define hidden ptr @lbtru_transport_add(ptr noundef %0, i16 noundef zeroext %1, i
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store i32 %35, ptr %33, align 8
   %40 = icmp eq i32 %37, 0
   br i1 %40, label %copy_address_wmem.exit, label %41
@@ -1353,7 +1353,7 @@ lbtru_client_transport_find.exit.thread.i:        ; preds = %lbtru_client_transp
   %411 = load i32, ptr %6, align 8
   %412 = load i32, ptr %354, align 4
   %413 = load ptr, ptr %355, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %409, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %409, i8 0, i64 24, i1 false)
   store i32 %411, ptr %409, align 8
   %414 = icmp eq i32 %412, 0
   br i1 %414, label %copy_address_wmem.exit.i, label %415

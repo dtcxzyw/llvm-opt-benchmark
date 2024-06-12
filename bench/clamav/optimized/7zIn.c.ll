@@ -86,7 +86,7 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %20(ptr noundef %1, ptr noundef %22) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
@@ -340,7 +340,7 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   %28 = getelementptr inbounds i8, ptr %10, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void %27(ptr noundef %1, ptr noundef %29) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %5, align 4
   %31 = zext i32 %30 to i64
@@ -367,13 +367,13 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   %45 = getelementptr inbounds i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call void %44(ptr noundef %1, ptr noundef %46) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SzArEx_Init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -407,7 +407,7 @@ define void @SzArEx_Free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %19 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @Buf_Free(ptr noundef nonnull %19, ptr noundef %1) #11
   tail call void @SzAr_Free(ptr noundef %0, ptr noundef %1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   tail call void @Buf_Init(ptr noundef nonnull %19) #11
   ret void
@@ -888,7 +888,7 @@ SzArEx_Open2.exit:                                ; preds = %155
   %176 = getelementptr inbounds i8, ptr %0, i64 112
   call void @Buf_Free(ptr noundef nonnull %176, ptr noundef %2) #11
   call void @SzAr_Free(ptr noundef %0, ptr noundef %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %162, i8 0, i64 40, i1 false)
   call void @Buf_Init(ptr noundef nonnull %176) #11
   br label %177
@@ -1266,7 +1266,7 @@ define internal fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef %0, ptr nou
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 0, ptr %6, align 4
@@ -3089,7 +3089,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i54, %.lr.ph.i52 ]
   %328 = load ptr, ptr %21, align 8
   %329 = getelementptr inbounds %struct.CSzFolder, ptr %328, i64 %indvars.iv.i53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %329, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %329, i8 0, i64 56, i1 false)
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %330 = load i32, ptr %20, align 4
   %331 = zext i32 %330 to i64

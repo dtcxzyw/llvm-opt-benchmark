@@ -213,7 +213,7 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr nocapture noundef %1
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
   %7 = getelementptr inbounds [9 x ptr], ptr @figcolor, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %5) #17
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %5) #17
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
 

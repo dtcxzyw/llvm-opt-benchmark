@@ -8116,7 +8116,7 @@ define internal ptr @list_copy(ptr nocapture noundef readonly %self, ptr nocaptu
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load i64, ptr %0, align 8
-  %call1.i = tail call fastcc ptr @list_slice(ptr noundef readonly %self, i64 noundef 0, i64 noundef %self.val.i)
+  %call1.i = tail call fastcc ptr @list_slice(ptr noundef %self, i64 noundef 0, i64 noundef %self.val.i)
   ret ptr %call1.i
 }
 

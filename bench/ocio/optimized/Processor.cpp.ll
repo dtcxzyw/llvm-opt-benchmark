@@ -1589,7 +1589,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
 define void @_ZNK19OpenColorIO_v2_4dev9Processor21getOptimizedProcessorENS_17OptimizationFlagsE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.54") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %oFlags) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr writeonly sret(%"class.std::shared_ptr.54") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef 8, i32 noundef 8, i64 noundef %oFlags)
+  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl21getOptimizedProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr sret(%"class.std::shared_ptr.54") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef 8, i32 noundef 8, i64 noundef %oFlags)
   ret void
 }
 
@@ -1896,7 +1896,7 @@ define void @_ZNK19OpenColorIO_v2_4dev9Processor22getDefaultGPUProcessorEv(ptr n
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ops.i = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsE(ptr writeonly sret(%"class.std::shared_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(144) %m_ops.i, i64 noundef 263995331)
+  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsE(ptr sret(%"class.std::shared_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(144) %m_ops.i, i64 noundef 263995331)
   ret void
 }
 
@@ -1913,7 +1913,7 @@ define void @_ZNK19OpenColorIO_v2_4dev9Processor24getOptimizedGPUProcessorENS_17
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ops.i = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsE(ptr writeonly sret(%"class.std::shared_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(144) %m_ops.i, i64 noundef %oFlags)
+  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl15getGPUProcessorERKNS_10OpRcPtrVecENS_17OptimizationFlagsE(ptr sret(%"class.std::shared_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(144) %m_ops.i, i64 noundef %oFlags)
   ret void
 }
 
@@ -2165,14 +2165,14 @@ ehcleanup27:                                      ; preds = %ehcleanup25, %lpad
 define void @_ZNK19OpenColorIO_v2_4dev9Processor22getDefaultCPUProcessorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr writeonly sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef 8, i32 noundef 8, i64 noundef 263995331)
+  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef 8, i32 noundef 8, i64 noundef 263995331)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl22getDefaultCPUProcessorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %this) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr writeonly sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef 8, i32 noundef 8, i64 noundef 263995331)
+  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef 8, i32 noundef 8, i64 noundef 263995331)
   ret void
 }
 
@@ -2180,7 +2180,7 @@ entry:
 define void @_ZNK19OpenColorIO_v2_4dev9Processor24getOptimizedCPUProcessorENS_17OptimizationFlagsE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %oFlags) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr writeonly sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef 8, i32 noundef 8, i64 noundef %oFlags)
+  tail call void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsE(ptr sret(%"class.std::shared_ptr.60") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef 8, i32 noundef 8, i64 noundef %oFlags)
   ret void
 }
 

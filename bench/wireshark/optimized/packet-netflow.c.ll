@@ -7523,7 +7523,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   br label %113
 
 113:                                              ; preds = %108, %107, %104, %86
-  %114 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %76, i32 noundef %81, ptr noundef nonnull readonly %4, ptr noundef nonnull %10, i32 noundef 1)
+  %114 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %76, i32 noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef 1)
   %115 = icmp eq ptr %95, null
   %116 = load ptr, ptr %62, align 8
   %117 = icmp ne ptr %116, null
@@ -7538,7 +7538,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   %123 = load i32, ptr %45, align 8
   %124 = load i32, ptr %46, align 4
   %125 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
   store i32 %123, ptr %122, align 8
   %126 = icmp eq i32 %124, 0
   br i1 %126, label %copy_address_wmem.exit.i, label %127
@@ -7560,7 +7560,7 @@ copy_address_wmem.exit.i:                         ; preds = %127, %118
   %135 = load i32, ptr %52, align 8
   %136 = load i32, ptr %53, align 4
   %137 = load ptr, ptr %54, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   store i32 %135, ptr %134, align 8
   %138 = icmp eq i32 %136, 0
   br i1 %138, label %copy_address_wmem.exit94.i, label %139
@@ -7809,8 +7809,8 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %164
   br label %283
 
 283:                                              ; preds = %274, %273, %270, %268, %252
-  %284 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %.1.i, ptr noundef nonnull readonly %4, ptr noundef nonnull %8, i32 noundef 0)
-  %285 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %284, ptr noundef nonnull readonly %4, ptr noundef nonnull %8, i32 noundef 1)
+  %284 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %.1.i, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 0)
+  %285 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %204, i32 noundef %284, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 1)
   %286 = icmp eq ptr %261, null
   br i1 %286, label %287, label %322
 
@@ -7830,7 +7830,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %164
   %297 = load i32, ptr %176, align 8
   %298 = load i32, ptr %177, align 4
   %299 = load ptr, ptr %178, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %296, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %296, i8 0, i64 24, i1 false)
   store i32 %297, ptr %296, align 8
   %300 = icmp eq i32 %298, 0
   br i1 %300, label %copy_address_wmem.exit.i59, label %301
@@ -7852,7 +7852,7 @@ copy_address_wmem.exit.i59:                       ; preds = %301, %292
   %309 = load i32, ptr %183, align 8
   %310 = load i32, ptr %184, align 4
   %311 = load ptr, ptr %185, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
   store i32 %309, ptr %308, align 8
   %312 = icmp eq i32 %310, 0
   br i1 %312, label %copy_address_wmem.exit133.i, label %313
@@ -8072,13 +8072,13 @@ switch.lookup:                                    ; preds = %408
   br i1 %419, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !10
 
 420:                                              ; preds = %399
-  %421 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.059.i, ptr noundef nonnull readonly %367, ptr noundef nonnull readonly %4, i32 noundef 0)
+  %421 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.059.i, ptr noundef nonnull %367, ptr noundef nonnull %4, i32 noundef 0)
   %422 = add i32 %421, %.059.i
   br label %dissect_v9_v10_pdu.exit.i
 
 dissect_v9_v10_pdu.exit.i:                        ; preds = %416, %420, %399, %397, %391
   %.0.i.i = phi i32 [ %422, %420 ], [ %.059.i, %397 ], [ %.059.i, %391 ], [ %.059.i, %399 ], [ %.1.i.i.i, %416 ]
-  %423 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.0.i.i, ptr noundef nonnull readonly %367, ptr noundef nonnull readonly %4, i32 noundef 1)
+  %423 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %395, i32 noundef %.0.i.i, ptr noundef nonnull %367, ptr noundef nonnull %4, i32 noundef 1)
   %424 = load i32, ptr %5, align 4
   %425 = add i32 %424, 1
   store i32 %425, ptr %5, align 4

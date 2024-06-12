@@ -1175,7 +1175,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit.i: ; preds = %262
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17he3802cdb281fd9efE.exit.i": ; preds = %282
   %284 = getelementptr i8, ptr %278, i64 %280
   %285 = getelementptr i8, ptr %284, i64 -2
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.da44b60bac08044e6b21de30a705dee3.12, ptr noundef nonnull readonly dereferenceable(2) %285, i64 2), !alias.scope !223, !noalias !201
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.da44b60bac08044e6b21de30a705dee3.12, ptr noundef nonnull dereferenceable(2) %285, i64 2), !alias.scope !223, !noalias !201
   %286 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %286, label %298, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17he3802cdb281fd9efE.exit.thread.i"
 
@@ -2295,7 +2295,7 @@ _ZN5uu_cp7copydir5Entry3new17h9a9467c3be878eadE.exit: ; preds = %553
   %630 = extractvalue { i64, ptr } %610, 1
   %631 = icmp ne ptr %630, null
   call void @llvm.assume(i1 %631)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %630, ptr noundef nonnull readonly align 1 dereferenceable(45) @anon.da44b60bac08044e6b21de30a705dee3.17, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %630, ptr noundef nonnull align 1 dereferenceable(45) @anon.da44b60bac08044e6b21de30a705dee3.17, i64 45, i1 false)
   store i64 4, ptr %96, align 8, !alias.scope !388, !noalias !445
   store i64 %629, ptr %.sroa.4149.0..sroa_idx.i, align 8, !alias.scope !388, !noalias !445
   store ptr %630, ptr %.sroa.5.0..sroa_idx140.i, align 8, !alias.scope !388, !noalias !445

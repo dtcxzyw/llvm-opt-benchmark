@@ -5649,7 +5649,7 @@ tailrecurse.i:                                    ; preds = %entry, %tailrecurse
   br i1 %tobool.not.i, label %if.end.i81, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %tailrecurse.i
-  %call.i79 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i, ptr noundef %expr.tr.i, i32 noundef 0)
+  %call.i79 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i, ptr noundef %expr.tr.i, i32 noundef 0)
   %cmp.i80 = icmp eq i32 %call.i79, 1
   br i1 %cmp.i80, label %return, label %if.end.i81
 
@@ -5717,7 +5717,7 @@ tailrecurse.i82:                                  ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool.not.i85, label %if.end.i88, label %land.lhs.true.i86
 
 land.lhs.true.i86:                                ; preds = %tailrecurse.i82
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i84, ptr noundef %expr.tr.i83, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i84, ptr noundef %expr.tr.i83, i32 noundef 0)
   %cmp.i87 = icmp eq i32 %call.i, 1
   br i1 %cmp.i87, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43, label %if.end.i88
 
@@ -5774,7 +5774,7 @@ land.rhs.i18.i:                                   ; preds = %if.end.i88
 
 _ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i9.i
   %agg.tmp.sroa.0.0.copyload.i11.i = load ptr, ptr %14, align 8
-  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull readonly dereferenceable(2) @.str.246, i64 2)
+  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
   %16 = icmp eq i32 %bcmp.i15.i, 0
   br i1 %16, label %if.then23, label %if.then43.i106
 
@@ -5820,7 +5820,7 @@ tailrecurse.i122:                                 ; preds = %tailrecurse.i122.pr
   br i1 %tobool.not.i125, label %if.end.i129, label %land.lhs.true.i126
 
 land.lhs.true.i126:                               ; preds = %tailrecurse.i122
-  %call.i127 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i124, ptr noundef %expr.tr.i123, i32 noundef 0)
+  %call.i127 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i124, ptr noundef %expr.tr.i123, i32 noundef 0)
   %cmp.i128 = icmp eq i32 %call.i127, 1
   br i1 %cmp.i128, label %if.else33, label %if.end.i129
 
@@ -5864,7 +5864,7 @@ land.rhs.i8.i:                                    ; preds = %land.lhs.true.i.i25
 
 land.rhs.i.i13.i:                                 ; preds = %land.rhs.i8.i
   %agg.tmp.sroa.0.0.copyload.i10.i = load ptr, ptr %24, align 8
-  %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i, ptr noundef nonnull readonly dereferenceable(2) @.str.247, i64 2)
+  %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
   %25 = icmp eq i32 %bcmp.i14.i, 0
   br i1 %25, label %if.then29, label %if.then43.i147
 
@@ -5929,7 +5929,7 @@ tailrecurse.i163:                                 ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool.not.i166, label %if.end.i170, label %land.lhs.true.i167
 
 land.lhs.true.i167:                               ; preds = %tailrecurse.i163
-  %call.i168 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i165, ptr noundef %expr.tr.i164, i32 noundef 0)
+  %call.i168 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i165, ptr noundef %expr.tr.i164, i32 noundef 0)
   %cmp.i169 = icmp eq i32 %call.i168, 1
   br i1 %cmp.i169, label %land.rhs.i204, label %if.end.i170
 
@@ -5986,7 +5986,7 @@ land.rhs.i18.i270:                                ; preds = %if.end.i170
 
 _ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293: ; preds = %land.rhs.i9.i277
   %agg.tmp.sroa.0.0.copyload.i11.i283 = load ptr, ptr %36, align 8
-  %bcmp.i15.i284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i283, ptr noundef nonnull readonly dereferenceable(2) @.str.246, i64 2)
+  %bcmp.i15.i284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i283, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
   %38 = icmp eq i32 %bcmp.i15.i284, 0
   br i1 %38, label %if.then40, label %if.then43.i188
 
@@ -6034,7 +6034,7 @@ tailrecurse.i211:                                 ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool.not.i214, label %if.end.i218, label %land.lhs.true.i215
 
 land.lhs.true.i215:                               ; preds = %tailrecurse.i211
-  %call.i216 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i213, ptr noundef %expr.tr.i212, i32 noundef 0)
+  %call.i216 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i213, ptr noundef %expr.tr.i212, i32 noundef 0)
   %cmp.i217 = icmp eq i32 %call.i216, 1
   br i1 %cmp.i217, label %if.end61, label %if.end.i218
 
@@ -6078,7 +6078,7 @@ land.rhs.i8.i298:                                 ; preds = %land.lhs.true.i.i29
 
 land.rhs.i.i13.i303:                              ; preds = %land.rhs.i8.i298
   %agg.tmp.sroa.0.0.copyload.i10.i304 = load ptr, ptr %46, align 8
-  %bcmp.i14.i305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i304, ptr noundef nonnull readonly dereferenceable(2) @.str.247, i64 2)
+  %bcmp.i14.i305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i304, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
   %47 = icmp eq i32 %bcmp.i14.i305, 0
   br i1 %47, label %if.then51, label %if.then43.i236
 

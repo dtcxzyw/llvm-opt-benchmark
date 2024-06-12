@@ -458,7 +458,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.end
   %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %2) #13
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %2) #13
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %return.split.loop.exit6.i, label %for.inc.i
 
@@ -480,7 +480,7 @@ for.body.i17:                                     ; preds = %for.inc.i22, %_ZN18
   %indvars.iv.i18 = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i23, %for.inc.i22 ]
   %arrayidx.i19 = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i18
   %4 = load ptr, ptr %arrayidx.i19, align 8
-  %call1.i20 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %twrap.0, ptr noundef nonnull dereferenceable(1) %4) #13
+  %call1.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %twrap.0, ptr noundef nonnull dereferenceable(1) %4) #13
   %tobool.not.i21 = icmp eq i32 %call1.i20, 0
   br i1 %tobool.not.i21, label %return.split.loop.exit6.i26, label %for.inc.i22
 

@@ -792,7 +792,7 @@ if.then24.i:                                      ; preds = %pickNaN.exit.i, %39
 
 parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i108, %if.then24.i, %39, %if.then6.i.i, %if.then3.i, %if.then8.i, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i ], [ %pa, %if.then3.i ], [ %.ph.i125, %if.then24.i ], [ %pb, %39 ], [ %pa, %if.then6.i.i ], [ %spec.select, %lor.lhs.false.i.i108 ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %42 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i111 = zext i8 %42 to i64
@@ -2585,7 +2585,7 @@ do.end.i:                                         ; preds = %if.end80.i, %if.end
   %exp10.i = getelementptr inbounds i8, ptr %retval.i7.081, i64 4
   store i32 32767, ptr %exp10.i, align 4
   %frac_hi.i14.i = getelementptr inbounds i8, ptr %retval.i7.081, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %lor.lhs.false.i.i, %if.end55.i, %if.then3.i, %if.then24.i, %parts128_addsub.exit, %parts128_addsub.exit
@@ -3398,7 +3398,7 @@ if.else.i:                                        ; preds = %if.end51.i
 
 parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i79, %if.then24.i, %20, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
   %retval.i.0 = phi ptr [ %pa, %if.end.i ], [ %pa, %if.then31.i ], [ %pa, %if.then46.i ], [ %pa, %if.then54.i ], [ %pa, %if.then3.i ], [ %.ph.i93, %if.then24.i ], [ %pb, %20 ], [ %pa, %if.then6.i.i ], [ %spec.select99, %lor.lhs.false.i.i79 ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %23 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i81 = zext i8 %23 to i64
@@ -5326,7 +5326,7 @@ do.end.i:                                         ; preds = %parts128_mul.exit.t
   %exp10.i = getelementptr inbounds i8, ptr %retval.i.090, i64 4
   store i32 32767, ptr %exp10.i, align 4
   %frac_hi.i14.i = getelementptr inbounds i8, ptr %retval.i.090, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %lor.lhs.false.i.i, %if.then6.i.i, %if.then31.i, %if.then3.i, %if.then24.i, %parts128_mul.exit, %parts128_mul.exit
@@ -5401,7 +5401,7 @@ do.end.i:                                         ; preds = %entry
   %exp10.i = getelementptr inbounds i8, ptr %p, i64 4
   store i32 32767, ptr %exp10.i, align 4
   %frac_hi.i14.i = getelementptr inbounds i8, ptr %p, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %entry, %entry
@@ -6416,7 +6416,7 @@ d_nan.i:                                          ; preds = %if.then57.i, %if.en
   br label %parts64_muladd.exit
 
 parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.then174.i, %d_nan.i, %parts64_pick_nan_muladd.exit
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float16_params)
   %42 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i144 = zext i8 %42 to i64
   %shl.i.i.i145 = shl nuw nsw i64 %conv.i.i.i144, 15
@@ -8865,7 +8865,7 @@ if.then142.i:                                     ; preds = %if.end137.i
   %64 = load <2 x i64>, ptr %.compoundliteral.sroa.4.0..sroa_idx.i86, align 8
   store <2 x i64> %64, ptr %frac_hi1.i, align 8
   %frac_lm.i98 = getelementptr inbounds i8, ptr %c_widen.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_lm.i98, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_lm.i98, i8 0, i64 16, i1 false)
   %65 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i85, align 4
   %exp144.i = getelementptr inbounds i8, ptr %c_widen.i, i64 4
   store i32 %65, ptr %exp144.i, align 4
@@ -9161,7 +9161,7 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_div(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -10943,7 +10943,7 @@ do.end.i:                                         ; preds = %parts128_div.exit.t
   %exp10.i = getelementptr inbounds i8, ptr %retval.i7.078, i64 4
   store i32 32767, ptr %exp10.i, align 4
   %frac_hi.i14.i = getelementptr inbounds i8, ptr %retval.i7.078, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %lor.lhs.false.i.i, %if.then6.i.i, %d_nan.i, %if.then3.i, %if.then24.i, %parts128_div.exit, %parts128_div.exit
@@ -13422,7 +13422,7 @@ default.unreachable:                              ; preds = %if.else
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i7, %if.then.i.i8, %if.then
   %float16_params_ahp.sink = phi ptr [ @float16_params, %if.then ], [ @float16_params, %if.then.i.i8 ], [ @float16_params, %if.else.i.i7 ], [ @float16_params, %sw.bb1.i.i ], [ @float16_params, %if.then4.i.i ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %sw.bb1.i ], [ @float16_params_ahp, %sw.bb3.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull %float16_params_ahp.sink)
   %12 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i11 = zext i8 %12 to i64
   %shl.i.i.i12 = shl nuw nsw i64 %conv.i.i.i11, 15
@@ -13769,7 +13769,7 @@ default.unreachable:                              ; preds = %if.else
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i7, %if.then.i.i8, %if.then
   %float16_params_ahp.sink = phi ptr [ @float16_params, %if.then ], [ @float16_params, %if.then.i.i8 ], [ @float16_params, %if.else.i.i7 ], [ @float16_params, %sw.bb1.i.i ], [ @float16_params, %if.then4.i.i ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %sw.bb1.i ], [ @float16_params_ahp, %sw.bb3.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull %float16_params_ahp.sink)
   %12 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i12 = zext i8 %12 to i64
   %shl.i.i.i13 = shl nuw nsw i64 %conv.i.i.i12, 15
@@ -15793,7 +15793,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts64_round_to_int.exit
 
 parts64_round_to_int.exit:                        ; preds = %if.then47.i.i.i, %if.then10.i.i.i, %if.then8.i.i.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float16_params)
   %11 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
   %conv.i.i.i.i4 = zext i8 %11 to i64
   %shl.i.i.i.i5 = shl nuw nsw i64 %conv.i.i.i.i4, 15
@@ -21488,7 +21488,7 @@ entry:
 define dso_local zeroext i16 @int64_to_float16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -21523,7 +21523,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %parts64_sint_to_float.exit
 
 parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -21548,7 +21548,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -21583,7 +21583,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21609,7 +21609,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -21644,7 +21644,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21669,7 +21669,7 @@ define dso_local zeroext i16 @int64_to_float16(i64 noundef %a, ptr nocapture nou
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i64 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -21701,7 +21701,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21727,7 +21727,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -21759,7 +21759,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21785,7 +21785,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -21817,7 +21817,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21843,7 +21843,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i8 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i8 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -21875,7 +21875,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21903,7 +21903,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -21950,7 +21950,7 @@ can_use_fpu.exit:                                 ; preds = %land.lhs.true
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true, %can_use_fpu.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i6 = icmp eq i64 %a, 0
   br i1 %cmp.i6, label %if.then.i18, label %if.end.i7
 
@@ -22043,7 +22043,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i64 %a, 0
   br i1 %cmp.i6.i, label %if.then.i18.i, label %if.end.i7.i
 
@@ -22122,7 +22122,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i32 %a, 0
   br i1 %cmp.i6.i, label %if.then.i18.i, label %if.end.i7.i
 
@@ -22201,7 +22201,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i16 %a, 0
   br i1 %cmp.i6.i, label %if.then.i18.i, label %if.end.i7.i
 
@@ -22270,7 +22270,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -22317,7 +22317,7 @@ can_use_fpu.exit:                                 ; preds = %land.lhs.true
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true, %can_use_fpu.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i6 = icmp eq i64 %a, 0
   br i1 %cmp.i6, label %if.then.i18, label %if.end.i7
 
@@ -22410,7 +22410,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i64 %a, 0
   br i1 %cmp.i6.i, label %if.then.i18.i, label %if.end.i7.i
 
@@ -22489,7 +22489,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i32 %a, 0
   br i1 %cmp.i6.i, label %if.then.i18.i, label %if.end.i7.i
 
@@ -22568,7 +22568,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i16 %a, 0
   br i1 %cmp.i6.i, label %if.then.i18.i, label %if.end.i7.i
 
@@ -22633,7 +22633,7 @@ int64_to_float64_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 define dso_local zeroext i16 @int64_to_bfloat16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -22693,7 +22693,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -22754,7 +22754,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -22815,7 +22815,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i8 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i8 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -22875,7 +22875,7 @@ define dso_local zeroext i16 @int64_to_bfloat16(i64 noundef %a, ptr nocapture no
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i64 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -22933,7 +22933,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -22991,7 +22991,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -23049,7 +23049,7 @@ entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i8 %a to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i8 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -23171,7 +23171,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define dso_local { i64, i64 } @int64_to_float128(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -23213,7 +23213,7 @@ entry:
   %p.i = alloca %struct.FloatParts128, align 8
   %conv = sext i32 %a to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p.i, i8 0, i64 24, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -23254,7 +23254,7 @@ int64_to_float128.exit:                           ; preds = %if.then.i.i, %if.en
 define dso_local { i64, i16 } @int64_to_floatx80(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -23296,7 +23296,7 @@ entry:
   %p.i = alloca %struct.FloatParts128, align 8
   %conv = sext i32 %a to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p.i, i8 0, i64 24, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -23337,7 +23337,7 @@ int64_to_floatx80.exit:                           ; preds = %if.then.i.i, %if.en
 define dso_local zeroext i16 @uint64_to_float16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %parts64_uint_to_float.exit, label %if.else.i
 
@@ -23358,7 +23358,7 @@ if.else.i:                                        ; preds = %entry
 parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -23382,7 +23382,7 @@ define dso_local zeroext i16 @uint32_to_float16_scalbn(i32 noundef %a, i32 nound
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %uint64_to_float16_scalbn.exit, label %if.else.i.i
 
@@ -23404,7 +23404,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23429,7 +23429,7 @@ define dso_local zeroext i16 @uint16_to_float16_scalbn(i16 noundef zeroext %a, i
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %uint64_to_float16_scalbn.exit, label %if.else.i.i
 
@@ -23451,7 +23451,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23476,7 +23476,7 @@ define dso_local zeroext i16 @uint64_to_float16(i64 noundef %a, ptr nocapture no
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i64 %a, 0
   br i1 %cmp.i.i, label %uint64_to_float16_scalbn.exit, label %if.else.i.i
 
@@ -23494,7 +23494,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23519,7 +23519,7 @@ define dso_local zeroext i16 @uint32_to_float16(i32 noundef %a, ptr nocapture no
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %uint64_to_float16_scalbn.exit, label %if.else.i.i
 
@@ -23538,7 +23538,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23563,7 +23563,7 @@ define dso_local zeroext i16 @uint16_to_float16(i16 noundef zeroext %a, ptr noca
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %uint64_to_float16_scalbn.exit, label %if.else.i.i
 
@@ -23582,7 +23582,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23607,7 +23607,7 @@ define dso_local zeroext i16 @uint8_to_float16(i8 noundef zeroext %a, ptr nocapt
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i8 %a, 0
   br i1 %cmp.i.i, label %uint64_to_float16_scalbn.exit, label %if.else.i.i
 
@@ -23626,7 +23626,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23654,7 +23654,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.end, label %if.else.i
 
@@ -23680,7 +23680,7 @@ can_use_fpu.exit:                                 ; preds = %land.lhs.true
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true, %can_use_fpu.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i6 = icmp eq i64 %a, 0
   br i1 %cmp.i6, label %if.end, label %if.else.i7
 
@@ -23741,7 +23741,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %entry.split.i
 
 entry.split.i:                                    ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.end.i, label %if.else.i.i
 
@@ -23767,7 +23767,7 @@ can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %land.lhs.true.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i32 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -23829,7 +23829,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %entry.split.i
 
 entry.split.i:                                    ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %if.end.i, label %if.else.i.i
 
@@ -23855,7 +23855,7 @@ can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %land.lhs.true.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i16 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -23924,7 +23924,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i64 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -23989,7 +23989,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i32 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24054,7 +24054,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i16 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24109,7 +24109,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %if.end, label %if.else.i
 
@@ -24135,7 +24135,7 @@ can_use_fpu.exit:                                 ; preds = %land.lhs.true
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true, %can_use_fpu.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i6 = icmp eq i64 %a, 0
   br i1 %cmp.i6, label %if.end, label %if.else.i7
 
@@ -24196,7 +24196,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %entry.split.i
 
 entry.split.i:                                    ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %if.end.i, label %if.else.i.i
 
@@ -24222,7 +24222,7 @@ can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %land.lhs.true.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i32 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24284,7 +24284,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %entry.split.i
 
 entry.split.i:                                    ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %if.end.i, label %if.else.i.i
 
@@ -24310,7 +24310,7 @@ can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %land.lhs.true.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i16 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24379,7 +24379,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i64 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24444,7 +24444,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i32 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24509,7 +24509,7 @@ can_use_fpu.exit.i:                               ; preds = %entry
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
 
 land.lhs.true.split.i:                            ; preds = %can_use_fpu.exit.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i6.i = icmp eq i16 %a, 0
   br i1 %cmp.i6.i, label %if.end.i, label %if.else.i7.i
 
@@ -24560,7 +24560,7 @@ uint64_to_float64_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 define dso_local zeroext i16 @uint64_to_bfloat16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %parts64_uint_to_float.exit, label %if.else.i
 
@@ -24605,7 +24605,7 @@ define dso_local zeroext i16 @uint32_to_bfloat16_scalbn(i32 noundef %a, i32 noun
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24652,7 +24652,7 @@ define dso_local zeroext i16 @uint16_to_bfloat16_scalbn(i16 noundef zeroext %a, 
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24699,7 +24699,7 @@ define dso_local zeroext i16 @uint8_to_bfloat16_scalbn(i8 noundef zeroext %a, i3
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i8 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24746,7 +24746,7 @@ define dso_local zeroext i16 @uint64_to_bfloat16(i64 noundef %a, ptr nocapture n
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i64 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24789,7 +24789,7 @@ define dso_local zeroext i16 @uint32_to_bfloat16(i32 noundef %a, ptr nocapture n
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24833,7 +24833,7 @@ define dso_local zeroext i16 @uint16_to_bfloat16(i16 noundef zeroext %a, ptr noc
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i16 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24877,7 +24877,7 @@ define dso_local zeroext i16 @uint8_to_bfloat16(i8 noundef zeroext %a, ptr nocap
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i8 %a, 0
   br i1 %cmp.i.i, label %uint64_to_bfloat16_scalbn.exit, label %if.else.i.i
 
@@ -24920,7 +24920,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 define dso_local { i64, i64 } @uint64_to_float128(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
   %cmp.i = icmp eq i64 %a, 0
   br i1 %cmp.i, label %parts128_uint_to_float.exit, label %if.else.i
 
@@ -25148,7 +25148,7 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -27845,7 +27845,7 @@ sw.bb2.i:                                         ; preds = %float16_unpack_cano
   br label %parts64_scalbn.exit
 
 parts64_scalbn.exit:                              ; preds = %if.then47.i.i.i, %if.then10.i.i.i, %if.then8.i.i.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
   %10 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
   %conv.i.i.i.i3 = zext i8 %10 to i64
   %shl.i.i.i.i4 = shl nuw nsw i64 %conv.i.i.i.i3, 15
@@ -28685,7 +28685,7 @@ d_nan.i:                                          ; preds = %if.end16.i, %float1
   br label %parts64_sqrt.exit
 
 parts64_sqrt.exit:                                ; preds = %if.then10.i.i, %if.then8.i.i, %if.then4.i, %sw.bb1.i, %if.else.i55, %if.then.i, %if.then124.i, %if.else.i, %float16a_unpack_canonical.exit.thread62, %d_nan.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
   %16 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i59 = zext i8 %16 to i64
   %shl.i.i.i60 = shl nuw nsw i64 %conv.i.i.i59, 15
@@ -30880,7 +30880,7 @@ exact:                                            ; preds = %if.else51, %for.end
   %f_exp.019 = phi i32 [ %f_exp.0.lcssa, %for.end ], [ %f_exp.025, %if.else51 ]
   %r.2 = phi i64 [ %or83, %for.end ], [ %r.028, %if.else51 ]
   %conv84 = sext i32 %9 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %a, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i32 %9, 0
   br i1 %cmp.i, label %if.then.i35, label %if.end.i
 
@@ -34086,7 +34086,7 @@ if.then10:                                        ; preds = %if.else
   %or1.i = or i16 %4, 32
   store i16 %or1.i, ptr %status, align 2
   store i8 1, ptr %p, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %if.end58
 
 if.else12:                                        ; preds = %if.else
@@ -34386,7 +34386,7 @@ if.then82:                                        ; preds = %if.end80
 
 if.then91:                                        ; preds = %if.then82
   %frac_hi.i129 = getelementptr inbounds i8, ptr %p, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i129, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i129, i8 -1, i64 16, i1 false)
   %not92 = xor i64 %2, -1
   br label %if.end122
 
@@ -34414,13 +34414,13 @@ if.else109:                                       ; preds = %if.then105
 
 if.then111:                                       ; preds = %if.else109
   %sub113 = add i32 %0, -1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i130, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i130, i8 -1, i64 16, i1 false)
   %not114 = xor i64 %2, -1
   br label %if.end122
 
 if.else117:                                       ; preds = %if.else109
   store i8 3, ptr %p, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i130, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i130, i8 0, i64 16, i1 false)
   br label %if.end122
 
 if.end122:                                        ; preds = %if.else96, %if.then111, %if.else117, %if.then108, %if.then82, %if.then91
@@ -34534,7 +34534,7 @@ if.else150:                                       ; preds = %if.else123
 if.then152:                                       ; preds = %if.else150
   store i8 1, ptr %p, align 8
   %frac_hi.i162 = getelementptr inbounds i8, ptr %p, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %frac_hi.i162, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i162, i8 0, i64 16, i1 false)
   br label %if.end256
 
 if.else155:                                       ; preds = %if.else150

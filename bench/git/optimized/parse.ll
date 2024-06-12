@@ -62,17 +62,17 @@ if.end14:                                         ; preds = %if.end9
   br i1 %tobool.not.i, label %if.end19, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end14
-  %call.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.10) #13
+  %call.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #13
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end19, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %call4.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.11) #13
+  %call4.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #13
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end19, label %if.else7.i
 
 if.else7.i:                                       ; preds = %if.else3.i
-  %call8.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.12) #13
+  %call8.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #13
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.end19, label %if.then17
 
@@ -210,17 +210,17 @@ if.end15.i:                                       ; preds = %if.end10.i
   br i1 %tobool.not.i.i, label %land.lhs.true22.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i
-  %call.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.10) #13
+  %call.i.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #13
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %land.lhs.true22.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %call4.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.11) #13
+  %call4.i.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #13
   %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %tobool5.not.i.i, label %land.lhs.true22.i, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %if.else3.i.i
-  %call8.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.12) #13
+  %call8.i.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #13
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %land.lhs.true22.i, label %if.then18.i
 

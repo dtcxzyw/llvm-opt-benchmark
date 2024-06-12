@@ -8878,7 +8878,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %for.body.i
   %C.sroa.0.0.copyload.i = load ptr, ptr %__begin1.0.ptr.i, align 16
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %CPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %CPU.coerce1)
+  %bcmp.i = tail call i32 @bcmp(ptr %CPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %CPU.coerce1)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %return.sink.split.i, label %for.inc.i
 
@@ -9080,7 +9080,7 @@ entry:
   br i1 %cmp.i.i72.not.i, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i, label %if.end.i89.i
 
 if.end.i89.i:                                     ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %Arch.coerce0, ptr noundef nonnull dereferenceable(7) @.str.139, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %Arch.coerce0, ptr noundef nonnull dereferenceable(7) @.str.139, i64 7)
   %0 = icmp eq i32 %bcmp.i, 0
   br i1 %0, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i97.i
 
@@ -9089,12 +9089,12 @@ _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.e
   br i1 %cmp.i.i49.not.i, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, label %if.end.i97.i
 
 if.end.i97.i:                                     ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i, %if.end.i89.i
-  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.136, i64 5)
+  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.136, i64 5)
   %1 = icmp eq i32 %bcmp12.i, 0
   br i1 %1, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i106.i
 
 if.end.i106.i:                                    ; preds = %if.end.i97.i
-  %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.138, i64 5)
+  %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %Arch.coerce0, ptr noundef nonnull dereferenceable(5) @.str.138, i64 5)
   %2 = icmp eq i32 %bcmp13.i, 0
   br i1 %2, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i115.i
 
@@ -9103,7 +9103,7 @@ _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.e
   br i1 %cmp.i.i.not.i, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i115.i
 
 if.end.i115.i:                                    ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, %if.end.i106.i
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %Arch.coerce0, ptr noundef nonnull dereferenceable(3) @.str.137, i64 3)
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %Arch.coerce0, ptr noundef nonnull dereferenceable(3) @.str.137, i64 3)
   %3 = icmp eq i32 %bcmp14.i, 0
   %spec.select.i = zext i1 %3 to i32
   br label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit
@@ -9515,7 +9515,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %C.sroa.0.0.copyload.i = load ptr, ptr %__begin1.0.ptr.i, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %GPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %GPU.coerce1.fr)
+  %bcmp.i = tail call i32 @bcmp(ptr %GPU.coerce0, ptr %C.sroa.0.0.copyload.i, i64 %GPU.coerce1.fr)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %for.inc.i
 

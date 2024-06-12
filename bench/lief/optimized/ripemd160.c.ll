@@ -2017,7 +2017,7 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
   %43 = getelementptr inbounds i8, ptr %0, i64 28
   %44 = zext nneg i32 %30 to i64
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 16 dereferenceable(1) @ripemd160_padding, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 16 dereferenceable(1) @ripemd160_padding, i64 %35, i1 false)
   %46 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %43)
   %47 = getelementptr inbounds i8, ptr @ripemd160_padding, i64 %35
   %48 = sub nsw i64 %33, %35
@@ -2082,7 +2082,7 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
   %69 = getelementptr inbounds i8, ptr %0, i64 28
   %70 = zext nneg i32 %59 to i64
   %71 = getelementptr inbounds i8, ptr %69, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %61, i1 false)
   %72 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %69)
   %73 = getelementptr inbounds i8, ptr %3, i64 %61
   %74 = sub nuw nsw i64 8, %61
@@ -2294,7 +2294,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
   br label %mbedtls_ripemd160.exit.us
 
 mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.i.i.us, %._crit_edge.i.i.us, %.split.us
-  %18 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull writeonly %3)
+  %18 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 92) #11
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %2)
   %19 = getelementptr inbounds [8 x [20 x i8]], ptr @ripemd160_test_md, i64 0, i64 %indvars.iv30
@@ -2348,7 +2348,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   br label %mbedtls_ripemd160.exit
 
 mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edge.i.i, %._crit_edge.thread.i.i
-  %34 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull writeonly %3)
+  %34 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 92) #11
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %2)
   %35 = getelementptr inbounds [8 x [20 x i8]], ptr @ripemd160_test_md, i64 0, i64 %indvars.iv

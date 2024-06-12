@@ -4664,7 +4664,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
 90:                                               ; preds = %85, %80, %74
   %91 = load ptr, ptr %61, align 8
   %92 = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %72, ptr align 1 %91, i64 %92, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %91, i64 %92, i1 false)
   %93 = load ptr, ptr %61, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 %92
   store ptr %94, ptr %61, align 8

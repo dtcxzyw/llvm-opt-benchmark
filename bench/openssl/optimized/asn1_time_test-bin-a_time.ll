@@ -809,7 +809,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull readonly %t)
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull %t)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -1043,7 +1043,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull readonly %from)
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull %from)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -1066,7 +1066,7 @@ if.then.i6:                                       ; preds = %if.end
   br label %ASN1_TIME_to_tm.exit11
 
 if.end4.i3:                                       ; preds = %if.end
-  %call5.i4 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull readonly %to)
+  %call5.i4 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull %to)
   br label %ASN1_TIME_to_tm.exit11
 
 ASN1_TIME_to_tm.exit11:                           ; preds = %if.then.i6, %if.end4.i3
@@ -1089,7 +1089,7 @@ declare i32 @OPENSSL_gmtime_diff(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @ASN1_TIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr noundef readonly %tm, i64 noundef 0)
+  %call.i = tail call i32 @ossl_asn1_time_print_ex(ptr noundef %bp, ptr noundef %tm, i64 noundef 0)
   %cmp.i = icmp sgt i32 %call.i, 0
   %conv.i = zext i1 %cmp.i to i32
   ret i32 %conv.i
@@ -1291,7 +1291,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef nonnull readonly %s)
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %stm, ptr noundef nonnull %s)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i
@@ -1338,7 +1338,7 @@ entry:
   br i1 %cmp, label %return, label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %entry
-  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull readonly %t)
+  %call5.i = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %tm, ptr noundef nonnull %t)
   %tobool.not = icmp eq i32 %call5.i, 0
   br i1 %tobool.not, label %return, label %if.end23.i
 
@@ -1460,7 +1460,7 @@ if.then.i:                                        ; preds = %if.end4
   br label %ASN1_TIME_to_tm.exit
 
 if.end4.i:                                        ; preds = %if.end4
-  %call5.i = tail call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %call2, ptr noundef nonnull readonly %call1.i)
+  %call5.i = tail call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %call2, ptr noundef nonnull %call1.i)
   br label %ASN1_TIME_to_tm.exit
 
 ASN1_TIME_to_tm.exit:                             ; preds = %if.then.i, %if.end4.i

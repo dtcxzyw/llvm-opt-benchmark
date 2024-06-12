@@ -164,7 +164,7 @@ invoke.cont.i9.i.i:                               ; preds = %if.end.i7.i.i
 
 if.then4.i.i.i:                                   ; preds = %invoke.cont.i9.i.i
   %call5.i.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i) #2
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %et3.i.i, ptr noundef nonnull align 1 dereferenceable(36) %call5.i.i.i, i64 36, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %et3.i.i, ptr noundef nonnull align 1 dereferenceable(36) %call5.i.i.i, i64 36, i1 false)
   br label %if.end13.i.i.i
 
 lpad.i8.i.i:                                      ; preds = %if.end.i7.i.i

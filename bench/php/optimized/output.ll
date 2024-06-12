@@ -398,7 +398,7 @@ php_output_lock_error.exit:                       ; preds = %3
   br label %php_output_context_dtor.exit
 
 7:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i32 %0, ptr %4, align 8
   br i1 %.not2.i, label %29, label %8
 
@@ -546,7 +546,7 @@ define range(i32 -1, 1) i32 @php_output_flush() local_unnamed_addr #0 {
   br i1 %.not5, label %php_output_context_dtor.exit, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   store i32 4, ptr %1, align 8
   %8 = call fastcc i32 @php_output_handler_op(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %9 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1019,7 +1019,7 @@ define range(i32 -1, 1) i32 @php_output_clean() local_unnamed_addr #0 {
   br i1 %.not2, label %php_output_context_dtor.exit, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   store i32 2, ptr %1, align 8
   %8 = call fastcc i32 @php_output_handler_op(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1069,7 +1069,7 @@ define void @php_output_clean_all() local_unnamed_addr #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   store i32 2, ptr %1, align 8
   call void @zend_stack_apply_with_argument(ptr noundef nonnull @output_globals, i32 noundef 0, ptr noundef nonnull @php_output_stack_apply_clean, ptr noundef nonnull %1) #20
   br label %4
@@ -1170,7 +1170,7 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef %0)
   br label %php_output_context_dtor.exit
 
 ._crit_edge:                                      ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   store i32 8, ptr %2, align 8
   %19 = and i32 %10, 8192
   %.not20 = icmp eq i32 %19, 0
@@ -1410,7 +1410,7 @@ define range(i32 -1, 1) i32 @php_output_start_default() local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 22, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %5, ptr noundef nonnull readonly align 16 dereferenceable(22) @php_output_default_handler_name, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %5, ptr noundef nonnull align 16 dereferenceable(22) @php_output_default_handler_name, i64 22, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 46
   store i8 0, ptr %6, align 1
   %7 = tail call noalias dereferenceable_or_null(80) ptr @_ecalloc(i64 noundef 1, i64 noundef 80) #23
@@ -1658,7 +1658,7 @@ define range(i32 -1, 1) i32 @php_output_start_devnull() local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 19, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull readonly align 16 dereferenceable(19) @php_output_devnull_handler_name, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull align 16 dereferenceable(19) @php_output_devnull_handler_name, i64 19, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 43
   store i8 0, ptr %6, align 1
   %7 = tail call noalias dereferenceable_or_null(80) ptr @_ecalloc(i64 noundef 1, i64 noundef 80) #23
@@ -2119,7 +2119,7 @@ php_output_get_level.exit.i:                      ; preds = %4
 
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %12, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %17, ptr readonly %2, i64 %3)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %3)
   %.not16.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not16.i, label %php_output_handler_started.exit, label %.critedge.i
 
@@ -2649,7 +2649,7 @@ define hidden void @zif_ob_clean(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not2.i, label %33, label %16
 
 16:                                               ; preds = %12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i32 2, ptr %3, align 8
   %17 = call fastcc i32 @php_output_handler_op(ptr noundef nonnull %9, ptr noundef nonnull %3)
   %18 = getelementptr inbounds i8, ptr %3, i64 8

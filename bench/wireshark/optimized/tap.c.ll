@@ -532,7 +532,7 @@ define noundef ptr @register_tap_listener(ptr noundef %0, ptr noundef %1, ptr no
   %.011.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   %11 = getelementptr inbounds i8, ptr %.0612.i, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #9
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #9
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %find_tap_id.exit, label %14
 

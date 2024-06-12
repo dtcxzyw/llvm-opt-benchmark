@@ -326,7 +326,7 @@ sub_0:                                            ; preds = %43
 
 137:                                              ; preds = %.lr.ph89.split
   %138 = getelementptr inbounds i8, ptr %126, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull readonly align 8 dereferenceable(16) %138, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false)
   %139 = load ptr, ptr %7, align 8
   %140 = load i64, ptr %117, align 8
   %141 = getelementptr i8, ptr %139, i64 %140

@@ -5507,15 +5507,15 @@ invoke.cont497:                                   ; preds = %invoke.cont479.invo
   store float 1.000000e+00, ptr %bindShapeMatrix493, align 4
   %arrayidx1.i611 = getelementptr inbounds i8, ptr %275, i64 268
   %arrayidx5.i612 = getelementptr inbounds i8, ptr %275, i64 284
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx1.i611, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1.i611, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx5.i612, align 4
   %arrayidx6.i613 = getelementptr inbounds i8, ptr %275, i64 288
   %arrayidx10.i614 = getelementptr inbounds i8, ptr %275, i64 304
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx6.i613, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i613, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx10.i614, align 4
   %arrayidx11.i615 = getelementptr inbounds i8, ptr %275, i64 308
   %arrayidx15.i616 = getelementptr inbounds i8, ptr %275, i64 324
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx11.i615, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i615, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx15.i616, align 4
   %276 = load ptr, ptr %mAsset, align 8
   %mObjs.i617 = getelementptr inbounds i8, ptr %276, i64 2088
@@ -12231,7 +12231,7 @@ invoke.cont21:                                    ; preds = %invoke.cont
 
 if.then.i.i:                                      ; preds = %invoke.cont21
   %mul.i.i = mul i64 %conv32, %count
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr nonnull readonly align 1 %data, i64 %mul.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %data, i64 %mul.i.i, i1 false)
   br label %return
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont21
@@ -12579,7 +12579,7 @@ invoke.cont15:                                    ; preds = %_ZN5glTF26Buffer4Gr
 
 if.then.i.i:                                      ; preds = %invoke.cont15
   %mul.i.i = mul i64 %conv28, %count
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr nonnull readonly align 1 %dataBase, i64 %mul.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %dataBase, i64 %mul.i.i, i1 false)
   br label %invoke.cont42
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont15
@@ -12823,7 +12823,7 @@ if.end.i161:                                      ; preds = %invoke.cont60
   %101 = load i64, ptr %byteOffset.i171, align 8
   %102 = getelementptr i8, ptr %99, i64 %100
   %add.ptr.i172 = getelementptr i8, ptr %102, i64 %101
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i172, ptr readonly align 1 %90, i64 %mul54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i172, ptr align 1 %90, i64 %mul54, i1 false)
   br label %_ZN5glTF28Accessor18WriteSparseIndicesEmPKvm.exit
 
 _ZN5glTF28Accessor18WriteSparseIndicesEmPKvm.exit: ; preds = %invoke.cont60, %if.end.i161
@@ -12973,7 +12973,7 @@ if.end.i223:                                      ; preds = %invoke.cont96
 
 if.then.i.i265:                                   ; preds = %if.end.i223
   %mul.i.i266 = mul i64 %call38, %conv114
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i241, ptr readonly align 1 %129, i64 %mul.i.i266, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i241, ptr align 1 %129, i64 %mul.i.i266, i1 false)
   br label %_ZN5glTF28Accessor17WriteSparseValuesEmPKvm.exit
 
 if.end.i.i242:                                    ; preds = %if.end.i223
@@ -26972,7 +26972,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont40, label %for.body.i.i.i.i.i, !llvm.loop !268
 
 if.then.i210:                                     ; preds = %for.body.i.i.i.i.i
-  tail call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull readonly align 4 dereferenceable(12) %emissiveFactor, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(40) %83)
+  tail call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull align 4 dereferenceable(12) %emissiveFactor, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(40) %83)
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %for.inc.i.i.i.i.i, %if.then.i210
@@ -27227,7 +27227,7 @@ for.inc.i.i.i.i.i321:                             ; preds = %for.body.i.i.i.i.i3
   br i1 %cmp.not.i.i.i.i.i324, label %invoke.cont78, label %for.body.i.i.i.i.i315, !llvm.loop !268
 
 if.then.i320:                                     ; preds = %for.body.i.i.i.i.i315
-  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %pbrSpecularGlossiness71, ptr noundef nonnull readonly align 4 dereferenceable(12) %specularFactor, ptr noundef nonnull @.str.154, ptr noundef nonnull align 8 dereferenceable(40) %142)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %pbrSpecularGlossiness71, ptr noundef nonnull align 4 dereferenceable(12) %specularFactor, ptr noundef nonnull @.str.154, ptr noundef nonnull align 8 dereferenceable(40) %142)
   %.pre1246.pre = load ptr, ptr %mAl, align 8
   br label %invoke.cont78
 
@@ -27551,7 +27551,7 @@ for.inc.i.i.i.i.i518:                             ; preds = %for.body.i.i.i.i.i5
   br i1 %cmp.not.i.i.i.i.i521, label %invoke.cont161, label %for.body.i.i.i.i.i512, !llvm.loop !268
 
 if.then.i517:                                     ; preds = %for.body.i.i.i.i.i512
-  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull readonly align 4 dereferenceable(12) %materialSheen, ptr noundef nonnull @.str.164, ptr noundef nonnull align 8 dereferenceable(40) %202)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull align 4 dereferenceable(12) %materialSheen, ptr noundef nonnull @.str.164, ptr noundef nonnull align 8 dereferenceable(40) %202)
   %.pre1248.pre = load ptr, ptr %mAl, align 8
   br label %invoke.cont161
 
@@ -28096,7 +28096,7 @@ for.inc.i.i.i.i.i860:                             ; preds = %for.body.i.i.i.i.i8
   br i1 %cmp.not.i.i.i.i.i863, label %invoke.cont268, label %for.body.i.i.i.i.i854, !llvm.loop !268
 
 if.then.i859:                                     ; preds = %for.body.i.i.i.i.i854
-  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull readonly align 4 dereferenceable(12) %attenuationColor, ptr noundef nonnull @.str.181, ptr noundef nonnull align 8 dereferenceable(40) %308)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull align 4 dereferenceable(12) %attenuationColor, ptr noundef nonnull @.str.181, ptr noundef nonnull align 8 dereferenceable(40) %308)
   br label %invoke.cont268
 
 invoke.cont268:                                   ; preds = %for.inc.i.i.i.i.i860, %if.then.i859
@@ -32506,7 +32506,6 @@ if.then33:                                        ; preds = %if.else30
   %mBoolValue = getelementptr inbounds i8, ptr %value, i64 120
   %14 = load i8, ptr %mBoolValue, align 8
   %tobool36 = trunc i8 %14 to i1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %valueNode, i8 0, i64 16, i1 false)
   %conv.i.i.i.i.i = select i1 %tobool36, i16 10, i16 9
   %flags.i.i.i.i.i25 = getelementptr inbounds i8, ptr %valueNode, i64 14
   store i16 %conv.i.i.i.i.i, ptr %flags.i.i.i.i.i25, align 2

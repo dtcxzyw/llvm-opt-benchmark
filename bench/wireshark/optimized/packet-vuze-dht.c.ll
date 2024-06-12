@@ -361,7 +361,7 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr nocapture noundef read
 
 .thread63.i:                                      ; preds = %31, %29
   %.2.i = phi i32 [ %37, %31 ], [ 17, %29 ]
-  %38 = tail call fastcc i32 @dissect_vuze_dht_address(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %11, i32 noundef %.2.i, ptr noundef nonnull @.str.171)
+  %38 = tail call fastcc i32 @dissect_vuze_dht_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.2.i, ptr noundef nonnull @.str.171)
   %39 = load i32, ptr @hf_vuze_dht_instance_id, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #3
   %41 = add i32 %38, 4
@@ -460,7 +460,7 @@ dissect_vuze_dht_request_header.exit:             ; preds = %87, %82, %77, %51, 
   br i1 %92, label %93, label %dissect_vuze_dht_reply_ping.exit
 
 93:                                               ; preds = %91
-  %94 = tail call fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %11, i32 noundef %.0, i32 noundef %.090)
+  %94 = tail call fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.0, i32 noundef %.090)
   br label %dissect_vuze_dht_reply_ping.exit
 
 95:                                               ; preds = %dissect_vuze_dht_request_header.exit
@@ -531,7 +531,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
 .lr.ph.i28.i:                                     ; preds = %dissect_vuze_dht_keys.exit.i, %.lr.ph.i28.i
   %.015.i.i = phi i32 [ %139, %.lr.ph.i28.i ], [ 0, %dissect_vuze_dht_keys.exit.i ]
   %.01314.i.i = phi i32 [ %138, %.lr.ph.i28.i ], [ %132, %dissect_vuze_dht_keys.exit.i ]
-  %138 = tail call fastcc i32 @dissect_vuze_dht_value_group(ptr noundef %0, ptr noundef readonly %1, ptr noundef %137, i32 noundef %.01314.i.i, i32 noundef %.090)
+  %138 = tail call fastcc i32 @dissect_vuze_dht_value_group(ptr noundef %0, ptr noundef %1, ptr noundef %137, i32 noundef %.01314.i.i, i32 noundef %.090)
   %139 = add nuw nsw i32 %.015.i.i, 1
   %exitcond.not.i29.i = icmp eq i32 %139, %133
   br i1 %exitcond.not.i29.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i28.i, !llvm.loop !6
@@ -602,7 +602,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
 
 .thread37.i:                                      ; preds = %183, %179, %175
   %.239.i = phi i32 [ %173, %183 ], [ %178, %175 ], [ %182, %179 ]
-  %185 = tail call fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %11, i32 noundef %.239.i, i32 noundef %.090)
+  %185 = tail call fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.239.i, i32 noundef %.090)
   br label %.thread40.i
 
 .thread40.i:                                      ; preds = %.thread37.i, %183, %168
@@ -622,7 +622,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
 .lr.ph.i.i57:                                     ; preds = %.thread40.i, %.lr.ph.i.i57
   %.014.i.i58 = phi i32 [ %196, %.lr.ph.i.i57 ], [ 0, %.thread40.i ]
   %.01213.i.i59 = phi i32 [ %195, %.lr.ph.i.i57 ], [ %190, %.thread40.i ]
-  %195 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %194, i32 noundef %.01213.i.i59)
+  %195 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef %1, ptr noundef %194, i32 noundef %.01213.i.i59)
   %196 = add nuw nsw i32 %.014.i.i58, 1
   %exitcond.not.i.i60 = icmp eq i32 %196, %189
   br i1 %exitcond.not.i.i60, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i57, !llvm.loop !7
@@ -688,7 +688,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
 .lr.ph.i.i66:                                     ; preds = %231, %.lr.ph.i.i66
   %.014.i.i67 = phi i32 [ %242, %.lr.ph.i.i66 ], [ 0, %231 ]
   %.01213.i.i68 = phi i32 [ %241, %.lr.ph.i.i66 ], [ %236, %231 ]
-  %241 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %240, i32 noundef %.01213.i.i68)
+  %241 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef %1, ptr noundef %240, i32 noundef %.01213.i.i68)
   %242 = add nuw nsw i32 %.014.i.i67, 1
   %exitcond.not.i.i69 = icmp eq i32 %242, %235
   br i1 %exitcond.not.i.i69, label %dissect_vuze_dht_contacts.exit.i, label %.lr.ph.i.i66, !llvm.loop !7
@@ -699,7 +699,7 @@ dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
   br i1 %243, label %.thread.i, label %245
 
 .thread.i:                                        ; preds = %dissect_vuze_dht_contacts.exit.i
-  %244 = tail call fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr noundef readonly %1, ptr noundef %11, i32 noundef %.012.lcssa.i.i70, i32 noundef %.090)
+  %244 = tail call fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.012.lcssa.i.i70, i32 noundef %.090)
   br label %246
 
 245:                                              ; preds = %dissect_vuze_dht_contacts.exit.i
@@ -714,7 +714,7 @@ dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
 
 250:                                              ; preds = %246, %245
   %.2.i71 = phi i32 [ %249, %246 ], [ %.012.lcssa.i.i70, %245 ]
-  %251 = tail call fastcc i32 @dissect_vuze_dht_value_group(ptr noundef %0, ptr noundef readonly %1, ptr noundef %11, i32 noundef %.2.i71, i32 noundef %.090)
+  %251 = tail call fastcc i32 @dissect_vuze_dht_value_group(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.2.i71, i32 noundef %.090)
   br label %dissect_vuze_dht_reply_ping.exit
 
 252:                                              ; preds = %dissect_vuze_dht_request_header.exit
@@ -731,7 +731,7 @@ dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
   ]
 
 259:                                              ; preds = %252
-  %260 = tail call fastcc i32 @dissect_vuze_dht_address(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %11, i32 noundef %258, ptr noundef nonnull @.str.187)
+  %260 = tail call fastcc i32 @dissect_vuze_dht_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %258, ptr noundef nonnull @.str.187)
   br label %dissect_vuze_dht_reply_ping.exit
 
 261:                                              ; preds = %252
@@ -850,7 +850,7 @@ define internal fastcc noundef i32 @dissect_vuze_dht_address(ptr noundef %0, ptr
   br label %32
 
 31:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br label %32
 
 32:                                               ; preds = %31, %24, %17
@@ -1056,7 +1056,7 @@ define internal fastcc noundef i32 @dissect_vuze_dht_value_group(ptr noundef %0,
   %54 = tail call ptr @tvb_bytes_to_str(ptr noundef %53, ptr noundef %0, i32 noundef %50, i32 noundef %49) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.179, i32 noundef %49, ptr noundef %54) #3
   %55 = add i32 %50, %49
-  %56 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, i32 noundef %55)
+  %56 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %55)
   %57 = load i32, ptr @hf_vuze_dht_value_flags, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #3
   %59 = add i32 %56, 1

@@ -766,7 +766,7 @@ entry:
   %usec.i = alloca i64, align 8
   %md_alg_name.i = alloca [50 x i8], align 16
   %request.i = getelementptr inbounds i8, ptr %ctx, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %request.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %request.i, i8 0, i64 24, i1 false)
   %call = tail call ptr @TS_RESP_new() #9
   %response1 = getelementptr inbounds i8, ptr %ctx, i64 152
   store ptr %call, ptr %response1, align 8
@@ -825,7 +825,7 @@ if.end10:                                         ; preds = %if.end7
   br i1 %cmp.not.i, label %if.end.i21, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end10
-  %call2.i = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.6)
+  %call2.i = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.6)
   %5 = load ptr, ptr %response1, align 8
   %6 = load ptr, ptr %5, align 8
   %failure_info.i.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -878,7 +878,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   br i1 %tobool.not.i22, label %land.rhs.i, label %if.end19.i
 
 if.then16.i:                                      ; preds = %land.rhs.i
-  %call17.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.7)
+  %call17.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.7)
   %14 = load ptr, ptr %response1, align 8
   %15 = load ptr, ptr %14, align 8
   %failure_info.i23.i = getelementptr inbounds i8, ptr %15, i64 16
@@ -916,7 +916,7 @@ land.lhs.true.i23:                                ; preds = %if.end19.i
   br i1 %cmp23.not.i, label %if.end27.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %land.lhs.true.i23
-  %call25.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.8)
+  %call25.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.8)
   %19 = load ptr, ptr %response1, align 8
   %20 = load ptr, ptr %19, align 8
   %failure_info.i35.i = getelementptr inbounds i8, ptr %20, i64 16
@@ -951,7 +951,7 @@ if.end27.i:                                       ; preds = %land.lhs.true.i23, 
   br i1 %cmp29.not.i, label %if.end14, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end27.i
-  %call31.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.9)
+  %call31.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.9)
   %25 = load ptr, ptr %response1, align 8
   %26 = load ptr, ptr %25, align 8
   %failure_info.i47.i = getelementptr inbounds i8, ptr %26, i64 16
@@ -1035,7 +1035,7 @@ if.then18.i:                                      ; preds = %land.rhs.i29
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 512, ptr noundef nonnull @__func__.ts_RESP_get_policy) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 125, ptr noundef null) #9
-  %call19.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.10)
+  %call19.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.10)
   %34 = load ptr, ptr %response1, align 8
   %35 = load ptr, ptr %34, align 8
   %failure_info.i.i31 = getelementptr inbounds i8, ptr %35, i64 16
@@ -1338,7 +1338,7 @@ if.then101.i:                                     ; preds = %end.i, %if.end88.i,
   br i1 %cmp.i47.i, label %if.then.i.i, label %ts_RESP_create_tst_info.exit
 
 if.then.i.i:                                      ; preds = %if.then101.i
-  %call2.i.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.11)
+  %call2.i.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.11)
   br label %ts_RESP_create_tst_info.exit
 
 ts_RESP_create_tst_info.exit:                     ; preds = %if.end80.i, %end.i, %if.then101.i, %if.then.i.i
@@ -1700,7 +1700,7 @@ if.then110.i:                                     ; preds = %if.end108.i
   br i1 %cmp.i63.i, label %if.then.i.i107, label %ts_RESP_sign.exit
 
 if.then.i.i107:                                   ; preds = %if.then110.i
-  %call2.i.i108 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.16)
+  %call2.i.i108 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.16)
   br label %ts_RESP_sign.exit
 
 ts_RESP_sign.exit:                                ; preds = %if.then110.i, %if.then.i.i107
@@ -1726,7 +1726,7 @@ if.then35:                                        ; preds = %if.then32
   br i1 %cmp.i119, label %TS_RESP_CTX_set_status_info_cond.exit, label %if.end43
 
 TS_RESP_CTX_set_status_info_cond.exit:            ; preds = %if.then35
-  %call2.i123 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.2)
+  %call2.i123 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.2)
   %cmp37 = icmp eq i32 %call2.i123, 0
   br i1 %cmp37, label %if.then38, label %if.end43
 

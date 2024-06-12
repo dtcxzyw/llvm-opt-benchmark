@@ -1929,10 +1929,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call.i12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #13
+  %call.i12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %add.i = add i64 %call.i12, 1
   %call1.i = call noalias ptr @g_malloc0(i64 noundef %add.i) #15
-  %call2.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull readonly dereferenceable(1) %0) #11
+  %call2.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = load i8, ptr %call1.i, align 1
   %conv.i = sext i8 %4 to i32
   %call3.i = call i32 @tolower(i32 noundef %conv.i) #13

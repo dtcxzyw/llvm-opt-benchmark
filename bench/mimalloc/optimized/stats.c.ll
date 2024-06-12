@@ -819,16 +819,16 @@ entry:
   call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %page_committed = getelementptr inbounds i8, ptr %stats, i64 192
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %page_committed, ptr noundef nonnull @.str.5, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
-  call fastcc void @mi_stat_print_ex(ptr noundef readonly %stats, ptr noundef nonnull @.str.6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull %page_committed, ptr noundef nonnull @.str.5, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef %stats, ptr noundef nonnull @.str.6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %segments_abandoned = getelementptr inbounds i8, ptr %stats, i64 224
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull %segments_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %segments_cache = getelementptr inbounds i8, ptr %stats, i64 448
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_cache, ptr noundef nonnull @.str.8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull %segments_cache, ptr noundef nonnull @.str.8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %pages = getelementptr inbounds i8, ptr %stats, i64 32
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages, ptr noundef nonnull @.str.9, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull %pages, ptr noundef nonnull @.str.9, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %pages_abandoned = getelementptr inbounds i8, ptr %stats, i64 256
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull %pages_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %pages_extended = getelementptr inbounds i8, ptr %stats, i64 480
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.10) #9
   %3 = load i64, ptr %pages_extended, align 8
@@ -860,7 +860,7 @@ entry:
   call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %threads = getelementptr inbounds i8, ptr %stats, i64 288
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %threads, ptr noundef nonnull @.str.16, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull %threads, ptr noundef nonnull @.str.16, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %count.i = getelementptr inbounds i8, ptr %stats, i64 584
   %9 = load i64, ptr %count.i, align 8
   %cmp.i = icmp eq i64 %9, 0

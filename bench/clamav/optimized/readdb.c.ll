@@ -2796,7 +2796,7 @@ define i32 @cli_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %6)
-  %37 = tail call i32 @cli_initroots(ptr noundef readonly %1, i32 poison)
+  %37 = tail call i32 @cli_initroots(ptr noundef %1, i32 poison)
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %38, label %cli_loaddb.exit
 
@@ -4905,7 +4905,7 @@ set_sha1.exit.thread:                             ; preds = %102, %100
   br label %.loopexit
 
 set_sha1.exit:                                    ; preds = %102
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %5, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   br label %107
 
@@ -4948,7 +4948,7 @@ set_sha1.exit52.thread:                           ; preds = %116, %113
   br label %.loopexit
 
 120:                                              ; preds = %116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %35, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   %121 = load ptr, ptr %34, align 16
   %122 = call i32 @BN_hex2bn(ptr noundef nonnull %36, ptr noundef %121) #21

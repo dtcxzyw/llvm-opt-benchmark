@@ -474,18 +474,18 @@ if.else46:                                        ; preds = %if.end42
 dtdCreate.exit:                                   ; preds = %if.else46
   %pool.i = getelementptr inbounds i8, ptr %call.i, i64 160
   %mem.i.i = getelementptr inbounds i8, ptr %call.i, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %pool.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %pool.i, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i.i, align 8
   %entityValuePool.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mem.i30.i = getelementptr inbounds i8, ptr %call.i, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %entityValuePool.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %entityValuePool.i, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i30.i, align 8
   %power.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 0, ptr %power.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %call.i, align 8
   %mem.i31.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i31.i, align 8
   %elementTypes.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %power.i32.i = getelementptr inbounds i8, ptr %call.i, i64 48
@@ -493,7 +493,7 @@ dtdCreate.exit:                                   ; preds = %if.else46
   %size.i33.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr null, ptr %elementTypes.i, align 8
   %mem.i34.i = getelementptr inbounds i8, ptr %call.i, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %size.i33.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i33.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i34.i, align 8
   %attributeIds.i = getelementptr inbounds i8, ptr %call.i, i64 80
   %power.i35.i = getelementptr inbounds i8, ptr %call.i, i64 88
@@ -501,7 +501,7 @@ dtdCreate.exit:                                   ; preds = %if.else46
   %size.i36.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr null, ptr %attributeIds.i, align 8
   %mem.i37.i = getelementptr inbounds i8, ptr %call.i, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %size.i36.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i36.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i37.i, align 8
   %prefixes.i = getelementptr inbounds i8, ptr %call.i, i64 120
   %power.i38.i = getelementptr inbounds i8, ptr %call.i, i64 128
@@ -509,7 +509,7 @@ dtdCreate.exit:                                   ; preds = %if.else46
   %size.i39.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr null, ptr %prefixes.i, align 8
   %mem.i40.i = getelementptr inbounds i8, ptr %call.i, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %size.i39.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i39.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i40.i, align 8
   %paramEntities.i = getelementptr inbounds i8, ptr %call.i, i64 264
   %power.i41.i = getelementptr inbounds i8, ptr %call.i, i64 272
@@ -517,7 +517,7 @@ dtdCreate.exit:                                   ; preds = %if.else46
   %size.i42.i = getelementptr inbounds i8, ptr %call.i, i64 280
   store ptr null, ptr %paramEntities.i, align 8
   %mem.i43.i = getelementptr inbounds i8, ptr %call.i, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %size.i42.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i42.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i43.i, align 8
   %defaultPrefix.i = getelementptr inbounds i8, ptr %call.i, i64 304
   %scaffold.i = getelementptr inbounds i8, ptr %call.i, i64 328
@@ -570,12 +570,12 @@ if.end63:                                         ; preds = %if.end42, %dtdCreat
   store ptr null, ptr %m_protocolEncodingName, align 8
   %m_tempPool = getelementptr inbounds i8, ptr %call.sink, i64 784
   %mem.i = getelementptr inbounds i8, ptr %call.sink, i64 824
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %m_tempPool, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_tempPool, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_nsAtts, i8 0, i64 17, i1 false)
   store ptr %m_mem19, ptr %mem.i, align 8
   %m_temp2Pool = getelementptr inbounds i8, ptr %call.sink, i64 832
   %mem.i73 = getelementptr inbounds i8, ptr %call.sink, i64 872
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %m_temp2Pool, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_temp2Pool, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i73, align 8
   tail call fastcc void @parserInit(ptr noundef nonnull %call.sink, ptr noundef %encodingName)
   %tobool66.not = icmp eq ptr %encodingName, null
@@ -1102,7 +1102,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp3.i, label %copyString.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %encodingName, i64 %inc.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %encodingName, i64 %inc.i, i1 false)
   br label %copyString.exit
 
 copyString.exit:                                  ; preds = %while.end.i, %if.end.i
@@ -1166,7 +1166,7 @@ if.end:                                           ; preds = %copyString.exit, %e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_unknownEncodingMem, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %m_paramEntityParsing, i8 0, i64 44, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i)
-  %call.i76 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.308) #23
+  %call.i76 = tail call ptr @getenv(ptr noundef nonnull @.str.308) #23
   %cmp.i = icmp eq ptr %call.i76, null
   br i1 %cmp.i, label %getDebugLevel.exit, label %if.end.i77
 
@@ -1202,7 +1202,7 @@ getDebugLevel.exit:                               ; preds = %if.end, %lor.lhs.fa
   %m_entity_stats = getelementptr inbounds i8, ptr %parser, i64 960
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entity_stats, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i78)
-  %call.i79 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.309) #23
+  %call.i79 = tail call ptr @getenv(ptr noundef nonnull @.str.309) #23
   %cmp.i80 = icmp eq ptr %call.i79, null
   br i1 %cmp.i80, label %getDebugLevel.exit89, label %if.end.i81
 
@@ -1273,7 +1273,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp3.i, label %return.sink.split, label %copyString.exit
 
 copyString.exit:                                  ; preds = %while.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %encodingName, i64 %inc.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %encodingName, i64 %inc.i, i1 false)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.end.i, %if.end6, %copyString.exit
@@ -1665,7 +1665,7 @@ poolCopyString.exit.i:                            ; preds = %cond.false.i.i
   br i1 %tobool3.not.i, label %if.then58, label %if.end5.i
 
 if.end5.i:                                        ; preds = %poolCopyString.exit.i
-  %call7.i = call fastcc ptr @lookup(ptr noundef readonly %oldParser, ptr noundef nonnull %prefixes6.i, ptr noundef nonnull %59, i64 noundef 16)
+  %call7.i = call fastcc ptr @lookup(ptr noundef %oldParser, ptr noundef nonnull %prefixes6.i, ptr noundef nonnull %59, i64 noundef 16)
   %tobool8.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool8.not.i, label %if.then58, label %while.cond.i.i.backedge
 
@@ -1763,7 +1763,7 @@ poolCopyString.exit146.i:                         ; preds = %cond.false.i134.i
 
 if.end31.i:                                       ; preds = %poolCopyString.exit146.i
   %incdec.ptr32.i = getelementptr i8, ptr %73, i64 1
-  %call34.i = call fastcc ptr @lookup(ptr noundef readonly %oldParser, ptr noundef nonnull %attributeIds33.i, ptr noundef %incdec.ptr32.i, i64 noundef 24)
+  %call34.i = call fastcc ptr @lookup(ptr noundef %oldParser, ptr noundef nonnull %attributeIds33.i, ptr noundef %incdec.ptr32.i, i64 noundef 24)
   %tobool35.not.i = icmp eq ptr %call34.i, null
   br i1 %tobool35.not.i, label %if.then58, label %if.end37.i
 
@@ -1793,7 +1793,7 @@ if.else.i:                                        ; preds = %if.then40.i
   br i1 %cmp.i148.i, label %if.end53.sink.split.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  %call12.i.i = call fastcc i64 @hash(ptr noundef readonly %oldParser, ptr noundef %79)
+  %call12.i.i = call fastcc i64 @hash(ptr noundef %oldParser, ptr noundef %79)
   %81 = load i64, ptr %size.i147.i, align 8
   %sub14.i.i = add i64 %81, -1
   %and15.i.i = and i64 %sub14.i.i, %call12.i.i
@@ -1939,7 +1939,7 @@ poolCopyString.exit185.i:                         ; preds = %cond.false.i173.i
   br i1 %tobool64.not.i, label %if.then58, label %if.end66.i
 
 if.end66.i:                                       ; preds = %poolCopyString.exit185.i
-  %call68.i = call fastcc ptr @lookup(ptr noundef readonly %oldParser, ptr noundef nonnull %elementTypes67.i, ptr noundef nonnull %103, i64 noundef 40)
+  %call68.i = call fastcc ptr @lookup(ptr noundef %oldParser, ptr noundef nonnull %elementTypes67.i, ptr noundef nonnull %103, i64 noundef 40)
   %tobool69.not.i = icmp eq ptr %call68.i, null
   br i1 %tobool69.not.i, label %if.then58, label %if.end71.i
 
@@ -1972,7 +1972,7 @@ if.then82.i:                                      ; preds = %if.end80.i
   br i1 %cmp.i187.i, label %lookup.exit233.i, label %if.else.i188.i
 
 if.else.i188.i:                                   ; preds = %if.then82.i
-  %call12.i189.i = call fastcc i64 @hash(ptr noundef readonly %oldParser, ptr noundef %108)
+  %call12.i189.i = call fastcc i64 @hash(ptr noundef %oldParser, ptr noundef %108)
   %110 = load i64, ptr %size.i186.i, align 8
   %sub14.i190.i = add i64 %110, -1
   %and15.i191.i = and i64 %sub14.i190.i, %call12.i189.i
@@ -2064,7 +2064,7 @@ if.then93.i:                                      ; preds = %if.end88.i
   br i1 %cmp.i235.i, label %lookup.exit281.i, label %if.else.i236.i
 
 if.else.i236.i:                                   ; preds = %if.then93.i
-  %call12.i237.i = call fastcc i64 @hash(ptr noundef readonly %oldParser, ptr noundef %125)
+  %call12.i237.i = call fastcc i64 @hash(ptr noundef %oldParser, ptr noundef %125)
   %127 = load i64, ptr %size.i147.i, align 8
   %sub14.i238.i = add i64 %127, -1
   %and15.i239.i = and i64 %sub14.i238.i, %call12.i237.i
@@ -2160,7 +2160,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i283.i, label %lookup.exit329.i, label %if.else.i284.i
 
 if.else.i284.i:                                   ; preds = %for.body.i
-  %call12.i285.i = call fastcc i64 @hash(ptr noundef readonly %oldParser, ptr noundef %143)
+  %call12.i285.i = call fastcc i64 @hash(ptr noundef %oldParser, ptr noundef %143)
   %145 = load i64, ptr %size.i186.i, align 8
   %sub14.i286.i = add i64 %145, -1
   %and15.i287.i = and i64 %sub14.i286.i, %call12.i285.i
@@ -2303,14 +2303,14 @@ for.inc.i:                                        ; preds = %if.else141.i, %pool
   br i1 %cmp102.i, label %for.body.i, label %while.cond.i160.i.backedge, !llvm.loop !15
 
 for.end148.i:                                     ; preds = %while.cond.i160.i
-  %call151.i = call fastcc i32 @copyEntityTable(ptr noundef readonly %oldParser, ptr noundef %23, ptr noundef nonnull %pool.i, ptr noundef readonly %0)
+  %call151.i = call fastcc i32 @copyEntityTable(ptr noundef %oldParser, ptr noundef %23, ptr noundef nonnull %pool.i, ptr noundef %0)
   %tobool152.not.i = icmp eq i32 %call151.i, 0
   br i1 %tobool152.not.i, label %if.then58, label %if.end154.i
 
 if.end154.i:                                      ; preds = %for.end148.i
   %paramEntities.i = getelementptr inbounds i8, ptr %23, i64 264
   %paramEntities156.i = getelementptr inbounds i8, ptr %0, i64 264
-  %call157.i = call fastcc i32 @copyEntityTable(ptr noundef readonly %oldParser, ptr noundef nonnull %paramEntities.i, ptr noundef nonnull %pool.i, ptr noundef nonnull readonly %paramEntities156.i)
+  %call157.i = call fastcc i32 @copyEntityTable(ptr noundef %oldParser, ptr noundef nonnull %paramEntities.i, ptr noundef nonnull %pool.i, ptr noundef nonnull %paramEntities156.i)
   %tobool158.not.i = icmp eq i32 %call157.i, 0
   br i1 %tobool158.not.i, label %if.then58, label %lor.lhs.false
 
@@ -2443,7 +2443,7 @@ cond.false:                                       ; preds = %land.lhs.true.cond.
   br i1 %cmp.i, label %if.end19, label %if.else.i
 
 if.else.i:                                        ; preds = %cond.false
-  %call12.i = tail call fastcc i64 @hash(ptr noundef nonnull readonly %parser, ptr noundef %6)
+  %call12.i = tail call fastcc i64 @hash(ptr noundef nonnull %parser, ptr noundef %6)
   %8 = load i64, ptr %size.i, align 8
   %sub14.i = add i64 %8, -1
   %and15.i = and i64 %sub14.i, %call12.i
@@ -4200,7 +4200,7 @@ land.rhs.i.i:                                     ; preds = %do.cond.i.i, %do.bo
 if.then.i:                                        ; preds = %do.cond.i.i
   %2 = load i64, ptr %entropy.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i.i.i)
-  %call.i.i.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #23
+  %call.i.i.i = call ptr @getenv(ptr noundef nonnull @.str.324) #23
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %getDebugLevel.exit.thread.i.i, label %if.end.i.i.i
 
@@ -4249,7 +4249,7 @@ if.end.i:                                         ; preds = %land.rhs.i.i
   store i64 %xor.i, ptr %entropy.i, align 8
   %mul.i = mul i64 %xor.i, 2305843009213693951
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i.i2.i)
-  %call.i.i3.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #23
+  %call.i.i3.i = call ptr @getenv(ptr noundef nonnull @.str.324) #23
   %cmp.i.i4.i = icmp eq ptr %call.i.i3.i, null
   br i1 %cmp.i.i4.i, label %getDebugLevel.exit.thread.i10.i, label %if.end.i.i5.i
 
@@ -8726,7 +8726,7 @@ if.end1137:                                       ; preds = %poolStoreString.exi
   br i1 %cmp.i1266, label %lookup.exit, label %if.else.i1267
 
 if.else.i1267:                                    ; preds = %if.end1137
-  %call12.i = call fastcc i64 @hash(ptr noundef readonly %parser, ptr noundef nonnull %488)
+  %call12.i = call fastcc i64 @hash(ptr noundef %parser, ptr noundef nonnull %488)
   %490 = load i64, ptr %size.i, align 8
   %sub14.i = add i64 %490, -1
   %and15.i = and i64 %sub14.i, %call12.i
@@ -11442,7 +11442,7 @@ if.end20:                                         ; preds = %poolStoreString.exi
   br i1 %cmp.i103, label %lookup.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end20
-  %call12.i = call fastcc i64 @hash(ptr noundef nonnull readonly %parser, ptr noundef nonnull %21)
+  %call12.i = call fastcc i64 @hash(ptr noundef nonnull %parser, ptr noundef nonnull %21)
   %23 = load i64, ptr %size.i, align 8
   %sub14.i = add i64 %23, -1
   %and15.i = and i64 %sub14.i, %call12.i
@@ -13999,7 +13999,7 @@ if.end85:                                         ; preds = %poolStoreString.exi
   br i1 %cmp.i371, label %lookup.exit, label %if.else.i372
 
 if.else.i372:                                     ; preds = %if.end85
-  %call12.i = call fastcc i64 @hash(ptr noundef readonly %parser, ptr noundef nonnull %57)
+  %call12.i = call fastcc i64 @hash(ptr noundef %parser, ptr noundef nonnull %57)
   %59 = load i64, ptr %size.i, align 8
   %sub14.i = add i64 %59, -1
   %and15.i = and i64 %sub14.i, %call12.i
@@ -15993,7 +15993,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %call12.i = tail call fastcc i64 @hash(ptr noundef nonnull readonly %parser, ptr noundef %1)
+  %call12.i = tail call fastcc i64 @hash(ptr noundef nonnull %parser, ptr noundef %1)
   %3 = load i64, ptr %size.i, align 8
   %sub14.i = add i64 %3, -1
   %and15.i = and i64 %sub14.i, %call12.i
@@ -19066,7 +19066,7 @@ if.end121:                                        ; preds = %poolStoreString.exi
   br i1 %cmp.i113, label %lookup.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end121
-  %call12.i = call fastcc i64 @hash(ptr noundef nonnull readonly %parser, ptr noundef nonnull %46)
+  %call12.i = call fastcc i64 @hash(ptr noundef nonnull %parser, ptr noundef nonnull %46)
   %48 = load i64, ptr %size.i, align 8
   %sub14.i = add i64 %48, -1
   %and15.i = and i64 %sub14.i, %call12.i

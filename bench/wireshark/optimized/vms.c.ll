@@ -653,7 +653,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   store i8 0, ptr %132, align 1
   %194 = sext i32 %.2 to i64
   %195 = getelementptr i8, ptr %133, i64 %194
-  %196 = call i64 @strtoul(ptr nocapture noundef readonly %195, ptr noundef null, i32 noundef 16) #7
+  %196 = call i64 @strtoul(ptr nocapture noundef %195, ptr noundef null, i32 noundef 16) #7
   %sext.i = shl i64 %196, 32
   %197 = ashr exact i64 %sext.i, 32
   %.not.i129 = icmp eq i64 %197, %191

@@ -86,12 +86,12 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not67, label %agxbfree.exit83, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(6) @.str.3, i64 noundef 5) #17
+  %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 5) #17
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %agxbfree.exit83, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(10) @.str.4, i64 noundef 9) #17
+  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #17
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %agxbfree.exit83, label %36
 

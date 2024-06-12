@@ -66,7 +66,7 @@ if.then8.i:                                       ; preds = %for.end.i
   store i32 %call9.i, ptr %x.i, align 4
   %add.ptr10.i = getelementptr i8, ptr %buf, i64 %i.0.lcssa.i
   %sub.i = sub i64 %len, %i.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr10.i, ptr nonnull align 4 %x.i, i64 %sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr nonnull align 4 %x.i, i64 %sub.i, i1 false)
   br label %glib_random_bytes.exit
 
 glib_random_bytes.exit:                           ; preds = %for.end.i, %if.then8.i

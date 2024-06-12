@@ -3631,7 +3631,7 @@ if.then76.i.i:                                    ; preds = %if.end57.i.i
   %io_buffer.i.i = getelementptr inbounds i8, ptr %ifs.i.i, i64 888
   %195 = load ptr, ptr %io_buffer.i.i, align 8
   %arrayidx77.i.i = getelementptr i8, ptr %call.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %195, ptr noundef nonnull readonly align 1 dereferenceable(16) %arrayidx77.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %195, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx77.i.i, i64 16, i1 false)
   %196 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool78.i.i = icmp ne i32 %196, 0
   %197 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2

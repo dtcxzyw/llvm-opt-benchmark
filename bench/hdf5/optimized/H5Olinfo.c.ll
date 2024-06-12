@@ -408,7 +408,7 @@ define internal ptr @H5O__linfo_copy_file(ptr nocapture readnone %0, ptr nocaptu
   br label %.thread
 
 18:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %19 = getelementptr inbounds i8, ptr %5, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1

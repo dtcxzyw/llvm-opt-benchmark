@@ -797,7 +797,7 @@ ccall_struct_ret.exit.i:                          ; preds = %for.inc.i.i
   %76 = inttoptr i64 %and.i55 to ptr
   %add.ptr6.i = getelementptr inbounds i8, ptr %76, i64 16
   %conv.i.i58 = zext i32 %74 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr6.i, ptr nonnull align 16 %sp.i.i, i64 %conv.i.i58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr6.i, ptr nonnull align 16 %sp.i.i, i64 %conv.i.i58, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sp.i.i)
   br label %ccall_get_results.exit.thread
 

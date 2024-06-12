@@ -19273,7 +19273,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter6Eval_fERKNS_6VectorERd(ptr noc
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
   %12 = load i32, ptr %4, align 8
   store i32 %12, ptr %6, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -19327,7 +19327,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter11Eval_grad_fERKNS_6VectorERS1_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 312
   %13 = load ptr, ptr %12, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %13, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %13, i1 noundef zeroext true)
   %14 = load i32, ptr %6, align 8
   store i32 %14, ptr %8, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -19603,7 +19603,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter6Eval_cERKNS_6VectorERS1_(ptr n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
   %12 = load i32, ptr %4, align 8
   store i32 %12, ptr %6, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -19819,7 +19819,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter10Eval_jac_cERKNS_6VectorERNS_6
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %12, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %12, i1 noundef zeroext true)
   %13 = load i32, ptr %5, align 8
   store i32 %13, ptr %7, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -20109,7 +20109,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter6Eval_dERKNS_6VectorERS1_(ptr n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
   %12 = load i32, ptr %4, align 8
   store i32 %12, ptr %6, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -20243,7 +20243,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter10Eval_jac_dERKNS_6VectorERNS_6
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %11, i1 noundef zeroext true)
   %12 = load i32, ptr %4, align 8
   store i32 %12, ptr %6, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -20385,7 +20385,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit40:                  ; preds = %._crit_edge.i37, %2
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %0, i64 312
   %53 = load ptr, ptr %52, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %53, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %53, i1 noundef zeroext true)
   %54 = load i32, ptr %46, align 8
   store i32 %54, ptr %48, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -21321,7 +21321,7 @@ define void @_ZN5Ipopt11TNLPAdapter16FinalizeSolutionENS_12SolverReturnERKNS_6Ve
 50:                                               ; preds = %12
   %51 = getelementptr inbounds i8, ptr %0, i64 312
   %52 = load ptr, ptr %51, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %2, ptr noundef %52, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %2, ptr noundef %52, i1 noundef zeroext true)
   %53 = load i32, ptr %46, align 8
   store i32 %53, ptr %48, align 8
   br label %_ZN5Ipopt11TNLPAdapter14update_local_xERKNS_6VectorE.exit
@@ -24787,7 +24787,7 @@ thread-pre-split:                                 ; preds = %.lr.ph.split.split,
 124:                                              ; preds = %111
   %125 = getelementptr inbounds i8, ptr %0, i64 312
   %126 = load ptr, ptr %125, align 8
-  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 dereferenceable(205) %1, ptr noundef %126, i1 noundef zeroext true)
+  tail call void @_ZN5Ipopt11TNLPAdapter7ResortXERKNS_6VectorEPdb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef %126, i1 noundef zeroext true)
   %127 = load i32, ptr %119, align 8
   store i32 %127, ptr %121, align 8
   %.pre = load i32, ptr %112, align 8

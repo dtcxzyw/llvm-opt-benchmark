@@ -17130,9 +17130,9 @@ invoke.cont2:
   store i64 0, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   store i64 0, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mMetadataRecords, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %r, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mMetadataRecords, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %r, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN5eastl6vectorIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %mMetadataRecords, ptr noundef nonnull align 8 dereferenceable(24) %r)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -32797,7 +32797,7 @@ _ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllo
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i, %for.body.i.i.i.i
   %retval.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ], [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ]
   %first.sroa.0.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %retval.sroa.0.06.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.06.i.i.i.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %first.sroa.0.05.i.i.i.i, align 8
   store ptr %5, ptr %retval.sroa.0.06.i.i.i.i, align 8
   store ptr null, ptr %first.sroa.0.05.i.i.i.i, align 8
@@ -32820,7 +32820,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl10VectorBa
 
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_117AntMetaDataRecordES3_S3_EET1_T_T0_S4_.exit.i: ; preds = %for.body.i.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i
   %retval.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %retval.0.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_117AntMetaDataRecordENS_9allocatorEE10DoAllocateEm.exit.i ], [ %incdec.ptr.i2.i.i.i.i, %for.body.i.i.i.i ]
-  tail call fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %value)
+  tail call fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value)
   %10 = load ptr, ptr %this, align 8
   %11 = load ptr, ptr %mpEnd, align 8
   %cmp.not3.i.i.i = icmp eq ptr %10, %11
@@ -36771,7 +36771,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %retval.0.i.i.i.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %retval.0.i.i.i.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   br label %_ZN12_GLOBAL__N_116ScenarioRefEntryC2ERKS0_.exit.i.i.i.i
 

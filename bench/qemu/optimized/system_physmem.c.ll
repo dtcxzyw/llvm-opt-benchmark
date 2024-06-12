@@ -507,11 +507,11 @@ if.then31.i:                                      ; preds = %do.end.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then31.i, %do.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %agg.result, ptr noundef nonnull align 16 dereferenceable(64) %call24.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.result, ptr noundef nonnull align 16 dereferenceable(64) %call24.i, i64 64, i1 false)
   br label %address_space_translate_iommu.exit
 
 unassigned.i:                                     ; preds = %if.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false), !alias.scope !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false), !alias.scope !8
   %mr33.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @io_mem_unassigned, ptr %mr33.i, align 16, !alias.scope !8
   br label %address_space_translate_iommu.exit
@@ -2191,7 +2191,7 @@ phys_section_add.exit47:                          ; preds = %if.end.if.end9_crit
   %26 = phi ptr [ %.pre.i34, %if.end.if.end9_crit_edge.i32 ], [ %call.i45, %if.then3.i40 ]
   %idxprom.i35 = zext i32 %25 to i64
   %arrayidx.i36 = getelementptr %struct.MemoryRegionSection, ptr %26, i64 %idxprom.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i36, ptr noundef nonnull readonly align 16 dereferenceable(64) %section, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i36, ptr noundef nonnull align 16 dereferenceable(64) %section, i64 64, i1 false)
   %mr.i37 = getelementptr inbounds i8, ptr %section, i64 16
   %27 = load ptr, ptr %mr.i37, align 16
   tail call void @memory_region_ref(ptr noundef %27) #26
@@ -5725,11 +5725,11 @@ entry:
   br i1 %is_write, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @address_space_write(ptr noundef nonnull readonly @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
+  %call.i = tail call i32 @address_space_write(ptr noundef nonnull @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
   br label %address_space_rw.exit
 
 if.else.i:                                        ; preds = %entry
-  %call3.i = tail call i32 @address_space_read_full(ptr noundef nonnull readonly @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
+  %call3.i = tail call i32 @address_space_read_full(ptr noundef nonnull @address_space_memory, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %len)
   br label %address_space_rw.exit
 
 address_space_rw.exit:                            ; preds = %if.then.i, %if.else.i
@@ -6365,7 +6365,7 @@ if.then19:                                        ; preds = %if.end14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
   %16 = load i64, ptr %addr1.i, align 8
   %17 = load i64, ptr %l.i, align 8
-  %call5.i = call i32 @flatview_read_continue(ptr noundef nonnull readonly %4, i64 noundef %addr, i32 1, ptr noundef writeonly %14, i64 noundef %15, i64 noundef %16, i64 noundef %17, ptr noundef %section.sroa.1.0.copyload.i.i)
+  %call5.i = call i32 @flatview_read_continue(ptr noundef nonnull %4, i64 noundef %addr, i32 1, ptr noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %17, ptr noundef %section.sroa.1.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %addr1.i)
   br label %if.end49
@@ -9511,7 +9511,7 @@ if.end:                                           ; preds = %while.body
   br i1 %is_write, label %if.then8, label %if.else11.i
 
 if.then8:                                         ; preds = %if.end
-  call fastcc void @address_space_write_rom_internal(ptr noundef readonly %2, i64 noundef %add7, i32 %3, ptr noundef readonly %buf.050, i64 noundef %spec.select, i32 noundef 0)
+  call fastcc void @address_space_write_rom_internal(ptr noundef %2, i64 noundef %add7, i32 %3, ptr noundef %buf.050, i64 noundef %spec.select, i32 noundef 0)
   br label %if.end20
 
 if.else11.i:                                      ; preds = %if.end

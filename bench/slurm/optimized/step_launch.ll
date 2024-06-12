@@ -2032,7 +2032,7 @@ _connect_srun_cr.exit.thread.i:                   ; preds = %98, %80, %75
 _connect_srun_cr.exit.i:                          ; preds = %88
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %2)
   %102 = getelementptr inbounds i8, ptr %0, i64 4
-  %103 = call i64 @write(i32 noundef %78, ptr noundef nonnull readonly %102, i64 noundef 4) #14
+  %103 = call i64 @write(i32 noundef %78, ptr noundef nonnull %102, i64 noundef 4) #14
   %.not.i = icmp eq i64 %103, 4
   br i1 %.not.i, label %105, label %.sink.split.i
 

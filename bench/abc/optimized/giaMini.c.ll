@@ -916,10 +916,10 @@ Vec_PtrAlloc.exit49:                              ; preds = %Vec_PtrAlloc.exit45
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %31, align 8
-  %58 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %59 = add i64 %58, 1
   %60 = call noalias ptr @malloc(i64 noundef %59) #26
-  %61 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull readonly dereferenceable(1) %3) #25
+  %61 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %3) #25
   %62 = getelementptr inbounds i8, ptr %57, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %57, align 8
@@ -988,10 +988,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %91, label %92, label %120
 
 92:                                               ; preds = %90
-  %93 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %94 = add i64 %93, 1
   %95 = call noalias ptr @malloc(i64 noundef %94) #26
-  %96 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(1) %3) #25
+  %96 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) %3) #25
   %97 = load i32, ptr %13, align 4
   %98 = load i32, ptr %11, align 8
   %99 = icmp eq i32 %97, %98
@@ -1048,10 +1048,10 @@ Vec_PtrGrow.exit.i57:                             ; preds = %106, %104
 
 120:                                              ; preds = %90
   %121 = load ptr, ptr %43, align 8
-  %122 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
+  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %123 = add i64 %122, 1
   %124 = call noalias ptr @malloc(i64 noundef %123) #26
-  %125 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull readonly dereferenceable(1) %3) #25
+  %125 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %3) #25
   %126 = getelementptr inbounds i8, ptr %121, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = load i32, ptr %121, align 8
@@ -1140,10 +1140,10 @@ Vec_PtrPush.exit58:                               ; preds = %118, %Vec_PtrGrow.e
   br i1 %.not.i67, label %Abc_UtilStrsav.exit, label %162
 
 162:                                              ; preds = %.lr.ph86
-  %163 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %160) #29
+  %163 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %160) #29
   %164 = add i64 %163, 1
   %165 = call noalias ptr @malloc(i64 noundef %164) #26
-  %166 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %165, ptr noundef nonnull readonly dereferenceable(1) %160) #25
+  %166 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %165, ptr noundef nonnull dereferenceable(1) %160) #25
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.lr.ph86, %162
@@ -2854,7 +2854,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %252 = sext i32 %251 to i64
   %253 = getelementptr inbounds i32, ptr %.val166.val, i64 %252
   %254 = load i32, ptr %253, align 4
-  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef %254, ptr noundef nonnull readonly %5, ptr noundef %178)
+  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef %254, ptr noundef nonnull %5, ptr noundef %178)
   %255 = load i32, ptr %81, align 4
   %256 = add nsw i32 %255, -1
   %257 = getelementptr inbounds i8, ptr %177, i64 8
@@ -3060,7 +3060,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   br i1 %361, label %362, label %365
 
 362:                                              ; preds = %357
-  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull readonly %6, ptr noundef %.val171)
+  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull %6, ptr noundef %.val171)
   %363 = load i32, ptr %308, align 4
   %364 = add nsw i32 %363, -1
   store i32 %364, ptr %359, align 4
@@ -5631,7 +5631,7 @@ define noundef ptr @Gia_MiniAigSuperDeriveGia(ptr nocapture noundef readonly %0,
   %12 = mul i32 %2, %1
   %13 = tail call ptr @Gia_ManStart(i32 noundef 1000) #25
   %14 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.27, i64 5, i1 false) #25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull align 1 dereferenceable(5) @.str.27, i64 5, i1 false) #25
   store ptr %14, ptr %13, align 8
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph, label %._crit_edge

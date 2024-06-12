@@ -1172,13 +1172,13 @@ Saig_MvSimHash.exit.i:                            ; preds = %.lr.ph.i.i, %.crite
   %45 = sext i32 %25 to i64
   %46 = shl nsw i64 %45, 2
   %47 = getelementptr inbounds i8, ptr %44, i64 4
-  %bcmp.i29 = tail call i32 @bcmp(ptr nonnull %47, ptr nonnull readonly %23, i64 %46)
+  %bcmp.i29 = tail call i32 @bcmp(ptr nonnull %47, ptr nonnull %23, i64 %46)
   %48 = icmp eq i32 %bcmp.i29, 0
   br i1 %48, label %Saig_MvSimTableFind.exit, label %.lr.ph31
 
 49:                                               ; preds = %53
   %50 = getelementptr inbounds i8, ptr %56, i64 4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %50, ptr nonnull readonly %23, i64 %46)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %50, ptr nonnull %23, i64 %46)
   %51 = icmp eq i32 %bcmp.i, 0
   br i1 %51, label %Saig_MvSimTableFind.exit, label %.lr.ph31, !llvm.loop !14
 

@@ -19048,7 +19048,7 @@ define void @_ZN3nix10LocalStore21queryPathInfoUncachedERKNS_9StorePathENS_8Call
   unreachable
 
 _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4lockEv.exit.i.i: ; preds = %.noexc
-  invoke void @_ZN3nix10LocalStore21queryPathInfoInternalERNS0_5StateERKNS_9StorePathE(ptr dead_on_unwind nonnull writable writeonly sret(%"class.std::shared_ptr.212") align 8 %5, ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZN3nix10LocalStore21queryPathInfoInternalERNS0_5StateERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.212") align 8 %5, ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %29 unwind label %_ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit3.i.i
 
 _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit3.i.i: ; preds = %_ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4lockEv.exit.i.i
@@ -60378,7 +60378,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !452
-  %14 = tail call i32 @memcmp(ptr noundef %13, ptr noundef readonly %.val2, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i.i) #33, !noalias !452
+  %14 = tail call i32 @memcmp(ptr noundef %13, ptr noundef %.val2, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i.i) #33, !noalias !452
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit.i.i.i.i.i.i
 
@@ -60413,7 +60413,7 @@ _ZNKSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_13ValidPathInfoEESt10_Select1stI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !noalias !452
-  %24 = tail call i32 @memcmp(ptr noundef readonly %.val2, ptr noundef %23, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #33, !noalias !452
+  %24 = tail call i32 @memcmp(ptr noundef %.val2, ptr noundef %23, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #33, !noalias !452
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt3mapIN3nix9StorePathENS0_13ValidPathInfoESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.i.i.i
 

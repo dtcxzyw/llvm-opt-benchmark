@@ -15,7 +15,7 @@ define dso_local void @nghttp2_buf_init(ptr nocapture noundef writeonly %0) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.not.i.not = icmp eq i64 %1, 0
   br i1 %.not.i.not, label %nghttp2_buf_reserve.exit, label %5

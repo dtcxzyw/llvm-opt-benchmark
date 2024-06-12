@@ -141,7 +141,7 @@ define internal noundef i32 @tcp_component_open() #0 {
 4:                                                ; preds = %3, %0
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 624), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 632), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 640), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 640), i8 0, i64 64, i1 false)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -169,7 +169,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 13:                                               ; preds = %12, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1280), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1288), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1296), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1296), i8 0, i64 64, i1 false)
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i5 = icmp eq ptr %15, null
@@ -203,7 +203,7 @@ pmix_obj_run_constructors.exit9:                  ; preds = %.lr.ph.i6, %13
 24:                                               ; preds = %23, %21
   store ptr @pmix_thread_t_class, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1552), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1560), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1568), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1568), i8 0, i64 64, i1 false)
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 40), align 8
   %26 = load ptr, ptr %25, align 8
   %.not6.i10 = icmp eq ptr %26, null
@@ -242,7 +242,7 @@ pmix_obj_run_constructors.exit14:                 ; preds = %.lr.ph.i11, %24
 34:                                               ; preds = %33, %30
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 984), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 992), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1000), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1000), i8 0, i64 64, i1 false)
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %36 = load ptr, ptr %35, align 8
   %.not6.i15 = icmp eq ptr %36, null
@@ -1405,7 +1405,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %103, %
 
 pmix_obj_new_tma.exit137:                         ; preds = %.lr.ph.i.i134, %138, %139
   %150 = getelementptr inbounds i8, ptr %134, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   store i16 2, ptr %150, align 4
   %151 = tail call i32 @inet_addr(ptr noundef nonnull %.0102) #18
   %152 = getelementptr inbounds i8, ptr %134, i64 148
@@ -1536,7 +1536,7 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
   br label %._crit_edge160
 
 213:                                              ; preds = %pmix_obj_new_tma.exit137
-  %214 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %69) #23
+  %214 = tail call i32 @atoi(ptr nocapture noundef nonnull %69) #23
   %215 = trunc i32 %214 to i16
   %216 = tail call zeroext i16 @htons(i16 noundef zeroext %215) #19
   %217 = getelementptr inbounds i8, ptr %134, i64 146
@@ -2995,7 +2995,7 @@ define internal void @peer_cons(ptr noundef %0) #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 472
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null
@@ -3029,7 +3029,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %24 = getelementptr inbounds i8, ptr %0, i64 1168
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 1176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i19 = icmp eq ptr %27, null

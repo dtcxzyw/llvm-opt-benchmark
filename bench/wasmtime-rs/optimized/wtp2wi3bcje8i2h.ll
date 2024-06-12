@@ -92,7 +92,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hea471c1face4dd27E(ptr
           to label %11 unwind label %15
 
 6:                                                ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775808

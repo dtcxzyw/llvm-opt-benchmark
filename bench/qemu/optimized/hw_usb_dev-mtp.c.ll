@@ -6504,7 +6504,7 @@ if.end14.i:                                       ; preds = %utf16_to_str.exit.i
   br i1 %tobool.not7.i.i, label %if.end19.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end14.i
-  %call.i31.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call11.i.i) #19
+  %call.i31.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call11.i.i) #19
   %sext.i = shl i64 %call.i31.i, 32
   %conv2.i.i = ashr exact i64 %sext.i, 32
   br label %for.body.i33.i
@@ -6513,7 +6513,7 @@ for.body.i33.i:                                   ; preds = %for.inc.i34.i, %for
   %iter.08.i.i = phi ptr [ %iter.06.i.i, %for.body.lr.ph.i.i ], [ %iter.0.i.i, %for.inc.i34.i ]
   %name1.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 8
   %30 = load ptr, ptr %name1.i.i, align 8
-  %call3.i.i = tail call i32 @strncmp(ptr noundef %30, ptr noundef readonly %call11.i.i, i64 noundef %conv2.i.i) #19
+  %call3.i.i = tail call i32 @strncmp(ptr noundef %30, ptr noundef %call11.i.i, i64 noundef %conv2.i.i) #19
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.then18.i, label %for.inc.i34.i
 
@@ -7857,7 +7857,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not7.i, label %if.end5, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #19
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #19
   %sext140 = shl i64 %call.i, 32
   %conv2.i = ashr exact i64 %sext140, 32
   br label %for.body.i42
@@ -7866,7 +7866,7 @@ for.body.i42:                                     ; preds = %for.inc.i43, %for.b
   %iter.08.i = phi ptr [ %iter.06.i41, %for.body.lr.ph.i ], [ %iter.0.i44, %for.inc.i43 ]
   %name1.i = getelementptr inbounds i8, ptr %iter.08.i, i64 8
   %1 = load ptr, ptr %name1.i, align 8
-  %call3.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef readonly %name, i64 noundef %conv2.i) #19
+  %call3.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef %name, i64 noundef %conv2.i) #19
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.end59, label %for.inc.i43
 
@@ -7938,7 +7938,7 @@ sw.bb11:                                          ; preds = %if.end
   br i1 %tobool.not7.i51, label %if.end59, label %for.body.lr.ph.i52
 
 for.body.lr.ph.i52:                               ; preds = %sw.bb11
-  %call.i47 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #19
+  %call.i47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #19
   %sext139 = shl i64 %call.i47, 32
   %conv2.i53 = ashr exact i64 %sext139, 32
   br label %for.body.i54
@@ -7947,7 +7947,7 @@ for.body.i54:                                     ; preds = %for.inc.i59, %for.b
   %iter.08.i55 = phi ptr [ %iter.06.i50, %for.body.lr.ph.i52 ], [ %iter.0.i61, %for.inc.i59 ]
   %name1.i56 = getelementptr inbounds i8, ptr %iter.08.i55, i64 8
   %10 = load ptr, ptr %name1.i56, align 8
-  %call3.i57 = tail call i32 @strncmp(ptr noundef %10, ptr noundef readonly %name, i64 noundef %conv2.i53) #19
+  %call3.i57 = tail call i32 @strncmp(ptr noundef %10, ptr noundef %name, i64 noundef %conv2.i53) #19
   %cmp4.i58 = icmp eq i32 %call3.i57, 0
   br i1 %cmp4.i58, label %if.end15, label %for.inc.i59
 
@@ -8012,7 +8012,7 @@ sw.bb23:                                          ; preds = %if.end
   br i1 %tobool.not7.i84, label %if.end59, label %for.body.lr.ph.i85
 
 for.body.lr.ph.i85:                               ; preds = %sw.bb23
-  %call.i80 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #19
+  %call.i80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #19
   %sext = shl i64 %call.i80, 32
   %conv2.i86 = ashr exact i64 %sext, 32
   br label %for.body.i87
@@ -8021,7 +8021,7 @@ for.body.i87:                                     ; preds = %for.inc.i92, %for.b
   %iter.08.i88 = phi ptr [ %iter.06.i83, %for.body.lr.ph.i85 ], [ %iter.0.i94, %for.inc.i92 ]
   %name1.i89 = getelementptr inbounds i8, ptr %iter.08.i88, i64 8
   %20 = load ptr, ptr %name1.i89, align 8
-  %call3.i90 = tail call i32 @strncmp(ptr noundef %20, ptr noundef readonly %name, i64 noundef %conv2.i86) #19
+  %call3.i90 = tail call i32 @strncmp(ptr noundef %20, ptr noundef %name, i64 noundef %conv2.i86) #19
   %cmp4.i91 = icmp eq i32 %call3.i90, 0
   br i1 %cmp4.i91, label %if.end27, label %for.inc.i92
 
@@ -8565,7 +8565,7 @@ lor.lhs.false67:                                  ; preds = %land.lhs.true60, %i
   br i1 %tobool.not7.i.i, label %if.else79, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %lor.lhs.false67
-  %call.i54 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #19
+  %call.i54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %sext.i = shl i64 %call.i54, 32
   %conv2.i.i = ashr exact i64 %sext.i, 32
   br label %for.body.i.i
@@ -8574,7 +8574,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %iter.08.i.i = phi ptr [ %iter.06.i.i, %for.body.lr.ph.i.i ], [ %iter.0.i.i, %for.inc.i.i ]
   %name1.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 8
   %24 = load ptr, ptr %name1.i.i, align 8
-  %call3.i.i = tail call i32 @strncmp(ptr noundef %24, ptr noundef readonly %23, i64 noundef %conv2.i.i) #19
+  %call3.i.i = tail call i32 @strncmp(ptr noundef %24, ptr noundef %23, i64 noundef %conv2.i.i) #19
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %usb_mtp_update_object.exit, label %for.inc.i.i
 

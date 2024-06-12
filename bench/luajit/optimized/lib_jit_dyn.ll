@@ -2027,7 +2027,7 @@ for.body.i:                                       ; preds = %if.end42.i, %if.end
   %17 = load i8, ptr %lst.017.i, align 1
   %conv.i = zext i8 %17 to i64
   %add.ptr.i19 = getelementptr inbounds i8, ptr %lst.017.i, i64 1
-  %call.i20 = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr6, ptr noundef nonnull %add.ptr.i19, i64 noundef %conv.i) #10
+  %call.i20 = tail call i32 @strncmp(ptr noundef nonnull %add.ptr6, ptr noundef nonnull %add.ptr.i19, i64 noundef %conv.i) #10
   %cmp1.i = icmp eq i32 %call.i20, 0
   br i1 %cmp1.i, label %land.lhs.true.i22, label %if.end22.i
 

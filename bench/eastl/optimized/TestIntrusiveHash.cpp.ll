@@ -151,12 +151,12 @@ for.body:                                         ; preds = %arrayctor.loop, %fo
 for.end:                                          ; preds = %for.body
   %mnElementCount.i.i154 = getelementptr inbounds i8, ptr %ihmSW1, i64 304
   store i64 0, ptr %mnElementCount.i.i154, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
   %arrayidx.i.i155 = getelementptr inbounds i8, ptr %ihmSW1, i64 296
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i155, align 8
   %mnElementCount.i.i156 = getelementptr inbounds i8, ptr %ihmSW2, i64 304
   store i64 0, ptr %mnElementCount.i.i156, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
   %arrayidx.i.i157 = getelementptr inbounds i8, ptr %ihmSW2, i64 296
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i157, align 8
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @.str.5)
@@ -379,7 +379,7 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %div.i262 = fdiv float %conv.i261, 3.700000e+01
   %cmp46 = fcmp oeq float %div.i262, 0.000000e+00
   %call47 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp46, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @.str.13)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i154, align 8
   br label %while.cond.i.i.i288
 
@@ -437,7 +437,7 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %30 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i295 = icmp eq ptr %retval.sroa.0.0.i, %30
   %call56 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i295, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @.str.14)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i154, align 8
   br label %for.body.i297
 
@@ -661,7 +661,7 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %57 = load i64, ptr %mnElementCount.i.i154, align 8
   %cmp.not.i371 = icmp eq i64 %nElementCount.0.lcssa.i369, %57
   %call96 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.not.i371, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @.str.7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i156, align 8
   br label %for.body.i382
 
@@ -1957,9 +1957,9 @@ _ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit1156: ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i1140, %for.body.i1133, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1128
   %cmp380 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1128 ], [ %cmp.i5.i1136, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i1140 ], [ false, %for.body.i1133 ]
   %call381 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp380, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 421, ptr noundef nonnull @.str.49)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i154, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i156, align 8
   br label %while.cond.i.i.i1184
 
@@ -2129,12 +2129,12 @@ for.body406:                                      ; preds = %arrayctor.loop397, 
 for.end416:                                       ; preds = %for.body406
   %mnElementCount.i.i1261 = getelementptr inbounds i8, ptr %ihmMW1, i64 304
   store i64 0, ptr %mnElementCount.i.i1261, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
   %arrayidx.i.i1262 = getelementptr inbounds i8, ptr %ihmMW1, i64 296
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i1262, align 8
   %mnElementCount.i.i1263 = getelementptr inbounds i8, ptr %ihmMW2, i64 304
   store i64 0, ptr %mnElementCount.i.i1263, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
   %arrayidx.i.i1264 = getelementptr inbounds i8, ptr %ihmMW2, i64 296
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i1264, align 8
   %call423 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 466, ptr noundef nonnull @.str.50)
@@ -2357,7 +2357,7 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %div.i1412 = fdiv float %conv.i1411, 3.700000e+01
   %cmp447 = fcmp oeq float %div.i1412, 0.000000e+00
   %call448 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp447, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 479, ptr noundef nonnull @.str.58)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i1261, align 8
   br label %while.cond.i.i.i1439
 
@@ -2415,7 +2415,7 @@ _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_
   %274 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !77
   %cmp.i1452 = icmp eq ptr %ref.tmp451.sroa.0.0, %274
   %call454 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1452, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 483, ptr noundef nonnull @.str.59)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i1261, align 8
   br label %for.body.i1455
 
@@ -2639,7 +2639,7 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %301 = load i64, ptr %mnElementCount.i.i1261, align 8
   %cmp.not.i1556 = icmp eq i64 %nElementCount.0.lcssa.i1554, %301
   %call500 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.not.i1556, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 511, ptr noundef nonnull @.str.52)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i1263, align 8
   br label %for.body.i1567
 
@@ -4053,9 +4053,9 @@ _ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit
 _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit2450: ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit.i2434, %for.body.i2427, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2422
   %cmp790 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2422 ], [ %cmp.i5.i2430, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit.i2434 ], [ false, %for.body.i2427 ]
   %call791 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp790, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 701, ptr noundef nonnull @.str.49)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i1261, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
   store i64 0, ptr %mnElementCount.i.i1263, align 8
   br label %while.cond.i.i.i2478
 
@@ -4299,7 +4299,7 @@ while.cond.i.i.i2715.preheader:                   ; preds = %while.body.i2625, %
   %cmp809 = icmp eq i64 %sub.i2622, 1
   %call810 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp809, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 728, ptr noundef nonnull @.str.87)
   %mnElementCount.i.i2628 = getelementptr inbounds i8, ptr %hs811, i64 304
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %hs811, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %hs811, i8 0, i64 296, i1 false)
   %arrayidx.i.i2629 = getelementptr inbounds i8, ptr %hs811, i64 296
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i2629, align 8
   %mX.i2630 = getelementptr inbounds i8, ptr %node1814, i64 8

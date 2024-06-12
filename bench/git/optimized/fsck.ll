@@ -328,7 +328,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %downcased.i = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv.i, i32 1
   %0 = load ptr, ptr %downcased.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg_id, ptr noundef nonnull dereferenceable(1) %0) #17
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg_id, ptr noundef nonnull dereferenceable(1) %0) #17
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.inc.i
 
@@ -428,7 +428,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %downcased.i = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv.i, i32 1
   %0 = load ptr, ptr %downcased.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg_id_str, ptr noundef nonnull dereferenceable(1) %0) #17
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg_id_str, ptr noundef nonnull dereferenceable(1) %0) #17
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.inc.i
 
@@ -821,11 +821,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp5, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp5, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp5, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp5, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -1196,11 +1196,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp3, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %byval-temp.i, ptr noundef nonnull dereferenceable(32) %byval-temp3, i64 32)
   br label %oideq_by_value.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp3, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %byval-temp.i, ptr noundef nonnull dereferenceable(20) %byval-temp3, i64 20)
   br label %oideq_by_value.exit.i
 
 oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -1256,7 +1256,7 @@ if.then81.i:                                      ; preds = %if.end71.i
   %59 = load ptr, ptr %keys82.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %59, i64 %idxprom83.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp3, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp3, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
   %not.i = xor i32 %shl87.i, -1
   %60 = load ptr, ptr %flags.i, align 8
@@ -1280,7 +1280,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %64 = load ptr, ptr %keys109.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %64, i64 %idxprom110.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp3, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull align 8 dereferenceable(36) %byval-temp3, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
   %not116.i = xor i32 %shl115.i, -1
   %65 = load ptr, ptr %flags.i, align 8
@@ -1475,7 +1475,7 @@ if.end38.i:                                       ; preds = %if.then35.i, %if.th
   br label %if.end50.i
 
 if.else41.i:                                      ; preds = %while.body.i
-  %call.i23.i = call ptr @fsck_get_object_name(ptr noundef readonly %options, ptr noundef nonnull %oid.i)
+  %call.i23.i = call ptr @fsck_get_object_name(ptr noundef %options, ptr noundef nonnull %oid.i)
   %13 = load i32, ptr @fsck_describe_object.b, align 4
   %idx.ext.i.i = zext nneg i32 %13 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i.i
@@ -1752,7 +1752,7 @@ if.end5.i28:                                      ; preds = %if.then3.i27, %if.e
 
 sw.default:                                       ; preds = %if.end2
   %oid12 = getelementptr inbounds i8, ptr %obj, i64 4
-  %call.i30 = tail call ptr @fsck_get_object_name(ptr noundef readonly %options, ptr noundef nonnull %oid12)
+  %call.i30 = tail call ptr @fsck_get_object_name(ptr noundef %options, ptr noundef nonnull %oid12)
   %45 = load i32, ptr @fsck_describe_object.b, align 4
   %idx.ext.i = zext nneg i32 %45 to i64
   %add.ptr.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i
@@ -2471,11 +2471,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %entry1.i.i, ptr noundef nonnull readonly dereferenceable(32) %call.i.i, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %entry1.i.i, ptr noundef nonnull dereferenceable(32) %call.i.i, i64 32)
   br label %is_null_oid.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %entry1.i.i, ptr noundef nonnull readonly dereferenceable(20) %call.i.i, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %entry1.i.i, ptr noundef nonnull dereferenceable(20) %call.i.i, i64 20)
   br label %is_null_oid.exit.i
 
 is_null_oid.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -2721,11 +2721,11 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %sw.b
 if.then131.i:                                     ; preds = %sw.epilog.i
   %call.i75.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %o_name.0165.i) #17
   %conv.i76.i = trunc i64 %call.i75.i to i32
-  %call1.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #17
+  %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %conv2.i.i = trunc i64 %call1.i.i to i32
   %cond.i.i = call i32 @llvm.smin.i32(i32 %conv.i76.i, i32 %conv2.i.i)
   %conv5.i.i = sext i32 %cond.i.i to i64
-  %call6.i.i = call i32 @memcmp(ptr noundef nonnull %o_name.0165.i, ptr noundef nonnull readonly %2, i64 noundef %conv5.i.i) #17
+  %call6.i.i = call i32 @memcmp(ptr noundef nonnull %o_name.0165.i, ptr noundef nonnull %2, i64 noundef %conv5.i.i) #17
   %cmp7.i.i = icmp slt i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %if.end138.i, label %if.end.i.i
 
@@ -3390,7 +3390,7 @@ return:                                           ; preds = %if.end35, %for.cond
 define dso_local range(i32 0, 2) i32 @fsck_error_function(ptr nocapture noundef readonly %o, ptr noundef %oid, i32 %object_type, i32 noundef %msg_type, i32 %msg_id, ptr noundef %message) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %msg_type, 4
-  %call.i = tail call ptr @fsck_get_object_name(ptr noundef readonly %o, ptr noundef %oid)
+  %call.i = tail call ptr @fsck_get_object_name(ptr noundef %o, ptr noundef %oid)
   %0 = load i32, ptr @fsck_describe_object.b, align 4
   %idx.ext.i = zext nneg i32 %0 to i64
   %add.ptr.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i

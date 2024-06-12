@@ -1557,7 +1557,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %idx.07.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %pairs.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @doit_choices, %for.body.i.preheader ]
   %66 = load ptr, ptr %pairs.addr.06.i, align 8
-  %call.i1287 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %66) #16
+  %call.i1287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %66) #16
   %cmp2.i = icmp eq i32 %call.i1287, 0
   br i1 %cmp2.i, label %if.then286, label %for.inc.i
 
@@ -1647,7 +1647,7 @@ for.body.i1289:                                   ; preds = %for.inc.i1294, %if.
   %idx.07.i1290 = phi i32 [ %inc.i1295, %for.inc.i1294 ], [ 0, %if.end319 ]
   %pairs.addr.06.i1291 = phi ptr [ %incdec.ptr.i1296, %for.inc.i1294 ], [ @rsa_choices, %if.end319 ]
   %81 = load ptr, ptr %pairs.addr.06.i1291, align 8
-  %call.i1292 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %81) #16
+  %call.i1292 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %81) #16
   %cmp2.i1293 = icmp eq i32 %call.i1292, 0
   br i1 %cmp2.i1293, label %if.then322, label %for.inc.i1294
 
@@ -1689,7 +1689,7 @@ for.body.i1302:                                   ; preds = %for.inc.i1307, %if.
   %idx.07.i1303 = phi i32 [ %inc.i1308, %for.inc.i1307 ], [ 0, %if.end337 ]
   %pairs.addr.06.i1304 = phi ptr [ %incdec.ptr.i1309, %for.inc.i1307 ], [ @ffdh_choices, %if.end337 ]
   %84 = load ptr, ptr %pairs.addr.06.i1304, align 8
-  %call.i1305 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %84) #16
+  %call.i1305 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %84) #16
   %cmp2.i1306 = icmp eq i32 %call.i1305, 0
   br i1 %cmp2.i1306, label %if.then340, label %for.inc.i1307
 
@@ -1751,7 +1751,7 @@ for.body.i1315:                                   ; preds = %for.inc.i1320, %if.
   %idx.07.i1316 = phi i32 [ %inc.i1321, %for.inc.i1320 ], [ 0, %if.end355 ]
   %pairs.addr.06.i1317 = phi ptr [ %incdec.ptr.i1322, %for.inc.i1320 ], [ @dsa_choices, %if.end355 ]
   %97 = load ptr, ptr %pairs.addr.06.i1317, align 8
-  %call.i1318 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %97) #16
+  %call.i1318 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %97) #16
   %cmp2.i1319 = icmp eq i32 %call.i1318, 0
   br i1 %cmp2.i1319, label %if.then358, label %for.inc.i1320
 
@@ -1817,7 +1817,7 @@ for.body.i1328:                                   ; preds = %for.inc.i1333, %if.
   %idx.07.i1329 = phi i32 [ %inc.i1334, %for.inc.i1333 ], [ 0, %if.end389 ]
   %pairs.addr.06.i1330 = phi ptr [ %incdec.ptr.i1335, %for.inc.i1333 ], [ @ecdsa_choices, %if.end389 ]
   %100 = load ptr, ptr %pairs.addr.06.i1330, align 8
-  %call.i1331 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %100) #16
+  %call.i1331 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %100) #16
   %cmp2.i1332 = icmp eq i32 %call.i1331, 0
   br i1 %cmp2.i1332, label %if.then392, label %for.inc.i1333
 
@@ -1859,7 +1859,7 @@ for.body.i1341:                                   ; preds = %for.inc.i1346, %if.
   %idx.07.i1342 = phi i32 [ %inc.i1347, %for.inc.i1346 ], [ 0, %if.end407 ]
   %pairs.addr.06.i1343 = phi ptr [ %incdec.ptr.i1348, %for.inc.i1346 ], [ @ecdh_choices, %if.end407 ]
   %103 = load ptr, ptr %pairs.addr.06.i1343, align 8
-  %call.i1344 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %103) #16
+  %call.i1344 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %103) #16
   %cmp2.i1345 = icmp eq i32 %call.i1344, 0
   br i1 %cmp2.i1345, label %if.then410, label %for.inc.i1346
 
@@ -1895,7 +1895,7 @@ for.body.i1354:                                   ; preds = %for.inc.i1359, %if.
   %idx.07.i1355 = phi i32 [ %inc.i1360, %for.inc.i1359 ], [ 0, %if.end420 ]
   %pairs.addr.06.i1356 = phi ptr [ %incdec.ptr.i1361, %for.inc.i1359 ], [ @eddsa_choices, %if.end420 ]
   %105 = load ptr, ptr %pairs.addr.06.i1356, align 8
-  %call.i1357 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %105) #16
+  %call.i1357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %105) #16
   %cmp2.i1358 = icmp eq i32 %call.i1357, 0
   br i1 %cmp2.i1358, label %if.then423, label %for.inc.i1359
 
@@ -1915,7 +1915,7 @@ if.then423:                                       ; preds = %for.body.i1354
 
 if.end426:                                        ; preds = %for.inc.i1359, %if.then423
   %algo_found.17 = phi i32 [ 1, %if.then423 ], [ %algo_found.16, %for.inc.i1359 ]
-  %call.i1370 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(9) @.str.409) #16
+  %call.i1370 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(9) @.str.409) #16
   %cmp2.i1371 = icmp eq i32 %call.i1370, 0
   br i1 %cmp2.i1371, label %if.end438, label %for.inc.i1372
 
@@ -1936,7 +1936,7 @@ for.body.i1380:                                   ; preds = %if.end438, %for.inc
   %i.06.i = phi i32 [ %inc.i1384, %for.inc.i1383 ], [ 0, %if.end438 ]
   %arrayidx.i = getelementptr inbounds [111 x ptr], ptr @kems_algname, i64 0, i64 %conv7.i
   %107 = load ptr, ptr %arrayidx.i, align 8
-  %call.i1381 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(1) %65) #16
+  %call.i1381 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %65) #16
   %cmp2.i1382 = icmp eq i32 %call.i1381, 0
   br i1 %cmp2.i1382, label %if.then441, label %for.inc.i1383
 
@@ -1964,7 +1964,7 @@ for.body.i1388:                                   ; preds = %if.end445, %for.inc
   %i.06.i1390 = phi i32 [ %inc.i1395, %for.inc.i1394 ], [ 0, %if.end445 ]
   %arrayidx.i1391 = getelementptr inbounds [111 x ptr], ptr @sigs_algname, i64 0, i64 %conv7.i1389
   %109 = load ptr, ptr %arrayidx.i1391, align 8
-  %call.i1392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull readonly dereferenceable(1) %65) #16
+  %call.i1392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %65) #16
   %cmp2.i1393 = icmp eq i32 %call.i1392, 0
   br i1 %cmp2.i1393, label %if.then448, label %for.inc.i1394
 

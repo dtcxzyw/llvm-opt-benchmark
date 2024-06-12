@@ -1432,7 +1432,7 @@ if.end235:                                        ; preds = %if.then232, %gem_up
   %69 = load i32, ptr %arrayidx12.i, align 4
   %inc.i = add i32 %69, 1
   store i32 %inc.i, ptr %arrayidx12.i, align 4
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %tx_packet, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %tx_packet, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
   %tobool.not.i372 = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i372, label %if.then.i376, label %if.end.i373
 
@@ -2029,7 +2029,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
   %tobool2.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end10.i
 
@@ -2163,7 +2163,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end3
 land.lhs.true41.i:                                ; preds = %for.body.i
   %19 = shl i64 %indvars.iv.i, 3
   %add.ptr.i = getelementptr i8, ptr %arrayidx36.i, i64 %19
-  %bcmp17.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i, i64 6)
+  %bcmp17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %add.ptr.i, i64 6)
   %tobool43.not.i = icmp eq i32 %bcmp17.i, 0
   br i1 %tobool43.not.i, label %gem_mac_address_filter.exit, label %for.inc.i
 
@@ -2812,7 +2812,7 @@ while.end:                                        ; preds = %if.end248, %while.c
   %91 = load i32, ptr %arrayidx12.i, align 4
   %inc.i = add i32 %91, 1
   store i32 %inc.i, ptr %arrayidx12.i, align 4
-  %bcmp.i214 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
+  %bcmp.i214 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
   %tobool.not.i215 = icmp eq i32 %bcmp.i214, 0
   br i1 %tobool.not.i215, label %if.then.i222, label %if.end.i216
 

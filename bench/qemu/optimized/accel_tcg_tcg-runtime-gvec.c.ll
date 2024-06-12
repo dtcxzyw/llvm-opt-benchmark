@@ -44,7 +44,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -92,7 +92,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -140,7 +140,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -188,7 +188,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -235,7 +235,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -282,7 +282,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -329,7 +329,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -375,7 +375,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -423,7 +423,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -471,7 +471,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -519,7 +519,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -567,7 +567,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -614,7 +614,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -661,7 +661,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -708,7 +708,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -754,7 +754,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -802,7 +802,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -850,7 +850,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -898,7 +898,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -946,7 +946,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -993,7 +993,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1040,7 +1040,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1087,7 +1087,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1133,7 +1133,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1179,7 +1179,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1225,7 +1225,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1271,7 +1271,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1317,7 +1317,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1363,7 +1363,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1409,7 +1409,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1455,7 +1455,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1501,7 +1501,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1534,7 +1534,7 @@ for.body.preheader.i:                             ; preds = %entry
   %3 = add nsw i64 %1, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %entry, %for.body.preheader.i
@@ -1582,7 +1582,7 @@ for.body.preheader.i:                             ; preds = %entry, %if.end
   %2 = add nsw i64 %smax.i, %1
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %if.end, %for.body.preheader.i
@@ -1627,7 +1627,7 @@ for.body.preheader.i:                             ; preds = %entry, %if.end
   %2 = add nsw i64 %smax.i, %1
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %if.end, %for.body.preheader.i
@@ -1674,7 +1674,7 @@ for.body.preheader.i.i:                           ; preds = %if.end.i, %entry
   %2 = add nsw i64 %smax.i.i, %1
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i, i8 0, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %4, i1 false)
   br label %helper_gvec_dup32.exit
 
 helper_gvec_dup32.exit:                           ; preds = %if.end.i, %for.body.preheader.i.i
@@ -1721,7 +1721,7 @@ for.body.preheader.i.i:                           ; preds = %if.end.i, %entry
   %2 = add nsw i64 %smax.i.i, %1
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i.i, i8 0, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %4, i1 false)
   br label %helper_gvec_dup32.exit
 
 helper_gvec_dup32.exit:                           ; preds = %if.end.i, %for.body.preheader.i.i
@@ -1767,7 +1767,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1815,7 +1815,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1863,7 +1863,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1911,7 +1911,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1960,7 +1960,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2009,7 +2009,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2058,7 +2058,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2107,7 +2107,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2156,7 +2156,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2202,7 +2202,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2249,7 +2249,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2295,7 +2295,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2341,7 +2341,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2390,7 +2390,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2439,7 +2439,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2486,7 +2486,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2534,7 +2534,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2583,7 +2583,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2632,7 +2632,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2679,7 +2679,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2727,7 +2727,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2776,7 +2776,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2825,7 +2825,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2872,7 +2872,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2920,7 +2920,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2968,7 +2968,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3016,7 +3016,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3063,7 +3063,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3111,7 +3111,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3160,7 +3160,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3209,7 +3209,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3258,7 +3258,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3307,7 +3307,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3356,7 +3356,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3405,7 +3405,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3454,7 +3454,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3503,7 +3503,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3552,7 +3552,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3601,7 +3601,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3650,7 +3650,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3699,7 +3699,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3747,7 +3747,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3795,7 +3795,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3843,7 +3843,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3891,7 +3891,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3939,7 +3939,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3987,7 +3987,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4035,7 +4035,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4083,7 +4083,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4132,7 +4132,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4181,7 +4181,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4230,7 +4230,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4279,7 +4279,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4328,7 +4328,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4377,7 +4377,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4426,7 +4426,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4475,7 +4475,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4524,7 +4524,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4573,7 +4573,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4622,7 +4622,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4671,7 +4671,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4720,7 +4720,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4769,7 +4769,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4818,7 +4818,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4867,7 +4867,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4916,7 +4916,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4965,7 +4965,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5014,7 +5014,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5063,7 +5063,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5112,7 +5112,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5161,7 +5161,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5210,7 +5210,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5259,7 +5259,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5311,7 +5311,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5366,7 +5366,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5421,7 +5421,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5475,7 +5475,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5529,7 +5529,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5581,7 +5581,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5636,7 +5636,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5691,7 +5691,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5745,7 +5745,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5799,7 +5799,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5850,7 +5850,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5901,7 +5901,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5952,7 +5952,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6003,7 +6003,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6054,7 +6054,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6105,7 +6105,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6156,7 +6156,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6207,7 +6207,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6258,7 +6258,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6309,7 +6309,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %3 = add nsw i64 %smax.i, %2
   %4 = and i64 %3, -8
   %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6357,7 +6357,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6405,7 +6405,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6458,7 +6458,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %7 = add nsw i64 %smax.i, %6
   %8 = and i64 %7, -8
   %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6511,7 +6511,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %7 = add nsw i64 %smax.i, %6
   %8 = and i64 %7, -8
   %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6559,7 +6559,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6607,7 +6607,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6660,7 +6660,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %7 = add nsw i64 %smax.i, %6
   %8 = and i64 %7, -8
   %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6713,7 +6713,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %7 = add nsw i64 %smax.i, %6
   %8 = and i64 %7, -8
   %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6765,7 +6765,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6817,7 +6817,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6865,7 +6865,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6913,7 +6913,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6965,7 +6965,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7017,7 +7017,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7065,7 +7065,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7113,7 +7113,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7161,7 +7161,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7209,7 +7209,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7257,7 +7257,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7305,7 +7305,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7353,7 +7353,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7401,7 +7401,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7449,7 +7449,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7497,7 +7497,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7545,7 +7545,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7593,7 +7593,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7641,7 +7641,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7689,7 +7689,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7737,7 +7737,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7785,7 +7785,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7833,7 +7833,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7881,7 +7881,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %4 = add nsw i64 %smax.i, %3
   %5 = and i64 %4, -8
   %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7934,7 +7934,7 @@ for.body.preheader.i:                             ; preds = %for.end
   %5 = add nsw i64 %smax.i, %4
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i

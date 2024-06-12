@@ -1013,12 +1013,12 @@ define void @LoadFont(ptr dead_on_unwind noalias nocapture writable sret(%struct
   %39 = call ptr @GetFileExtension(ptr noundef %1) #42, !noalias !4
   %40 = load i32, ptr %27, align 4, !noalias !4
   call void @LoadFontFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %28, ptr noundef %39, ptr noundef nonnull %37, i32 noundef %40, i32 noundef 32, ptr noundef null, i32 noundef 95), !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 48, i1 false)
   call void @UnloadFileData(ptr noundef nonnull %37) #42, !noalias !4
   br label %LoadFontEx.exit
 
 41:                                               ; preds = %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %LoadFontEx.exit
 
 LoadFontEx.exit:                                  ; preds = %38, %41
@@ -1086,7 +1086,7 @@ LoadFontEx.exit:                                  ; preds = %38, %41
 GetLine.exit.i:                                   ; preds = %50, %.split.loop.exit.i.i
   %.0.lcssa.i.i = phi i32 [ %51, %.split.loop.exit.i.i ], [ 255, %50 ]
   %52 = zext nneg i32 %.0.lcssa.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull readonly align 1 %45, i64 %52, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %45, i64 %52, i1 false), !noalias !7
   %53 = getelementptr inbounds i8, ptr %6, i64 %52
   store i8 0, ptr %53, align 1, !noalias !7
   %54 = sext i32 %.0.lcssa.i.i to i64
@@ -1113,7 +1113,7 @@ GetLine.exit.i:                                   ; preds = %50, %.split.loop.ex
 GetLine.exit121.i:                                ; preds = %61, %.split.loop.exit.i120.i
   %.0.lcssa.i119.i = phi i32 [ %62, %.split.loop.exit.i120.i ], [ 255, %61 ]
   %63 = zext nneg i32 %.0.lcssa.i119.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull readonly align 1 %56, i64 %63, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %56, i64 %63, i1 false), !noalias !7
   %64 = getelementptr inbounds i8, ptr %6, i64 %63
   store i8 0, ptr %64, align 1, !noalias !7
   %65 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.72) #45, !noalias !7
@@ -1173,7 +1173,7 @@ GetLine.exit121.i:                                ; preds = %61, %.split.loop.ex
 GetLine.exit127.i:                                ; preds = %81, %.split.loop.exit.i126.i
   %.0.lcssa.i125.i = phi i32 [ %82, %.split.loop.exit.i126.i ], [ 255, %81 ]
   %83 = zext nneg i32 %.0.lcssa.i125.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull readonly align 1 %.0156.i, i64 %83, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.0156.i, i64 %83, i1 false), !noalias !7
   %84 = getelementptr inbounds i8, ptr %6, i64 %83
   store i8 0, ptr %84, align 1, !noalias !7
   %85 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.75) #45, !noalias !7
@@ -1215,7 +1215,7 @@ GetLine.exit127.i:                                ; preds = %81, %.split.loop.ex
 GetLine.exit133.i:                                ; preds = %101, %.split.loop.exit.i132.i
   %.0.lcssa.i131.i = phi i32 [ %102, %.split.loop.exit.i132.i ], [ 255, %101 ]
   %103 = zext nneg i32 %.0.lcssa.i131.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull readonly align 1 %.0.lcssa.i, i64 %103, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.0.lcssa.i, i64 %103, i1 false), !noalias !7
   %104 = getelementptr inbounds i8, ptr %6, i64 %103
   store i8 0, ptr %104, align 1, !noalias !7
   %105 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.77) #45, !noalias !7
@@ -1393,7 +1393,7 @@ GetLine.exit133.i:                                ; preds = %101, %.split.loop.e
 GetLine.exit139.i:                                ; preds = %182, %.split.loop.exit.i138.i
   %.0.lcssa.i137.i = phi i32 [ %183, %.split.loop.exit.i138.i ], [ 255, %182 ]
   %184 = zext nneg i32 %.0.lcssa.i137.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr nonnull readonly align 1 %.1173.i, i64 %184, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.1173.i, i64 %184, i1 false), !noalias !7
   %185 = getelementptr inbounds i8, ptr %6, i64 %184
   store i8 0, ptr %185, align 1, !noalias !7
   %186 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #42, !noalias !7
@@ -1571,12 +1571,12 @@ LoadBMFont.exit:                                  ; preds = %44, %71, %89, %111,
   %237 = call ptr @GetFileExtension(ptr noundef %1) #42, !noalias !10
   %238 = load i32, ptr %3, align 4, !noalias !10
   call void @LoadFontFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %4, ptr noundef %237, ptr noundef nonnull %235, i32 noundef %238, i32 noundef 32, ptr noundef null, i32 noundef 95), !noalias !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @UnloadFileData(ptr noundef nonnull %235) #42, !noalias !10
   br label %LoadFontEx.exit10
 
 239:                                              ; preds = %234
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %LoadFontEx.exit10
 
 LoadFontEx.exit10:                                ; preds = %236, %239
@@ -1607,7 +1607,7 @@ LoadFontEx.exit10:                                ; preds = %236, %239
 
 248:                                              ; preds = %244
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %1) #42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %250
 
 249:                                              ; preds = %244
@@ -1643,7 +1643,7 @@ define void @LoadFontEx(ptr dead_on_unwind noalias nocapture writable writeonly 
   br label %13
 
 12:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -1662,7 +1662,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
   %.sroa.7.0.extract.shift = lshr i32 %2, 8
   %.sroa.13.0.extract.shift = lshr i32 %2, 16
   %.sroa.19.0.extract.shift = lshr i32 %2, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %6, i8 0, i64 4096, i1 false)
   %10 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %1) #42
@@ -2252,7 +2252,7 @@ TextToLower.exit:                                 ; preds = %.preheader.i, %28, 
 GetLine.exit.i:                                   ; preds = %61, %.split.loop.exit.i.i
   %.0.lcssa.i.i = phi i32 [ %62, %.split.loop.exit.i.i ], [ 255, %61 ]
   %63 = zext i32 %.0.lcssa.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %8, ptr nonnull readonly align 1 %.084133.i, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %.084133.i, i64 %63, i1 false)
   %64 = getelementptr inbounds i8, ptr %8, i64 %63
   store i8 0, ptr %64, align 1
   %65 = add nsw i32 %.0.lcssa.i.i, 1
@@ -2594,7 +2594,7 @@ LoadFontDataBDF.exit:                             ; preds = %44, %._crit_edge.i,
   br label %207
 
 .thread:                                          ; preds = %42, %183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %207
 
 207:                                              ; preds = %.thread, %._crit_edge
@@ -4096,13 +4096,13 @@ stbtt__find_table.exit318.thread.i.i:             ; preds = %667, %686, %stbtt__
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  %809 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %26, i32 noundef %805, ptr noundef nonnull %19)
+  %809 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull %26, i32 noundef %805, ptr noundef nonnull %19)
   br i1 %790, label %810, label %stbtt_GetCodepointBitmap.exit
 
 810:                                              ; preds = %808
   %811 = getelementptr inbounds i8, ptr %804, i64 8
   %812 = getelementptr inbounds i8, ptr %804, i64 4
-  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly %26, i32 noundef %805, float noundef %775, float noundef %775, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull %26, i32 noundef %805, float noundef %775, float noundef %775, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %813 = load i32, ptr %17, align 4
   %814 = load i32, ptr %15, align 4
   %815 = sub i32 %813, %814
@@ -6456,7 +6456,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %810, %821, %stbtt_F
   br i1 %788, label %stbtt_GetCodepointSDF.exit, label %2142
 
 2142:                                             ; preds = %2139
-  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly %26, i32 noundef %805, float noundef %775, float noundef %775, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull %26, i32 noundef %805, float noundef %775, float noundef %775, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %2143 = load i32, ptr %7, align 4
   %2144 = load i32, ptr %9, align 4
   %2145 = icmp eq i32 %2143, %2144
@@ -6481,7 +6481,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %810, %821, %stbtt_F
   %2156 = sub nsw i32 %2154, %2152
   store i32 %2151, ptr %2140, align 4
   store i32 %2152, ptr %2141, align 4
-  %2157 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %26, i32 noundef %805, ptr noundef nonnull %11)
+  %2157 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull %26, i32 noundef %805, ptr noundef nonnull %11)
   %2158 = mul nsw i32 %2156, %2155
   %2159 = sext i32 %2158 to i64
   %2160 = call noalias ptr @malloc(i64 noundef %2159) #44
@@ -9091,7 +9091,7 @@ define void @DrawTextEx(ptr nocapture noundef byval(%struct.Font) align 8 %0, pt
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %12
 
 12:                                               ; preds = %11, %6
@@ -13394,7 +13394,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffse
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %526 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %4)
+  %526 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4)
   %.not.i7 = icmp eq i32 %526, 0
   br i1 %.not.i7, label %538, label %527
 
@@ -13407,7 +13407,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffse
   store ptr %532, ptr %2, align 8
   %533 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %532, ptr %533, align 8
-  %534 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %5)
+  %534 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5)
   %.not7.i = icmp eq i32 %534, 0
   br i1 %.not7.i, label %538, label %535
 
@@ -13443,7 +13443,7 @@ define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store i32 1, ptr %9, align 8
-  %13 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %9)
+  %13 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %9)
   %.not17.i.i = icmp eq i32 %13, 0
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load i32, ptr %14, align 8
@@ -14418,7 +14418,7 @@ stbtt__cff_index_count.exit.i:                    ; preds = %stbtt__buf_get8.exi
   %.sroa.7.8.insert.shift.i = and i64 %.sroa.3.0, -4294967296
   %.sroa.3.8.insert.ext.i = zext i32 %.sroa.3.1.i to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.7.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  %380 = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr readonly %.sroa.0.0, i64 %.sroa.3.8.insert.insert.i, i32 noundef %377)
+  %380 = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %.sroa.0.0, i64 %.sroa.3.8.insert.insert.i, i32 noundef %377)
   br label %stbtt__get_subr.exit
 
 stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_count.exit.i, %379

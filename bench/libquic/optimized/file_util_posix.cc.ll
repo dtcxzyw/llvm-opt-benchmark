@@ -162,7 +162,7 @@ entry:
   %dir = alloca %"class.base::FilePath", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  %call.i = call noundef i32 @lstat64(ptr noundef readonly %call1, ptr noundef nonnull %file_info) #19
+  %call.i = call noundef i32 @lstat64(ptr noundef %call1, ptr noundef nonnull %file_info) #19
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -1147,7 +1147,7 @@ define dso_local noundef zeroext i1 @_ZN4base15DirectoryExistsERKNS_8FilePathE(p
 entry:
   %file_info = alloca %struct.stat64, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  %call.i = call noundef i32 @stat64(ptr noundef readonly %call1, ptr noundef nonnull %file_info) #19
+  %call.i = call noundef i32 @stat64(ptr noundef %call1, ptr noundef nonnull %file_info) #19
   %cmp = icmp eq i32 %call.i, 0
   %st_mode = getelementptr inbounds i8, ptr %file_info, i64 24
   %0 = load i32, ptr %st_mode, align 8
@@ -1303,7 +1303,7 @@ define dso_local noundef zeroext i1 @_ZN4base23GetPosixFilePermissionsERKNS_8Fil
 entry:
   %file_info = alloca %struct.stat64, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  %call.i = call noundef i32 @stat64(ptr noundef readonly %call1, ptr noundef nonnull %file_info) #19
+  %call.i = call noundef i32 @stat64(ptr noundef %call1, ptr noundef nonnull %file_info) #19
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1323,7 +1323,7 @@ define dso_local noundef zeroext i1 @_ZN4base23SetPosixFilePermissionsERKNS_8Fil
 if.end:
   %stat_buf = alloca %struct.stat64, align 8
   %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  %call.i = call noundef i32 @stat64(ptr noundef readonly %call4, ptr noundef nonnull %stat_buf) #19
+  %call.i = call noundef i32 @stat64(ptr noundef %call4, ptr noundef nonnull %stat_buf) #19
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end7, label %return
 
@@ -1484,7 +1484,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
 invoke.cont38:                                    ; preds = %invoke.cont37
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i)
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34) #19
-  %call.i.i = call noundef i32 @stat64(ptr noundef readonly %call1.i, ptr noundef nonnull %file_info.i) #19
+  %call.i.i = call noundef i32 @stat64(ptr noundef %call1.i, ptr noundef nonnull %file_info.i) #19
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   %17 = load i32, ptr %st_mode.i, align 8
   %permissions.1 = select i1 %cmp.not.i, i32 %17, i32 %permissions.017
@@ -2155,7 +2155,7 @@ invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.sroa.0.039, i64 -32
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i)
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i) #19
-  %call.i.i18 = call noundef i32 @stat64(ptr noundef readonly %call1.i, ptr noundef nonnull %file_info.i) #19
+  %call.i.i18 = call noundef i32 @stat64(ptr noundef %call1.i, ptr noundef nonnull %file_info.i) #19
   %cmp.i = icmp eq i32 %call.i.i18, 0
   %12 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %12, 61440
@@ -2175,7 +2175,7 @@ invoke.cont36:                                    ; preds = %invoke.cont25
   %13 = load i32, ptr %call33, align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i21)
   %call1.i22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i) #19
-  %call.i.i23 = call noundef i32 @stat64(ptr noundef readonly %call1.i22, ptr noundef nonnull %file_info.i21) #19
+  %call.i.i23 = call noundef i32 @stat64(ptr noundef %call1.i22, ptr noundef nonnull %file_info.i21) #19
   %cmp.i24 = icmp eq i32 %call.i.i23, 0
   %14 = load i32, ptr %st_mode.i25, align 8
   %and.i26 = and i32 %14, 61440
@@ -2336,7 +2336,7 @@ if.end:                                           ; preds = %.noexc1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %real_path_result) #19
-  %call.i = call noundef i32 @stat64(ptr noundef readonly %call3, ptr noundef nonnull %file_info) #19
+  %call.i = call noundef i32 @stat64(ptr noundef %call3, ptr noundef nonnull %file_info) #19
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %lor.lhs.false, label %cleanup
 
@@ -2362,7 +2362,7 @@ define dso_local noundef zeroext i1 @_ZN4base6IsLinkERKNS_8FilePathE(ptr noundef
 entry:
   %st = alloca %struct.stat64, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file_path) #19
-  %call.i = call noundef i32 @lstat64(ptr noundef readonly %call1, ptr noundef nonnull %st) #19
+  %call.i = call noundef i32 @lstat64(ptr noundef %call1, ptr noundef nonnull %st) #19
   %cmp.not = icmp eq i32 %call.i, 0
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
@@ -2377,7 +2377,7 @@ define dso_local noundef zeroext i1 @_ZN4base11GetFileInfoERKNS_8FilePathEPNS_4F
 entry:
   %file_info = alloca %struct.stat64, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file_path) #19
-  %call.i = call noundef i32 @stat64(ptr noundef readonly %call1, ptr noundef nonnull %file_info) #19
+  %call.i = call noundef i32 @stat64(ptr noundef %call1, ptr noundef nonnull %file_info) #19
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -2536,7 +2536,7 @@ do.body.preheader.i:                              ; preds = %if.end, %for.cond.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
-  %call.i = tail call i64 @write(i32 noundef %call2, ptr noundef readonly %add.ptr.i, i64 noundef %sub.i)
+  %call.i = tail call i64 @write(i32 noundef %call2, ptr noundef %add.ptr.i, i64 noundef %sub.i)
   %cmp2.i = icmp eq i64 %call.i, -1
   br i1 %cmp2.i, label %land.rhs.i, label %do.end.i
 
@@ -2677,7 +2677,7 @@ do.body.preheader.i:                              ; preds = %if.end, %for.cond.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
-  %call.i9 = tail call i64 @write(i32 noundef %call2, ptr noundef readonly %add.ptr.i, i64 noundef %sub.i)
+  %call.i9 = tail call i64 @write(i32 noundef %call2, ptr noundef %add.ptr.i, i64 noundef %sub.i)
   %cmp2.i = icmp eq i64 %call.i9, -1
   br i1 %cmp2.i, label %land.rhs.i, label %do.end.i
 
@@ -2880,7 +2880,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
 invoke.cont15:                                    ; preds = %invoke.cont2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stat_info.i)
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %current_path) #19
-  %call.i.i = call noundef i32 @lstat64(ptr noundef readonly %call1.i, ptr noundef nonnull %stat_info.i) #19
+  %call.i.i = call noundef i32 @lstat64(ptr noundef %call1.i, ptr noundef nonnull %stat_info.i) #19
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont17.thread
 
@@ -2984,7 +2984,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stat_info.i13)
   %call1.i14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %current_path) #19
-  %call.i.i15 = call noundef i32 @lstat64(ptr noundef readonly %call1.i14, ptr noundef nonnull %stat_info.i13) #19
+  %call.i.i15 = call noundef i32 @lstat64(ptr noundef %call1.i14, ptr noundef nonnull %stat_info.i13) #19
   %cmp.not.i16 = icmp eq i32 %call.i.i15, 0
   br i1 %cmp.not.i16, label %if.end.i18, label %invoke.cont34.thread
 
@@ -3281,7 +3281,7 @@ invoke.cont7:                                     ; preds = %invoke.cont2
 if.then:                                          ; preds = %invoke.cont7
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i)
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  %call.i.i = call noundef i32 @lstat64(ptr noundef readonly %call1.i, ptr noundef nonnull %file_info.i) #19
+  %call.i.i = call noundef i32 @lstat64(ptr noundef %call1.i, ptr noundef nonnull %file_info.i) #19
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont9
 
@@ -3419,13 +3419,13 @@ entry:
   %to_file_info = alloca %struct.stat64, align 8
   %from_file_info = alloca %struct.stat64, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %to_path) #19
-  %call.i = call noundef i32 @stat64(ptr noundef readonly %call1, ptr noundef nonnull %to_file_info) #19
+  %call.i = call noundef i32 @stat64(ptr noundef %call1, ptr noundef nonnull %to_file_info) #19
   %cmp = icmp eq i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry
   %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %from_path) #19
-  %call.i6 = call noundef i32 @stat64(ptr noundef readonly %call4, ptr noundef nonnull %from_file_info) #19
+  %call.i6 = call noundef i32 @stat64(ptr noundef %call4, ptr noundef nonnull %from_file_info) #19
   %cmp6 = icmp eq i32 %call.i6, 0
   br i1 %cmp6, label %if.then7, label %return
 

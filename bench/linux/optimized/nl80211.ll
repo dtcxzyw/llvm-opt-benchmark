@@ -19957,7 +19957,7 @@ define internal i32 @nl80211_start_ap(ptr nocapture readnone %0, ptr nocapture n
 
 nl80211_get_ap_channel.exit:                      ; preds = %216
   %222 = getelementptr i8, ptr %213, i64 280
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(32) %47, ptr noundef align 8 dereferenceable(32) %222, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %47, ptr noundef align 8 dereferenceable(32) %222, i64 32, i1 false)
   br label %223
 
 223:                                              ; preds = %._crit_edge, %nl80211_get_ap_channel.exit, %209

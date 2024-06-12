@@ -1321,8 +1321,8 @@ gistDeCompressAtt.exit40:                         ; preds = %gistdentryinit.exit
   %. = select i1 %119, ptr %127, ptr %116
   %.sink55 = select i1 %brmerge27.i, ptr %., ptr %116
   %.sink = select i1 %brmerge27.i, ptr %., ptr %127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink55, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 16 dereferenceable(32) %.sink55, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 16 dereferenceable(32) %.sink, i64 32, i1 false)
   store i8 0, ptr %124, align 1
   %128 = getelementptr [32 x %struct.FmgrInfo], ptr %109, i64 0, i64 %indvars.iv
   %129 = getelementptr [32 x i32], ptr %110, i64 0, i64 %indvars.iv

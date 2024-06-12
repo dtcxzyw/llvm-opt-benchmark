@@ -17,7 +17,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %end.i = getelementptr inbounds i8, ptr %buf, i64 8
   %cmp.not.i.not = icmp eq i64 %initial, 0
   br i1 %cmp.not.i.not, label %nghttp2_buf_reserve.exit, label %if.end.i

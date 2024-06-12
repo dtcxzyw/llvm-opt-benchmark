@@ -773,20 +773,20 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit26.i:       ; preds = %_ZNK5Yosys5RTLIL8Id
           to label %.noexc34 unwind label %.loopexit241
 
 .noexc34:                                         ; preds = %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit26.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %55, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %56, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %56, i8 0, i64 48, i1 false)
   %141 = getelementptr inbounds i8, ptr %124, i64 72
-  invoke fastcc void @_ZN12_GLOBAL__N_111SigSnippets6insertEPKN5Yosys5RTLIL8CaseRuleE(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull readonly %141)
+  invoke fastcc void @_ZN12_GLOBAL__N_111SigSnippets6insertEPKN5Yosys5RTLIL8CaseRuleE(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull %141)
           to label %142 unwind label %449
 
 142:                                              ; preds = %.noexc34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %57, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %57, i8 0, i64 48, i1 false)
   store ptr %5, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_114SnippetSwCache6insertEPKN5Yosys5RTLIL8CaseRuleERSt6vectorIPNS2_10SwitchRuleESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull readonly %141, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_114SnippetSwCache6insertEPKN5Yosys5RTLIL8CaseRuleERSt6vectorIPNS2_10SwitchRuleESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull %141, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %143 unwind label %146
 
 143:                                              ; preds = %142
@@ -1103,7 +1103,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
           to label %260 unwind label %451
 
 260:                                              ; preds = %258
-  invoke fastcc void @_ZN12_GLOBAL__N_118signal_to_mux_treeEPN5Yosys5RTLIL6ModuleERNS_14SnippetSwCacheERNS0_7hashlib4dictIPNS1_10SwitchRuleEbNS6_12hash_ptr_opsEEEPNS1_8CaseRuleERKNS1_7SigSpecESH_b(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef nonnull readonly %141, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %10, i1 noundef zeroext %.0.lcssa)
+  invoke fastcc void @_ZN12_GLOBAL__N_118signal_to_mux_treeEPN5Yosys5RTLIL6ModuleERNS_14SnippetSwCacheERNS0_7hashlib4dictIPNS1_10SwitchRuleEbNS6_12hash_ptr_opsEEEPNS1_8CaseRuleERKNS1_7SigSpecESH_b(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef nonnull %141, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %10, i1 noundef zeroext %.0.lcssa)
           to label %261 unwind label %453
 
 261:                                              ; preds = %260
@@ -5943,7 +5943,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   br i1 %1279, label %1738, label %1280
 
 1280:                                             ; preds = %.noexc374
-  invoke fastcc void @_ZN12_GLOBAL__N_17gen_cmpEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecERKSt6vectorIS4_SaIS4_EEPNS1_10SwitchRuleEPNS1_8CaseRuleEb(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %1277, ptr noundef nonnull readonly align 8 dereferenceable(24) %1276, ptr noundef %1207, ptr noundef %1196, i1 noundef zeroext %7)
+  invoke fastcc void @_ZN12_GLOBAL__N_17gen_cmpEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecERKSt6vectorIS4_SaIS4_EEPNS1_10SwitchRuleEPNS1_8CaseRuleEb(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %1277, ptr noundef nonnull align 8 dereferenceable(24) %1276, ptr noundef %1207, ptr noundef %1196, i1 noundef zeroext %7)
           to label %.noexc375 unwind label %1750
 
 .noexc375:                                        ; preds = %1280
@@ -8032,7 +8032,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   br label %2347
 
 1912:                                             ; preds = %1904
-  invoke fastcc void @_ZN12_GLOBAL__N_17gen_cmpEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecERKSt6vectorIS4_SaIS4_EEPNS1_10SwitchRuleEPNS1_8CaseRuleEb(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %1754, ptr noundef nonnull readonly align 8 dereferenceable(24) %1755, ptr noundef %1753, ptr noundef nonnull %1196, i1 noundef zeroext %7)
+  invoke fastcc void @_ZN12_GLOBAL__N_17gen_cmpEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecERKSt6vectorIS4_SaIS4_EEPNS1_10SwitchRuleEPNS1_8CaseRuleEb(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %1754, ptr noundef nonnull align 8 dereferenceable(24) %1755, ptr noundef %1753, ptr noundef nonnull %1196, i1 noundef zeroext %7)
           to label %1913 unwind label %1910, !noalias !32
 
 1913:                                             ; preds = %1912

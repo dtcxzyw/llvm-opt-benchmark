@@ -415,7 +415,7 @@ invoke.cont:                                      ; preds = %if.end15.i.i.i
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   %this.val5.i.i.i = load i64, ptr %12, align 8
   %rem.i.i.i.i.i.i = urem i64 %call.i2.i.i.i.i.i, %this.val5.i.i.i
-  %call18.i.i.i = call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113JsonExtractorEEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull readonly align 8 dereferenceable(56) %6, i64 noundef %rem.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %trimedPath, i64 noundef %call.i2.i.i.i.i.i)
+  %call18.i.i.i = call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113JsonExtractorEEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %rem.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %trimedPath, i64 noundef %call.i2.i.i.i.i.i)
   %.not = icmp eq ptr %call18.i.i.i, null
   br i1 %.not, label %if.else, label %if.then
 
@@ -487,7 +487,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %this.val4.i.i.i = load i64, ptr %18, align 8
   %rem.i.i.i.i.i.i33 = urem i64 %call.i2.i.i.i.i.i31, %this.val4.i.i.i
-  %call18.i.i.i34 = call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113JsonExtractorEEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull readonly align 8 dereferenceable(56) %6, i64 noundef %rem.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %trimedPath, i64 noundef %call.i2.i.i.i.i.i31)
+  %call18.i.i.i34 = call fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113JsonExtractorEEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %rem.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %trimedPath, i64 noundef %call.i2.i.i.i.i.i31)
   %tobool.not.i.i = icmp eq ptr %call18.i.i.i34, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %invoke.cont2
 
@@ -998,7 +998,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont14.i.i.i
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113JsonExtractorEEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESY_IJEEEEEPNSH_16_Hashtable_allocISaINSH_10_Hash_nodeISF_Lb1EEEEEEDpOT_.exit.i.i: ; preds = %call5.i.i.i.i.i.i.noexc
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i112, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %73 = load i64, ptr %_M_next_resize.i.i.i.i, align 8

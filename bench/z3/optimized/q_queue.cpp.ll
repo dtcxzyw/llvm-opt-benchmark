@@ -912,7 +912,7 @@ _ZNK6vectorIfLb0EjE4sizeEv.exit:                  ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN1q5queue6insertEPNS_7bindingE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN1q5queue10set_valuesERNS_7bindingEf(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %f, float noundef 0.000000e+00)
+  tail call void @_ZN1q5queue10set_valuesERNS_7bindingEf(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(48) %f, float noundef 0.000000e+00)
   %m_evaluator.i = getelementptr inbounds i8, ptr %this, i64 184
   %m_cost_function.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_cost_function.i, align 8
@@ -1055,7 +1055,7 @@ entry:
   store i8 1, ptr %m_instantiated, align 4
   %m_cost = getelementptr inbounds i8, ptr %ent, i64 8
   %5 = load float, ptr %m_cost, align 8
-  tail call void @_ZN1q5queue10set_valuesERNS_7bindingEf(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, float noundef %5)
+  tail call void @_ZN1q5queue10set_valuesERNS_7bindingEf(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(48) %0, float noundef %5)
   %m_new_gen_function.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %m_new_gen_function.i, align 8
   %m_vals.i = getelementptr inbounds i8, ptr %this, i64 880

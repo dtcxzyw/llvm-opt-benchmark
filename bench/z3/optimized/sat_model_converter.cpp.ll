@@ -734,7 +734,7 @@ for.end.i:                                        ; preds = %for.body6.i
 
 if.then.i45:                                      ; preds = %for.end.i, %for.body.i
   %shr.i.i = lshr i32 %30, 1
-  %call12.i47 = invoke noundef zeroext i1 @_ZNK3sat15model_converter13legal_to_flipEj(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %shr.i.i)
+  %call12.i47 = invoke noundef zeroext i1 @_ZNK3sat15model_converter13legal_to_flipEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %shr.i.i)
           to label %call12.i.noexc unwind label %lpad.loopexit
 
 call12.i.noexc:                                   ; preds = %if.then.i45

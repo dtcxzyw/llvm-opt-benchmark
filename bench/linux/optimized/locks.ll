@@ -6472,7 +6472,7 @@ thread-pre-split:                                 ; preds = %7
   %70 = getelementptr inbounds i8, ptr %5, i64 80
   store i32 1, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %5, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = icmp ult i16 %.pr, 3
   br i1 %72, label %73, label %flock_to_posix_lock.exit.thread
 
@@ -6727,7 +6727,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %70 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 1, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %6, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = icmp ult i16 %19, 3
   br i1 %72, label %73, label %flock_to_posix_lock.exit.thread
 

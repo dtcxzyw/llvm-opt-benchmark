@@ -1402,7 +1402,7 @@ if.end4.i20:                                      ; preds = %land.lhs.true.i19, 
 invoke.cont13:                                    ; preds = %if.end4.i20, %land.lhs.true.i19
   %.sink.i = phi i64 [ 368, %if.end4.i20 ], [ 424, %land.lhs.true.i19 ]
   %compression_opts5.i = getelementptr inbounds i8, ptr %mutable_cf_options, i64 %.sink.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %agg.tmp11, ptr noundef nonnull readonly align 8 dereferenceable(56) %compression_opts5.i, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(56) %compression_opts5.i, i64 56, i1 false)
   %max_subcompactions = getelementptr inbounds i8, ptr %compact_options, i64 16
   %14 = load i32, ptr %max_subcompactions, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp14, i8 0, i64 24, i1 false)

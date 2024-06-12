@@ -248,7 +248,7 @@ if.end4:                                          ; preds = %strbuf_addch.exit, 
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %file, i64 noundef %call.i) #21
   %8 = load ptr, ptr %buf.i, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %call.i10 = call i32 @stat64(ptr noundef readonly %8, ptr noundef nonnull %st.i) #21
+  %call.i10 = call i32 @stat64(ptr noundef %8, ptr noundef nonnull %st.i) #21
   %tobool.not.i11 = icmp eq i32 %call.i10, 0
   br i1 %tobool.not.i11, label %lor.lhs.false.i, label %is_executable.exit.thread
 
@@ -878,7 +878,7 @@ if.end19.i:                                       ; preds = %if.else15.i, %prepa
   %67 = load ptr, ptr %argv, align 8
   %arrayidx21.i = getelementptr inbounds i8, ptr %67, i64 8
   %68 = load ptr, ptr %arrayidx21.i, align 8
-  %call.i15.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %68, i32 noundef 47) #22
+  %call.i15.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %68, i32 noundef 47) #22
   %tobool.i.not.i = icmp eq ptr %call.i15.i, null
   br i1 %tobool.i.not.i, label %if.then24.i, label %if.end118
 
@@ -2965,7 +2965,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us, %if.
   %err.i.us = getelementptr inbounds %struct.anon.1, ptr %call7.i, i64 %i.024.i.us, i32 2
   tail call void @strbuf_init(ptr noundef nonnull %err.i.us, i64 noundef 0) #21
   %process.i.us = getelementptr inbounds %struct.anon.1, ptr %call7.i, i64 %i.024.i.us, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %process.i.us, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %process.i.us, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
   %inc.i.us = add nuw i64 %i.024.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %inc.i.us, %4
   br i1 %exitcond.not.i.us, label %pp_init.exit, label %for.body.i.us, !llvm.loop !16
@@ -2981,7 +2981,7 @@ for.body.i:                                       ; preds = %if.end11.i, %for.bo
   %err.i = getelementptr inbounds %struct.anon.1, ptr %9, i64 %i.024.i, i32 2
   tail call void @strbuf_init(ptr noundef nonnull %err.i, i64 noundef 0) #21
   %process.i = getelementptr inbounds %struct.anon.1, ptr %9, i64 %i.024.i, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %process.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %process.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
   %tobool16.not.i = icmp eq ptr %8, null
   br i1 %tobool16.not.i, label %for.inc.i, label %if.then17.i
 
@@ -3270,7 +3270,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %cmp2.i, label %while.cond.i, label %if.end.i, !llvm.loop !23
 
 if.end.i:                                         ; preds = %while.body.i
-  call fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr noundef nonnull readonly %opts)
+  call fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr noundef nonnull %opts)
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.68) #24
   unreachable
 
@@ -3446,7 +3446,7 @@ if.then30.i:                                      ; preds = %if.end24.i
 if.end33.i105:                                    ; preds = %if.then30.i, %if.end24.i
   %82 = load ptr, ptr %children.i, align 8
   %process36.i = getelementptr inbounds %struct.anon.1, ptr %82, i64 %i.0.lcssa.i94, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %process36.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %process36.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
   %bf.load38.i = load i8, ptr %ungroup.i, align 8
   %bf.clear39.i = and i8 %bf.load38.i, 1
   %tobool41.not.i = icmp eq i8 %bf.clear39.i, 0

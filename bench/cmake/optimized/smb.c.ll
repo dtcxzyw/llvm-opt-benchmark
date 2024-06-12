@@ -764,7 +764,7 @@ select.unfold119:                                 ; preds = %142, %90
   store i16 %226, ptr %227, align 1
   %.val.i = load ptr, ptr %10, align 8
   %.val29.i = load ptr, ptr %13, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(36) %212, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %212, i8 0, i64 36, i1 false)
   %228 = add i16 %223, 64
   %229 = call zeroext i16 @htons(i16 noundef zeroext %228) #14
   %230 = getelementptr inbounds i8, ptr %212, i64 2
@@ -1192,7 +1192,7 @@ define internal fastcc i32 @smb_send_message(ptr noundef %0, i8 noundef zeroext 
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %0, i64 384
   %.val13 = load ptr, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(36) %9, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %9, i8 0, i64 36, i1 false)
   %12 = trunc i64 %3 to i16
   %13 = add i16 %12, 32
   %14 = tail call zeroext i16 @htons(i16 noundef zeroext %13) #14

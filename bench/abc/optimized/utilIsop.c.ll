@@ -444,7 +444,7 @@ Abc_IsopTtElems.exit:                             ; preds = %.loopexit.i.i, %5
 .lr.ph.preheader.i:                               ; preds = %Abc_IsopTtElems.exit
   %33 = zext nneg i32 %31 to i64
   %34 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %2, i8 0, i64 %34, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %34, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %Abc_IsopTtElems.exit, %.lr.ph.preheader.i
@@ -470,7 +470,7 @@ Abc_TtClear.exit:                                 ; preds = %Abc_IsopTtElems.exi
   br i1 %32, label %Abc_TtFill.exit, label %.lr.ph.preheader.i35
 
 .lr.ph.preheader.i35:                             ; preds = %41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %6, i8 -1, i64 %39, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, i8 -1, i64 %39, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %41, %.lr.ph.preheader.i35
@@ -1757,7 +1757,7 @@ define i64 @Abc_IsopNew(ptr nocapture noundef readonly %0, ptr nocapture noundef
 .lr.ph18.preheader.i:                             ; preds = %6
   %16 = zext nneg i32 %14 to i64
   %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %2, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   br label %.lr.ph.i
 
@@ -2174,7 +2174,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br label %398
 
 .lr.ph.preheader.i209:                            ; preds = %170
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %7, i8 0, i64 %33, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 0, i64 %33, i1 false)
   %241 = and i32 %.0.i, 63
   %242 = zext nneg i32 %241 to i64
   %243 = shl nuw i64 1, %242
@@ -2660,7 +2660,7 @@ default.unreachable:                              ; preds = %21
   unreachable
 
 Abc_IsopPrintCover.exit:                          ; preds = %._crit_edge.us.i, %14, %16
-  call void @Abc_IsopBuildTruth(ptr noundef nonnull readonly %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
+  call void @Abc_IsopBuildTruth(ptr noundef nonnull %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
   %30 = load i64, ptr %1, align 8
   %.not.i.i = icmp eq i64 %30, 8685324408917096584
   br i1 %.not.i.i, label %Abc_IsopVerify.exit, label %31

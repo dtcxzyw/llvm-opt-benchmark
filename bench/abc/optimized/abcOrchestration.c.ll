@@ -3199,7 +3199,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %68, ptr %69, align 8
   %70 = sext i32 %.pre110 to i64
   %71 = shl nsw i64 %70, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %68, i8 -1, i64 %71, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %68, i8 -1, i64 %71, i1 false)
   %72 = icmp sgt i32 %.pre111, 0
   br i1 %72, label %.lr.ph104, label %._crit_edge105
 
@@ -20423,7 +20423,7 @@ Vec_IntPush.exit428:                              ; preds = %.Vec_IntGrow.exit10
   %716 = sext i32 %187 to i64
   %717 = getelementptr inbounds i32, ptr %715, i64 %716
   store i32 -1, ptr %717, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 718:                                              ; preds = %705
@@ -20530,7 +20530,7 @@ Abc_Clock.exit436:                                ; preds = %Abc_Clock.exit434, 
   %764 = sext i32 %187 to i64
   %765 = getelementptr inbounds i32, ptr %763, i64 %764
   store i32 0, ptr %765, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 766:                                              ; preds = %705
@@ -20593,7 +20593,7 @@ Dec_GraphFree.exit:                               ; preds = %Abc_Clock.exit440, 
   %794 = sext i32 %187 to i64
   %795 = getelementptr inbounds i32, ptr %793, i64 %794
   store i32 1, ptr %795, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 796:                                              ; preds = %705
@@ -20660,7 +20660,7 @@ Dec_GraphFree.exit447:                            ; preds = %Abc_Clock.exit445, 
   %823 = sext i32 %187 to i64
   %824 = getelementptr inbounds i32, ptr %822, i64 %823
   store i32 2, ptr %824, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 825:                                              ; preds = %705, %182, %176, %Dec_GraphFree.exit447, %Dec_GraphFree.exit, %760, %712, %Vec_IntPush.exit361, %Vec_IntPush.exit340

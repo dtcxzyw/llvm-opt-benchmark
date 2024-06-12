@@ -239,7 +239,7 @@ define i32 @rb_getnameinfo(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %.not.i.i, label %20, label %19
 
 19:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %18, ptr readonly align 1 %0, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %0, i64 %9, i1 false)
   br label %20
 
 20:                                               ; preds = %19, %17
@@ -310,7 +310,7 @@ do_pthread_create.exit:                           ; preds = %34
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr readonly align 1 %53, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %53, i64 %3, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %52, %51
@@ -318,7 +318,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %52, %51
 
 54:                                               ; preds = %ruby_nonempty_memcpy.exit
   %55 = load ptr, ptr %26, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %4, ptr readonly align 1 %55, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %55, i64 %5, i1 false)
   br label %ruby_nonempty_memcpy.exit55
 
 56:                                               ; preds = %40
@@ -481,7 +481,7 @@ declare ptr @rb_errno_ptr() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i64 @rsock_make_ipaddr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
-  %4 = call i32 @rb_getnameinfo(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 1024, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %4 = call i32 @rb_getnameinfo(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 1024, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %make_ipaddr0.exit, label %5
 
@@ -559,7 +559,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %31, %24
   br i1 %.not.i16.i, label %ruby_nonempty_memcpy.exit.i, label %36
 
 36:                                               ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %13, ptr readonly align 1 %.sroa.3.0.i, i64 %.sroa.1.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr align 1 %.sroa.3.0.i, i64 %.sroa.1.0.i, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %36, %35
@@ -745,7 +745,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   br i1 %.not.i.i48, label %108, label %105
 
 105:                                              ; preds = %104
-  %106 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #22
+  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #22
   %107 = add i64 %106, 185
   br label %108
 
@@ -754,7 +754,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   br i1 %.not40.i.i, label %113, label %110
 
 110:                                              ; preds = %108
-  %111 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i) #22
+  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #22
   %112 = add i64 %111, 1
   br label %113
 
@@ -777,7 +777,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
 
 120:                                              ; preds = %119
   %121 = getelementptr inbounds i8, ptr %.034.i.i, i64 184
-  %122 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(1) %15) #19
+  %122 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(1) %15) #19
   br label %123
 
 123:                                              ; preds = %120, %119
@@ -789,7 +789,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   %125 = getelementptr inbounds i8, ptr %.034.i.i, i64 %109
   %126 = getelementptr inbounds i8, ptr %.034.i.i, i64 8
   store ptr %125, ptr %126, align 8
-  %127 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #19
+  %127 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(1) %.0.i) #19
   br label %130
 
 128:                                              ; preds = %123
@@ -799,7 +799,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
 
 130:                                              ; preds = %128, %124
   %131 = getelementptr inbounds i8, ptr %.034.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %132 = getelementptr inbounds i8, ptr %.034.i.i, i64 64
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %.034.i.i, i64 80
@@ -975,7 +975,7 @@ define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef %1, ptr
   store i16 2, ptr %5, align 4
   %15 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %5, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %16 = call i32 @rb_getnameinfo(ptr noundef nonnull %5, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %make_inetaddr.exit, label %17
 
@@ -1031,7 +1031,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %21, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i16 2, ptr %4, align 4
-  %36 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %4, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %36 = call i32 @rb_getnameinfo(ptr noundef nonnull %4, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i.i42 = icmp eq i32 %36, 0
   br i1 %.not.i.i42, label %make_inetaddr.exit43, label %37
 
@@ -1081,7 +1081,7 @@ make_inetaddr.exit43:                             ; preds = %35
   unreachable
 
 ruby_nonempty_memcpy.exit:                        ; preds = %33, %43, %49
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr nonnull readonly align 1 %.sroa.3.0, i64 %.sroa.1.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %.sroa.3.0, i64 %.sroa.1.0, i1 false)
   %53 = getelementptr inbounds i8, ptr %1, i64 %.sroa.1.0
   store i8 0, ptr %53, align 1
   br label %54
@@ -1181,7 +1181,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %44, i8 0, i64 24, i1 false)
   store i16 10, ptr %43, align 4
   %45 = getelementptr inbounds i8, ptr %43, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %45, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %46 = call zeroext i16 @htons(i16 noundef zeroext %.0106) #23
   %47 = getelementptr inbounds i8, ptr %43, i64 2
   store i16 %46, ptr %47, align 2
@@ -1236,7 +1236,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %69, i8 0, i64 24, i1 false)
   store i16 10, ptr %68, align 4
   %70 = getelementptr inbounds i8, ptr %68, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %70, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %70, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %71 = call zeroext i16 @htons(i16 noundef zeroext %.0106) #23
   %72 = getelementptr inbounds i8, ptr %68, i64 2
   store i16 %71, ptr %72, align 2
@@ -1289,7 +1289,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %95, i8 0, i64 24, i1 false)
   store i16 10, ptr %94, align 4
   %96 = getelementptr inbounds i8, ptr %94, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %96, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %96, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %97 = call zeroext i16 @htons(i16 noundef zeroext %.0106) #23
   %98 = getelementptr inbounds i8, ptr %94, i64 2
   store i16 %97, ptr %98, align 2
@@ -1854,7 +1854,7 @@ define i64 @rsock_addrinfo_new(ptr nocapture noundef readonly %0, i32 noundef %1
 18:                                               ; preds = %17
   %19 = zext nneg i32 %1 to i64
   %20 = getelementptr inbounds i8, ptr %10, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %20, ptr readonly align 1 %0, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %0, i64 %19, i1 false)
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %17, %18
@@ -2536,7 +2536,7 @@ get_afamily.exit:                                 ; preds = %3, %7
 27:                                               ; preds = %26
   %28 = zext nneg i32 %2 to i64
   %29 = getelementptr inbounds i8, ptr %19, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %29, ptr readonly align 1 %1, i64 %28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %28, i1 false)
   br label %rsock_addrinfo_new.exit
 
 rsock_addrinfo_new.exit:                          ; preds = %26, %27
@@ -2972,7 +2972,7 @@ rb_num2int_inline.exit32:                         ; preds = %74, %76
 133:                                              ; preds = %132
   %134 = zext nneg i32 %122 to i64
   %135 = getelementptr inbounds i8, ptr %20, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %135, ptr readonly align 1 %120, i64 %134, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr align 1 %120, i64 %134, i1 false)
   br label %init_addrinfo.exit.i
 
 init_addrinfo.exit.i:                             ; preds = %133, %132
@@ -3050,13 +3050,13 @@ RSTRING_PTR.exit.thread.i:                        ; preds = %159
 
 163:                                              ; preds = %RSTRING_PTR.exit.i
   %.2..2..2..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %.2..2..2..sroa_idx50, ptr nonnull readonly align 1 %162, i64 %155, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx50, ptr nonnull align 1 %162, i64 %155, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
 164:                                              ; preds = %RSTRING_PTR.exit.thread.i
   %.sroa.2.0.copyload.i.i = load ptr, ptr %162, align 8
   %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sroa.2.0.copyload.i.i, i64 %155, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr align 1 %.sroa.2.0.copyload.i.i, i64 %155, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
 RSTRING_PTR.exit.i.i:                             ; preds = %164, %163
@@ -3074,7 +3074,7 @@ init_unix_addrinfo.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %.0.i.i = phi i32 [ %168, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
   %169 = zext nneg i32 %.0.i.i to i64
   %170 = getelementptr inbounds i8, ptr %20, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %170, ptr noundef nonnull readonly align 2 dereferenceable(1) %6, i64 %169, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %170, ptr noundef nonnull align 2 dereferenceable(1) %6, i64 %169, i1 false)
   %171 = getelementptr inbounds i8, ptr %20, i64 28
   store i32 %.0.i.i, ptr %171, align 4
   %172 = getelementptr inbounds i8, ptr %20, i64 16
@@ -3137,7 +3137,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit42
 194:                                              ; preds = %193
   %195 = and i64 %186, 4095
   %196 = getelementptr inbounds i8, ptr %20, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %196, ptr readonly align 1 %.sroa.2.0.i41, i64 %195, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr align 1 %.sroa.2.0.i41, i64 %195, i1 false)
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %193, %194
@@ -3432,7 +3432,7 @@ define internal i64 @addrinfo_s_getaddrinfo(i32 noundef %0, ptr noundef %1, i64 
 49:                                               ; preds = %48
   %50 = zext nneg i32 %44 to i64
   %51 = getelementptr inbounds i8, ptr %40, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %51, ptr readonly align 1 %35, i64 %50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %35, i64 %50, i1 false)
   br label %rsock_addrinfo_new.exit.i
 
 rsock_addrinfo_new.exit.i:                        ; preds = %49, %48
@@ -3572,13 +3572,13 @@ RSTRING_PTR.exit.thread.i:                        ; preds = %29
 
 33:                                               ; preds = %RSTRING_PTR.exit.i
   %.2..2..2..sroa_idx8 = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %.2..2..2..sroa_idx8, ptr nonnull readonly align 1 %32, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx8, ptr nonnull align 1 %32, i64 %25, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
 34:                                               ; preds = %RSTRING_PTR.exit.thread.i
   %.sroa.2.0.copyload.i.i = load ptr, ptr %32, align 8
   %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sroa.2.0.copyload.i.i, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr align 1 %.sroa.2.0.copyload.i.i, i64 %25, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
 RSTRING_PTR.exit.i.i:                             ; preds = %34, %33
@@ -3596,7 +3596,7 @@ init_unix_addrinfo.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %.0.i.i = phi i32 [ %38, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
   %39 = zext nneg i32 %.0.i.i to i64
   %40 = getelementptr inbounds i8, ptr %16, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %40, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 2 dereferenceable(1) %5, i64 %39, i1 false)
   %41 = getelementptr inbounds i8, ptr %16, i64 28
   store i32 %.0.i.i, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %16, i64 16
@@ -5310,7 +5310,7 @@ RSTRING_PTR.exit45:                               ; preds = %109, %113
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %114
 
 114:                                              ; preds = %RSTRING_PTR.exit45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %.sroa.3, ptr readonly align 1 %.sroa.2.0.i44, i64 %105, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.sroa.3, ptr align 1 %.sroa.2.0.i44, i64 %105, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit45, %114
@@ -5363,7 +5363,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit45,
   %146 = zext i32 %144 to i64
   %147 = getelementptr inbounds i8, ptr %142, i64 24
   %148 = load ptr, ptr %147, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %9, ptr readonly align 1 %148, i64 %146, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 1 %148, i64 %146, i1 false)
   br label %ruby_nonempty_memcpy.exit48
 
 ruby_nonempty_memcpy.exit48:                      ; preds = %115, %145
@@ -5418,7 +5418,7 @@ rb_freeaddrinfo.exit:                             ; preds = %.lr.ph.i, %151
 168:                                              ; preds = %167
   %169 = zext nneg i32 %.028 to i64
   %170 = getelementptr inbounds i8, ptr %157, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %170, ptr nonnull readonly align 8 %9, i64 %169, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull align 8 %9, i64 %169, i1 false)
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %167, %168
@@ -5472,7 +5472,7 @@ define internal fastcc void @make_inetaddr(i32 noundef %0, ptr noundef %1) unnam
   store i16 2, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %0, ptr %4, align 4
-  %5 = call i32 @rb_getnameinfo(ptr noundef nonnull readonly %3, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %5 = call i32 @rb_getnameinfo(ptr noundef nonnull %3, i32 noundef 16, ptr noundef %1, i64 noundef 1025, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %make_ipaddr0.exit, label %6
 
@@ -6052,7 +6052,7 @@ call_getaddrinfo.exit:                            ; preds = %18, %rb_num2int_inl
 53:                                               ; preds = %52
   %54 = zext nneg i32 %48 to i64
   %55 = getelementptr inbounds i8, ptr %44, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %55, ptr readonly align 1 %39, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %39, i64 %54, i1 false)
   br label %rsock_addrinfo_new.exit
 
 rsock_addrinfo_new.exit:                          ; preds = %52, %53

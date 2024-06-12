@@ -4195,7 +4195,7 @@ Saig_ManBmcHashKey.exit.i:                        ; preds = %586
   %595 = mul i32 %594, 6
   %596 = zext i32 %595 to i64
   %597 = getelementptr inbounds i32, ptr %585, i64 %596
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %597, ptr noundef nonnull readonly dereferenceable(20) %.val191.i, i64 20)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %597, ptr noundef nonnull dereferenceable(20) %.val191.i, i64 20)
   %.not.i87 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i87, label %Saig_ManBmcLookup.exit, label %598
 
@@ -4217,7 +4217,7 @@ Saig_ManBmcHashKey.exit.i:                        ; preds = %586
   br label %Saig_ManBmcLookup.exit.thread
 
 Saig_ManBmcLookup.exit.thread:                    ; preds = %601, %604
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %597, ptr noundef nonnull readonly align 4 dereferenceable(20) %.val191.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %597, ptr noundef nonnull align 4 dereferenceable(20) %.val191.i, i64 20, i1 false)
   %607 = getelementptr inbounds i8, ptr %597, i64 20
   store i32 0, ptr %607, align 4
   br label %611

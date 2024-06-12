@@ -31827,7 +31827,7 @@ do.end7717:                                       ; preds = %invoke.cont7673, %i
   store ptr null, ptr %m_value.i.i.i7363, align 8
   %_M_manager.i.i7364 = getelementptr inbounds i8, ptr %agg.tmp7719, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7719, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp7719, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp7719, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i7364, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail28json_sax_dom_callback_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEC2ERSF_St8functionIFbiNS1_13parse_event_tESH_EEb(ptr noundef nonnull align 8 dereferenceable(184) %scp, ptr noundef nonnull align 8 dereferenceable(16) %j7718, ptr noundef nonnull %agg.tmp7719, i1 noundef zeroext true)
@@ -32272,7 +32272,7 @@ do.end7860:                                       ; preds = %invoke.cont7816, %i
   store ptr null, ptr %m_value.i.i.i7425, align 8
   %_M_manager.i.i7426 = getelementptr inbounds i8, ptr %agg.tmp7863, i64 16
   %_M_invoker.i7427 = getelementptr inbounds i8, ptr %agg.tmp7863, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp7863, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp7863, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E9_M_invokeERKSt9_Any_dataOiOS3_SH_", ptr %_M_invoker.i7427, align 8
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i7426, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail28json_sax_dom_callback_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEC2ERSF_St8functionIFbiNS1_13parse_event_tESH_EEb(ptr noundef nonnull align 8 dereferenceable(184) %scp7862, ptr noundef nonnull align 8 dereferenceable(16) %j7861, ptr noundef nonnull %agg.tmp7863, i1 noundef zeroext true)

@@ -475,8 +475,8 @@ ossl_cipher_generic_initiv.exit:                  ; preds = %if.then7
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %updated, align 4
   %iv3.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv3.i, ptr nonnull readonly align 1 %iv, i64 %ivlen, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ctx, ptr nonnull readonly align 1 %iv, i64 %ivlen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv3.i, ptr nonnull align 1 %iv, i64 %ivlen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ctx, ptr nonnull align 1 %iv, i64 %ivlen, i1 false)
   br label %if.end30
 
 land.lhs.true14:                                  ; preds = %if.end

@@ -3421,7 +3421,7 @@ agxblen.exit.i:                                   ; preds = %60
   %.val.i25.i98 = phi i8 [ %.val.i25.pre.i, %66 ], [ 0, %agxblen.exit.i ]
   %67 = zext i8 %.val.i25.i98 to i64
   %68 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr readonly align 1 %9, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr align 1 %9, i64 %61, i1 false)
   %69 = trunc i32 %52 to i8
   %70 = load i8, ptr %63, align 1
   %71 = add i8 %70, %69
@@ -3432,7 +3432,7 @@ agxblen.exit.i:                                   ; preds = %60
   %73 = load i64, ptr %64, align 8
   %74 = load ptr, ptr %6, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr readonly align 1 %9, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %9, i64 %61, i1 false)
   %76 = add i64 %73, %61
   store i64 %76, ptr %64, align 8
   br label %agxbput_n.exit
@@ -3494,7 +3494,7 @@ agxblen.exit.i79.us:                              ; preds = %.lr.ph.split.us
 96:                                               ; preds = %95
   %97 = zext i8 %.val.i25.i82.us to i64
   %98 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.06392.us, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %.06392.us, i64 %87, i1 false)
   %99 = trunc i32 %86 to i8
   %100 = load i8, ptr %83, align 1
   %101 = add i8 %100, %99
@@ -3505,7 +3505,7 @@ agxblen.exit.i79.us:                              ; preds = %.lr.ph.split.us
   %103 = load i64, ptr %85, align 8
   %104 = load ptr, ptr %6, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 %103
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr readonly align 1 %.06392.us, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %.06392.us, i64 %87, i1 false)
   %106 = add i64 %103, %87
   store i64 %106, ptr %85, align 8
   br label %agxbput_n.exit85.us
@@ -3551,7 +3551,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
 122:                                              ; preds = %121
   %123 = zext i8 %.val.i25.i82 to i64
   %124 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %123
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr readonly align 1 %.06392, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr align 1 %.06392, i64 %113, i1 false)
   %125 = trunc i32 %112 to i8
   %126 = load i8, ptr %83, align 1
   %127 = add i8 %126, %125
@@ -3562,7 +3562,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
   %129 = load i64, ptr %85, align 8
   %130 = load ptr, ptr %6, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 %129
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr readonly align 1 %.06392, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 1 %.06392, i64 %113, i1 false)
   %132 = add i64 %129, %113
   store i64 %132, ptr %85, align 8
   br label %agxbput_n.exit85
@@ -3578,7 +3578,7 @@ agxbput_n.exit85:                                 ; preds = %.lr.ph.split, %122,
 
 .loopexit:                                        ; preds = %agxbput_n.exit85, %agxbput_n.exit85.us, %.preheader, %78
   %.164 = phi ptr [ %81, %78 ], [ %81, %.preheader ], [ %109, %agxbput_n.exit85.us ], [ %135, %agxbput_n.exit85 ]
-  %137 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.164) #26
+  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.164) #26
   %138 = icmp eq i64 %137, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i.i.i86.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -3610,7 +3610,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
 148:                                              ; preds = %147
   %149 = zext i8 %.val.i25.i.i to i64
   %150 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %149
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr readonly align 1 %.164, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr align 1 %.164, i64 %137, i1 false)
   %151 = trunc i64 %137 to i8
   %152 = load i8, ptr %.phi.trans.insert, align 1
   %153 = add i8 %152, %151
@@ -3621,7 +3621,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
   %155 = load i64, ptr %142, align 8
   %156 = load ptr, ptr %6, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 %155
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr readonly align 1 %.164, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %.164, i64 %137, i1 false)
   %158 = add i64 %155, %137
   store i64 %158, ptr %142, align 8
   br label %agxbput.exit
@@ -4937,7 +4937,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
 42:                                               ; preds = %41
   %43 = zext i8 %.val.i25.i to i64
   %44 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr readonly align 1 %25, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %25, i64 %31, i1 false)
   %45 = trunc i32 %30 to i8
   %46 = load i8, ptr %6, align 1
   %47 = add i8 %46, %45
@@ -4948,7 +4948,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
   %49 = load i64, ptr %8, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr readonly align 1 %25, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %25, i64 %31, i1 false)
   %52 = load i64, ptr %8, align 8
   %53 = add i64 %52, %31
   store i64 %53, ptr %8, align 8
@@ -5543,7 +5543,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
 
 194:                                              ; preds = %190
   %195 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 10)
-  %196 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.33, i64 noundef %195) #26
+  %196 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.05.0, ptr noundef nonnull @.str.33, i64 noundef %195) #26
   %.not.i.i.i = icmp eq i32 %196, 0
   %197 = icmp eq i64 %.sroa.10.0, 10
   %spec.select.i.i = and i1 %197, %.not.i.i.i
@@ -5597,7 +5597,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
 
 219:                                              ; preds = %194
   %220 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 6)
-  %221 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.34, i64 noundef %220) #26
+  %221 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.05.0, ptr noundef nonnull @.str.34, i64 noundef %220) #26
   %.not.i.i.i169 = icmp eq i32 %221, 0
   %222 = icmp eq i64 %.sroa.10.0, 6
   %spec.select.i.i170 = and i1 %222, %.not.i.i.i169
@@ -5643,7 +5643,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
 
 239:                                              ; preds = %219
   %240 = tail call i64 @llvm.umin.i64(i64 %.sroa.10.0, i64 5)
-  %241 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.05.0, ptr noundef nonnull readonly @.str.35, i64 noundef %240) #26
+  %241 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.05.0, ptr noundef nonnull @.str.35, i64 noundef %240) #26
   %.not.i.i.i172 = icmp eq i32 %241, 0
   %242 = icmp eq i64 %.sroa.10.0, 5
   %spec.select.i.i173 = and i1 %242, %.not.i.i.i172
@@ -5810,7 +5810,7 @@ define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64
 strview.exit:                                     ; preds = %4, %5
   %.sroa.3.0.i = phi i64 [ %strlen.i, %4 ], [ %6, %5 ]
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.3.0.i)
-  %8 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %7) #26
+  %8 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %2, i64 noundef %7) #26
   %.not.i.i = icmp eq i32 %8, 0
   %9 = icmp eq i64 %.sroa.3.0.i, %1
   %spec.select.i = and i1 %9, %.not.i.i

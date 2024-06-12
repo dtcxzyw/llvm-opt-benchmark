@@ -390,7 +390,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit.
 
 16:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit.i
   %17 = getelementptr inbounds i8, ptr %15, i64 %.sroa.0.0.copyload.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr nonnull readonly align 8 %4, i64 %2, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr nonnull align 8 %4, i64 %2, i1 false)
   br label %_ZN4LIEF15vector_iostream5writeEPKhl.exit
 
 _ZN4LIEF15vector_iostream5writeEPKhl.exit:        ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit.i, %16

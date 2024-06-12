@@ -4495,7 +4495,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_Z9make_houri(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result, i32 noundef %h) local_unnamed_addr #3 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !5
   %tm_mday.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1, ptr %tm_mday.i, align 4, !alias.scope !5
   %tm_hour = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4506,7 +4506,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_Z11make_minutei(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result, i32 noundef %m) local_unnamed_addr #3 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !8
   %tm_mday.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1, ptr %tm_mday.i, align 4, !alias.scope !8
   %tm_min = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -4517,7 +4517,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_Z11make_secondi(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result, i32 noundef %s) local_unnamed_addr #3 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !11
   %tm_mday.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1, ptr %tm_mday.i, align 4, !alias.scope !11
   store i32 %s, ptr %agg.result, align 8
@@ -31130,7 +31130,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ref.tmp4, i8 0, i64 56, i1 false), !alias.scope !1062
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp4, i8 0, i64 56, i1 false), !alias.scope !1062
   %tm_mday.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 12
   store i32 1, ptr %tm_mday.i.i, align 4, !alias.scope !1062
   %tm_hour.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
@@ -31272,7 +31272,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end33, %_ZNKSt14
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ref.tmp40, i8 0, i64 56, i1 false), !alias.scope !1071
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp40, i8 0, i64 56, i1 false), !alias.scope !1071
   %tm_mday.i.i64 = getelementptr inbounds i8, ptr %ref.tmp40, i64 12
   store i32 1, ptr %tm_mday.i.i64, align 4, !alias.scope !1071
   %tm_hour.i65 = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
@@ -31424,7 +31424,7 @@ _ZN7testing15AssertionResultD2Ev.exit92:          ; preds = %if.end73, %_ZNKSt14
           to label %invoke.cont77 unwind label %lpad
 
 invoke.cont77:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit92
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ref.tmp80, i8 0, i64 56, i1 false), !alias.scope !1080
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp80, i8 0, i64 56, i1 false), !alias.scope !1080
   %tm_mday.i.i93 = getelementptr inbounds i8, ptr %ref.tmp80, i64 12
   store i32 1, ptr %tm_mday.i.i93, align 4, !alias.scope !1080
   %tm_min.i = getelementptr inbounds i8, ptr %ref.tmp80, i64 4
@@ -31576,7 +31576,7 @@ _ZN7testing15AssertionResultD2Ev.exit119:         ; preds = %if.end113, %_ZNKSt1
           to label %invoke.cont117 unwind label %lpad
 
 invoke.cont117:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit119
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ref.tmp120, i8 0, i64 56, i1 false), !alias.scope !1089
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp120, i8 0, i64 56, i1 false), !alias.scope !1089
   %tm_mday.i.i120 = getelementptr inbounds i8, ptr %ref.tmp120, i64 12
   store i32 1, ptr %tm_mday.i.i120, align 4, !alias.scope !1089
   store i32 42, ptr %ref.tmp120, align 8, !alias.scope !1094
@@ -31724,7 +31724,7 @@ _ZN7testing15AssertionResultD2Ev.exit146:         ; preds = %if.end153, %_ZNKSt1
   store ptr null, ptr %message_.i143, align 8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %jp_loc116) #28
   %61 = getelementptr inbounds i8, ptr %time, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(56) %61, i8 0, i64 40, i1 false), !alias.scope !1098
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %61, i8 0, i64 40, i1 false), !alias.scope !1098
   store <4 x i32> <i32 45, i32 25, i32 3, i32 1>, ptr %time, align 16
   store i64 12345, ptr %sec, align 8
   invoke void @_ZNSt6localeC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %jp_loc156, ptr noundef nonnull @.str.498)

@@ -65089,7 +65089,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9AdderBase4Da
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZ32test_submodule_virtual_functionsRN8pybind117module_EENK3$_0clERKN9AdderBase4DataES8_S8_RKS5_RKSt8functionIFvS8_EEEUlS8_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
@@ -65553,7 +65553,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTest1AE, ptr %2, align 8
   %5 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -67516,7 +67516,7 @@ _ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN
   %32 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr null, ptr %32, align 8, !alias.scope !1644, !noalias !1650
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1647
-  %33 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %33 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc14 unwind label %64
 
 .noexc14:                                         ; preds = %_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvEERKNS_6handleE.exit.i.i.i
@@ -67585,7 +67585,7 @@ _ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN
   %47 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %47, align 8, !alias.scope !1651, !noalias !1657
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1654
-  %48 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %48 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc20 unwind label %64
 
 .noexc20:                                         ; preds = %_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvEERKNS_6handleE.exit.i5.i.i
@@ -67855,7 +67855,7 @@ _ZN8pybind116detail9load_typeIRZ32test_submodule_virtual_functionsRNS_7module_EE
   %25 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %25, align 8, !alias.scope !1661
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !1661
-  %26 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(8) %7)
+  %26 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc17 unwind label %45
 
 .noexc17:                                         ; preds = %_ZN8pybind116detail9load_typeIRZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvEERKNS_6handleE.exit.i.i.i

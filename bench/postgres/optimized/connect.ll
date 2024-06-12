@@ -92,7 +92,7 @@ define ptr @ecpg_get_connection(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %3
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @connections_mutex) #8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str) #9
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str) #9
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.preheader.i
 
@@ -113,7 +113,7 @@ define ptr @ecpg_get_connection(ptr noundef readonly %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %.preheader.i, %25
   %.014.i = phi ptr [ %.0.i, %25 ], [ %.012.i, %.preheader.i ]
   %22 = load ptr, ptr %.014.i, align 8
-  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %22) #9
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %ecpg_get_connection_nr.exit, label %25
 
@@ -1214,7 +1214,7 @@ define noundef zeroext i1 @ECPGdisconnect(i32 noundef %0, ptr noundef %1) local_
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.preheader.i
 
@@ -1235,7 +1235,7 @@ define noundef zeroext i1 @ECPGdisconnect(i32 noundef %0, ptr noundef %1) local_
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
   %.014.i = phi ptr [ %.0.i, %28 ], [ %.012.i, %.preheader.i ]
   %25 = load ptr, ptr %.014.i, align 8
-  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %25) #9
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %25) #9
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %ecpg_get_connection_nr.exit, label %28
 

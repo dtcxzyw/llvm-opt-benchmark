@@ -208,7 +208,7 @@ define i32 @Sfm_ObjMffcSize(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %.val2.i.i = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i32, ptr %.val2.i.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 @Sfm_ObjDeref_rec(ptr noundef nonnull readonly %0, i32 noundef %14)
+  %15 = tail call i32 @Sfm_ObjDeref_rec(ptr noundef nonnull %0, i32 noundef %14)
   %16 = add nsw i32 %15, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load ptr, ptr %9, align 8
@@ -229,7 +229,7 @@ Sfm_ObjDeref.exit:                                ; preds = %.lr.ph.i
   %.val2.i.i18 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds i32, ptr %.val2.i.i18, i64 %indvars.iv.i15
   %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 @Sfm_ObjRef_rec(ptr noundef nonnull readonly %0, i32 noundef %23)
+  %24 = tail call i32 @Sfm_ObjRef_rec(ptr noundef nonnull %0, i32 noundef %23)
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i15, 1
   %.val.i20 = load ptr, ptr %9, align 8
   %25 = getelementptr %struct.Vec_Int_t_, ptr %.val.i20, i64 %6, i32 1

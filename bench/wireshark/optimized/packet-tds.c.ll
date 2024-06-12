@@ -3070,7 +3070,7 @@ dissect_tds_type_info.exit.i:                     ; preds = %.sink.split.i.i, %.
 
 321:                                              ; preds = %dissect_tds_type_info.exit.i
   %322 = load i32, ptr @hf_tds_rpc_parameter_value, align 4
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %214, i32 noundef %322, ptr noundef nonnull readonly %.0, i8 noundef zeroext %244, i8 noundef zeroext 0, i32 noundef %.276.i, i32 noundef -1, ptr noundef null)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %214, i32 noundef %322, ptr noundef nonnull %.0, i8 noundef zeroext %244, i8 noundef zeroext 0, i32 noundef %.276.i, i32 noundef -1, ptr noundef null)
   %323 = load i32, ptr %35, align 4
   call void @proto_item_set_end(ptr noundef %212, ptr noundef %.0181, i32 noundef %323) #11
   %324 = load i32, ptr %35, align 4
@@ -3547,7 +3547,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   %.val.i197 = load ptr, ptr %584, align 8
   %585 = getelementptr i8, ptr %.val.i197, i64 50
   %.val.val.i198 = load i16, ptr %585, align 2
-  call fastcc void @set_tds_version(i16 %.val.val.i198, ptr noundef nonnull writeonly %.0, i32 noundef %583)
+  call fastcc void @set_tds_version(i16 %.val.val.i198, ptr noundef nonnull %.0, i32 noundef %583)
   %586 = load i32, ptr @hf_tds7login_packet_size, align 4
   %587 = getelementptr inbounds i8, ptr %30, i64 8
   %588 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %577, i32 noundef %586, ptr noundef nonnull %.0181, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %587) #11
@@ -4551,7 +4551,7 @@ dissect_tds5_dbrpc_token.exit.i:                  ; preds = %1070, %._crit_edge.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1103 = load ptr, ptr %1098, align 8
   %1104 = trunc nuw i64 %indvars.iv.next.i.i to i32
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %744, i32 noundef %1096, ptr noundef nonnull readonly %.0, i8 noundef zeroext %1100, i8 noundef zeroext %1102, i32 noundef 0, i32 noundef %1104, ptr noundef %1103)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %744, i32 noundef %1096, ptr noundef nonnull %.0, i8 noundef zeroext %1100, i8 noundef zeroext %1102, i32 noundef 0, i32 noundef %1104, ptr noundef %1103)
   %exitcond.not.i209 = icmp eq i64 %indvars.iv.next.i.i, %1094
   br i1 %exitcond.not.i209, label %._crit_edge.loopexit.i.i, label %1095, !llvm.loop !10
 
@@ -5431,7 +5431,7 @@ dissect_tds_control_token.exit:                   ; preds = %319, %._crit_edge.i
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i234, 1
   %382 = load ptr, ptr %377, align 8
   %383 = trunc nuw i64 %indvars.iv.next.i235 to i32
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %119, i32 noundef %375, ptr noundef readonly %3, i8 noundef zeroext %379, i8 noundef zeroext %381, i32 noundef 0, i32 noundef %383, ptr noundef %382)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %119, i32 noundef %375, ptr noundef %3, i8 noundef zeroext %379, i8 noundef zeroext %381, i32 noundef 0, i32 noundef %383, ptr noundef %382)
   %exitcond342.not = icmp eq i64 %indvars.iv.next.i235, %373
   br i1 %exitcond342.not, label %._crit_edge.loopexit.i236, label %374, !llvm.loop !10
 
@@ -7149,7 +7149,7 @@ dissect_tds_type_info_minimal.exit.i:             ; preds = %.sink.split.i.i, %1
   %1257 = add nuw nsw i64 %indvars.iv.i287, 1
   %1258 = load ptr, ptr %1247, align 8
   %1259 = trunc nuw i64 %1257 to i32
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %785, i32 noundef %1254, ptr noundef readonly %3, i8 noundef zeroext %1249, i8 noundef zeroext %1256, i32 noundef %.027.i, i32 noundef %1259, ptr noundef %1258)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %785, i32 noundef %1254, ptr noundef %3, i8 noundef zeroext %1249, i8 noundef zeroext %1256, i32 noundef %.027.i, i32 noundef %1259, ptr noundef %1258)
   br label %1260
 
 1260:                                             ; preds = %dissect_tds_type_info_minimal.exit.i, %._crit_edge31.i

@@ -797,7 +797,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .noexc88:                                         ; preds = %182
   %185 = getelementptr inbounds i8, ptr %184, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false), !noalias !67
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %184, align 8, !noalias !67
   %186 = getelementptr inbounds i8, ptr %184, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !70)

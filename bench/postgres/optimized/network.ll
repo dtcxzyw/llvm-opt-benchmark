@@ -1046,7 +1046,7 @@ define internal fastcc i32 @network_cmp_internal(ptr nocapture noundef readonly 
   %. = tail call i8 @llvm.umin.i8(i8 %16, i8 %18)
   %19 = lshr i8 %., 3
   %20 = zext nneg i8 %19 to i64
-  %21 = tail call i32 @memcmp(ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14, i64 noundef %20) #14
+  %21 = tail call i32 @memcmp(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %20) #14
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %bitncmp.exit
 
@@ -1096,7 +1096,7 @@ define internal fastcc i32 @network_cmp_internal(ptr nocapture noundef readonly 
 41:                                               ; preds = %.loopexit
   %42 = icmp eq i8 %6, 2
   %43 = select i1 %42, i64 4, i64 16
-  %44 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %13, ptr noundef nonnull readonly dereferenceable(4) %14, i64 noundef %43) #14
+  %44 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %13, ptr noundef nonnull dereferenceable(4) %14, i64 noundef %43) #14
   br label %bitncmp.exit
 
 45:                                               ; preds = %2

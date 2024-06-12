@@ -824,7 +824,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   %55 = load ptr, ptr %32, align 8
   %56 = zext nneg i32 %53 to i64
   %57 = shl nuw nsw i64 %56, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %55, i8 0, i64 %57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %57, i1 false)
   br label %Tru_ManClear.exit
 
 Tru_ManClear.exit:                                ; preds = %._crit_edge38, %.lr.ph.preheader.i

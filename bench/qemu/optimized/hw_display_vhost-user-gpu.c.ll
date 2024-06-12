@@ -605,7 +605,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   %12 = load ptr, ptr %current_cursor.i, align 8
   %data.i = getelementptr inbounds i8, ptr %12, i64 16
   %data14.i = getelementptr inbounds i8, ptr %call18, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16384) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(16384) %data14.i, i64 16384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16384) %data.i, ptr noundef nonnull align 1 dereferenceable(16384) %data14.i, i64 16384, i1 false)
   %13 = load ptr, ptr %arrayidx.i, align 8
   %14 = load ptr, ptr %current_cursor.i, align 8
   call void @dpy_cursor_define(ptr noundef %13, ptr noundef %14) #7

@@ -110,7 +110,7 @@ define internal fastcc { i1, i64 } @_ZN6uu_fmt9parasplit9FileLines20match_prefix
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hadbd85b14b3814fdE.exit.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hadbd85b14b3814fdE.exit.i": ; preds = %5
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !26
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %2, i64 %1), !alias.scope !26
   %6 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit"
 
@@ -219,7 +219,7 @@ define internal fastcc { i1, i64 } @_ZN6uu_fmt9parasplit9FileLines20match_prefix
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit19": ; preds = %60
   %62 = getelementptr inbounds i8, ptr %2, i64 %.sroa.11.036
-  %bcmp.i.i17 = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %62, i64 %1), !alias.scope !43
+  %bcmp.i.i17 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %62, i64 %1), !alias.scope !43
   %63 = icmp eq i32 %bcmp.i.i17, 0
   br i1 %63, label %.critedge14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit19.thread"
 
@@ -1055,7 +1055,7 @@ define void @"_ZN93_$LT$uu_fmt..parasplit..ParagraphStream$u20$as$u20$core..iter
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uu_fmt..parasplit..Line$GT$$GT$$GT$17h61a284ae39019f42E.exit.i": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !119
-  call void @"_ZN87_$LT$uu_fmt..parasplit..FileLines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f82984c7429ebaE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !123
+  call void @"_ZN87_$LT$uu_fmt..parasplit..FileLines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f82984c7429ebaE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false), !noalias !124
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !119
   %.pre.i = load i64, ptr %1, align 8, !range !118
@@ -1120,7 +1120,7 @@ define void @"_ZN93_$LT$uu_fmt..parasplit..ParagraphStream$u20$as$u20$core..iter
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uu_fmt..parasplit..Line$GT$$GT$$GT$17h61a284ae39019f42E.exit.i106": ; preds = %30
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !125
-  invoke void @"_ZN87_$LT$uu_fmt..parasplit..FileLines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f82984c7429ebaE"(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
+  invoke void @"_ZN87_$LT$uu_fmt..parasplit..FileLines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f82984c7429ebaE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uu_fmt..parasplit..Line$GT$$GT$$GT$17h61a284ae39019f42E.exit.i106"
@@ -1200,7 +1200,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit.t
   br i1 %.not.i.i, label %.lr.ph.split.split.i.i.i.preheader, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit.i": ; preds = %57
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @anon.0a98979eb37e4c63d63e59962892c19c.43, ptr noundef nonnull readonly dereferenceable(5) %58, i64 5), !alias.scope !133, !noalias !130
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @anon.0a98979eb37e4c63d63e59962892c19c.43, ptr noundef nonnull dereferenceable(5) %58, i64 5), !alias.scope !133, !noalias !130
   %60 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %60, label %_ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit, label %.lr.ph.split.split.i.i.i.preheader
 
@@ -1450,7 +1450,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   %178 = phi i64 [ %169, %168 ], [ %.pre.i.i118, %.noexc120 ]
   %179 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !182, !noalias !187, !nonnull !5, !noundef !5
   %180 = getelementptr inbounds i8, ptr %179, i64 %178
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %180, ptr nonnull readonly align 1 %.100.val104, i64 %146, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %180, ptr nonnull align 1 %.100.val104, i64 %146, i1 false)
   %181 = load i64, ptr %.sroa.451.0..sroa_idx, align 8, !alias.scope !182, !noalias !187, !noundef !5
   %182 = add i64 %181, %146
   store i64 %182, ptr %.sroa.451.0..sroa_idx, align 8, !alias.scope !182, !noalias !187
@@ -1483,7 +1483,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   %195 = phi i64 [ %186, %185 ], [ %.pre.i.i122, %.noexc124 ]
   %196 = load ptr, ptr %.sroa.3.0..sroa_idx49, align 8, !alias.scope !192, !noalias !197, !nonnull !5, !noundef !5
   %197 = getelementptr inbounds i8, ptr %196, i64 %195
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr nonnull readonly align 1 %.100.val102, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr nonnull align 1 %.100.val102, i64 %158, i1 false)
   %198 = load i64, ptr %.sroa.451.0..sroa_idx52, align 8, !alias.scope !192, !noalias !197, !noundef !5
   %199 = add i64 %198, %158
   store i64 %199, ptr %.sroa.451.0..sroa_idx52, align 8, !alias.scope !192, !noalias !197
@@ -1645,7 +1645,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   %268 = phi i64 [ 0, %260 ], [ %.pre.i.i134, %.noexc136 ]
   %269 = load ptr, ptr %.sroa.3.0..sroa_idx49, align 8, !alias.scope !229, !noalias !227, !nonnull !5, !noundef !5
   %270 = getelementptr inbounds i8, ptr %269, i64 %268
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %270, ptr nonnull readonly align 1 %.100.val, i64 %.pre, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %270, ptr nonnull align 1 %.100.val, i64 %.pre, i1 false)
   %271 = load i64, ptr %.sroa.451.0..sroa_idx52, align 8, !alias.scope !229, !noalias !227, !noundef !5
   %272 = add i64 %271, %.pre
   store i64 %272, ptr %.sroa.451.0..sroa_idx52, align 8, !alias.scope !229, !noalias !227

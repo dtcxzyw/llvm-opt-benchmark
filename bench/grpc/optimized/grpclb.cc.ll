@@ -11293,7 +11293,7 @@ _ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit: ; preds 
   ]
 
 if.end:                                           ; preds = %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit, %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
   %7 = load i8, ptr %drop.i, align 2
   %tobool.i17 = trunc i8 %7 to i1
   br i1 %tobool.i17, label %_ZN9grpc_core12_GLOBAL__N_111ParseServerERKNS_12GrpcLbServerEP21grpc_resolved_address.exit, label %if.end.i
@@ -11320,7 +11320,7 @@ if.end15.sink.split.i:                            ; preds = %if.then7.i, %if.end
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %10 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %.sink.i.sroa.phi, ptr nonnull readonly align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i, ptr %sin6_port.i, align 2
   br label %_ZN9grpc_core12_GLOBAL__N_111ParseServerERKNS_12GrpcLbServerEP21grpc_resolved_address.exit
 
@@ -13140,7 +13140,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %_ZN9grpc_core17WeakRefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %17 = phi ptr [ %12, %_ZN9grpc_core17WeakRefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit ], [ %12, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp13, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13, i8 0, i64 32, i1 false)
   %call.i.i2.i13 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont16 unwind label %if.then.i.i39
 
@@ -14624,7 +14624,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i.i: ; preds =
   %26 = load ptr, ptr %state, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i7.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont7.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 
@@ -16621,7 +16621,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i.i: ; preds =
   %26 = load ptr, ptr %state, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i7.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont5.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 
@@ -17685,7 +17685,7 @@ if.then.i.i:                                      ; preds = %_ZNK9grpc_core19Loa
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont4 unwind label %lpad3
 
@@ -17874,7 +17874,7 @@ if.then.i.i:                                      ; preds = %_ZNK9grpc_core19Loa
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont4 unwind label %lpad3
 
@@ -19954,7 +19954,7 @@ lpad:                                             ; preds = %invoke.cont18, %if.
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
   %6 = load i8, ptr %drop, align 2
   %tobool.i = trunc i8 %6 to i1
   br i1 %tobool.i, label %invoke.cont5, label %if.end.i
@@ -19985,7 +19985,7 @@ if.end15.sink.split.i:                            ; preds = %if.then7.i, %call.i
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %9 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %.sink.i.sroa.phi, ptr nonnull readonly align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i5, ptr %sin6_port.i, align 2
   br label %invoke.cont5
 
@@ -21149,7 +21149,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i.i: ; preds =
   %26 = load ptr, ptr %state, align 8
   store ptr null, ptr %state, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i7.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %invoke.cont5.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 

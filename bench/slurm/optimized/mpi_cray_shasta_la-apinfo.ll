@@ -1097,7 +1097,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
 
 .preheader.lr.ph.i:                               ; preds = %405, %_setup_pals_nics.exit
   call void @slurm_xfree(ptr noundef nonnull %12) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %11, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, i8 0, i64 136, i1 false)
   store i32 5, ptr %11, align 8
   %407 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 36, ptr %407, align 8
@@ -1146,7 +1146,7 @@ _setup_pals_nics.exit:                            ; preds = %.split61.us.i161, %
   %436 = add nsw i64 %430, %435
   %437 = getelementptr inbounds i8, ptr %11, i64 136
   %438 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %437, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %437, i8 0, i64 24, i1 false)
   store i64 %436, ptr %438, align 8
   %439 = load ptr, ptr %17, align 8
   %440 = call ptr @slurm_xcalloc(i64 noundef %422, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 197, ptr noundef nonnull @__func__._setup_pals_pes) #11
@@ -1800,7 +1800,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_pals_nodes(i32 noundef %0, p
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.37, ptr noundef nonnull %13) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
-  %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %13, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #11
+  %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #11
   %16 = icmp slt i32 %15, 1
   %17 = load i32, ptr %3, align 4
   %18 = icmp slt i32 %17, 0

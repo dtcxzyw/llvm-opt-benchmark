@@ -522,7 +522,7 @@ if.end23.i.i:                                     ; preds = %for.body.i26.i
   %arrayZ24.i.i = getelementptr inbounds i8, ptr %__begin0.033.i.i, i64 8
   %28 = load ptr, ptr %arrayZ24.i.i, align 8
   %conv25.i.i = zext i32 %25 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %ret.034.i.i, ptr readonly align 1 %28, i64 %conv25.i.i, i1 false), !alias.scope !5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i.i, ptr align 1 %28, i64 %conv25.i.i, i1 false), !alias.scope !5
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %ret.034.i.i, i64 %conv25.i.i
   br label %for.inc.i.i
 
@@ -853,7 +853,7 @@ if.end23.i:                                       ; preds = %for.body.i
   %arrayZ24.i = getelementptr inbounds i8, ptr %__begin0.033.i, i64 8
   %75 = load ptr, ptr %arrayZ24.i, align 8
   %conv25.i = zext i32 %72 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %ret.034.i, ptr readonly align 1 %75, i64 %conv25.i, i1 false), !alias.scope !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr align 1 %75, i64 %conv25.i, i1 false), !alias.scope !11
   %add.ptr.i = getelementptr inbounds i8, ptr %ret.034.i, i64 %conv25.i
   br label %for.inc.i
 
@@ -1889,7 +1889,7 @@ if.end23.i519:                                    ; preds = %for.body.i508
   %arrayZ24.i520 = getelementptr inbounds i8, ptr %__begin0.033.i510, i64 8
   %231 = load ptr, ptr %arrayZ24.i520, align 8
   %conv25.i521 = zext i32 %228 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %ret.034.i509, ptr readonly align 1 %231, i64 %conv25.i521, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i509, ptr align 1 %231, i64 %conv25.i521, i1 false), !alias.scope !18
   %add.ptr.i522 = getelementptr inbounds i8, ptr %ret.034.i509, i64 %conv25.i521
   br label %for.inc.i515
 
@@ -2768,7 +2768,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i, label %if.end9.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %1, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -3046,7 +3046,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i, label %if.end9.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %1, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -3094,7 +3094,7 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i.i.not, label %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding0EEEPT_mb.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end5.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %8, i8 0, i64 %conv7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %conv7, i1 false)
   %.pre.i = load ptr, ptr %head.i.i, align 8
   br label %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding0EEEPT_mb.exit
 
@@ -3201,7 +3201,7 @@ lor.lhs.false.i68:                                ; preds = %if.end.i66
   br i1 %cmp2.i74, label %return.sink.split, label %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding1EEEPT_mb.exit
 
 _ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding1EEEPT_mb.exit: ; preds = %lor.lhs.false.i68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %23, i8 0, i64 %conv43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, i8 0, i64 %conv43, i1 false)
   %.pre.i80 = load ptr, ptr %head.i.i, align 8
   %add.ptr.i78 = getelementptr inbounds i8, ptr %.pre.i80, i64 %conv43
   store ptr %add.ptr.i78, ptr %head.i.i, align 8
@@ -3319,7 +3319,7 @@ if.end5.i137:                                     ; preds = %lor.lhs.false.i130
   br i1 %tobool.not.i.i138.not, label %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF15CFF1SuppEncDataEEEPT_mb.exit, label %if.end.i.i141
 
 if.end.i.i141:                                    ; preds = %if.end5.i137
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %43, i8 0, i64 %conv90, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %conv90, i1 false)
   %.pre.i142 = load ptr, ptr %head.i.i, align 8
   br label %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF15CFF1SuppEncDataEEEPT_mb.exit
 
@@ -3461,7 +3461,7 @@ if.end5.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end9.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %4, i8 0, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %sub.ptr.sub.i.i.i, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %head.i.i.i, align 8
   br label %if.end9.i.i.i.i
 
@@ -3581,7 +3581,7 @@ if.then22.i:                                      ; preds = %for.body.i
 if.end23.i:                                       ; preds = %for.body.i
   %19 = load ptr, ptr %__begin0.033.i, align 8
   %conv25.i = zext i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %ret.034.i, ptr readonly align 1 %19, i64 %conv25.i, i1 false), !alias.scope !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr align 1 %19, i64 %conv25.i, i1 false), !alias.scope !38
   %add.ptr.i = getelementptr inbounds i8, ptr %ret.034.i, i64 %conv25.i
   br label %for.inc.i
 
@@ -3760,7 +3760,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i, label %if.end9.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -3810,7 +3810,7 @@ if.end5.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end9.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i.i
 
@@ -5416,7 +5416,7 @@ if.end12:                                         ; preds = %_ZN9hb_pool_tIN22hb
   %16 = phi ptr [ %call4, %_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_t6threadEv.exit ], [ %0, %entry ]
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %this, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(56) %16, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %16, i8 0, i64 56, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread12, %if.end, %if.end12
@@ -5935,7 +5935,7 @@ if.end12:                                         ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.end12
   %conv.i = and i64 %mul7, 4294967280
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %conv.i, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
@@ -6750,7 +6750,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i, label %if.end9.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -6800,7 +6800,7 @@ if.end5.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end9.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i.i
 
@@ -8234,7 +8234,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then6.i.i
   %idx.ext.i.i.i = zext nneg i32 %10 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i.i.i
   %conv.i.i.i.i = zext i32 %mul.i.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i.i, i1 false)
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.end.i.i.i.i, %if.then6.i.i, %if.end.i.i
@@ -9876,7 +9876,7 @@ if.end.i.i:                                       ; preds = %if.then6
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_vector_t.2, ptr %7, i64 %idx.ext.i
   %conv.i.i = zext i32 %mul.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv.i.i, i1 false)
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
@@ -11265,7 +11265,7 @@ if.end12:                                         ; preds = %if.end4
   br i1 %tobool.not.i17, label %_ZL9hb_memsetPvij.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %5, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i
@@ -12283,7 +12283,7 @@ if.end.i.i:                                       ; preds = %if.then6
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_vector_t.53, ptr %7, i64 %idx.ext.i
   %conv.i.i = zext i32 %mul.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv.i.i, i1 false)
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
@@ -20972,7 +20972,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %15 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %16, i64 %idx.ext.i.i
   %conv.i.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
   br label %if.end24
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i, %if.end.i
@@ -21118,7 +21118,7 @@ if.end.i.i:                                       ; preds = %if.then6
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %6, i64 %idx.ext.i
   %conv.i.i10 = zext i32 %mul.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end, %if.end.i.i, %if.then6
@@ -21628,7 +21628,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %8, i64 %idx.ext.i.i
   %conv.i.i10.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end.i.i.i, %if.then6.i, %if.end.i1
@@ -23255,7 +23255,7 @@ if.end.i.i:                                       ; preds = %_ZNK3CFF12subr_rema
   %35 = load i32, ptr %length3.i, align 4
   %idx.ext.i45 = zext i32 %35 to i64
   %add.ptr.i46 = getelementptr inbounds i8, ptr %34, i64 %idx.ext.i45
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i46, ptr readonly align 1 %32, i64 %conv.i, i1 false), !alias.scope !160
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i46, ptr align 1 %32, i64 %conv.i, i1 false), !alias.scope !160
   br label %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit
 
 _ZN3CFF13str_encoder_t8copy_strEPKhj.exit:        ; preds = %_ZNK3CFF12subr_remap_t10biased_numEj.exit, %if.end.i.i
@@ -23338,7 +23338,7 @@ if.end.i.i86:                                     ; preds = %_ZNK3CFF12subr_rema
   %52 = load i32, ptr %length3.i89, align 4
   %idx.ext.i90 = zext i32 %52 to i64
   %add.ptr.i91 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i90
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i91, ptr readonly align 1 %49, i64 %conv.i87, i1 false), !alias.scope !164
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i91, ptr align 1 %49, i64 %conv.i87, i1 false), !alias.scope !164
   br label %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94
 
 _ZN3CFF13str_encoder_t8copy_strEPKhj.exit94:      ; preds = %_ZNK3CFF12subr_remap_t10biased_numEj.exit84, %if.end.i.i86
@@ -23361,7 +23361,7 @@ if.end.i.i96:                                     ; preds = %sw.default
   %57 = load i32, ptr %length3.i99, align 4
   %idx.ext.i100 = zext i32 %57 to i64
   %add.ptr.i101 = getelementptr inbounds i8, ptr %56, i64 %idx.ext.i100
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i101, ptr readonly align 1 %55, i64 %conv.i97, i1 false), !alias.scope !168
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i101, ptr align 1 %55, i64 %conv.i97, i1 false), !alias.scope !168
   %.pre = load ptr, ptr %encoder, align 8
   br label %for.inc59.sink.split
 
@@ -23903,7 +23903,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i, label %if.end9.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -23953,7 +23953,7 @@ if.end5.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end9.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i.i
 
@@ -24223,7 +24223,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool.not.i.i.not.i, label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %6, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %conv.i, i1 false)
   %.pre.i.i = load ptr, ptr %head.i.i, align 8
   br label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit.i
 
@@ -24288,7 +24288,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i.not, label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end5.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %3, i8 0, i64 %conv, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %conv, i1 false)
   %.pre.i = load ptr, ptr %head.i, align 8
   br label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit
 
@@ -24546,7 +24546,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %5 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %6, i64 %idx.ext.i.i
   %conv.i.i10.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread18.i, %entry
@@ -24739,7 +24739,7 @@ if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i, label %if.end9.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %sub.ptr.sub.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -24789,7 +24789,7 @@ if.end5.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end9.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %sub.ptr.sub.i.i.i35, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %head.i.i, align 8
   br label %if.end9.i.i.i.i
 
@@ -25215,7 +25215,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i11
   br i1 %tobool.not.i.i12.not.i, label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit.i, label %if.end.i.i13.i
 
 if.end.i.i13.i:                                   ; preds = %if.end5.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %35, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %conv.i, i1 false)
   %.pre.i.i = load ptr, ptr %head.i.i.i.i.i.i.i.i, align 8
   br label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit.i
 
@@ -25702,7 +25702,7 @@ if.end:                                           ; preds = %_ZN22hb_serialize_c
   br i1 %tobool.not.i6, label %return, label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %17, ptr nonnull readonly align 1 %obj, i64 %retval.0.i1320, i1 false), !alias.scope !182
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %obj, i64 %retval.0.i1320, i1 false), !alias.scope !182
   br label %return
 
 return:                                           ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE8get_sizeEv.exit.thread, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE8get_sizeEv.exit, %if.then3.i, %if.end.i7, %if.end, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF8CFFIndexIN2OT7IntTypeItLj2EEEEEEEPT_mb.exit
@@ -26155,7 +26155,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool.not.i.i.not.i, label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i.i
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %7, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %conv.i, i1 false)
   %.pre.i.i = load ptr, ptr %head.i.i, align 8
   br label %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit.i
 

@@ -8651,7 +8651,7 @@ xnap_get_private_data.exit:                       ; preds = %4, %18
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %1, i64 216
   %36 = load ptr, ptr %35, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i32 %32, ptr %30, align 8
   %37 = icmp eq i32 %34, 0
   br i1 %37, label %copy_address_wmem.exit, label %38
@@ -8685,7 +8685,7 @@ copy_address_wmem.exit:                           ; preds = %26, %38
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds i8, ptr %1, i64 240
   %58 = load ptr, ptr %57, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   store i32 %54, ptr %52, align 8
   %59 = icmp eq i32 %56, 0
   br i1 %59, label %copy_address_wmem.exit28, label %60

@@ -1037,7 +1037,7 @@ define void @_ZN5nblib18createStepWorkloadEv(ptr dead_on_unwind noalias nocaptur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5nblib27createSimulationWorkloadGpuEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::SimulationWorkload") align 1 %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %2, i8 0, i64 23, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %2, i8 0, i64 23, i1 false), !alias.scope !10
   store i8 1, ptr %0, align 1, !alias.scope !10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 1, ptr %3, align 1

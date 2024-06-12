@@ -14265,7 +14265,7 @@ mtree_range_walk.exit:                            ; preds = %1289, %1291
   %1378 = getelementptr inbounds i8, ptr %11, i64 272
   %1379 = sext i32 %1376 to i64
   %1380 = shl nsw i64 %1379, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1340, ptr readonly align 8 %1378, i64 %1380, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1340, ptr align 8 %1378, i64 %1380, i1 false)
   %1381 = trunc i64 %1375 to i8
   %1382 = icmp ult i32 %1328, 2
   br i1 %1382, label %1410, label %1383, !prof !12
@@ -14574,7 +14574,7 @@ mtree_range_walk.exit:                            ; preds = %1289, %1291
   %1568 = getelementptr inbounds i8, ptr %11, i64 272
   %1569 = sext i32 %1566 to i64
   %1570 = shl nsw i64 %1569, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1530, ptr readonly align 8 %1568, i64 %1570, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1530, ptr align 8 %1568, i64 %1570, i1 false)
   %1571 = trunc i64 %1565 to i8
   %1572 = icmp ult i32 %1518, 2
   br i1 %1572, label %1600, label %1573, !prof !12
@@ -16528,7 +16528,7 @@ mas_set_split_parent.exit41:                      ; preds = %mas_set_split_paren
   %522 = getelementptr inbounds i8, ptr %465, i64 272
   %523 = sext i32 %520 to i64
   %524 = shl nsw i64 %523, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %484, ptr readonly align 8 %522, i64 %524, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %484, ptr align 8 %522, i64 %524, i1 false)
   br i1 %.not, label %529, label %525
 
 525:                                              ; preds = %.loopexit3.i
@@ -17335,7 +17335,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
   %1045 = getelementptr inbounds i8, ptr %986, i64 272
   %1046 = sext i32 %1043 to i64
   %1047 = shl nsw i64 %1046, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1007, ptr readonly align 8 %1045, i64 %1047, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1007, ptr align 8 %1045, i64 %1047, i1 false)
   %1048 = getelementptr [33 x i64], ptr %1023, i64 0, i64 %1042
   %1049 = load i64, ptr %1048, align 8
   store i64 %1049, ptr %14, align 8
@@ -18087,7 +18087,7 @@ define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef reado
   %199 = getelementptr ptr, ptr %198, i64 %140
   %200 = sext i32 %194 to i64
   %201 = shl nsw i64 %200, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %199, ptr align 8 %197, i64 %201, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %199, ptr align 8 %197, i64 %201, i1 false)
   br label %mas_mab_cp.exit
 
 .thread18:                                        ; preds = %195, %190
@@ -18096,7 +18096,7 @@ define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef reado
   %203 = getelementptr ptr, ptr %202, i64 %140
   %204 = sext i32 %194 to i64
   %205 = shl nsw i64 %204, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %203, ptr align 8 %.ph, i64 %205, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %203, ptr align 8 %.ph, i64 %205, i1 false)
   br label %213
 
 206:                                              ; preds = %190, %190
@@ -18105,7 +18105,7 @@ define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef reado
   %209 = getelementptr ptr, ptr %208, i64 %140
   %210 = sext i32 %194 to i64
   %211 = shl nsw i64 %210, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %209, ptr align 128 %207, i64 %211, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %209, ptr align 128 %207, i64 %211, i1 false)
   %212 = icmp ult i32 %131, 2
   br i1 %212, label %mas_mab_cp.exit, label %213
 
@@ -18124,7 +18124,7 @@ define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef reado
   %223 = select i1 %221, ptr %222, ptr null
   %224 = getelementptr inbounds i8, ptr %115, i64 440
   %225 = getelementptr i64, ptr %224, i64 %140
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %225, ptr align 32 %223, i64 %214, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %225, ptr align 32 %223, i64 %214, i1 false)
   br label %mas_mab_cp.exit
 
 mas_mab_cp.exit:                                  ; preds = %.thread19, %206, %213, %220
@@ -21943,7 +21943,7 @@ define internal fastcc void @mas_split_final_node(ptr nocapture noundef readonly
   %199 = getelementptr inbounds i8, ptr %136, i64 272
   %200 = sext i32 %197 to i64
   %201 = shl nsw i64 %200, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr readonly align 8 %199, i64 %201, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr align 8 %199, i64 %201, i1 false)
   %202 = getelementptr [33 x i64], ptr %177, i64 0, i64 %196
   %203 = load i64, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %143, i64 40
@@ -22527,7 +22527,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
   %318 = getelementptr ptr, ptr %317, i64 %259
   %319 = sext i32 %313 to i64
   %320 = shl nsw i64 %319, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %318, ptr align 8 %316, i64 %320, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %318, ptr align 8 %316, i64 %320, i1 false)
   br label %mas_mab_cp.exit
 
 .thread19:                                        ; preds = %314, %309
@@ -22536,7 +22536,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
   %322 = getelementptr ptr, ptr %321, i64 %259
   %323 = sext i32 %313 to i64
   %324 = shl nsw i64 %323, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %322, ptr align 8 %.ph18, i64 %324, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %322, ptr align 8 %.ph18, i64 %324, i1 false)
   br label %332
 
 325:                                              ; preds = %309, %309
@@ -22545,7 +22545,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
   %328 = getelementptr ptr, ptr %327, i64 %259
   %329 = sext i32 %313 to i64
   %330 = shl nsw i64 %329, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %328, ptr align 128 %326, i64 %330, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %328, ptr align 128 %326, i64 %330, i1 false)
   %331 = icmp ult i32 %85, 2
   br i1 %331, label %mas_mab_cp.exit, label %332
 
@@ -22564,7 +22564,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
   %342 = select i1 %340, ptr %341, ptr null
   %343 = getelementptr inbounds i8, ptr %143, i64 440
   %344 = getelementptr i64, ptr %343, i64 %259
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %344, ptr align 32 %342, i64 %333, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %344, ptr align 32 %342, i64 %333, i1 false)
   br label %mas_mab_cp.exit
 
 mas_mab_cp.exit:                                  ; preds = %339, %332, %325, %.thread20, %243
@@ -22764,7 +22764,7 @@ define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, 
   %63 = getelementptr inbounds i8, ptr %5, i64 272
   %64 = sext i32 %61 to i64
   %65 = shl nsw i64 %64, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr readonly align 8 %63, i64 %65, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %63, i64 %65, i1 false)
   %66 = getelementptr [33 x i64], ptr %41, i64 0, i64 %60
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %7, i64 40

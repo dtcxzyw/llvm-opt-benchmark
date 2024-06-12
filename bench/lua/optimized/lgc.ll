@@ -871,7 +871,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %gray.i.i = getelementptr inbounds i8, ptr %0, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %gray.i.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %gray.i.i, i8 0, i64 40, i1 false)
   %mainthread.i = getelementptr inbounds i8, ptr %0, i64 264
   %2 = load ptr, ptr %mainthread.i, align 8
   %marked.i = getelementptr inbounds i8, ptr %2, i64 9
@@ -3138,7 +3138,7 @@ clearbykeys.exit174:                              ; preds = %for.inc17.i166, %cl
 define internal fastcc void @atomic2gen(ptr noundef %L, ptr noundef %g) unnamed_addr #2 {
 entry:
   %gray.i = getelementptr inbounds i8, ptr %g, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %gray.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %gray.i, i8 0, i64 40, i1 false)
   %gcstate = getelementptr inbounds i8, ptr %g, i64 101
   store i8 3, ptr %gcstate, align 1
   %allgc = getelementptr inbounds i8, ptr %g, i64 112

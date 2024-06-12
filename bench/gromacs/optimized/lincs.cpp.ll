@@ -768,7 +768,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE6resizeEm
 
 _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_14TaskEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %9
   %19 = mul nuw i64 %10, 176
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val4, i8 0, i64 %19, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.val4, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val4, i64 %19
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE17_M_default_appendEm.exit
@@ -789,7 +789,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds =
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #36
   %27 = getelementptr inbounds i8, ptr %26, i64 %6
   %28 = mul nuw nsw i64 %10, 176
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %27, i8 0, i64 %28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %28, i1 false)
   %.not1.i.i.i.i = icmp eq ptr %.val, %.val4
   br i1 %.not1.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -798,7 +798,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds =
   %.092.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i ], [ %.val, %_ZNKSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %.03.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.092.i.i.i.i, i64 12, i1 false), !alias.scope !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.03.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.092.i.i.i.i, i64 12, i1 false), !alias.scope !15
   %29 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 16
   %30 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 16
   %31 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 32
@@ -844,7 +844,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds =
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false), !alias.scope !13, !noalias !10
   %62 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 136
   %63 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false), !alias.scope !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false), !alias.scope !15
   %64 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 176
   %65 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 176
   %.not.i.i.i.i = icmp eq ptr %64, %.val4
@@ -5623,7 +5623,7 @@ define internal void @_ZN3gmxL18lincs_thread_setupEPNS_5LincsEi.omp_outlined(ptr
   %27 = sdiv i32 %26, 64
   %28 = shl nsw i32 %27, 3
   %29 = sext i32 %28 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %9, i8 -1, i64 %29, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 -1, i64 %29, i1 false)
   %30 = srem i32 %26, 64
   %31 = zext nneg i32 %30 to i64
   %notmask.i = shl nsw i64 -1, %31
@@ -5634,7 +5634,7 @@ define internal void @_ZN3gmxL18lincs_thread_setupEPNS_5LincsEi.omp_outlined(ptr
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = sub nsw i32 8, %28
   %37 = sext i32 %36 to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %35, i8 0, i64 %37, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %37, i1 false)
   %38 = getelementptr inbounds i8, ptr %25, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %25, i64 72
@@ -6053,7 +6053,7 @@ define internal void @_ZN3gmxL18lincs_thread_setupEPNS_5LincsEi.omp_outlined.20(
   %27 = sdiv i32 %26, 64
   %28 = shl nsw i32 %27, 3
   %29 = sext i32 %28 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %9, i8 -1, i64 %29, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 -1, i64 %29, i1 false)
   %30 = srem i32 %26, 64
   %31 = zext nneg i32 %30 to i64
   %notmask.i = shl nsw i64 -1, %31
@@ -6064,7 +6064,7 @@ define internal void @_ZN3gmxL18lincs_thread_setupEPNS_5LincsEi.omp_outlined.20(
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = sub nsw i32 8, %28
   %37 = sext i32 %36 to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %35, i8 0, i64 %37, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %37, i1 false)
   %38 = getelementptr inbounds i8, ptr %25, i64 112
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %25, i64 120
@@ -8082,7 +8082,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %30 = sext i32 %26 to i64
   %.val23 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val23, i64 %30, i32 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %31, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %31, i8 0, i64 36, i1 false)
   %32 = load ptr, ptr %3, align 8, !noalias !83
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 8
@@ -8437,28 +8437,28 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %321 = shufflevector <8 x float> %317, <8 x float> %314, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %322 = getelementptr inbounds float, ptr %315, i64 %161
   %323 = shufflevector <8 x float> %318, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %323, ptr writeonly %322, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %323, ptr %322, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %324 = getelementptr inbounds float, ptr %315, i64 %162
   %325 = shufflevector <8 x float> %319, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %325, ptr writeonly %324, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %325, ptr %324, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %326 = getelementptr inbounds float, ptr %315, i64 %163
   %327 = shufflevector <8 x float> %321, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %327, ptr writeonly %326, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %327, ptr %326, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %328 = getelementptr inbounds float, ptr %315, i64 %164
   %329 = shufflevector <8 x float> %320, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %329, ptr writeonly %328, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %329, ptr %328, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %330 = getelementptr inbounds float, ptr %315, i64 %165
   %331 = shufflevector <8 x float> %318, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %331, ptr writeonly %330, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %331, ptr %330, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %332 = getelementptr inbounds float, ptr %315, i64 %166
   %333 = shufflevector <8 x float> %319, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %333, ptr writeonly %332, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %333, ptr %332, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %334 = getelementptr inbounds float, ptr %315, i64 %167
   %335 = shufflevector <8 x float> %321, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %335, ptr writeonly %334, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %335, ptr %334, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %336 = getelementptr inbounds float, ptr %315, i64 %168
   %337 = shufflevector <8 x float> %320, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %337, ptr writeonly %336, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %337, ptr %336, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !95, !noalias !105
   %338 = getelementptr inbounds float, ptr %33, i64 %181
   %339 = load <4 x float>, ptr %338, align 1, !alias.scope !89, !noalias !106
   %340 = getelementptr inbounds float, ptr %33, i64 %186
@@ -8630,7 +8630,7 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   store ptr %92, ptr %24, align 8
   %455 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %119, ptr %455, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %454, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %454, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
   br label %.lr.ph109.i
 
 .lr.ph109.i:                                      ; preds = %.lr.ph109.i, %.lr.ph109.preheader.i
@@ -8652,11 +8652,11 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   store ptr %92, ptr %24, align 8
   %462 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %119, ptr %462, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %461, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %461, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %24, i64 %120)
   br label %._crit_edge110.i
 
 ._crit_edge110.i:                                 ; preds = %.lr.ph109.i, %._crit_edge110.critedge.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef %33)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %38, i32 noundef %26, float noundef 1.000000e+00, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef %33)
   %463 = fpext float %50 to double
   %464 = fmul double %463, 0x3F91DF46A2529D39
   %465 = call double @cos(double noundef %464) #17
@@ -8963,7 +8963,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %678 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val167.i, i64 %30
   store ptr %92, ptr %25, align 8
   store ptr %119, ptr %499, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %678, ptr %83, ptr nonnull %85, ptr nonnull %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %678, ptr %83, ptr nonnull %85, ptr nonnull %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
   br label %.lr.ph112.i
 
 .lr.ph112.i:                                      ; preds = %_ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfPS5_S8_S8_fPfS9_Pb.exit.i, %.lr.ph112.i
@@ -8990,11 +8990,11 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %686 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val167.c.i, i64 %30
   store ptr %92, ptr %25, align 8
   store ptr %119, ptr %499, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %686, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %686, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %25, i64 %120)
   br label %._crit_edge113.i
 
 ._crit_edge113.i:                                 ; preds = %.lr.ph112.i, %._crit_edge113.critedge.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %101, ptr %121, ptr %71, ptr %39, ptr %45, ptr noundef %33)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %38, i32 noundef %26, float noundef 1.000000e+00, ptr %101, ptr %121, ptr %71, ptr %39, ptr %45, ptr noundef %33)
   %687 = add nuw nsw i32 %.0161114.i, 1
   %688 = load i32, ptr %466, align 4
   %689 = icmp slt i32 %687, %688
@@ -9005,7 +9005,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   br i1 %.not.i, label %691, label %690
 
 690:                                              ; preds = %._crit_edge117.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef %51, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef nonnull %52)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %38, i32 noundef %26, float noundef %51, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef nonnull %52)
   br label %691
 
 691:                                              ; preds = %690, %._crit_edge117.i
@@ -9689,28 +9689,28 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %283 = shufflevector <8 x float> %279, <8 x float> %276, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %284 = getelementptr inbounds float, ptr %277, i64 %123
   %285 = shufflevector <8 x float> %280, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %285, ptr writeonly %284, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %285, ptr %284, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %286 = getelementptr inbounds float, ptr %277, i64 %124
   %287 = shufflevector <8 x float> %281, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %287, ptr writeonly %286, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %287, ptr %286, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %288 = getelementptr inbounds float, ptr %277, i64 %125
   %289 = shufflevector <8 x float> %283, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %289, ptr writeonly %288, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %289, ptr %288, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %290 = getelementptr inbounds float, ptr %277, i64 %126
   %291 = shufflevector <8 x float> %282, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %291, ptr writeonly %290, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %291, ptr %290, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %292 = getelementptr inbounds float, ptr %277, i64 %127
   %293 = shufflevector <8 x float> %280, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %293, ptr writeonly %292, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %293, ptr %292, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %294 = getelementptr inbounds float, ptr %277, i64 %128
   %295 = shufflevector <8 x float> %281, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %295, ptr writeonly %294, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %295, ptr %294, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %296 = getelementptr inbounds float, ptr %277, i64 %129
   %297 = shufflevector <8 x float> %283, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %297, ptr writeonly %296, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %297, ptr %296, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %298 = getelementptr inbounds float, ptr %277, i64 %130
   %299 = shufflevector <8 x float> %282, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %299, ptr writeonly %298, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %299, ptr %298, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !152, !noalias !162
   %300 = getelementptr inbounds float, ptr %21, i64 %143
   %301 = load <4 x float>, ptr %300, align 1, !alias.scope !148, !noalias !163
   %302 = getelementptr inbounds float, ptr %21, i64 %148
@@ -9862,7 +9862,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
   store ptr %69, ptr %17, align 8
   %406 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %83, ptr %406, align 8
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %24, ptr noundef nonnull align 8 dereferenceable(176) %405, ptr %60, ptr %62, ptr %82, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %17, i64 %80)
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull align 8 dereferenceable(656) %24, ptr noundef nonnull align 8 dereferenceable(176) %405, ptr %60, ptr %62, ptr %82, ptr noundef nonnull byval(%"class.gmx::ArrayRef.312") align 8 %17, i64 %80)
   %407 = icmp eq i32 %32, 3
   %or.cond.i = and i1 %407, %85
   br i1 %or.cond.i, label %.lr.ph65.i, label %.loopexit59.i
@@ -9922,13 +9922,13 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 ._crit_edge69.i:                                  ; preds = %.lr.ph68.i
   %.sroa.3.0.i = select i1 %.not.i, ptr null, ptr %31
   %.sroa.01.0.i = select i1 %.not.i, ptr null, ptr %25
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr nonnull %76, ptr nonnull %84, ptr %54, ptr %.sroa.01.0.i, ptr %.sroa.3.0.i, ptr noundef %22)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %24, i32 noundef %18, float noundef 1.000000e+00, ptr nonnull %76, ptr nonnull %84, ptr %54, ptr %.sroa.01.0.i, ptr %.sroa.3.0.i, ptr noundef %22)
   br i1 %34, label %.preheader57.i, label %441
 
 ._crit_edge69.i.thread:                           ; preds = %.loopexit59.i
   %.sroa.3.0.i27 = select i1 %.not.i, ptr null, ptr %31
   %.sroa.01.0.i28 = select i1 %.not.i, ptr null, ptr %25
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr %76, ptr %84, ptr %54, ptr %.sroa.01.0.i28, ptr %.sroa.3.0.i27, ptr noundef %22)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull %24, i32 noundef %18, float noundef 1.000000e+00, ptr %76, ptr %84, ptr %54, ptr %.sroa.01.0.i28, ptr %.sroa.3.0.i27, ptr noundef %22)
   br i1 %34, label %._crit_edge73.i, label %.loopexit
 
 .preheader57.i:                                   ; preds = %._crit_edge69.i

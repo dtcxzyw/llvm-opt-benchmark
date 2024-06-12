@@ -432,7 +432,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   %37 = getelementptr inbounds i8, ptr %.018.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = zext i16 %30 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %36, ptr %38, i64 %39)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %36, ptr %38, i64 %39)
   %.not14.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not14.i, label %40, label %44
 

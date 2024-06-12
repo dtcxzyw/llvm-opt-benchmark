@@ -3425,7 +3425,7 @@ for.body:                                         ; preds = %if.end143, %for.inc
   %j.094 = phi i64 [ %inc160, %for.inc ], [ 0, %if.end143 ]
   %arrayidx = getelementptr inbounds [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %j.094
   %24 = load ptr, ptr %arrayidx, align 16
-  %call.i = tail call i32 @strncmp(ptr noundef readonly %24, ptr noundef readonly %l.2, i64 noundef %buf_len.0) #16
+  %call.i = tail call i32 @strncmp(ptr noundef %24, ptr noundef %l.2, i64 noundef %buf_len.0) #16
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %rule_equals.exit, label %for.inc
 
@@ -3454,7 +3454,7 @@ for.body168:                                      ; preds = %if.end161, %for.inc
   %j.195 = phi i64 [ %inc198, %for.inc197 ], [ 0, %if.end161 ]
   %arrayidx169 = getelementptr inbounds [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %j.195
   %27 = load ptr, ptr %arrayidx169, align 16
-  %call.i105 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef readonly %l.2, i64 noundef %buf_len.0) #16
+  %call.i105 = tail call i32 @strncmp(ptr noundef %27, ptr noundef %l.2, i64 noundef %buf_len.0) #16
   %cmp.i106 = icmp eq i32 %call.i105, 0
   br i1 %cmp.i106, label %rule_equals.exit111, label %for.inc197
 

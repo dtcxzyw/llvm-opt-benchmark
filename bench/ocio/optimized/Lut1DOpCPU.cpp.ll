@@ -2484,7 +2484,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !20
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !20
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -2495,12 +2495,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !23
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !23
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !23
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !23
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -2544,18 +2544,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !26
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !26
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !26
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !26
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !26
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !26
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !26
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !26
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -2598,18 +2598,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !29
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !29
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !29
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !29
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !29
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !29
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !29
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -2644,7 +2644,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !29
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !29
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -2790,7 +2790,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !47
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !47
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -2801,12 +2801,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !50
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !50
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !50
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !50
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -2850,18 +2850,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !53
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !53
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !53
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !53
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !53
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !53
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !53
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !53
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !53
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -2904,18 +2904,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !56
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !56
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !56
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !56
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !56
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !56
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !56
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !56
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !56
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -2950,7 +2950,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !56
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !56
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -3096,7 +3096,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !74
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !74
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -3107,12 +3107,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !77
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !77
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !77
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !77
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -3156,18 +3156,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !80
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !80
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !80
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !80
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !80
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !80
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !80
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -3210,18 +3210,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !83
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !83
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !83
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !83
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !83
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !83
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !83
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !83
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !83
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -3256,7 +3256,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !83
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !83
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -3402,7 +3402,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !101
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !101
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -3413,12 +3413,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !104
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !104
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !104
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !104
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -3462,18 +3462,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !107
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !107
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !107
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !107
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !107
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !107
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !107
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !107
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !107
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !107
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !107
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !107
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !107
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !107
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !107
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !107
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !107
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !107
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -3516,18 +3516,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !110
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !110
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !110
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !110
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !110
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !110
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !110
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !110
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !110
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !110
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -3562,7 +3562,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !110
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !110
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -3708,7 +3708,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !128
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !128
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -3719,12 +3719,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !131
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !131
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !131
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !131
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -3768,18 +3768,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !134
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !134
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !134
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !134
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !134
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !134
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !134
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !134
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !134
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !134
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !134
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !134
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -3822,18 +3822,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !137
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !137
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !137
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !137
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !137
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !137
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !137
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !137
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !137
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !137
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !137
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !137
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -3868,7 +3868,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !137
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !137
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -4014,7 +4014,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !155
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !155
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE1ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -4025,12 +4025,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !158
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !158
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !158
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !158
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -4074,18 +4074,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !161
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !161
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !161
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !161
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !161
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !161
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !161
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !161
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !161
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !161
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !161
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !161
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !161
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !161
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !161
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -4128,18 +4128,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !164
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !164
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !164
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !164
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !164
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !164
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !164
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !164
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !164
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !164
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !164
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !164
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !164
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !164
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !164
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -4174,7 +4174,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !164
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !164
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -7939,14 +7939,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -7954,14 +7954,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -14573,14 +14573,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -14588,14 +14588,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -20962,14 +20962,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -20977,14 +20977,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -27351,14 +27351,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -27366,14 +27366,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -34518,14 +34518,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -34533,14 +34533,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -41955,14 +41955,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -41970,14 +41970,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -44670,7 +44670,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !274
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !274
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -44681,12 +44681,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !277
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !277
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !277
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !277
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -44730,18 +44730,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !280
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !280
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !280
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !280
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !280
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !280
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !280
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !280
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !280
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -44784,18 +44784,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !283
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !283
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !283
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !283
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !283
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !283
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !283
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !283
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !283
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !283
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !283
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !283
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !283
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !283
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !283
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !283
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !283
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !283
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -44830,7 +44830,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !283
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !283
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -44976,7 +44976,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !301
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !301
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -44987,12 +44987,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !304
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !304
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !304
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !304
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -45036,18 +45036,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !307
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !307
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !307
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !307
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !307
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !307
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !307
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !307
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !307
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !307
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !307
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !307
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !307
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !307
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !307
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !307
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !307
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !307
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -45090,18 +45090,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !310
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !310
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !310
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !310
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !310
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !310
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !310
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !310
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !310
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !310
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !310
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !310
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !310
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !310
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !310
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !310
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !310
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !310
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -45136,7 +45136,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !310
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !310
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -45282,7 +45282,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !328
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !328
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -45293,12 +45293,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !331
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !331
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !331
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !331
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -45342,18 +45342,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !334
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !334
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !334
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !334
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !334
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !334
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !334
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !334
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !334
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !334
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !334
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !334
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !334
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !334
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !334
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !334
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !334
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !334
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -45396,18 +45396,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !337
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !337
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !337
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !337
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !337
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !337
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !337
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !337
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !337
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !337
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !337
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !337
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !337
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !337
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !337
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -45442,7 +45442,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !337
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !337
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -45588,7 +45588,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !355
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !355
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -45599,12 +45599,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !358
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !358
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !358
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !358
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -45648,18 +45648,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !361
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !361
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !361
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !361
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !361
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !361
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !361
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !361
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !361
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !361
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !361
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !361
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !361
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !361
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !361
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !361
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !361
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !361
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -45702,18 +45702,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !364
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !364
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !364
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !364
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !364
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !364
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !364
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !364
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !364
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !364
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !364
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !364
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !364
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !364
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !364
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !364
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !364
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !364
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -45748,7 +45748,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !364
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !364
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -45894,7 +45894,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !382
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !382
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -45905,12 +45905,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !385
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !385
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !385
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !385
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -45954,18 +45954,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !388
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !388
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !388
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !388
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !388
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !388
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !388
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !388
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !388
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !388
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !388
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !388
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -46008,18 +46008,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !391
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !391
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !391
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !391
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !391
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !391
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !391
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !391
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !391
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !391
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !391
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !391
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !391
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !391
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !391
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !391
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !391
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !391
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -46054,7 +46054,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !391
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !391
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -46200,7 +46200,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !409
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !409
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE2ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -46211,12 +46211,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !412
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !412
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !412
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !412
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -46260,18 +46260,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !415
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !415
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !415
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !415
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !415
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !415
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !415
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !415
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !415
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !415
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !415
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !415
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !415
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !415
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !415
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !415
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !415
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !415
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -46314,18 +46314,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !418
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !418
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !418
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !418
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !418
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !418
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !418
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !418
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !418
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !418
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !418
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !418
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !418
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !418
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !418
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !418
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !418
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !418
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -46360,7 +46360,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !418
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !418
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -49988,14 +49988,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -50003,14 +50003,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -56375,14 +56375,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -56390,14 +56390,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -62762,14 +62762,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -62777,14 +62777,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -69149,14 +69149,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -69164,14 +69164,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -76314,14 +76314,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -76329,14 +76329,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -83749,14 +83749,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -83764,14 +83764,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -86464,7 +86464,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !526
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !526
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -86475,12 +86475,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !529
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !529
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !529
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !529
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -86524,18 +86524,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !532
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !532
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !532
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !532
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !532
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !532
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !532
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !532
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !532
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !532
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !532
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !532
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !532
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !532
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !532
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !532
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !532
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !532
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -86578,18 +86578,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !535
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !535
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !535
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !535
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !535
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !535
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !535
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !535
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !535
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !535
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !535
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !535
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !535
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !535
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !535
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !535
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !535
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !535
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -86624,7 +86624,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !535
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !535
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -86770,7 +86770,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !553
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !553
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -86781,12 +86781,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !556
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !556
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !556
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !556
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -86830,18 +86830,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !559
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !559
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !559
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !559
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !559
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !559
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !559
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !559
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !559
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !559
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !559
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !559
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !559
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !559
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !559
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !559
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !559
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !559
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -86884,18 +86884,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !562
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !562
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !562
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !562
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !562
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !562
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !562
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !562
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !562
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !562
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !562
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !562
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !562
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !562
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !562
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !562
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !562
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !562
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -86930,7 +86930,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !562
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !562
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -87076,7 +87076,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !580
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !580
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -87087,12 +87087,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !583
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !583
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !583
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !583
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -87136,18 +87136,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !586
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !586
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !586
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !586
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !586
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !586
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !586
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !586
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !586
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !586
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !586
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !586
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !586
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !586
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !586
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -87190,18 +87190,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !589
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !589
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !589
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !589
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !589
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !589
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !589
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !589
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !589
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !589
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !589
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !589
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !589
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !589
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !589
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !589
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !589
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !589
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -87236,7 +87236,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !589
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !589
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -87382,7 +87382,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !607
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !607
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -87393,12 +87393,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !610
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !610
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !610
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !610
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -87442,18 +87442,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !613
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !613
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !613
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !613
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !613
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !613
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !613
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !613
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !613
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !613
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !613
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !613
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !613
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !613
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !613
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !613
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !613
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !613
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -87496,18 +87496,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !616
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !616
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !616
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !616
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !616
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !616
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !616
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !616
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !616
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !616
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !616
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !616
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !616
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !616
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !616
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -87542,7 +87542,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !616
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !616
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -87688,7 +87688,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !634
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !634
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -87699,12 +87699,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !637
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !637
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !637
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !637
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -87748,18 +87748,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !640
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !640
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !640
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !640
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !640
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !640
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !640
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !640
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !640
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !640
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !640
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !640
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !640
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !640
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !640
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -87802,18 +87802,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !643
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !643
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !643
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !643
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !643
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !643
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !643
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !643
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !643
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !643
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !643
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !643
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !643
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !643
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !643
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !643
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !643
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !643
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -87848,7 +87848,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !643
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !643
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -87994,7 +87994,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !661
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !661
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE3ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -88005,12 +88005,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !664
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !664
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !664
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !664
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -88054,18 +88054,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !667
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !667
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !667
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !667
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !667
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !667
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !667
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !667
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !667
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !667
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !667
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !667
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !667
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !667
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !667
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !667
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !667
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !667
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -88108,18 +88108,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !670
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !670
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !670
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !670
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !670
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !670
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !670
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !670
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !670
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !670
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !670
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !670
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !670
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !670
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !670
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !670
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !670
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !670
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -88154,7 +88154,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !670
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !670
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -91782,14 +91782,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -91797,14 +91797,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -98169,14 +98169,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -98184,14 +98184,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -104556,14 +104556,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -104571,14 +104571,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -110943,14 +110943,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -110958,14 +110958,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -118108,14 +118108,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -118123,14 +118123,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -125543,14 +125543,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -125558,14 +125558,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -128258,7 +128258,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !778
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !778
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -128269,12 +128269,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !781
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !781
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !781
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !781
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -128318,18 +128318,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !784
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !784
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !784
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !784
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !784
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !784
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !784
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !784
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !784
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !784
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !784
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !784
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !784
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !784
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !784
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -128372,18 +128372,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !787
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !787
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !787
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !787
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !787
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !787
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !787
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !787
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !787
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !787
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !787
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !787
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !787
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !787
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !787
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !787
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !787
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !787
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -128418,7 +128418,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !787
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !787
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -128564,7 +128564,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !805
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !805
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -128575,12 +128575,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !808
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !808
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !808
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !808
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -128624,18 +128624,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !811
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !811
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !811
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !811
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !811
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !811
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !811
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !811
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !811
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !811
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !811
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !811
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !811
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !811
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !811
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !811
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !811
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !811
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -128678,18 +128678,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !814
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !814
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !814
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !814
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !814
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !814
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !814
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !814
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !814
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !814
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !814
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !814
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !814
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !814
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !814
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !814
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !814
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !814
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -128724,7 +128724,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !814
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !814
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -128870,7 +128870,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !832
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !832
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -128881,12 +128881,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !835
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !835
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !835
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !835
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -128930,18 +128930,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !838
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !838
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !838
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !838
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !838
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !838
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !838
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !838
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !838
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !838
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !838
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !838
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !838
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !838
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !838
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !838
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !838
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !838
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -128984,18 +128984,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !841
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !841
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !841
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !841
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !841
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !841
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !841
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !841
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !841
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !841
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !841
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !841
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !841
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !841
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !841
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !841
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !841
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !841
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -129030,7 +129030,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !841
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !841
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -129176,7 +129176,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !859
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !859
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -129187,12 +129187,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !862
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !862
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !862
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !862
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -129236,18 +129236,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !865
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !865
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !865
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !865
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !865
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !865
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !865
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !865
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !865
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !865
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !865
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !865
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !865
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !865
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !865
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !865
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !865
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !865
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -129290,18 +129290,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !868
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !868
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !868
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !868
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !868
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !868
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !868
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !868
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !868
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !868
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !868
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !868
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !868
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !868
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !868
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !868
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !868
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !868
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -129336,7 +129336,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !868
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !868
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -129482,7 +129482,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !886
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !886
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -129493,12 +129493,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !889
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !889
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !889
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !889
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -129542,18 +129542,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !892
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !892
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !892
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !892
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !892
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !892
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !892
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !892
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !892
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !892
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !892
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !892
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !892
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !892
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !892
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !892
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !892
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !892
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -129596,18 +129596,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !895
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !895
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !895
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !895
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !895
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !895
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !895
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !895
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !895
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !895
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !895
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !895
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !895
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !895
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !895
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !895
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !895
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !895
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -129642,7 +129642,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !895
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !895
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -129788,7 +129788,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !913
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !913
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE5ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -129799,12 +129799,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !916
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !916
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !916
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !916
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -129848,18 +129848,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !919
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !919
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !919
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !919
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !919
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !919
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !919
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !919
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !919
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !919
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !919
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !919
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !919
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !919
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !919
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !919
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !919
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !919
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -129902,18 +129902,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !922
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !922
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !922
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !922
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !922
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !922
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !922
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !922
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !922
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !922
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !922
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !922
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !922
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !922
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !922
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !922
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !922
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !922
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -129948,7 +129948,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !922
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !922
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -133576,14 +133576,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -133591,14 +133591,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -139963,14 +139963,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -139978,14 +139978,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -146350,14 +146350,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -146365,14 +146365,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -152737,14 +152737,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -152752,14 +152752,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -159902,14 +159902,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -159917,14 +159917,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -167337,14 +167337,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -167352,14 +167352,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -170052,7 +170052,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1030
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1030
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -170063,12 +170063,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1033
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1033
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1033
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1033
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -170112,18 +170112,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1036
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1036
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1036
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1036
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1036
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1036
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1036
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1036
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1036
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1036
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1036
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1036
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1036
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1036
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1036
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1036
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1036
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1036
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -170166,18 +170166,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1039
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1039
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1039
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1039
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1039
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1039
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1039
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1039
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1039
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1039
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1039
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1039
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1039
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1039
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1039
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1039
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1039
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1039
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -170212,7 +170212,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1039
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1039
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -170358,7 +170358,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1057
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1057
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -170369,12 +170369,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1060
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1060
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1060
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1060
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -170418,18 +170418,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1063
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1063
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1063
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1063
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1063
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1063
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1063
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1063
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1063
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1063
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1063
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1063
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1063
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1063
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1063
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1063
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1063
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1063
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -170472,18 +170472,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1066
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1066
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1066
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1066
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1066
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1066
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1066
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1066
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1066
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1066
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1066
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1066
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1066
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1066
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1066
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1066
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1066
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1066
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -170518,7 +170518,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1066
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1066
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -170664,7 +170664,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1084
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1084
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -170675,12 +170675,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1087
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1087
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1087
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1087
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -170724,18 +170724,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1090
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1090
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1090
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1090
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1090
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1090
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1090
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1090
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1090
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1090
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1090
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1090
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1090
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1090
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1090
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1090
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1090
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1090
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -170778,18 +170778,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1093
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1093
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1093
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1093
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1093
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1093
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1093
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1093
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1093
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1093
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1093
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1093
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1093
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1093
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1093
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1093
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1093
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1093
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -170824,7 +170824,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1093
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1093
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -170970,7 +170970,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1111
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1111
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -170981,12 +170981,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1114
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1114
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1114
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1114
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -171030,18 +171030,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1117
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1117
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1117
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1117
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1117
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1117
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1117
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1117
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1117
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1117
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1117
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1117
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1117
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1117
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1117
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -171084,18 +171084,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1120
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1120
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1120
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1120
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1120
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1120
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1120
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1120
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1120
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -171130,7 +171130,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1120
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1120
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -171276,7 +171276,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1138
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1138
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -171287,12 +171287,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1141
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1141
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1141
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1141
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -171336,18 +171336,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1144
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1144
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1144
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1144
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1144
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1144
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1144
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1144
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1144
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -171390,18 +171390,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1147
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1147
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1147
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1147
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1147
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1147
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1147
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1147
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1147
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1147
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1147
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1147
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1147
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1147
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1147
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -171436,7 +171436,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1147
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1147
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -171582,7 +171582,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1165
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1165
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE7ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -171593,12 +171593,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1168
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1168
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1168
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1168
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -171642,18 +171642,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1171
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1171
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1171
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1171
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1171
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1171
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1171
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1171
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1171
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1171
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1171
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1171
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1171
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1171
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1171
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1171
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1171
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1171
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -171696,18 +171696,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1174
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1174
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1174
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1174
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1174
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1174
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1174
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1174
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1174
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1174
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1174
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1174
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1174
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1174
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1174
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1174
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1174
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1174
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -171742,7 +171742,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1174
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1174
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -175742,14 +175742,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -175757,14 +175757,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -183099,14 +183099,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -183114,14 +183114,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -190456,14 +190456,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -190471,14 +190471,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -197813,14 +197813,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -197828,14 +197828,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -205948,14 +205948,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -205963,14 +205963,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -214353,14 +214353,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -214368,14 +214368,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -217666,7 +217666,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1282
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1282
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -217677,12 +217677,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1285
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1285
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1285
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1285
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -217726,18 +217726,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1288
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1288
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1288
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1288
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1288
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1288
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1288
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1288
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1288
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -217780,18 +217780,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1291
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1291
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1291
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1291
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1291
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1291
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1291
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1291
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1291
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1291
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1291
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1291
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1291
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1291
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1291
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1291
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1291
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1291
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -217826,7 +217826,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1291
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1291
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -217972,7 +217972,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1309
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1309
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -217983,12 +217983,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1312
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1312
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1312
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1312
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -218032,18 +218032,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1315
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1315
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1315
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1315
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1315
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1315
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1315
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1315
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1315
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1315
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1315
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1315
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1315
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1315
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1315
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1315
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1315
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1315
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -218086,18 +218086,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1318
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1318
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1318
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1318
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1318
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1318
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1318
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1318
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1318
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1318
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1318
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1318
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1318
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1318
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1318
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1318
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1318
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1318
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -218132,7 +218132,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1318
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1318
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -218278,7 +218278,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1336
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1336
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -218289,12 +218289,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1339
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1339
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1339
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1339
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -218338,18 +218338,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1342
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1342
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1342
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1342
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1342
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1342
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1342
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1342
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1342
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1342
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1342
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1342
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1342
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1342
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1342
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1342
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1342
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1342
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -218392,18 +218392,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1345
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1345
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1345
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1345
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1345
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1345
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1345
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1345
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1345
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1345
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1345
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1345
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1345
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1345
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1345
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1345
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1345
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1345
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -218438,7 +218438,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1345
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1345
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -218584,7 +218584,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1363
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1363
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -218595,12 +218595,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1366
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1366
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1366
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1366
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -218644,18 +218644,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1369
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1369
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1369
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1369
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1369
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1369
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1369
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1369
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1369
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1369
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1369
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1369
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1369
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1369
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1369
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1369
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1369
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1369
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -218698,18 +218698,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1372
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1372
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1372
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1372
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1372
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1372
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1372
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1372
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1372
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1372
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1372
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1372
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1372
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1372
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1372
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1372
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1372
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1372
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -218744,7 +218744,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1372
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1372
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -218890,7 +218890,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1390
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1390
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -218901,12 +218901,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1393
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1393
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1393
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1393
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -218950,18 +218950,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1396
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1396
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1396
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1396
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1396
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1396
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1396
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1396
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1396
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1396
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1396
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1396
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1396
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1396
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1396
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -219004,18 +219004,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1399
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1399
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1399
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1399
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1399
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1399
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1399
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1399
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1399
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1399
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1399
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1399
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1399
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1399
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1399
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1399
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1399
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1399
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -219050,7 +219050,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1399
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1399
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -219196,7 +219196,7 @@ if.then:                                          ; preds = %sw.bb2
 
 if.then7:                                         ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1417
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !1417
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS1_8BitDepthE8ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %if.then7
@@ -219207,12 +219207,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 
 if.else:                                          ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i81, align 8, !noalias !1420
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %.noexc.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !1420
 
 .noexc.i.i.i.i:                                   ; preds = %if.else
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1420
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !1420
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i
@@ -219256,18 +219256,18 @@ if.then14:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1423
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1423
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1423
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1423
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1423
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1423
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1423
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1423
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1423
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1423
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1423
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1423
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1423
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1423
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1423
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1423
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1423
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad4.i.i.i.i.i.i.i.i, !noalias !1423
 
 lpad4.i.i.i.i.i.i.i.i:                            ; preds = %if.then14
@@ -219310,18 +219310,18 @@ if.else16:                                        ; preds = %if.else10
   store ptr null, ptr %m_paramsR.i.i.i.i.i.i.i.i, align 8, !noalias !1426
   store float 0.000000e+00, ptr %startOffset.i.i.i.i.i.i.i.i.i, align 8, !noalias !1426
   store ptr null, ptr %negLutEnd.i.i.i.i.i.i.i.i.i, align 8, !noalias !1426
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1426
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1426
   store float 1.000000e+00, ptr %flipSign.i.i.i.i.i.i.i.i.i, align 8, !noalias !1426
   store ptr null, ptr %negLutEnd.i3.i.i.i.i.i.i.i.i, align 8, !noalias !1426
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1426
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1426
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1426
   store float 1.000000e+00, ptr %flipSign.i4.i.i.i.i.i.i.i.i, align 8, !noalias !1426
   store ptr null, ptr %negLutEnd.i8.i.i.i.i.i.i.i.i, align 8, !noalias !1426
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1426
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !1426
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1426
   store float 1.000000e+00, ptr %flipSign.i9.i.i.i.i.i.i.i.i, align 8, !noalias !1426
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i.i.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !1426
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i unwind label %lpad4.i.i.i.i.i.i.i.i.i, !noalias !1426
 
 lpad4.i.i.i.i.i.i.i.i.i:                          ; preds = %if.else16
@@ -219356,7 +219356,7 @@ if.then.i.i.i15.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i: ; preds = %if.else16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i84, align 8, !noalias !1426
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %_M_impl.i.i.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %return unwind label %lpad.i.i.i.i.i.i.i.i123, !noalias !1426
 
 lpad.i.i.i.i.i.i.i.i123:                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i
@@ -221839,14 +221839,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -221854,14 +221854,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -226800,14 +226800,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -226815,14 +226815,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -231761,14 +231761,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -231776,14 +231776,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -236722,14 +236722,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -236737,14 +236737,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -242739,14 +242739,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -242754,14 +242754,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry
@@ -248556,14 +248556,14 @@ entry:
   %negLutEnd.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %negLutEnd.i.i, align 8
   %flipSign.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %flipSign.i.i, align 8
   %bisectPoint.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %lutEnd.i2.i = getelementptr inbounds i8, ptr %this, i64 88
   %negLutEnd.i3.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %negLutEnd.i3.i, align 8
   %flipSign.i4.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i2.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i4.i, align 8
   %bisectPoint.i5.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -248571,14 +248571,14 @@ entry:
   %negLutEnd.i8.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %negLutEnd.i8.i, align 8
   %flipSign.i9.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lutEnd.i7.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bisectPoint.i5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %flipSign.i9.i, align 8
   %bisectPoint.i10.i = getelementptr inbounds i8, ptr %this, i64 180
   %m_tmpLutR.i = getelementptr inbounds i8, ptr %this, i64 192
   %m_tmpLutG.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %bisectPoint.i10.i, i8 0, i64 88, i1 false)
-  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %lut)
+  invoke void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %entry

@@ -868,7 +868,7 @@ define void @"_ZN4core3ptr105drop_in_place$LT$$LP$alloc..string..String$C$wasmti
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull readonly align 8 %7)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull align 8 %7)
           to label %"_ZN4core3ptr73drop_in_place$LT$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$GT$17hbf5125058a0d13feE.exit" unwind label %8
 
 8:                                                ; preds = %5
@@ -2448,7 +2448,7 @@ define void @"_ZN4core3ptr197drop_in_place$LT$alloc..collections..btree..node..S
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull readonly align 8 %7)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull align 8 %7)
           to label %"_ZN4core3ptr105drop_in_place$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$RP$$GT$17h45f3af97373a6c15E.exit" unwind label %8
 
 8:                                                ; preds = %5
@@ -2520,7 +2520,7 @@ define void @"_ZN4core3ptr201drop_in_place$LT$alloc..collections..btree..node..S
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull readonly align 8 %7)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull align 8 %7)
           to label %"_ZN4core3ptr105drop_in_place$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$RP$$GT$17h45f3af97373a6c15E.exit" unwind label %8
 
 8:                                                ; preds = %5
@@ -3509,7 +3509,7 @@ define void @"_ZN4core3ptr503drop_in_place$LT$core..iter..traits..iterator..Iter
 define void @"_ZN4core3ptr50drop_in_place$LT$wasmtime_wit_bindgen..Exports$GT$17h1680d22e4ff09395E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he3bf25344f3bc9d2E"(ptr nonnull readonly align 8 %3)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he3bf25344f3bc9d2E"(ptr nonnull align 8 %3)
           to label %"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$17hd79a5e8411c245c9E.exit" unwind label %4
 
 4:                                                ; preds = %1
@@ -3967,7 +3967,7 @@ define void @"_ZN4core3ptr57drop_in_place$LT$$u5b$alloc..ffi..c_str..CString$u5d
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr57drop_in_place$LT$std..sys_common..process..CommandEnv$GT$17hf89923cbc99e8f9fE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd6b8426d00d5d4E"(ptr readonly align 8 %0)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd6b8426d00d5d4E"(ptr align 8 %0)
   ret void
 }
 
@@ -4447,7 +4447,7 @@ define void @"_ZN4core3ptr73drop_in_place$LT$std..sys..pal..unix..process..proce
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$GT$17hbf5125058a0d13feE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull readonly align 8 %2)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe2a22ed477182faE"(ptr nonnull align 8 %2)
           to label %"_ZN4core3ptr145drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$GT$$GT$17h89f5b203ff83a269E.exit" unwind label %3
 
 3:                                                ; preds = %1
@@ -4550,7 +4550,7 @@ define void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..proce
 21:                                               ; preds = %23, %8
   %.pn2 = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %8 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd6b8426d00d5d4E"(ptr nonnull readonly align 8 %22)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd6b8426d00d5d4E"(ptr nonnull align 8 %22)
           to label %"_ZN4core3ptr57drop_in_place$LT$std..sys_common..process..CommandEnv$GT$17hf89923cbc99e8f9fE.exit" unwind label %102
 
 23:                                               ; preds = %16, %12
@@ -4561,7 +4561,7 @@ define void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..proce
 25:                                               ; preds = %.noexc, %16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %26 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd6b8426d00d5d4E"(ptr nonnull readonly align 8 %26)
+  invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd6b8426d00d5d4E"(ptr nonnull align 8 %26)
           to label %"_ZN4core3ptr57drop_in_place$LT$std..sys_common..process..CommandEnv$GT$17hf89923cbc99e8f9fE.exit19" unwind label %31
 
 "_ZN4core3ptr57drop_in_place$LT$std..sys_common..process..CommandEnv$GT$17hf89923cbc99e8f9fE.exit": ; preds = %21, %31

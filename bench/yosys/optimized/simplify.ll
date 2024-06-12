@@ -29842,11 +29842,11 @@ define noundef nonnull ptr @_ZN5Yosys3AST7AstNode16make_index_rangeEPS1_b(ptr no
 
 97:                                               ; preds = %84
   %98 = load ptr, ptr %89, align 8
-  %99 = tail call fastcc noundef ptr @_ZN5YosysL15normalize_indexEPNS_3AST7AstNodeES2_i(ptr noundef %98, ptr noundef readonly %1, i32 noundef %.141)
+  %99 = tail call fastcc noundef ptr @_ZN5YosysL15normalize_indexEPNS_3AST7AstNodeES2_i(ptr noundef %98, ptr noundef %1, i32 noundef %.141)
   %100 = load ptr, ptr %86, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call fastcc noundef ptr @_ZN5YosysL15normalize_indexEPNS_3AST7AstNodeES2_i(ptr noundef %102, ptr noundef readonly %1, i32 noundef %.141)
+  %103 = tail call fastcc noundef ptr @_ZN5YosysL15normalize_indexEPNS_3AST7AstNodeES2_i(ptr noundef %102, ptr noundef %1, i32 noundef %.141)
   %104 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #35
   invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %104, i32 noundef 61, ptr noundef %99, ptr noundef %103, ptr noundef null, ptr noundef null)
           to label %105 unwind label %116
@@ -44032,7 +44032,7 @@ define noundef zeroext i1 @_ZNK5Yosys3AST7AstNode21is_recursive_functionEv(ptr n
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
           to label %12 unwind label %26
 
@@ -63436,7 +63436,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5Yosys3AST7As
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZNK5Yosys3AST7AstNode21is_recursive_functionEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 

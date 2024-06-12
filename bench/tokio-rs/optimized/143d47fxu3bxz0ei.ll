@@ -721,7 +721,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore11add_permits17h
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN96_$LT$tokio_util..sync..poll_semaphore..PollSemaphore$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h87c88dc97ffb8321E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
-  tail call void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_many17h77f955ca657e9993E(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 1)
+  tail call void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_many17h77f955ca657e9993E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 1)
   ret void
 }
 

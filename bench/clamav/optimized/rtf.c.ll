@@ -125,7 +125,7 @@ load_actions.exit:                                ; preds = %24
   br label %325
 
 39:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) @base_state, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) @base_state, i64 104, i1 false)
   %40 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %2, i64 40

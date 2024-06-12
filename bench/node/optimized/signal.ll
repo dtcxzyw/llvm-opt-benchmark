@@ -265,7 +265,7 @@ if.end34.i:                                       ; preds = %if.then22.i, %if.en
   %10 = load ptr, ptr %rbe_parent.i, align 8
   %cmp37.i = icmp eq ptr %10, %handle
   %spec.select.i = select i1 %cmp37.i, ptr %elm.addr.0.i, ptr %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tree_entry11.i.le, ptr noundef nonnull readonly align 8 dereferenceable(32) %tree_entry.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tree_entry11.i.le, ptr noundef nonnull align 8 dereferenceable(32) %tree_entry.i, i64 32, i1 false)
   %rbe_parent43.i = getelementptr inbounds i8, ptr %handle, i64 128
   %11 = load ptr, ptr %rbe_parent43.i, align 8
   %tobool44.not.i = icmp eq ptr %11, null

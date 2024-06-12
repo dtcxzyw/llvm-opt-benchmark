@@ -1172,7 +1172,7 @@ sw.bb1.i:                                         ; preds = %for.body
   br label %if.end24
 
 sw.bb2.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(3) %shaInput, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %shaInput, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   br label %if.end24
 
 sw.bb3.i:                                         ; preds = %for.body
@@ -1180,15 +1180,15 @@ sw.bb3.i:                                         ; preds = %for.body
   br label %if.end24
 
 sw.bb4.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(5) %shaInput, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %shaInput, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
   br label %if.end24
 
 sw.bb5.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %shaInput, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %shaInput, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
   br label %if.end24
 
 sw.bb6.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(7) %shaInput, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %shaInput, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
   br label %if.end24
 
 sw.bb7.i:                                         ; preds = %for.body
@@ -1196,7 +1196,7 @@ sw.bb7.i:                                         ; preds = %for.body
   br label %if.end24
 
 sw.bb8.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(9) %shaInput, ptr noundef nonnull align 1 dereferenceable(9) @.str.8, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %shaInput, ptr noundef nonnull align 1 dereferenceable(9) @.str.8, i64 9, i1 false)
   br label %if.end24
 
 if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
@@ -1262,10 +1262,10 @@ if.then.i:                                        ; preds = %if.then78
   %10 = load i8, ptr %hash_size, align 1
   %conv4.i = zext i8 %10 to i32
   %conv6.i = zext i8 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull readonly align 16 %keyData, i64 %conv6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull align 16 %keyData, i64 %conv6.i, i1 false)
   %server_write_MAC_secret.i = getelementptr inbounds i8, ptr %ssl, i64 780
   %arrayidx12.i = getelementptr inbounds i8, ptr %keyData, i64 %conv6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull readonly align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
   %add14.i = shl nuw nsw i32 %conv4.i, 1
   br label %if.end16.i
 
@@ -1277,12 +1277,12 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %idxprom23.i = zext nneg i32 %i.1.i to i64
   %arrayidx24.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23.i
   %conv25.i = zext i16 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull readonly align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
   %add26.i = add nuw nsw i32 %i.1.i, %conv18.i
   %server_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %idxprom32.i = zext nneg i32 %add26.i to i64
   %arrayidx33.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom32.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull readonly align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
   %add35.i = add nuw nsw i32 %add26.i, %conv18.i
   %12 = load i16, ptr %iv_size, align 2
   %conv38.i = zext i16 %12 to i32
@@ -1290,12 +1290,12 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %idxprom43.i = zext nneg i32 %add35.i to i64
   %arrayidx44.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom43.i
   %conv45.i = zext i16 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull readonly align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
   %add46.i = add nuw nsw i32 %add35.i, %conv38.i
   %server_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 924
   %idxprom52.i = zext nneg i32 %add46.i to i64
   %arrayidx53.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom52.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull readonly align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
   br i1 %cmp.not.i, label %if.then61.i, label %if.end82
 
 if.then61.i:                                      ; preds = %if.end16.i
@@ -1395,7 +1395,7 @@ sw.bb1.i.i:                                       ; preds = %for.body.i
   br label %if.end18.i
 
 sw.bb2.i.i:                                       ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(3) %prefix.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %prefix.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i

@@ -1631,7 +1631,7 @@ define void @Kit_PlaToTruth(ptr nocapture noundef readonly %0, i32 noundef %1, p
 select.unfold.preheader.i:                        ; preds = %11
   %16 = zext nneg i32 %spec.select.i to i64
   %17 = shl nuw nsw i64 %16, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %4, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %4, i8 0, i64 %17, i1 false)
   br label %Kit_TruthClear.exit
 
 Kit_TruthClear.exit:                              ; preds = %11, %select.unfold.preheader.i
@@ -1670,7 +1670,7 @@ select.unfold.preheader.i47.us:                   ; preds = %select.unfold.prehe
   %.04068.us = phi i32 [ %60, %Kit_TruthOr.exit.loopexit.us ], [ 0, %select.unfold.preheader.i47.us.preheader ]
   %31 = getelementptr inbounds i8, ptr %.03969.us, i64 %23
   %32 = load i8, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
   br label %39
 
 select.unfold.i57.us:                             ; preds = %Kit_TruthAnd.exit.us75, %select.unfold.i57.us
@@ -1758,7 +1758,7 @@ select.unfold.preheader.i47:                      ; preds = %.lr.ph71.split, %Ki
   %.04068 = phi i32 [ %74, %Kit_TruthOr.exit.loopexit ], [ 0, %.lr.ph71.split ]
   %65 = getelementptr inbounds i8, ptr %.03969, i64 %23
   %66 = load i8, ptr %65, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
   br label %select.unfold.i57
 
 select.unfold.i57:                                ; preds = %select.unfold.i57, %select.unfold.preheader.i47

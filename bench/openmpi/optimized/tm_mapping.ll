@@ -283,7 +283,7 @@ nb_lines.exit:                                    ; preds = %18, %21
 ._crit_edge:                                      ; preds = %.lr.ph, %nb_lines.exit
   %30 = call i32 @tm_get_verbose_level() #17
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  %31 = call i32 @stat(ptr noundef readonly %0, ptr noundef nonnull %2) #17
+  %31 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #17
   %32 = getelementptr inbounds i8, ptr %2, i64 48
   %33 = load i64, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)

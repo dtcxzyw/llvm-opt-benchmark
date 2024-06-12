@@ -1518,19 +1518,19 @@ entry:
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #14
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i.i, align 4
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %call, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i.i, align 4
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %call, i64 88
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %call, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
@@ -1561,19 +1561,19 @@ entry:
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #14
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i.i, align 4
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %call, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i.i, align 4
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %call, i64 88
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %call, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14

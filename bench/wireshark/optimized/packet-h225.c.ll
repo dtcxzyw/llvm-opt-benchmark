@@ -4239,9 +4239,9 @@ dissect_RasMessage_PDU.exit:                      ; preds = %4, %38, %42
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %111, i64 32
   %120 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull readonly align 8 dereferenceable(16) %120, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false)
   %121 = getelementptr inbounds i8, ptr %111, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %121, ptr noundef nonnull readonly align 4 dereferenceable(16) %104, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %121, ptr noundef nonnull align 4 dereferenceable(16) %104, i64 16, i1 false)
   %122 = load ptr, ptr %59, align 8
   %123 = call ptr @wmem_map_insert(ptr noundef %122, ptr noundef nonnull %106, ptr noundef nonnull %111) #10
   br label %proto_item_set_hidden.exit.thread.i

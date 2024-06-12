@@ -240,7 +240,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %51, align 8
-  %107 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %106, i32 noundef 0, i32 noundef 0) #15
+  %107 = call ptr @hwloc_get_obj_by_depth(ptr noundef %106, i32 noundef 0, i32 noundef 0) #15
   %108 = call i32 @prte_hwloc_base_get_npus(ptr noundef %106, i1 noundef zeroext %41, ptr noundef %.0, ptr noundef %107) #13
   br label %109
 
@@ -260,7 +260,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
 
 117:                                              ; preds = %113, %109
   %118 = load ptr, ptr %51, align 8
-  %119 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %118, i32 noundef 0, i32 noundef 0) #15
+  %119 = call ptr @hwloc_get_obj_by_depth(ptr noundef %118, i32 noundef 0, i32 noundef 0) #15
   %120 = call i32 @prte_hwloc_base_get_npus(ptr noundef %118, i1 noundef zeroext %41, ptr noundef %.0, ptr noundef %119) #13
   br label %124
 

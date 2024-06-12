@@ -343,7 +343,7 @@ Vec_StrGrow.exit.i.i:                             ; preds = %135, %125
   br label %Vec_StrFill.exit.i
 
 Vec_StrFill.exit.i:                               ; preds = %.lr.ph.i.preheader.i, %Vec_StrGrow.exit.i.i
-  %140 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %118) #14
+  %140 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #14
   %141 = trunc i64 %140 to i32
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph.i236.i, label %Vec_StrPrintStr.exit.i

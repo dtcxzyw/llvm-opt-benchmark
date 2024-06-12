@@ -686,7 +686,7 @@ if.then.i:                                        ; preds = %if.then
 
 l_message.exit:                                   ; preds = %if.then, %if.then.i
   %4 = load ptr, ptr @stderr, align 8
-  %call3.i = tail call i32 @fputs(ptr noundef nonnull readonly %spec.store.select, ptr noundef %4) #9
+  %call3.i = tail call i32 @fputs(ptr noundef nonnull %spec.store.select, ptr noundef %4) #9
   %5 = load ptr, ptr @stderr, align 8
   %call4.i = tail call i32 @fputc(i32 noundef 10, ptr noundef %5)
   %6 = load ptr, ptr @stderr, align 8
@@ -934,7 +934,7 @@ if.then.i.i16:                                    ; preds = %if.then.i
 
 l_message.exit.i:                                 ; preds = %if.then.i.i16, %if.then.i
   %15 = load ptr, ptr @stderr, align 8
-  %call3.i.i = call i32 @fputs(ptr noundef nonnull readonly %spec.store.select.i, ptr noundef %15) #9
+  %call3.i.i = call i32 @fputs(ptr noundef nonnull %spec.store.select.i, ptr noundef %15) #9
   %16 = load ptr, ptr @stderr, align 8
   %call4.i.i = call i32 @fputc(i32 noundef 10, ptr noundef %16)
   %17 = load ptr, ptr @stderr, align 8
@@ -974,7 +974,7 @@ if.then.i20:                                      ; preds = %if.then11
 
 l_message.exit:                                   ; preds = %if.then11, %if.then.i20
   %22 = load ptr, ptr @stderr, align 8
-  %call3.i24 = call i32 @fputs(ptr noundef readonly %call13, ptr noundef %22) #9
+  %call3.i24 = call i32 @fputs(ptr noundef %call13, ptr noundef %22) #9
   %23 = load ptr, ptr @stderr, align 8
   %call4.i = call i32 @fputc(i32 noundef 10, ptr noundef %23)
   %24 = load ptr, ptr @stderr, align 8

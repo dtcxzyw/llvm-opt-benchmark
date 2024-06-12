@@ -1707,12 +1707,12 @@ define dso_local i64 @array_out(ptr nocapture noundef readonly %0) local_unnamed
   %90 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 92:                                               ; preds = %84
   %93 = getelementptr inbounds i8, ptr %8, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 4
@@ -1750,7 +1750,7 @@ define dso_local i64 @array_out(ptr nocapture noundef readonly %0) local_unnamed
 
 115:                                              ; preds = %._crit_edge
   %116 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %117 = load i32, ptr %116, align 4
   %.not.i = icmp eq i32 %117, 0
   br i1 %.not.i, label %.thread223, label %123
@@ -3079,12 +3079,12 @@ define dso_local i64 @array_send(ptr nocapture noundef readonly %0) local_unname
   %136 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %135, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 138:                                              ; preds = %130
   %139 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 4
@@ -3122,7 +3122,7 @@ define dso_local i64 @array_send(ptr nocapture noundef readonly %0) local_unname
 
 161:                                              ; preds = %._crit_edge
   %162 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %163 = load i32, ptr %162, align 4
   %.not.i = icmp eq i32 %163, 0
   br i1 %.not.i, label %.thread78, label %169
@@ -4471,7 +4471,7 @@ array_bitmap_copy.exit.us.i:                      ; preds = %156, %.split.us.i
   %162 = sub i64 %160, %161
   %sext.i.us.i = shl i64 %162, 32
   %163 = ashr exact i64 %sext.i.us.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.0.us.i, ptr align 1 %.161.us.i, i64 %163, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.us.i, ptr align 1 %.161.us.i, i64 %163, i1 false)
   %164 = getelementptr i8, ptr %.0.us.i, i64 %163
   %165 = getelementptr i8, ptr %.161.us.i, i64 %163
   %166 = add i32 %.1.us.i, 1
@@ -4505,7 +4505,7 @@ array_bitmap_copy.exit.us.i:                      ; preds = %156, %.split.us.i
   %178 = sub i64 %176, %177
   %sext.i.i = shl i64 %178, 32
   %179 = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.0.i, ptr align 1 %.161.i, i64 %179, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %.161.i, i64 %179, i1 false)
   %180 = sdiv i32 %.058.i, 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr i8, ptr %.fr.i, i64 %181
@@ -7248,7 +7248,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %419 = sub i64 %417, %418
   %sext.i.i = shl i64 %419, 32
   %420 = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %367, ptr align 1 %379, i64 %420, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %367, ptr align 1 %379, i64 %420, i1 false)
   %421 = getelementptr i8, ptr %367, i64 %420
   %422 = getelementptr i8, ptr %379, i64 %420
   %.not141.i = icmp eq ptr %398, null
@@ -7404,7 +7404,7 @@ array_bitmap_copy.exit.i:                         ; preds = %436, %455, %._crit_
   %473 = sub i64 %471, %472
   %sext.i144.i = shl i64 %473, 32
   %474 = ashr exact i64 %sext.i144.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.0123.i, ptr align 1 %.0125.i, i64 %474, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0123.i, ptr align 1 %.0125.i, i64 %474, i1 false)
   %475 = getelementptr i8, ptr %.0123.i, i64 %474
   %476 = getelementptr i8, ptr %.0125.i, i64 %474
   br i1 %.not141.i, label %array_bitmap_copy.exit182.i, label %477
@@ -7551,7 +7551,7 @@ array_bitmap_copy.exit182.i:                      ; preds = %502, %521, %._crit_
   %536 = sub i64 %534, %535
   %sext.i183.i = shl i64 %536, 32
   %537 = ashr exact i64 %sext.i183.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.1124.i, ptr align 1 %.0127.i, i64 %537, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1124.i, ptr align 1 %.0127.i, i64 %537, i1 false)
   br i1 %.not141.i, label %array_bitmap_copy.exit221.i, label %538
 
 538:                                              ; preds = %532
@@ -7609,7 +7609,7 @@ array_bitmap_copy.exit221.i:                      ; preds = %array_bitmap_copy.e
   %571 = sub i64 %569, %570
   %sext.i222.i = shl i64 %571, 32
   %572 = ashr exact i64 %sext.i222.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %559, ptr align 1 %563, i64 %572, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %559, ptr align 1 %563, i64 %572, i1 false)
   %573 = icmp slt i32 %567, 1
   %or.cond304.i = or i1 %.not141.i, %573
   br i1 %or.cond304.i, label %array_insert_slice.exit, label %574
@@ -8755,12 +8755,12 @@ define dso_local noundef i64 @array_map(i64 noundef %0, ptr noundef %1, ptr noun
   %74 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   br label %.lr.ph
 
 76:                                               ; preds = %68
   %77 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 4
@@ -8798,7 +8798,7 @@ define dso_local noundef i64 @array_map(i64 noundef %0, ptr noundef %1, ptr noun
 
 99:                                               ; preds = %53
   %100 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %101 = load i32, ptr %100, align 4
   %.not.i = icmp eq i32 %101, 0
   br i1 %.not.i, label %.thread150, label %107
@@ -9555,12 +9555,12 @@ define dso_local range(i64 0, 2) i64 @array_eq(ptr nocapture noundef readonly %0
   %114 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %113, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 116:                                              ; preds = %108
   %117 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 4
@@ -9598,7 +9598,7 @@ define dso_local range(i64 0, 2) i64 @array_eq(ptr nocapture noundef readonly %0
 
 139:                                              ; preds = %91
   %140 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %141 = load i32, ptr %140, align 4
   %.not.i = icmp eq i32 %141, 0
   br i1 %.not.i, label %.thread117, label %147
@@ -9650,12 +9650,12 @@ array_iter_setup.exit:                            ; preds = %111, %135, %154
   %167 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %166, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit116
 
 169:                                              ; preds = %161
   %170 = getelementptr inbounds i8, ptr %12, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load i32, ptr %172, align 4
@@ -9693,7 +9693,7 @@ array_iter_setup.exit:                            ; preds = %111, %135, %154
 
 192:                                              ; preds = %array_iter_setup.exit
   %193 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %194 = load i32, ptr %193, align 4
   %.not.i111 = icmp eq i32 %194, 0
   br i1 %.not.i111, label %.thread119, label %200
@@ -9981,12 +9981,12 @@ define internal fastcc range(i32 -1, 2) i32 @array_cmp(ptr nocapture noundef rea
   %94 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 96:                                               ; preds = %88
   %97 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 4
@@ -10024,7 +10024,7 @@ define internal fastcc range(i32 -1, 2) i32 @array_cmp(ptr nocapture noundef rea
 
 119:                                              ; preds = %70
   %120 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %121 = load i32, ptr %120, align 4
   %.not.i = icmp eq i32 %121, 0
   br i1 %.not.i, label %.thread155, label %127
@@ -10076,12 +10076,12 @@ array_iter_setup.exit:                            ; preds = %91, %115, %134
   %147 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %146, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %148, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit154
 
 149:                                              ; preds = %141
   %150 = getelementptr inbounds i8, ptr %12, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   %153 = load i32, ptr %152, align 4
@@ -10119,7 +10119,7 @@ array_iter_setup.exit:                            ; preds = %91, %115, %134
 
 172:                                              ; preds = %array_iter_setup.exit
   %173 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %174 = load i32, ptr %173, align 4
   %.not.i149 = icmp eq i32 %174, 0
   br i1 %.not.i149, label %.thread157, label %180
@@ -10512,12 +10512,12 @@ define dso_local range(i64 0, 4294967296) i64 @hash_array(ptr nocapture noundef 
   %85 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 87:                                               ; preds = %79
   %88 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 4
@@ -10555,7 +10555,7 @@ define dso_local range(i64 0, 4294967296) i64 @hash_array(ptr nocapture noundef 
 
 110:                                              ; preds = %60
   %111 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %112 = load i32, ptr %111, align 4
   %.not.i = icmp eq i32 %112, 0
   br i1 %.not.i, label %.thread76, label %118
@@ -10755,12 +10755,12 @@ define dso_local i64 @hash_array_extended(ptr nocapture noundef readonly %0) loc
   %66 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %65, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 68:                                               ; preds = %60
   %69 = getelementptr inbounds i8, ptr %7, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load i32, ptr %71, align 4
@@ -10798,7 +10798,7 @@ define dso_local i64 @hash_array_extended(ptr nocapture noundef readonly %0) loc
 
 91:                                               ; preds = %41
   %92 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %93 = load i32, ptr %92, align 4
   %.not.i = icmp eq i32 %93, 0
   br i1 %.not.i, label %.thread64, label %99
@@ -11079,12 +11079,12 @@ define internal fastcc noundef zeroext i1 @array_contain_compare(ptr noundef %0,
   %83 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 85:                                               ; preds = %77
   %86 = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 4
@@ -11122,7 +11122,7 @@ define internal fastcc noundef zeroext i1 @array_contain_compare(ptr noundef %0,
 
 108:                                              ; preds = %72
   %109 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %110 = load i32, ptr %109, align 4
   %.not.i = icmp eq i32 %110, 0
   br i1 %.not.i, label %.thread85, label %116
@@ -13818,9 +13818,9 @@ array_contains_nulls.exit149:                     ; preds = %.lr.ph.i145, %114
   %246 = getelementptr i8, ptr %241, i64 16
   %247 = shl nuw nsw i32 %78, 2
   %248 = zext nneg i32 %247 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %246, ptr readonly align 4 %62, i64 %248, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %246, ptr align 4 %62, i64 %248, i1 false)
   %249 = getelementptr i8, ptr %246, i64 %248
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %249, ptr readonly align 4 %.0114, i64 %248, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %249, ptr align 4 %.0114, i64 %248, i1 false)
   %250 = load i32, ptr %244, align 4
   %.not135 = icmp eq i32 %250, 0
   br i1 %.not135, label %253, label %251
@@ -13872,9 +13872,9 @@ array_contains_nulls.exit149:                     ; preds = %.lr.ph.i145, %114
   %278 = getelementptr i8, ptr %273, i64 16
   %279 = shl nuw nsw i32 %78, 2
   %280 = zext nneg i32 %279 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %278, ptr readonly align 4 %62, i64 %280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %278, ptr align 4 %62, i64 %280, i1 false)
   %281 = getelementptr i8, ptr %278, i64 %280
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %281, ptr readonly align 4 %.0114, i64 %280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %281, ptr align 4 %.0114, i64 %280, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %265, %148
@@ -13967,12 +13967,12 @@ define dso_local i64 @array_unnest(ptr noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %array_iter_setup.exit
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds i8, ptr %13, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 4
@@ -14020,7 +14020,7 @@ define dso_local i64 @array_unnest(ptr noundef %0) local_unnamed_addr #0 {
 
 56:                                               ; preds = %6
   %57 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %58 = load i32, ptr %57, align 4
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %61, label %59

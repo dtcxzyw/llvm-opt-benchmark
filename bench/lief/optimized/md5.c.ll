@@ -1129,7 +1129,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   br label %mbedtls_md5.exit.us
 
 mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.i.i.us, %._crit_edge.i.i.us, %.split.us
-  %17 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull writeonly %3)
+  %17 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 88) #11
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   %18 = getelementptr inbounds [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv30
@@ -1182,7 +1182,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
   br label %mbedtls_md5.exit
 
 mbedtls_md5.exit:                                 ; preds = %.split, %._crit_edge.i.i, %._crit_edge.thread.i.i
-  %33 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull writeonly %3)
+  %33 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 88) #11
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   %34 = getelementptr inbounds [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv

@@ -273,7 +273,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC8int128_tlsEi(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
   br i1 %cmp.i, label %if.then.i, label %if.else22.i
 
@@ -1110,7 +1110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2Ea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i8 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1138,7 +1138,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2Es(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i16 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i16 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1166,7 +1166,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i32 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1205,7 +1205,7 @@ entry:
 define dso_local void @_ZN2EA4StdC8int128_tC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %value) unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i64 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1339,7 +1339,7 @@ if.end:                                           ; preds = %_ZN2EA4StdC8int128_
 define dso_local void @_ZN2EA4StdC8int128_tC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pValue, i32 noundef %nBase) unnamed_addr #6 align 2 {
 entry:
   %value = alloca %"class.EA::StdC::int128_t", align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC8int128_t11StrToInt128EPKcPPci(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %value, ptr noundef %pValue, ptr noundef null, i32 noundef %nBase)
   %0 = load <2 x i64>, ptr %value, align 16
   store <2 x i64> %0, ptr %this, align 8
@@ -1572,7 +1572,7 @@ if.end119:                                        ; preds = %if.then116, %for.bo
   store i64 0, ptr %mPart1.i.i87, align 8
   store i64 10, ptr %ref.tmp120, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp120)
+  call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120)
   %18 = load <2 x i64>, ptr %ref.tmp.i, align 16
   store <2 x i64> %18, ptr %multiplier, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -1704,7 +1704,7 @@ define dso_local void @_ZN2EA4StdC8int128_tC2EPKwi(ptr nocapture noundef nonnull
 entry:
   %pTextEnd = alloca ptr, align 8
   %value = alloca %"class.EA::StdC::int128_t", align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC8int128_t11StrToInt128EPKwPPwi(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %value, ptr noundef %pValue, ptr noundef nonnull %pTextEnd, i32 noundef %nBase)
   %0 = load <2 x i64>, ptr %value, align 16
   store <2 x i64> %0, ptr %this, align 8
@@ -1968,7 +1968,7 @@ if.end112:                                        ; preds = %if.then109, %for.bo
   store i64 0, ptr %mPart1.i.i102, align 8
   store i64 10, ptr %ref.tmp113, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp113)
+  call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp113)
   %26 = load i64, ptr %mPart1.i.i.i, align 8
   store i64 %26, ptr %mPart1.i.i98207, align 8
   %27 = load i64, ptr %ref.tmp.i, align 8
@@ -2397,8 +2397,8 @@ entry:
 define dso_local void @_ZN2EA4StdCdvERKNS0_8int128_tES3_(ptr noalias nocapture nonnull sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #8 {
 entry:
   %remainder = alloca %"class.EA::StdC::int128_t", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %value1, ptr noundef nonnull align 8 dereferenceable(16) %value2, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %remainder)
   ret void
 }
@@ -2443,7 +2443,7 @@ if.then9:                                         ; preds = %if.else
   br label %if.end29
 
 if.else13:                                        ; preds = %if.else
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
   %mPart114.i = getelementptr inbounds i8, ptr %quotient, i64 8
   br label %for.body
 
@@ -2604,8 +2604,8 @@ if.end37:                                         ; preds = %if.end29, %_ZN2EA4S
 define dso_local void @_ZN2EA4StdCrmERKNS0_8int128_tES3_(ptr noalias nocapture nonnull sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #8 {
 entry:
   %quotient = alloca %"class.EA::StdC::int128_t", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %quotient, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient, i8 0, i64 16, i1 false)
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %value1, ptr noundef nonnull align 8 dereferenceable(16) %value2, ptr noundef nonnull align 8 dereferenceable(16) %quotient, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
   ret void
 }
@@ -2665,9 +2665,9 @@ entry:
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %remainder.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %remainder.i, i8 0, i64 16, i1 false), !noalias !20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !20
-  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i, i8 0, i64 16, i1 false), !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
   %0 = load <2 x i64>, ptr %ref.tmp, align 16
   store <2 x i64> %0, ptr %this, align 8
@@ -2681,9 +2681,9 @@ entry:
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %quotient.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !23
-  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !23
+  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %quotient.i)
   %0 = load <2 x i64>, ptr %ref.tmp, align 16
   store <2 x i64> %0, ptr %this, align 8
@@ -2693,7 +2693,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC8int128_trsEi(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
 
@@ -3558,9 +3558,9 @@ if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %
 while.body:                                       ; preds = %if.end.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %quotient.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false), !alias.scope !28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !28
-  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %ten, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %remainder)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !28
+  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ten, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %remainder)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %quotient.i)
   %15 = load i64, ptr %remainder, align 8
   %16 = trunc i64 %15 to i8
@@ -3572,9 +3572,9 @@ while.body:                                       ; preds = %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %remainder.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %remainder.i.i, i8 0, i64 16, i1 false), !noalias !31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false), !alias.scope !31
-  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i.i, i8 0, i64 16, i1 false), !noalias !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false), !alias.scope !31
+  call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i.i)
   %17 = load i64, ptr %mPart1.i.i.i61, align 8
   store i64 %17, ptr %mPart12.i.i, align 8
@@ -3879,7 +3879,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2Ea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i8 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3907,7 +3907,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2Es(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i16 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i16 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3935,7 +3935,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i32 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3973,7 +3973,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %value) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp slt i64 %value, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4046,7 +4046,7 @@ entry:
 define dso_local void @_ZN2EA4StdC9uint128_tC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pValue, i32 noundef %nBase) unnamed_addr #6 align 2 {
 entry:
   %value = alloca %"class.EA::StdC::uint128_t", align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC9uint128_t11StrToInt128EPKcPPci(ptr nonnull sret(%"class.EA::StdC::uint128_t") align 8 %value, ptr noundef %pValue, ptr noundef null, i32 noundef %nBase)
   %0 = load <2 x i64>, ptr %value, align 16
   store <2 x i64> %0, ptr %this, align 8
@@ -4404,7 +4404,7 @@ define dso_local void @_ZN2EA4StdC9uint128_tC2EPKwi(ptr nocapture noundef nonnul
 entry:
   %pTextEnd = alloca ptr, align 8
   %value = alloca %"class.EA::StdC::uint128_t", align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC9uint128_t11StrToInt128EPKwPPwi(ptr nonnull sret(%"class.EA::StdC::uint128_t") align 8 %value, ptr noundef %pValue, ptr noundef nonnull %pTextEnd, i32 noundef %nBase)
   %0 = load <2 x i64>, ptr %value, align 16
   store <2 x i64> %0, ptr %this, align 8
@@ -5031,7 +5031,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN2EA4StdCdvERKNS0_9uint128_tES3_(ptr noalias nocapture sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #14 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %mPart1.i.i.i = getelementptr inbounds i8, ptr %value1, i64 8
   %0 = load i64, ptr %mPart1.i.i.i, align 8
   %1 = load i64, ptr %value1, align 8
@@ -5047,11 +5047,7 @@ if.else.i:                                        ; preds = %entry
   %cmp.i16.i = icmp eq i64 %1, 0
   %cmp2.i18.i = icmp eq i64 %0, 0
   %5 = select i1 %cmp.i16.i, i1 %cmp2.i18.i, i1 false
-  br i1 %5, label %if.then4.i, label %if.else8.i
-
-if.then4.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  br label %_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit
+  br i1 %5, label %_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else.i
   %mPart114.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5134,7 +5130,7 @@ for.inc.i:                                        ; preds = %if.then19.i, %land.
   %inc.i = add nuw nsw i32 %i.057.i, 1
   br label %for.body.i
 
-_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit: ; preds = %if.end.i, %entry, %if.then4.i
+_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit: ; preds = %if.end.i, %if.else.i, %entry
   ret void
 }
 
@@ -5165,7 +5161,7 @@ if.then4:                                         ; preds = %if.else
   br label %if.end23
 
 if.else8:                                         ; preds = %if.else
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
   %mPart114.i = getelementptr inbounds i8, ptr %quotient, i64 8
   br label %for.body
 
@@ -5261,8 +5257,8 @@ if.end23:                                         ; preds = %if.end, %entry, %if
 define dso_local void @_ZN2EA4StdCrmERKNS0_9uint128_tES3_(ptr noalias nocapture nonnull sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #14 {
 entry:
   %quotient = alloca %"class.EA::StdC::uint128_t", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %quotient, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient, i8 0, i64 16, i1 false)
   call void @_ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %value1, ptr noundef nonnull align 8 dereferenceable(16) %value2, ptr noundef nonnull align 8 dereferenceable(16) %quotient, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
   ret void
 }
@@ -5382,7 +5378,7 @@ if.else.i.i:                                      ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.else.i.i, %for.inc.i.i
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.3, %for.inc.i.i ], [ 0, %if.else.i.i ]
-  %ref.tmp.sroa.6.0 = phi i64 [ %ref.tmp.sroa.6.3, %for.inc.i.i ], [ 0, %if.else.i.i ]
+  %ref.tmp.sroa.5.0 = phi i64 [ %ref.tmp.sroa.5.3, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %remainder.sroa.0.0.i = phi i64 [ %remainder.sroa.0.3.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %remainder.sroa.9.0.i = phi i64 [ %remainder.sroa.9.3.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
   %i.057.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.else.i.i ]
@@ -5407,10 +5403,10 @@ if.else10.i.i.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp13.i.i.i.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i
 
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i:      ; preds = %if.else10.i.i.i.i, %if.then.i.i.i.i
-  %.sroa.speculated = select i1 %rem.i56.cmp.i.i, i64 %ref.tmp.sroa.0.0, i64 %ref.tmp.sroa.6.0
+  %.sroa.speculated = select i1 %rem.i56.cmp.i.i, i64 %ref.tmp.sroa.0.0, i64 %ref.tmp.sroa.5.0
   %or.i.i.i = or i64 %shl.i.i.i, %.sroa.speculated
   %spec.select = select i1 %rem.i56.cmp.i.i, i64 %or.i.i.i, i64 %ref.tmp.sroa.0.0
-  %spec.select8 = select i1 %rem.i56.cmp.i.i, i64 %ref.tmp.sroa.6.0, i64 %or.i.i.i
+  %spec.select7 = select i1 %rem.i56.cmp.i.i, i64 %ref.tmp.sroa.5.0, i64 %or.i.i.i
   %sub.i.i.i.i = sub i64 %add.i.i.i.i, %3
   %cmp.i.i42.i.i = icmp ult i64 %add.i.i.i.i, %3
   %conv.neg.i.i.i.i = sext i1 %cmp.i.i42.i.i to i64
@@ -5427,12 +5423,12 @@ if.else.i40.i.i:                                  ; preds = %_ZN2EA4StdCgeERKNS0
   br label %if.end.i.i
 
 if.end.thread.i.i:                                ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i
-  %and16.i.i.i = and i64 %ref.tmp.sroa.6.0, %not.i.i.i
+  %and16.i.i.i = and i64 %ref.tmp.sroa.5.0, %not.i.i.i
   br label %land.lhs.true.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i40.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i
   %ref.tmp.sroa.0.2 = phi i64 [ %and.i41.i.i, %if.else.i40.i.i ], [ %spec.select, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
-  %ref.tmp.sroa.6.2 = phi i64 [ %ref.tmp.sroa.6.0, %if.else.i40.i.i ], [ %spec.select8, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
+  %ref.tmp.sroa.5.2 = phi i64 [ %ref.tmp.sroa.5.0, %if.else.i40.i.i ], [ %spec.select7, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
   %remainder.sroa.0.1.i = phi i64 [ %add.i.i.i.i, %if.else.i40.i.i ], [ %sub.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
   %remainder.sroa.9.1.i = phi i64 [ %remainder.sroa.9.0.i, %if.else.i40.i.i ], [ %sub7.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i ]
   %cmp17.not.i.i = icmp eq i32 %i.057.i.i, 127
@@ -5440,7 +5436,7 @@ if.end.i.i:                                       ; preds = %if.else.i40.i.i, %_
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i, %if.end.thread.i.i
   %ref.tmp.sroa.0.3 = phi i64 [ %ref.tmp.sroa.0.2, %if.end.i.i ], [ %ref.tmp.sroa.0.0, %if.end.thread.i.i ]
-  %ref.tmp.sroa.6.3 = phi i64 [ %ref.tmp.sroa.6.2, %if.end.i.i ], [ %and16.i.i.i, %if.end.thread.i.i ]
+  %ref.tmp.sroa.5.3 = phi i64 [ %ref.tmp.sroa.5.2, %if.end.i.i ], [ %and16.i.i.i, %if.end.thread.i.i ]
   %remainder.sroa.0.2.i = phi i64 [ %remainder.sroa.0.1.i, %if.end.i.i ], [ %add.i.i.i.i, %if.end.thread.i.i ]
   %remainder.sroa.9.2.i = phi i64 [ %remainder.sroa.9.1.i, %if.end.i.i ], [ %remainder.sroa.9.0.i, %if.end.thread.i.i ]
   %cmp.i44.i.i = icmp eq i64 %remainder.sroa.0.2.i, 0
@@ -5459,10 +5455,10 @@ for.inc.i.i:                                      ; preds = %if.then19.i.i, %lan
   %inc.i.i = add nuw nsw i32 %i.057.i.i, 1
   br label %for.body.i.i
 
-_ZN2EA4StdCdvERKNS0_9uint128_tES3_.exit:          ; preds = %if.end.i.i, %if.else.i.i, %entry
+_ZN2EA4StdCdvERKNS0_9uint128_tES3_.exit:          ; preds = %if.end.i.i, %entry, %if.else.i.i
   %ref.tmp.sroa.0.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i.i ], [ %ref.tmp.sroa.0.2, %if.end.i.i ]
-  %ref.tmp.sroa.6.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i.i ], [ %ref.tmp.sroa.6.2, %if.end.i.i ]
-  store i64 %ref.tmp.sroa.6.4, ptr %mPart1.i.i.i.i, align 8
+  %ref.tmp.sroa.5.4 = phi i64 [ 0, %entry ], [ 0, %if.else.i.i ], [ %ref.tmp.sroa.5.2, %if.end.i.i ]
+  store i64 %ref.tmp.sroa.5.4, ptr %mPart1.i.i.i.i, align 8
   store i64 %ref.tmp.sroa.0.4, ptr %this, align 8
   ret ptr %this
 }
@@ -5557,7 +5553,7 @@ _ZNK2EA4StdC9uint128_t7ModulusERKS1_RS1_S4_.exit: ; preds = %if.end.i, %if.else.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC9uint128_trsEi(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
 
@@ -5632,7 +5628,7 @@ _ZN2EA4StdC13int128_t_base18operatorShiftRightERKS1_iRS1_.exit: ; preds = %if.th
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC9uint128_tlsEi(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %nShift) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp sgt i32 %nShift, -1
   br i1 %cmp.i, label %if.then.i, label %if.else22.i
 
@@ -6271,7 +6267,7 @@ while.end.thread:                                 ; preds = %if.then34
 
 for.body.i.preheader:                             ; preds = %if.then34, %_ZN2EA4StdC9uint128_tdVERKS1_.exit
   %pValue.addr.4123 = phi ptr [ %incdec.ptr36, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %pValue, %if.then34 ]
-  %value.sroa.6.0122 = phi i64 [ %ref.tmp.sroa.6.4.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %3, %if.then34 ]
+  %value.sroa.6.0122 = phi i64 [ %ref.tmp.sroa.5.4.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %3, %if.then34 ]
   %value.sroa.0.0121 = phi i64 [ %ref.tmp.sroa.0.4.i, %_ZN2EA4StdC9uint128_tdVERKS1_.exit ], [ %4, %if.then34 ]
   br label %for.body.i
 
@@ -6336,7 +6332,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 
 for.body.i.i.i:                                   ; preds = %if.else.i.i.i, %for.inc.i.i.i
   %ref.tmp.sroa.0.0.i = phi i64 [ %ref.tmp.sroa.0.3.i, %for.inc.i.i.i ], [ 0, %if.else.i.i.i ]
-  %ref.tmp.sroa.6.0.i = phi i64 [ %ref.tmp.sroa.6.3.i, %for.inc.i.i.i ], [ 0, %if.else.i.i.i ]
+  %ref.tmp.sroa.5.0.i = phi i64 [ %ref.tmp.sroa.5.3.i, %for.inc.i.i.i ], [ 0, %if.else.i.i.i ]
   %remainder.sroa.0.0.i.i = phi i64 [ %remainder.sroa.0.3.i.i, %for.inc.i.i.i ], [ 0, %if.else.i.i.i ]
   %remainder.sroa.9.0.i.i = phi i64 [ %remainder.sroa.9.3.i.i, %for.inc.i.i.i ], [ 0, %if.else.i.i.i ]
   %i.057.i.i.i = phi i32 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %if.else.i.i.i ]
@@ -6355,10 +6351,10 @@ for.body.i.i.i:                                   ; preds = %if.else.i.i.i, %for
   br i1 %or.cond79, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i.i, label %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i
 
 _ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i:    ; preds = %for.body.i.i.i
-  %.sroa.speculated.i = select i1 %rem.i56.cmp.i.i.i, i64 %ref.tmp.sroa.0.0.i, i64 %ref.tmp.sroa.6.0.i
+  %.sroa.speculated.i = select i1 %rem.i56.cmp.i.i.i, i64 %ref.tmp.sroa.0.0.i, i64 %ref.tmp.sroa.5.0.i
   %or.i.i.i.i = or i64 %shl.i.i.i.i, %.sroa.speculated.i
   %spec.select.i = select i1 %rem.i56.cmp.i.i.i, i64 %or.i.i.i.i, i64 %ref.tmp.sroa.0.0.i
-  %spec.select8.i = select i1 %rem.i56.cmp.i.i.i, i64 %ref.tmp.sroa.6.0.i, i64 %or.i.i.i.i
+  %spec.select7.i = select i1 %rem.i56.cmp.i.i.i, i64 %ref.tmp.sroa.5.0.i, i64 %or.i.i.i.i
   %sub.i.i.i.i.i = add i64 %add.i.i.i.i.i, -10
   %conv.neg.i.i.i.i.i = sext i1 %or.cond.not.i.i.i.i to i64
   %sub7.i.i.i.i.i = add i64 %remainder.sroa.9.0.i.i, %conv.neg.i.i.i.i.i
@@ -6373,12 +6369,12 @@ if.else.i40.i.i.i:                                ; preds = %_ZN2EA4StdCgeERKNS0
   br label %if.end.i.i.i
 
 if.end.thread.i.i.i:                              ; preds = %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.thread.i.i.i
-  %and16.i.i.i.i = and i64 %ref.tmp.sroa.6.0.i, %not.i.i.i.i
+  %and16.i.i.i.i = and i64 %ref.tmp.sroa.5.0.i, %not.i.i.i.i
   br label %land.lhs.true.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i40.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i
   %ref.tmp.sroa.0.2.i = phi i64 [ %and.i41.i.i.i, %if.else.i40.i.i.i ], [ %spec.select.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i ]
-  %ref.tmp.sroa.6.2.i = phi i64 [ %ref.tmp.sroa.6.0.i, %if.else.i40.i.i.i ], [ %spec.select8.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i ]
+  %ref.tmp.sroa.5.2.i = phi i64 [ %ref.tmp.sroa.5.0.i, %if.else.i40.i.i.i ], [ %spec.select7.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i ]
   %remainder.sroa.0.1.i.i = phi i64 [ %add.i.i.i.i.i, %if.else.i40.i.i.i ], [ %sub.i.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i ]
   %remainder.sroa.9.1.i.i = phi i64 [ 0, %if.else.i40.i.i.i ], [ %sub7.i.i.i.i.i, %_ZN2EA4StdCgeERKNS0_9uint128_tES3_.exit.i.i.i ]
   %cmp17.not.i.i.i = icmp eq i32 %i.057.i.i.i, 127
@@ -6386,7 +6382,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i40.i.i.i, 
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i, %if.end.thread.i.i.i
   %ref.tmp.sroa.0.3.i = phi i64 [ %ref.tmp.sroa.0.2.i, %if.end.i.i.i ], [ %ref.tmp.sroa.0.0.i, %if.end.thread.i.i.i ]
-  %ref.tmp.sroa.6.3.i = phi i64 [ %ref.tmp.sroa.6.2.i, %if.end.i.i.i ], [ %and16.i.i.i.i, %if.end.thread.i.i.i ]
+  %ref.tmp.sroa.5.3.i = phi i64 [ %ref.tmp.sroa.5.2.i, %if.end.i.i.i ], [ %and16.i.i.i.i, %if.end.thread.i.i.i ]
   %remainder.sroa.0.2.i.i = phi i64 [ %remainder.sroa.0.1.i.i, %if.end.i.i.i ], [ %add.i.i.i.i.i, %if.end.thread.i.i.i ]
   %remainder.sroa.9.2.i.i = phi i64 [ %remainder.sroa.9.1.i.i, %if.end.i.i.i ], [ 0, %if.end.thread.i.i.i ]
   %cmp.i44.i.i.i = icmp eq i64 %remainder.sroa.0.2.i.i, 0
@@ -6407,8 +6403,8 @@ for.inc.i.i.i:                                    ; preds = %if.then19.i.i.i, %l
 
 _ZN2EA4StdC9uint128_tdVERKS1_.exit:               ; preds = %if.end.i.i.i, %if.else.i.i.i
   %ref.tmp.sroa.0.4.i = phi i64 [ 0, %if.else.i.i.i ], [ %ref.tmp.sroa.0.2.i, %if.end.i.i.i ]
-  %ref.tmp.sroa.6.4.i = phi i64 [ 0, %if.else.i.i.i ], [ %ref.tmp.sroa.6.2.i, %if.end.i.i.i ]
-  %cmp.i.i = icmp eq i64 %ref.tmp.sroa.6.4.i, 0
+  %ref.tmp.sroa.5.4.i = phi i64 [ 0, %if.else.i.i.i ], [ %ref.tmp.sroa.5.2.i, %if.end.i.i.i ]
+  %cmp.i.i = icmp eq i64 %ref.tmp.sroa.5.4.i, 0
   %or.cond.not.i = icmp ult i64 %ref.tmp.sroa.0.4.i, 10
   %or.cond = select i1 %cmp.i.i, i1 %or.cond.not.i, i1 false
   br i1 %or.cond, label %while.end, label %for.body.i.preheader, !llvm.loop !60

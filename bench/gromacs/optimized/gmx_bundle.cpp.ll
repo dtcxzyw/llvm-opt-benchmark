@@ -1653,8 +1653,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   br i1 %500, label %609, label %608
 
 608:                                              ; preds = %._crit_edge137.i
-  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull readonly %20, ptr noundef nonnull %4, i32 noundef 1)
-  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull readonly %20, ptr noundef nonnull %4, i32 noundef 0)
+  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull %20, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull %20, ptr noundef nonnull %4, i32 noundef 0)
   br label %609
 
 609:                                              ; preds = %608, %._crit_edge137.i
@@ -2035,7 +2035,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   br i1 %exitcond305.not, label %._crit_edge.i236, label %.lr.ph.i237, !llvm.loop !19
 
 ._crit_edge.i236:                                 ; preds = %.lr.ph.i237, %.noexc240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull readonly align 8 dereferenceable(176) %13, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %13, i64 176, i1 false)
   store i8 0, ptr %487, align 8
   store i8 0, ptr %488, align 8
   store i8 0, ptr %489, align 8

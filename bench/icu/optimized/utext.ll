@@ -4452,7 +4452,7 @@ invoke.cont43:                                    ; preds = %invoke.cont42
 if.then48:                                        ; preds = %invoke.cont43
   store i64 0, ptr %chunkNativeLimit, align 8
   %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %ut, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
   br label %if.end50
 
 lpad:                                             ; preds = %if.end38
@@ -4576,7 +4576,7 @@ if.end21:                                         ; preds = %if.end5, %invoke.co
 if.then29:                                        ; preds = %if.end21
   store i64 0, ptr %chunkNativeLimit, align 8
   %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %ut, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %if.end21

@@ -498,7 +498,7 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
   %2 = alloca %struct.mbedtls_nist_kw_context, align 8
   %3 = alloca [48 x i8], align 16
   %4 = alloca i64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
   %.not71 = icmp eq i32 %0, 0
   br label %5
 

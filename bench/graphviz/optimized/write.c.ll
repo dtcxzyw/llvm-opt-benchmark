@@ -51,7 +51,7 @@ define noundef ptr @agstrcanon(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
   br label %8
 
 6:                                                ; preds = %2
@@ -434,7 +434,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @agcanonStr(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %3 = shl i64 %2, 1
   %4 = add i64 %3, 2
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %4, i64 8192)
@@ -464,7 +464,7 @@ getoutputbuffer.exit:                             ; preds = %1
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %.0.i10, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
   br label %agstrcanon.exit
 
 15:                                               ; preds = %11
@@ -478,7 +478,7 @@ agstrcanon.exit:                                  ; preds = %7, %15, %13, %getou
 
 ; Function Attrs: nounwind uwtable
 define ptr @agcanon(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %4 = shl i64 %3, 1
   %5 = add i64 %4, 2
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %5, i64 8192)
@@ -507,7 +507,7 @@ getoutputbuffer.exit:                             ; preds = %2
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %.0.i11, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i11, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
   br label %getoutputbuffer.exit.thread
 
 15:                                               ; preds = %12
@@ -1298,7 +1298,7 @@ declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_write_canonstr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %6 = shl i64 %5, 1
   %7 = add i64 %6, 2
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %7, i64 8192)
@@ -1331,7 +1331,7 @@ getoutputbuffer.exit.i:                           ; preds = %10
   br i1 %.not.i.i, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %.0.i10.i, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2) #9
+  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10.i, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2) #9
   br label %agcanonStr.exit
 
 19:                                               ; preds = %15
@@ -2205,7 +2205,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_port(ptr noundef %0, ptr noun
 
 24:                                               ; preds = %22
   store i8 0, ptr %23, align 1
-  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #10
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %26 = shl i64 %25, 1
   %27 = add i64 %26, 2
   %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %27, i64 8192)
@@ -2252,7 +2252,7 @@ _write_canonstr.exit:                             ; preds = %getoutputbuffer.exi
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %23, i64 1
-  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #10
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #10
   %47 = shl i64 %46, 1
   %48 = add i64 %47, 2
   %spec.select.i.i.i31 = tail call i64 @llvm.umax.i64(i64 %48, i64 8192)
@@ -2292,7 +2292,7 @@ _write_canonstr.exit40:                           ; preds = %getoutputbuffer.exi
   br label %76
 
 61:                                               ; preds = %22
-  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #10
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %63 = shl i64 %62, 1
   %64 = add i64 %63, 2
   %spec.select.i.i.i41 = tail call i64 @llvm.umax.i64(i64 %64, i64 8192)

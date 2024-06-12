@@ -6667,7 +6667,7 @@ if.end.i:                                         ; preds = %if.then9
   br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit": ; preds = %if.end.i, %if.then.i, %if.end
-  call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull readonly align 8 dereferenceable(2616) %this)
+  call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull align 8 dereferenceable(2616) %this)
   ret i1 true
 }
 
@@ -6803,7 +6803,7 @@ _ZN4node13SocketAddress6UpdateEPK8sockaddrm.exit.i: ; preds = %entry
   %remote.i = getelementptr inbounds i8, ptr %path, i64 16
   %1 = load ptr, ptr %remote.i, align 8
   %address_.i.i = getelementptr inbounds i8, ptr %this, i64 2288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %address_.i.i, ptr align 2 %1, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address_.i.i, ptr align 2 %1, i64 %conv.i, i1 false)
   %addrlen8.i = getelementptr inbounds i8, ptr %path, i64 8
   %2 = load i32, ptr %addrlen8.i, align 8
   %cmp.i4.i = icmp ugt i32 %2, 128
@@ -6818,7 +6818,7 @@ _ZN4node4quic7Session10UpdatePathERKNS0_11PathStorageE.exit: ; preds = %_ZN4node
   %conv9.i = zext nneg i32 %2 to i64
   %3 = load ptr, ptr %path, align 8
   %address_.i5.i = getelementptr inbounds i8, ptr %this, i64 2152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %address_.i5.i, ptr align 2 %3, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address_.i5.i, ptr align 2 %3, i64 %conv9.i, i1 false)
   %4 = load i64, ptr %packet, align 8
   store i64 %4, ptr %agg.tmp, align 8
   store ptr null, ptr %packet, align 8

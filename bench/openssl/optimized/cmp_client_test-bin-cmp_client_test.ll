@@ -1445,7 +1445,7 @@ if.end3:                                          ; preds = %if.then1, %if.end
   store i32 %total_timeout, ptr %total_timeout5, align 8
   %expected = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %expect, ptr %expected, align 4
-  %call.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull readonly %call)
+  %call.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull %call)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %execute_exec_GENM_ses_test.exit, label %land.lhs.true.i
 
@@ -1456,7 +1456,7 @@ land.lhs.true.i:                                  ; preds = %if.end3
   br i1 %tobool2.not.i, label %execute_exec_GENM_ses_test.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call3.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull readonly %call)
+  %call3.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull %call)
   %tobool4.i = icmp ne i32 %call3.i, 0
   %3 = zext i1 %tobool4.i to i32
   br label %execute_exec_GENM_ses_test.exit

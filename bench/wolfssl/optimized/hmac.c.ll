@@ -1040,7 +1040,7 @@ if.then9:                                         ; preds = %switch.lookup, %if.
   %saltSz.addr.0 = phi i32 [ %switch.load, %if.then2 ], [ %saltSz, %switch.lookup ]
   %localSalt.0 = phi ptr [ %tmp, %if.then2 ], [ %salt, %switch.lookup ]
   %heap1.i = getelementptr inbounds i8, ptr %myHmac, i64 768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1.i, align 16
   %call11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef nonnull %localSalt.0, i32 noundef %saltSz.addr.0)
   %cmp12 = icmp eq i32 %call11, 0
@@ -1158,7 +1158,7 @@ lor.lhs.false:                                    ; preds = %switch.lookup
 
 if.end11:                                         ; preds = %lor.lhs.false
   %heap1.i = getelementptr inbounds i8, ptr %myHmac, i64 768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp, i8 0, i64 64, i1 false)
   %cmp1328.not = icmp eq i32 %outSz, 0

@@ -2462,7 +2462,7 @@ sub_111.i:                                        ; preds = %.tail.i
   br i1 %17, label %ompi_pmix_convert_string_to_jobid.exit, label %.tail9.thread.i
 
 .tail9.thread.i:                                  ; preds = %.tail9.i, %.tail.thread.i
-  %18 = tail call i64 @strtoul(ptr nocapture noundef nonnull readonly %1, ptr noundef null, i32 noundef 10) #19
+  %18 = tail call i64 @strtoul(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 10) #19
   %19 = trunc i64 %18 to i32
   br label %ompi_pmix_convert_string_to_jobid.exit
 

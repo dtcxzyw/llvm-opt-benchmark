@@ -163,7 +163,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %.not399, label %.lr.ph467, label %79
 
 .lr.ph467:                                        ; preds = %90
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.0374, i8 0, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.0374, i8 0, i64 %12, i1 false)
   %92 = load ptr, ptr %72, align 8
   %93 = load i32, ptr %74, align 4
   %94 = add i32 %93, -1

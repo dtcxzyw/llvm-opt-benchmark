@@ -366,7 +366,7 @@ read_ip_port.exit:                                ; preds = %37
 109:                                              ; preds = %108, %101
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @jobs, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @jobs, i64 48), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @jobs, i64 56), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @jobs, i64 56), i8 0, i64 64, i1 false)
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %111 = load ptr, ptr %110, align 8
   %.not6.i = icmp eq ptr %111, null
@@ -959,7 +959,7 @@ define internal void @jtrk_cons(ptr noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 584
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
@@ -1355,7 +1355,7 @@ define internal void @recv_data(i32 noundef %0, i16 signext %1, ptr nocapture re
   %116 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %117, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %117, i8 0, i64 64, i1 false)
   %118 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %119 = load ptr, ptr %118, align 8
   %.not6.i = icmp eq ptr %119, null
@@ -1386,7 +1386,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %114
   %128 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %129, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %129, i8 0, i64 64, i1 false)
   %130 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %131 = load ptr, ptr %130, align 8
   %.not6.i181 = icmp eq ptr %131, null
@@ -1432,7 +1432,7 @@ pmix_obj_run_constructors.exit185:                ; preds = %.lr.ph.i182, %126
   br i1 %149, label %parse_alloc_msg.exit.thread, label %150
 
 150:                                              ; preds = %147
-  %151 = call noalias ptr @strdup(ptr noundef nonnull readonly %148) #20
+  %151 = call noalias ptr @strdup(ptr noundef nonnull %148) #20
   %152 = call ptr @strtok(ptr noundef %151, ptr noundef nonnull @.str.29) #20
   %.not35.i = icmp eq ptr %152, null
   br i1 %.not35.i, label %parse_alloc_msg.exit.thread270, label %.lr.ph.i186
@@ -2444,7 +2444,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 
 55:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %52, align 1
-  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.02942.i, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull %.0111289, ptr noundef %.02942.i, ptr noundef nonnull %4)
   switch i32 %56, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %57
     i32 -43, label %.thread148
@@ -2486,7 +2486,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %72
 
 72:                                               ; preds = %70, %65, %63
-  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.029.lcssa.i, ptr noundef nonnull %4)
+  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull %.0111289, ptr noundef %.029.lcssa.i, ptr noundef nonnull %4)
   switch i32 %73, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %prte_ras_slurm_parse_ranges.exit.thread145
     i32 -43, label %.thread148

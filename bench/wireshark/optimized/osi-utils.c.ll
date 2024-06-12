@@ -50,7 +50,7 @@ define internal fastcc void @print_nsap_net_buf(ptr nocapture noundef readonly %
 
 11:                                               ; preds = %9
   %12 = icmp eq i32 %1, 21
-  tail call fastcc void @print_address_prefix_buf(ptr noundef readonly %0, i32 noundef 26, ptr noundef %2, i32 noundef %3)
+  tail call fastcc void @print_address_prefix_buf(ptr noundef %0, i32 noundef 26, ptr noundef %2, i32 noundef %3)
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %14 = getelementptr i8, ptr %2, i64 %13
   %15 = getelementptr i8, ptr %0, i64 13
@@ -104,7 +104,7 @@ define internal fastcc void @print_nsap_net_buf(ptr nocapture noundef readonly %
 
 58:                                               ; preds = %9
   %59 = shl nuw nsw i32 %1, 1
-  tail call fastcc void @print_address_prefix_buf(ptr noundef readonly %0, i32 noundef %59, ptr noundef %2, i32 noundef %3)
+  tail call fastcc void @print_address_prefix_buf(ptr noundef %0, i32 noundef %59, ptr noundef %2, i32 noundef %3)
   br label %60
 
 60:                                               ; preds = %11, %47, %58, %6
@@ -282,7 +282,7 @@ define hidden void @print_system_id_buf(ptr nocapture noundef readonly %0, i32 n
 define hidden noundef ptr @tvb_print_system_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 50) #6
-  tail call void @print_system_id_buf(ptr noundef readonly %5, i32 noundef %3, ptr noundef %6, i32 noundef 50)
+  tail call void @print_system_id_buf(ptr noundef %5, i32 noundef %3, ptr noundef %6, i32 noundef 50)
   ret ptr %6
 }
 
@@ -296,7 +296,7 @@ define hidden ptr @print_area(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 110) #6
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
   %7 = shl i32 %3, 1
-  tail call fastcc void @print_address_prefix_buf(ptr noundef readonly %6, i32 noundef %7, ptr noundef %5, i32 noundef 110)
+  tail call fastcc void @print_address_prefix_buf(ptr noundef %6, i32 noundef %7, ptr noundef %5, i32 noundef 110)
   ret ptr %5
 }
 

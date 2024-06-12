@@ -4624,7 +4624,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i:     ; preds = %cond.true.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i, label %for.inc.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull readonly dereferenceable(2) %1, i64 2)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull dereferenceable(2) %1, i64 2)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit, label %for.inc.i.i
 
@@ -4722,7 +4722,7 @@ if.end13.i:                                       ; preds = %if.end.i, %land.lhs
 if.then15.i:                                      ; preds = %if.end13.i
   store i32 13, ptr %status, align 8
   %error_arg_.i.i = getelementptr inbounds i8, ptr %status, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
   br label %if.end18
 
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
@@ -4832,7 +4832,7 @@ _ZNK4absl7debian211string_viewixEm.exit54:        ; preds = %_ZN4absl7debian211s
   br i1 %cmp.i.i61, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i, label %if.end.i62
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i:  ; preds = %_ZNK4absl7debian211string_viewixEm.exit54
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %name.sroa.0.1, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %name.sroa.0.1, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %if.end58, label %if.end.thread.i
 
@@ -4916,7 +4916,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i:     ; preds = %cond.true.i.i.i
   br i1 %cmp.i.i3.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i, label %for.inc.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %name.sroa.0.1, i64 %name.coerce1.fr.i.i88)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %name.sroa.0.1, i64 %name.coerce1.fr.i.i88)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %if.end58, label %for.inc.i.i
 
@@ -5056,7 +5056,7 @@ if.end13.i:                                       ; preds = %if.end.i, %while.bo
 if.then15.i:                                      ; preds = %if.end13.i
   store i32 13, ptr %status, align 8
   %error_arg_.i.i = getelementptr inbounds i8, ptr %status, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
   br label %return
 
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
@@ -5411,7 +5411,7 @@ if.end13.i:                                       ; preds = %if.end.i, %land.lhs
 if.then15.i:                                      ; preds = %if.end13.i
   store i32 13, ptr %status, align 8
   %error_arg_.i.i = getelementptr inbounds i8, ptr %status, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then15.i, %if.end13.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i, %if.then3, %if.then
@@ -5492,7 +5492,7 @@ if.end13.i:                                       ; preds = %if.then.i, %if.end.
 if.then15.i:                                      ; preds = %if.end13.i
   store i32 13, ptr %status, align 8
   %error_arg_.i.i = getelementptr inbounds i8, ptr %status, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
   br label %return
 
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
@@ -5988,7 +5988,7 @@ if.end13.i:                                       ; preds = %if.end.i, %land.lhs
 if.then15.i:                                      ; preds = %if.end13.i
   store i32 13, ptr %status, align 8
   %error_arg_.i.i = getelementptr inbounds i8, ptr %status, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
   br label %if.then51
 
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
@@ -6117,7 +6117,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %cond.true.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, label %for.inc.i.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %28, ptr nonnull readonly %14, i64 %sub.ptr.sub23.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %28, ptr nonnull %14, i64 %sub.ptr.sub23.i)
   %cmp7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %if.end28.i, label %for.inc.i.i.i
 
@@ -6223,7 +6223,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154: ; preds = %cond.true.i.i.i.i1
   br i1 %cmp.i.i.i.i155, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159, label %for.inc.i.i.i156
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154
-  %bcmp.i.i.i.i160 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %36, ptr noundef nonnull readonly dereferenceable(2) %os.sroa.0.0.copyload.i.pre297, i64 2)
+  %bcmp.i.i.i.i160 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %36, ptr noundef nonnull dereferenceable(2) %os.sroa.0.0.copyload.i.pre297, i64 2)
   %cmp7.i.i.i.i161 = icmp eq i32 %bcmp.i.i.i.i160, 0
   br i1 %cmp7.i.i.i.i161, label %if.then100, label %for.inc.i.i.i156
 
@@ -6253,7 +6253,7 @@ if.end103:                                        ; preds = %for.inc.i.i.i156, %
   %os.sroa.0.0.copyload.i = phi ptr [ %os.sroa.0.0.copyload.i.pre, %if.end96.if.end103_crit_edge ], [ %os.sroa.0.0.copyload.i.pre297, %_ZNK4absl7debian211string_viewixEm.exit.i ], [ %os.sroa.0.0.copyload.i.pre297, %if.end.i138 ], [ %os.sroa.0.0.copyload.i.pre297, %for.inc.i.i.i156 ]
   store i32 0, ptr %rr, align 4
   store i32 0, ptr %hi.i, align 4
-  %call.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %rr, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
+  %call.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %rr, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
   br i1 %call.i, label %if.end.i166, label %if.then106
 
 if.end.i166:                                      ; preds = %if.end103
@@ -6277,7 +6277,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i169: ; preds = %_ZNK4absl7d
   store ptr %arrayidx.i.i, ptr %s, align 8
   %sub.i.i170 = add i64 %41, -1
   store i64 %sub.i.i170, ptr %whole_class.sroa.3.0..sroa_idx, align 8
-  %call11.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %hi.i, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
+  %call11.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %hi.i, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
   br i1 %call11.i, label %if.end13.i172, label %if.then106
 
 if.end13.i172:                                    ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i169
@@ -6600,7 +6600,7 @@ if.end13.i:                                       ; preds = %if.end.i, %if.end69
 if.then15.i:                                      ; preds = %if.end13.i
   store i32 13, ptr %21, align 8
   %error_arg_.i.i = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %error_arg_.i.i, i8 0, i64 16, i1 false)
   br label %return
 
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
@@ -7048,7 +7048,7 @@ invoke.cont15.thread:                             ; preds = %call4.i.noexc, %if.
   store i32 13, ptr %spec.store.select, align 8
   %status.sroa.gep368 = getelementptr inbounds i8, ptr %status, i64 8
   %spec.store.select.sroa.sel369 = select i1 %cmp, ptr %error_arg_.i, ptr %status.sroa.gep368
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %spec.store.select.sroa.sel369, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %spec.store.select.sroa.sel369, i8 0, i64 16, i1 false)
   br label %cleanup
 
 invoke.cont15:                                    ; preds = %if.then10.i
@@ -7129,7 +7129,7 @@ invoke.cont34.thread:                             ; preds = %call4.i.noexc60, %i
   store i32 13, ptr %spec.store.select, align 8
   %status.sroa.gep371 = getelementptr inbounds i8, ptr %status, i64 8
   %spec.store.select.sroa.sel372 = select i1 %cmp, ptr %error_arg_.i, ptr %status.sroa.gep371
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %spec.store.select.sroa.sel372, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %spec.store.select.sroa.sel372, i8 0, i64 16, i1 false)
   br label %cleanup
 
 invoke.cont34:                                    ; preds = %if.then10.i49
@@ -7524,7 +7524,7 @@ _ZNK4absl7debian211string_viewixEm.exit28.i:      ; preds = %_ZN4absl7debian211s
   br i1 %cmp17.i, label %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit28.i
-  %call19.i = call fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr noundef nonnull %s.i, ptr noundef nonnull writeonly %hi)
+  %call19.i = call fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr noundef nonnull %s.i, ptr noundef nonnull %hi)
   %.pre.i = load i64, ptr %length_.i.i144, align 8
   %cmp.i30.i = icmp ne i64 %.pre.i, 0
   %or.cond.not.i = select i1 %call19.i, i1 %cmp.i30.i, i1 false
@@ -7918,7 +7918,7 @@ invoke.cont313.thread:                            ; preds = %call4.i.noexc324, %
   store i32 13, ptr %spec.store.select, align 8
   %status.sroa.gep386 = getelementptr inbounds i8, ptr %status, i64 8
   %spec.store.select.sroa.sel387 = select i1 %cmp, ptr %error_arg_.i, ptr %status.sroa.gep386
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %spec.store.select.sroa.sel387, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %spec.store.select.sroa.sel387, i8 0, i64 16, i1 false)
   br label %cleanup
 
 invoke.cont313:                                   ; preds = %if.then10.i312
@@ -8046,7 +8046,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %cond.true.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, label %for.inc.i.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %100, ptr noundef nonnull readonly dereferenceable(2) %98, i64 2)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %100, ptr noundef nonnull dereferenceable(2) %98, i64 2)
   %cmp7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %if.then373, label %for.inc.i.i.i
 
@@ -8804,7 +8804,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i:       ; preds = %cond.true.i.i
   br i1 %cmp.i.i4, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i, label %for.inc.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i:  ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull %3, ptr nonnull readonly %1, i64 %call.i.i)
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %3, ptr nonnull %1, i64 %call.i.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %invoke.cont4, label %for.inc.i
 

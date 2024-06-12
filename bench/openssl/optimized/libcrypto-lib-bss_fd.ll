@@ -182,7 +182,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call1.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #9
+  %call1.i = tail call i64 @write(i32 noundef %0, ptr noundef %str, i64 noundef %conv.i) #9
   %conv2.i = trunc i64 %call1.i to i32
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #9
   %1 = add i32 %conv2.i, 1

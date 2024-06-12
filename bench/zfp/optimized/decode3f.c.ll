@@ -48,7 +48,7 @@ stream_read_bit.exit.i:                           ; preds = %14, %._crit_edge.i.
   br i1 %.not.i, label %.preheader.preheader.i, label %25
 
 .preheader.preheader.i:                           ; preds = %stream_read_bit.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(256) %1, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %23 = load i32, ptr %0, align 8
   %24 = icmp ugt i32 %23, 1
   br i1 %24, label %92, label %rev_decode_block_float_3.exit
@@ -112,7 +112,7 @@ stream_read_bit.exit47.i:                         ; preds = %29, %._crit_edge.i4
 
 rev_inv_reinterpret_float.exit.i:                 ; preds = %52
   %53 = add i32 %45, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(256) %1, ptr noundef nonnull align 256 dereferenceable(256) %5, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %1, ptr noundef nonnull align 256 dereferenceable(256) %5, i64 256, i1 false)
   br label %rev_decode_block_float_3.exit
 
 54:                                               ; preds = %stream_read_bit.exit47.i
@@ -160,7 +160,7 @@ stream_read_bits.exit.i:                          ; preds = %69, %59
   br i1 %.not.i49.i, label %.preheader.preheader.i.i, label %82
 
 .preheader.preheader.i.i:                         ; preds = %stream_read_bits.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(256) %1, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   br label %rev_decode_block_float_3.exit
 
 82:                                               ; preds = %stream_read_bits.exit.i
@@ -258,7 +258,7 @@ stream_read_bit.exit.i8:                          ; preds = %121, %._crit_edge.i
   br i1 %.not.i10, label %.preheader.preheader.i18, label %132
 
 .preheader.preheader.i18:                         ; preds = %stream_read_bit.exit.i8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(256) %1, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %130 = load i32, ptr %0, align 8
   %131 = icmp ugt i32 %130, 1
   br i1 %131, label %291, label %decode_block_float_3.exit

@@ -2688,7 +2688,7 @@ if.then.i333:                                     ; preds = %_ZNK8facebook5velox
 
 for.body.i337:                                    ; preds = %if.then.i333, %for.body.i337
   %row.011.i338 = phi i32 [ %inc.i339, %for.body.i337 ], [ %145, %if.then.i333 ]
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp33245, i32 noundef %row.011.i338)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp33245, i32 noundef %row.011.i338)
   %inc.i339 = add nsw i32 %row.011.i338, 1
   %147 = load i32, ptr %end_.i, align 8
   %cmp.i340 = icmp slt i32 %inc.i339, %147
@@ -2700,10 +2700,10 @@ if.else.i257:                                     ; preds = %_ZNK8facebook5velox
   %150 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp3.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp33245, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp33245, i64 40, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp24.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp33245, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp33245, i64 40, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i, i64 8
   store ptr %148, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i, align 8
@@ -2747,7 +2747,7 @@ while.body.i.i.i.i.i326:                          ; preds = %if.then3.i.i.i.i308
   %154 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i327, i1 true)
   %cast.i.i.i.i.i328 = trunc nuw nsw i64 %154 to i32
   %add.i26.i.i.i.i329 = or disjoint i32 %152, %cast.i.i.i.i.i328
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i26.i.i.i.i329)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i26.i.i.i.i329)
   %sub.i27.i.i.i.i330 = add nsw i64 %word.0.i.i.i.i.i327, -1
   %and6.i.i.i.i.i331 = and i64 %sub.i27.i.i.i.i330, %word.0.i.i.i.i.i327
   %tobool5.old.not.i.i.i.i.i332 = icmp eq i64 %and6.i.i.i.i.i331, 0
@@ -2782,7 +2782,7 @@ while.body.i42.i.i.i.i282:                        ; preds = %while.body.i42.i.i.
   %156 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i283, i1 true)
   %cast.i44.i.i.i.i = trunc nuw nsw i64 %156 to i32
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i281, %cast.i44.i.i.i.i
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i45.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i45.i.i.i.i)
   %sub.i46.i.i.i.i = add i64 %word.0.i43.i.i.i.i283, -1
   %and6.i47.i.i.i.i = and i64 %sub.i46.i.i.i.i, %word.0.i43.i.i.i.i283
   %tobool5.old.not.i48.i.i.i.i = icmp eq i64 %and6.i47.i.i.i.i, 0
@@ -2844,7 +2844,7 @@ for.body.lr.ph.i.i.i.i.i299:                      ; preds = %if.then.i.i.i.i.i29
 for.body.i.i.i.i.i301:                            ; preds = %for.body.i.i.i.i.i301, %for.body.lr.ph.i.i.i.i.i299
   %row.015.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i300, %for.body.lr.ph.i.i.i.i.i299 ], [ %inc.i.i.i.i.i302, %for.body.i.i.i.i.i301 ]
   %conv7.i.i.i.i.i = trunc i64 %row.015.i.i.i.i.i to i32
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, i32 noundef %conv7.i.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, i32 noundef %conv7.i.i.i.i.i)
   %inc.i.i.i.i.i302 = add nuw i64 %row.015.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i303 = icmp ult i64 %inc.i.i.i.i.i302, %conv5.i.i.i.i.i297
   br i1 %cmp6.i.i.i.i.i303, label %for.body.i.i.i.i.i301, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiE3$_2EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i", !llvm.loop !69
@@ -3029,7 +3029,7 @@ while.body.i70.i.i.i.i:                           ; preds = %if.then19.i.i.i.i29
   %194 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i, i1 true)
   %cast.i72.i.i.i.i = trunc nuw nsw i64 %194 to i32
   %add.i73.i.i.i.i = or disjoint i32 %152, %cast.i72.i.i.i.i
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull readonly align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i73.i.i.i.i)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, i32 noundef %add.i73.i.i.i.i)
   %sub.i74.i.i.i.i = add nsw i64 %word.0.i71.i.i.i.i, -1
   %and6.i75.i.i.i.i = and i64 %sub.i74.i.i.i.i, %word.0.i71.i.i.i.i
   %tobool5.old.not.i76.i.i.i.i = icmp eq i64 %and6.i75.i.i.i.i, 0
@@ -3170,7 +3170,7 @@ if.then.i547:                                     ; preds = %_ZNK8facebook5velox
 
 for.body.i551:                                    ; preds = %if.then.i547, %for.body.i551
   %row.011.i552 = phi i32 [ %inc.i553, %for.body.i551 ], [ %213, %if.then.i547 ]
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp39371, i32 noundef %row.011.i552)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39371, i32 noundef %row.011.i552)
   %inc.i553 = add nsw i32 %row.011.i552, 1
   %215 = load i32, ptr %end_.i, align 8
   %cmp.i554 = icmp slt i32 %inc.i553, %215
@@ -3182,10 +3182,10 @@ if.else.i385:                                     ; preds = %_ZNK8facebook5velox
   %218 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i373, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i373)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp39371, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39371, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i389 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i372, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i372)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i389, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp39371, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i389, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39371, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i372, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i390 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i372, i64 8
   store ptr %216, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i390, align 8
@@ -3229,7 +3229,7 @@ while.body.i.i.i.i.i540:                          ; preds = %if.then3.i.i.i.i522
   %222 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i541, i1 true)
   %cast.i.i.i.i.i542 = trunc nuw nsw i64 %222 to i32
   %add.i26.i.i.i.i543 = or disjoint i32 %220, %cast.i.i.i.i.i542
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, i32 noundef %add.i26.i.i.i.i543)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, i32 noundef %add.i26.i.i.i.i543)
   %sub.i27.i.i.i.i544 = add nsw i64 %word.0.i.i.i.i.i541, -1
   %and6.i.i.i.i.i545 = and i64 %sub.i27.i.i.i.i544, %word.0.i.i.i.i.i541
   %tobool5.old.not.i.i.i.i.i546 = icmp eq i64 %and6.i.i.i.i.i545, 0
@@ -3264,7 +3264,7 @@ while.body.i42.i.i.i.i414:                        ; preds = %while.body.i42.i.i.
   %224 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i415, i1 true)
   %cast.i44.i.i.i.i416 = trunc nuw nsw i64 %224 to i32
   %add.i45.i.i.i.i417 = or disjoint i32 %mul.i41.i.i.i.i413, %cast.i44.i.i.i.i416
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, i32 noundef %add.i45.i.i.i.i417)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, i32 noundef %add.i45.i.i.i.i417)
   %sub.i46.i.i.i.i418 = add i64 %word.0.i43.i.i.i.i415, -1
   %and6.i47.i.i.i.i419 = and i64 %sub.i46.i.i.i.i418, %word.0.i43.i.i.i.i415
   %tobool5.old.not.i48.i.i.i.i420 = icmp eq i64 %and6.i47.i.i.i.i419, 0
@@ -3324,7 +3324,7 @@ for.body.lr.ph.i.i.i.i.i461:                      ; preds = %if.then.i.i.i.i.i45
 for.body.i.i.i.i.i463:                            ; preds = %for.body.i.i.i.i.i463, %for.body.lr.ph.i.i.i.i.i461
   %row.015.i.i.i.i.i464 = phi i64 [ %conv.i.i.i.i.i462, %for.body.lr.ph.i.i.i.i.i461 ], [ %inc.i.i.i.i.i466, %for.body.i.i.i.i.i463 ]
   %conv7.i.i.i.i.i465 = trunc i64 %row.015.i.i.i.i.i464 to i32
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i389, i32 noundef %conv7.i.i.i.i.i465)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i389, i32 noundef %conv7.i.i.i.i.i465)
   %inc.i.i.i.i.i466 = add nuw i64 %row.015.i.i.i.i.i464, 1
   %cmp6.i.i.i.i.i467 = icmp ult i64 %inc.i.i.i.i.i466, %conv5.i.i.i.i.i458
   br i1 %cmp6.i.i.i.i.i467, label %for.body.i.i.i.i.i463, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiE3$_3EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i", !llvm.loop !73
@@ -3498,7 +3498,7 @@ while.body.i70.i.i.i.i448:                        ; preds = %if.then19.i.i.i.i43
   %259 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i449, i1 true)
   %cast.i72.i.i.i.i450 = trunc nuw nsw i64 %259 to i32
   %add.i73.i.i.i.i451 = or disjoint i32 %220, %cast.i72.i.i.i.i450
-  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, i32 noundef %add.i73.i.i.i.i451)
+  call fastcc void @"_ZZN8facebook5velox10FlatVectorINS0_10StringViewEE4copyEPKNS0_10BaseVectorERKNS0_17SelectivityVectorEPKiENK3$_3clEi"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i388, i32 noundef %add.i73.i.i.i.i451)
   %sub.i74.i.i.i.i452 = add nsw i64 %word.0.i71.i.i.i.i449, -1
   %and6.i75.i.i.i.i453 = and i64 %sub.i74.i.i.i.i452, %word.0.i71.i.i.i.i449
   %tobool5.old.not.i76.i.i.i.i454 = icmp eq i64 %and6.i75.i.i.i.i453, 0

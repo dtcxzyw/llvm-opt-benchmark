@@ -1178,7 +1178,7 @@ ConfigOptionIsVisible.exit:                       ; preds = %.ConfigOptionIsVisi
 85:                                               ; preds = %47
   %86 = getelementptr inbounds i8, ptr %4, i64 72
   %87 = getelementptr inbounds i8, ptr %35, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
   %88 = load i8, ptr %87, align 8
   %89 = trunc i8 %88 to i1
   %90 = select i1 %89, ptr @.str.48, ptr @.str.49
@@ -1255,7 +1255,7 @@ ConfigOptionIsVisible.exit:                       ; preds = %.ConfigOptionIsVisi
 143:                                              ; preds = %47
   %144 = getelementptr inbounds i8, ptr %4, i64 72
   %145 = getelementptr inbounds i8, ptr %35, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %150, label %148
@@ -1286,7 +1286,7 @@ ConfigOptionIsVisible.exit:                       ; preds = %.ConfigOptionIsVisi
 
 160:                                              ; preds = %47
   %161 = getelementptr inbounds i8, ptr %4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
   %162 = call ptr @config_enum_get_options(ptr noundef nonnull %35, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53) #7
   %163 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %162, ptr %163, align 8
@@ -1306,7 +1306,7 @@ ConfigOptionIsVisible.exit:                       ; preds = %.ConfigOptionIsVisi
 
 174:                                              ; preds = %47
   %175 = getelementptr inbounds i8, ptr %4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %175, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %175, i8 0, i64 40, i1 false)
   br label %176
 
 176:                                              ; preds = %174, %160, %157, %155, %121, %99, %85
@@ -1334,7 +1334,7 @@ ConfigOptionIsVisible.exit:                       ; preds = %.ConfigOptionIsVisi
 
 191:                                              ; preds = %179, %176
   %192 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %192, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %192, i8 0, i64 16, i1 false)
   br label %GetConfigOptionValues.exit
 
 GetConfigOptionValues.exit:                       ; preds = %182, %191

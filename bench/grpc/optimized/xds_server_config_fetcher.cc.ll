@@ -4187,7 +4187,7 @@ for.inc91.i:                                      ; preds = %while.body.i.i58.i,
   br i1 %cmp.i51.not.i, label %for.end93.i, label %for.body75.i
 
 for.end93.i:                                      ; preds = %for.inc91.i, %if.end65.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %watchers_to_start.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %watchers_to_start.i, i8 0, i64 24, i1 false)
   %110 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %cmp.i66.i = icmp ugt i64 %110, 230584300921369395
   br i1 %cmp.i66.i, label %if.then.i.i83, label %if.end.i.i69
@@ -8621,7 +8621,7 @@ call.i.noexc.i.i:                                 ; preds = %if.then.i.i35.i
 
 if.then6.i.i.i:                                   ; preds = %invoke.cont50.i.i
   %sin6_addr.i.i.i = getelementptr inbounds i8, ptr %source_addr.i.i, i64 16
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i.i, ptr noundef nonnull dereferenceable(16) @in6addr_loopback, i64 16)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i.i.i, ptr noundef nonnull dereferenceable(16) @in6addr_loopback, i64 16)
   %cmp8.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp8.i.i.i, label %if.then59.i.i, label %lor.lhs.false54.i.i
 
@@ -8637,7 +8637,7 @@ land.rhs.i.i.i:                                   ; preds = %lor.lhs.false54.i.i
   br i1 %cmp.i2.i.i.i.i, label %if.then59.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i36.i.i = call i32 @bcmp(ptr %50, ptr readonly %24, i64 %23)
+  %bcmp.i36.i.i = call i32 @bcmp(ptr %50, ptr %24, i64 %23)
   %cmp.i.i37.i.i = icmp eq i32 %bcmp.i36.i.i, 0
   br i1 %cmp.i.i37.i.i, label %if.then59.i.i, label %if.else.i.i
 
@@ -10326,7 +10326,7 @@ _ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_22XdsCertificateP
   br label %cleanup195.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont.i125, %_ZNSt8_Rb_treeIPKN9grpc_core19XdsListenerResource15FilterChainDataESt4pairIKS4_NS0_12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager20CertificateProvidersEESt10_Select1stISC_ESt4lessIS4_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i, %.noexc155
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %certificate_providers.i, i8 0, i64 24, i1 false), !noalias !89
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %certificate_providers.i, i8 0, i64 24, i1 false), !noalias !89
   %call9.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filter_chain.0.ph) #26, !noalias !89
   %258 = extractvalue { i64, ptr } %call9.i, 0
   %259 = extractvalue { i64, ptr } %call9.i, 1
@@ -16620,7 +16620,7 @@ entry:
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !123
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorE, i64 16), ptr %call.i, align 8, !noalias !123
   %virtual_hosts_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %virtual_hosts_.i.i, i8 0, i64 24, i1 false), !noalias !123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %virtual_hosts_.i.i, i8 0, i64 24, i1 false), !noalias !123
   %virtual_hosts = getelementptr inbounds i8, ptr %rds_update.0.val, i64 8
   %0 = load ptr, ptr %virtual_hosts, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %rds_update.0.val, i64 16
@@ -16662,7 +16662,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 48
   store ptr %incdec.ptr.i, ptr %_M_finish.i22, align 8
   br label %invoke.cont7
@@ -16694,7 +16694,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i23, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::XdsServerConfigFetcher::ListenerWatcher::FilterChainMatchManager::XdsServerConfigSelector::VirtualHost", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %add.ptr.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i, i8 0, i64 48, i1 false)
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit31.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector11VirtualHostESaIS6_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i

@@ -380,7 +380,7 @@ if.then4.i:                                       ; preds = %if.end3.i
   br label %exr_attr_chlist_init.exit
 
 if.end6.i:                                        ; preds = %if.end3.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %chl, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %chl, i8 0, i64 16, i1 false)
   %cmp7.not.i = icmp eq i32 %0, 0
   br i1 %cmp7.not.i, label %exr_attr_chlist_init.exit.thread, label %if.then8.i
 

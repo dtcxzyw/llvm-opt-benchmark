@@ -1420,12 +1420,12 @@ define internal fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %.thread.i, label %21
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef nonnull %20) #5
+  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef nonnull %20) #5
   br label %format_custom_msgtype.exit
 
 .thread.i:                                        ; preds = %19, %5
   %23 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %16, ptr noundef nonnull @oml_fom_msgtype_vals, ptr noundef nonnull @.str.259) #5
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef %23) #5
+  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef %23) #5
   tail call void @wmem_free(ptr noundef null, ptr noundef %23) #5
   br label %format_custom_msgtype.exit
 

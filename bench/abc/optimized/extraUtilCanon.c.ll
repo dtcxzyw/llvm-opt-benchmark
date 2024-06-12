@@ -557,7 +557,7 @@ define void @Map_Var4Test() local_unnamed_addr #0 {
 7:                                                ; preds = %0, %7
   %.03 = phi i32 [ 0, %0 ], [ %9, %7 ]
   store i32 %.03, ptr %6, align 4
-  %8 = call fastcc i32 @Extra_TruthCanonN_rec(i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull writeonly %5, i32 noundef 0)
+  %8 = call fastcc i32 @Extra_TruthCanonN_rec(i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
   %9 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %9, 65536
   br i1 %exitcond.not, label %10, label %7, !llvm.loop !16

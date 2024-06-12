@@ -195,7 +195,7 @@ if.end.i:                                         ; preds = %.noexc, %delete.not
 
 _ZN10ODDLParser13OpenDDLParser9setBufferEPKcm.exit: ; preds = %if.end.i
   %1 = load ptr, ptr %m_buffer, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr readonly align 1 %buffer, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %buffer, i64 %len, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %if.end.i, %if.then

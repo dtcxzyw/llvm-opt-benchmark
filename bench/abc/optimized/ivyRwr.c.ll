@@ -299,7 +299,7 @@ Abc_Clock.exit166.i:                              ; preds = %154, %.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %157 = load i16, ptr %133, align 4
   %158 = sext i16 %157 to i32
-  %159 = call i32 @Ivy_NodeGetTruth_rec(ptr noundef nonnull readonly %85, ptr noundef nonnull readonly %135, i32 noundef %158)
+  %159 = call i32 @Ivy_NodeGetTruth_rec(ptr noundef nonnull %85, ptr noundef nonnull %135, i32 noundef %158)
   %160 = and i32 %159, 65535
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %161 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #12

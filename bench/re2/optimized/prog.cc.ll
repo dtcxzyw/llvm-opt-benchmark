@@ -2788,7 +2788,7 @@ while.body5.preheader.i:                          ; preds = %call2.i.noexc
   %70 = sub i32 %call.i222, %c.08.i
   %71 = zext i32 %70 to i64
   %72 = add nuw nsw i64 %71, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 %conv.i220, i64 %72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %conv.i220, i64 %72, i1 false)
   %73 = add i32 %call.i222, 1
   br label %while.cond.loopexit.i
 

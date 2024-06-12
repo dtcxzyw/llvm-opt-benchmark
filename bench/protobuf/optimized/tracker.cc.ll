@@ -265,7 +265,7 @@ entry:
   %_M_engaged.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 96
   store i64 11, ptr %arrayinit.element, align 8
   %var.sroa.2.0.var2.sroa_idx.i12 = getelementptr inbounds i8, ptr %ref.tmp, i64 104
@@ -283,7 +283,7 @@ entry:
   %_M_engaged.i.i.i.i1.i18 = getelementptr inbounds i8, ptr %ref.tmp, i64 152
   store i8 1, ptr %_M_engaged.i.i.i.i1.i18, align 8
   %args.i19 = getelementptr inbounds i8, ptr %ref.tmp, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i19, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i19, i8 0, i64 25, i1 false)
   %arrayinit.element9 = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   store i64 10, ptr %ref.tmp10, align 8
   %var.sroa.2.0.var2.sroa_idx.i24 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
@@ -304,7 +304,7 @@ entry:
   store i8 0, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store i8 0, ptr %_M_engaged.i.i.i.i1.i30, align 8, !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayinit.element9, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp10, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element9, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp10, i64 64, i1 false)
   %args.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args.i.i, i8 0, i64 24, i1 false)
@@ -328,7 +328,7 @@ entry:
   %_M_engaged.i.i.i.i1.i43 = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   store i8 1, ptr %_M_engaged.i.i.i.i1.i43, align 8
   %args.i44 = getelementptr inbounds i8, ptr %ref.tmp, i64 352
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i44, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i44, i8 0, i64 25, i1 false)
   %arrayinit.element22 = getelementptr inbounds i8, ptr %ref.tmp, i64 384
   store i64 9, ptr %ref.tmp24, align 8
   %var.sroa.2.0.var2.sroa_idx.i49 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
@@ -349,7 +349,7 @@ entry:
   store i64 5, ptr %thiz.i53, align 8, !noalias !7
   store ptr @.str.12, ptr %_M_str.i.i.i.i.i.i.i54, align 8, !noalias !7
   store i8 1, ptr %_M_engaged.i.i.i.i1.i55, align 8, !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp24, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp24, i64 64, i1 false)
   %args.i.i60 = getelementptr inbounds i8, ptr %ref.tmp23, i64 64
   %_M_finish.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp23, i64 72
   %_M_finish3.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %ref.tmp24, i64 72
@@ -378,7 +378,7 @@ invoke.cont33:                                    ; preds = %entry
   %_M_engaged.i.i.i.i1.i81 = getelementptr inbounds i8, ptr %ref.tmp, i64 536
   store i8 1, ptr %_M_engaged.i.i.i.i1.i81, align 8
   %args.i82 = getelementptr inbounds i8, ptr %ref.tmp, i64 544
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i82, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i82, i8 0, i64 25, i1 false)
   %arrayinit.element38 = getelementptr inbounds i8, ptr %ref.tmp, i64 576
   store i64 22, ptr %arrayinit.element38, align 8
   %var.sroa.2.0.var2.sroa_idx.i87 = getelementptr inbounds i8, ptr %ref.tmp, i64 584
@@ -396,7 +396,7 @@ invoke.cont33:                                    ; preds = %entry
   %_M_engaged.i.i.i.i1.i93 = getelementptr inbounds i8, ptr %ref.tmp, i64 632
   store i8 1, ptr %_M_engaged.i.i.i.i1.i93, align 8
   %args.i94 = getelementptr inbounds i8, ptr %ref.tmp, i64 640
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i94, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i94, i8 0, i64 25, i1 false)
   %arrayinit.element42 = getelementptr inbounds i8, ptr %ref.tmp, i64 672
   invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element42, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.18, i64 14, ptr nonnull @.str.19)
           to label %invoke.cont45 unwind label %lpad32
@@ -482,7 +482,7 @@ invoke.cont93:                                    ; preds = %invoke.cont89
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %suppressed.i = getelementptr inbounds i8, ptr %ref.tmp95, i64 88
   store i8 1, ptr %suppressed.i, align 8, !noalias !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayinit.element94, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp95, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element94, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp95, i64 64, i1 false)
   %args.i.i159 = getelementptr inbounds i8, ptr %ref.tmp, i64 1984
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args.i.i159, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args.i158, i8 0, i64 24, i1 false), !noalias !10
@@ -1026,7 +1026,7 @@ if.else.i:                                        ; preds = %_ZN4absl12lts_20230
 
 invoke.cont:                                      ; preds = %if.else.i, %if.then.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
   %args.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   %4 = load <2 x ptr>, ptr %args, align 8
   store <2 x ptr> %4, ptr %args.i, align 8
@@ -1068,7 +1068,7 @@ entry:
   %_M_engaged.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
   invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
@@ -1175,7 +1175,7 @@ entry:
   %_M_engaged.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
   invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
@@ -1282,7 +1282,7 @@ entry:
   %_M_engaged.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
   invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
@@ -1389,7 +1389,7 @@ entry:
   %_M_engaged.i.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
   invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
@@ -2568,7 +2568,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   %_M_engaged.i.i.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp44, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i179, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp44, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
   %call52 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #19
   %145 = extractvalue { i64, ptr } %call52, 0
   %146 = extractvalue { i64, ptr } %call52, 1
@@ -2593,7 +2593,7 @@ invoke.cont54:                                    ; preds = %invoke.cont40
   %_M_engaged.i.i.i.i.i192 = getelementptr inbounds i8, ptr %ref.tmp55, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i192, align 8
   %args.i193 = getelementptr inbounds i8, ptr %ref.tmp55, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i193, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i193, i8 0, i64 25, i1 false)
   %call64 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #19
   %147 = extractvalue { i64, ptr } %call64, 0
   %148 = extractvalue { i64, ptr } %call64, 1
@@ -2618,7 +2618,7 @@ invoke.cont66:                                    ; preds = %invoke.cont54
   %_M_engaged.i.i.i.i.i206 = getelementptr inbounds i8, ptr %ref.tmp68, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i206, align 8
   %args.i207 = getelementptr inbounds i8, ptr %ref.tmp68, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i207, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i207, i8 0, i64 25, i1 false)
   %call77 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #19
   %149 = extractvalue { i64, ptr } %call77, 0
   %150 = extractvalue { i64, ptr } %call77, 1
@@ -2643,7 +2643,7 @@ invoke.cont79:                                    ; preds = %invoke.cont66
   %_M_engaged.i.i.i.i.i220 = getelementptr inbounds i8, ptr %ref.tmp81, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i220, align 8
   %args.i221 = getelementptr inbounds i8, ptr %ref.tmp81, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i221, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i221, i8 0, i64 25, i1 false)
   %call90 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #19
   %151 = extractvalue { i64, ptr } %call90, 0
   %152 = extractvalue { i64, ptr } %call90, 1
@@ -2668,7 +2668,7 @@ invoke.cont92:                                    ; preds = %invoke.cont79
   %_M_engaged.i.i.i.i.i234 = getelementptr inbounds i8, ptr %ref.tmp94, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i234, align 8
   %args.i235 = getelementptr inbounds i8, ptr %ref.tmp94, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i235, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i235, i8 0, i64 25, i1 false)
   %call103 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #19
   %153 = extractvalue { i64, ptr } %call103, 0
   %154 = extractvalue { i64, ptr } %call103, 1
@@ -2693,7 +2693,7 @@ invoke.cont105:                                   ; preds = %invoke.cont92
   %_M_engaged.i.i.i.i.i248 = getelementptr inbounds i8, ptr %ref.tmp107, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i248, align 8
   %args.i249 = getelementptr inbounds i8, ptr %ref.tmp107, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i249, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i249, i8 0, i64 25, i1 false)
   %for_flat = getelementptr inbounds i8, ptr %getters, i64 64
   %call115 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #19
   %155 = extractvalue { i64, ptr } %call115, 0
@@ -2719,7 +2719,7 @@ invoke.cont117:                                   ; preds = %invoke.cont105
   %_M_engaged.i.i.i.i.i262 = getelementptr inbounds i8, ptr %ref.tmp119, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i262, align 8
   %args.i263 = getelementptr inbounds i8, ptr %ref.tmp119, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i263, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i263, i8 0, i64 25, i1 false)
   %call128 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #19
   %157 = extractvalue { i64, ptr } %call128, 0
   %158 = extractvalue { i64, ptr } %call128, 1
@@ -2744,7 +2744,7 @@ invoke.cont130:                                   ; preds = %invoke.cont117
   %_M_engaged.i.i.i.i.i276 = getelementptr inbounds i8, ptr %ref.tmp132, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i276, align 8
   %args.i277 = getelementptr inbounds i8, ptr %ref.tmp132, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i277, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i277, i8 0, i64 25, i1 false)
   %call141 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #19
   %159 = extractvalue { i64, ptr } %call141, 0
   %160 = extractvalue { i64, ptr } %call141, 1
@@ -2769,7 +2769,7 @@ invoke.cont143:                                   ; preds = %invoke.cont130
   %_M_engaged.i.i.i.i.i290 = getelementptr inbounds i8, ptr %ref.tmp145, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i290, align 8
   %args.i291 = getelementptr inbounds i8, ptr %ref.tmp145, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i291, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i291, i8 0, i64 25, i1 false)
   %call154 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #19
   %161 = extractvalue { i64, ptr } %call154, 0
   %162 = extractvalue { i64, ptr } %call154, 1
@@ -2794,7 +2794,7 @@ invoke.cont156:                                   ; preds = %invoke.cont143
   %_M_engaged.i.i.i.i.i304 = getelementptr inbounds i8, ptr %ref.tmp158, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i304, align 8
   %args.i305 = getelementptr inbounds i8, ptr %ref.tmp158, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i305, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i305, i8 0, i64 25, i1 false)
   %for_last = getelementptr inbounds i8, ptr %getters, i64 32
   %call166 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_last) #19
   %163 = extractvalue { i64, ptr } %call166, 0
@@ -2820,7 +2820,7 @@ invoke.cont168:                                   ; preds = %invoke.cont156
   %_M_engaged.i.i.i.i.i318 = getelementptr inbounds i8, ptr %ref.tmp170, i64 56
   store i8 1, ptr %_M_engaged.i.i.i.i.i318, align 8
   %args.i319 = getelementptr inbounds i8, ptr %ref.tmp170, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %args.i319, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i319, i8 0, i64 25, i1 false)
   %call179 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_last) #19
   %165 = extractvalue { i64, ptr } %call179, 0
   %166 = extractvalue { i64, ptr } %call179, 1
@@ -4242,7 +4242,7 @@ if.else.i:                                        ; preds = %_ZN4absl12lts_20230
 
 invoke.cont:                                      ; preds = %if.else.i, %if.then.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
   %args.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   %6 = load <2 x ptr>, ptr %args4, align 8
   store <2 x ptr> %6, ptr %args.i, align 8

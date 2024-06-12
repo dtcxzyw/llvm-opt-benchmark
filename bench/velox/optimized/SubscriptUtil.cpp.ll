@@ -1441,7 +1441,7 @@ if.then.i:                                        ; preds = %invoke.cont39.i
           to label %invoke.cont44.i unwind label %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont44.i:                                  ; preds = %if.then.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sortedKeys.i, i8 0, i64 24, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sortedKeys.i, i8 0, i64 24, i1 false), !noalias !4
   %_M_finish.i.i = getelementptr inbounds i8, ptr %sortedKeyIndices.i, i64 8
   %74 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !4
   %75 = load ptr, ptr %sortedKeyIndices.i, align 8, !noalias !4
@@ -1537,7 +1537,7 @@ _ZNSt12_Vector_baseIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EE11_M
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i83.i, label %_ZNSt6vectorIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
 
 if.then.i.i.i.i.i83.i:                            ; preds = %_ZNSt12_Vector_baseIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i, ptr align 8 %this.val.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i, ptr align 8 %this.val.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
 
 _ZNSt6vectorIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i83.i, %_ZNSt12_Vector_baseIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -1811,7 +1811,7 @@ if.then.i101.i:                                   ; preds = %_ZNK8facebook5velox
 
 for.body.i.i:                                     ; preds = %if.then.i101.i, %.noexc106.i
   %row.011.i.i = phi i32 [ %inc.i.i, %.noexc106.i ], [ %105, %if.then.i101.i ]
-  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp94.i, i32 noundef %row.011.i.i)
+  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp94.i, i32 noundef %row.011.i.i)
           to label %.noexc106.i unwind label %lpad46.loopexit.i
 
 .noexc106.i:                                      ; preds = %for.body.i.i
@@ -1827,10 +1827,10 @@ if.else.i96.i:                                    ; preds = %_ZNK8facebook5velox
   %110 = load i32, ptr %end_.i.i, align 8, !noalias !4
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp3.i.i.i.i), !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp94.i, i64 56, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp94.i, i64 56, i1 false), !noalias !4
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp24.i.i.i.i), !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp94.i, i64 56, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp94.i, i64 56, i1 false), !noalias !4
   store i8 1, ptr %agg.tmp24.i.i.i.i, align 8, !noalias !4
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i, i64 8
   store ptr %108, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i, align 8, !noalias !4
@@ -1874,7 +1874,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %114 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %114 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %112, %cast.i.i.i.i.i.i
-  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i)
+  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i)
           to label %.noexc107.i unwind label %lpad46.loopexit.split-lp.loopexit.i
 
 .noexc107.i:                                      ; preds = %while.body.i.i.i.i.i.i
@@ -1912,7 +1912,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %.noexc108.i, %while
   %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %116 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i)
+  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i)
           to label %.noexc108.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc108.i:                                      ; preds = %while.body.i42.i.i.i.i.i
@@ -1974,7 +1974,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i10
 for.body.i.i.i.i.i.i:                             ; preds = %.noexc109.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.015.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %.noexc109.i ]
   %conv7.i.i.i.i.i.i = trunc i64 %row.015.i.i.i.i.i.i to i32
-  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i)
+  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i)
           to label %.noexc109.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc109.i:                                      ; preds = %for.body.i.i.i.i.i.i
@@ -2118,7 +2118,7 @@ while.body.i70.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %150 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i, i1 true)
   %cast.i72.i.i.i.i.i = trunc nuw nsw i64 %150 to i32
   %add.i73.i.i.i.i.i = or disjoint i32 %112, %cast.i72.i.i.i.i.i
-  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i)
+  invoke fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i)
           to label %.noexc114.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc114.i:                                      ; preds = %while.body.i70.i.i.i.i.i
@@ -4413,7 +4413,7 @@ if.then.i74.i:                                    ; preds = %_ZNK8facebook5velox
 
 for.body.i.i:                                     ; preds = %if.then.i74.i, %.noexc81.i
   %row.012.i.i = phi i32 [ %inc.i.i, %.noexc81.i ], [ %107, %if.then.i74.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %row.012.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %row.012.i.i, i1 noundef zeroext %tobool.i2.i.i)
           to label %.noexc81.i unwind label %lpad46.loopexit.i
 
 .noexc81.i:                                       ; preds = %for.body.i.i
@@ -4464,7 +4464,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %116 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %116 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %114, %cast.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i26.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i26.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
           to label %.noexc82.i unwind label %lpad46.loopexit.split-lp.loopexit.i
 
 .noexc82.i:                                       ; preds = %while.body.i.i.i.i.i.i
@@ -4502,7 +4502,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %.noexc83.i, %while.
   %118 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %118 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i45.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i45.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
           to label %.noexc83.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc83.i:                                       ; preds = %while.body.i42.i.i.i.i.i
@@ -4547,7 +4547,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i:                             ; preds = %.noexc84.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.019.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %.noexc84.i ]
   %conv7.i.i.i.i.i.i = trunc i64 %row.019.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %conv7.i.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %conv7.i.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
           to label %.noexc84.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc84.i:                                       ; preds = %for.body.i.i.i.i.i.i
@@ -4560,7 +4560,7 @@ while.body.i60.i.i.i.i.i:                         ; preds = %.noexc85.i, %while.
   %120 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.017.i.i.i.i.i.i, i1 true)
   %cast.i61.i.i.i.i.i = trunc nuw nsw i64 %120 to i32
   %add10.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i, %cast.i61.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add10.i.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add10.i.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
           to label %.noexc85.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc85.i:                                       ; preds = %while.body.i60.i.i.i.i.i
@@ -4596,7 +4596,7 @@ while.body.i76.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i77.i.i.i.i.i, i1 true)
   %cast.i78.i.i.i.i.i = trunc nuw nsw i64 %122 to i32
   %add.i79.i.i.i.i.i = or disjoint i32 %114, %cast.i78.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i79.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i79.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
           to label %.noexc86.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc86.i:                                       ; preds = %while.body.i76.i.i.i.i.i
@@ -4814,7 +4814,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt
   %shl.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i
   %and2.i.i.i.i.i = and i64 %shl.i.i.i.i.i, %150
   %tobool.i2.i.i.i.i = icmp ne i64 %and2.i.i.i.i.i, 0
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %145, i1 noundef zeroext %tobool.i2.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %145, i1 noundef zeroext %tobool.i2.i.i.i.i)
           to label %.noexc204.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc204.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -4904,7 +4904,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt
   %shl.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i
   %and2.i.i.i.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i.i.i.i, %166
   %tobool.i2.i.i.i.i.i.i.i.i = icmp ne i64 %and2.i.i.i.i.i.i.i.i.i, 0
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i26.i.i.i.i167.i, i1 noundef zeroext %tobool.i2.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i26.i.i.i.i167.i, i1 noundef zeroext %tobool.i2.i.i.i.i.i.i.i.i)
           to label %.noexc205.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc205.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -4977,7 +4977,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt
   %shl.i.i.i.i65.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i64.i.i.i.i.i
   %and2.i.i.i.i66.i.i.i.i.i = and i64 %shl.i.i.i.i65.i.i.i.i.i, %175
   %tobool.i2.i.i.i67.i.i.i.i.i = icmp ne i64 %and2.i.i.i.i66.i.i.i.i.i, 0
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i45.i.i.i.i124.i, i1 noundef zeroext %tobool.i2.i.i.i67.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i45.i.i.i.i124.i, i1 noundef zeroext %tobool.i2.i.i.i67.i.i.i.i.i)
           to label %.noexc206.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc206.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -5061,7 +5061,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt
   %shl.i.i.i.i95.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i94.i.i.i.i.i
   %and2.i.i.i.i96.i.i.i.i.i = and i64 %shl.i.i.i.i95.i.i.i.i.i, %183
   %tobool.i2.i.i.i97.i.i.i.i.i = icmp ne i64 %and2.i.i.i.i96.i.i.i.i.i, 0
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %conv7.i.i.i.i.i140.i, i1 noundef zeroext %tobool.i2.i.i.i97.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %conv7.i.i.i.i.i140.i, i1 noundef zeroext %tobool.i2.i.i.i97.i.i.i.i.i)
           to label %.noexc207.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc207.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i89.i.i.i.i.i
@@ -5105,7 +5105,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt
   %shl.i.i.i29.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i28.i.i.i.i.i.i
   %and2.i.i.i30.i.i.i.i.i.i = and i64 %shl.i.i.i29.i.i.i.i.i.i, %191
   %tobool.i2.i.i31.i.i.i.i.i.i = icmp ne i64 %and2.i.i.i30.i.i.i.i.i.i, 0
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add10.i.i.i.i.i145.i, i1 noundef zeroext %tobool.i2.i.i31.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add10.i.i.i.i.i145.i, i1 noundef zeroext %tobool.i2.i.i31.i.i.i.i.i.i)
           to label %.noexc208.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc208.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit34.i.i.i.i.i.i
@@ -5179,7 +5179,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt
   %shl.i.i.i.i140.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i139.i.i.i.i.i
   %and2.i.i.i.i141.i.i.i.i.i = and i64 %shl.i.i.i.i140.i.i.i.i.i, %200
   %tobool.i2.i.i.i142.i.i.i.i.i = icmp ne i64 %and2.i.i.i.i141.i.i.i.i.i, 0
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i120.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i.i142.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i, i32 noundef %add.i120.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i.i142.i.i.i.i.i)
           to label %.noexc209.i unwind label %lpad46.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc209.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i134.i.i.i.i.i
@@ -6323,7 +6323,7 @@ if.then.i74.i326:                                 ; preds = %_ZNK8facebook5velox
 
 for.body.i.i329:                                  ; preds = %if.then.i74.i326, %.noexc80.i
   %row.012.i.i330 = phi i32 [ %inc.i.i332, %.noexc80.i ], [ %386, %if.then.i74.i326 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %row.012.i.i330, i32 noundef %372)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %row.012.i.i330, i32 noundef %372)
           to label %.noexc80.i unwind label %lpad39.loopexit.i
 
 .noexc80.i:                                       ; preds = %for.body.i.i329
@@ -6374,7 +6374,7 @@ while.body.i.i.i.i.i.i318:                        ; preds = %if.then3.i.i.i.i.i3
   %395 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i319, i1 true)
   %cast.i.i.i.i.i.i320 = trunc nuw nsw i64 %395 to i32
   %add.i26.i.i.i.i.i321 = or disjoint i32 %393, %cast.i.i.i.i.i.i320
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i26.i.i.i.i.i321, i32 noundef %372)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i26.i.i.i.i.i321, i32 noundef %372)
           to label %.noexc81.i322 unwind label %lpad39.loopexit.split-lp.loopexit.i
 
 .noexc81.i322:                                    ; preds = %while.body.i.i.i.i.i.i318
@@ -6412,7 +6412,7 @@ while.body.i42.i.i.i.i.i267:                      ; preds = %.noexc82.i271, %whi
   %397 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i268, i1 true)
   %cast.i44.i.i.i.i.i269 = trunc nuw nsw i64 %397 to i32
   %add.i45.i.i.i.i.i270 = or disjoint i32 %mul.i41.i.i.i.i.i266, %cast.i44.i.i.i.i.i269
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i45.i.i.i.i.i270, i32 noundef %372)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i45.i.i.i.i.i270, i32 noundef %372)
           to label %.noexc82.i271 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc82.i271:                                    ; preds = %while.body.i42.i.i.i.i.i267
@@ -6457,7 +6457,7 @@ for.body.lr.ph.i.i.i.i.i.i288:                    ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i290:                          ; preds = %.noexc83.i292, %for.body.lr.ph.i.i.i.i.i.i288
   %row.018.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i289, %for.body.lr.ph.i.i.i.i.i.i288 ], [ %inc.i.i.i.i.i.i293, %.noexc83.i292 ]
   %conv7.i.i.i.i.i.i291 = trunc i64 %row.018.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %conv7.i.i.i.i.i.i291, i32 noundef %372)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %conv7.i.i.i.i.i.i291, i32 noundef %372)
           to label %.noexc83.i292 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc83.i292:                                    ; preds = %for.body.i.i.i.i.i.i290
@@ -6470,7 +6470,7 @@ while.body.i58.i.i.i.i.i:                         ; preds = %.noexc84.i298, %whi
   %399 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i, i1 true)
   %cast.i59.i.i.i.i.i = trunc nuw nsw i64 %399 to i32
   %add10.i.i.i.i.i.i297 = or disjoint i32 %mul9.i.i.i.i.i.i296, %cast.i59.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add10.i.i.i.i.i.i297, i32 noundef %372)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add10.i.i.i.i.i.i297, i32 noundef %372)
           to label %.noexc84.i298 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc84.i298:                                    ; preds = %while.body.i58.i.i.i.i.i
@@ -6506,7 +6506,7 @@ while.body.i74.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %401 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i75.i.i.i.i.i, i1 true)
   %cast.i76.i.i.i.i.i = trunc nuw nsw i64 %401 to i32
   %add.i77.i.i.i.i.i = or disjoint i32 %393, %cast.i76.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i77.i.i.i.i.i, i32 noundef %372)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i77.i.i.i.i.i, i32 noundef %372)
           to label %.noexc85.i283 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc85.i283:                                    ; preds = %while.body.i74.i.i.i.i.i
@@ -6719,7 +6719,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt
   %idxprom.i.i.i.i = sext i32 %retval.0.i.i.i.i.i224 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %422, i64 %idxprom.i.i.i.i
   %429 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %424, i32 noundef %429)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %424, i32 noundef %429)
           to label %.noexc203.i unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc203.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -6804,7 +6804,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt
   %idxprom.i.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i209 to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %439, i64 %idxprom.i.i.i.i.i.i.i.i
   %445 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i26.i.i.i.i166.i, i32 noundef %445)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i26.i.i.i.i166.i, i32 noundef %445)
           to label %.noexc204.i210 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc204.i210:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -6872,7 +6872,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt
   %idxprom.i.i.i61.i.i.i.i.i = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i181 to i64
   %arrayidx.i.i.i62.i.i.i.i.i = getelementptr inbounds i32, ptr %448, i64 %idxprom.i.i.i61.i.i.i.i.i
   %454 = load i32, ptr %arrayidx.i.i.i62.i.i.i.i.i, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i45.i.i.i.i123.i, i32 noundef %454)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i45.i.i.i.i123.i, i32 noundef %454)
           to label %.noexc205.i182 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc205.i182:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -6951,7 +6951,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt
   %idxprom.i.i.i86.i.i.i.i.i = sext i32 %retval.0.i.i.i.i85.i.i.i.i.i to i64
   %arrayidx.i.i.i87.i.i.i.i.i = getelementptr inbounds i32, ptr %456, i64 %idxprom.i.i.i86.i.i.i.i.i
   %462 = load i32, ptr %arrayidx.i.i.i87.i.i.i.i.i, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %conv7.i.i.i.i.i139.i, i32 noundef %462)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %conv7.i.i.i.i.i139.i, i32 noundef %462)
           to label %.noexc206.i189 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc206.i189:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i84.i.i.i.i.i
@@ -6990,7 +6990,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt
   %idxprom.i.i25.i.i.i.i.i.i = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i196 to i64
   %arrayidx.i.i26.i.i.i.i.i.i = getelementptr inbounds i32, ptr %464, i64 %idxprom.i.i25.i.i.i.i.i.i
   %470 = load i32, ptr %arrayidx.i.i26.i.i.i.i.i.i, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add10.i.i.i.i.i144.i, i32 noundef %470)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add10.i.i.i.i.i144.i, i32 noundef %470)
           to label %.noexc207.i197 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc207.i197:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
@@ -7059,7 +7059,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt
   %idxprom.i.i.i126.i.i.i.i.i = sext i32 %retval.0.i.i.i.i125.i.i.i.i.i to i64
   %arrayidx.i.i.i127.i.i.i.i.i = getelementptr inbounds i32, ptr %473, i64 %idxprom.i.i.i126.i.i.i.i.i
   %479 = load i32, ptr %arrayidx.i.i.i127.i.i.i.i.i, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i110.i.i.i.i.i, i32 noundef %479)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i14, i32 noundef %add.i110.i.i.i.i.i, i32 noundef %479)
           to label %.noexc208.i187 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc208.i187:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i124.i.i.i.i.i
@@ -8203,7 +8203,7 @@ if.then.i74.i1161:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i1164:                                 ; preds = %if.then.i74.i1161, %.noexc80.i1168
   %row.012.i.i1165 = phi i32 [ %inc.i.i1169, %.noexc80.i1168 ], [ %665, %if.then.i74.i1161 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %row.012.i.i1165, i8 noundef signext %651)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %row.012.i.i1165, i8 noundef signext %651)
           to label %.noexc80.i1168 unwind label %lpad39.loopexit.i1166
 
 .noexc80.i1168:                                   ; preds = %for.body.i.i1164
@@ -8254,7 +8254,7 @@ while.body.i.i.i.i.i.i1151:                       ; preds = %if.then3.i.i.i.i.i1
   %674 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i1152, i1 true)
   %cast.i.i.i.i.i.i1153 = trunc nuw nsw i64 %674 to i32
   %add.i26.i.i.i.i.i1154 = or disjoint i32 %672, %cast.i.i.i.i.i.i1153
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i26.i.i.i.i.i1154, i8 noundef signext %651)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i26.i.i.i.i.i1154, i8 noundef signext %651)
           to label %.noexc81.i1157 unwind label %lpad39.loopexit.split-lp.loopexit.i1155
 
 .noexc81.i1157:                                   ; preds = %while.body.i.i.i.i.i.i1151
@@ -8292,7 +8292,7 @@ while.body.i42.i.i.i.i.i1062:                     ; preds = %.noexc82.i1068, %wh
   %676 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i1063, i1 true)
   %cast.i44.i.i.i.i.i1064 = trunc nuw nsw i64 %676 to i32
   %add.i45.i.i.i.i.i1065 = or disjoint i32 %mul.i41.i.i.i.i.i1061, %cast.i44.i.i.i.i.i1064
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i45.i.i.i.i.i1065, i8 noundef signext %651)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i45.i.i.i.i.i1065, i8 noundef signext %651)
           to label %.noexc82.i1068 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1066
 
 .noexc82.i1068:                                   ; preds = %while.body.i42.i.i.i.i.i1062
@@ -8337,7 +8337,7 @@ for.body.lr.ph.i.i.i.i.i.i1111:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i1113:                         ; preds = %.noexc83.i1118, %for.body.lr.ph.i.i.i.i.i.i1111
   %row.018.i.i.i.i.i.i1114 = phi i64 [ %conv.i.i.i.i.i.i1112, %for.body.lr.ph.i.i.i.i.i.i1111 ], [ %inc.i.i.i.i.i.i1119, %.noexc83.i1118 ]
   %conv7.i.i.i.i.i.i1115 = trunc i64 %row.018.i.i.i.i.i.i1114 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %conv7.i.i.i.i.i.i1115, i8 noundef signext %651)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %conv7.i.i.i.i.i.i1115, i8 noundef signext %651)
           to label %.noexc83.i1118 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1116
 
 .noexc83.i1118:                                   ; preds = %for.body.i.i.i.i.i.i1113
@@ -8350,7 +8350,7 @@ while.body.i58.i.i.i.i.i1123:                     ; preds = %.noexc84.i1129, %wh
   %678 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i1124, i1 true)
   %cast.i59.i.i.i.i.i1125 = trunc nuw nsw i64 %678 to i32
   %add10.i.i.i.i.i.i1126 = or disjoint i32 %mul9.i.i.i.i.i.i1122, %cast.i59.i.i.i.i.i1125
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add10.i.i.i.i.i.i1126, i8 noundef signext %651)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add10.i.i.i.i.i.i1126, i8 noundef signext %651)
           to label %.noexc84.i1129 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1127
 
 .noexc84.i1129:                                   ; preds = %while.body.i58.i.i.i.i.i1123
@@ -8386,7 +8386,7 @@ while.body.i74.i.i.i.i.i1095:                     ; preds = %if.then19.i.i.i.i.i
   %680 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i75.i.i.i.i.i1096, i1 true)
   %cast.i76.i.i.i.i.i1097 = trunc nuw nsw i64 %680 to i32
   %add.i77.i.i.i.i.i1098 = or disjoint i32 %672, %cast.i76.i.i.i.i.i1097
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i77.i.i.i.i.i1098, i8 noundef signext %651)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i77.i.i.i.i.i1098, i8 noundef signext %651)
           to label %.noexc85.i1101 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i1099
 
 .noexc85.i1101:                                   ; preds = %while.body.i74.i.i.i.i.i1095
@@ -8599,7 +8599,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt
   %idxprom.i.i.i.i984 = sext i32 %retval.0.i.i.i.i.i983 to i64
   %arrayidx.i.i.i.i985 = getelementptr inbounds i8, ptr %701, i64 %idxprom.i.i.i.i984
   %708 = load i8, ptr %arrayidx.i.i.i.i985, align 1
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %703, i8 noundef signext %708)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %703, i8 noundef signext %708)
           to label %.noexc203.i988 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i986
 
 .noexc203.i988:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -8684,7 +8684,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt
   %idxprom.i.i.i.i.i.i.i.i959 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i958 to i64
   %arrayidx.i.i.i.i.i.i.i.i960 = getelementptr inbounds i8, ptr %718, i64 %idxprom.i.i.i.i.i.i.i.i959
   %724 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i960, align 1
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i26.i.i.i.i166.i951, i8 noundef signext %724)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i26.i.i.i.i166.i951, i8 noundef signext %724)
           to label %.noexc204.i963 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i961
 
 .noexc204.i963:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -8752,7 +8752,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt
   %idxprom.i.i.i61.i.i.i.i.i814 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i813 to i64
   %arrayidx.i.i.i62.i.i.i.i.i815 = getelementptr inbounds i8, ptr %727, i64 %idxprom.i.i.i61.i.i.i.i.i814
   %733 = load i8, ptr %arrayidx.i.i.i62.i.i.i.i.i815, align 1
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i45.i.i.i.i123.i806, i8 noundef signext %733)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i45.i.i.i.i123.i806, i8 noundef signext %733)
           to label %.noexc205.i818 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i816
 
 .noexc205.i818:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -8831,7 +8831,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt
   %idxprom.i.i.i86.i.i.i.i.i894 = sext i32 %retval.0.i.i.i.i85.i.i.i.i.i893 to i64
   %arrayidx.i.i.i87.i.i.i.i.i895 = getelementptr inbounds i8, ptr %735, i64 %idxprom.i.i.i86.i.i.i.i.i894
   %741 = load i8, ptr %arrayidx.i.i.i87.i.i.i.i.i895, align 1
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %conv7.i.i.i.i.i139.i885, i8 noundef signext %741)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %conv7.i.i.i.i.i139.i885, i8 noundef signext %741)
           to label %.noexc206.i898 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i896
 
 .noexc206.i898:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i84.i.i.i.i.i
@@ -8870,7 +8870,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt
   %idxprom.i.i25.i.i.i.i.i.i915 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i914 to i64
   %arrayidx.i.i26.i.i.i.i.i.i916 = getelementptr inbounds i8, ptr %743, i64 %idxprom.i.i25.i.i.i.i.i.i915
   %749 = load i8, ptr %arrayidx.i.i26.i.i.i.i.i.i916, align 1
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add10.i.i.i.i.i144.i907, i8 noundef signext %749)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add10.i.i.i.i.i144.i907, i8 noundef signext %749)
           to label %.noexc207.i919 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i917
 
 .noexc207.i919:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
@@ -8939,7 +8939,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt
   %idxprom.i.i.i126.i.i.i.i.i866 = sext i32 %retval.0.i.i.i.i125.i.i.i.i.i865 to i64
   %arrayidx.i.i.i127.i.i.i.i.i867 = getelementptr inbounds i8, ptr %752, i64 %idxprom.i.i.i126.i.i.i.i.i866
   %758 = load i8, ptr %arrayidx.i.i.i127.i.i.i.i.i867, align 1
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i110.i.i.i.i.i858, i8 noundef signext %758)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i438, i32 noundef %add.i110.i.i.i.i.i858, i8 noundef signext %758)
           to label %.noexc208.i870 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i868
 
 .noexc208.i870:                                   ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i124.i.i.i.i.i
@@ -10083,7 +10083,7 @@ if.then.i74.i2001:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i2004:                                 ; preds = %if.then.i74.i2001, %.noexc80.i2008
   %row.012.i.i2005 = phi i32 [ %inc.i.i2009, %.noexc80.i2008 ], [ %944, %if.then.i74.i2001 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %row.012.i.i2005, i16 noundef signext %930)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %row.012.i.i2005, i16 noundef signext %930)
           to label %.noexc80.i2008 unwind label %lpad39.loopexit.i2006
 
 .noexc80.i2008:                                   ; preds = %for.body.i.i2004
@@ -10134,7 +10134,7 @@ while.body.i.i.i.i.i.i1991:                       ; preds = %if.then3.i.i.i.i.i1
   %953 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i1992, i1 true)
   %cast.i.i.i.i.i.i1993 = trunc nuw nsw i64 %953 to i32
   %add.i26.i.i.i.i.i1994 = or disjoint i32 %951, %cast.i.i.i.i.i.i1993
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i26.i.i.i.i.i1994, i16 noundef signext %930)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i26.i.i.i.i.i1994, i16 noundef signext %930)
           to label %.noexc81.i1997 unwind label %lpad39.loopexit.split-lp.loopexit.i1995
 
 .noexc81.i1997:                                   ; preds = %while.body.i.i.i.i.i.i1991
@@ -10172,7 +10172,7 @@ while.body.i42.i.i.i.i.i1902:                     ; preds = %.noexc82.i1908, %wh
   %955 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i1903, i1 true)
   %cast.i44.i.i.i.i.i1904 = trunc nuw nsw i64 %955 to i32
   %add.i45.i.i.i.i.i1905 = or disjoint i32 %mul.i41.i.i.i.i.i1901, %cast.i44.i.i.i.i.i1904
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i45.i.i.i.i.i1905, i16 noundef signext %930)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i45.i.i.i.i.i1905, i16 noundef signext %930)
           to label %.noexc82.i1908 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1906
 
 .noexc82.i1908:                                   ; preds = %while.body.i42.i.i.i.i.i1902
@@ -10217,7 +10217,7 @@ for.body.lr.ph.i.i.i.i.i.i1951:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i1953:                         ; preds = %.noexc83.i1958, %for.body.lr.ph.i.i.i.i.i.i1951
   %row.018.i.i.i.i.i.i1954 = phi i64 [ %conv.i.i.i.i.i.i1952, %for.body.lr.ph.i.i.i.i.i.i1951 ], [ %inc.i.i.i.i.i.i1959, %.noexc83.i1958 ]
   %conv7.i.i.i.i.i.i1955 = trunc i64 %row.018.i.i.i.i.i.i1954 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %conv7.i.i.i.i.i.i1955, i16 noundef signext %930)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %conv7.i.i.i.i.i.i1955, i16 noundef signext %930)
           to label %.noexc83.i1958 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1956
 
 .noexc83.i1958:                                   ; preds = %for.body.i.i.i.i.i.i1953
@@ -10230,7 +10230,7 @@ while.body.i58.i.i.i.i.i1963:                     ; preds = %.noexc84.i1969, %wh
   %957 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i1964, i1 true)
   %cast.i59.i.i.i.i.i1965 = trunc nuw nsw i64 %957 to i32
   %add10.i.i.i.i.i.i1966 = or disjoint i32 %mul9.i.i.i.i.i.i1962, %cast.i59.i.i.i.i.i1965
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add10.i.i.i.i.i.i1966, i16 noundef signext %930)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add10.i.i.i.i.i.i1966, i16 noundef signext %930)
           to label %.noexc84.i1969 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1967
 
 .noexc84.i1969:                                   ; preds = %while.body.i58.i.i.i.i.i1963
@@ -10266,7 +10266,7 @@ while.body.i74.i.i.i.i.i1935:                     ; preds = %if.then19.i.i.i.i.i
   %959 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i75.i.i.i.i.i1936, i1 true)
   %cast.i76.i.i.i.i.i1937 = trunc nuw nsw i64 %959 to i32
   %add.i77.i.i.i.i.i1938 = or disjoint i32 %951, %cast.i76.i.i.i.i.i1937
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i77.i.i.i.i.i1938, i16 noundef signext %930)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i77.i.i.i.i.i1938, i16 noundef signext %930)
           to label %.noexc85.i1941 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i1939
 
 .noexc85.i1941:                                   ; preds = %while.body.i74.i.i.i.i.i1935
@@ -10479,7 +10479,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt
   %idxprom.i.i.i.i1824 = sext i32 %retval.0.i.i.i.i.i1823 to i64
   %arrayidx.i.i.i.i1825 = getelementptr inbounds i16, ptr %980, i64 %idxprom.i.i.i.i1824
   %987 = load i16, ptr %arrayidx.i.i.i.i1825, align 2
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %982, i16 noundef signext %987)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %982, i16 noundef signext %987)
           to label %.noexc203.i1828 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1826
 
 .noexc203.i1828:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -10564,7 +10564,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt
   %idxprom.i.i.i.i.i.i.i.i1799 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i1798 to i64
   %arrayidx.i.i.i.i.i.i.i.i1800 = getelementptr inbounds i16, ptr %997, i64 %idxprom.i.i.i.i.i.i.i.i1799
   %1003 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i1800, align 2
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i26.i.i.i.i166.i1791, i16 noundef signext %1003)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i26.i.i.i.i166.i1791, i16 noundef signext %1003)
           to label %.noexc204.i1803 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1801
 
 .noexc204.i1803:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -10632,7 +10632,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt
   %idxprom.i.i.i61.i.i.i.i.i1654 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i1653 to i64
   %arrayidx.i.i.i62.i.i.i.i.i1655 = getelementptr inbounds i16, ptr %1006, i64 %idxprom.i.i.i61.i.i.i.i.i1654
   %1012 = load i16, ptr %arrayidx.i.i.i62.i.i.i.i.i1655, align 2
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i45.i.i.i.i123.i1646, i16 noundef signext %1012)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i45.i.i.i.i123.i1646, i16 noundef signext %1012)
           to label %.noexc205.i1658 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1656
 
 .noexc205.i1658:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -10711,7 +10711,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt
   %idxprom.i.i.i86.i.i.i.i.i1734 = sext i32 %retval.0.i.i.i.i85.i.i.i.i.i1733 to i64
   %arrayidx.i.i.i87.i.i.i.i.i1735 = getelementptr inbounds i16, ptr %1014, i64 %idxprom.i.i.i86.i.i.i.i.i1734
   %1020 = load i16, ptr %arrayidx.i.i.i87.i.i.i.i.i1735, align 2
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %conv7.i.i.i.i.i139.i1725, i16 noundef signext %1020)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %conv7.i.i.i.i.i139.i1725, i16 noundef signext %1020)
           to label %.noexc206.i1738 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1736
 
 .noexc206.i1738:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i84.i.i.i.i.i
@@ -10750,7 +10750,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt
   %idxprom.i.i25.i.i.i.i.i.i1755 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i1754 to i64
   %arrayidx.i.i26.i.i.i.i.i.i1756 = getelementptr inbounds i16, ptr %1022, i64 %idxprom.i.i25.i.i.i.i.i.i1755
   %1028 = load i16, ptr %arrayidx.i.i26.i.i.i.i.i.i1756, align 2
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add10.i.i.i.i.i144.i1747, i16 noundef signext %1028)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add10.i.i.i.i.i144.i1747, i16 noundef signext %1028)
           to label %.noexc207.i1759 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1757
 
 .noexc207.i1759:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
@@ -10819,7 +10819,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt
   %idxprom.i.i.i126.i.i.i.i.i1706 = sext i32 %retval.0.i.i.i.i125.i.i.i.i.i1705 to i64
   %arrayidx.i.i.i127.i.i.i.i.i1707 = getelementptr inbounds i16, ptr %1031, i64 %idxprom.i.i.i126.i.i.i.i.i1706
   %1037 = load i16, ptr %arrayidx.i.i.i127.i.i.i.i.i1707, align 2
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i110.i.i.i.i.i1698, i16 noundef signext %1037)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i1278, i32 noundef %add.i110.i.i.i.i.i1698, i16 noundef signext %1037)
           to label %.noexc208.i1710 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1708
 
 .noexc208.i1710:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i124.i.i.i.i.i
@@ -11963,7 +11963,7 @@ if.then.i74.i2841:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i2844:                                 ; preds = %if.then.i74.i2841, %.noexc80.i2848
   %row.012.i.i2845 = phi i32 [ %inc.i.i2849, %.noexc80.i2848 ], [ %1223, %if.then.i74.i2841 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %row.012.i.i2845, i64 noundef %1209)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %row.012.i.i2845, i64 noundef %1209)
           to label %.noexc80.i2848 unwind label %lpad39.loopexit.i2846
 
 .noexc80.i2848:                                   ; preds = %for.body.i.i2844
@@ -12014,7 +12014,7 @@ while.body.i.i.i.i.i.i2831:                       ; preds = %if.then3.i.i.i.i.i2
   %1232 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i2832, i1 true)
   %cast.i.i.i.i.i.i2833 = trunc nuw nsw i64 %1232 to i32
   %add.i26.i.i.i.i.i2834 = or disjoint i32 %1230, %cast.i.i.i.i.i.i2833
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i26.i.i.i.i.i2834, i64 noundef %1209)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i26.i.i.i.i.i2834, i64 noundef %1209)
           to label %.noexc81.i2837 unwind label %lpad39.loopexit.split-lp.loopexit.i2835
 
 .noexc81.i2837:                                   ; preds = %while.body.i.i.i.i.i.i2831
@@ -12052,7 +12052,7 @@ while.body.i42.i.i.i.i.i2742:                     ; preds = %.noexc82.i2748, %wh
   %1234 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i2743, i1 true)
   %cast.i44.i.i.i.i.i2744 = trunc nuw nsw i64 %1234 to i32
   %add.i45.i.i.i.i.i2745 = or disjoint i32 %mul.i41.i.i.i.i.i2741, %cast.i44.i.i.i.i.i2744
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i45.i.i.i.i.i2745, i64 noundef %1209)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i45.i.i.i.i.i2745, i64 noundef %1209)
           to label %.noexc82.i2748 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2746
 
 .noexc82.i2748:                                   ; preds = %while.body.i42.i.i.i.i.i2742
@@ -12097,7 +12097,7 @@ for.body.lr.ph.i.i.i.i.i.i2791:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i2793:                         ; preds = %.noexc83.i2798, %for.body.lr.ph.i.i.i.i.i.i2791
   %row.018.i.i.i.i.i.i2794 = phi i64 [ %conv.i.i.i.i.i.i2792, %for.body.lr.ph.i.i.i.i.i.i2791 ], [ %inc.i.i.i.i.i.i2799, %.noexc83.i2798 ]
   %conv7.i.i.i.i.i.i2795 = trunc i64 %row.018.i.i.i.i.i.i2794 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %conv7.i.i.i.i.i.i2795, i64 noundef %1209)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %conv7.i.i.i.i.i.i2795, i64 noundef %1209)
           to label %.noexc83.i2798 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2796
 
 .noexc83.i2798:                                   ; preds = %for.body.i.i.i.i.i.i2793
@@ -12110,7 +12110,7 @@ while.body.i58.i.i.i.i.i2803:                     ; preds = %.noexc84.i2809, %wh
   %1236 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i2804, i1 true)
   %cast.i59.i.i.i.i.i2805 = trunc nuw nsw i64 %1236 to i32
   %add10.i.i.i.i.i.i2806 = or disjoint i32 %mul9.i.i.i.i.i.i2802, %cast.i59.i.i.i.i.i2805
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add10.i.i.i.i.i.i2806, i64 noundef %1209)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add10.i.i.i.i.i.i2806, i64 noundef %1209)
           to label %.noexc84.i2809 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2807
 
 .noexc84.i2809:                                   ; preds = %while.body.i58.i.i.i.i.i2803
@@ -12146,7 +12146,7 @@ while.body.i74.i.i.i.i.i2775:                     ; preds = %if.then19.i.i.i.i.i
   %1238 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i75.i.i.i.i.i2776, i1 true)
   %cast.i76.i.i.i.i.i2777 = trunc nuw nsw i64 %1238 to i32
   %add.i77.i.i.i.i.i2778 = or disjoint i32 %1230, %cast.i76.i.i.i.i.i2777
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i77.i.i.i.i.i2778, i64 noundef %1209)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i77.i.i.i.i.i2778, i64 noundef %1209)
           to label %.noexc85.i2781 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i2779
 
 .noexc85.i2781:                                   ; preds = %while.body.i74.i.i.i.i.i2775
@@ -12359,7 +12359,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt
   %idxprom.i.i.i.i2664 = sext i32 %retval.0.i.i.i.i.i2663 to i64
   %arrayidx.i.i.i.i2665 = getelementptr inbounds i64, ptr %1259, i64 %idxprom.i.i.i.i2664
   %1266 = load i64, ptr %arrayidx.i.i.i.i2665, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %1261, i64 noundef %1266)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %1261, i64 noundef %1266)
           to label %.noexc203.i2668 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2666
 
 .noexc203.i2668:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -12444,7 +12444,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt
   %idxprom.i.i.i.i.i.i.i.i2639 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i2638 to i64
   %arrayidx.i.i.i.i.i.i.i.i2640 = getelementptr inbounds i64, ptr %1276, i64 %idxprom.i.i.i.i.i.i.i.i2639
   %1282 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i2640, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i26.i.i.i.i166.i2631, i64 noundef %1282)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i26.i.i.i.i166.i2631, i64 noundef %1282)
           to label %.noexc204.i2643 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2641
 
 .noexc204.i2643:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -12512,7 +12512,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt
   %idxprom.i.i.i61.i.i.i.i.i2494 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i2493 to i64
   %arrayidx.i.i.i62.i.i.i.i.i2495 = getelementptr inbounds i64, ptr %1285, i64 %idxprom.i.i.i61.i.i.i.i.i2494
   %1291 = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i2495, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i45.i.i.i.i123.i2486, i64 noundef %1291)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i45.i.i.i.i123.i2486, i64 noundef %1291)
           to label %.noexc205.i2498 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2496
 
 .noexc205.i2498:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -12591,7 +12591,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt
   %idxprom.i.i.i86.i.i.i.i.i2574 = sext i32 %retval.0.i.i.i.i85.i.i.i.i.i2573 to i64
   %arrayidx.i.i.i87.i.i.i.i.i2575 = getelementptr inbounds i64, ptr %1293, i64 %idxprom.i.i.i86.i.i.i.i.i2574
   %1299 = load i64, ptr %arrayidx.i.i.i87.i.i.i.i.i2575, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %conv7.i.i.i.i.i139.i2565, i64 noundef %1299)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %conv7.i.i.i.i.i139.i2565, i64 noundef %1299)
           to label %.noexc206.i2578 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2576
 
 .noexc206.i2578:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i84.i.i.i.i.i
@@ -12630,7 +12630,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt
   %idxprom.i.i25.i.i.i.i.i.i2595 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i2594 to i64
   %arrayidx.i.i26.i.i.i.i.i.i2596 = getelementptr inbounds i64, ptr %1301, i64 %idxprom.i.i25.i.i.i.i.i.i2595
   %1307 = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i2596, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add10.i.i.i.i.i144.i2587, i64 noundef %1307)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add10.i.i.i.i.i144.i2587, i64 noundef %1307)
           to label %.noexc207.i2599 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2597
 
 .noexc207.i2599:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
@@ -12699,7 +12699,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt
   %idxprom.i.i.i126.i.i.i.i.i2546 = sext i32 %retval.0.i.i.i.i125.i.i.i.i.i2545 to i64
   %arrayidx.i.i.i127.i.i.i.i.i2547 = getelementptr inbounds i64, ptr %1310, i64 %idxprom.i.i.i126.i.i.i.i.i2546
   %1316 = load i64, ptr %arrayidx.i.i.i127.i.i.i.i.i2547, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i110.i.i.i.i.i2538, i64 noundef %1316)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2118, i32 noundef %add.i110.i.i.i.i.i2538, i64 noundef %1316)
           to label %.noexc208.i2550 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2548
 
 .noexc208.i2550:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i124.i.i.i.i.i
@@ -13850,7 +13850,7 @@ for.body.i.preheader.i:                           ; preds = %if.then.i75.i
 
 for.body.i.i3463:                                 ; preds = %.noexc81.i3467, %for.body.i.preheader.i
   %row.012.i.i3464 = phi i32 [ %inc.i.i3468, %.noexc81.i3467 ], [ %1501, %for.body.i.preheader.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %row.012.i.i3464, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %row.012.i.i3464, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
           to label %.noexc81.i3467 unwind label %lpad39.loopexit.i3465
 
 .noexc81.i3467:                                   ; preds = %for.body.i.i3463
@@ -13905,7 +13905,7 @@ while.body.i.i.i.i.i.i3453:                       ; preds = %.noexc82.i3458, %wh
   %1510 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i3454, i1 true)
   %cast.i.i.i.i.i.i3455 = trunc nuw nsw i64 %1510 to i32
   %add.i26.i.i.i.i.i3456 = or disjoint i32 %1508, %cast.i.i.i.i.i.i3455
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i26.i.i.i.i.i3456, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i26.i.i.i.i.i3456, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
           to label %.noexc82.i3458 unwind label %lpad39.loopexit.split-lp.loopexit.i3457
 
 .noexc82.i3458:                                   ; preds = %while.body.i.i.i.i.i.i3453
@@ -13944,7 +13944,7 @@ while.body.i42.i.i.i.i.i3396:                     ; preds = %.noexc83.i3402, %wh
   %1512 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i3397, i1 true)
   %cast.i44.i.i.i.i.i3398 = trunc nuw nsw i64 %1512 to i32
   %add.i45.i.i.i.i.i3399 = or disjoint i32 %mul.i41.i.i.i.i.i3395, %cast.i44.i.i.i.i.i3398
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i45.i.i.i.i.i3399, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i49.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i45.i.i.i.i.i3399, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i49.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
           to label %.noexc83.i3402 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3400
 
 .noexc83.i3402:                                   ; preds = %while.body.i42.i.i.i.i.i3396
@@ -13993,7 +13993,7 @@ for.body.lr.ph.i.i.i.i.i.i3419:                   ; preds = %if.then.i.i.i.i.i73
 for.body.i.i.i.i.i.i3421:                         ; preds = %.noexc84.i3425, %for.body.lr.ph.i.i.i.i.i.i3419
   %row.021.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i3420, %for.body.lr.ph.i.i.i.i.i.i3419 ], [ %inc.i.i.i.i.i.i3426, %.noexc84.i3425 ]
   %conv7.i.i.i.i.i.i3422 = trunc i64 %row.021.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %conv7.i.i.i.i.i.i3422, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i61.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %conv7.i.i.i.i.i.i3422, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i61.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
           to label %.noexc84.i3425 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3423
 
 .noexc84.i3425:                                   ; preds = %for.body.i.i.i.i.i.i3421
@@ -14006,7 +14006,7 @@ while.body.i64.i.i.i.i.i:                         ; preds = %.noexc85.i3432, %wh
   %1514 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.019.i.i.i.i.i.i, i1 true)
   %cast.i65.i.i.i.i.i = trunc nuw nsw i64 %1514 to i32
   %add10.i.i.i.i.i.i3429 = or disjoint i32 %mul9.i.i.i.i.i.i3428, %cast.i65.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add10.i.i.i.i.i.i3429, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i61.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add10.i.i.i.i.i.i3429, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i61.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
           to label %.noexc85.i3432 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3430
 
 .noexc85.i3432:                                   ; preds = %while.body.i64.i.i.i.i.i
@@ -14046,7 +14046,7 @@ while.body.i80.i.i.i.i.i:                         ; preds = %.noexc86.i3415, %wh
   %1516 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i81.i.i.i.i.i, i1 true)
   %cast.i82.i.i.i.i.i = trunc nuw nsw i64 %1516 to i32
   %add.i83.i.i.i.i.i = or disjoint i32 %1508, %cast.i82.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i83.i.i.i.i.i, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i87.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i83.i.i.i.i.i, i64 noundef %coerce.sroa.0.0.extract.trunc.i.i87.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i)
           to label %.noexc86.i3415 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i3413
 
 .noexc86.i3415:                                   ; preds = %while.body.i80.i.i.i.i.i
@@ -14263,7 +14263,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEES
   %retval.sroa.0.0.extract.trunc.i.i.i.i = trunc i128 %value.i.0.copyload.i.i.i.i to i64
   %retval.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %value.i.0.copyload.i.i.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i.i.i to i64
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %1539, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %1539, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i.i)
           to label %.noexc205.i3355 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3353
 
 .noexc205.i3355:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -14352,7 +14352,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEES
   %retval.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i128 %value.i.0.copyload.i.i.i.i.i.i.i.i to i64
   %retval.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i = lshr i128 %value.i.0.copyload.i.i.i.i.i.i.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i26.i.i.i.i167.i3323, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i26.i.i.i.i167.i3323, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i)
           to label %.noexc206.i3332 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3331
 
 .noexc206.i3332:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -14424,7 +14424,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEES
   %retval.sroa.0.0.extract.trunc.i.i.i65.i.i.i.i.i = trunc i128 %value.i.0.copyload.i.i.i64.i.i.i.i.i to i64
   %retval.sroa.2.0.extract.shift.i.i.i66.i.i.i.i.i = lshr i128 %value.i.0.copyload.i.i.i64.i.i.i.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i.i67.i.i.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i.i66.i.i.i.i.i to i64
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i45.i.i.i.i124.i3188, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i65.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i67.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i45.i.i.i.i124.i3188, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i65.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i67.i.i.i.i.i)
           to label %.noexc207.i3197 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3196
 
 .noexc207.i3197:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -14507,7 +14507,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEES
   %retval.sroa.0.0.extract.trunc.i.i.i95.i.i.i.i.i = trunc i128 %value.i.0.copyload.i.i.i94.i.i.i.i.i to i64
   %retval.sroa.2.0.extract.shift.i.i.i96.i.i.i.i.i = lshr i128 %value.i.0.copyload.i.i.i94.i.i.i.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i.i97.i.i.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i.i96.i.i.i.i.i to i64
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %conv7.i.i.i.i.i140.i3261, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i95.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i97.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %conv7.i.i.i.i.i140.i3261, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i95.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i97.i.i.i.i.i)
           to label %.noexc208.i3272 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3270
 
 .noexc208.i3272:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i89.i.i.i.i.i
@@ -14550,7 +14550,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEES
   %retval.sroa.0.0.extract.trunc.i.i29.i.i.i.i.i.i = trunc i128 %value.i.0.copyload.i.i28.i.i.i.i.i.i to i64
   %retval.sroa.2.0.extract.shift.i.i30.i.i.i.i.i.i = lshr i128 %value.i.0.copyload.i.i28.i.i.i.i.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i31.i.i.i.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i30.i.i.i.i.i.i to i64
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add10.i.i.i.i.i145.i3281, i64 noundef %retval.sroa.0.0.extract.trunc.i.i29.i.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i31.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add10.i.i.i.i.i145.i3281, i64 noundef %retval.sroa.0.0.extract.trunc.i.i29.i.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i31.i.i.i.i.i.i)
           to label %.noexc209.i3291 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3289
 
 .noexc209.i3291:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit34.i.i.i.i.i.i
@@ -14623,7 +14623,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEES
   %retval.sroa.0.0.extract.trunc.i.i.i140.i.i.i.i.i = trunc i128 %value.i.0.copyload.i.i.i139.i.i.i.i.i to i64
   %retval.sroa.2.0.extract.shift.i.i.i141.i.i.i.i.i = lshr i128 %value.i.0.copyload.i.i.i139.i.i.i.i.i, 64
   %retval.sroa.2.0.extract.trunc.i.i.i142.i.i.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i.i141.i.i.i.i.i to i64
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i120.i.i.i.i.i3237, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i140.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i142.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i2958, i32 noundef %add.i120.i.i.i.i.i3237, i64 noundef %retval.sroa.0.0.extract.trunc.i.i.i140.i.i.i.i.i, i64 noundef %retval.sroa.2.0.extract.trunc.i.i.i142.i.i.i.i.i)
           to label %.noexc210.i unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3245
 
 .noexc210.i:                                      ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i134.i.i.i.i.i
@@ -15767,7 +15767,7 @@ if.then.i74.i4293:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i4296:                                 ; preds = %if.then.i74.i4293, %.noexc80.i4300
   %row.012.i.i4297 = phi i32 [ %inc.i.i4301, %.noexc80.i4300 ], [ %1774, %if.then.i74.i4293 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %row.012.i.i4297, float noundef %1760)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %row.012.i.i4297, float noundef %1760)
           to label %.noexc80.i4300 unwind label %lpad39.loopexit.i4298
 
 .noexc80.i4300:                                   ; preds = %for.body.i.i4296
@@ -15818,7 +15818,7 @@ while.body.i.i.i.i.i.i4284:                       ; preds = %if.then3.i.i.i.i.i4
   %1783 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i4285, i1 true)
   %cast.i.i.i.i.i.i4286 = trunc nuw nsw i64 %1783 to i32
   %add.i26.i.i.i.i.i4287 = or disjoint i32 %1781, %cast.i.i.i.i.i.i4286
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i26.i.i.i.i.i4287, float noundef %1760)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i26.i.i.i.i.i4287, float noundef %1760)
           to label %.noexc81.i4289 unwind label %lpad39.loopexit.split-lp.loopexit.i4288
 
 .noexc81.i4289:                                   ; preds = %while.body.i.i.i.i.i.i4284
@@ -15856,7 +15856,7 @@ while.body.i42.i.i.i.i.i4197:                     ; preds = %.noexc82.i4203, %wh
   %1785 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i4198, i1 true)
   %cast.i44.i.i.i.i.i4199 = trunc nuw nsw i64 %1785 to i32
   %add.i45.i.i.i.i.i4200 = or disjoint i32 %mul.i41.i.i.i.i.i4196, %cast.i44.i.i.i.i.i4199
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i45.i.i.i.i.i4200, float noundef %1760)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i45.i.i.i.i.i4200, float noundef %1760)
           to label %.noexc82.i4203 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4201
 
 .noexc82.i4203:                                   ; preds = %while.body.i42.i.i.i.i.i4197
@@ -15901,7 +15901,7 @@ for.body.lr.ph.i.i.i.i.i.i4245:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i4247:                         ; preds = %.noexc83.i4252, %for.body.lr.ph.i.i.i.i.i.i4245
   %row.018.i.i.i.i.i.i4248 = phi i64 [ %conv.i.i.i.i.i.i4246, %for.body.lr.ph.i.i.i.i.i.i4245 ], [ %inc.i.i.i.i.i.i4253, %.noexc83.i4252 ]
   %conv7.i.i.i.i.i.i4249 = trunc i64 %row.018.i.i.i.i.i.i4248 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %conv7.i.i.i.i.i.i4249, float noundef %1760)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %conv7.i.i.i.i.i.i4249, float noundef %1760)
           to label %.noexc83.i4252 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4250
 
 .noexc83.i4252:                                   ; preds = %for.body.i.i.i.i.i.i4247
@@ -15914,7 +15914,7 @@ while.body.i58.i.i.i.i.i4257:                     ; preds = %.noexc84.i4262, %wh
   %1787 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i4258, i1 true)
   %cast.i59.i.i.i.i.i4259 = trunc nuw nsw i64 %1787 to i32
   %add10.i.i.i.i.i.i4260 = or disjoint i32 %mul9.i.i.i.i.i.i4256, %cast.i59.i.i.i.i.i4259
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add10.i.i.i.i.i.i4260, float noundef %1760)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add10.i.i.i.i.i.i4260, float noundef %1760)
           to label %.noexc84.i4262 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4261
 
 .noexc84.i4262:                                   ; preds = %while.body.i58.i.i.i.i.i4257
@@ -15950,7 +15950,7 @@ while.body.i74.i.i.i.i.i4230:                     ; preds = %if.then19.i.i.i.i.i
   %1789 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i75.i.i.i.i.i4231, i1 true)
   %cast.i76.i.i.i.i.i4232 = trunc nuw nsw i64 %1789 to i32
   %add.i77.i.i.i.i.i4233 = or disjoint i32 %1781, %cast.i76.i.i.i.i.i4232
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i77.i.i.i.i.i4233, float noundef %1760)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i77.i.i.i.i.i4233, float noundef %1760)
           to label %.noexc85.i4235 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i4234
 
 .noexc85.i4235:                                   ; preds = %while.body.i74.i.i.i.i.i4230
@@ -16163,7 +16163,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt
   %idxprom.i.i.i.i4119 = sext i32 %retval.0.i.i.i.i.i4118 to i64
   %arrayidx.i.i.i.i4120 = getelementptr inbounds float, ptr %1810, i64 %idxprom.i.i.i.i4119
   %1817 = load float, ptr %arrayidx.i.i.i.i4120, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %1812, float noundef %1817)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %1812, float noundef %1817)
           to label %.noexc203.i4123 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4121
 
 .noexc203.i4123:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -16248,7 +16248,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt
   %idxprom.i.i.i.i.i.i.i.i4094 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i4093 to i64
   %arrayidx.i.i.i.i.i.i.i.i4095 = getelementptr inbounds float, ptr %1827, i64 %idxprom.i.i.i.i.i.i.i.i4094
   %1833 = load float, ptr %arrayidx.i.i.i.i.i.i.i.i4095, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i26.i.i.i.i166.i4086, float noundef %1833)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i26.i.i.i.i166.i4086, float noundef %1833)
           to label %.noexc204.i4098 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4096
 
 .noexc204.i4098:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -16316,7 +16316,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt
   %idxprom.i.i.i61.i.i.i.i.i3951 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i3950 to i64
   %arrayidx.i.i.i62.i.i.i.i.i3952 = getelementptr inbounds float, ptr %1836, i64 %idxprom.i.i.i61.i.i.i.i.i3951
   %1842 = load float, ptr %arrayidx.i.i.i62.i.i.i.i.i3952, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i45.i.i.i.i123.i3943, float noundef %1842)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i45.i.i.i.i123.i3943, float noundef %1842)
           to label %.noexc205.i3955 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3953
 
 .noexc205.i3955:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -16395,7 +16395,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt
   %idxprom.i.i.i86.i.i.i.i.i4030 = sext i32 %retval.0.i.i.i.i85.i.i.i.i.i4029 to i64
   %arrayidx.i.i.i87.i.i.i.i.i4031 = getelementptr inbounds float, ptr %1844, i64 %idxprom.i.i.i86.i.i.i.i.i4030
   %1850 = load float, ptr %arrayidx.i.i.i87.i.i.i.i.i4031, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %conv7.i.i.i.i.i139.i4021, float noundef %1850)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %conv7.i.i.i.i.i139.i4021, float noundef %1850)
           to label %.noexc206.i4034 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4032
 
 .noexc206.i4034:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i84.i.i.i.i.i
@@ -16434,7 +16434,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt
   %idxprom.i.i25.i.i.i.i.i.i4051 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i4050 to i64
   %arrayidx.i.i26.i.i.i.i.i.i4052 = getelementptr inbounds float, ptr %1852, i64 %idxprom.i.i25.i.i.i.i.i.i4051
   %1858 = load float, ptr %arrayidx.i.i26.i.i.i.i.i.i4052, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add10.i.i.i.i.i144.i4043, float noundef %1858)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add10.i.i.i.i.i144.i4043, float noundef %1858)
           to label %.noexc207.i4054 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4053
 
 .noexc207.i4054:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
@@ -16503,7 +16503,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt
   %idxprom.i.i.i126.i.i.i.i.i4003 = sext i32 %retval.0.i.i.i.i125.i.i.i.i.i4002 to i64
   %arrayidx.i.i.i127.i.i.i.i.i4004 = getelementptr inbounds float, ptr %1861, i64 %idxprom.i.i.i126.i.i.i.i.i4003
   %1867 = load float, ptr %arrayidx.i.i.i127.i.i.i.i.i4004, align 4
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i110.i.i.i.i.i3995, float noundef %1867)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i3577, i32 noundef %add.i110.i.i.i.i.i3995, float noundef %1867)
           to label %.noexc208.i4006 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4005
 
 .noexc208.i4006:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i124.i.i.i.i.i
@@ -17647,7 +17647,7 @@ if.then.i74.i5133:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i5136:                                 ; preds = %if.then.i74.i5133, %.noexc80.i5140
   %row.012.i.i5137 = phi i32 [ %inc.i.i5141, %.noexc80.i5140 ], [ %2053, %if.then.i74.i5133 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %row.012.i.i5137, double noundef %2039)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %row.012.i.i5137, double noundef %2039)
           to label %.noexc80.i5140 unwind label %lpad39.loopexit.i5138
 
 .noexc80.i5140:                                   ; preds = %for.body.i.i5136
@@ -17698,7 +17698,7 @@ while.body.i.i.i.i.i.i5123:                       ; preds = %if.then3.i.i.i.i.i5
   %2062 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i5124, i1 true)
   %cast.i.i.i.i.i.i5125 = trunc nuw nsw i64 %2062 to i32
   %add.i26.i.i.i.i.i5126 = or disjoint i32 %2060, %cast.i.i.i.i.i.i5125
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i26.i.i.i.i.i5126, double noundef %2039)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i26.i.i.i.i.i5126, double noundef %2039)
           to label %.noexc81.i5129 unwind label %lpad39.loopexit.split-lp.loopexit.i5127
 
 .noexc81.i5129:                                   ; preds = %while.body.i.i.i.i.i.i5123
@@ -17736,7 +17736,7 @@ while.body.i42.i.i.i.i.i5034:                     ; preds = %.noexc82.i5040, %wh
   %2064 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i5035, i1 true)
   %cast.i44.i.i.i.i.i5036 = trunc nuw nsw i64 %2064 to i32
   %add.i45.i.i.i.i.i5037 = or disjoint i32 %mul.i41.i.i.i.i.i5033, %cast.i44.i.i.i.i.i5036
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i45.i.i.i.i.i5037, double noundef %2039)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i45.i.i.i.i.i5037, double noundef %2039)
           to label %.noexc82.i5040 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5038
 
 .noexc82.i5040:                                   ; preds = %while.body.i42.i.i.i.i.i5034
@@ -17781,7 +17781,7 @@ for.body.lr.ph.i.i.i.i.i.i5083:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i5085:                         ; preds = %.noexc83.i5090, %for.body.lr.ph.i.i.i.i.i.i5083
   %row.018.i.i.i.i.i.i5086 = phi i64 [ %conv.i.i.i.i.i.i5084, %for.body.lr.ph.i.i.i.i.i.i5083 ], [ %inc.i.i.i.i.i.i5091, %.noexc83.i5090 ]
   %conv7.i.i.i.i.i.i5087 = trunc i64 %row.018.i.i.i.i.i.i5086 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %conv7.i.i.i.i.i.i5087, double noundef %2039)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %conv7.i.i.i.i.i.i5087, double noundef %2039)
           to label %.noexc83.i5090 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5088
 
 .noexc83.i5090:                                   ; preds = %for.body.i.i.i.i.i.i5085
@@ -17794,7 +17794,7 @@ while.body.i58.i.i.i.i.i5095:                     ; preds = %.noexc84.i5101, %wh
   %2066 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i5096, i1 true)
   %cast.i59.i.i.i.i.i5097 = trunc nuw nsw i64 %2066 to i32
   %add10.i.i.i.i.i.i5098 = or disjoint i32 %mul9.i.i.i.i.i.i5094, %cast.i59.i.i.i.i.i5097
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add10.i.i.i.i.i.i5098, double noundef %2039)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add10.i.i.i.i.i.i5098, double noundef %2039)
           to label %.noexc84.i5101 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5099
 
 .noexc84.i5101:                                   ; preds = %while.body.i58.i.i.i.i.i5095
@@ -17830,7 +17830,7 @@ while.body.i74.i.i.i.i.i5067:                     ; preds = %if.then19.i.i.i.i.i
   %2068 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i75.i.i.i.i.i5068, i1 true)
   %cast.i76.i.i.i.i.i5069 = trunc nuw nsw i64 %2068 to i32
   %add.i77.i.i.i.i.i5070 = or disjoint i32 %2060, %cast.i76.i.i.i.i.i5069
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i77.i.i.i.i.i5070, double noundef %2039)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i77.i.i.i.i.i5070, double noundef %2039)
           to label %.noexc85.i5073 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i5071
 
 .noexc85.i5073:                                   ; preds = %while.body.i74.i.i.i.i.i5067
@@ -18043,7 +18043,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt
   %idxprom.i.i.i.i4956 = sext i32 %retval.0.i.i.i.i.i4955 to i64
   %arrayidx.i.i.i.i4957 = getelementptr inbounds double, ptr %2089, i64 %idxprom.i.i.i.i4956
   %2096 = load double, ptr %arrayidx.i.i.i.i4957, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %2091, double noundef %2096)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %2091, double noundef %2096)
           to label %.noexc203.i4960 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4958
 
 .noexc203.i4960:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -18128,7 +18128,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt
   %idxprom.i.i.i.i.i.i.i.i4931 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i4930 to i64
   %arrayidx.i.i.i.i.i.i.i.i4932 = getelementptr inbounds double, ptr %2106, i64 %idxprom.i.i.i.i.i.i.i.i4931
   %2112 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i4932, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i26.i.i.i.i166.i4923, double noundef %2112)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i26.i.i.i.i166.i4923, double noundef %2112)
           to label %.noexc204.i4935 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4933
 
 .noexc204.i4935:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -18196,7 +18196,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt
   %idxprom.i.i.i61.i.i.i.i.i4786 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i4785 to i64
   %arrayidx.i.i.i62.i.i.i.i.i4787 = getelementptr inbounds double, ptr %2115, i64 %idxprom.i.i.i61.i.i.i.i.i4786
   %2121 = load double, ptr %arrayidx.i.i.i62.i.i.i.i.i4787, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i45.i.i.i.i123.i4778, double noundef %2121)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i45.i.i.i.i123.i4778, double noundef %2121)
           to label %.noexc205.i4790 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4788
 
 .noexc205.i4790:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -18275,7 +18275,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt
   %idxprom.i.i.i86.i.i.i.i.i4866 = sext i32 %retval.0.i.i.i.i85.i.i.i.i.i4865 to i64
   %arrayidx.i.i.i87.i.i.i.i.i4867 = getelementptr inbounds double, ptr %2123, i64 %idxprom.i.i.i86.i.i.i.i.i4866
   %2129 = load double, ptr %arrayidx.i.i.i87.i.i.i.i.i4867, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %conv7.i.i.i.i.i139.i4857, double noundef %2129)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %conv7.i.i.i.i.i139.i4857, double noundef %2129)
           to label %.noexc206.i4870 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4868
 
 .noexc206.i4870:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i84.i.i.i.i.i
@@ -18314,7 +18314,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt
   %idxprom.i.i25.i.i.i.i.i.i4887 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i4886 to i64
   %arrayidx.i.i26.i.i.i.i.i.i4888 = getelementptr inbounds double, ptr %2131, i64 %idxprom.i.i25.i.i.i.i.i.i4887
   %2137 = load double, ptr %arrayidx.i.i26.i.i.i.i.i.i4888, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add10.i.i.i.i.i144.i4879, double noundef %2137)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add10.i.i.i.i.i144.i4879, double noundef %2137)
           to label %.noexc207.i4891 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4889
 
 .noexc207.i4891:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
@@ -18383,7 +18383,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt
   %idxprom.i.i.i126.i.i.i.i.i4838 = sext i32 %retval.0.i.i.i.i125.i.i.i.i.i4837 to i64
   %arrayidx.i.i.i127.i.i.i.i.i4839 = getelementptr inbounds double, ptr %2140, i64 %idxprom.i.i.i126.i.i.i.i.i4838
   %2146 = load double, ptr %arrayidx.i.i.i127.i.i.i.i.i4839, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i110.i.i.i.i.i4830, double noundef %2146)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i4410, i32 noundef %add.i110.i.i.i.i.i4830, double noundef %2146)
           to label %.noexc208.i4842 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4840
 
 .noexc208.i4842:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i124.i.i.i.i.i
@@ -19529,7 +19529,7 @@ if.then.i74.i5868:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i5870:                                 ; preds = %if.then.i74.i5868, %.noexc80.i5873
   %row.013.i.i = phi i32 [ %inc.i.i5874, %.noexc80.i5873 ], [ %2331, %if.then.i74.i5868 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %row.013.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %row.013.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
           to label %.noexc80.i5873 unwind label %lpad39.loopexit.i5871
 
 .noexc80.i5873:                                   ; preds = %for.body.i.i5870
@@ -19580,7 +19580,7 @@ while.body.i.i.i.i.i.i5858:                       ; preds = %if.then3.i.i.i.i.i5
   %2340 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i5859, i1 true)
   %cast.i.i.i.i.i.i5860 = trunc nuw nsw i64 %2340 to i32
   %add.i26.i.i.i.i.i5861 = or disjoint i32 %2338, %cast.i.i.i.i.i.i5860
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i26.i.i.i.i.i5861, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i26.i.i.i.i.i5861, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
           to label %.noexc81.i5864 unwind label %lpad39.loopexit.split-lp.loopexit.i5862
 
 .noexc81.i5864:                                   ; preds = %while.body.i.i.i.i.i.i5858
@@ -19618,7 +19618,7 @@ while.body.i42.i.i.i.i.i5800:                     ; preds = %.noexc82.i5805, %wh
   %2342 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i5801, i1 true)
   %cast.i44.i.i.i.i.i5802 = trunc nuw nsw i64 %2342 to i32
   %add.i45.i.i.i.i.i5803 = or disjoint i32 %mul.i41.i.i.i.i.i5799, %cast.i44.i.i.i.i.i5802
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i45.i.i.i.i.i5803, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i45.i.i.i.i.i5803, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
           to label %.noexc82.i5805 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5804
 
 .noexc82.i5805:                                   ; preds = %while.body.i42.i.i.i.i.i5800
@@ -19663,7 +19663,7 @@ for.body.lr.ph.i.i.i.i.i.i5826:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i5828:                         ; preds = %.noexc83.i5831, %for.body.lr.ph.i.i.i.i.i.i5826
   %row.020.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i5827, %for.body.lr.ph.i.i.i.i.i.i5826 ], [ %inc.i.i.i.i.i.i5832, %.noexc83.i5831 ]
   %conv7.i.i.i.i.i.i5829 = trunc i64 %row.020.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %conv7.i.i.i.i.i.i5829, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %conv7.i.i.i.i.i.i5829, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
           to label %.noexc83.i5831 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5830
 
 .noexc83.i5831:                                   ; preds = %for.body.i.i.i.i.i.i5828
@@ -19676,7 +19676,7 @@ while.body.i59.i.i.i.i.i:                         ; preds = %.noexc84.i5838, %wh
   %2344 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.018.i.i.i.i.i.i, i1 true)
   %cast.i60.i.i.i.i.i = trunc nuw nsw i64 %2344 to i32
   %add10.i.i.i.i.i.i5836 = or disjoint i32 %mul9.i.i.i.i.i.i5835, %cast.i60.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add10.i.i.i.i.i.i5836, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add10.i.i.i.i.i.i5836, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
           to label %.noexc84.i5838 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5837
 
 .noexc84.i5838:                                   ; preds = %while.body.i59.i.i.i.i.i
@@ -19712,7 +19712,7 @@ while.body.i75.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %2346 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i.i, i1 true)
   %cast.i77.i.i.i.i.i = trunc nuw nsw i64 %2346 to i32
   %add.i78.i.i.i.i.i = or disjoint i32 %2338, %cast.i77.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i78.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i78.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i)
           to label %.noexc85.i5820 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i5819
 
 .noexc85.i5820:                                   ; preds = %while.body.i75.i.i.i.i.i
@@ -19927,7 +19927,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i5724, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i5724, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %2369, i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %2369, i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i)
           to label %.noexc205.i5727 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5725
 
 .noexc205.i5727:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -20014,7 +20014,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i5700, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i5700, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i26.i.i.i.i167.i5691, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i26.i.i.i.i167.i5691, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i)
           to label %.noexc206.i5703 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5701
 
 .noexc206.i5703:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -20084,7 +20084,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt
   %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i5618, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i64.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i62.i.i.i.i.i5618, i64 8
   %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i64.i.i.i.i.i, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i45.i.i.i.i123.i5609, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i45.i.i.i.i123.i5609, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i)
           to label %.noexc207.i5620 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5619
 
 .noexc207.i5620:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -20165,7 +20165,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt
   %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i90.i.i.i.i.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i92.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i90.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i92.i.i.i.i.i, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %conv7.i.i.i.i.i140.i5644, i64 %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %conv7.i.i.i.i.i140.i5644, i64 %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i)
           to label %.noexc208.i5647 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5646
 
 .noexc208.i5647:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i87.i.i.i.i.i
@@ -20206,7 +20206,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt
   %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i5661, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i28.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i26.i.i.i.i.i.i5661, i64 8
   %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i28.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add10.i.i.i.i.i145.i5652, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add10.i.i.i.i.i145.i5652, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i)
           to label %.noexc209.i5663 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5662
 
 .noexc209.i5663:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i
@@ -20277,7 +20277,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt
   %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i133.i.i.i.i.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i135.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i133.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i135.i.i.i.i.i, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i116.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5250, i32 noundef %add.i116.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i)
           to label %.noexc210.i5636 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5635
 
 .noexc210.i5636:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i130.i.i.i.i.i
@@ -21423,7 +21423,7 @@ if.then.i74.i6712:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i6715:                                 ; preds = %if.then.i74.i6712, %.noexc80.i6719
   %row.013.i.i6716 = phi i32 [ %inc.i.i6720, %.noexc80.i6719 ], [ %2603, %if.then.i74.i6712 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %row.013.i.i6716, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %row.013.i.i6716, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
           to label %.noexc80.i6719 unwind label %lpad39.loopexit.i6717
 
 .noexc80.i6719:                                   ; preds = %for.body.i.i6715
@@ -21474,7 +21474,7 @@ while.body.i.i.i.i.i.i6702:                       ; preds = %if.then3.i.i.i.i.i6
   %2612 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i6703, i1 true)
   %cast.i.i.i.i.i.i6704 = trunc nuw nsw i64 %2612 to i32
   %add.i26.i.i.i.i.i6705 = or disjoint i32 %2610, %cast.i.i.i.i.i.i6704
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i26.i.i.i.i.i6705, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i26.i.i.i.i.i6705, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
           to label %.noexc81.i6708 unwind label %lpad39.loopexit.split-lp.loopexit.i6706
 
 .noexc81.i6708:                                   ; preds = %while.body.i.i.i.i.i.i6702
@@ -21512,7 +21512,7 @@ while.body.i42.i.i.i.i.i6613:                     ; preds = %.noexc82.i6619, %wh
   %2614 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i6614, i1 true)
   %cast.i44.i.i.i.i.i6615 = trunc nuw nsw i64 %2614 to i32
   %add.i45.i.i.i.i.i6616 = or disjoint i32 %mul.i41.i.i.i.i.i6612, %cast.i44.i.i.i.i.i6615
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i45.i.i.i.i.i6616, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i45.i.i.i.i.i6616, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
           to label %.noexc82.i6619 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6617
 
 .noexc82.i6619:                                   ; preds = %while.body.i42.i.i.i.i.i6613
@@ -21557,7 +21557,7 @@ for.body.lr.ph.i.i.i.i.i.i6662:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i6664:                         ; preds = %.noexc83.i6669, %for.body.lr.ph.i.i.i.i.i.i6662
   %row.020.i.i.i.i.i.i6665 = phi i64 [ %conv.i.i.i.i.i.i6663, %for.body.lr.ph.i.i.i.i.i.i6662 ], [ %inc.i.i.i.i.i.i6670, %.noexc83.i6669 ]
   %conv7.i.i.i.i.i.i6666 = trunc i64 %row.020.i.i.i.i.i.i6665 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %conv7.i.i.i.i.i.i6666, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %conv7.i.i.i.i.i.i6666, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
           to label %.noexc83.i6669 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6667
 
 .noexc83.i6669:                                   ; preds = %for.body.i.i.i.i.i.i6664
@@ -21570,7 +21570,7 @@ while.body.i59.i.i.i.i.i6674:                     ; preds = %.noexc84.i6680, %wh
   %2616 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.018.i.i.i.i.i.i6675, i1 true)
   %cast.i60.i.i.i.i.i6676 = trunc nuw nsw i64 %2616 to i32
   %add10.i.i.i.i.i.i6677 = or disjoint i32 %mul9.i.i.i.i.i.i6673, %cast.i60.i.i.i.i.i6676
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add10.i.i.i.i.i.i6677, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add10.i.i.i.i.i.i6677, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
           to label %.noexc84.i6680 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6678
 
 .noexc84.i6680:                                   ; preds = %while.body.i59.i.i.i.i.i6674
@@ -21606,7 +21606,7 @@ while.body.i75.i.i.i.i.i6646:                     ; preds = %if.then19.i.i.i.i.i
   %2618 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i.i6647, i1 true)
   %cast.i77.i.i.i.i.i6648 = trunc nuw nsw i64 %2618 to i32
   %add.i78.i.i.i.i.i6649 = or disjoint i32 %2610, %cast.i77.i.i.i.i.i6648
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i78.i.i.i.i.i6649, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i78.i.i.i.i.i6649, i64 %retval.sroa.0.0.copyload.i.i6575, ptr %retval.sroa.2.0.copyload.i.i6577)
           to label %.noexc85.i6652 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i6650
 
 .noexc85.i6652:                                   ; preds = %while.body.i75.i.i.i.i.i6646
@@ -21821,7 +21821,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt
   %retval.sroa.0.0.copyload.i.i.i.i6530 = load i64, ptr %arrayidx.i.i.i.i6529, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i6531 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i6529, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i6532 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i6531, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %2641, i64 %retval.sroa.0.0.copyload.i.i.i.i6530, ptr %retval.sroa.2.0.copyload.i.i.i.i6532)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %2641, i64 %retval.sroa.0.0.copyload.i.i.i.i6530, ptr %retval.sroa.2.0.copyload.i.i.i.i6532)
           to label %.noexc205.i6535 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6533
 
 .noexc205.i6535:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -21908,7 +21908,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i6502 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i6501, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i6503 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i6501, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i6504 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i6503, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i26.i.i.i.i167.i6492, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i6502, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i6504)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i26.i.i.i.i167.i6492, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i6502, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i6504)
           to label %.noexc206.i6507 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6505
 
 .noexc206.i6507:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -21978,7 +21978,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt
   %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i6345 = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i6344, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i64.i.i.i.i.i6346 = getelementptr inbounds i8, ptr %arrayidx.i.i.i62.i.i.i.i.i6344, i64 8
   %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i6347 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i64.i.i.i.i.i6346, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i45.i.i.i.i123.i6335, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i6345, ptr %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i6347)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i45.i.i.i.i123.i6335, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i6345, ptr %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i6347)
           to label %.noexc207.i6350 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6348
 
 .noexc207.i6350:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -22059,7 +22059,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt
   %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i6431 = load i64, ptr %arrayidx.i.i.i90.i.i.i.i.i6430, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i92.i.i.i.i.i6432 = getelementptr inbounds i8, ptr %arrayidx.i.i.i90.i.i.i.i.i6430, i64 8
   %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i6433 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i92.i.i.i.i.i6432, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %conv7.i.i.i.i.i140.i6420, i64 %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i6431, ptr %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i6433)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %conv7.i.i.i.i.i140.i6420, i64 %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i6431, ptr %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i6433)
           to label %.noexc208.i6436 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6434
 
 .noexc208.i6436:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i87.i.i.i.i.i
@@ -22100,7 +22100,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt
   %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i6455 = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i6454, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i28.i.i.i.i.i.i6456 = getelementptr inbounds i8, ptr %arrayidx.i.i26.i.i.i.i.i.i6454, i64 8
   %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i6457 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i28.i.i.i.i.i.i6456, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add10.i.i.i.i.i145.i6445, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i6455, ptr %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i6457)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add10.i.i.i.i.i145.i6445, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i6455, ptr %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i6457)
           to label %.noexc209.i6460 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6458
 
 .noexc209.i6460:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i
@@ -22171,7 +22171,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt
   %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i6400 = load i64, ptr %arrayidx.i.i.i133.i.i.i.i.i6399, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i135.i.i.i.i.i6401 = getelementptr inbounds i8, ptr %arrayidx.i.i.i133.i.i.i.i.i6399, i64 8
   %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i6402 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i135.i.i.i.i.i6401, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i116.i.i.i.i.i6390, i64 %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i6400, ptr %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i6402)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i5983, i32 noundef %add.i116.i.i.i.i.i6390, i64 %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i6400, ptr %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i6402)
           to label %.noexc210.i6405 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6403
 
 .noexc210.i6405:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i130.i.i.i.i.i
@@ -23317,7 +23317,7 @@ if.then.i74.i7569:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i7572:                                 ; preds = %if.then.i74.i7569, %.noexc80.i7576
   %row.013.i.i7573 = phi i32 [ %inc.i.i7577, %.noexc80.i7576 ], [ %2875, %if.then.i74.i7569 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %row.013.i.i7573, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %row.013.i.i7573, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
           to label %.noexc80.i7576 unwind label %lpad39.loopexit.i7574
 
 .noexc80.i7576:                                   ; preds = %for.body.i.i7572
@@ -23368,7 +23368,7 @@ while.body.i.i.i.i.i.i7559:                       ; preds = %if.then3.i.i.i.i.i7
   %2884 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i7560, i1 true)
   %cast.i.i.i.i.i.i7561 = trunc nuw nsw i64 %2884 to i32
   %add.i26.i.i.i.i.i7562 = or disjoint i32 %2882, %cast.i.i.i.i.i.i7561
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i26.i.i.i.i.i7562, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i26.i.i.i.i.i7562, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
           to label %.noexc81.i7565 unwind label %lpad39.loopexit.split-lp.loopexit.i7563
 
 .noexc81.i7565:                                   ; preds = %while.body.i.i.i.i.i.i7559
@@ -23406,7 +23406,7 @@ while.body.i42.i.i.i.i.i7470:                     ; preds = %.noexc82.i7476, %wh
   %2886 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i7471, i1 true)
   %cast.i44.i.i.i.i.i7472 = trunc nuw nsw i64 %2886 to i32
   %add.i45.i.i.i.i.i7473 = or disjoint i32 %mul.i41.i.i.i.i.i7469, %cast.i44.i.i.i.i.i7472
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i45.i.i.i.i.i7473, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i45.i.i.i.i.i7473, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
           to label %.noexc82.i7476 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7474
 
 .noexc82.i7476:                                   ; preds = %while.body.i42.i.i.i.i.i7470
@@ -23451,7 +23451,7 @@ for.body.lr.ph.i.i.i.i.i.i7519:                   ; preds = %if.then.i.i.i.i.i72
 for.body.i.i.i.i.i.i7521:                         ; preds = %.noexc83.i7526, %for.body.lr.ph.i.i.i.i.i.i7519
   %row.020.i.i.i.i.i.i7522 = phi i64 [ %conv.i.i.i.i.i.i7520, %for.body.lr.ph.i.i.i.i.i.i7519 ], [ %inc.i.i.i.i.i.i7527, %.noexc83.i7526 ]
   %conv7.i.i.i.i.i.i7523 = trunc i64 %row.020.i.i.i.i.i.i7522 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %conv7.i.i.i.i.i.i7523, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %conv7.i.i.i.i.i.i7523, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
           to label %.noexc83.i7526 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7524
 
 .noexc83.i7526:                                   ; preds = %for.body.i.i.i.i.i.i7521
@@ -23464,7 +23464,7 @@ while.body.i59.i.i.i.i.i7531:                     ; preds = %.noexc84.i7537, %wh
   %2888 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.018.i.i.i.i.i.i7532, i1 true)
   %cast.i60.i.i.i.i.i7533 = trunc nuw nsw i64 %2888 to i32
   %add10.i.i.i.i.i.i7534 = or disjoint i32 %mul9.i.i.i.i.i.i7530, %cast.i60.i.i.i.i.i7533
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add10.i.i.i.i.i.i7534, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add10.i.i.i.i.i.i7534, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
           to label %.noexc84.i7537 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7535
 
 .noexc84.i7537:                                   ; preds = %while.body.i59.i.i.i.i.i7531
@@ -23500,7 +23500,7 @@ while.body.i75.i.i.i.i.i7503:                     ; preds = %if.then19.i.i.i.i.i
   %2890 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i76.i.i.i.i.i7504, i1 true)
   %cast.i77.i.i.i.i.i7505 = trunc nuw nsw i64 %2890 to i32
   %add.i78.i.i.i.i.i7506 = or disjoint i32 %2882, %cast.i77.i.i.i.i.i7505
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i78.i.i.i.i.i7506, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i78.i.i.i.i.i7506, i64 %retval.sroa.0.0.copyload.i.i7432, i64 %retval.sroa.2.0.copyload.i.i7434)
           to label %.noexc85.i7509 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.i7507
 
 .noexc85.i7509:                                   ; preds = %while.body.i75.i.i.i.i.i7503
@@ -23715,7 +23715,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt
   %retval.sroa.0.0.copyload.i.i.i.i7388 = load i64, ptr %arrayidx.i.i.i.i7387, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i7389 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i7387, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i7390 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i7389, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %2913, i64 %retval.sroa.0.0.copyload.i.i.i.i7388, i64 %retval.sroa.2.0.copyload.i.i.i.i7390)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %2913, i64 %retval.sroa.0.0.copyload.i.i.i.i7388, i64 %retval.sroa.2.0.copyload.i.i.i.i7390)
           to label %.noexc205.i7393 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7391
 
 .noexc205.i7393:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
@@ -23802,7 +23802,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i7360 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i7359, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i7361 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i7359, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i7362 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i7361, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i26.i.i.i.i167.i7350, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i7360, i64 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i7362)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i26.i.i.i.i167.i7350, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i7360, i64 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i7362)
           to label %.noexc206.i7365 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7363
 
 .noexc206.i7365:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
@@ -23872,7 +23872,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt
   %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i7205 = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i7204, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i64.i.i.i.i.i7206 = getelementptr inbounds i8, ptr %arrayidx.i.i.i62.i.i.i.i.i7204, i64 8
   %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i7207 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i64.i.i.i.i.i7206, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i45.i.i.i.i123.i7195, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i7205, i64 %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i7207)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i45.i.i.i.i123.i7195, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i7205, i64 %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i7207)
           to label %.noexc207.i7209 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7208
 
 .noexc207.i7209:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
@@ -23953,7 +23953,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt
   %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i7290 = load i64, ptr %arrayidx.i.i.i90.i.i.i.i.i7289, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i92.i.i.i.i.i7291 = getelementptr inbounds i8, ptr %arrayidx.i.i.i90.i.i.i.i.i7289, i64 8
   %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i7292 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i92.i.i.i.i.i7291, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %conv7.i.i.i.i.i140.i7279, i64 %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i7290, i64 %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i7292)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %conv7.i.i.i.i.i140.i7279, i64 %retval.sroa.0.0.copyload.i.i.i91.i.i.i.i.i7290, i64 %retval.sroa.2.0.copyload.i.i.i93.i.i.i.i.i7292)
           to label %.noexc208.i7294 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7293
 
 .noexc208.i7294:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i87.i.i.i.i.i
@@ -23994,7 +23994,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt
   %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i7313 = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i7312, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i28.i.i.i.i.i.i7314 = getelementptr inbounds i8, ptr %arrayidx.i.i26.i.i.i.i.i.i7312, i64 8
   %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i7315 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i28.i.i.i.i.i.i7314, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add10.i.i.i.i.i145.i7303, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i7313, i64 %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i7315)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add10.i.i.i.i.i145.i7303, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i7313, i64 %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i7315)
           to label %.noexc209.i7318 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7316
 
 .noexc209.i7318:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i
@@ -24065,7 +24065,7 @@ _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt
   %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i7259 = load i64, ptr %arrayidx.i.i.i133.i.i.i.i.i7258, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i135.i.i.i.i.i7260 = getelementptr inbounds i8, ptr %arrayidx.i.i.i133.i.i.i.i.i7258, i64 8
   %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i7261 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i135.i.i.i.i.i7260, align 8
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i116.i.i.i.i.i7249, i64 %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i7259, i64 %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i7261)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull align 8 dereferenceable(64) %processRow.i6829, i32 noundef %add.i116.i.i.i.i.i7249, i64 %retval.sroa.0.0.copyload.i.i.i134.i.i.i.i.i7259, i64 %retval.sroa.2.0.copyload.i.i.i136.i.i.i.i.i7261)
           to label %.noexc210.i7264 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7262
 
 .noexc210.i7264:                                  ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i130.i.i.i.i.i

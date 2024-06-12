@@ -45,7 +45,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 0, ptr %3, align 4
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %5, i32 noundef 47) #16
+  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 47) #16
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds i8, ptr %6, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %5, ptr %7

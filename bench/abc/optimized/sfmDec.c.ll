@@ -5267,8 +5267,8 @@ Abc_TtCopy.exit127:                               ; preds = %.critedge
   br i1 %127, label %113, label %.critedge.i, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %125, %109
-  %128 = call i32 @Sfm_MffcDeref_rec(ptr noundef nonnull readonly %1)
-  %129 = call i32 @Sfm_MffcRef_rec(ptr noundef nonnull readonly %1, ptr noundef null)
+  %128 = call i32 @Sfm_MffcDeref_rec(ptr noundef nonnull %1)
+  %129 = call i32 @Sfm_MffcRef_rec(ptr noundef nonnull %1, ptr noundef null)
   %.val2834.i = load i32, ptr %40, align 4
   %130 = icmp sgt i32 %.val2834.i, 0
   br i1 %130, label %.lr.ph36.i, label %Sfm_DecMffcAreaReal.exit
@@ -6100,8 +6100,8 @@ Sfm_ManReadObjDelay.exit246:                      ; preds = %129, %131
   br i1 %176, label %162, label %.critedge.i, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %174, %158
-  %177 = call i32 @Sfm_MffcDeref_rec(ptr noundef nonnull readonly %1)
-  %178 = call i32 @Sfm_MffcRef_rec(ptr noundef nonnull readonly %1, ptr noundef nonnull %48)
+  %177 = call i32 @Sfm_MffcDeref_rec(ptr noundef nonnull %1)
+  %178 = call i32 @Sfm_MffcRef_rec(ptr noundef nonnull %1, ptr noundef nonnull %48)
   %.val2834.i = load i32, ptr %50, align 4
   %179 = icmp sgt i32 %.val2834.i, 0
   br i1 %179, label %.lr.ph36.i, label %Sfm_DecMffcAreaReal.exit

@@ -88,7 +88,7 @@ define i32 @OMPI_Affinity_str(i32 noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 get_rsrc_ompi_bound.exit:                         ; preds = %12, %21
   %22 = load ptr, ptr @opal_hwloc_topology, align 8
-  %23 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef 0, i32 noundef 0) #14
+  %23 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %22, i32 noundef 0, i32 noundef 0) #14
   %24 = getelementptr inbounds i8, ptr %23, i64 184
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @hwloc_bitmap_alloc() #13
@@ -226,7 +226,7 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %56
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
 
 76:                                               ; preds = %64
-  %77 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef %74, i32 noundef 0) #14
+  %77 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %71, i32 noundef %74, i32 noundef 0) #14
   %.not.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i, label %.preheader.i.i.i
 
@@ -240,7 +240,7 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %56
   br i1 %.not14.i.i.i, label %81, label %84
 
 81:                                               ; preds = %.preheader.i.i.i
-  %82 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %79, ptr noundef readonly %73) #14
+  %82 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %79, ptr noundef %73) #14
   %.not15.i.i.i = icmp ne i32 %82, 0
   %83 = zext i1 %.not15.i.i.i to i32
   %spec.select.i.i.i = add i32 %.017.i.i.i, %83
@@ -260,7 +260,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.i:    ; preds = %84, %76, %75, %64
   br i1 %or.cond.i.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %88
 
 88:                                               ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
-  %89 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef %87, i32 noundef 0) #14
+  %89 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %71, i32 noundef %87, i32 noundef 0) #14
   %.not.i.i63.i = icmp eq ptr %89, null
   br i1 %.not.i.i63.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i64.i
 
@@ -273,7 +273,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.i:    ; preds = %84, %76, %75, %64
   br i1 %.not16.i.i.i, label %93, label %95
 
 93:                                               ; preds = %.preheader.i.i64.i
-  %94 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %91, ptr noundef readonly %73) #14
+  %94 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %91, ptr noundef %73) #14
   %.not17.i.i.i = icmp eq i32 %94, 0
   br i1 %.not17.i.i.i, label %95, label %hwloc_get_obj_inside_cpuset_by_type.exit.i
 
@@ -295,7 +295,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.i:       ; preds = %93
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i
 
 101:                                              ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i
-  %102 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef %99, i32 noundef 0) #14
+  %102 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %71, i32 noundef %99, i32 noundef 0) #14
   %.not.i.i69.i = icmp eq ptr %102, null
   br i1 %.not.i.i69.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i, label %.preheader.i.i70.i
 
@@ -309,7 +309,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.i:       ; preds = %93
   br i1 %.not14.i.i73.i, label %106, label %109
 
 106:                                              ; preds = %.preheader.i.i70.i
-  %107 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %104, ptr noundef readonly %91) #14
+  %107 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %104, ptr noundef %91) #14
   %.not15.i.i76.i = icmp ne i32 %107, 0
   %108 = zext i1 %.not15.i.i76.i to i32
   %spec.select.i.i77.i = add i32 %.017.i.i71.i, %108
@@ -368,7 +368,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i:  ; preds = %109, %101, %100, %h
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i
 
 137:                                              ; preds = %132
-  %138 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %133, i32 noundef %135, i32 noundef 0) #14
+  %138 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %133, i32 noundef %135, i32 noundef 0) #14
   %.not.i.i80.i = icmp eq ptr %138, null
   br i1 %.not.i.i80.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i, label %.preheader.i.i81.i
 
@@ -382,7 +382,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i:  ; preds = %109, %101, %100, %h
   br i1 %.not14.i.i84.i, label %142, label %145
 
 142:                                              ; preds = %.preheader.i.i81.i
-  %143 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %140, ptr noundef readonly %134) #14
+  %143 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %140, ptr noundef %134) #14
   %.not15.i.i87.i = icmp ne i32 %143, 0
   %144 = zext i1 %.not15.i.i87.i to i32
   %spec.select.i.i88.i = add i32 %.017.i.i82.i, %144
@@ -450,7 +450,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i:  ; preds = %145, %137, %136, %1
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit100.i
 
 173:                                              ; preds = %168
-  %174 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %169, i32 noundef %171, i32 noundef 0) #14
+  %174 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %169, i32 noundef %171, i32 noundef 0) #14
   %.not.i.i91.i = icmp eq ptr %174, null
   br i1 %.not.i.i91.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit100.i, label %.preheader.i.i92.i
 
@@ -464,7 +464,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i:  ; preds = %145, %137, %136, %1
   br i1 %.not14.i.i95.i, label %178, label %181
 
 178:                                              ; preds = %.preheader.i.i92.i
-  %179 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %176, ptr noundef readonly %170) #14
+  %179 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %176, ptr noundef %170) #14
   %.not15.i.i98.i = icmp ne i32 %179, 0
   %180 = zext i1 %.not15.i.i98.i to i32
   %spec.select.i.i99.i = add i32 %.017.i.i93.i, %180
@@ -594,7 +594,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %200, %196, %.prehea
 
 get_layout_ompi_bound.exit:                       ; preds = %229, %238
   %239 = load ptr, ptr @opal_hwloc_topology, align 8
-  %240 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %239, i32 noundef 0, i32 noundef 0) #14
+  %240 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %239, i32 noundef 0, i32 noundef 0) #14
   %241 = getelementptr inbounds i8, ptr %240, i64 184
   %242 = load ptr, ptr %241, align 8
   %243 = tail call noalias ptr @hwloc_bitmap_alloc() #13
@@ -712,7 +712,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %or.cond.i.i47, label %._crit_edge68.i, label %284
 
 284:                                              ; preds = %.lr.ph71.i
-  %285 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %280, i32 noundef %283, i32 noundef 0) #14
+  %285 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %280, i32 noundef %283, i32 noundef 0) #14
   %.not.i.i.i48 = icmp eq ptr %285, null
   br i1 %.not.i.i.i48, label %._crit_edge68.i, label %.preheader.i.i.i49
 
@@ -725,7 +725,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %.not16.i.i.i51, label %289, label %291
 
 289:                                              ; preds = %.preheader.i.i.i49
-  %290 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %287, ptr noundef readonly %282) #14
+  %290 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %287, ptr noundef %282) #14
   %.not17.i.i.i54 = icmp eq i32 %290, 0
   br i1 %.not17.i.i.i54, label %291, label %.lr.ph67.i
 
@@ -759,7 +759,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %or.cond.i29.i, label %._crit_edge.i, label %304
 
 304:                                              ; preds = %299
-  %305 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %301, i32 noundef %303, i32 noundef 0) #14
+  %305 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %301, i32 noundef %303, i32 noundef 0) #14
   %.not.i.i30.i = icmp eq ptr %305, null
   br i1 %.not.i.i30.i, label %._crit_edge.i, label %.preheader.i.i31.i
 
@@ -772,7 +772,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %.not16.i.i34.i, label %309, label %317
 
 309:                                              ; preds = %.preheader.i.i31.i
-  %310 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %307, ptr noundef readonly %300) #14
+  %310 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %307, ptr noundef %300) #14
   %.not17.i.i38.i = icmp eq i32 %310, 0
   br i1 %.not17.i.i38.i, label %317, label %.lr.ph.i55.preheader
 
@@ -808,7 +808,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   %328 = phi i32 [ %325, %.lr.ph.i55.loopexit ], [ 1, %.lr.ph.i55.preheader ]
   %329 = phi ptr [ %324, %.lr.ph.i55.loopexit ], [ %315, %.lr.ph.i55.preheader ]
   %330 = phi ptr [ %323, %.lr.ph.i55.loopexit ], [ %314, %.lr.ph.i55.preheader ]
-  %331 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %330, i32 noundef %327, i32 noundef 0) #14
+  %331 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %330, i32 noundef %327, i32 noundef 0) #14
   %.not.i.i41.i = icmp eq ptr %331, null
   br i1 %.not.i.i41.i, label %._crit_edge.i, label %.preheader.i.i42.i
 
@@ -822,7 +822,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %.not16.i.i45.i, label %335, label %341
 
 335:                                              ; preds = %.preheader.i.i42.i
-  %336 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %333, ptr noundef readonly %329) #14
+  %336 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %333, ptr noundef %329) #14
   %.not17.i.i49.i = icmp eq i32 %336, 0
   br i1 %.not17.i.i49.i, label %341, label %337
 
@@ -850,7 +850,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %or.cond.i51.i, label %._crit_edge68.i, label %348
 
 348:                                              ; preds = %._crit_edge.i
-  %349 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %344, i32 noundef %347, i32 noundef 0) #14
+  %349 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %344, i32 noundef %347, i32 noundef 0) #14
   %.not.i.i52.i = icmp eq ptr %349, null
   br i1 %.not.i.i52.i, label %._crit_edge68.i, label %.preheader.i.i53.i
 
@@ -864,7 +864,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %.not16.i.i56.i, label %353, label %359
 
 353:                                              ; preds = %.preheader.i.i53.i
-  %354 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %351, ptr noundef readonly %345) #14
+  %354 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %351, ptr noundef %345) #14
   %.not17.i.i60.i = icmp eq i32 %354, 0
   br i1 %.not17.i.i60.i, label %359, label %355
 
@@ -1062,7 +1062,7 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
   br i1 %or.cond.i.i, label %build_map.exit, label %32
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %31, i32 noundef 0) #14
+  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %31, i32 noundef 0) #14
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %build_map.exit, label %.preheader.i.i.i
 
@@ -1075,7 +1075,7 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
   br i1 %.not16.i.i.i, label %37, label %39
 
 37:                                               ; preds = %.preheader.i.i.i
-  %38 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %35, ptr noundef readonly %2) #14
+  %38 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %35, ptr noundef %2) #14
   %.not17.i.i.i = icmp eq i32 %38, 0
   br i1 %.not17.i.i.i, label %39, label %.preheader.i
 
@@ -1147,7 +1147,7 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
   br i1 %or.cond.i65.i, label %build_map.exit, label %68
 
 68:                                               ; preds = %.critedge61.i
-  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %67, i32 noundef 0) #14
+  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %67, i32 noundef 0) #14
   %.not.i.i66.i = icmp eq ptr %69, null
   br i1 %.not.i.i66.i, label %build_map.exit, label %.preheader.i.i67.i
 
@@ -1161,7 +1161,7 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
   br i1 %.not16.i.i70.i, label %73, label %79
 
 73:                                               ; preds = %.preheader.i.i67.i
-  %74 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %71, ptr noundef readonly %2) #14
+  %74 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %71, ptr noundef %2) #14
   %.not17.i.i74.i = icmp eq i32 %74, 0
   br i1 %.not17.i.i74.i, label %79, label %75
 
@@ -1432,7 +1432,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i, label %._crit_edge88, label %14
 
 14:                                               ; preds = %.lr.ph91
-  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %13, i32 noundef 0) #14
+  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %13, i32 noundef 0) #14
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %._crit_edge88, label %.preheader.i.i
 
@@ -1445,7 +1445,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %.not16.i.i, label %19, label %21
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %17, ptr noundef readonly %12) #14
+  %20 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %17, ptr noundef %12) #14
   %.not17.i.i = icmp eq i32 %20, 0
   br i1 %.not17.i.i, label %21, label %.lr.ph87
 
@@ -1475,7 +1475,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i48, label %._crit_edge, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %31, i32 noundef 0) #14
+  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %31, i32 noundef 0) #14
   %.not.i.i49 = icmp eq ptr %33, null
   br i1 %.not.i.i49, label %._crit_edge, label %.preheader.i.i50
 
@@ -1488,7 +1488,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %.not16.i.i53, label %37, label %39
 
 37:                                               ; preds = %.preheader.i.i50
-  %38 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %35, ptr noundef readonly %30) #14
+  %38 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %35, ptr noundef %30) #14
   %.not17.i.i57 = icmp eq i32 %38, 0
   br i1 %.not17.i.i57, label %39, label %.lr.ph
 
@@ -1516,7 +1516,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i59, label %._crit_edge, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %50, i32 noundef 0) #14
+  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %50, i32 noundef 0) #14
   %.not.i.i60 = icmp eq ptr %52, null
   br i1 %.not.i.i60, label %._crit_edge, label %.preheader.i.i61
 
@@ -1530,7 +1530,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %.not16.i.i64, label %56, label %62
 
 56:                                               ; preds = %.preheader.i.i61
-  %57 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %54, ptr noundef readonly %48) #14
+  %57 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %54, ptr noundef %48) #14
   %.not17.i.i68 = icmp eq i32 %57, 0
   br i1 %.not17.i.i68, label %62, label %58
 
@@ -1557,7 +1557,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i70, label %._crit_edge88, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %67, i32 noundef 0) #14
+  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %1, i32 noundef %67, i32 noundef 0) #14
   %.not.i.i71 = icmp eq ptr %69, null
   br i1 %.not.i.i71, label %._crit_edge88, label %.preheader.i.i72
 
@@ -1571,7 +1571,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %.not16.i.i75, label %73, label %79
 
 73:                                               ; preds = %.preheader.i.i72
-  %74 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %71, ptr noundef readonly %65) #14
+  %74 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %71, ptr noundef %65) #14
   %.not17.i.i79 = icmp eq i32 %74, 0
   br i1 %.not17.i.i79, label %79, label %75
 

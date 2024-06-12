@@ -1278,10 +1278,10 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph, %16
   br i1 %.not20, label %53, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %46) #19
+  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #19
   %49 = add i64 %48, 1
   %50 = tail call noalias noundef ptr @malloc(i64 noundef %49) #16
-  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(1) %46) #17
+  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %46) #17
   %52 = getelementptr inbounds i8, ptr %1, i64 392
   store ptr %50, ptr %52, align 8
   br label %53
@@ -2065,10 +2065,10 @@ switch.early.test:                                ; preds = %135
   br i1 %.not111, label %188, label %182
 
 182:                                              ; preds = %179
-  %183 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %181) #19
+  %183 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %181) #19
   %184 = add i64 %183, 1
   %185 = tail call noalias noundef ptr @malloc(i64 noundef %184) #16
-  %186 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull readonly dereferenceable(1) %181) #17
+  %186 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) %181) #17
   %187 = getelementptr inbounds i8, ptr %7, i64 392
   store ptr %185, ptr %187, align 8
   br label %188
@@ -2293,10 +2293,10 @@ switch.early.test:                                ; preds = %30
   br i1 %.not65, label %87, label %81
 
 81:                                               ; preds = %78
-  %82 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %80) #19
+  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #19
   %83 = add i64 %82, 1
   %84 = tail call noalias noundef ptr @malloc(i64 noundef %83) #16
-  %85 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull readonly dereferenceable(1) %80) #17
+  %85 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %80) #17
   %86 = getelementptr inbounds i8, ptr %7, i64 392
   store ptr %84, ptr %86, align 8
   br label %87
@@ -2583,10 +2583,10 @@ Abc_ObjIsBarBuf.exit93:                           ; preds = %58
   br i1 %.not69, label %116, label %110
 
 110:                                              ; preds = %107
-  %111 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %109) #19
+  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #19
   %112 = add i64 %111, 1
   %113 = tail call noalias noundef ptr @malloc(i64 noundef %112) #16
-  %114 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %109) #17
+  %114 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(1) %109) #17
   %115 = getelementptr inbounds i8, ptr %7, i64 392
   store ptr %113, ptr %115, align 8
   br label %116

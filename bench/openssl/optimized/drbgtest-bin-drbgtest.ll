@@ -365,13 +365,13 @@ if.then26.i.i:                                    ; preds = %land.lhs.true17.i.i
   store i32 %call2.i.i, ptr %pid28.i.i, align 4
   %private30.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 104
   store i32 0, ptr %private30.i.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %presult.043.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %presult.043.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i.i, i64 16, i1 false)
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 120
   %pid36.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 140
   store i32 %call2.i.i, ptr %pid36.i.i, align 4
   %private38.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 144
   store i32 1, ptr %private38.i.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx35.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx42.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx42.i.i, i64 16, i1 false)
   br label %if.end43.i.i
 
 if.end43.i.i:                                     ; preds = %if.then26.i.i, %land.lhs.true17.i.i, %land.lhs.true.i.i, %if.then9.i.i

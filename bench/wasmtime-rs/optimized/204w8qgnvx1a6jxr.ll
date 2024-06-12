@@ -73,7 +73,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %8 = extractvalue { i64, ptr } %6, 1
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %2, i64 %3, i1 false)
   store i64 %7, ptr %0, align 8, !alias.scope !5
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !5
@@ -105,7 +105,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %8 = extractvalue { i64, ptr } %6, 1
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %2, i64 %3, i1 false)
   store i64 %7, ptr %0, align 8, !alias.scope !11
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !11

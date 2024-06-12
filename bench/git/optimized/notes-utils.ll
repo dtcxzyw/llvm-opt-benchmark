@@ -297,22 +297,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %mode_from_env, align 4
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.14) #12
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.14) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.15) #12
+  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.15) #12
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.16) #12
+  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.16) #12
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.9) #12
+  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.9) #12
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %parse_combine_notes_fn.exit.thread, label %if.then11
 
@@ -436,22 +436,22 @@ if.then10:                                        ; preds = %if.then8
   br label %return
 
 if.end:                                           ; preds = %if.then8
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.14) #12
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.14) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.15) #12
+  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.15) #12
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.16) #12
+  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.16) #12
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.9) #12
+  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.9) #12
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %parse_combine_notes_fn.exit.thread, label %if.then16
 

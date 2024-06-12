@@ -3300,15 +3300,15 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %2
   br label %Abc_UtilStrsav.exit198
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %15 = add i64 %14, 1
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #22
-  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #23
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #23
   store ptr %16, ptr %12, align 8
-  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %19 = add i64 %18, 1
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #22
-  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %1) #23
+  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %1) #23
   br label %Abc_UtilStrsav.exit198
 
 Abc_UtilStrsav.exit198:                           ; preds = %Abc_UtilStrsav.exit.thread, %13

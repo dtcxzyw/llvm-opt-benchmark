@@ -39,7 +39,7 @@ define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0,
   %6 = lshr i64 %0, 32
   %7 = trunc nuw i64 %6 to i32
   %8 = trunc i64 %0 to i32
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @.str.6) #3
+  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @.str.6) #3
   %10 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.3)
   store ptr %10, ptr %2, align 8
   %11 = icmp eq ptr %10, null
@@ -175,7 +175,7 @@ define hidden range(i32 -146, 1) i32 @psa_its_set(i64 noundef %0, i32 noundef %1
   %31 = lshr i64 %0, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %0 to i32
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.6) #3
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.6) #3
   %35 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread39, label %37
@@ -242,7 +242,7 @@ define hidden range(i32 -146, 1) i32 @psa_its_remove(i64 noundef %0) local_unnam
   %3 = lshr i64 %0, 32
   %4 = trunc nuw i64 %3 to i32
   %5 = trunc i64 %0 to i32
-  %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.6) #3
+  %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.6) #3
   %7 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.3)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9

@@ -174,7 +174,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %exr_attr_float_vector_init.exit
 
 if.end13.i:                                       ; preds = %if.end3.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %fv, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fv, i8 0, i64 16, i1 false)
   %cmp14.not.i = icmp eq i32 %nent, 0
   br i1 %cmp14.not.i, label %return, label %if.then16.i
 

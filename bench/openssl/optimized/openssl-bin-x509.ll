@@ -2544,7 +2544,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %warn_copying.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %call2.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i) #8
+  %call2.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i) #8
   %cmp3.not.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.not.i, label %warn_copying.exit, label %if.then.i
 
@@ -2559,7 +2559,7 @@ warn_copying.exit:                                ; preds = %if.end, %land.lhs.t
   br i1 %cmp.not.i, label %warn_copying.exit28, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %warn_copying.exit
-  %call2.i24 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i21) #8
+  %call2.i24 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %names, ptr noundef nonnull dereferenceable(1) %call1.i21) #8
   %cmp3.not.i25 = icmp eq ptr %call2.i24, null
   br i1 %cmp3.not.i25, label %warn_copying.exit28, label %if.then.i26
 

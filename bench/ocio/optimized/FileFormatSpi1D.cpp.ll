@@ -1624,7 +1624,7 @@ invoke.cont427:                                   ; preds = %_ZNSt6vectorIfSaIfE
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileE, i64 16), ptr %call425, align 8
   %lut.i = getelementptr inbounds i8, ptr %call425, i64 8
   %from_max.i = getelementptr inbounds i8, ptr %call425, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lut.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lut.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %from_max.i, align 4
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %invoke.cont429 unwind label %lpad.i.i.i.i

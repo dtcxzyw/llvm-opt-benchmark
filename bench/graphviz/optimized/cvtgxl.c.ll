@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ingraph_state, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 47) #8
+  %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #8
   %.not.i.i = icmp eq ptr %5, null
   %6 = getelementptr inbounds i8, ptr %5, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %4, ptr %6

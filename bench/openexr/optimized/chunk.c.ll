@@ -3185,7 +3185,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end21
   %spec.store.select64.lcssa = phi i64 [ %12, %if.end21 ], [ %spec.store.select, %for.body ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %leader.i)
-  %call.i = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %10, i32 noundef %sub15, i64 noundef %spec.store.select64.lcssa, ptr noundef nonnull writeonly %offset_start, ptr noundef nonnull %leader.i)
+  %call.i = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull %10, i32 noundef %sub15, i64 noundef %spec.store.select64.lcssa, ptr noundef nonnull %offset_start, ptr noundef nonnull %leader.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %leader.i)
   %cmp37.not = icmp eq i32 %call.i, 0
   br i1 %cmp37.not, label %if.end41, label %return
@@ -3229,7 +3229,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   %computed_ci.0 = select i1 %cmp60, i32 %sub65, i32 %21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %leader.i49)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cidx.i)
-  %call.i50 = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %part, i32 noundef %partnum.0.lcssa96, i64 noundef %spec.store.select60, ptr noundef nonnull writeonly %offset_start, ptr noundef nonnull %leader.i49)
+  %call.i50 = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull %part, i32 noundef %partnum.0.lcssa96, i64 noundef %spec.store.select60, ptr noundef nonnull %offset_start, ptr noundef nonnull %leader.i49)
   %cmp.not.i = icmp eq i32 %call.i50, 0
   br i1 %cmp.not.i, label %if.end.i, label %read_and_validate_chunk_leader.exit.thread56
 
@@ -3275,7 +3275,7 @@ if.else.i:                                        ; preds = %if.end.i
   %28 = load i32, ptr %tile_y.i, align 8
   %29 = load i32, ptr %level_x.i, align 4
   %30 = load i32, ptr %level_y.i, align 8
-  %call21.i = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr noundef nonnull readonly %part, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %cidx.i)
+  %call21.i = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr noundef nonnull %part, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %cidx.i)
   %31 = load i32, ptr %cidx.i, align 4
   br label %read_and_validate_chunk_leader.exit
 

@@ -10146,7 +10146,7 @@ entry:
   store ptr %toNonlinear, ptr %_toNonlinear.i, align 8
   %_numAcComp.i = getelementptr inbounds i8, ptr %this, i64 32
   %_packedAc.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %_numAcComp.i, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %_numAcComp.i, i8 0, i64 80, i1 false)
   store ptr %packedAc, ptr %_packedAc.i, align 8
   %_packedDc.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %packedDc, ptr %_packedDc.i, align 8
@@ -10436,7 +10436,7 @@ entry:
   store ptr %toNonlinear, ptr %_toNonlinear.i, align 8
   %_numAcComp.i = getelementptr inbounds i8, ptr %this, i64 32
   %_packedAc.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %_numAcComp.i, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %_numAcComp.i, i8 0, i64 80, i1 false)
   store ptr %packedAc, ptr %_packedAc.i, align 8
   %_packedDc.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %packedDc, ptr %_packedDc.i, align 8
@@ -12731,7 +12731,7 @@ entry:
   store i32 %height, ptr %_height.i, align 4
   %_rowPtrs.i = getelementptr inbounds i8, ptr %this, i64 64
   %cmp.i = icmp eq ptr %toLinear, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %_rowPtrs.i, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %_rowPtrs.i, i8 0, i64 72, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -13119,7 +13119,7 @@ entry:
   store i32 %height, ptr %_height.i, align 4
   %_rowPtrs.i = getelementptr inbounds i8, ptr %this, i64 64
   %cmp.i = icmp eq ptr %toLinear, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %_rowPtrs.i, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %_rowPtrs.i, i8 0, i64 72, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry

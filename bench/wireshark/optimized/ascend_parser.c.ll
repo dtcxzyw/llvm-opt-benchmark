@@ -682,7 +682,7 @@ yy_reduce.exit.i:                                 ; preds = %353, %347, %323, %3
   %396 = getelementptr i8, ptr %384, i64 82
   store i8 %47, ptr %396, align 2
   %397 = getelementptr i8, ptr %384, i64 84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %397, ptr noundef nonnull readonly align 8 dereferenceable(76) %6, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %397, ptr noundef nonnull align 8 dereferenceable(76) %6, i64 76, i1 false)
   br label %yy_shift.exit.i
 
 yy_shift.exit.i:                                  ; preds = %393, %._crit_edge.i.i.i, %388

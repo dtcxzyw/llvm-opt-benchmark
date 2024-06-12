@@ -11,7 +11,7 @@ define hidden void @_mi_random_split(ptr nocapture noundef readonly %ctx, ptr no
 entry:
   %0 = ptrtoint ptr %ctx_new to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx_new, i8 0, i64 136, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %ctx_new, ptr noundef nonnull readonly align 1 dereferenceable(64) %ctx, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %ctx_new, ptr noundef nonnull align 1 dereferenceable(64) %ctx, i64 48, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %ctx_new, i64 52
   store i32 0, ptr %arrayidx5.i, align 4
   %conv.i = trunc i64 %0 to i32
@@ -175,7 +175,7 @@ for.body:                                         ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not, label %if.end7, label %for.body, !llvm.loop !6
 
 if.end7:                                          ; preds = %for.body, %lor.lhs.false
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(136) %ctx, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx, i8 0, i64 136, i1 false)
   br label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.body.i10, %if.end7

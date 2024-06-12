@@ -186,7 +186,7 @@ for.body7.i:                                      ; preds = %for.end.i, %for.con
   br i1 %tobool11.not.i, label %for.cond5.i, label %merge_bases_many.exit
 
 for.end16.i:                                      ; preds = %for.cond5.i, %for.end.thread.i
-  %call17.i = tail call fastcc ptr @paint_down_to_common(ptr noundef %r, ptr noundef %one, i32 noundef %n, ptr noundef readonly %twos, i64 noundef 0)
+  %call17.i = tail call fastcc ptr @paint_down_to_common(ptr noundef %r, ptr noundef %one, i32 noundef %n, ptr noundef %twos, i64 noundef 0)
   store ptr %call17.i, ptr %list.i, align 8
   %tobool18.not21.i = icmp eq ptr %call17.i, null
   br i1 %tobool18.not21.i, label %merge_bases_many.exit, label %while.body.i
@@ -906,7 +906,7 @@ st_mult.exit.i:                                   ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stack.i)
   %mul.i.i = shl nuw nsw i64 %wide.trip.count, 3
   %call2.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call2.i, ptr nonnull readonly align 1 %array, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr nonnull align 1 %array, i64 %mul.i.i, i1 false)
   %cmp.i.not.i = icmp eq i32 %cnt, 1
   br i1 %cmp.i.not.i, label %st_mult.exit87.i, label %if.then.i82.i
 
@@ -1110,11 +1110,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i99.i, label %if.end.i.i.i
 
 if.then.i.i99.i:                                  ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.i, ptr noundef nonnull readonly dereferenceable(32) %oid122.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i, ptr noundef nonnull dereferenceable(32) %oid122.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %oid122.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i, ptr noundef nonnull dereferenceable(20) %oid122.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i99.i
@@ -1395,7 +1395,7 @@ for.inc78.i:                                      ; preds = %for.end75.i, %for.b
 
 for.body85.preheader.i:                           ; preds = %for.inc78.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i9, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call.i, ptr nonnull readonly align 1 %array, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull align 1 %array, i64 %mul.i.i.i, i1 false)
   br label %for.body85.i
 
 for.body85.i:                                     ; preds = %for.inc96.i, %for.body85.preheader.i
@@ -3111,11 +3111,11 @@ if.end.i.i8:                                      ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i8
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.i, ptr noundef nonnull readonly dereferenceable(32) %oid2.i, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i, ptr noundef nonnull dereferenceable(32) %oid2.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %oid2.i, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i, ptr noundef nonnull dereferenceable(20) %oid2.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i

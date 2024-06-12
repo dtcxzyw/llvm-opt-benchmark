@@ -1562,7 +1562,7 @@ show_esp_sequence_info.exit:                      ; preds = %113, %110, %105, %c
   %168 = getelementptr inbounds i8, ptr %155, i64 24
   %169 = load ptr, ptr %168, align 8
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %5)
-  %170 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %169) #19
+  %170 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169) #19
   %171 = and i64 %170, 4294967295
   %172 = icmp eq i64 %171, 1
   br i1 %172, label %173, label %176
@@ -1573,7 +1573,7 @@ show_esp_sequence_info.exit:                      ; preds = %113, %110, %105, %c
   br i1 %175, label %.loopexit.i.i, label %176
 
 176:                                              ; preds = %173, %167
-  %177 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %169, i32 noundef 42) #19
+  %177 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %169, i32 noundef 42) #19
   %.not.i.i486 = icmp eq ptr %177, null
   br i1 %.not.i.i486, label %189, label %178
 
@@ -1604,7 +1604,7 @@ show_esp_sequence_info.exit:                      ; preds = %113, %110, %105, %c
   br label %.preheader.i.i, !llvm.loop !14
 
 189:                                              ; preds = %176
-  %190 = call i64 @strtoul(ptr nocapture noundef readonly %169, ptr noundef null, i32 noundef 0) #17
+  %190 = call i64 @strtoul(ptr nocapture noundef %169, ptr noundef null, i32 noundef 0) #17
   %.not19.i.i = icmp eq i64 %190, %141
   br i1 %.not19.i.i, label %.loopexit.i.i, label %filter_spi_match.exit.thread.i
 

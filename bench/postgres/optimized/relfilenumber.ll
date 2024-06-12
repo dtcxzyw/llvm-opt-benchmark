@@ -158,9 +158,9 @@ define dso_local void @transfer_all_new_dbs(ptr nocapture noundef readonly %0, p
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %.lr.ph.split.us.i.us
   %indvars.iv21.i.us = phi i64 [ %indvars.iv.next22.i.us, %.lr.ph.split.us.i.us ], [ 0, %.lr.ph.i.us ]
   %33 = getelementptr %struct.FileNameMap, ptr %25, i64 %indvars.iv21.i.us
-  call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.4, i1 noundef zeroext %or.cond.i.us)
-  call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.5, i1 noundef zeroext %or.cond.i.us)
-  call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.6, i1 noundef zeroext %or.cond.i.us)
+  call fastcc void @transfer_relfile(ptr noundef %33, ptr noundef nonnull @.str.4, i1 noundef zeroext %or.cond.i.us)
+  call fastcc void @transfer_relfile(ptr noundef %33, ptr noundef nonnull @.str.5, i1 noundef zeroext %or.cond.i.us)
+  call fastcc void @transfer_relfile(ptr noundef %33, ptr noundef nonnull @.str.6, i1 noundef zeroext %or.cond.i.us)
   %indvars.iv.next22.i.us = add nuw nsw i64 %indvars.iv21.i.us, 1
   %exitcond25.not.i.us = icmp eq i64 %indvars.iv.next22.i.us, %wide.trip.count24.i.us
   br i1 %exitcond25.not.i.us, label %transfer_single_new_db.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !9
@@ -244,14 +244,14 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %76 ], [ 0, %.lr.ph.i ]
   %71 = getelementptr %struct.FileNameMap, ptr %63, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) %4) #7
+  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %4) #7
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %.lr.ph.split.i
-  call fastcc void @transfer_relfile(ptr noundef nonnull readonly %71, ptr noundef nonnull @.str.4, i1 noundef zeroext %or.cond.i)
-  call fastcc void @transfer_relfile(ptr noundef nonnull readonly %71, ptr noundef nonnull @.str.5, i1 noundef zeroext %or.cond.i)
-  call fastcc void @transfer_relfile(ptr noundef nonnull readonly %71, ptr noundef nonnull @.str.6, i1 noundef zeroext %or.cond.i)
+  call fastcc void @transfer_relfile(ptr noundef nonnull %71, ptr noundef nonnull @.str.4, i1 noundef zeroext %or.cond.i)
+  call fastcc void @transfer_relfile(ptr noundef nonnull %71, ptr noundef nonnull @.str.5, i1 noundef zeroext %or.cond.i)
+  call fastcc void @transfer_relfile(ptr noundef nonnull %71, ptr noundef nonnull @.str.6, i1 noundef zeroext %or.cond.i)
   br label %76
 
 76:                                               ; preds = %75, %.lr.ph.split.i

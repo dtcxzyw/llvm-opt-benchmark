@@ -4461,7 +4461,7 @@ _ZN10rcIntArrayixEi.exit111.i.i:                  ; preds = %2037, %.noexc412
 _ZN10rcIntArrayixEi.exit113.i.i:                  ; preds = %2047, %.noexc414
   %2048 = load ptr, ptr %242, align 8
   %2049 = trunc nuw nsw i64 %indvars.iv178.i.i to i32
-  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull readonly %36, i32 noundef %indvars, ptr noundef nonnull %2048, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1961, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2049)
+  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull %36, i32 noundef %indvars, ptr noundef nonnull %2048, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1961, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2049)
           to label %.noexc416 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc416:                                        ; preds = %_ZN10rcIntArrayixEi.exit113.i.i, %_ZN10rcIntArrayixEi.exit111.i.i
@@ -4505,7 +4505,7 @@ _ZN10rcIntArrayixEi.exit115.i.i:                  ; preds = %2055, %.noexc417
 _ZN10rcIntArrayixEi.exit117.i.i:                  ; preds = %2065, %.noexc419
   %2066 = load ptr, ptr %242, align 8
   %2067 = trunc nuw nsw i64 %indvars.iv178.i.i to i32
-  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull readonly %36, i32 noundef %indvars, ptr noundef nonnull %2066, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1961, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2067)
+  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull %36, i32 noundef %indvars, ptr noundef nonnull %2066, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1961, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2067)
           to label %.noexc421 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc421:                                        ; preds = %_ZN10rcIntArrayixEi.exit117.i.i, %_ZN10rcIntArrayixEi.exit115.i.i

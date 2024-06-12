@@ -393,7 +393,7 @@ for.inc93:                                        ; preds = %for.inc90
 for.end100:                                       ; preds = %for.inc93, %malloc_mutex_lock.exit
   %mutex_prof_data = getelementptr inbounds i8, ptr %astats, i64 200
   %arrayidx101 = getelementptr inbounds i8, ptr %astats, i64 712
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx101, ptr noundef nonnull readonly align 8 dereferenceable(64) %tcache_ql_mtx, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx101, ptr noundef nonnull align 8 dereferenceable(64) %tcache_ql_mtx, i64 64, i1 false)
   %n_waiting_thds.i.i = getelementptr inbounds i8, ptr %astats, i64 748
   store atomic i32 0, ptr %n_waiting_thds.i.i monotonic, align 4
   %locked.i118 = getelementptr inbounds i8, ptr %arena, i64 10488
@@ -430,7 +430,7 @@ if.then.i.i129:                                   ; preds = %if.end.i124
   br label %malloc_mutex_lock.exit132
 
 malloc_mutex_lock.exit132:                        ; preds = %if.end.i124, %if.then.i.i129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull readonly align 8 dereferenceable(64) %large_mtx, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull align 8 dereferenceable(64) %large_mtx, i64 64, i1 false)
   %n_waiting_thds.i.i133 = getelementptr inbounds i8, ptr %astats, i64 236
   store atomic i32 0, ptr %n_waiting_thds.i.i133 monotonic, align 4
   %locked.i134 = getelementptr inbounds i8, ptr %arena, i64 10616
@@ -471,7 +471,7 @@ malloc_mutex_lock.exit150:                        ; preds = %if.end.i142, %if.th
   %arrayidx110 = getelementptr inbounds i8, ptr %astats, i64 648
   %62 = load ptr, ptr %base, align 8
   %mtx112 = getelementptr inbounds i8, ptr %62, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx110, ptr noundef nonnull readonly align 8 dereferenceable(64) %mtx112, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx110, ptr noundef nonnull align 8 dereferenceable(64) %mtx112, i64 64, i1 false)
   %n_waiting_thds.i.i151 = getelementptr inbounds i8, ptr %astats, i64 684
   store atomic i32 0, ptr %n_waiting_thds.i.i151 monotonic, align 4
   %63 = load ptr, ptr %base, align 8
@@ -4377,7 +4377,7 @@ do.body25.i.i.i:                                  ; preds = %if.end.i.i.i49
   br label %arena_dalloc_bin_locked_handle_newly_nonempty.exit
 
 arena_dalloc_bin_locked_handle_newly_nonempty.exit: ; preds = %if.then7.i, %do.body9.i.i.i, %do.body25.i.i.i
-  tail call fastcc void @arena_bin_lower_slab(ptr noundef nonnull readonly %arena, ptr noundef nonnull %edata, ptr noundef nonnull %add.ptr2.i)
+  tail call fastcc void @arena_bin_lower_slab(ptr noundef nonnull %arena, ptr noundef nonnull %edata, ptr noundef nonnull %add.ptr2.i)
   br label %arena_dalloc_bin_locked_step.exit
 
 arena_dalloc_bin_locked_step.exit:                ; preds = %if.else.i, %land.lhs.true.i, %arena_dalloc_bin_locked_handle_newly_nonempty.exit, %arena_dalloc_bin_locked_handle_newly_empty.exit

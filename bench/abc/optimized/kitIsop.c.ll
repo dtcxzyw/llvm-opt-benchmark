@@ -321,7 +321,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
 
 select.unfold.preheader.i:                        ; preds = %Kit_TruthIsConst0.exit
   %36 = shl nuw nsw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %27, i8 0, i64 %36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %27, i8 0, i64 %36, i1 false)
   br label %Kit_TruthClear.exit
 
 select.unfold.i177:                               ; preds = %31, %39
@@ -367,7 +367,7 @@ select.unfold.i177:                               ; preds = %31, %39
 
 select.unfold.preheader.i184:                     ; preds = %50
   %57 = shl nuw nsw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %27, i8 -1, i64 %57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %27, i8 -1, i64 %57, i1 false)
   br label %Kit_TruthClear.exit
 
 Kit_TruthIsConst1.exit:                           ; preds = %39, %61

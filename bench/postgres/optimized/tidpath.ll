@@ -45,7 +45,7 @@ define dso_local void @create_tidscan_paths(ptr noundef %0, ptr noundef %1) loca
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef readonly %22, ptr noundef readonly %1)
+  %23 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef %22, ptr noundef %1)
   br i1 %23, label %IsTidRangeClause.exit.i, label %IsTidRangeClause.exit.thread.i
 
 IsTidRangeClause.exit.i:                          ; preds = %.lr.ph27.i
@@ -173,7 +173,7 @@ is_andclause.exit.thread:                         ; preds = %.lr.ph90, %25, %is_
   br i1 %39, label %40, label %TidQualFromRestrictInfo.exit58.thread
 
 40:                                               ; preds = %38
-  %41 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull readonly %24, ptr noundef readonly %2)
+  %41 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull %24, ptr noundef %2)
   %42 = getelementptr i8, ptr %24, i64 8
   %43 = load ptr, ptr %42, align 8
   br i1 %41, label %IsTidEqualClause.exit.i, label %IsTidEqualClause.exit.thread.i
@@ -311,7 +311,7 @@ TidQualFromRestrictInfo.exit:                     ; preds = %97, %31
   br i1 %110, label %111, label %TidQualFromRestrictInfo.exit58.thread
 
 111:                                              ; preds = %109
-  %112 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull readonly %11, ptr noundef readonly %2)
+  %112 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull %11, ptr noundef %2)
   %113 = getelementptr i8, ptr %11, i64 8
   %114 = load ptr, ptr %113, align 8
   br i1 %112, label %IsTidEqualClause.exit.i56, label %IsTidEqualClause.exit.thread.i42
@@ -528,7 +528,7 @@ define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noun
   br i1 %17, label %18, label %IsTidEqualClause.exit.thread
 
 18:                                               ; preds = %16
-  %19 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull readonly %12, ptr noundef readonly %1)
+  %19 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull %12, ptr noundef %1)
   br i1 %19, label %IsTidEqualClause.exit, label %IsTidEqualClause.exit.thread
 
 IsTidEqualClause.exit:                            ; preds = %18

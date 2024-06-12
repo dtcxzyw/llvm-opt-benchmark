@@ -362,7 +362,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %34
 
 indent.exit.i:                                    ; preds = %.lr.ph.i.i, %indent.exit
   %48 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #12
-  tail call fastcc void @stoj(ptr noundef %42, ptr noundef nonnull readonly %3, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %42, ptr noundef nonnull %3, ptr noundef %1)
   br i1 %2, label %49, label %71
 
 49:                                               ; preds = %indent.exit.i
@@ -1079,7 +1079,7 @@ define internal fastcc i32 @label_subgs(ptr noundef %0, i32 noundef %1, ptr noun
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 %1, ptr %8, align 8
   %9 = tail call ptr @agnameof(ptr noundef %0) #12
-  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.17, i64 noundef 7) #16
+  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.17, i64 noundef 7) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %insert.exit
 
@@ -1115,13 +1115,13 @@ define internal fastcc i32 @label_subgs(ptr noundef %0, i32 noundef %1, ptr noun
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %24
-  %30 = tail call noalias ptr @strdup(ptr noundef readonly %13) #12
+  %30 = tail call noalias ptr @strdup(ptr noundef %13) #12
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %gv_strdup.exit.i
 
 32:                                               ; preds = %gv_alloc.exit.i
   %33 = load ptr, ptr @stderr, align 8
-  %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #16
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #16
   %35 = add i64 %34, 1
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.20, i64 noundef %35) #13
   tail call fastcc void @graphviz_exit() #14
@@ -1188,7 +1188,7 @@ define internal fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr noc
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %.0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(6) @.str.35) #16
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.35) #16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %write_xdots.exit
 
@@ -1216,32 +1216,32 @@ indent.exit:                                      ; preds = %.lr.ph.i, %19
 
 31:                                               ; preds = %indent.exit
   %32 = load ptr, ptr %26, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(7) @.str.37) #16
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.37) #16
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %isXDot.exit.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(8) @.str.38) #16
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(8) @.str.38) #16
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %isXDot.exit.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(8) @.str.39) #16
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(8) @.str.39) #16
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %isXDot.exit.thread, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(8) @.str.40) #16
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(8) @.str.40) #16
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %isXDot.exit.thread, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(9) @.str.41) #16
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.41) #16
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %isXDot.exit.thread, label %isXDot.exit
 
 isXDot.exit:                                      ; preds = %44
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(9) @.str.42) #16
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.42) #16
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %isXDot.exit.thread, label %352
 
@@ -1730,7 +1730,7 @@ write_linear_grad.exit.i.i:                       ; preds = %.lr.ph.i19.i.i.i, %
   %255 = load i32, ptr %254, align 8
   %256 = getelementptr inbounds i8, ptr %73, i64 56
   %257 = load ptr, ptr %256, align 8
-  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %255, ptr noundef %257, ptr noundef nonnull readonly %2)
+  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %255, ptr noundef %257, ptr noundef nonnull %2)
   br label %332
 
 258:                                              ; preds = %indent.exit175.i.i
@@ -1801,7 +1801,7 @@ write_radial_grad.exit.i.i:                       ; preds = %.lr.ph.i21.i.i.i, %
   %291 = load i32, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %73, i64 72
   %293 = load ptr, ptr %292, align 8
-  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %291, ptr noundef %293, ptr noundef nonnull readonly %2)
+  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %291, ptr noundef %293, ptr noundef nonnull %2)
   br label %332
 
 294:                                              ; preds = %indent.exit129.i.i

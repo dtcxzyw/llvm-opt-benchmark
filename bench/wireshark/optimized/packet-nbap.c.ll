@@ -19952,7 +19952,7 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   br i1 %or.cond4.i, label %dissect_nbap_PCH_ParametersItem_CTCH_SetupRqstFDD.exit, label %47
 
 47:                                               ; preds = %nbap_get_private_data.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 4, ptr %48, align 4
@@ -19991,7 +19991,7 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %71 = load i32, ptr %5, align 8
   %72 = load i32, ptr %48, align 4
   %73 = load ptr, ptr %49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   store i32 %71, ptr %70, align 8
   %74 = icmp eq i32 %72, 0
   br i1 %74, label %copy_address_wmem.exit.i, label %75
@@ -20219,7 +20219,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %195 = load i32, ptr %5, align 8
   %196 = load i32, ptr %48, align 4
   %197 = load ptr, ptr %49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
   store i32 %195, ptr %194, align 8
   %198 = icmp eq i32 %196, 0
   br i1 %198, label %add_setup_conv.exit.i, label %199
@@ -20338,7 +20338,7 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   br i1 %or.cond4.i, label %dissect_nbap_RACH_ParametersItem_CTCH_SetupRqstFDD.exit, label %47
 
 47:                                               ; preds = %nbap_get_private_data.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 4, ptr %48, align 4
@@ -20377,7 +20377,7 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %71 = load i32, ptr %5, align 8
   %72 = load i32, ptr %48, align 4
   %73 = load ptr, ptr %49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   store i32 %71, ptr %70, align 8
   %74 = icmp eq i32 %72, 0
   br i1 %74, label %copy_address_wmem.exit.i, label %75
@@ -20516,7 +20516,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %152 = load i32, ptr %5, align 8
   %153 = load i32, ptr %48, align 4
   %154 = load ptr, ptr %49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
   store i32 %152, ptr %151, align 8
   %155 = icmp eq i32 %153, 0
   br i1 %155, label %add_setup_conv.exit.i, label %156
@@ -26616,7 +26616,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   br i1 %.not74.i, label %47, label %dissect_nbap_HSDSCH_Information_to_Modify.exit
 
 47:                                               ; preds = %.loopexit81.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %48
 
 48:                                               ; preds = %145, %47
@@ -26673,7 +26673,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds i8, ptr %49, i64 8
   %87 = load ptr, ptr %86, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   store i32 %83, ptr %82, align 8
   %88 = icmp eq i32 %85, 0
   br i1 %88, label %copy_address_wmem.exit.i, label %89
@@ -26938,7 +26938,7 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 
 45:                                               ; preds = %nbap_get_private_data.exit.i
   %46 = zext i16 %35 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 4, ptr %47, align 4
@@ -26995,7 +26995,7 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %79 = load i32, ptr %5, align 8
   %80 = load i32, ptr %47, align 4
   %81 = load ptr, ptr %48, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   store i32 %79, ptr %78, align 8
   %82 = icmp eq i32 %80, 0
   br i1 %82, label %copy_address_wmem.exit.i, label %83
@@ -27048,7 +27048,7 @@ copy_address_wmem.exit.i:                         ; preds = %83, %69
   %111 = load i32, ptr %5, align 8
   %112 = load i32, ptr %47, align 4
   %113 = load ptr, ptr %48, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
   store i32 %111, ptr %110, align 8
   %114 = icmp eq i32 %112, 0
   br i1 %114, label %copy_address_wmem.exit60.i, label %115
@@ -27833,7 +27833,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   br i1 %.not57.i, label %46, label %dissect_nbap_HSDSCH_Common_System_InformationFDD.exit
 
 46:                                               ; preds = %.loopexit64.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %47
 
 47:                                               ; preds = %129, %46
@@ -27889,7 +27889,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %84 = load i32, ptr %83, align 4
   %85 = getelementptr inbounds i8, ptr %48, i64 8
   %86 = load ptr, ptr %85, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i32 %82, ptr %81, align 8
   %87 = icmp eq i32 %84, 0
   br i1 %87, label %copy_address_wmem.exit.i, label %88
@@ -34128,7 +34128,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   br i1 %or.cond4, label %230, label %46
 
 46:                                               ; preds = %nbap_get_private_data.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 2, ptr %6, align 8
   %47 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 4, ptr %47, align 4
@@ -34167,7 +34167,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %70 = load i32, ptr %6, align 8
   %71 = load i32, ptr %47, align 4
   %72 = load ptr, ptr %48, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   store i32 %70, ptr %69, align 8
   %73 = icmp eq i32 %71, 0
   br i1 %73, label %copy_address_wmem.exit, label %74
@@ -34416,7 +34416,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %207 = load i32, ptr %6, align 8
   %208 = load i32, ptr %47, align 4
   %209 = load ptr, ptr %48, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %206, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, i8 0, i64 24, i1 false)
   store i32 %207, ptr %206, align 8
   %210 = icmp eq i32 %208, 0
   br i1 %210, label %add_setup_conv.exit, label %211
@@ -42480,7 +42480,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %.not73, label %46, label %.loopexit
 
 46:                                               ; preds = %.loopexit80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br label %47
 
 47:                                               ; preds = %46, %143
@@ -42537,7 +42537,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %84 = load i32, ptr %83, align 4
   %85 = getelementptr inbounds i8, ptr %48, i64 8
   %86 = load ptr, ptr %85, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i32 %82, ptr %81, align 8
   %87 = icmp eq i32 %84, 0
   br i1 %87, label %copy_address_wmem.exit, label %88
@@ -42774,7 +42774,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 nbap_get_private_data.exit.i:                     ; preds = %67, %50
   %.0.i.i = phi ptr [ %54, %50 ], [ %58, %67 ]
   %69 = getelementptr inbounds i8, ptr %.0.i.i, i64 267480
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %70 = getelementptr inbounds i8, ptr %44, i64 20
   %71 = getelementptr inbounds i8, ptr %44, i64 384
   %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 108
@@ -42827,7 +42827,7 @@ nbap_get_private_data.exit.i:                     ; preds = %67, %50
   %103 = load i32, ptr %102, align 4
   %104 = getelementptr inbounds i8, ptr %75, i64 8
   %105 = load ptr, ptr %104, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
   store i32 %101, ptr %100, align 8
   %106 = icmp eq i32 %103, 0
   br i1 %106, label %copy_address_wmem.exit.i, label %107
@@ -43025,7 +43025,7 @@ copy_address_wmem.exit:                           ; preds = %nbap_get_private_da
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %46 to i64
   %50 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %44, i64 %49
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 2, ptr %50, align 8
   %51 = call noalias ptr @wmem_memdup(ptr noundef %48, ptr noundef nonnull %6, i64 noundef 4) #7
   %52 = getelementptr inbounds i8, ptr %50, i64 16
@@ -43340,7 +43340,7 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
   br i1 %.not, label %38, label %.loopexit
 
 38:                                               ; preds = %nbap_get_private_data.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %39
 
 39:                                               ; preds = %38, %60
@@ -43574,7 +43574,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %37 = getelementptr inbounds i8, ptr %.0.i, i64 266360
   %38 = getelementptr inbounds i8, ptr %.0.i, i64 64
   %39 = load i32, ptr %38, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %40 = getelementptr inbounds i8, ptr %30, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %39 to i64
@@ -44258,7 +44258,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   br i1 %or.cond141, label %193, label %47
 
 47:                                               ; preds = %nbap_get_private_data.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 2, ptr %6, align 8
   %48 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 4, ptr %48, align 4
@@ -44308,7 +44308,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %80 = load i32, ptr %6, align 8
   %81 = load i32, ptr %48, align 4
   %82 = load ptr, ptr %49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 %80, ptr %79, align 8
   %83 = icmp eq i32 %81, 0
   br i1 %83, label %copy_address_wmem.exit, label %84
@@ -44712,7 +44712,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   br i1 %or.cond4, label %141, label %45
 
 45:                                               ; preds = %nbap_get_private_data.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 2, ptr %6, align 8
   %46 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 4, ptr %46, align 4
@@ -44771,7 +44771,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %80 = load i32, ptr %6, align 8
   %81 = load i32, ptr %46, align 4
   %82 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 %80, ptr %79, align 8
   %83 = icmp eq i32 %81, 0
   br i1 %83, label %copy_address_wmem.exit, label %84
@@ -44855,7 +44855,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %130 = load i32, ptr %6, align 8
   %131 = load i32, ptr %46, align 4
   %132 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %129, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, i8 0, i64 24, i1 false)
   store i32 %130, ptr %129, align 8
   %133 = icmp eq i32 %131, 0
   br i1 %133, label %copy_address_wmem.exit71, label %134
@@ -45730,7 +45730,7 @@ copy_address_wmem.exit:                           ; preds = %nbap_get_private_da
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
   %50 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %44, i64 %49
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 2, ptr %50, align 8
   %51 = call noalias ptr @wmem_memdup(ptr noundef %46, ptr noundef nonnull %6, i64 noundef 4) #7
   %52 = getelementptr inbounds i8, ptr %50, i64 16
@@ -45978,7 +45978,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i16 %57, ptr %58, align 4
   %59 = load i32, ptr %46, align 4
   store i32 %59, ptr %.0.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %60 = load ptr, ptr %7, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 20
   %62 = load i32, ptr %61, align 4
@@ -46674,7 +46674,7 @@ copy_address_wmem.exit:                           ; preds = %nbap_get_private_da
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %46 to i64
   %50 = getelementptr %struct.nbap_common_channel_info_t, ptr %44, i64 %49
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 2, ptr %50, align 8
   %51 = call noalias ptr @wmem_memdup(ptr noundef %48, ptr noundef nonnull %6, i64 noundef 4) #7
   %52 = getelementptr inbounds i8, ptr %50, i64 16

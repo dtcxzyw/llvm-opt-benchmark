@@ -146,7 +146,7 @@ define i32 @cli_scanxar(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %29
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %3, ptr nonnull align 1 %32, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 1 %32, i64 %spec.select.i, i1 false)
   %.not = icmp ugt i64 %28, 31
   br i1 %.not, label %33, label %fmap_readn.exit.thread
 

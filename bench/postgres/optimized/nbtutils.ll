@@ -3109,7 +3109,7 @@ BTreeTupleIsPosting.exit.i44:                     ; preds = %BTreeTupleGetHeapTI
 
 BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleGetHeapTID.exit, %BTreeTupleIsPosting.exit.i44, %88
   %.0.i47 = phi ptr [ %98, %88 ], [ %1, %BTreeTupleIsPosting.exit.i44 ], [ %1, %BTreeTupleGetHeapTID.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %.0.i43, ptr noundef nonnull readonly align 2 dereferenceable(6) %.0.i47, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.0.i43, ptr noundef nonnull align 2 dereferenceable(6) %.0.i47, i64 6, i1 false)
   br label %99
 
 99:                                               ; preds = %BTreeTupleGetMaxHeapTID.exit, %51

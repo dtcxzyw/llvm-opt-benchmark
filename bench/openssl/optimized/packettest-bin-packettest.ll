@@ -949,7 +949,7 @@ entry:
   br i1 %tobool.not, label %return, label %PACKET_copy_all.exit
 
 PACKET_copy_all.exit:                             ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(255) %tmp, ptr noundef nonnull align 16 dereferenceable(255) @smbuf, i64 255, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(255) %tmp, ptr noundef nonnull align 16 dereferenceable(255) @smbuf, i64 255, i1 false)
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 209, ptr noundef nonnull @.str.83, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -1120,7 +1120,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %buf1, i32 noundef 0, i64 noundef 10) #6
+  %call.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %buf1, i32 noundef 0, i64 noundef 10) #6
   %cmp.i = icmp ne ptr %call.i, null
   %conv.i = zext i1 %cmp.i to i32
   %call7 = call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 278, ptr noundef nonnull @.str.102, i32 noundef %conv.i) #5
@@ -1133,7 +1133,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false
   br i1 %tobool15.not, label %return, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false9
-  %call.i5 = call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %buf2, i32 noundef 0, i64 noundef 10) #6
+  %call.i5 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %buf2, i32 noundef 0, i64 noundef 10) #6
   %cmp.i6 = icmp ne ptr %call.i5, null
   %conv.i7 = zext i1 %cmp.i6 to i32
   %call20 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 280, ptr noundef nonnull @.str.102, i32 noundef %conv.i7) #5

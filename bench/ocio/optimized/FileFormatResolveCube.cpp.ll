@@ -1504,11 +1504,11 @@ invoke.cont258:                                   ; preds = %_ZNSt6vectorINSt7__
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileE, i64 16), ptr %call256, align 8
   %lut1D.i = getelementptr inbounds i8, ptr %call256, i64 8
   %range1d_max.i = getelementptr inbounds i8, ptr %call256, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lut1D.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lut1D.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %range1d_max.i, align 4
   %lut3D.i = getelementptr inbounds i8, ptr %call256, i64 32
   %range3d_max.i = getelementptr inbounds i8, ptr %call256, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %lut3D.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lut3D.i, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %range3d_max.i, align 4
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
           to label %invoke.cont260 unwind label %lpad.i.i.i.i

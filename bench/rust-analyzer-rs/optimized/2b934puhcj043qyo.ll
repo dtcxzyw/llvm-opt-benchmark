@@ -354,7 +354,7 @@ define hidden void @"_ZN85_$LT$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$u2
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !70, !noalias !67, !nonnull !4, !noundef !4
   %55 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %54, i64 %52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull readonly align 8 %4, i64 %.idx.i.i.i, i1 false), !noalias !74
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %4, i64 %.idx.i.i.i, i1 false), !noalias !74
   %56 = load i64, ptr %46, align 8, !alias.scope !70, !noalias !67, !noundef !4
   %57 = add i64 %56, %6
   store i64 %57, ptr %46, align 8, !alias.scope !70, !noalias !67

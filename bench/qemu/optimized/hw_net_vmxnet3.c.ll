@@ -2531,7 +2531,7 @@ sw.bb.i:                                          ; preds = %if.end2.i
 
 if.end8.i:                                        ; preds = %sw.bb.i
   %conf.i = getelementptr inbounds i8, ptr %call, i64 2616
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %conf.i, ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %conf.i, ptr noundef nonnull dereferenceable(6) %buf.addr.0, i64 6)
   %tobool.not.i28 = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i28, label %if.then8, label %if.end20
 
@@ -2561,7 +2561,7 @@ if.end29.i:                                       ; preds = %if.end24.i
 for.body.lr.ph.i.i:                               ; preds = %if.end29.i
   %mcast_list.i.i = getelementptr inbounds i8, ptr %call, i64 14848
   %22 = load ptr, ptr %mcast_list.i.i, align 16
-  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %22, i64 6)
+  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %22, i64 6)
   %tobool.not.i16.i = icmp eq i32 %bcmp.i15.i, 0
   br i1 %tobool.not.i16.i, label %if.then8, label %for.cond.i.i
 
@@ -2574,7 +2574,7 @@ for.cond.i.i:                                     ; preds = %for.body.lr.ph.i.i,
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %idxprom.i11.i = sext i32 %inc.i.i to i64
   %arrayidx.i12.i = getelementptr %struct.MACAddr, ptr %22, i64 %idxprom.i11.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %arrayidx.i12.i, i64 6)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %arrayidx.i12.i, i64 6)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %vmxnet3_is_allowed_mcast_group.exit.i, label %for.cond.i.i, !llvm.loop !21
 

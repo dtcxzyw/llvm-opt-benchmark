@@ -2155,7 +2155,7 @@ define i32 @Spl_ManFindOne(ptr nocapture noundef readonly %0) local_unnamed_addr
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i32, ptr %.val25.val.i, i64 %83
   %85 = load i32, ptr %84, align 4
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %57, i32 noundef %85, ptr noundef %65, ptr noundef readonly %66, ptr noundef readonly %67)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %57, i32 noundef %85, ptr noundef %65, ptr noundef %66, ptr noundef %67)
   %86 = add nuw nsw i32 %.028.i, 1
   %.val24.i = load ptr, ptr %69, align 8
   %87 = getelementptr i8, ptr %.val24.i, i64 8
@@ -2775,7 +2775,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   %395 = sext i32 %394 to i64
   %396 = getelementptr inbounds i32, ptr %.val25.val.i231, i64 %395
   %397 = load i32, ptr %396, align 4
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %369, i32 noundef %397, ptr noundef %377, ptr noundef readonly %378, ptr noundef readonly %379)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %369, i32 noundef %397, ptr noundef %377, ptr noundef %378, ptr noundef %379)
   %398 = add nuw nsw i32 %.028.i229, 1
   %.val24.i232 = load ptr, ptr %381, align 8
   %399 = getelementptr i8, ptr %.val24.i232, i64 8

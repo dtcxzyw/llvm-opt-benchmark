@@ -852,7 +852,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
   %retval.0.i.i = phi i64 [ %46, %if.then.i.i ], [ 0, %for.body.i ]
-  %call6.i = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef readonly %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i, ptr noundef nonnull %type.i)
+  %call6.i = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i, ptr noundef nonnull %type.i)
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %count_contiguous_subclusters.exit.thread144, label %if.end10.i
 

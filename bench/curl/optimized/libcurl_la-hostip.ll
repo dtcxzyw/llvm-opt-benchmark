@@ -187,7 +187,7 @@ define internal fastcc ptr @fetch_addr(ptr noundef %data, ptr nocapture noundef 
 entry:
   %entry_id = alloca [262 x i8], align 16
   %user = alloca %struct.hostcache_prune_data, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 255)
   %tobool2.not8.i = icmp eq i64 %call.i, 0
   br i1 %tobool2.not8.i, label %create_hostcache_id.exit, label %while.body.i
@@ -494,7 +494,7 @@ cond.end.thread.i:                                ; preds = %if.end11
   br label %while.body.preheader.i
 
 cond.end.i:                                       ; preds = %if.end11
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 255)
   %tobool2.not8.i = icmp eq i64 %call.i, 0
   br i1 %tobool2.not8.i, label %create_hostcache_id.exit, label %while.body.preheader.i
@@ -805,7 +805,7 @@ lor.lhs.false67:                                  ; preds = %if.end64
 
 if.then70:                                        ; preds = %lor.lhs.false67, %if.end64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ipv4.i)
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
   %conv.i = trunc i32 %port to i16
   %call1.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i) #13
   %call2.i = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef nonnull %ipv4.i) #11
@@ -837,10 +837,10 @@ if.end7.i:                                        ; preds = %if.end.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %call5.i, i64 64
   %ai_canonname.i = getelementptr inbounds i8, ptr %call5.i, i64 24
   store ptr %add.ptr10.i, ptr %ai_canonname.i, align 8
-  %call12.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr10.i, ptr noundef nonnull readonly dereferenceable(1) %hostname) #11
+  %call12.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr10.i, ptr noundef nonnull dereferenceable(1) %hostname) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ipv6.i.i)
-  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
   %12 = load ptr, ptr @Curl_ccalloc, align 8
   %add1.i.i = add i64 %call.i.i, 77
   %call2.i.i = call ptr %12(i64 noundef 1, i64 noundef %add1.i.i) #11
@@ -879,7 +879,7 @@ if.end16.i:                                       ; preds = %if.end.i.i
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 76
   %ai_canonname.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 24
   store ptr %add.ptr11.i.i, ptr %ai_canonname.i.i, align 8
-  %call13.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr11.i.i, ptr noundef nonnull readonly dereferenceable(1) %hostname) #11
+  %call13.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr11.i.i, ptr noundef nonnull dereferenceable(1) %hostname) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ipv6.i.i)
   store ptr %call5.i, ptr %ai_next.i.i, align 8
@@ -1609,7 +1609,7 @@ cond.end.thread.i101:                             ; preds = %if.end143
   br label %while.body.preheader.i103
 
 cond.end.i119:                                    ; preds = %if.end143
-  %call.i120 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select97) #12
+  %call.i120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select97) #12
   %spec.select.i121 = call i64 @llvm.umin.i64(i64 %call.i120, i64 255)
   %tobool2.not8.i122 = icmp eq i64 %call.i120, 0
   br i1 %tobool2.not8.i122, label %create_hostcache_id.exit123, label %while.body.preheader.i103

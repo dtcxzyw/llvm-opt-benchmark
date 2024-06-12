@@ -116,7 +116,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2pb12JavaFeaturesE, i64 16), ptr %this, align 8
   %arrayinit.cur.i.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayinit.cur.i.ptr.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.cur.i.ptr.i.i, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %from, i64 16
   %2 = load i32, ptr %1, align 8
   %and.i.i = and i32 %2, 3

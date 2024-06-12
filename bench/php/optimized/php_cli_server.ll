@@ -2976,7 +2976,7 @@ define internal void @sapi_cli_server_register_variables(ptr noundef %0) #0 {
   %36 = getelementptr inbounds i8, ptr %33, i64 16
   store i64 %27, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %33, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 1 %25, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 1 %25, i64 %27, i1 false)
   %38 = getelementptr inbounds [1 x i8], ptr %37, i64 0, i64 %27
   store i8 0, ptr %38, align 1
   br label %48
@@ -3056,7 +3056,7 @@ sapi_cli_server_register_known_var_char.exit:     ; preds = %1, %48
   %82 = getelementptr inbounds i8, ptr %79, i64 16
   store i64 %70, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %79, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull readonly align 16 %20, i64 %70, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 16 %20, i64 %70, i1 false)
   %84 = getelementptr inbounds [1 x i8], ptr %83, i64 0, i64 %70
   store i8 0, ptr %84, align 1
   br label %sapi_cli_server_register_known_var_char.exit115
@@ -3105,7 +3105,7 @@ sapi_cli_server_register_known_var_char.exit115:  ; preds = %76, %87, %89
   %107 = getelementptr inbounds i8, ptr %104, i64 16
   store i64 %99, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %104, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %108, ptr nonnull readonly align 1 %21, i64 %99, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %108, ptr nonnull align 1 %21, i64 %99, i1 false)
   %109 = getelementptr inbounds [1 x i8], ptr %108, i64 0, i64 %99
   store i8 0, ptr %109, align 1
   br label %sapi_cli_server_register_known_var_char.exit119
@@ -3294,7 +3294,7 @@ sapi_cli_server_register_known_var_str.exit128:   ; preds = %154, %167
   %191 = getelementptr inbounds i8, ptr %188, i64 16
   store i64 %182, ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %188, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %192, ptr nonnull readonly align 1 %181, i64 %182, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %192, ptr nonnull align 1 %181, i64 %182, i1 false)
   %193 = getelementptr inbounds [1 x i8], ptr %192, i64 0, i64 %182
   store i8 0, ptr %193, align 1
   br label %203
@@ -3432,7 +3432,7 @@ sapi_cli_server_register_known_var_str.exit140:   ; preds = %231, %241
   %253 = getelementptr inbounds i8, ptr %250, i64 16
   store i64 %244, ptr %253, align 8
   %254 = getelementptr inbounds i8, ptr %250, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %254, ptr nonnull readonly align 1 %243, i64 %244, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %254, ptr nonnull align 1 %243, i64 %244, i1 false)
   %255 = getelementptr inbounds [1 x i8], ptr %254, i64 0, i64 %244
   store i8 0, ptr %255, align 1
   br label %265
@@ -3491,7 +3491,7 @@ sapi_cli_server_register_known_var_char.exit144:  ; preds = %sapi_cli_server_reg
   %283 = getelementptr inbounds i8, ptr %280, i64 16
   store i64 %274, ptr %283, align 8
   %284 = getelementptr inbounds i8, ptr %280, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %284, ptr nonnull readonly align 1 %272, i64 %274, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %284, ptr nonnull align 1 %272, i64 %274, i1 false)
   %285 = getelementptr inbounds [1 x i8], ptr %284, i64 0, i64 %274
   store i8 0, ptr %285, align 1
   br label %295
@@ -3548,7 +3548,7 @@ sapi_cli_server_register_known_var_char.exit148:  ; preds = %sapi_cli_server_reg
   %311 = getelementptr inbounds i8, ptr %308, i64 16
   store i64 %303, ptr %311, align 8
   %312 = getelementptr inbounds i8, ptr %308, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %312, ptr nonnull readonly align 1 %301, i64 %303, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %312, ptr nonnull align 1 %301, i64 %303, i1 false)
   %313 = getelementptr inbounds [1 x i8], ptr %312, i64 0, i64 %303
   store i8 0, ptr %313, align 1
   br label %sapi_cli_server_register_known_var_char.exit152
@@ -3608,7 +3608,7 @@ sapi_cli_server_register_known_var_char.exit152:  ; preds = %305, %316, %318
   %342 = getelementptr inbounds i8, ptr %339, i64 16
   store i64 %334, ptr %342, align 8
   %343 = getelementptr inbounds i8, ptr %339, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %343, ptr nonnull readonly align 1 %331, i64 %334, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %343, ptr nonnull align 1 %331, i64 %334, i1 false)
   %344 = getelementptr inbounds [1 x i8], ptr %343, i64 0, i64 %334
   store i8 0, ptr %344, align 1
   br label %sapi_cli_server_register_known_var_char.exit156
@@ -3667,7 +3667,7 @@ sapi_cli_server_register_known_var_char.exit156:  ; preds = %336, %347, %349
   %372 = getelementptr inbounds i8, ptr %369, i64 16
   store i64 %364, ptr %372, align 8
   %373 = getelementptr inbounds i8, ptr %369, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %373, ptr nonnull readonly align 1 %361, i64 %364, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %373, ptr nonnull align 1 %361, i64 %364, i1 false)
   %374 = getelementptr inbounds [1 x i8], ptr %373, i64 0, i64 %364
   store i8 0, ptr %374, align 1
   br label %sapi_cli_server_register_known_var_char.exit160
@@ -3779,7 +3779,7 @@ sapi_cli_server_register_known_var_str.exit164:   ; preds = %393, %403
   %424 = getelementptr inbounds i8, ptr %421, i64 16
   store i64 %415, ptr %424, align 8
   %425 = getelementptr inbounds i8, ptr %421, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %425, ptr nonnull readonly align 1 %392, i64 %415, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %425, ptr nonnull align 1 %392, i64 %415, i1 false)
   %426 = getelementptr inbounds [1 x i8], ptr %425, i64 0, i64 %415
   store i8 0, ptr %426, align 1
   br label %436
@@ -4523,7 +4523,7 @@ php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread
   br i1 %.not19.i.i.i, label %269, label %267
 
 267:                                              ; preds = %258
-  %268 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull readonly %4, i32 noundef %.0184.i.i.i, i32 noundef 1)
+  %268 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull %4, i32 noundef %.0184.i.i.i, i32 noundef 1)
   %.not20.i.i.i = icmp eq i32 %268, 0
   %spec.select.i.i.i = select i1 %.not20.i.i.i, i32 %.05.i.i.i, i32 -1
   br label %269
@@ -4537,7 +4537,7 @@ php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread
   br i1 %.not21.i.i.i, label %275, label %273
 
 273:                                              ; preds = %269
-  %274 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull readonly %4, i32 noundef %.0184.i.i.i, i32 noundef 4)
+  %274 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull %4, i32 noundef %.0184.i.i.i, i32 noundef 4)
   %.not22.i.i.i = icmp eq i32 %274, 0
   %spec.select23.i.i.i = select i1 %.not22.i.i.i, i32 %.1.ph.i.i.i, i32 -1
   br label %275
@@ -6682,7 +6682,7 @@ php_cli_server_client_populate_request_info.exit.i.i: ; preds = %155, %137
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds i8, ptr %1, i64 488
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %220, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %220, i8 0, i64 16, i1 false)
   %221 = getelementptr inbounds i8, ptr %1, i64 480
   store i8 1, ptr %221, align 8
   %222 = load i32, ptr %75, align 8
@@ -7645,7 +7645,7 @@ get_template_string.exit:                         ; preds = %25, %22
   %28 = call ptr @strerror(i32 noundef %27) #29
   %29 = call noalias ptr @__zend_strdup(ptr noundef %28) #29
   %30 = getelementptr inbounds i8, ptr %1, i64 488
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %1, i64 480
   store i8 1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 112
@@ -8720,7 +8720,7 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %43, %52, %65
   %.0.i = phi ptr [ %46, %43 ], [ %55, %65 ], [ %55, %52 ]
   %69 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %70 = getelementptr inbounds i8, ptr %69, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr align 1 %1, i64 %2, i1 false)
   %71 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr inbounds [1 x i8], ptr %69, i64 0, i64 %72
@@ -8840,7 +8840,7 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %32, %41, %54
   %.0.i = phi ptr [ %35, %32 ], [ %44, %54 ], [ %44, %41 ]
   %58 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %59 = getelementptr inbounds i8, ptr %58, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %1, i64 %2, i1 false)
   %60 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds [1 x i8], ptr %58, i64 0, i64 %61
@@ -8949,7 +8949,7 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %31, %40, %53
   %.0.i = phi ptr [ %34, %31 ], [ %43, %53 ], [ %43, %40 ]
   %57 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %58 = getelementptr inbounds i8, ptr %57, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 1 %1, i64 %2, i1 false)
   %59 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %60
@@ -9053,7 +9053,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_message_compl
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %18, 13
   %22 = tail call noalias ptr @_safe_malloc(i64 noundef 1, i64 noundef %20, i64 noundef %21) #29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr readonly align 1 %16, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %16, i64 %18, i1 false)
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   %24 = load i64, ptr %19, align 8
   %.not.i = icmp eq i64 %24, 0

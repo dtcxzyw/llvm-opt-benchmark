@@ -1248,13 +1248,13 @@ define internal fastcc noalias noundef ptr @computeClauses(ptr nocapture readonl
   %6 = add nsw i32 %5, 1
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %3, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %8, i1 false)
   %9 = load ptr, ptr @Tolp, align 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %9, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %8, i1 false)
   %10 = load ptr, ptr @Eolv, align 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %10, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %8, i1 false)
   %11 = load ptr, ptr @Eolp, align 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %11, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %8, i1 false)
   %12 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %tlcInfoAlloc.exit

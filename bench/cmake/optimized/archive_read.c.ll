@@ -3119,7 +3119,7 @@ archive_read_data_skip.exit.thread:               ; preds = %.loopexit.i, %archi
   %45 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 0, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(33) %46, i8 0, i64 33, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %46, i8 0, i64 33, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 228
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %0, i64 656

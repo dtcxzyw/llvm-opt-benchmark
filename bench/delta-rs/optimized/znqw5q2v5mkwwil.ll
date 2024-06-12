@@ -3881,7 +3881,7 @@ common.resume:                                    ; preds = %99, %87, %25
   call void @llvm.experimental.noalias.scope.decl(metadata !1006)
   call void @llvm.experimental.noalias.scope.decl(metadata !1009)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !1012
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !987
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !987
   %39 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i, align 16, !alias.scope !1013, !noalias !987, !noundef !4
   %40 = shl i64 %39, 56
   %41 = getelementptr inbounds i8, ptr %4, i64 56
@@ -3955,7 +3955,7 @@ common.resume:                                    ; preds = %99, %87, %25
 71:                                               ; preds = %.lr.ph.i.i.i
   %72 = getelementptr i8, ptr %69, i64 -40
   %.val5.i.i.i.i = load ptr, ptr %72, align 8, !noalias !1036, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @anon.791db69454e89ea14b1bf901649a42ca.78, ptr noundef nonnull readonly dereferenceable(3) %.val5.i.i.i.i, i64 3), !alias.scope !1037, !noalias !1044
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @anon.791db69454e89ea14b1bf901649a42ca.78, ptr noundef nonnull dereferenceable(3) %.val5.i.i.i.i, i64 3), !alias.scope !1037, !noalias !1044
   %73 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %73, label %79, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7b117ea7fbd2fdf1E.exit.backedge.i.i.i"
 

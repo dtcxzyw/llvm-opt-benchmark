@@ -67,7 +67,7 @@ do.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %do.end, %for.body.i
   %i.016.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %do.end ]
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %call5.i, i64 %i.016.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i monotonic, align 4
   %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %sequence.i.i, align 4
@@ -458,7 +458,7 @@ if.then:                                          ; preds = %qht_lock.exit
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.016.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %call5.i, i64 %i.016.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i monotonic, align 4
   %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %sequence.i.i, align 4
@@ -768,7 +768,7 @@ if.then3.i:                                       ; preds = %if.end.i
 for.body.i.i:                                     ; preds = %if.then3.i, %for.body.i.i
   %i.016.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then3.i ]
   %arrayidx.i.i = getelementptr %struct.qht_bucket, ptr %call5.i.i, i64 %i.016.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %arrayidx.i.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i.i monotonic, align 4
   %sequence.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   store i32 0, ptr %sequence.i.i.i, align 4
@@ -1119,7 +1119,7 @@ qemu_spin_lock.exit.i.i:                          ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %for.body.i.i, label %qht_map_lock_buckets.exit.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit.i.i, %entry
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull readonly %iter, ptr noundef %userp)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull %iter, ptr noundef %userp)
   %9 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i4.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
@@ -1192,7 +1192,7 @@ qemu_spin_lock.exit.i.i:                          ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %for.body.i.i, label %qht_map_lock_buckets.exit.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit.i.i, %entry
-  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull readonly %iter, ptr noundef %userp)
+  call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %1, ptr noundef nonnull %iter, ptr noundef %userp)
   %9 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i4.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
@@ -1274,7 +1274,7 @@ if.then:                                          ; preds = %qht_lock.exit
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.016.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %call5.i, i64 %i.016.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i monotonic, align 4
   %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %sequence.i.i, align 4

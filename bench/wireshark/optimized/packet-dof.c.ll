@@ -5523,7 +5523,7 @@ define internal fastcc noalias ptr @create_tcp_session_data(ptr nocapture nounde
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %10, ptr %6, align 8
   %15 = icmp eq i32 %12, 0
   br i1 %15, label %copy_address_wmem.exit, label %16
@@ -5553,7 +5553,7 @@ copy_address_wmem.exit:                           ; preds = %2, %16
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   store i32 %29, ptr %26, align 8
   %34 = icmp eq i32 %31, 0
   br i1 %34, label %copy_address_wmem.exit17, label %35
@@ -5644,7 +5644,7 @@ define internal fastcc i32 @assign_addr_port_id(ptr nocapture noundef readonly %
   %27 = load i32, ptr %0, align 8
   %28 = load i32, ptr %7, align 4
   %29 = load ptr, ptr %14, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   store i32 %27, ptr %26, align 8
   %30 = icmp eq i32 %28, 0
   br i1 %30, label %copy_address.exit, label %31
@@ -6464,7 +6464,7 @@ define internal i32 @dissect_dof_udp(ptr noundef %0, ptr noundef %1, ptr noundef
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds i8, ptr %1, i64 240
   %57 = load ptr, ptr %56, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   store i32 %53, ptr %52, align 8
   %58 = icmp eq i32 %55, 0
   br i1 %58, label %copy_address_wmem.exit.i, label %59
@@ -6508,7 +6508,7 @@ create_udp_session_data.exit:                     ; preds = %71, %73
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %50, i64 8
   %77 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %77, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
   %78 = getelementptr inbounds i8, ptr %50, i64 24
   store i32 0, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %50, i64 28
@@ -9927,7 +9927,7 @@ validate_c2.exit.i:                               ; preds = %614, %read_c2.exit.
   %653 = getelementptr inbounds i8, ptr %5, i64 1
   %.mask.i = and i32 %643, 255
   %654 = zext nneg i32 %.mask.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %653, ptr readonly align 1 %645, i64 %654, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %653, ptr align 1 %645, i64 %654, i1 false)
   %655 = load ptr, ptr @sid_buffer_to_sid_id, align 8
   %656 = call i32 @g_hash_table_lookup_extended(ptr noundef %655, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
   %.not50.i.i = icmp eq i32 %656, 0
@@ -11740,7 +11740,7 @@ define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef readon
   %79 = or i8 %78, 67
   store i8 %79, ptr %10, align 16
   %80 = getelementptr inbounds i8, ptr %10, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %80, ptr noundef nonnull readonly align 1 dereferenceable(11) %2, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %80, ptr noundef nonnull align 1 dereferenceable(11) %2, i64 11, i1 false)
   %81 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %81, align 4
   %82 = lshr i32 %76, 8

@@ -195,7 +195,7 @@ _ZNSt10unique_ptrIN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSe
   %3 = load ptr, ptr %pool_.i.i.i, align 8, !noalias !4
   store ptr %3, ptr %pool_.i.i, align 8, !noalias !4
   %buffers_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffers_.i.i, i8 0, i64 24, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffers_.i.i, i8 0, i64 24, i1 false), !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

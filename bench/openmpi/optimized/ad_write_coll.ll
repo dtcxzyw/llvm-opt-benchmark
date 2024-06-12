@@ -548,7 +548,7 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
   %293 = trunc i64 %.401.i to i32
   %294 = load i32, ptr %12, align 4
   %295 = load i64, ptr %15, align 8
-  call fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %190, ptr noundef %.0262.i, ptr noundef readonly %144, ptr noundef readonly %145, ptr noundef %197, ptr noundef %198, i64 noundef %.0275344.i, i32 noundef %293, ptr noundef %195, ptr noundef %203, ptr noundef %196, ptr noundef %199, i32 noundef %141, i32 noundef %142, i32 noundef %294, i32 noundef %146, i64 noundef %147, i64 noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef readonly %143, ptr noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef nonnull %9, i32 noundef %.0265345.i, i64 noundef %295, ptr noundef %151, ptr noundef nonnull %7)
+  call fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %190, ptr noundef %.0262.i, ptr noundef %144, ptr noundef %145, ptr noundef %197, ptr noundef %198, i64 noundef %.0275344.i, i32 noundef %293, ptr noundef %195, ptr noundef %203, ptr noundef %196, ptr noundef %199, i32 noundef %141, i32 noundef %142, i32 noundef %294, i32 noundef %146, i64 noundef %147, i64 noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %143, ptr noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef nonnull %9, i32 noundef %.0265345.i, i64 noundef %295, ptr noundef %151, ptr noundef nonnull %7)
   %296 = load i32, ptr %7, align 4
   %.not292.i = icmp eq i32 %296, 0
   br i1 %.not292.i, label %.preheader301.i, label %ADIOI_Exch_and_write.exit.thread
@@ -618,7 +618,7 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
   %.1266351.i = phi i32 [ %315, %314 ], [ %311, %._crit_edge350.i ]
   %318 = load i32, ptr %12, align 4
   %319 = load i64, ptr %15, align 8
-  call fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %190, ptr noundef %.0262.i, ptr noundef readonly %144, ptr noundef readonly %145, ptr noundef %197, ptr noundef %198, i64 noundef %.0275.lcssa.i, i32 noundef %.0.lcssa.i, ptr noundef %195, ptr noundef %203, ptr noundef %196, ptr noundef %199, i32 noundef %141, i32 noundef %142, i32 noundef %318, i32 noundef %146, i64 noundef %147, i64 noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef readonly %143, ptr noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef nonnull %9, i32 noundef %.1266351.i, i64 noundef %319, ptr noundef %151, ptr noundef nonnull %7)
+  call fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %190, ptr noundef %.0262.i, ptr noundef %144, ptr noundef %145, ptr noundef %197, ptr noundef %198, i64 noundef %.0275.lcssa.i, i32 noundef %.0.lcssa.i, ptr noundef %195, ptr noundef %203, ptr noundef %196, ptr noundef %199, i32 noundef %141, i32 noundef %142, i32 noundef %318, i32 noundef %146, i64 noundef %147, i64 noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %143, ptr noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef nonnull %9, i32 noundef %.1266351.i, i64 noundef %319, ptr noundef %151, ptr noundef nonnull %7)
   %320 = load i32, ptr %7, align 4
   %.not291.i = icmp eq i32 %320, 0
   br i1 %.not291.i, label %314, label %ADIOI_Exch_and_write.exit.thread

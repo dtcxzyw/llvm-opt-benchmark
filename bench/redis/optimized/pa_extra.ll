@@ -383,7 +383,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 pa_shard_mtx_stats_read_single.exit:              ; preds = %if.end.i.i, %if.then.i.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %mutex_prof_data, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %mtx, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(64) %mtx, i64 64, i1 false)
   %n_waiting_thds.i.i.i = getelementptr inbounds i8, ptr %mutex_prof_data, i64 100
   store atomic i32 0, ptr %n_waiting_thds.i.i.i monotonic, align 4
   %locked.i5.i = getelementptr inbounds i8, ptr %shard, i64 68224
@@ -421,7 +421,7 @@ if.then.i.i.i36:                                  ; preds = %if.end.i.i31
 
 pa_shard_mtx_stats_read_single.exit43:            ; preds = %if.end.i.i31, %if.then.i.i.i36
   %arrayidx.i39 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i39, ptr noundef nonnull readonly align 8 dereferenceable(64) %ecache_dirty, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i39, ptr noundef nonnull align 8 dereferenceable(64) %ecache_dirty, i64 64, i1 false)
   %n_waiting_thds.i.i.i40 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 164
   store atomic i32 0, ptr %n_waiting_thds.i.i.i40 monotonic, align 4
   %locked.i5.i41 = getelementptr inbounds i8, ptr %shard, i64 184
@@ -459,7 +459,7 @@ if.then.i.i.i54:                                  ; preds = %if.end.i.i49
 
 pa_shard_mtx_stats_read_single.exit61:            ; preds = %if.end.i.i49, %if.then.i.i.i54
   %arrayidx.i57 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i57, ptr noundef nonnull readonly align 8 dereferenceable(64) %ecache_muzzy, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i57, ptr noundef nonnull align 8 dereferenceable(64) %ecache_muzzy, i64 64, i1 false)
   %n_waiting_thds.i.i.i58 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 228
   store atomic i32 0, ptr %n_waiting_thds.i.i.i58 monotonic, align 4
   %locked.i5.i59 = getelementptr inbounds i8, ptr %shard, i64 19624
@@ -497,7 +497,7 @@ if.then.i.i.i72:                                  ; preds = %if.end.i.i67
 
 pa_shard_mtx_stats_read_single.exit79:            ; preds = %if.end.i.i67, %if.then.i.i.i72
   %arrayidx.i75 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i75, ptr noundef nonnull readonly align 8 dereferenceable(64) %ecache_retained, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i75, ptr noundef nonnull align 8 dereferenceable(64) %ecache_retained, i64 64, i1 false)
   %n_waiting_thds.i.i.i76 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 292
   store atomic i32 0, ptr %n_waiting_thds.i.i.i76 monotonic, align 4
   %locked.i5.i77 = getelementptr inbounds i8, ptr %shard, i64 39064
@@ -535,7 +535,7 @@ if.then.i.i.i90:                                  ; preds = %if.end.i.i85
 
 pa_shard_mtx_stats_read_single.exit97:            ; preds = %if.end.i.i85, %if.then.i.i.i90
   %arrayidx.i93 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 320
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i93, ptr noundef nonnull readonly align 8 dereferenceable(64) %decay_dirty, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i93, ptr noundef nonnull align 8 dereferenceable(64) %decay_dirty, i64 64, i1 false)
   %n_waiting_thds.i.i.i94 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 356
   store atomic i32 0, ptr %n_waiting_thds.i.i.i94 monotonic, align 4
   %locked.i5.i95 = getelementptr inbounds i8, ptr %shard, i64 58776
@@ -573,7 +573,7 @@ if.then.i.i.i108:                                 ; preds = %if.end.i.i103
 
 pa_shard_mtx_stats_read_single.exit115:           ; preds = %if.end.i.i103, %if.then.i.i.i108
   %arrayidx.i111 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 384
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i111, ptr noundef nonnull readonly align 8 dereferenceable(64) %decay_muzzy, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i111, ptr noundef nonnull align 8 dereferenceable(64) %decay_muzzy, i64 64, i1 false)
   %n_waiting_thds.i.i.i112 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 420
   store atomic i32 0, ptr %n_waiting_thds.i.i.i112 monotonic, align 4
   %locked.i5.i113 = getelementptr inbounds i8, ptr %shard, i64 60560
@@ -617,7 +617,7 @@ if.then.i.i.i126:                                 ; preds = %if.end.i.i121
 
 pa_shard_mtx_stats_read_single.exit133:           ; preds = %if.end.i.i121, %if.then.i.i.i126
   %arrayidx.i129 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 576
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i129, ptr noundef nonnull readonly align 8 dereferenceable(64) %mtx10, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i129, ptr noundef nonnull align 8 dereferenceable(64) %mtx10, i64 64, i1 false)
   %n_waiting_thds.i.i.i130 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 612
   store atomic i32 0, ptr %n_waiting_thds.i.i.i130 monotonic, align 4
   %locked.i5.i131 = getelementptr inbounds i8, ptr %shard, i64 62552
@@ -655,7 +655,7 @@ if.then.i.i.i144:                                 ; preds = %if.end.i.i139
 
 pa_shard_mtx_stats_read_single.exit151:           ; preds = %if.end.i.i139, %if.then.i.i.i144
   %arrayidx.i147 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 640
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %arrayidx.i147, ptr noundef nonnull readonly align 8 dereferenceable(64) %grow_mtx, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i147, ptr noundef nonnull align 8 dereferenceable(64) %grow_mtx, i64 64, i1 false)
   %n_waiting_thds.i.i.i148 = getelementptr inbounds i8, ptr %mutex_prof_data, i64 676
   store atomic i32 0, ptr %n_waiting_thds.i.i.i148 monotonic, align 4
   %locked.i5.i149 = getelementptr inbounds i8, ptr %shard, i64 62664

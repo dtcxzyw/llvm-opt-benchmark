@@ -3907,7 +3907,7 @@ define dso_local ptr @d_alloc_parallel(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %55, label %58, label %56, !prof !6
 
 56:                                               ; preds = %.loopexit18
-  %57 = call fastcc ptr @__d_lookup_rcu_op_compare(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly %5)
+  %57 = call fastcc ptr @__d_lookup_rcu_op_compare(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5)
   br label %__d_lookup_rcu.exit
 
 58:                                               ; preds = %.loopexit18

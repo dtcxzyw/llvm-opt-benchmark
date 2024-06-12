@@ -967,7 +967,7 @@ if.end29:                                         ; preds = %lor.lhs.false.i.i, 
 call.i.i.i.i.noexc:                               ; preds = %if.end29
   store float %conv, ptr %call.i.i.i.i12, align 4
   %applyLUT.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5120) %applyLUT.i.i.i, i8 0, i64 5120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5120) %applyLUT.i.i.i, i8 0, i64 5120, i1 false)
   br label %for.body.i.i.i
 
 for.cond7.preheader.i.i.i:                        ; preds = %for.body.i.i.i
@@ -3712,7 +3712,7 @@ if.then12:                                        ; preds = %if.end10
 
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @_ZNK4pbrt13ColorEncoding8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %v)
+  invoke void @_ZNK4pbrt13ColorEncoding8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %v)
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %invoke.cont13

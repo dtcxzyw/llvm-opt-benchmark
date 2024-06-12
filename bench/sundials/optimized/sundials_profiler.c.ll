@@ -612,7 +612,7 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %38, %34
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %36, align 8
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %1) #20
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %1) #20
   %.not.i29 = icmp ne i32 %40, 0
   %.not.i28 = icmp eq i64 %indvars.iv.i, -1
   %or.cond33 = or i1 %.not.i28, %.not.i29
@@ -960,7 +960,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %.lr.ph.i.i.preheader
   %23 = load ptr, ptr %20, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(20) @.str.1) #20
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(20) @.str.1) #20
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %.thread, label %30
 
@@ -996,7 +996,7 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %39, %35
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %37, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(20) @.str.1) #20
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(20) @.str.1) #20
   %.not.i29.i = icmp ne i32 %41, 0
   %.not.i28.i = icmp eq i64 %indvars.iv.i.i, -1
   %or.cond33.i = or i1 %.not.i28.i, %.not.i29.i

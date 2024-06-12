@@ -179,7 +179,7 @@ define internal i32 @pmix_ptl_open(i32 noundef %0) #0 {
 5:                                                ; preds = %4, %1
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 48), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 56), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 64), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 64), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
@@ -207,7 +207,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 14:                                               ; preds = %13, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 320), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 328), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 336), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 336), i8 0, i64 64, i1 false)
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i26 = icmp eq ptr %16, null
@@ -235,7 +235,7 @@ pmix_obj_run_constructors.exit30:                 ; preds = %.lr.ph.i27, %14
 23:                                               ; preds = %22, %pmix_obj_run_constructors.exit30
   store ptr @pmix_listener_t_class, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 592), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 600), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 608), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 608), i8 0, i64 64, i1 false)
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_listener_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i31 = icmp eq ptr %25, null

@@ -8790,7 +8790,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp, i32 noundef 1)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
@@ -8852,7 +8852,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then13.i.i.i.i
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit: ; preds = %invoke.cont3, %if.then.i.i.i.i, %if.then13.i.i.i.i
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp4, i32 noundef 2)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, i32 noundef 2)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit
@@ -8914,7 +8914,7 @@ terminate.lpad.i.i.i69:                           ; preds = %if.then13.i.i.i.i68
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit70: ; preds = %invoke.cont8, %if.then.i.i.i.i62, %if.then13.i.i.i.i68
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp9, i32 noundef 4)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, i32 noundef 4)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit70
@@ -8976,7 +8976,7 @@ terminate.lpad.i.i.i96:                           ; preds = %if.then13.i.i.i.i95
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit97: ; preds = %invoke.cont13, %if.then.i.i.i.i89, %if.then13.i.i.i.i95
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp14, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, i32 noundef 8)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit97
@@ -9038,7 +9038,7 @@ terminate.lpad.i.i.i123:                          ; preds = %if.then13.i.i.i.i12
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit124: ; preds = %invoke.cont18, %if.then.i.i.i.i116, %if.then13.i.i.i.i122
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp19, i32 noundef 16)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19, i32 noundef 16)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit124
@@ -15493,7 +15493,7 @@ if.then13.i.i632:                                 ; preds = %if.else.i.i630
           to label %invoke.cont160 unwind label %lpad8.loopexit
 
 invoke.cont160:                                   ; preds = %if.else.i.i630, %if.then.i.i634, %if.then13.i.i632
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp161, i32 noundef 1)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp161, i32 noundef 1)
           to label %invoke.cont163 unwind label %lpad162
 
 invoke.cont163:                                   ; preds = %invoke.cont160
@@ -15599,7 +15599,7 @@ if.then13.i.i661:                                 ; preds = %if.else.i.i659
           to label %invoke.cont172 unwind label %lpad8.loopexit
 
 invoke.cont172:                                   ; preds = %if.else.i.i659, %if.then.i.i663, %if.then13.i.i661
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp173, i32 noundef 2)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp173, i32 noundef 2)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %invoke.cont172
@@ -15705,7 +15705,7 @@ if.then13.i.i699:                                 ; preds = %if.else.i.i697
           to label %invoke.cont184 unwind label %lpad8.loopexit
 
 invoke.cont184:                                   ; preds = %if.else.i.i697, %if.then.i.i701, %if.then13.i.i699
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp185, i32 noundef 4)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp185, i32 noundef 4)
           to label %invoke.cont187 unwind label %lpad186
 
 invoke.cont187:                                   ; preds = %invoke.cont184
@@ -15811,7 +15811,7 @@ if.then13.i.i737:                                 ; preds = %if.else.i.i735
           to label %invoke.cont196 unwind label %lpad8.loopexit
 
 invoke.cont196:                                   ; preds = %if.else.i.i735, %if.then.i.i739, %if.then13.i.i737
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp197, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp197, i32 noundef 8)
           to label %invoke.cont199 unwind label %lpad198
 
 invoke.cont199:                                   ; preds = %invoke.cont196
@@ -15917,7 +15917,7 @@ if.then13.i.i775:                                 ; preds = %if.else.i.i773
           to label %invoke.cont208 unwind label %lpad8.loopexit
 
 invoke.cont208:                                   ; preds = %if.else.i.i773, %if.then.i.i777, %if.then13.i.i775
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp209, i32 noundef 16)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp209, i32 noundef 16)
           to label %invoke.cont211 unwind label %lpad210
 
 invoke.cont211:                                   ; preds = %invoke.cont208
@@ -24085,7 +24085,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp15, i32 noundef 4)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, i32 noundef 4)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont10
@@ -24102,7 +24102,7 @@ invoke.cont22:                                    ; preds = %invoke.cont19
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp27, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp27, i32 noundef 8)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont24
@@ -25938,7 +25938,7 @@ ehcleanup115:                                     ; preds = %lpad, %lpad.i, %ehc
 define linkonce_odr hidden void @_ZN6symfpu9remainderIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEEENS_13unpackedFloatIT_EERKNS8_3fptERKS9_SE_(ptr noalias sret(%"class.symfpu::unpackedFloat") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %format, ptr noundef nonnull align 8 dereferenceable(48) %left, ptr noundef nonnull align 8 dereferenceable(48) %right) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode", align 8
-  call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp, i32 noundef 1)
+  call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1)
   invoke void @_ZN6symfpu21remainderWithRoundingIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEEENS_13unpackedFloatIT_EERKNS8_3fptERKNS8_2rmERKS9_SH_(ptr sret(%"class.symfpu::unpackedFloat") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %format, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %left, ptr noundef nonnull align 8 dereferenceable(48) %right)
           to label %invoke.cont unwind label %lpad
 
@@ -27006,7 +27006,7 @@ terminate.lpad.i.i.i70:                           ; preds = %if.then13.i.i.i.i69
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit71: ; preds = %invoke.cont5, %if.then.i.i.i.i63, %if.then13.i.i.i.i69
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp6, i32 noundef 16)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, i32 noundef 16)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit71
@@ -63228,7 +63228,7 @@ entry:
   %ref.tmp84 = alloca %"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition", align 8
   %ref.tmp85 = alloca %"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition", align 8
   %ref.tmp86 = alloca %"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition", align 8
-  call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp2, i32 noundef 1)
+  call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, i32 noundef 1)
   invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeeqERKS4_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(8) %roundingMode, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
@@ -63384,7 +63384,7 @@ terminate.lpad.i.i.i82:                           ; preds = %if.then13.i.i.i.i81
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit72, %if.then.i.i.i.i75, %if.then13.i.i.i.i81
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp17, i32 noundef 2)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, i32 noundef 2)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit
@@ -63450,7 +63450,7 @@ terminate.lpad.i.i.i103:                          ; preds = %if.then13.i.i.i.i10
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit104: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit93, %if.then.i.i.i.i96, %if.then13.i.i.i.i102
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp28, i32 noundef 4)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, i32 noundef 4)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit104
@@ -63609,7 +63609,7 @@ terminate.lpad.i.i.i158:                          ; preds = %if.then13.i.i.i.i15
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit159: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit148, %if.then.i.i.i.i151, %if.then13.i.i.i.i157
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp50, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, i32 noundef 8)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit159
@@ -63737,7 +63737,7 @@ terminate.lpad.i.i.i202:                          ; preds = %if.then13.i.i.i.i20
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit203: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit192, %if.then.i.i.i.i195, %if.then13.i.i.i.i201
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp67, i32 noundef 16)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67, i32 noundef 16)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit203
@@ -65414,12 +65414,12 @@ entry:
   %ref.tmp151 = alloca %"class.symfpu::unpackedFloat", align 8
   %ref.tmp154 = alloca %"class.symfpu::unpackedFloat", align 8
   %ref.tmp155 = alloca %"class.symfpu::unpackedFloat", align 8
-  call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp3, i32 noundef 1)
+  call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, i32 noundef 1)
   invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeeqERKS4_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %roundingMode, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp5, i32 noundef 2)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5, i32 noundef 2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -65431,7 +65431,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp14, i32 noundef 4)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, i32 noundef 4)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont11
@@ -65452,7 +65452,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp28, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, i32 noundef 8)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont25
@@ -65819,7 +65819,7 @@ terminate.lpad.i.i.i195:                          ; preds = %if.then13.i.i.i.i19
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit196: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit185, %if.then.i.i.i.i188, %if.then13.i.i.i.i194
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp54, i32 noundef 1)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54, i32 noundef 1)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeD2Ev.exit196
@@ -65827,7 +65827,7 @@ invoke.cont56:                                    ; preds = %_ZN4cvc58internal6t
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp60, i32 noundef 2)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60, i32 noundef 2)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont58
@@ -65839,7 +65839,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %invoke.cont64
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp68, i32 noundef 16)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp68, i32 noundef 16)
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %invoke.cont66
@@ -65851,7 +65851,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
           to label %invoke.cont74 unwind label %lpad73
 
 invoke.cont74:                                    ; preds = %invoke.cont72
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp77, i32 noundef 4)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp77, i32 noundef 4)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont74
@@ -65867,7 +65867,7 @@ invoke.cont84:                                    ; preds = %invoke.cont81
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont84
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp89, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp89, i32 noundef 8)
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %invoke.cont86
@@ -82718,7 +82718,7 @@ terminate.lpad.i.i.i1019:                         ; preds = %if.then13.i.i.i.i10
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit1020: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit1009, %if.then.i.i.i.i1012, %if.then13.i.i.i.i1018
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp367, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp367, i32 noundef 8)
           to label %invoke.cont369 unwind label %lpad368
 
 invoke.cont369:                                   ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit1020
@@ -86725,7 +86725,7 @@ terminate.lpad.i.i.i195:                          ; preds = %if.then13.i.i.i.i19
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit196: ; preds = %invoke.cont72, %if.then.i.i.i.i188, %if.then13.i.i.i.i194
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 dereferenceable(8) %ref.tmp75, i32 noundef 8)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp75, i32 noundef 8)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit196

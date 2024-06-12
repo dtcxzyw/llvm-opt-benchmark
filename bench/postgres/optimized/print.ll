@@ -2375,7 +2375,7 @@ define internal fastcc void @print_unaligned_vertical(ptr nocapture noundef read
   br i1 %.not.i, label %print_separator.exit, label %35
 
 35:                                               ; preds = %34
-  %36 = tail call i32 @fputs(ptr noundef nonnull readonly %28, ptr noundef %1)
+  %36 = tail call i32 @fputs(ptr noundef nonnull %28, ptr noundef %1)
   br label %print_separator.exit
 
 print_separator.exit:                             ; preds = %32, %34, %35
@@ -2396,7 +2396,7 @@ print_separator.exit:                             ; preds = %32, %34, %35
   br i1 %.not.i55, label %print_separator.exit56, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call i32 @fputs(ptr noundef nonnull readonly %39, ptr noundef %1)
+  %47 = tail call i32 @fputs(ptr noundef nonnull %39, ptr noundef %1)
   br label %print_separator.exit56
 
 print_separator.exit56:                           ; preds = %43, %45, %46
@@ -2430,7 +2430,7 @@ print_separator.exit56:                           ; preds = %43, %45, %46
   br i1 %.not.i57, label %print_separator.exit58, label %66
 
 66:                                               ; preds = %65
-  %67 = tail call i32 @fputs(ptr noundef nonnull readonly %59, ptr noundef %1)
+  %67 = tail call i32 @fputs(ptr noundef nonnull %59, ptr noundef %1)
   br label %print_separator.exit58
 
 print_separator.exit58:                           ; preds = %63, %65, %66
@@ -2460,7 +2460,7 @@ print_separator.exit58:                           ; preds = %63, %65, %66
   br i1 %.not.i59, label %print_separator.exit60, label %83
 
 83:                                               ; preds = %82
-  %84 = tail call i32 @fputs(ptr noundef nonnull readonly %76, ptr noundef %1)
+  %84 = tail call i32 @fputs(ptr noundef nonnull %76, ptr noundef %1)
   br label %print_separator.exit60
 
 print_separator.exit60:                           ; preds = %83, %82, %80, %print_separator.exit58
@@ -2509,7 +2509,7 @@ print_separator.exit56._crit_edge:                ; preds = %print_separator.exi
   br i1 %.not.i61, label %print_separator.exit62, label %106
 
 106:                                              ; preds = %105
-  %107 = tail call i32 @fputs(ptr noundef nonnull readonly %99, ptr noundef %1)
+  %107 = tail call i32 @fputs(ptr noundef nonnull %99, ptr noundef %1)
   br label %print_separator.exit62
 
 print_separator.exit62:                           ; preds = %103, %105, %106
@@ -2536,7 +2536,7 @@ print_separator.exit62:                           ; preds = %103, %105, %106
   br i1 %.not.i63, label %print_separator.exit64, label %117
 
 117:                                              ; preds = %116
-  %118 = tail call i32 @fputs(ptr noundef nonnull readonly %110, ptr noundef %1)
+  %118 = tail call i32 @fputs(ptr noundef nonnull %110, ptr noundef %1)
   br label %print_separator.exit64
 
 print_separator.exit64:                           ; preds = %114, %116, %117
@@ -2608,7 +2608,7 @@ define internal fastcc void @print_unaligned_text(ptr nocapture noundef readonly
   br i1 %.not.i, label %print_separator.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @fputs(ptr noundef nonnull readonly %19, ptr noundef %1)
+  %27 = tail call i32 @fputs(ptr noundef nonnull %19, ptr noundef %1)
   br label %print_separator.exit
 
 print_separator.exit:                             ; preds = %12, %23, %25, %26
@@ -2642,7 +2642,7 @@ print_separator.exit:                             ; preds = %12, %23, %25, %26
   br i1 %.not.i64, label %print_separator.exit65, label %42
 
 42:                                               ; preds = %41
-  %43 = tail call i32 @fputs(ptr noundef nonnull readonly %35, ptr noundef %1)
+  %43 = tail call i32 @fputs(ptr noundef nonnull %35, ptr noundef %1)
   br label %print_separator.exit65
 
 print_separator.exit65:                           ; preds = %42, %41, %39, %.lr.ph
@@ -2691,7 +2691,7 @@ print_separator.exit65:                           ; preds = %42, %41, %39, %.lr.
   br i1 %.not.i66, label %print_separator.exit67, label %65
 
 65:                                               ; preds = %64
-  %66 = tail call i32 @fputs(ptr noundef nonnull readonly %58, ptr noundef %1)
+  %66 = tail call i32 @fputs(ptr noundef nonnull %58, ptr noundef %1)
   br label %print_separator.exit67
 
 print_separator.exit67:                           ; preds = %62, %64, %65
@@ -2731,7 +2731,7 @@ print_separator.exit67._crit_edge86:              ; preds = %print_separator.exi
   br i1 %.not.i68, label %print_separator.exit69, label %84
 
 84:                                               ; preds = %83
-  %85 = tail call i32 @fputs(ptr noundef nonnull readonly %77, ptr noundef %1)
+  %85 = tail call i32 @fputs(ptr noundef nonnull %77, ptr noundef %1)
   br label %print_separator.exit69
 
 print_separator.exit69:                           ; preds = %84, %83, %81, %68
@@ -2809,7 +2809,7 @@ footers_with_default.exit:                        ; preds = %92, %100
   br i1 %.not.i70, label %print_separator.exit71, label %123
 
 123:                                              ; preds = %122
-  %124 = tail call i32 @fputs(ptr noundef nonnull readonly %116, ptr noundef %1)
+  %124 = tail call i32 @fputs(ptr noundef nonnull %116, ptr noundef %1)
   br label %print_separator.exit71
 
 print_separator.exit71:                           ; preds = %123, %122, %120, %.preheader
@@ -6578,7 +6578,7 @@ integer_digits.exit.i.i:                          ; preds = %90, %88
 
 103:                                              ; preds = %96, %integer_digits.exit.i.i
   %.0.i.i = phi i32 [ %102, %96 ], [ 0, %integer_digits.exit.i.i ]
-  %104 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %75, i32 noundef 46) #19
+  %104 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %75, i32 noundef 46) #19
   %.not.i.i = icmp eq ptr %104, null
   br i1 %.not.i.i, label %additional_numeric_locale_len.exit.i, label %105
 

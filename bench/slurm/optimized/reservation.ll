@@ -17720,7 +17720,7 @@ define internal fastcc range(i32 0, 2017) i32 @_pick_nodes_ordered(ptr noundef %
   br label %170
 
 170:                                              ; preds = %168, %165, %162
-  %171 = call fastcc ptr @_resv_select(ptr noundef nonnull readonly %0, ptr noundef nonnull %114)
+  %171 = call fastcc ptr @_resv_select(ptr noundef nonnull %0, ptr noundef nonnull %114)
   br label %.thread138.i
 
 172:                                              ; preds = %.thread.i, %158
@@ -18094,7 +18094,7 @@ _check_job_compatibility.exit.i:                  ; preds = %341, %._crit_edge.i
   %346 = load ptr, ptr %115, align 8
   %347 = call ptr @bit_copy(ptr noundef %346) #21
   store ptr %347, ptr %10, align 8
-  %348 = call fastcc ptr @_resv_select(ptr noundef readonly %0, ptr noundef nonnull %114)
+  %348 = call fastcc ptr @_resv_select(ptr noundef %0, ptr noundef nonnull %114)
   %.not92.i = icmp eq ptr %348, null
   br i1 %.not92.i, label %349, label %399
 
@@ -18175,7 +18175,7 @@ _check_job_compatibility.exit.i:                  ; preds = %341, %._crit_edge.i
   %386 = load ptr, ptr %115, align 8
   %387 = call ptr @bit_copy(ptr noundef %386) #21
   store ptr %387, ptr %10, align 8
-  %388 = call fastcc ptr @_resv_select(ptr noundef nonnull readonly %0, ptr noundef nonnull %114)
+  %388 = call fastcc ptr @_resv_select(ptr noundef nonnull %0, ptr noundef nonnull %114)
   %.not97.i = icmp eq ptr %388, null
   br i1 %.not97.i, label %389, label %395
 

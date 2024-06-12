@@ -1899,7 +1899,7 @@ Vec_FltFill.exit:                                 ; preds = %.lr.ph.i65, %Vec_Fl
   store ptr %133, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %14, i64 120
   %136 = getelementptr inbounds i8, ptr %14, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %136, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %136, i8 0, i64 16, i1 false)
   store i32 20, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %14, i64 124
   store i32 1048575, ptr %137, align 4
@@ -4204,7 +4204,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -4223,7 +4223,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !49
 
@@ -4373,7 +4373,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -4393,7 +4393,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !49
 
@@ -4576,7 +4576,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
   %273 = load ptr, ptr %186, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val = load i32, ptr %274, align 4
@@ -5022,7 +5022,7 @@ Jf_CutMerge2.exit.thread413:                      ; preds = %192
   %193 = getelementptr inbounds i8, ptr %188, i64 28
   %194 = shl nuw nsw i32 %190, 2
   %195 = zext nneg i32 %194 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %193, ptr nonnull readonly align 4 %106, i64 %195, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %193, ptr nonnull align 4 %106, i64 %195, i1 false)
   br label %233
 
 .lr.ph.preheader.i256:                            ; preds = %192
@@ -5111,7 +5111,7 @@ Jf_CutMerge2.exit:                                ; preds = %222
   %230 = getelementptr inbounds i8, ptr %188, i64 28
   %231 = shl nuw nsw i32 %190, 2
   %232 = zext nneg i32 %231 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %230, ptr nonnull readonly align 4 %106, i64 %232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %230, ptr nonnull align 4 %106, i64 %232, i1 false)
   %.not206 = icmp eq i32 %228, %.1.i
   br i1 %.not206, label %Jf_ObjAddCutToStore.exit, label %Jf_CutMerge2.exit._crit_edge
 
@@ -7424,11 +7424,11 @@ Jf_CutIsTriv.exit.thread:                         ; preds = %34, %Jf_CutIsTriv.e
   br i1 %29, label %48, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @Jf_CutAreaRefEdge_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %.05496)
+  %47 = tail call i32 @Jf_CutAreaRefEdge_rec(ptr noundef nonnull %0, ptr noundef nonnull %.05496)
   br label %50
 
 48:                                               ; preds = %43
-  %49 = tail call i32 @Jf_CutAreaRef_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %.05496)
+  %49 = tail call i32 @Jf_CutAreaRef_rec(ptr noundef nonnull %0, ptr noundef nonnull %.05496)
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -7861,7 +7861,7 @@ define void @Jf_ManPropagateEla(ptr nocapture noundef readonly %0, i32 noundef %
   %63 = load ptr, ptr %18, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 4
   store i32 0, ptr %64, align 4
-  %65 = tail call i32 @Jf_CutCheckMffc_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %62, i32 noundef 50)
+  %65 = tail call i32 @Jf_CutCheckMffc_rec(ptr noundef nonnull %0, ptr noundef nonnull %62, i32 noundef 50)
   %66 = load ptr, ptr %18, align 8
   %67 = getelementptr i8, ptr %66, i64 4
   %.val13.i = load i32, ptr %67, align 4
@@ -8182,10 +8182,10 @@ Vec_IntPush.exit242:                              ; preds = %Vec_IntStart.exit23
   br i1 %.not.i243, label %Abc_UtilStrsav.exit, label %74
 
 74:                                               ; preds = %70
-  %75 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %73) #32
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #32
   %76 = add i64 %75, 1
   %77 = tail call noalias ptr @malloc(i64 noundef %76) #28
-  %78 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %73) #29
+  %78 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %73) #29
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %70, %74
@@ -8198,10 +8198,10 @@ Abc_UtilStrsav.exit:                              ; preds = %70, %74
   br i1 %.not.i244, label %Abc_UtilStrsav.exit245, label %83
 
 83:                                               ; preds = %Abc_UtilStrsav.exit
-  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %82) #32
+  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #32
   %85 = add i64 %84, 1
   %86 = tail call noalias ptr @malloc(i64 noundef %85) #28
-  %87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull readonly dereferenceable(1) %82) #29
+  %87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %82) #29
   br label %Abc_UtilStrsav.exit245
 
 Abc_UtilStrsav.exit245:                           ; preds = %Abc_UtilStrsav.exit, %83
@@ -9899,10 +9899,10 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not.i172, label %Abc_UtilStrsav.exit, label %35
 
 35:                                               ; preds = %Vec_IntStartFull.exit
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #32
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #32
   %37 = add i64 %36, 1
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #28
-  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %34) #29
+  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %34) #29
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStartFull.exit, %35
@@ -9915,10 +9915,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStartFull.ex
   br i1 %.not.i173, label %Abc_UtilStrsav.exit174, label %44
 
 44:                                               ; preds = %Abc_UtilStrsav.exit
-  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %43) #32
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #32
   %46 = add i64 %45, 1
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #28
-  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(1) %43) #29
+  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %43) #29
   br label %Abc_UtilStrsav.exit174
 
 Abc_UtilStrsav.exit174:                           ; preds = %Abc_UtilStrsav.exit, %44
@@ -10735,7 +10735,7 @@ define ptr @Jf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %or.cond.i, label %65, label %66
 
 65:                                               ; preds = %60
-  tail call void @Jf_ObjComputeBestCut(ptr noundef nonnull readonly %16, ptr noundef nonnull %41, i32 noundef %34, i32 noundef 0)
+  tail call void @Jf_ObjComputeBestCut(ptr noundef nonnull %16, ptr noundef nonnull %41, i32 noundef %34, i32 noundef 0)
   br label %66
 
 66:                                               ; preds = %65, %60, %50
@@ -10746,7 +10746,7 @@ define ptr @Jf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %69, label %40, label %Jf_ManPropagateFlow.exit, !llvm.loop !82
 
 Jf_ManPropagateFlow.exit:                         ; preds = %40, %66, %33
-  %70 = tail call i32 @Jf_ManComputeRefs(ptr noundef nonnull readonly %16)
+  %70 = tail call i32 @Jf_ManComputeRefs(ptr noundef nonnull %16)
   tail call void @Jf_ManPrintStats(ptr noundef nonnull %16, ptr noundef nonnull @.str.30)
   br label %71
 
@@ -10955,7 +10955,7 @@ Vec_MemDumpTruthTables.exit:                      ; preds = %Vec_MemDump.exit.i,
 define ptr @Jf_ManDeriveCnf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Jf_Par_t_, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
   store i32 6, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 8, ptr %5, align 4
@@ -10971,7 +10971,7 @@ define ptr @Jf_ManDeriveCnf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 84
   %12 = getelementptr inbounds i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %11, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 12, i1 false)
   store i32 8, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 148
   store i32 16, ptr %13, align 4
@@ -10987,7 +10987,7 @@ define ptr @Jf_ManDeriveCnf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 define ptr @Jf_ManDeriveCnfMiter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Jf_Par_t_, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
   store i32 6, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 8, ptr %5, align 4
@@ -11004,7 +11004,7 @@ define ptr @Jf_ManDeriveCnfMiter(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %11 = getelementptr inbounds i8, ptr %3, i64 84
   %12 = getelementptr inbounds i8, ptr %3, i64 136
   %13 = getelementptr inbounds i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %11, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 12, i1 false)
   store i32 8, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 148
   store i32 16, ptr %14, align 4
@@ -11041,7 +11041,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5)
   %13 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(264) %13, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %13, i8 0, i64 256, i1 false)
   store i32 6, ptr %5, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 8, ptr %14, align 4
@@ -11058,7 +11058,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %20 = getelementptr inbounds i8, ptr %5, i64 84
   %21 = getelementptr inbounds i8, ptr %5, i64 136
   %22 = getelementptr inbounds i8, ptr %5, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %20, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 12, i1 false)
   store i32 8, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 148
   store i32 16, ptr %23, align 4
@@ -11116,7 +11116,7 @@ define void @Jf_ManTestCnf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Jf_Par_t_, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(264) %3, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %3, i8 0, i64 256, i1 false)
   store i32 6, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 8, ptr %4, align 4
@@ -11132,7 +11132,7 @@ define void @Jf_ManTestCnf(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 84
   %11 = getelementptr inbounds i8, ptr %2, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %10, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 12, i1 false)
   store i32 8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 148
   store i32 16, ptr %12, align 4

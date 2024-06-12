@@ -53,7 +53,7 @@ define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %20, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %1, i64 %2, i1 false)
   br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit.i:               ; preds = %19, %18, %7

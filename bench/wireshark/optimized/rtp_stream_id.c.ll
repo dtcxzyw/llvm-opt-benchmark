@@ -10,7 +10,7 @@ define hidden void @rtpstream_id_copy(ptr nocapture noundef readonly %0, ptr noc
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %3, ptr %1, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %copy_address.exit, label %9
@@ -38,7 +38,7 @@ copy_address.exit:                                ; preds = %2, %9
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store i32 %20, ptr %18, align 8
   %25 = icmp eq i32 %22, 0
   br i1 %25, label %copy_address.exit10, label %26
@@ -78,7 +78,7 @@ define hidden void @rtpstream_id_copy_pinfo(ptr nocapture noundef readonly %0, p
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %6, ptr %1, align 8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %copy_address.exit, label %12
@@ -107,7 +107,7 @@ copy_address.exit:                                ; preds = %4, %12
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 240
   %28 = load ptr, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 %24, ptr %22, align 8
   %29 = icmp eq i32 %26, 0
   br i1 %29, label %copy_address.exit16, label %copy_address.exit16.sink.split
@@ -119,7 +119,7 @@ copy_address.exit:                                ; preds = %4, %12
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 240
   %36 = load ptr, ptr %35, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %32, ptr %1, align 8
   %37 = icmp eq i32 %34, 0
   br i1 %37, label %copy_address.exit17, label %38
@@ -148,7 +148,7 @@ copy_address.exit17:                              ; preds = %30, %38
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 216
   %54 = load ptr, ptr %53, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %50, ptr %48, align 8
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %copy_address.exit16, label %copy_address.exit16.sink.split
@@ -251,7 +251,7 @@ define hidden void @rtpstream_id_free(ptr nocapture noundef %0) local_unnamed_ad
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %1, %3, %7, %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %.not.i.i3 = icmp eq i32 %12, 0

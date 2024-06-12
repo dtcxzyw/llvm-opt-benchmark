@@ -34,7 +34,7 @@ InitSha512.exit:                                  ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %InitSha512_Family.exit
 
 InitSha512_Family.exit:                           ; preds = %entry, %InitSha512.exit
@@ -69,7 +69,7 @@ InitSha512_224.exit:                              ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %InitSha512_Family.exit
 
 InitSha512_Family.exit:                           ; preds = %entry, %InitSha512_224.exit
@@ -104,7 +104,7 @@ InitSha512_256.exit:                              ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %InitSha512_Family.exit
 
 InitSha512_Family.exit:                           ; preds = %entry, %InitSha512_256.exit
@@ -264,7 +264,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords64.exit.i:                        ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %digest.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %digest.i, i64 64, i1 false)
   br label %Sha512FinalRaw.exit
 
 Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverseWords64.exit.i
@@ -287,7 +287,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %InitSha512.exit, label %Sha512_Family_Final.exit
 
 InitSha512.exit:                                  ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha512, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha512, i64 64, i1 false)
   store i64 7640891576956012808, ptr %sha512, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %sha512, i64 8
   store i64 -4942790177534073029, ptr %arrayidx2.i, align 8
@@ -306,7 +306,7 @@ InitSha512.exit:                                  ; preds = %if.end.i
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %Sha512_Family_Final.exit
 
 Sha512_Family_Final.exit:                         ; preds = %entry, %if.end.i, %InitSha512.exit
@@ -341,7 +341,7 @@ InitSha512.exit.i:                                ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha512_ex.exit
 
 wc_InitSha512_ex.exit:                            ; preds = %entry, %InitSha512.exit.i
@@ -489,7 +489,7 @@ if.end4:                                          ; preds = %if.end
   %buffLen.i = getelementptr inbounds i8, ptr %sha384, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha384, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -617,7 +617,7 @@ if.end:                                           ; preds = %entry
   %buffLen.i = getelementptr inbounds i8, ptr %sha384, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha384, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -652,7 +652,7 @@ if.end.i:                                         ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha384, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha384, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha384_ex.exit
 
 wc_InitSha384_ex.exit:                            ; preds = %entry, %if.end.i
@@ -725,13 +725,13 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
   %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512.exit.i, label %for.body.i.i.i.preheader
 
 InitSha512.exit.i:                                ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %tmpSha512.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 16 dereferenceable(64) %tmpSha512.i, i64 64, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.end.i.i, %InitSha512.exit.i
@@ -796,7 +796,7 @@ InitSha512_224.exit.i:                            ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha512_224_ex.exit
 
 wc_InitSha512_224_ex.exit:                        ; preds = %entry, %InitSha512_224.exit.i
@@ -817,7 +817,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -847,7 +847,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords64.exit.i:                        ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %digest.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %digest.i, i64 28, i1 false)
   br label %Sha512FinalRaw.exit
 
 Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverseWords64.exit.i
@@ -870,7 +870,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %InitSha512_224.exit, label %Sha512_Family_Final.exit
 
 InitSha512_224.exit:                              ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha512, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha512, i64 28, i1 false)
   store i64 -8341449602262348382, ptr %sha512, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %sha512, i64 8
   store i64 8350123849800275158, ptr %arrayidx2.i, align 8
@@ -889,7 +889,7 @@ InitSha512_224.exit:                              ; preds = %if.end.i
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %Sha512_Family_Final.exit
 
 Sha512_Family_Final.exit:                         ; preds = %entry, %if.end.i, %InitSha512_224.exit
@@ -962,13 +962,13 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
   %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_224.exit.i, label %for.body.i.i.i.preheader
 
 InitSha512_224.exit.i:                            ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha512.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha512.i, i64 28, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.end.i.i, %InitSha512_224.exit.i
@@ -998,7 +998,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha512Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %dst, ptr noundef nonnull readonly align 8 dereferenceable(224) %src, i64 224, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull align 8 dereferenceable(224) %src, i64 224, i1 false)
   br label %wc_Sha512Copy.exit
 
 wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
@@ -1033,7 +1033,7 @@ InitSha512_256.exit.i:                            ; preds = %entry
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha, i64 192
   store i32 0, ptr %buffLen.i.i, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %sha, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i.i, i8 0, i64 16, i1 false)
   br label %wc_InitSha512_256_ex.exit
 
 wc_InitSha512_256_ex.exit:                        ; preds = %entry, %InitSha512_256.exit.i
@@ -1054,7 +1054,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %wc_Sha512Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef readonly %data, i32 noundef %len)
+  %call.i = tail call fastcc i32 @Sha512Update(ptr noundef nonnull %sha, ptr noundef %data, i32 noundef %len)
   br label %wc_Sha512Update.exit
 
 wc_Sha512Update.exit:                             ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -1084,7 +1084,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   br i1 %exitcond.not.i.i, label %ByteReverseWords64.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords64.exit.i:                        ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %digest.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %digest.i, i64 32, i1 false)
   br label %Sha512FinalRaw.exit
 
 Sha512FinalRaw.exit:                              ; preds = %entry, %ByteReverseWords64.exit.i
@@ -1107,7 +1107,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %InitSha512_256.exit, label %Sha512_Family_Final.exit
 
 InitSha512_256.exit:                              ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha512, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha512, i64 32, i1 false)
   store i64 2463787394917988140, ptr %sha512, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %sha512, i64 8
   store i64 -6965556091613846334, ptr %arrayidx2.i, align 8
@@ -1126,7 +1126,7 @@ InitSha512_256.exit:                              ; preds = %if.end.i
   %buffLen.i = getelementptr inbounds i8, ptr %sha512, i64 192
   store i32 0, ptr %buffLen.i, align 8
   %loLen.i = getelementptr inbounds i8, ptr %sha512, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loLen.i, i8 0, i64 16, i1 false)
   br label %Sha512_Family_Final.exit
 
 Sha512_Family_Final.exit:                         ; preds = %entry, %if.end.i, %InitSha512_256.exit
@@ -1199,13 +1199,13 @@ entry:
   br i1 %or.cond.i, label %Sha512_Family_GetHash.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha512, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha512.i, ptr noundef nonnull align 8 dereferenceable(224) %sha512, i64 224, i1 false)
   %call.i.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha512.i)
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %InitSha512_256.exit.i, label %for.body.i.i.i.preheader
 
 InitSha512_256.exit.i:                            ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha512.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha512.i, i64 32, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.end.i.i, %InitSha512_256.exit.i
@@ -1235,7 +1235,7 @@ entry:
   br i1 %or.cond.i, label %wc_Sha512Copy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %dst, ptr noundef nonnull readonly align 8 dereferenceable(224) %src, i64 224, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %dst, ptr noundef nonnull align 8 dereferenceable(224) %src, i64 224, i1 false)
   br label %wc_Sha512Copy.exit
 
 wc_Sha512Copy.exit:                               ; preds = %entry, %if.end.i
@@ -1253,13 +1253,13 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i5
 
 if.end.i5:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull readonly align 8 dereferenceable(224) %sha384, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %tmpSha384, ptr noundef nonnull align 8 dereferenceable(224) %sha384, i64 224, i1 false)
   %call.i = call fastcc i32 @Sha512Final(ptr noundef nonnull %tmpSha384)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %for.body.i.i.preheader
 
 if.end4.i:                                        ; preds = %if.end.i5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %hash, ptr noundef nonnull align 16 dereferenceable(48) %tmpSha384, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 16 dereferenceable(48) %tmpSha384, i64 48, i1 false)
   br label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.end4.i, %if.end.i5

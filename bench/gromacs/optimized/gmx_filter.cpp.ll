@@ -818,7 +818,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit259:       ; preds = %205, %208
   br label %._crit_edge378
 
 ._crit_edge378:                                   ; preds = %.lr.ph377.preheader, %299
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %12, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   br i1 %137, label %.preheader318, label %._crit_edge384
 
 .preheader318:                                    ; preds = %._crit_edge378, %320

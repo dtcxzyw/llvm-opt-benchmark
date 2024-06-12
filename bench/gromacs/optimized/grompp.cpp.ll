@@ -5918,12 +5918,12 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit434: ; preds = %_ZN3gmx14Lo
   %1633 = getelementptr inbounds i8, ptr %113, i64 176
   %1634 = load i32, ptr %1633, align 8
   %1635 = getelementptr inbounds i8, ptr %113, i64 296
-  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef nonnull readonly %127, ptr %1629, i1 noundef zeroext false, ptr noundef %1628, i32 noundef %1632, i32 noundef %1634, ptr noundef nonnull %1635, ptr noundef nonnull %118, ptr noundef nonnull readonly align 8 dereferenceable(40) %117)
+  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef nonnull %127, ptr %1629, i1 noundef zeroext false, ptr noundef %1628, i32 noundef %1632, i32 noundef %1634, ptr noundef nonnull %1635, ptr noundef nonnull %118, ptr noundef nonnull align 8 dereferenceable(40) %117)
           to label %.noexc435 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc435:                                        ; preds = %1627
   %1636 = getelementptr inbounds i8, ptr %113, i64 308
-  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef nonnull readonly %127, ptr %1629, i1 noundef zeroext true, ptr noundef %1630, i32 noundef %1632, i32 noundef %1634, ptr noundef nonnull %1636, ptr noundef nonnull %118, ptr noundef nonnull readonly align 8 dereferenceable(40) %117)
+  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef nonnull %127, ptr %1629, i1 noundef zeroext true, ptr noundef %1630, i32 noundef %1632, i32 noundef %1634, ptr noundef nonnull %1636, ptr noundef nonnull %118, ptr noundef nonnull align 8 dereferenceable(40) %117)
           to label %_ZL10gen_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEPKcS7_15RefCoordScaling7PbcTypePfSA_P14WarningHandlerRKNS1_8MDLoggerE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL10gen_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEPKcS7_15RefCoordScaling7PbcTypePfSA_P14WarningHandlerRKNS1_8MDLoggerE.exit: ; preds = %.noexc435, %_ZNSt10filesystem7__cxx114pathD2Ev.exit413, %_ZL10nint_ftypeP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEi.exit427
@@ -15933,7 +15933,7 @@ _ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit:       ; preds = %._crit_edge
   br label %115
 
 115:                                              ; preds = %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit, %49
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %116 = sext i32 %32 to i64
   %117 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.11, i32 noundef 972, i64 noundef %116, i64 noundef 1)
   %118 = getelementptr inbounds i8, ptr %0, i64 136

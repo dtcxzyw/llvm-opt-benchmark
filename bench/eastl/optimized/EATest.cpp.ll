@@ -2072,7 +2072,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
   store i8 0, ptr %mbForceReport.i, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 80
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mTests.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 176), ptr %5, align 8
   %mnTestResult = getelementptr inbounds i8, ptr %this, i64 112
@@ -3199,7 +3199,7 @@ _ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit:      ; preds = %if.then.i.i.i.i.i.i
   store i8 0, ptr %mbForceReport.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 80
   %mTests.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %mTests.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests.i.i, i8 0, i64 24, i1 false)
   %mnTestResult.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 -2147483647, ptr %mnTestResult.i, align 8
   %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -4543,7 +4543,7 @@ init.check:                                       ; preds = %entry
 
 invoke.cont:                                      ; preds = %init.check
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 16), ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, i64 8), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, i64 8), i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2EA8UnitTest14TestCollectionD2Ev, ptr nonnull @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, ptr nonnull @__dso_handle) #32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #32
   br label %init.end

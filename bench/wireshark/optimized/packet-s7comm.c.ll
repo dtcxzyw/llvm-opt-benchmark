@@ -6542,7 +6542,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %171 = getelementptr inbounds i8, ptr %158, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = load i32, ptr %158, align 8
-  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %163, i32 noundef %165, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %173, i32 noundef %155) #7
+  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %163, i32 noundef %165, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %173, i32 noundef %155) #7
   br label %s7comm_get_timestring_from_s7time.exit
 
 s7comm_get_timestring_from_s7time.exit:           ; preds = %102, %159
@@ -6583,7 +6583,7 @@ s7comm_get_timestring_from_s7time.exit:           ; preds = %102, %159
   %201 = getelementptr inbounds i8, ptr %188, i64 4
   %202 = load i32, ptr %201, align 4
   %203 = load i32, ptr %188, align 8
-  %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %193, i32 noundef %195, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %185) #7
+  %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %193, i32 noundef %195, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %185) #7
   br label %s7comm_get_timestring_from_s7time.exit246
 
 s7comm_get_timestring_from_s7time.exit246:        ; preds = %s7comm_get_timestring_from_s7time.exit, %189

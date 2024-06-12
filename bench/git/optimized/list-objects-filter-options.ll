@@ -305,7 +305,7 @@ if.end3.i89:                                      ; preds = %if.end54
 _.exit92:                                         ; preds = %if.end54, %if.end3.i89
   %retval.0.i91 = phi ptr [ %call.i90, %if.end3.i89 ], [ @.str.18, %if.end54 ]
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %errbuf, ptr noundef %retval.0.i91, ptr noundef nonnull %arg) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then30, %_.exit61, %entry, %_.exit92, %if.then46, %if.end42, %_.exit77, %if.then25, %if.end21, %_.exit, %if.then11, %if.then5
@@ -446,7 +446,7 @@ do.end.i:                                         ; preds = %do.body3.i.do.end.i
   store i64 %add.i, ptr %sub_nr.i, align 8
   %12 = load ptr, ptr %sub.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.list_objects_filter_options, ptr %12, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   %buf.i = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load ptr, ptr %buf.i, align 8
   %call26.i = tail call ptr @url_percent_decode(ptr noundef %13) #14
@@ -579,7 +579,7 @@ if.then2:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   %call.i32 = tail call ptr @xcalloc(i64 noundef 2, i64 noundef 88) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call.i32, ptr noundef nonnull align 8 dereferenceable(88) %filter_options, i64 88, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 64, i1 false)
   %sub.i = getelementptr inbounds i8, ptr %filter_options, i64 80
   store ptr %call.i32, ptr %sub.i, align 8
   %sub_alloc.i = getelementptr inbounds i8, ptr %filter_options, i64 72
@@ -723,7 +723,7 @@ do.end:                                           ; preds = %do.body8.do.end_cri
   store i64 %add, ptr %sub_nr, align 8
   %24 = load ptr, ptr %sub29, align 8
   %arrayidx = getelementptr inbounds %struct.list_objects_filter_options, ptr %24, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %arrayidx, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx, ptr noundef %arg, ptr noundef nonnull %errbuf)
   br label %if.end37
 
@@ -861,7 +861,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %sub2 = getelementptr inbounds i8, ptr %filter_options, i64 80
   %4 = load ptr, ptr %sub2, align 8
   tail call void @free(ptr noundef %4) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %for.end

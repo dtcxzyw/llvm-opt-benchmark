@@ -58,8 +58,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   store float 0x41F0000000000000, ptr %highQuantity.i.i, align 4
   %descriptor.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 20
   %description.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %descriptor.i.i, i8 -1, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %description.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %descriptor.i.i, i8 -1, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %description.i.i, i8 0, i64 32, i1 false)
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 72
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 1356
   br i1 %arrayctor.done.i, label %_ZN3dpx13GenericHeaderC2Ev.exit, label %arrayctor.loop.i
@@ -82,11 +82,11 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i.i, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey.i.i, align 4
   %reserved1.i.i = getelementptr inbounds i8, ptr %this, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(104) %reserved1.i.i, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1.i.i, i8 0, i64 104, i1 false)
   %imageOrientation.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %reserved2.i.i = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation.i.i, i8 -1, i64 12, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %reserved2.i.i, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2.i.i, i8 0, i64 52, i1 false)
   %yOffset.i.i = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset.i.i, align 4
   %xOffset.i.i = getelementptr inbounds i8, ptr %this, i64 1408
@@ -104,11 +104,11 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   %xScannedSize.i.i = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i.i, align 4
   %reserved3.i.i = getelementptr inbounds i8, ptr %this, i64 1644
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %reserved3.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %this, i64 1664
   %heldCount.i.i = getelementptr inbounds i8, ptr %this, i64 1720
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i.i, align 4
   %sequenceLength.i.i = getelementptr inbounds i8, ptr %this, i64 1716
   store i32 -1, ptr %sequenceLength.i.i, align 4
@@ -117,10 +117,10 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   %frameRate.i.i = getelementptr inbounds i8, ptr %this, i64 1724
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i.i, align 4
   %frameId.i.i = getelementptr inbounds i8, ptr %this, i64 1732
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(188) %frameId.i.i, i8 0, i64 188, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i.i, i8 0, i64 188, i1 false)
   %timeCode.i.i = getelementptr inbounds i8, ptr %this, i64 1920
   %videoSignal.i.i = getelementptr inbounds i8, ptr %this, i64 1930
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(10) %timeCode.i.i, i8 -1, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %timeCode.i.i, i8 -1, i64 10, i1 false)
   store i8 0, ptr %videoSignal.i.i, align 2
   %zero.i.i = getelementptr inbounds i8, ptr %this, i64 1931
   store i8 -1, ptr %zero.i.i, align 1
@@ -131,7 +131,7 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i.i, align 4
   %reserved5.i.i = getelementptr inbounds i8, ptr %this, i64 1972
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %reserved5.i.i, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i.i, i8 0, i64 76, i1 false)
   %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
   store i8 1, ptr %datumSwap, align 4
   ret void
@@ -157,8 +157,8 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   store float 0x41F0000000000000, ptr %highQuantity.i, align 4
   %descriptor.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 20
   %description.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %descriptor.i, i8 -1, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %description.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %descriptor.i, i8 -1, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %description.i, i8 0, i64 32, i1 false)
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 72
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1356
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -181,11 +181,11 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey.i, align 4
   %reserved1.i = getelementptr inbounds i8, ptr %this, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(104) %reserved1.i, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1.i, i8 0, i64 104, i1 false)
   %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
   %reserved2.i = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation.i, i8 -1, i64 12, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %reserved2.i, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2.i, i8 0, i64 52, i1 false)
   %yOffset.i = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset.i, align 4
   %xOffset.i = getelementptr inbounds i8, ptr %this, i64 1408
@@ -203,7 +203,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %xScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i, align 4
   %reserved3.i = getelementptr inbounds i8, ptr %this, i64 1644
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   ret void
 }
@@ -212,7 +212,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 define hidden void @_ZN3dpx14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this) unnamed_addr #5 align 2 {
 entry:
   %heldCount.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(48) %this, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i, align 4
   %sequenceLength.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 -1, ptr %sequenceLength.i, align 4
@@ -221,10 +221,10 @@ entry:
   %frameRate.i = getelementptr inbounds i8, ptr %this, i64 60
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i, align 4
   %frameId.i = getelementptr inbounds i8, ptr %this, i64 68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
   %timeCode.i = getelementptr inbounds i8, ptr %this, i64 256
   %videoSignal.i = getelementptr inbounds i8, ptr %this, i64 266
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(10) %timeCode.i, i8 -1, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %timeCode.i, i8 -1, i64 10, i1 false)
   store i8 0, ptr %videoSignal.i, align 2
   %zero.i = getelementptr inbounds i8, ptr %this, i64 267
   store i8 -1, ptr %zero.i, align 1
@@ -235,7 +235,7 @@ entry:
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i, align 4
   %reserved5.i = getelementptr inbounds i8, ptr %this, i64 308
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
   ret void
 }
 
@@ -259,11 +259,11 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey, align 4
   %reserved1 = getelementptr inbounds i8, ptr %this, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(104) %reserved1, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1, i8 0, i64 104, i1 false)
   %imageOrientation = getelementptr inbounds i8, ptr %this, i64 768
   %reserved2 = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation, i8 -1, i64 12, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %reserved2, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2, i8 0, i64 52, i1 false)
   %yOffset = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset, align 4
   %xOffset = getelementptr inbounds i8, ptr %this, i64 1408
@@ -281,7 +281,7 @@ entry:
   %xScannedSize = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize, align 4
   %reserved3 = getelementptr inbounds i8, ptr %this, i64 1644
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %reserved3, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -315,7 +315,7 @@ entry:
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma, align 4
   %reserved5 = getelementptr inbounds i8, ptr %this, i64 308
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %reserved5, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5, i8 0, i64 76, i1 false)
   ret void
 }
 
@@ -334,7 +334,7 @@ entry:
   %descriptor = getelementptr inbounds i8, ptr %this, i64 20
   %description = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %descriptor, i8 -1, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %description, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %description, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -1628,11 +1628,11 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey.i, align 4
   %reserved1.i = getelementptr inbounds i8, ptr %this, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(104) %reserved1.i, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1.i, i8 0, i64 104, i1 false)
   %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
   %reserved2.i = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation.i, i8 -1, i64 12, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %reserved2.i, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2.i, i8 0, i64 52, i1 false)
   %yOffset.i = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset.i, align 4
   %xOffset.i = getelementptr inbounds i8, ptr %this, i64 1408
@@ -1650,11 +1650,11 @@ entry:
   %xScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i, align 4
   %reserved3.i = getelementptr inbounds i8, ptr %this, i64 1644
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1664
   %heldCount.i = getelementptr inbounds i8, ptr %this, i64 1720
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(48) %add.ptr, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %add.ptr, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i, align 4
   %sequenceLength.i = getelementptr inbounds i8, ptr %this, i64 1716
   store i32 -1, ptr %sequenceLength.i, align 4
@@ -1663,10 +1663,10 @@ entry:
   %frameRate.i = getelementptr inbounds i8, ptr %this, i64 1724
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i, align 4
   %frameId.i = getelementptr inbounds i8, ptr %this, i64 1732
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
   %timeCode.i = getelementptr inbounds i8, ptr %this, i64 1920
   %videoSignal.i = getelementptr inbounds i8, ptr %this, i64 1930
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(10) %timeCode.i, i8 -1, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %timeCode.i, i8 -1, i64 10, i1 false)
   store i8 0, ptr %videoSignal.i, align 2
   %zero.i = getelementptr inbounds i8, ptr %this, i64 1931
   store i8 -1, ptr %zero.i, align 1
@@ -1677,7 +1677,7 @@ entry:
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i, align 4
   %reserved5.i = getelementptr inbounds i8, ptr %this, i64 1972
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
   ret void
 }
 

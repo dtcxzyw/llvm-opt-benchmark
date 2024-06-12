@@ -205,7 +205,7 @@ if.then12:                                        ; preds = %do.body10
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.then12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %9, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %9, i8 0, i64 14, i1 false)
   %.pre = load ptr, ptr %io2, align 8
   %arrayidx30.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %idxprom
   %.pre68 = load ptr, ptr %arrayidx30.phi.trans.insert, align 8
@@ -1029,7 +1029,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %changelist, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %changelist, i8 0, i64 16, i1 false)
   ret void
 }
 

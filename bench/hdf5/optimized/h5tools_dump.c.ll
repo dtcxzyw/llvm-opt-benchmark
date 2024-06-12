@@ -4727,7 +4727,7 @@ define zeroext i1 @h5tools_dump_region_data_points(i64 noundef %0, i64 noundef %
 352:                                              ; preds = %349
   %353 = zext i32 %351 to i64
   %354 = shl nuw nsw i64 %353, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %324, ptr readonly align 8 %323, i64 %354, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %324, ptr align 8 %323, i64 %354, i1 false)
   %355 = mul i64 %.080113.i, %66
   store i64 %355, ptr %325, align 8
   %356 = add i32 %351, -1

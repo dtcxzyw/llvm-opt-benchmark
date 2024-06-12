@@ -1842,7 +1842,7 @@ define internal void @latitude_base(ptr nocapture noundef writeonly %0, i64 noun
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = lshr i64 %3, 25
   %15 = and i64 %1, 33554431
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.957..str.956.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.957..str.956.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
   ret void
 }
 
@@ -1867,7 +1867,7 @@ define internal void @longitude_base(ptr nocapture noundef writeonly %0, i64 nou
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = lshr i64 %3, 25
   %15 = and i64 %1, 33554431
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.960..str.959.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.960..str.959.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
   ret void
 }
 

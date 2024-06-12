@@ -2987,9 +2987,9 @@ _ZNSt12_Vector_baseISt4pairISt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaI
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i64 16), ptr %9, align 8
   %76 = getelementptr inbounds i8, ptr %9, i64 8
   %77 = getelementptr inbounds i8, ptr %9, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %76, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, i8 0, i64 40, i1 false)
   store i64 512, ptr %77, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %78 = invoke fastcc noundef ptr @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEE8AllocateEv(ptr noundef nonnull align 8 dereferenceable(56) %9)
           to label %79 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit296.thread
@@ -3883,7 +3883,7 @@ _ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE
   br i1 %517, label %518, label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 518:                                              ; preds = %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %515, ptr align 8 %.val.i178, i64 %493, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %515, ptr align 8 %.val.i178, i64 %493, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i
 
 _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i: ; preds = %518, %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -3986,7 +3986,7 @@ _ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE
   br i1 %568, label %569, label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i191
 
 569:                                              ; preds = %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i190
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %566, ptr align 8 %.val17.i.i.i, i64 %555, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %566, ptr align 8 %.val17.i.i.i, i64 %555, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i191
 
 _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i191: ; preds = %569, %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i190
@@ -4162,7 +4162,7 @@ _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE9push_b
 
 656:                                              ; preds = %.critedge113
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i64 16), ptr %14, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %146, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %146, i8 0, i64 40, i1 false)
   store i64 512, ptr %147, align 8
   store ptr %148, ptr %15, align 8
   store i64 1, ptr %149, align 8
@@ -4393,7 +4393,7 @@ _ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE
   br i1 %749, label %750, label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i314
 
 750:                                              ; preds = %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i313
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %747, ptr align 8 %.val.i304, i64 %725, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %747, ptr align 8 %.val.i304, i64 %725, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i314
 
 _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i314: ; preds = %750, %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i313
@@ -4760,7 +4760,7 @@ _ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE
   br i1 %870, label %871, label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i228
 
 871:                                              ; preds = %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i227
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %868, ptr align 8 %.sroa.0.1788, i64 %857, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %868, ptr align 8 %.sroa.0.1788, i64 %857, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i228
 
 _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i228: ; preds = %871, %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i.i227
@@ -5329,7 +5329,7 @@ _ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE
   br i1 %40, label %41, label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 41:                                               ; preds = %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %38, ptr align 8 %.val, i64 %13, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %.val, i64 %13, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %41, %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i
@@ -5459,7 +5459,7 @@ _ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE
   br i1 %26, label %27, label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 27:                                               ; preds = %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %24, ptr align 8 %.val17.i.i, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val17.i.i, i64 %12, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
 
 _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i: ; preds = %27, %_ZNSt12_Vector_baseIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE11_M_allocateEm.exit.i.i

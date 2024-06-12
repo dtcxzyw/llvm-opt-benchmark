@@ -8574,7 +8574,7 @@ if.end17:                                         ; preds = %if.end12
   %14 = getelementptr inbounds i8, ptr %call18, i64 16
   store i64 %13, ptr %14, align 8
   %len2.i.i = getelementptr inbounds i8, ptr %call18, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %len2.i.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %len2.i.i, i8 0, i64 40, i1 false)
   %user_data.i = getelementptr inbounds i8, ptr %call18, i64 32
   store i64 %13, ptr %user_data.i, align 8
   %call19 = tail call i32 @io_uring_submit(ptr noundef nonnull %call4)
@@ -14210,7 +14210,7 @@ invoke.cont11.i:                                  ; preds = %if.else.i10.i.i, %.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp5.i.i)
   %_M_manager.i.i.i208 = getelementptr inbounds i8, ptr %ref.tmp13.i192, i64 16
   %_M_invoker.i.i209 = getelementptr inbounds i8, ptr %ref.tmp13.i192, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp13.i192, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i192, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_ENS0_3$_0EE9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i.i209, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_ENS0_3$_0EE10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i.i208, align 8
   %call17.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_10FileSystemEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EERKNS0_12PatternEntryESN_(ptr noundef nonnull align 8 dereferenceable(128) %130, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp.i190, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i192)

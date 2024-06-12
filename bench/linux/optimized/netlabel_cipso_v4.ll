@@ -776,7 +776,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %477 = getelementptr i8, ptr %465, i64 %476
   %narrow.i = sub nuw nsw i32 5, %.lcssa8.i
   %478 = zext nneg i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef writeonly align 1 %477, i8 0, i64 %478, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef align 1 %477, i8 0, i64 %478, i1 false)
   br label %500
 
 479:                                              ; preds = %.lr.ph.i
@@ -890,7 +890,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %545 = getelementptr i8, ptr %533, i64 %544
   %narrow.i34 = sub nuw nsw i32 5, %.lcssa8.i33
   %546 = zext nneg i32 %narrow.i34 to i64
-  call void @llvm.memset.p0.i64(ptr noundef writeonly align 1 %545, i8 0, i64 %546, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef align 1 %545, i8 0, i64 %546, i1 false)
   br label %568
 
 547:                                              ; preds = %.lr.ph.i36

@@ -1275,7 +1275,7 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   %call477 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray471, ptr noundef nonnull %add.ptr476, i32 noundef 0, ptr noundef nonnull @.str.56, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef -1)
   %call478 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call477, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 554, ptr noundef nonnull @.str.57)
   call void @_ZN2EA4StdC8Memfill8EPvhm(ptr noundef nonnull %testCharArray479, i8 noundef zeroext 42, i64 noundef 10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(10) %testCharArray479, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %testCharArray479, i8 0, i64 10, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont352, %for.body

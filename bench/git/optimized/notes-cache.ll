@@ -56,7 +56,7 @@ notes_cache_match_validity.exit:                  ; preds = %if.end.i
   call void @strbuf_trim(ptr noundef nonnull %msg.i) #6
   %buf.i = getelementptr inbounds i8, ptr %msg.i, i64 16
   %1 = load ptr, ptr %buf.i, align 8
-  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %validity) #7
+  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %validity) #7
   %call4.i.fr = freeze i32 %call4.i
   %tobool5.not.i.not = icmp eq i32 %call4.i.fr, 0
   call void @strbuf_release(ptr noundef nonnull %msg.i) #6

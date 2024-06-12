@@ -94,7 +94,7 @@ define dso_local void @_ZN3MD5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %24 = zext nneg i32 %12 to i64
   %25 = getelementptr inbounds [64 x i8], ptr %23, i64 0, i64 %24
   %26 = zext nneg i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull readonly align 1 dereferenceable(1) %7, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %7, i64 %26, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %23)
   %27 = sub nuw nsw i32 128, %12
   %.not2425.i.i = icmp ugt i32 %27, %9
@@ -105,7 +105,7 @@ define dso_local void @_ZN3MD5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %.026.i.i = phi i32 [ %28, %.lr.ph.i.i ], [ %21, %22 ]
   %29 = zext i32 %.026.i.i to i64
   %30 = getelementptr inbounds i8, ptr %7, i64 %29
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef readonly %30)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef %30)
   %31 = add i32 %28, 64
   %.not24.i.i = icmp ugt i32 %31, %9
   br i1 %.not24.i.i, label %_ZN3MD56updateEPKcj.exit, label %.lr.ph.i.i, !llvm.loop !5
@@ -123,7 +123,7 @@ _ZN3MD56updateEPKcj.exit:                         ; preds = %.lr.ph.i.i, %22, %3
   %37 = getelementptr inbounds i8, ptr %7, i64 %36
   %38 = sub i32 %9, %.1.i.i
   %39 = zext i32 %38 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr readonly align 1 %37, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %37, i64 %39, i1 false)
   %40 = tail call noundef nonnull align 4 dereferenceable(108) ptr @_ZN3MD58finalizeEv(ptr noundef nonnull align 4 dereferenceable(108) %0)
   ret void
 }
@@ -154,7 +154,7 @@ define dso_local void @_ZN3MD56updateEPKcj(ptr nocapture noundef nonnull align 4
   %20 = zext nneg i32 %7 to i64
   %21 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %20
   %22 = zext nneg i32 %17 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %22, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %19)
   %23 = sub nuw nsw i32 128, %7
   %.not2425.i = icmp ugt i32 %23, %2
@@ -165,7 +165,7 @@ define dso_local void @_ZN3MD56updateEPKcj(ptr nocapture noundef nonnull align 4
   %.026.i = phi i32 [ %24, %.lr.ph.i ], [ %17, %18 ]
   %25 = zext i32 %.026.i to i64
   %26 = getelementptr inbounds i8, ptr %1, i64 %25
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef readonly %26)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef %26)
   %27 = add i32 %24, 64
   %.not24.i = icmp ugt i32 %27, %2
   br i1 %.not24.i, label %_ZN3MD56updateEPKhj.exit, label %.lr.ph.i, !llvm.loop !5
@@ -183,7 +183,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i, %18, %28
   %33 = getelementptr inbounds i8, ptr %1, i64 %32
   %34 = sub i32 %2, %.1.i
   %35 = zext i32 %34 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %33, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %33, i64 %35, i1 false)
   ret void
 }
 
@@ -259,7 +259,7 @@ _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %.lr.ph.i
   %40 = zext nneg i32 %25 to i64
   %41 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 %40
   %42 = zext nneg i32 %37 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull readonly align 16 dereferenceable(1) @_ZZN3MD58finalizeEvE7padding, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 16 dereferenceable(1) @_ZZN3MD58finalizeEvE7padding, i64 %42, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %39)
   %43 = sub nuw nsw i32 128, %25
   %.not2425.i = icmp ugt i32 %43, %27
@@ -270,7 +270,7 @@ _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %.lr.ph.i
   %.026.i = phi i32 [ %44, %.lr.ph.i4 ], [ %37, %38 ]
   %45 = zext i32 %.026.i to i64
   %46 = getelementptr inbounds i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %45
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull readonly %46)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %46)
   %47 = add i32 %44, 64
   %.not24.i = icmp ugt i32 %47, %27
   br i1 %.not24.i, label %_ZN3MD56updateEPKhj.exit, label %.lr.ph.i4, !llvm.loop !5
@@ -288,7 +288,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %38, %48
   %53 = getelementptr inbounds i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %52
   %54 = sub i32 %27, %.1.i
   %55 = zext i32 %54 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %53, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %53, i64 %55, i1 false)
   %56 = load i32, ptr %6, align 4
   %57 = lshr i32 %56, 3
   %58 = and i32 %57, 63
@@ -307,7 +307,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %38, %48
   %66 = zext nneg i32 %58 to i64
   %67 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %66
   %68 = zext nneg i32 %65 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 %68, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %50)
   br label %_ZN3MD56updateEPKhj.exit12
 
@@ -323,7 +323,7 @@ _ZN3MD56updateEPKhj.exit12:                       ; preds = %64, %69
   %73 = getelementptr inbounds i8, ptr %2, i64 %72
   %74 = sub nuw nsw i32 8, %.1.i11
   %75 = zext nneg i32 %74 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %73, i64 %75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %73, i64 %75, i1 false)
   %76 = getelementptr inbounds i8, ptr %0, i64 92
   %77 = getelementptr inbounds i8, ptr %0, i64 76
   br label %.lr.ph.i13

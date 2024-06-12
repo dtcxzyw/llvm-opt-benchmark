@@ -5773,7 +5773,7 @@ dissect_kindid.exit:                              ; preds = %getKindFromId.exit.
   %95 = add i16 %62, 16
   %96 = trunc i32 %65 to i16
   %97 = add i16 %96, -12
-  %98 = call fastcc i32 @dissect_datavalue(i32 noundef %94, ptr noundef %0, ptr noundef %1, ptr noundef %75, i16 noundef zeroext %95, i16 noundef zeroext %97, i32 noundef %5, ptr noundef nonnull readonly %.0.i.i77)
+  %98 = call fastcc i32 @dissect_datavalue(i32 noundef %94, ptr noundef %0, ptr noundef %1, ptr noundef %75, i16 noundef zeroext %95, i16 noundef zeroext %97, i32 noundef %5, ptr noundef nonnull %.0.i.i77)
   br label %dissect_arrayentry.exit.i
 
 99:                                               ; preds = %91
@@ -5831,7 +5831,7 @@ getDataValueLength.exit.i.i:                      ; preds = %111, %107
 133:                                              ; preds = %132, %124
   %134 = load i32, ptr @hf_reload_arrayentry_value, align 4
   %135 = add i16 %102, -16
-  %136 = call fastcc i32 @dissect_datavalue(i32 noundef %134, ptr noundef %0, ptr noundef %1, ptr noundef %127, i16 noundef zeroext %105, i16 noundef zeroext %135, i32 noundef %5, ptr noundef nonnull readonly %.0.i.i77)
+  %136 = call fastcc i32 @dissect_datavalue(i32 noundef %134, ptr noundef %0, ptr noundef %1, ptr noundef %127, i16 noundef zeroext %105, i16 noundef zeroext %135, i32 noundef %5, ptr noundef nonnull %.0.i.i77)
   %137 = icmp eq i32 %spec.select.i.i, %100
   br i1 %137, label %138, label %dissect_arrayentry.exit.i
 
@@ -5934,7 +5934,7 @@ getDataValueLength.exit.i93.i:                    ; preds = %168, %164
   %198 = trunc i32 %.086.i.i to i16
   %199 = add i16 %141, %198
   %200 = sub i16 %143, %198
-  %201 = call fastcc i32 @dissect_datavalue(i32 noundef %197, ptr noundef %0, ptr noundef %1, ptr noundef %179, i16 noundef zeroext %199, i16 noundef zeroext %200, i32 noundef %5, ptr noundef nonnull readonly %.0.i.i77)
+  %201 = call fastcc i32 @dissect_datavalue(i32 noundef %197, ptr noundef %0, ptr noundef %1, ptr noundef %179, i16 noundef zeroext %199, i16 noundef zeroext %200, i32 noundef %5, ptr noundef nonnull %.0.i.i77)
   %202 = add i32 %201, %.086.i.i
   br label %dissect_arrayentry.exit.i
 

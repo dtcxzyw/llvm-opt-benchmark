@@ -1292,7 +1292,7 @@ thread-pre-split.i:                               ; preds = %129
           to label %.thread40 unwind label %183, !noalias !289
 
 188:                                              ; preds = %128, %117
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !284
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !284
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !287
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !287
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)

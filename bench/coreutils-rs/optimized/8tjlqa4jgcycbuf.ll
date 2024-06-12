@@ -233,7 +233,7 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
   ]
 
 78:                                               ; preds = %select.unfold.i.i
-  %bcmp.i12.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.0.1.i.i.ph.i.i, ptr noundef nonnull readonly dereferenceable(2) @anon.8193b3a1c1e29bd1080c20fb878f7e0e.10, i64 2), !alias.scope !58, !noalias !62
+  %bcmp.i12.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.0.1.i.i.ph.i.i, ptr noundef nonnull dereferenceable(2) @anon.8193b3a1c1e29bd1080c20fb878f7e0e.10, i64 2), !alias.scope !58, !noalias !62
   %79 = icmp eq i32 %bcmp.i12.i.i.i.i, 0
   br i1 %79, label %97, label %.critedge.backedge.i.i
 

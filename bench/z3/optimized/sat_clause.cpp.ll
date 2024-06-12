@@ -500,7 +500,7 @@ if.then7:                                         ; preds = %entry, %_Z13dealloc
   %bf.clear3.i = and i32 %bf.load.i, -1073741824
   %bf.set4.i = or disjoint i32 %bf.clear3.i, %bf.shl.i
   %m_lits.i = getelementptr inbounds i8, ptr %call8, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr readonly align 4 %lits, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr align 4 %lits, i64 %mul.i, i1 false)
   %bf.set.i.i = or disjoint i32 %bf.set4.i, 1073725441
   store i32 %bf.set.i.i, ptr %m_removed.i, align 4
   %cmp4.not.i.i.i.i = icmp eq i32 %num_lits, 0
@@ -696,7 +696,7 @@ _ZN6id_gen2mkEv.exit:                             ; preds = %if.then.i, %_ZN6vec
   %bf.set22.i = or disjoint i32 %bf.set4.i, 1073725440
   store i32 %bf.set22.i, ptr %m_removed.i, align 4
   %m_lits.i = getelementptr inbounds i8, ptr %call2, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr readonly align 4 %lits, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr align 4 %lits, i64 %mul.i, i1 false)
   %bf.set.i.i = or i32 %bf.set4.i, 1073725441
   store i32 %bf.set.i.i, ptr %m_removed.i, align 4
   %cmp4.not.i.i.i.i = icmp eq i32 %num_lits, 0
@@ -970,7 +970,7 @@ _ZN6id_gen2mkEv.exit:                             ; preds = %if.then.i, %_ZN6vec
   %m_lits.i = getelementptr inbounds i8, ptr %call3, i64 20
   %conv23.i = zext i32 %7 to i64
   %mul.i17 = shl nuw nsw i64 %conv23.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr nonnull readonly align 4 %m_lits, i64 %mul.i17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr nonnull align 4 %m_lits, i64 %mul.i17, i1 false)
   %bf.set.i.i = or i32 %bf.set4.i, 1073725441
   store i32 %bf.set.i.i, ptr %m_removed.i, align 4
   %cmp4.not.i.i.i.i = icmp eq i32 %7, 0

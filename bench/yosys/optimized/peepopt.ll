@@ -1426,22 +1426,22 @@ _ZN5Yosys6SigMap3setEPNS_5RTLIL6ModuleE.exit:     ; preds = %.noexc375, %.noexc3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %210, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %211, i8 0, i64 48, i1 false)
   store i32 0, ptr %213, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %216, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %214, i8 0, i64 60, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %215, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %216, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %214, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %215, i8 0, i64 60, i1 false)
   store i32 0, ptr %218, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %220, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(60) %219, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %220, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %219, i8 0, i64 60, i1 false)
   store i32 0, ptr %222, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %224, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %224, i8 0, i64 56, i1 false)
   store i32 0, ptr %225, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %226, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %223, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %226, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %223, i8 0, i64 28, i1 false)
   store i32 0, ptr %228, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %230, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %230, i8 0, i64 56, i1 false)
   store i32 0, ptr %231, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %232, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %229, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %232, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %229, i8 0, i64 28, i1 false)
   %669 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull @.str.16)
           to label %670 unwind label %702
 
@@ -1744,7 +1744,7 @@ _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %753, %751
 
 _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit: ; preds = %760, %762
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %175, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm12run_shiftaddEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %251, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm12run_shiftaddEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %250, align 8
   store i32 0, ptr %252, align 4
@@ -6345,7 +6345,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1490: ; preds = %_ZN5Yosys7hash
   %2700 = phi <2 x ptr> [ %2697, %.loopexit5363.loopexit ], [ %2444, %.loopexit5364 ]
   %2701 = phi <2 x ptr> [ %2698, %.loopexit5363.loopexit ], [ %2446, %.loopexit5364 ]
   %2702 = phi <2 x ptr> [ %2699, %.loopexit5363.loopexit ], [ %2448, %.loopexit5364 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false)
   store <2 x ptr> %2700, ptr %288, align 8, !alias.scope !45
   store <2 x ptr> %2701, ptr %355, align 8, !alias.scope !45
   store <2 x ptr> %2702, ptr %356, align 8, !alias.scope !45
@@ -8005,7 +8005,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
   %3380 = phi <2 x ptr> [ %3377, %.loopexit5353.loopexit ], [ %3124, %.loopexit5354 ]
   %3381 = phi <2 x ptr> [ %3378, %.loopexit5353.loopexit ], [ %3126, %.loopexit5354 ]
   %3382 = phi <2 x ptr> [ %3379, %.loopexit5353.loopexit ], [ %3128, %.loopexit5354 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
   store <2 x ptr> %3380, ptr %316, align 8, !alias.scope !55
   store <2 x ptr> %3381, ptr %368, align 8, !alias.scope !55
   store <2 x ptr> %3382, ptr %369, align 8, !alias.scope !55
@@ -11493,7 +11493,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.i.
 4656:                                             ; preds = %4645, %.loopexit18.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %175)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm18run_shiftmul_rightEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %385, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm18run_shiftmul_rightEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %384, align 8
   store i32 0, ptr %252, align 4
@@ -14397,7 +14397,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit32.i.i.i.i:  ; preds = %5897, %5895
   %5910 = ptrtoint ptr %5908 to i64
   %5911 = ptrtoint ptr %5909 to i64
   %5912 = sub i64 %5910, %5911
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %408, i8 0, i64 24, i1 false), !alias.scope !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %408, i8 0, i64 24, i1 false), !alias.scope !90
   %.not.i.i.i.i.i.i919 = icmp eq ptr %5908, %5909
   br i1 %.not.i.i.i.i.i.i919, label %.noexc6.thread.i923, label %5914
 
@@ -15502,7 +15502,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
   %6332 = ptrtoint ptr %6330 to i64
   %6333 = ptrtoint ptr %6331 to i64
   %6334 = sub i64 %6332, %6333
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %415, i8 0, i64 24, i1 false), !alias.scope !95
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %415, i8 0, i64 24, i1 false), !alias.scope !95
   %.not.i.i.i.i.i.i882 = icmp eq ptr %6330, %6331
   br i1 %.not.i.i.i.i.i.i882, label %.noexc6.thread.i, label %6336
 
@@ -16465,7 +16465,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1932: ; preds = %_ZN5Yosys7hash
   %6727 = phi <2 x ptr> [ %6724, %.loopexit5337.loopexit ], [ %6472, %.loopexit5338 ]
   %6728 = phi <2 x ptr> [ %6725, %.loopexit5337.loopexit ], [ %6474, %.loopexit5338 ]
   %6729 = phi <2 x ptr> [ %6726, %.loopexit5337.loopexit ], [ %6476, %.loopexit5338 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
   store <2 x ptr> %6727, ptr %417, align 8, !alias.scope !104
   store <2 x ptr> %6728, ptr %493, align 8, !alias.scope !104
   store <2 x ptr> %6729, ptr %494, align 8, !alias.scope !104
@@ -17418,7 +17418,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1882: ; preds = %_ZN5Yosys7hash
   %7115 = phi <2 x ptr> [ %7112, %.loopexit5329.loopexit ], [ %6860, %.loopexit5330 ]
   %7116 = phi <2 x ptr> [ %7113, %.loopexit5329.loopexit ], [ %6862, %.loopexit5330 ]
   %7117 = phi <2 x ptr> [ %7114, %.loopexit5329.loopexit ], [ %6864, %.loopexit5330 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
   store <2 x ptr> %7115, ptr %501, align 8, !alias.scope !111
   store <2 x ptr> %7116, ptr %502, align 8, !alias.scope !111
   store <2 x ptr> %7117, ptr %503, align 8, !alias.scope !111
@@ -19156,7 +19156,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1788: ; preds = %_ZN5Yosys7hash
   %7805 = phi ptr [ %.pre33366, %.loopexit5319.loopexit ], [ %.0.lcssa.i3254, %.loopexit5320 ]
   %7806 = phi ptr [ %.pre33365, %.loopexit5319.loopexit ], [ %7486, %.loopexit5320 ]
   %7807 = phi <2 x ptr> [ %7802, %.loopexit5319.loopexit ], [ %7554, %.loopexit5320 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
   store ptr %7806, ptr %427, align 8, !alias.scope !121
   store ptr %7805, ptr %428, align 8, !alias.scope !121
   store ptr %7804, ptr %516, align 8, !alias.scope !121
@@ -21096,7 +21096,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.i.
 8435:                                             ; preds = %8424, %.loopexit20.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm17run_shiftmul_leftEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %519, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm17run_shiftmul_leftEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %518, align 8
   store i32 0, ptr %252, align 4
@@ -26511,7 +26511,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.i.
 10759:                                            ; preds = %10748, %.loopexit8.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %112)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm10run_muldivEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %574, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_110peepopt_pm10run_muldivEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr %573, align 8
   store i32 0, ptr %252, align 4
@@ -30349,7 +30349,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit79.i.i.i.i:  ; preds = %12378, %_ZN5Yosys5R
   %12391 = ptrtoint ptr %12389 to i64
   %12392 = ptrtoint ptr %12390 to i64
   %12393 = sub i64 %12391, %12392
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %604, i8 0, i64 24, i1 false), !alias.scope !172
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %604, i8 0, i64 24, i1 false), !alias.scope !172
   %.not.i.i.i.i.i.i1214 = icmp eq ptr %12389, %12390
   br i1 %.not.i.i.i.i.i.i1214, label %.noexc6.thread.i1218, label %12395
 
@@ -37343,7 +37343,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1032: ; preds = %_ZN5Yosys7hash
   %2780 = phi <2 x ptr> [ %2777, %.loopexit2058.loopexit ], [ %2525, %.loopexit2059 ]
   %2781 = phi <2 x ptr> [ %2778, %.loopexit2058.loopexit ], [ %2527, %.loopexit2059 ]
   %2782 = phi <2 x ptr> [ %2779, %.loopexit2058.loopexit ], [ %2529, %.loopexit2059 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
   store <2 x ptr> %2780, ptr %292, align 8, !alias.scope !229
   store <2 x ptr> %2781, ptr %294, align 8, !alias.scope !229
   store <2 x ptr> %2782, ptr %296, align 8, !alias.scope !229
@@ -38302,7 +38302,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1080: ; preds = %_ZN5Yosys7hash
   %3180 = phi <2 x ptr> [ %3177, %.loopexit2050.loopexit ], [ %2925, %.loopexit2051 ]
   %3181 = phi <2 x ptr> [ %3178, %.loopexit2050.loopexit ], [ %2927, %.loopexit2051 ]
   %3182 = phi <2 x ptr> [ %3179, %.loopexit2050.loopexit ], [ %2929, %.loopexit2051 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   store <2 x ptr> %3180, ptr %303, align 8, !alias.scope !236
   store <2 x ptr> %3181, ptr %305, align 8, !alias.scope !236
   store <2 x ptr> %3182, ptr %307, align 8, !alias.scope !236
@@ -39129,7 +39129,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1128: ; preds = %_ZN5Yosys7hash
   %3528 = phi <2 x ptr> [ %3525, %.loopexit2042.loopexit ], [ %3273, %.loopexit2043 ]
   %3529 = phi <2 x ptr> [ %3526, %.loopexit2042.loopexit ], [ %3275, %.loopexit2043 ]
   %3530 = phi <2 x ptr> [ %3527, %.loopexit2042.loopexit ], [ %3277, %.loopexit2043 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   store <2 x ptr> %3528, ptr %314, align 8, !alias.scope !243
   store <2 x ptr> %3529, ptr %316, align 8, !alias.scope !243
   store <2 x ptr> %3530, ptr %318, align 8, !alias.scope !243

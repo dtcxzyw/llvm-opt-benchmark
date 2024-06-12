@@ -575,7 +575,7 @@ Vec_WrdDup.exit:                                  ; preds = %67, %72
   %97 = getelementptr inbounds i8, ptr %18, i64 40
   store i32 0, ptr %97, align 4
   %98 = getelementptr inbounds i8, ptr %18, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %95, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %95, i8 0, i64 16, i1 false)
   %99 = getelementptr inbounds i8, ptr %0, i64 816
   %100 = load i32, ptr %99, align 8
   %101 = shl nsw i32 %100, 1

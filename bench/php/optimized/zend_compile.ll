@@ -5993,7 +5993,7 @@ tailrecurse:                                      ; preds = %139
   %278 = load i16, ptr %277, align 2
   %279 = zext i16 %278 to i32
   %280 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %281 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %276, i32 noundef %279, ptr noundef nonnull writeonly %6, i1 noundef zeroext true, ptr noundef %280)
+  %281 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %276, i32 noundef %279, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef %280)
   %282 = load i8, ptr %6, align 1
   %283 = trunc i8 %282 to i1
   %284 = call fastcc zeroext i1 @zend_try_ct_eval_const(ptr noundef nonnull %4, ptr noundef %281, i1 noundef zeroext %283)
@@ -6449,7 +6449,7 @@ zend_compile_const_expr_class_name.exit:          ; preds = %110, %114, %121, %1
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %137 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %131, i32 noundef %135, ptr noundef nonnull writeonly %3, i1 noundef zeroext true, ptr noundef %136)
+  %137 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %131, i32 noundef %135, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef %136)
   %138 = load i8, ptr %3, align 1
   %139 = trunc i8 %138 to i1
   %140 = call fastcc zeroext i1 @zend_try_ct_eval_const(ptr noundef nonnull %4, ptr noundef %137, i1 noundef zeroext %139)
@@ -7836,7 +7836,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %525, %466, %475, %4
   br label %563
 
 563:                                              ; preds = %560, %559
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), i64 56, i1 false)
   store <4 x i32> <i32 64, i32 0, i32 0, i32 -1>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 176), align 8
   store i32 -1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 192), align 8
   store i32 -1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 196), align 4
@@ -9122,7 +9122,7 @@ zend_do_extended_stmt.exit:                       ; preds = %1126, %get_next_op.
   br label %zend_oparray_context_end.exit
 
 zend_oparray_context_end.exit:                    ; preds = %1159, %1161
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull readonly align 8 dereferenceable(56) %19, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false)
   call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br i1 %2, label %1163, label %zend_observer_function_declared_notify.exit
 
@@ -9220,7 +9220,7 @@ zend_do_extended_stmt.exit265:                    ; preds = %.critedge195, %get_
   br label %zend_oparray_context_end.exit268
 
 zend_oparray_context_end.exit268:                 ; preds = %1199, %1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull readonly align 8 dereferenceable(56) %19, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @compiler_globals, i64 176), ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false)
   call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br label %zend_observer_function_declared_notify.exit
 
@@ -11223,7 +11223,7 @@ zend_get_unqualified_name.exit:                   ; preds = %10, %8, %3
   %52 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 50, ptr %4, align 4
-  %53 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef readonly %52, ptr noundef nonnull %4)
+  %53 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef %52, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %53, label %54, label %can_ct_eval_const.exit
 
@@ -19478,7 +19478,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %141, %140, %116, %1
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds i8, ptr %170, i64 24
-  call fastcc void @zend_compile_attributes(ptr noundef nonnull %172, ptr noundef nonnull readonly %12, i32 noundef 0, i32 noundef 8, i32 noundef 0)
+  call fastcc void @zend_compile_attributes(ptr noundef nonnull %172, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   br label %173
 
 173:                                              ; preds = %171, %169
@@ -19776,7 +19776,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %135, %128, %125, %z
 
 145:                                              ; preds = %zend_is_valid_default_value.exit.thread.i
   %146 = getelementptr inbounds i8, ptr %144, i64 24
-  call fastcc void @zend_compile_attributes(ptr noundef nonnull %146, ptr noundef nonnull readonly %10, i32 noundef 0, i32 noundef 16, i32 noundef 0)
+  call fastcc void @zend_compile_attributes(ptr noundef nonnull %146, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   br label %147
 
 147:                                              ; preds = %145, %zend_is_valid_default_value.exit.thread.i
@@ -19923,7 +19923,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   br i1 %.not16.i.i, label %zend_compile_method_ref.exit.i, label %78
 
 78:                                               ; preds = %77
-  %79 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull readonly %.val.i, ptr noundef nonnull @.str.266)
+  %79 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull %.val.i, ptr noundef nonnull @.str.266)
   br label %zend_compile_method_ref.exit.i
 
 zend_compile_method_ref.exit.i:                   ; preds = %78, %77
@@ -20097,7 +20097,7 @@ zend_check_trait_alias_modifiers.exit.i:          ; preds = %146
   br i1 %.not16.i.i46, label %zend_compile_method_ref.exit.i47, label %161
 
 161:                                              ; preds = %160
-  %162 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull readonly %.val.i45, ptr noundef nonnull @.str.266)
+  %162 = tail call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef nonnull %.val.i45, ptr noundef nonnull @.str.266)
   br label %zend_compile_method_ref.exit.i47
 
 zend_compile_method_ref.exit.i47:                 ; preds = %161, %160
@@ -21090,10 +21090,10 @@ zend_mangle_property_name.exit:                   ; preds = %4, %0
   %19 = getelementptr inbounds i8, ptr %15, i64 24
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %15, i64 25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %20, ptr noundef nonnull readonly align 16 dereferenceable(25) @.str.292, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %20, ptr noundef nonnull align 16 dereferenceable(25) @.str.292, i64 25, i1 false)
   %21 = getelementptr inbounds i8, ptr %15, i64 50
   %22 = add i64 %11, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %9, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %9, i64 %22, i1 false)
   tail call void @zend_register_long_constant(ptr noundef nonnull %19, i64 noundef %12, i64 noundef %.8.val.8.val, i32 noundef 0, i32 noundef 0) #28
   %23 = load i32, ptr %16, align 4
   %24 = and i32 %23, 64
@@ -25125,7 +25125,7 @@ define internal fastcc zeroext i1 @zend_compile_function_name(ptr nocapture noun
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 264), align 8
-  %13 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %7, i32 noundef %11, ptr noundef nonnull writeonly %3, i1 noundef zeroext false, ptr noundef %12)
+  %13 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %7, i32 noundef %11, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %12)
   store ptr %13, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
@@ -26379,7 +26379,7 @@ zend_compile_expr.exit.i100:                      ; preds = %172
 
 186:                                              ; preds = %zend_compile_expr.exit.i100
   %187 = getelementptr inbounds i8, ptr %1, i64 24
-  %bcmp.i101 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %187, ptr noundef nonnull dereferenceable(6) @.str.200, i64 6)
+  %bcmp.i101 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %187, ptr noundef nonnull dereferenceable(6) @.str.200, i64 6)
   %.not10.i = icmp eq i32 %bcmp.i101, 0
   %188 = zext i1 %.not10.i to i32
   br label %189
@@ -29314,7 +29314,7 @@ zend_compile_init_user_func.exit:                 ; preds = %10, %zend_add_liter
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 264), align 8
-  %89 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %84, i32 noundef %87, ptr noundef nonnull writeonly %6, i1 noundef zeroext false, ptr noundef %88)
+  %89 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %84, i32 noundef %87, ptr noundef nonnull %6, i1 noundef zeroext false, ptr noundef %88)
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %91, 11
@@ -29881,7 +29881,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %29 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %24, i32 noundef %27, ptr noundef nonnull writeonly %6, i1 noundef zeroext true, ptr noundef %28)
+  %29 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %24, i32 noundef %27, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef %28)
   %30 = load i8, ptr %6, align 1
   %31 = trunc i8 %30 to i1
   %32 = call fastcc zeroext i1 @zend_try_ct_eval_const(ptr noundef nonnull %5, ptr noundef %29, i1 noundef zeroext %31)
@@ -30614,7 +30614,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_array_slice(ptr n
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 264), align 8
-  %43 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %38, i32 noundef %41, ptr noundef nonnull writeonly %3, i1 noundef zeroext false, ptr noundef %42)
+  %43 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %38, i32 noundef %41, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %42)
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -34575,7 +34575,7 @@ zend_compile_expr.exit:                           ; preds = %2
   br i1 %28, label %zend_try_ct_eval_unary_op.exit.thread, label %zend_unary_op_produces_error.exit.i
 
 zend_unary_op_produces_error.exit.i:              ; preds = %27
-  %29 = call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull readonly %21)
+  %29 = call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull %21)
   br i1 %29, label %30, label %zend_try_ct_eval_unary_op.exit.thread
 
 30:                                               ; preds = %zend_unary_op_produces_error.exit.i, %23, %18
@@ -37926,7 +37926,7 @@ define internal fastcc void @zend_compile_const(ptr noundef %0, ptr nocapture re
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %11 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %6, i32 noundef %9, ptr noundef nonnull writeonly %2, i1 noundef zeroext true, ptr noundef %10)
+  %11 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %2, i1 noundef zeroext true, ptr noundef %10)
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 24
@@ -40708,7 +40708,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_unary_op(ptr noundef
   br i1 %10, label %zend_unary_op_produces_error.exit.thread9, label %zend_unary_op_produces_error.exit
 
 zend_unary_op_produces_error.exit:                ; preds = %9
-  %11 = tail call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull readonly %2)
+  %11 = tail call zeroext i1 @zend_is_op_long_compatible(ptr noundef nonnull %2)
   br i1 %11, label %zend_unary_op_produces_error.exit.thread, label %zend_unary_op_produces_error.exit.thread9
 
 zend_unary_op_produces_error.exit.thread:         ; preds = %3, %5, %zend_unary_op_produces_error.exit
@@ -41219,7 +41219,7 @@ zend_verify_ct_const_access.exit.thread99:        ; preds = %89, %75, %zend_veri
   %113 = load ptr, ptr %.063, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 50, ptr %4, align 4
-  %114 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef readonly %113, ptr noundef nonnull %4)
+  %114 = call fastcc noundef zeroext i1 @array_is_const_ex(ptr noundef %113, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %114, label %115, label %.thread83
 

@@ -3104,7 +3104,7 @@ land.rhs.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  tail call fastcc void @vfio_ioeventfd_exit(ptr noundef readonly %vdev, ptr noundef nonnull %ioeventfd.02.i)
+  tail call fastcc void @vfio_ioeventfd_exit(ptr noundef %vdev, ptr noundef nonnull %ioeventfd.02.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i

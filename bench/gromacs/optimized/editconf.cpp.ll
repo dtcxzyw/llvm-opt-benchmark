@@ -2475,7 +2475,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1011
   br i1 %exitcond577.not, label %.loopexit443, label %1108, !llvm.loop !23
 
 .loopexit443:                                     ; preds = %1108, %.thread415
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %36, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %36, i8 0, i64 36, i1 false)
   %1119 = load i8, ptr %1102, align 1
   switch i8 %1119, label %.loopexit442 [
     i8 116, label %1120

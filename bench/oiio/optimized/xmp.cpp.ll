@@ -1717,7 +1717,7 @@ entry:
   %ref.tmp101 = alloca %"class.std::allocator", align 1
   %ref.tmp104 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp105 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %list, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)

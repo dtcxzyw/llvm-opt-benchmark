@@ -318,7 +318,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 88:                                               ; preds = %87, %84
   store ptr @pmix_cli_result_t_class, ptr getelementptr inbounds (i8, ptr @results, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @results, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @results, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @results, i64 56), i8 0, i64 64, i1 false)
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 40), align 8
   %90 = load ptr, ptr %89, align 8
   %.not6.i = icmp eq ptr %90, null
@@ -1128,7 +1128,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i426, %241
   %440 = getelementptr inbounds i8, ptr %7, i64 48
   store i32 1, ptr %440, align 8
   %441 = getelementptr inbounds i8, ptr %7, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %441, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %441, i8 0, i64 64, i1 false)
   %442 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %443 = load ptr, ptr %442, align 8
   %.not6.i430 = icmp eq ptr %443, null
@@ -1662,7 +1662,7 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr nocapture noundef 
   %.03.i = phi ptr [ %.0.i, %6 ], [ %.01.i, %1 ]
   %2 = getelementptr inbounds i8, ptr %.03.i, i64 144
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #18
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %pmix_cmd_line_get_param.exit.loopexit, label %6
 
@@ -1898,7 +1898,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
   %.03.i.i.fr = freeze ptr %.03.i.i
   %31 = getelementptr inbounds i8, ptr %.03.i.i.fr, i64 144
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(13) @.str.55) #18
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(13) @.str.55) #18
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35
 

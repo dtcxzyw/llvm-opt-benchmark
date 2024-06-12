@@ -213,7 +213,7 @@ define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
 13:                                               ; preds = %2
@@ -226,7 +226,7 @@ bms_copy.exit24:                                  ; preds = %13
   %17 = shl nsw i64 %16, 3
   %18 = add nsw i64 %17, 8
   %19 = tail call ptr @palloc(i64 noundef %18) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull readonly align 8 %0, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull align 8 %0, i64 %18, i1 false)
   br label %bms_copy.exit
 
 20:                                               ; preds = %13
@@ -240,7 +240,7 @@ bms_copy.exit26:                                  ; preds = %20
   %24 = shl nsw i64 %23, 3
   %25 = add nsw i64 %24, 8
   %26 = tail call ptr @palloc(i64 noundef %25) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr nonnull readonly align 8 %1, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr nonnull align 8 %1, i64 %25, i1 false)
   br label %31
 
 bms_copy.exit28:                                  ; preds = %20
@@ -248,7 +248,7 @@ bms_copy.exit28:                                  ; preds = %20
   %28 = shl nsw i64 %27, 3
   %29 = add nsw i64 %28, 8
   %30 = tail call ptr @palloc(i64 noundef %29) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr nonnull readonly align 8 %0, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %0, i64 %29, i1 false)
   br label %31
 
 31:                                               ; preds = %bms_copy.exit28, %bms_copy.exit26
@@ -299,7 +299,7 @@ bms_copy.exit:                                    ; preds = %5
   %11 = shl nsw i64 %10, 3
   %12 = add nsw i64 %11, 8
   %13 = tail call ptr @palloc(i64 noundef %12) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull readonly align 8 %0, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %0, i64 %12, i1 false)
   br label %18
 
 bms_copy.exit33:                                  ; preds = %5
@@ -307,7 +307,7 @@ bms_copy.exit33:                                  ; preds = %5
   %15 = shl nsw i64 %14, 3
   %16 = add nsw i64 %15, 8
   %17 = tail call ptr @palloc(i64 noundef %16) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull readonly align 8 %1, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %1, i64 %16, i1 false)
   br label %18
 
 18:                                               ; preds = %bms_copy.exit33, %bms_copy.exit
@@ -371,7 +371,7 @@ bms_copy.exit:                                    ; preds = %4
   %9 = shl nsw i64 %8, 3
   %10 = add nsw i64 %9, 8
   %11 = tail call ptr @palloc(i64 noundef %10) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr nonnull readonly align 8 %0, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr nonnull align 8 %0, i64 %10, i1 false)
   br label %bms_nonempty_difference.exit
 
 12:                                               ; preds = %4
@@ -408,7 +408,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %27 = shl nsw i64 %26, 3
   %28 = add nsw i64 %27, 8
   %29 = tail call ptr @palloc(i64 noundef %28) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr nonnull readonly align 8 %0, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr nonnull align 8 %0, i64 %28, i1 false)
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %13, align 4
@@ -1209,7 +1209,7 @@ define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly %1) l
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
 13:                                               ; preds = %2
@@ -1228,7 +1228,7 @@ bms_copy.exit27:                                  ; preds = %14
   %21 = shl nsw i64 %20, 3
   %22 = add nsw i64 %21, 8
   %23 = tail call ptr @palloc(i64 noundef %22) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull readonly align 8 %1, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 8 %1, i64 %22, i1 false)
   %.pre = load i32, ptr %15, align 4
   br label %24
 
@@ -1283,7 +1283,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
 13:                                               ; preds = %2

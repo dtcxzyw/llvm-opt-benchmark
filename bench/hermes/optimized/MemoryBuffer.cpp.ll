@@ -127,7 +127,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %2 = extractvalue { ptr, i64 } %call.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %2, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %2, i64 %1, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %entry
@@ -197,7 +197,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %2 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i, ptr readonly align 1 %2, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %2, i64 %1, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %entry
@@ -253,7 +253,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %1 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i, ptr readonly align 1 %1, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %1, i64 %0, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.end.i.i
@@ -285,7 +285,7 @@ _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; pr
 _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
   %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   %3 = load ptr, ptr %BufferStart.i.i.i, align 8, !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %InputData.coerce0, i64 %InputData.coerce1, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %InputData.coerce0, i64 %InputData.coerce1, i1 false), !noalias !7
   br label %_ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
 _ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i, %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
@@ -708,7 +708,7 @@ if.then18.i:                                      ; preds = %_ZL13shouldUseMmapi
 
 if.then.i.i.i:                                    ; preds = %if.then18.i
   %11 = extractvalue { ptr, i64 } %call.i19.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i, ptr readonly align 1 %11, i64 %10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %11, i64 %10, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.then18.i
@@ -797,7 +797,7 @@ if.end.i31.i:                                     ; preds = %if.end25.i
 
 if.then.i.i34.i:                                  ; preds = %if.end.i31.i
   %19 = extractvalue { ptr, i64 } %call.i30.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i32.i, ptr readonly align 1 %19, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i32.i, ptr align 1 %19, i64 %18, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i: ; preds = %if.then.i.i34.i, %if.end.i31.i
@@ -946,7 +946,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %1 = extractvalue { ptr, i64 } %call, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr, ptr readonly align 1 %1, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %1, i64 %0, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit:       ; preds = %if.end, %if.then.i
@@ -1007,7 +1007,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %1 = extractvalue { ptr, i64 } %call.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %1, i64 %0, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.end.i
@@ -1157,7 +1157,7 @@ if.end20:                                         ; preds = %if.then2, %if.end17
 
 if.then.i.i:                                      ; preds = %if.end20
   %9 = extractvalue { ptr, i64 } %call.i17, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %9, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %9, i64 %8, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.end20
@@ -1422,7 +1422,7 @@ if.then18:                                        ; preds = %if.end17.i, %_ZL13s
 
 if.then.i.i23:                                    ; preds = %if.then18
   %12 = extractvalue { ptr, i64 } %call.i22, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %12, i64 %11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %12, i64 %11, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i23, %if.then18
@@ -1511,7 +1511,7 @@ if.end.i37:                                       ; preds = %if.end26
 
 if.then.i.i40:                                    ; preds = %if.end.i37
   %20 = extractvalue { ptr, i64 } %call.i36, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i38, ptr readonly align 1 %20, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr align 1 %20, i64 %19, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.end.i37
@@ -1720,7 +1720,7 @@ if.end.i.i:                                       ; preds = %do.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %8 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i, ptr readonly align 1 %8, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %8, i64 %7, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.end.i.i
@@ -1763,7 +1763,7 @@ if.then.i10:                                      ; preds = %_ZN4llvh20WritableM
 if.end.i:                                         ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
   %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   %10 = load ptr, ptr %BufferStart.i.i.i, align 8, !noalias !48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr readonly align 1 %6, i64 %conv.i.i.i, i1 false), !noalias !48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %6, i64 %conv.i.i.i, i1 false), !noalias !48
   %HasError.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i4.i = load i8, ptr %HasError.i3.i, align 8, !alias.scope !48
   %bf.clear.i.i = and i8 %bf.load.i4.i, -2

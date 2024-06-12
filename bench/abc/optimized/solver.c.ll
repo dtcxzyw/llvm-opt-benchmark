@@ -1440,7 +1440,7 @@ solver_block_rst.exit:                            ; preds = %111
 126:                                              ; preds = %solver_block_rst.exit
   %127 = getelementptr inbounds i8, ptr %112, i64 8
   store i32 0, ptr %112, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
   br label %solver_block_rst.exit.thread
 
 solver_block_rst.exit.thread:                     ; preds = %b_queue_push.exit, %111, %126, %solver_block_rst.exit
@@ -3434,7 +3434,7 @@ solver_check_limits.exit.thread:                  ; preds = %1108, %solver_stop.
   %1131 = phi ptr [ %.pre, %Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge ], [ %1091, %solver_rst.exit ], [ %1091, %solver_check_limits.exit ], [ %1091, %solver_stop.exit ], [ %1091, %1108 ]
   %1132 = getelementptr inbounds i8, ptr %1131, i64 8
   store i32 0, ptr %1131, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1132, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1132, i8 0, i64 16, i1 false)
   call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef 0)
   br label %solver_analyze_final.exit
 

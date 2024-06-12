@@ -1228,7 +1228,7 @@ if.then173:                                       ; preds = %for.body169
   store i32 %shr.i2.i.i, ptr %m_u.i.i, align 4
   store i32 %shr.i3.i.i, ptr %m_v.i.i, align 8
   store i32 -1, ptr %m_state.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 12, i1 false)
   store i32 %sub.i.i.i.i, ptr %m_vals.i.i.i, align 4
   store i32 %sub.i.i22.i.i, ptr %m_vals.i23.i.i, align 4
   br label %for.body.i.i.i
@@ -1816,7 +1816,7 @@ entry:
   store i32 -1, ptr %m_state.i, align 8
   %m_vals.i.i = getelementptr inbounds i8, ptr %this, i64 92
   %0 = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 12, i1 false)
   %xor.i.i = and i32 %p.coerce, 1
   %tobool.i.not.i.not.i = icmp eq i32 %xor.i.i, 0
   %sub.i.i.i = select i1 %tobool.i.not.i.not.i, i32 -1, i32 1
@@ -1941,7 +1941,7 @@ if.end:
   store i32 -1, ptr %m_state, align 8
   %m_vals.i = getelementptr inbounds i8, ptr %this, i64 92
   %0 = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 12, i1 false)
   %xor.i = and i32 %p.coerce, 1
   %tobool.i.not.i.not = icmp eq i32 %xor.i, 0
   %sub.i.i = select i1 %tobool.i.not.i.not, i32 -1, i32 1
@@ -2043,7 +2043,7 @@ if.end:                                           ; preds = %for.body
   br i1 %9, label %if.end13, label %for.inc
 
 if.end13:                                         ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m_vals.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_vals.i, i8 0, i64 16, i1 false)
   %10 = load i32, ptr %m_p.i, align 4
   %cmp.i10 = icmp eq i32 %shr.i.i, %10
   br i1 %cmp.i10, label %if.end18, label %if.else.i
@@ -2370,7 +2370,7 @@ entry:
   %0 = load ptr, ptr %s, align 8
   tail call void @_ZN3sat6solver4pushEv(ptr noundef nonnull align 8 dereferenceable(4408) %0)
   %m_vals.i = getelementptr inbounds i8, ptr %this, i64 92
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %m_vals.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_vals.i, i8 0, i64 16, i1 false)
   %m_size.i = getelementptr inbounds i8, ptr %c, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %1 to i64

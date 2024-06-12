@@ -3624,12 +3624,12 @@ define dso_local i64 @XLogGetOldestSegno(i32 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.lr.ph, %IsXLogFileName.exit.backedge
   %9 = phi ptr [ %7, %.lr.ph ], [ %22, %IsXLogFileName.exit.backedge ]
   %10 = getelementptr inbounds i8, ptr %9, i64 19
-  %11 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #28
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #28
   %12 = icmp eq i64 %11, 24
   br i1 %12, label %13, label %IsXLogFileName.exit.backedge
 
 13:                                               ; preds = %8
-  %14 = call i64 @strspn(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.118) #28
+  %14 = call i64 @strspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.118) #28
   %15 = icmp eq i64 %14, 24
   br i1 %15, label %16, label %IsXLogFileName.exit.backedge
 
@@ -3637,7 +3637,7 @@ define dso_local i64 @XLogGetOldestSegno(i32 noundef %0) local_unnamed_addr #0 {
   %17 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.117, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #26
+  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.117, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #26
   %19 = load i32, ptr %2, align 4
   %20 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -3716,12 +3716,12 @@ define dso_local void @RemoveNonParentXlogFiles(i64 noundef %0, i32 noundef %1) 
 24:                                               ; preds = %.lr.ph, %IsXLogFileName.exit.backedge
   %25 = phi ptr [ %22, %.lr.ph ], [ %42, %IsXLogFileName.exit.backedge ]
   %26 = getelementptr inbounds i8, ptr %25, i64 19
-  %27 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #28
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #28
   %28 = icmp eq i64 %27, 24
   br i1 %28, label %29, label %IsXLogFileName.exit.backedge
 
 29:                                               ; preds = %24
-  %30 = call i64 @strspn(ptr noundef nonnull readonly %26, ptr noundef nonnull @.str.118) #28
+  %30 = call i64 @strspn(ptr noundef nonnull %26, ptr noundef nonnull @.str.118) #28
   %31 = icmp eq i64 %30, 24
   br i1 %31, label %32, label %IsXLogFileName.exit.backedge
 
@@ -8789,25 +8789,25 @@ define internal fastcc void @RemoveOldXlogFiles(i64 noundef %0, i64 noundef %1, 
 48:                                               ; preds = %.lr.ph, %.backedge
   %49 = phi ptr [ %46, %.lr.ph ], [ %93, %.backedge ]
   %50 = getelementptr inbounds i8, ptr %49, i64 19
-  %51 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #28
+  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #28
   switch i64 %51, label %.backedge [
     i64 24, label %IsXLogFileName.exit
     i64 32, label %54
   ]
 
 IsXLogFileName.exit:                              ; preds = %48
-  %52 = call i64 @strspn(ptr noundef nonnull readonly %50, ptr noundef nonnull @.str.118) #28
+  %52 = call i64 @strspn(ptr noundef nonnull %50, ptr noundef nonnull @.str.118) #28
   %53 = icmp eq i64 %52, 24
   br i1 %53, label %61, label %.backedge
 
 54:                                               ; preds = %48
-  %55 = call i64 @strspn(ptr noundef nonnull readonly %50, ptr noundef nonnull @.str.118) #28
+  %55 = call i64 @strspn(ptr noundef nonnull %50, ptr noundef nonnull @.str.118) #28
   %56 = icmp eq i64 %55, 24
   br i1 %56, label %57, label %.backedge
 
 57:                                               ; preds = %54
   %58 = getelementptr i8, ptr %49, i64 43
-  %59 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(9) @.str.187) #28
+  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(9) @.str.187) #28
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %.backedge
 
@@ -8826,7 +8826,7 @@ IsXLogFileName.exit:                              ; preds = %48
   %68 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %50, ptr noundef nonnull @.str.117, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #26
+  %69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %50, ptr noundef nonnull @.str.117, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #26
   %70 = load i32, ptr %5, align 4
   %71 = zext i32 %70 to i64
   %72 = sext i32 %68 to i64
@@ -10770,19 +10770,19 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
 .lr.ph.i:                                         ; preds = %123, %IsBackupHistoryFileName.exit.thread.i
   %126 = phi ptr [ %146, %IsBackupHistoryFileName.exit.thread.i ], [ %125, %123 ]
   %127 = getelementptr inbounds i8, ptr %126, i64 19
-  %128 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %127) #28
+  %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #28
   %129 = icmp ugt i64 %128, 24
   br i1 %129, label %130, label %IsBackupHistoryFileName.exit.thread.i
 
 130:                                              ; preds = %.lr.ph.i
-  %131 = call i64 @strspn(ptr noundef nonnull readonly %127, ptr noundef nonnull @.str.118) #28
+  %131 = call i64 @strspn(ptr noundef nonnull %127, ptr noundef nonnull @.str.118) #28
   %132 = icmp eq i64 %131, 24
   br i1 %132, label %IsBackupHistoryFileName.exit.i, label %IsBackupHistoryFileName.exit.thread.i
 
 IsBackupHistoryFileName.exit.i:                   ; preds = %130
   %133 = getelementptr i8, ptr %127, i64 %128
   %134 = getelementptr i8, ptr %133, i64 -7
-  %135 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %134, ptr noundef nonnull dereferenceable(8) @.str.197) #28
+  %135 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull dereferenceable(8) @.str.197) #28
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %IsBackupHistoryFileName.exit.thread.i
 

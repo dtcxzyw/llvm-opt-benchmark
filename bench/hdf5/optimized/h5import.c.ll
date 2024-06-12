@@ -835,7 +835,7 @@ sub_2:                                            ; preds = %sub_1
 
 165:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %40)
-  %166 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %82, i64 noundef 255) #17
+  %166 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %82, i64 noundef 255) #17
   store i8 0, ptr %68, align 2
   %167 = call ptr @strtok(ptr noundef nonnull %40, ptr noundef nonnull @__const.parseDimensions.delimiter) #17
   br label %168
@@ -859,7 +859,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %178, label %192, label %179
 
 179:                                              ; preds = %172
-  %180 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %82, i64 noundef 255) #17
+  %180 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %82, i64 noundef 255) #17
   store i8 0, ptr %68, align 2
   %181 = call ptr @strtok(ptr noundef nonnull %40, ptr noundef nonnull @__const.parseDimensions.delimiter) #17
   %182 = call i64 @strtoull(ptr nocapture noundef %181, ptr noundef null, i32 noundef 10) #17
@@ -911,7 +911,7 @@ parseDimensions.exit.thread:                      ; preds = %.lr.ph.i, %179
 .preheader946:                                    ; preds = %111, %210
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %210 ], [ 0, %111 ]
   %208 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.InputClassStrToInt.classKeywordTable, i64 0, i64 %indvars.iv.i.i
-  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %208, ptr noundef nonnull readonly dereferenceable(1) %82) #21
+  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %208, ptr noundef nonnull dereferenceable(1) %82) #21
   %.not.i.i = icmp eq i32 %209, 0
   br i1 %.not.i.i, label %218, label %210
 
@@ -5320,7 +5320,7 @@ validateConfigurationParameters.exit.thread720:   ; preds = %OutputByteOrderStrT
 98:                                               ; preds = %101, %97
   %indvars.iv.i.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i.i, %101 ]
   %99 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i.i
-  %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i.i = icmp eq i32 %100, 0
   br i1 %.not.i.i, label %OutputByteOrderStrToInt.exit.i, label %101
 
@@ -5353,7 +5353,7 @@ OutputByteOrderStrToInt.exit.i:                   ; preds = %98
 107:                                              ; preds = %110, %106
   %indvars.iv.i491.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i493.i, %110 ]
   %108 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i491.i
-  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i492.i = icmp eq i32 %109, 0
   br i1 %.not.i492.i, label %OutputByteOrderStrToInt.exit502.i, label %110
 
@@ -5386,7 +5386,7 @@ OutputByteOrderStrToInt.exit502.i:                ; preds = %107
 116:                                              ; preds = %119, %115
   %indvars.iv.i503.i = phi i64 [ 0, %115 ], [ %indvars.iv.next.i505.i, %119 ]
   %117 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i503.i
-  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i504.i = icmp eq i32 %118, 0
   br i1 %.not.i504.i, label %OutputByteOrderStrToInt.exit514.i, label %119
 
@@ -5419,7 +5419,7 @@ OutputByteOrderStrToInt.exit514.i:                ; preds = %116
 125:                                              ; preds = %128, %124
   %indvars.iv.i515.i = phi i64 [ 0, %124 ], [ %indvars.iv.next.i517.i, %128 ]
   %126 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i515.i
-  %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i516.i = icmp eq i32 %127, 0
   br i1 %.not.i516.i, label %OutputByteOrderStrToInt.exit526.i, label %128
 
@@ -5452,7 +5452,7 @@ OutputByteOrderStrToInt.exit526.i:                ; preds = %125
 134:                                              ; preds = %137, %133
   %indvars.iv.i527.i = phi i64 [ 0, %133 ], [ %indvars.iv.next.i529.i, %137 ]
   %135 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i527.i
-  %136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i528.i = icmp eq i32 %136, 0
   br i1 %.not.i528.i, label %OutputByteOrderStrToInt.exit538.i, label %137
 
@@ -5485,7 +5485,7 @@ OutputByteOrderStrToInt.exit538.i:                ; preds = %134
 143:                                              ; preds = %146, %142
   %indvars.iv.i539.i = phi i64 [ 0, %142 ], [ %indvars.iv.next.i541.i, %146 ]
   %144 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i539.i
-  %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i540.i = icmp eq i32 %145, 0
   br i1 %.not.i540.i, label %OutputByteOrderStrToInt.exit550.i, label %146
 
@@ -5518,7 +5518,7 @@ OutputByteOrderStrToInt.exit550.i:                ; preds = %143
 152:                                              ; preds = %155, %151
   %indvars.iv.i551.i = phi i64 [ 0, %151 ], [ %indvars.iv.next.i553.i, %155 ]
   %153 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i551.i
-  %154 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %154 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i552.i = icmp eq i32 %154, 0
   br i1 %.not.i552.i, label %OutputByteOrderStrToInt.exit562.i, label %155
 
@@ -5551,7 +5551,7 @@ OutputByteOrderStrToInt.exit562.i:                ; preds = %152
 161:                                              ; preds = %164, %160
   %indvars.iv.i563.i = phi i64 [ 0, %160 ], [ %indvars.iv.next.i565.i, %164 ]
   %162 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i563.i
-  %163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i564.i = icmp eq i32 %163, 0
   br i1 %.not.i564.i, label %OutputByteOrderStrToInt.exit574.i, label %164
 
@@ -5584,7 +5584,7 @@ OutputByteOrderStrToInt.exit574.i:                ; preds = %161
 170:                                              ; preds = %173, %169
   %indvars.iv.i575.i = phi i64 [ 0, %169 ], [ %indvars.iv.next.i577.i, %173 ]
   %171 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i575.i
-  %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i576.i = icmp eq i32 %172, 0
   br i1 %.not.i576.i, label %OutputByteOrderStrToInt.exit586.i, label %173
 
@@ -5617,7 +5617,7 @@ OutputByteOrderStrToInt.exit586.i:                ; preds = %170
 179:                                              ; preds = %182, %178
   %indvars.iv.i587.i = phi i64 [ 0, %178 ], [ %indvars.iv.next.i589.i, %182 ]
   %180 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i587.i
-  %181 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %181 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i588.i = icmp eq i32 %181, 0
   br i1 %.not.i588.i, label %OutputByteOrderStrToInt.exit598.i, label %182
 
@@ -5650,7 +5650,7 @@ OutputByteOrderStrToInt.exit598.i:                ; preds = %179
 188:                                              ; preds = %191, %187
   %indvars.iv.i599.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i601.i, %191 ]
   %189 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i599.i
-  %190 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %189, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %190 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %189, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i600.i = icmp eq i32 %190, 0
   br i1 %.not.i600.i, label %OutputByteOrderStrToInt.exit610.i, label %191
 
@@ -5683,7 +5683,7 @@ OutputByteOrderStrToInt.exit610.i:                ; preds = %188
 197:                                              ; preds = %200, %196
   %indvars.iv.i611.i = phi i64 [ 0, %196 ], [ %indvars.iv.next.i613.i, %200 ]
   %198 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i611.i
-  %199 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %199 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i612.i = icmp eq i32 %199, 0
   br i1 %.not.i612.i, label %OutputByteOrderStrToInt.exit622.i, label %200
 
@@ -5716,7 +5716,7 @@ OutputByteOrderStrToInt.exit622.i:                ; preds = %197
 206:                                              ; preds = %209, %205
   %indvars.iv.i623.i = phi i64 [ 0, %205 ], [ %indvars.iv.next.i625.i, %209 ]
   %207 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i623.i
-  %208 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %208 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i624.i = icmp eq i32 %208, 0
   br i1 %.not.i624.i, label %OutputByteOrderStrToInt.exit634.i, label %209
 
@@ -5749,7 +5749,7 @@ OutputByteOrderStrToInt.exit634.i:                ; preds = %206
 215:                                              ; preds = %218, %214
   %indvars.iv.i635.i = phi i64 [ 0, %214 ], [ %indvars.iv.next.i637.i, %218 ]
   %216 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i635.i
-  %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i636.i = icmp eq i32 %217, 0
   br i1 %.not.i636.i, label %OutputByteOrderStrToInt.exit646.i, label %218
 
@@ -5782,7 +5782,7 @@ OutputByteOrderStrToInt.exit646.i:                ; preds = %215
 224:                                              ; preds = %227, %223
   %indvars.iv.i647.i = phi i64 [ 0, %223 ], [ %indvars.iv.next.i649.i, %227 ]
   %225 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i647.i
-  %226 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %226 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i648.i = icmp eq i32 %226, 0
   br i1 %.not.i648.i, label %OutputByteOrderStrToInt.exit658.i, label %227
 
@@ -5815,7 +5815,7 @@ OutputByteOrderStrToInt.exit658.i:                ; preds = %224
 233:                                              ; preds = %236, %232
   %indvars.iv.i659.i = phi i64 [ 0, %232 ], [ %indvars.iv.next.i661.i, %236 ]
   %234 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i659.i
-  %235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i660.i = icmp eq i32 %235, 0
   br i1 %.not.i660.i, label %OutputByteOrderStrToInt.exit670.i, label %236
 
@@ -5848,7 +5848,7 @@ OutputByteOrderStrToInt.exit670.i:                ; preds = %233
 242:                                              ; preds = %245, %241
   %indvars.iv.i671.i = phi i64 [ 0, %241 ], [ %indvars.iv.next.i673.i, %245 ]
   %243 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i671.i
-  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i672.i = icmp eq i32 %244, 0
   br i1 %.not.i672.i, label %OutputArchStrToInt.exit677.i, label %245
 
@@ -5880,7 +5880,7 @@ OutputArchStrToInt.exit677.i:                     ; preds = %242
 251:                                              ; preds = %254, %250
   %indvars.iv.i678.i = phi i64 [ 0, %250 ], [ %indvars.iv.next.i680.i, %254 ]
   %252 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i678.i
-  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %252, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %252, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i679.i = icmp eq i32 %253, 0
   br i1 %.not.i679.i, label %OutputArchStrToInt.exit684.i, label %254
 
@@ -5912,7 +5912,7 @@ OutputArchStrToInt.exit684.i:                     ; preds = %251
 260:                                              ; preds = %263, %259
   %indvars.iv.i685.i = phi i64 [ 0, %259 ], [ %indvars.iv.next.i687.i, %263 ]
   %261 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i685.i
-  %262 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %261, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %262 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %261, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i686.i = icmp eq i32 %262, 0
   br i1 %.not.i686.i, label %OutputArchStrToInt.exit691.i, label %263
 
@@ -5944,7 +5944,7 @@ OutputArchStrToInt.exit691.i:                     ; preds = %260
 269:                                              ; preds = %272, %268
   %indvars.iv.i692.i = phi i64 [ 0, %268 ], [ %indvars.iv.next.i694.i, %272 ]
   %270 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i692.i
-  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i693.i = icmp eq i32 %271, 0
   br i1 %.not.i693.i, label %OutputArchStrToInt.exit698.i, label %272
 
@@ -5976,7 +5976,7 @@ OutputArchStrToInt.exit698.i:                     ; preds = %269
 278:                                              ; preds = %281, %277
   %indvars.iv.i699.i = phi i64 [ 0, %277 ], [ %indvars.iv.next.i701.i, %281 ]
   %279 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i699.i
-  %280 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %279, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %280 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %279, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i700.i = icmp eq i32 %280, 0
   br i1 %.not.i700.i, label %OutputArchStrToInt.exit705.i, label %281
 
@@ -6008,7 +6008,7 @@ OutputArchStrToInt.exit705.i:                     ; preds = %278
 287:                                              ; preds = %290, %286
   %indvars.iv.i706.i = phi i64 [ 0, %286 ], [ %indvars.iv.next.i708.i, %290 ]
   %288 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i706.i
-  %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %288, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %288, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i707.i = icmp eq i32 %289, 0
   br i1 %.not.i707.i, label %OutputArchStrToInt.exit712.i, label %290
 
@@ -6040,7 +6040,7 @@ OutputArchStrToInt.exit712.i:                     ; preds = %287
 296:                                              ; preds = %299, %295
   %indvars.iv.i713.i = phi i64 [ 0, %295 ], [ %indvars.iv.next.i715.i, %299 ]
   %297 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i713.i
-  %298 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %297, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %298 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %297, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i714.i = icmp eq i32 %298, 0
   br i1 %.not.i714.i, label %OutputArchStrToInt.exit719.i, label %299
 
@@ -6072,7 +6072,7 @@ OutputArchStrToInt.exit719.i:                     ; preds = %296
 305:                                              ; preds = %308, %304
   %indvars.iv.i720.i = phi i64 [ 0, %304 ], [ %indvars.iv.next.i722.i, %308 ]
   %306 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i720.i
-  %307 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %306, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %307 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %306, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i721.i = icmp eq i32 %307, 0
   br i1 %.not.i721.i, label %OutputArchStrToInt.exit726.i, label %308
 
@@ -6104,7 +6104,7 @@ OutputArchStrToInt.exit726.i:                     ; preds = %305
 314:                                              ; preds = %317, %313
   %indvars.iv.i727.i = phi i64 [ 0, %313 ], [ %indvars.iv.next.i729.i, %317 ]
   %315 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i727.i
-  %316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %315, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %315, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i728.i = icmp eq i32 %316, 0
   br i1 %.not.i728.i, label %OutputArchStrToInt.exit733.i, label %317
 
@@ -6136,7 +6136,7 @@ OutputArchStrToInt.exit733.i:                     ; preds = %314
 323:                                              ; preds = %326, %322
   %indvars.iv.i734.i = phi i64 [ 0, %322 ], [ %indvars.iv.next.i736.i, %326 ]
   %324 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i734.i
-  %325 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %324, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %325 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %324, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i735.i = icmp eq i32 %325, 0
   br i1 %.not.i735.i, label %OutputArchStrToInt.exit740.i, label %326
 
@@ -6168,7 +6168,7 @@ OutputArchStrToInt.exit740.i:                     ; preds = %323
 332:                                              ; preds = %335, %331
   %indvars.iv.i741.i = phi i64 [ 0, %331 ], [ %indvars.iv.next.i743.i, %335 ]
   %333 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i741.i
-  %334 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %333, ptr noundef nonnull readonly dereferenceable(5) @.str.425) #21
+  %334 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %333, ptr noundef nonnull dereferenceable(5) @.str.425) #21
   %.not.i742.i = icmp eq i32 %334, 0
   br i1 %.not.i742.i, label %OutputByteOrderStrToInt.exit752.i, label %335
 
@@ -6201,7 +6201,7 @@ OutputByteOrderStrToInt.exit752.i:                ; preds = %332
 341:                                              ; preds = %344, %340
   %indvars.iv.i753.i = phi i64 [ 0, %340 ], [ %indvars.iv.next.i755.i, %344 ]
   %342 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i753.i
-  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %342, ptr noundef nonnull readonly dereferenceable(5) @.str.425) #21
+  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %342, ptr noundef nonnull dereferenceable(5) @.str.425) #21
   %.not.i754.i = icmp eq i32 %343, 0
   br i1 %.not.i754.i, label %OutputByteOrderStrToInt.exit764.i, label %344
 
@@ -6234,7 +6234,7 @@ OutputByteOrderStrToInt.exit764.i:                ; preds = %341
 350:                                              ; preds = %353, %349
   %indvars.iv.i765.i = phi i64 [ 0, %349 ], [ %indvars.iv.next.i767.i, %353 ]
   %351 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i765.i
-  %352 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %351, ptr noundef nonnull readonly dereferenceable(5) @.str.425) #21
+  %352 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %351, ptr noundef nonnull dereferenceable(5) @.str.425) #21
   %.not.i766.i = icmp eq i32 %352, 0
   br i1 %.not.i766.i, label %OutputByteOrderStrToInt.exit776.i, label %353
 
@@ -6267,7 +6267,7 @@ OutputByteOrderStrToInt.exit776.i:                ; preds = %350
 359:                                              ; preds = %362, %358
   %indvars.iv.i777.i = phi i64 [ 0, %358 ], [ %indvars.iv.next.i779.i, %362 ]
   %360 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i777.i
-  %361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %360, ptr noundef nonnull readonly dereferenceable(5) @.str.425) #21
+  %361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %360, ptr noundef nonnull dereferenceable(5) @.str.425) #21
   %.not.i778.i = icmp eq i32 %361, 0
   br i1 %.not.i778.i, label %OutputByteOrderStrToInt.exit788.i, label %362
 
@@ -6300,7 +6300,7 @@ OutputByteOrderStrToInt.exit788.i:                ; preds = %359
 368:                                              ; preds = %371, %367
   %indvars.iv.i789.i = phi i64 [ 0, %367 ], [ %indvars.iv.next.i791.i, %371 ]
   %369 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i789.i
-  %370 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %369, ptr noundef nonnull readonly dereferenceable(5) @.str.425) #21
+  %370 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %369, ptr noundef nonnull dereferenceable(5) @.str.425) #21
   %.not.i790.i = icmp eq i32 %370, 0
   br i1 %.not.i790.i, label %OutputByteOrderStrToInt.exit800.i, label %371
 
@@ -6333,7 +6333,7 @@ OutputByteOrderStrToInt.exit800.i:                ; preds = %368
 377:                                              ; preds = %380, %376
   %indvars.iv.i801.i = phi i64 [ 0, %376 ], [ %indvars.iv.next.i803.i, %380 ]
   %378 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i801.i
-  %379 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %378, ptr noundef nonnull readonly dereferenceable(5) @.str.425) #21
+  %379 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %378, ptr noundef nonnull dereferenceable(5) @.str.425) #21
   %.not.i802.i = icmp eq i32 %379, 0
   br i1 %.not.i802.i, label %OutputByteOrderStrToInt.exit812.i, label %380
 
@@ -6386,7 +6386,7 @@ OutputByteOrderStrToInt.exit812.i:                ; preds = %377
 390:                                              ; preds = %393, %389
   %indvars.iv.i813.i = phi i64 [ 0, %389 ], [ %indvars.iv.next.i815.i, %393 ]
   %391 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i813.i
-  %392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %391, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %391, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i814.i = icmp eq i32 %392, 0
   br i1 %.not.i814.i, label %OutputArchStrToInt.exit819.i, label %393
 
@@ -6418,7 +6418,7 @@ OutputArchStrToInt.exit819.i:                     ; preds = %390
 399:                                              ; preds = %402, %398
   %indvars.iv.i820.i = phi i64 [ 0, %398 ], [ %indvars.iv.next.i822.i, %402 ]
   %400 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i820.i
-  %401 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %400, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %401 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %400, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i821.i = icmp eq i32 %401, 0
   br i1 %.not.i821.i, label %OutputArchStrToInt.exit826.i, label %402
 
@@ -6450,7 +6450,7 @@ OutputArchStrToInt.exit826.i:                     ; preds = %399
 408:                                              ; preds = %411, %407
   %indvars.iv.i827.i = phi i64 [ 0, %407 ], [ %indvars.iv.next.i829.i, %411 ]
   %409 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i827.i
-  %410 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %409, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %410 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %409, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i828.i = icmp eq i32 %410, 0
   br i1 %.not.i828.i, label %OutputArchStrToInt.exit833.i, label %411
 
@@ -6482,7 +6482,7 @@ OutputArchStrToInt.exit833.i:                     ; preds = %408
 417:                                              ; preds = %420, %416
   %indvars.iv.i834.i = phi i64 [ 0, %416 ], [ %indvars.iv.next.i836.i, %420 ]
   %418 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i834.i
-  %419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %418, ptr noundef nonnull readonly dereferenceable(7) @.str.414) #21
+  %419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %418, ptr noundef nonnull dereferenceable(7) @.str.414) #21
   %.not.i835.i = icmp eq i32 %419, 0
   br i1 %.not.i835.i, label %OutputArchStrToInt.exit840.i, label %420
 
@@ -6519,7 +6519,7 @@ OutputArchStrToInt.exit840.i:                     ; preds = %417
 .preheader.i:                                     ; preds = %426, %429
   %indvars.iv.i841.i = phi i64 [ %indvars.iv.next.i843.i, %429 ], [ 0, %426 ]
   %427 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i841.i
-  %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i842.i = icmp eq i32 %428, 0
   br i1 %.not.i842.i, label %.sink.split.i, label %429
 
@@ -6541,7 +6541,7 @@ OutputArchStrToInt.exit847.thread.i:              ; preds = %429
 .preheader1158.i:                                 ; preds = %432, %435
   %indvars.iv.i853.i = phi i64 [ %indvars.iv.next.i855.i, %435 ], [ 0, %432 ]
   %433 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i853.i
-  %434 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %433, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %434 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %433, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i854.i = icmp eq i32 %434, 0
   br i1 %.not.i854.i, label %.sink.split.i, label %435
 
@@ -6563,7 +6563,7 @@ OutputArchStrToInt.exit859.thread.i:              ; preds = %435
 .preheader1159.i:                                 ; preds = %438, %441
   %indvars.iv.i865.i = phi i64 [ %indvars.iv.next.i867.i, %441 ], [ 0, %438 ]
   %439 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i865.i
-  %440 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %439, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %440 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %439, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i866.i = icmp eq i32 %440, 0
   br i1 %.not.i866.i, label %.sink.split.i, label %441
 
@@ -6585,7 +6585,7 @@ OutputArchStrToInt.exit871.thread.i:              ; preds = %441
 .preheader1160.i:                                 ; preds = %444, %447
   %indvars.iv.i877.i = phi i64 [ %indvars.iv.next.i879.i, %447 ], [ 0, %444 ]
   %445 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i877.i
-  %446 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %445, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %446 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %445, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i878.i = icmp eq i32 %446, 0
   br i1 %.not.i878.i, label %.sink.split.i, label %447
 
@@ -6607,7 +6607,7 @@ OutputArchStrToInt.exit883.thread.i:              ; preds = %447
 .preheader1161.i:                                 ; preds = %450, %453
   %indvars.iv.i889.i = phi i64 [ %indvars.iv.next.i891.i, %453 ], [ 0, %450 ]
   %451 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i889.i
-  %452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %451, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %451, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i890.i = icmp eq i32 %452, 0
   br i1 %.not.i890.i, label %.sink.split.i, label %453
 
@@ -6629,7 +6629,7 @@ OutputArchStrToInt.exit895.thread.i:              ; preds = %453
 .preheader1162.i:                                 ; preds = %456, %459
   %indvars.iv.i901.i = phi i64 [ %indvars.iv.next.i903.i, %459 ], [ 0, %456 ]
   %457 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i901.i
-  %458 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %457, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %458 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %457, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i902.i = icmp eq i32 %458, 0
   br i1 %.not.i902.i, label %.sink.split.i, label %459
 
@@ -6651,7 +6651,7 @@ OutputArchStrToInt.exit907.thread.i:              ; preds = %459
 .preheader1163.i:                                 ; preds = %462, %465
   %indvars.iv.i913.i = phi i64 [ %indvars.iv.next.i915.i, %465 ], [ 0, %462 ]
   %463 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i913.i
-  %464 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %463, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %464 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %463, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i914.i = icmp eq i32 %464, 0
   br i1 %.not.i914.i, label %.sink.split.i, label %465
 
@@ -6673,7 +6673,7 @@ OutputArchStrToInt.exit919.thread.i:              ; preds = %465
 .preheader1164.i:                                 ; preds = %468, %471
   %indvars.iv.i925.i = phi i64 [ %indvars.iv.next.i927.i, %471 ], [ 0, %468 ]
   %469 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i925.i
-  %470 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %469, ptr noundef nonnull readonly dereferenceable(4) @.str.397) #21
+  %470 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %469, ptr noundef nonnull dereferenceable(4) @.str.397) #21
   %.not.i926.i = icmp eq i32 %470, 0
   br i1 %.not.i926.i, label %.sink.split.i, label %471
 
@@ -7648,7 +7648,7 @@ select.unfold700:                                 ; preds = %850
 .preheader796:                                    ; preds = %.preheader796.backedge, %.preheader796.lr.ph
   %indvars.iv.i609 = phi i64 [ 0, %.preheader796.lr.ph ], [ %indvars.iv.i609.be, %.preheader796.backedge ]
   %887 = getelementptr inbounds [15 x [30 x i8]], ptr @keytable, i64 0, i64 %indvars.iv.i609
-  %888 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %887, ptr noundef nonnull readonly dereferenceable(1) %14) #21
+  %888 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %887, ptr noundef nonnull dereferenceable(1) %14) #21
   %.not.i610 = icmp eq i32 %888, 0
   br i1 %.not.i610, label %mapKeywordToIndex.exit, label %889
 
@@ -7744,7 +7744,7 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
 .preheader793:                                    ; preds = %917, %924
   %indvars.iv.i.i615 = phi i64 [ %indvars.iv.next.i.i617, %924 ], [ 0, %917 ]
   %922 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.InputClassStrToInt.classKeywordTable, i64 0, i64 %indvars.iv.i.i615
-  %923 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %922, ptr noundef nonnull readonly dereferenceable(1) %15) #21
+  %923 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %922, ptr noundef nonnull dereferenceable(1) %15) #21
   %.not.i.i616 = icmp eq i32 %923, 0
   br i1 %.not.i.i616, label %930, label %924
 
@@ -7995,7 +7995,7 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
 .preheader.i634:                                  ; preds = %1031, %1038
   %indvars.iv.i.i635 = phi i64 [ %indvars.iv.next.i.i637, %1038 ], [ 0, %1031 ]
   %1036 = getelementptr inbounds [3 x [15 x i8]], ptr @__const.OutputClassStrToInt.classKeywordTable, i64 0, i64 %indvars.iv.i.i635
-  %1037 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1036, ptr noundef nonnull readonly dereferenceable(1) %11) #21
+  %1037 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1036, ptr noundef nonnull dereferenceable(1) %11) #21
   %.not.i.i636 = icmp eq i32 %1037, 0
   br i1 %.not.i.i636, label %1044, label %1038
 
@@ -8100,7 +8100,7 @@ OutputClassStrToInt.exit.thread.i:                ; preds = %1038
 .preheader.i647:                                  ; preds = %1076, %1083
   %indvars.iv.i.i648 = phi i64 [ %indvars.iv.next.i.i650, %1083 ], [ 0, %1076 ]
   %1081 = getelementptr inbounds [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i.i648
-  %1082 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1081, ptr noundef nonnull readonly dereferenceable(1) %9) #21
+  %1082 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1081, ptr noundef nonnull dereferenceable(1) %9) #21
   %.not.i.i649 = icmp eq i32 %1082, 0
   br i1 %.not.i.i649, label %1089, label %1083
 
@@ -8152,7 +8152,7 @@ OutputArchStrToInt.exit.thread.i652:              ; preds = %1083
   %1102 = phi i1 [ false, %1105 ], [ true, %1097 ]
   %indvars.iv.i.i656 = phi i64 [ 1, %1105 ], [ 0, %1097 ]
   %1103 = getelementptr inbounds [2 x [15 x i8]], ptr @__const.OutputByteOrderStrToInt.outputByteOrderKeywordTable, i64 0, i64 %indvars.iv.i.i656
-  %1104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1103, ptr noundef nonnull readonly dereferenceable(1) %8) #21
+  %1104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1103, ptr noundef nonnull dereferenceable(1) %8) #21
   %.not.i.i657 = icmp eq i32 %1104, 0
   br i1 %.not.i.i657, label %1111, label %1105
 
@@ -8564,7 +8564,7 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1105
   %1294 = phi i1 [ false, %1297 ], [ true, %1289 ]
   %indvars.iv.i.i687 = phi i64 [ 1, %1297 ], [ 0, %1289 ]
   %1295 = getelementptr inbounds [2 x [15 x i8]], ptr @__const.OutputByteOrderStrToInt.outputByteOrderKeywordTable, i64 0, i64 %indvars.iv.i.i687
-  %1296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1295, ptr noundef nonnull readonly dereferenceable(1) %2) #21
+  %1296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1295, ptr noundef nonnull dereferenceable(1) %2) #21
   %.not.i.i688 = icmp eq i32 %1296, 0
   br i1 %.not.i.i688, label %1303, label %1297
 

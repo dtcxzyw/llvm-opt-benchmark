@@ -1052,7 +1052,7 @@ _ZL13gmx_snew_implIA4_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
 
 323:                                              ; preds = %.noexc182
   store ptr %322, ptr %321, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
   %324 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.38, i32 noundef 12, ptr noundef nonnull %44)
           to label %325 unwind label %.loopexit.split-lp377
 
@@ -1132,7 +1132,7 @@ _ZL13gmx_snew_implI11t_dr_resultEvPKcS2_iRPT_m.exit.preheader: ; preds = %_ZN13t
 _ZL13gmx_snew_implI11t_dr_resultEvPKcS2_iRPT_m.exit: ; preds = %.noexc188
   %362 = getelementptr inbounds i8, ptr %351, i64 48
   store ptr %361, ptr %362, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %351, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %351, i8 0, i64 20, i1 false)
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
   %.not142.not = icmp sgt i64 %348, %indvars.iv530
   br i1 %.not142.not, label %.lr.ph457, label %.loopexit375, !llvm.loop !8

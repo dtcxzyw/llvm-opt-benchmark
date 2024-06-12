@@ -1156,7 +1156,7 @@ define internal fastcc void @__hugetlb_cgroup_file_dfl_init(i32 noundef %0) unna
   %13 = select i1 %9, i64 30, i64 %11
   %14 = select i1 %9, ptr @.str.8, ptr %12
   %15 = lshr i64 %8, %13
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
   %17 = getelementptr inbounds i8, ptr %4, i64 2168
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2) #9
   %19 = shl i32 %0, 16
@@ -1267,7 +1267,7 @@ define internal fastcc void @__hugetlb_cgroup_file_legacy_init(i32 noundef %0) u
   %13 = select i1 %9, i64 30, i64 %11
   %14 = select i1 %9, ptr @.str.8, ptr %12
   %15 = lshr i64 %8, %13
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
   %17 = getelementptr inbounds i8, ptr %4, i64 3896
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 64, ptr noundef nonnull @.str.20, ptr noundef nonnull %2) #9
   %19 = shl i32 %0, 16

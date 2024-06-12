@@ -139,7 +139,7 @@ if.then12:                                        ; preds = %crngt_get_entropy.e
   br label %unlock_return
 
 if.end14:                                         ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %.pre.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %.pre.i, i64 16, i1 false)
   call void @ossl_prov_cleanup_entropy(ptr noundef %3, ptr noundef %.pre.i, i64 noundef 16) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   store i32 1, ptr %preloaded, align 8
@@ -220,7 +220,7 @@ crngt_get_entropy.exit46.thread:                  ; preds = %for.body, %if.then8
   br label %err
 
 if.end56:                                         ; preds = %if.then.i38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %cond49, ptr noundef nonnull align 1 dereferenceable(16) %.pre.i41, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %cond49, ptr noundef nonnull align 1 dereferenceable(16) %.pre.i41, i64 16, i1 false)
   call void @ossl_prov_cleanup_entropy(ptr noundef %9, ptr noundef %.pre.i41, i64 noundef 16) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i35)
   %cmp57 = icmp ult i64 %t.071, 16
@@ -242,7 +242,7 @@ if.then65:                                        ; preds = %if.end61
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end61, %if.then65
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %call1, ptr nonnull readonly %md, i64 %.pre82)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %call1, ptr nonnull %md, i64 %.pre82)
   %cmp.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.not, label %prov_crngt_compare_previous.exit.thread, label %if.end78
 

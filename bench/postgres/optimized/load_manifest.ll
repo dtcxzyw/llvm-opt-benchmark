@@ -449,7 +449,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   %.01214.i = phi i32 [ %21, %19 ], [ %7, %2 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #19
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #19
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %manifest_files_lookup_hash_internal.exit, label %19
 
@@ -485,7 +485,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
   %.01214.i = phi i32 [ %19, %17 ], [ %5, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %1) #19
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %17
 
@@ -1008,7 +1008,7 @@ define internal void @combinebackup_per_file_cb(ptr nocapture noundef readonly %
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %11) #17
-  %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef %1, i32 noundef %12, ptr noundef nonnull writeonly %7)
+  %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef %1, i32 noundef %12, ptr noundef nonnull %7)
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17

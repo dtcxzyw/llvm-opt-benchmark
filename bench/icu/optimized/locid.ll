@@ -4344,7 +4344,7 @@ if.end.i.i:                                       ; preds = %call.i.i.noexc
   br i1 %cmp.i11.i, label %if.then11.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.i
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit.i: ; preds = %if.end.i.i
-  %call.i12.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call4.i8592, ptr noundef nonnull readonly dereferenceable(1) %call.i.i93) #23
+  %call.i12.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4.i8592, ptr noundef nonnull dereferenceable(1) %call.i.i93) #23
   %cmp11.i.i = icmp eq i32 %call.i12.i, 0
   br i1 %cmp11.i.i, label %for.inc30.i, label %if.then11.i
 
@@ -7430,7 +7430,7 @@ declare void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr nound
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZZN6icu_7512_GLOBAL__N_113AliasReplacerC1E10UErrorCodeENUl8UElementS3_E_8__invokeES3_S3_(ptr nocapture readonly %e1.coerce, ptr nocapture readonly %e2.coerce) #16 align 2 {
 entry:
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %e1.coerce, ptr noundef nonnull readonly dereferenceable(1) %e2.coerce) #23
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %e1.coerce, ptr noundef nonnull dereferenceable(1) %e2.coerce) #23
   %cmp.i = icmp eq i32 %call.i, 0
   %conv.i = zext i1 %cmp.i to i8
   ret i8 %conv.i
@@ -7885,7 +7885,7 @@ if.end.i64:                                       ; preds = %_ZN6icu_7512_GLOBAL
   br i1 %or.cond9.i, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit: ; preds = %if.end.i64
-  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull readonly dereferenceable(1) %cond59.in.sroa.speculated157169) #23
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %cond59.in.sroa.speculated157169) #23
   %cmp11.i = icmp eq i32 %call.i, 0
   br i1 %cmp11.i, label %land.lhs.true70, label %if.end84
 
@@ -7904,7 +7904,7 @@ if.end.i68:                                       ; preds = %land.lhs.true70
   br i1 %or.cond9.i73, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit78
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit78: ; preds = %if.end.i68
-  %call.i75 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %43) #23
+  %call.i75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %43) #23
   %cmp11.i76 = icmp eq i32 %call.i75, 0
   br i1 %cmp11.i76, label %land.lhs.true74, label %if.end84
 
@@ -7923,7 +7923,7 @@ if.end.i82:                                       ; preds = %land.lhs.true74
   br i1 %or.cond9.i87, label %if.end84, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit92
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit92: ; preds = %if.end.i82
-  %call.i89 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %45) #23
+  %call.i89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %45) #23
   %cmp11.i90 = icmp eq i32 %call.i89, 0
   br i1 %cmp11.i90, label %land.lhs.true78, label %if.end84
 
@@ -7941,7 +7941,7 @@ if.end.i96:                                       ; preds = %land.lhs.true78
   br i1 %or.cond9.i101, label %if.end84, label %if.end10.i102
 
 if.end10.i102:                                    ; preds = %if.end.i96
-  %call.i103 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %searchVariant.2, ptr noundef nonnull readonly dereferenceable(1) %47) #23
+  %call.i103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %searchVariant.2, ptr noundef nonnull dereferenceable(1) %47) #23
   %cmp11.i104 = icmp eq i32 %call.i103, 0
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit106
 
@@ -8845,7 +8845,7 @@ declare noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer7replaceERKNS_6LocaleERNS_10CharStringER10UErrorCodeEN3$_08__invokeE8UElementSA_"(ptr nocapture readonly %e1.coerce, ptr nocapture readonly %e2.coerce) #16 align 2 {
 entry:
-  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %e1.coerce, ptr noundef nonnull readonly dereferenceable(1) %e2.coerce) #23
+  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %e1.coerce, ptr noundef nonnull dereferenceable(1) %e2.coerce) #23
   ret i32 %call.i
 }
 
@@ -8891,7 +8891,7 @@ declare ptr @T_CString_toUpperCase_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer14outputToStringERNS_10CharStringE10UErrorCodeEN3$_08__invokeE8UElementS6_"(ptr nocapture readonly %e1.coerce, ptr nocapture readonly %e2.coerce) #16 align 2 {
 entry:
-  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %e1.coerce, ptr noundef nonnull readonly dereferenceable(1) %e2.coerce) #23
+  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %e1.coerce, ptr noundef nonnull dereferenceable(1) %e2.coerce) #23
   ret i32 %call.i
 }
 
@@ -8908,7 +8908,7 @@ declare ptr @ulocimp_toBcpType_75(ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @"_ZZN6icu_7512_GLOBAL__N_113AliasReplacer28replaceTransformedExtensionsERNS_10CharStringES3_R10UErrorCodeEN3$_08__invokeE8UElementS7_"(ptr nocapture readonly %e1.coerce, ptr nocapture readonly %e2.coerce) #16 align 2 {
 entry:
-  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %e1.coerce, ptr noundef nonnull readonly dereferenceable(1) %e2.coerce) #23
+  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %e1.coerce, ptr noundef nonnull dereferenceable(1) %e2.coerce) #23
   ret i32 %call.i
 }
 

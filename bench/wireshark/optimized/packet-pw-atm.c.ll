@@ -1558,7 +1558,7 @@ proto_item_set_generated.exit:                    ; preds = %84, %94, %97
 115:                                              ; preds = %114
   %116 = call ptr @tvb_new_subset_length(ptr noundef %110, i32 noundef 0, i32 noundef %.07196104) #6
   %117 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %117, align 4
   %118 = getelementptr inbounds i8, ptr %5, i64 36
   %119 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1872,7 +1872,7 @@ pw_cell_size.exit:                                ; preds = %91, %92, %93
 107:                                              ; preds = %106
   %108 = call ptr @tvb_new_subset_remaining(ptr noundef %102, i32 noundef 1) #6
   %109 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %5, i64 36
   %111 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2612,7 +2612,7 @@ define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr nou
 prepare_pseudo_header_atm.exit:                   ; preds = %42, %45
   %storemerge = phi i32 [ 1, %45 ], [ 0, %42 ]
   store i32 %storemerge, ptr %13, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
   store i8 7, ptr %14, align 4
   %46 = load <2 x i32>, ptr %15, align 4
   %47 = icmp sgt <2 x i32> %46, <i32 -1, i32 -1>

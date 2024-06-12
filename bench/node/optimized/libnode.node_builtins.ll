@@ -2868,7 +2868,7 @@ if.end127:                                        ; preds = %_ZNSt6vectorIN2v85L
   store ptr %call103.sink, ptr %ref.tmp76.sroa.3.0.call5.i.i.i.i.i59.sroa_idx, align 8
   %ref.tmp76.sroa.4.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59.sink80, i64 24
   store ptr %call114.sink, ptr %ref.tmp76.sroa.4.0.call5.i.i.i.i.i59.sroa_idx, align 8
-  %call.i = tail call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %context.coerce, ptr noundef %id, ptr noundef nonnull %realm)
+  %call.i = tail call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %context.coerce, ptr noundef %id, ptr noundef nonnull %realm)
   %cmp.i.i.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.not.i, label %if.then.i.i.i, label %if.end.i
 

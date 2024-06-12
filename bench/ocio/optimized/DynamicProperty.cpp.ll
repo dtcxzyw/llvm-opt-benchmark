@@ -1235,9 +1235,9 @@ entry:
   %2 = load <2 x i32>, ptr %m_style, align 8, !noalias !19
   store <2 x i32> %2, ptr %m_style.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %m_value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(272) %m_value.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(272) %m_value, i64 272, i1 false), !noalias !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %m_value.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(272) %m_value, i64 272, i1 false), !noalias !19
   %m_preRenderValues.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 320
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %m_preRenderValues.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(88) %m_preRenderValues, i64 88, i1 false), !noalias !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_preRenderValues.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %m_preRenderValues, i64 88, i1 false), !noalias !19
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !19
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !19
   ret void
@@ -2487,9 +2487,9 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplE, i64 72), ptr %1, align 8, !noalias !26
   %m_value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(248) %m_value.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(248) %m_value, i64 248, i1 false), !noalias !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %m_value.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(248) %m_value, i64 248, i1 false), !noalias !26
   %m_preRenderValues.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(936) %m_preRenderValues.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(936) %m_preRenderValues, i64 936, i1 false), !noalias !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues, i64 936, i1 false), !noalias !26
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !26
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !26
   ret void

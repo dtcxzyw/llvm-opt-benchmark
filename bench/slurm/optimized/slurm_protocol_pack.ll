@@ -16604,7 +16604,7 @@ define i32 @unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %282
 
 _unpack_step_alloc_info_msg.exit:                 ; preds = %13
-  %60 = tail call i32 @slurm_unpack_selected_step(ptr noundef nonnull writeonly %3, i16 noundef zeroext %5, ptr noundef %1)
+  %60 = tail call i32 @slurm_unpack_selected_step(ptr noundef nonnull %3, i16 noundef zeroext %5, ptr noundef %1)
   %.not.i = icmp ne i32 %60, 0
   %..i = sext i1 %.not.i to i32
   br label %282

@@ -3205,7 +3205,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEE, i64 0) #28
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEE, i64 0) #28
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -3760,7 +3760,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEE, i64 0) #28
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEE, i64 0) #28
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -4214,7 +4214,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEE, i64 0) #28
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEE, i64 0) #28
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -45330,7 +45330,7 @@ for.body.preheader.i.i:                           ; preds = %if.then.i.i242
 for.body.i.i:                                     ; preds = %.noexc4.i, %for.body.preheader.i.i
   %__begin3.055.i.i = phi ptr [ %incdec.ptr.i.i246, %.noexc4.i ], [ %add.ptr.i.i.i243, %for.body.preheader.i.i ]
   %97 = load ptr, ptr %__begin3.055.i.i, align 8
-  invoke fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS0_17CordCollectRepsIfIRZNS_13cord_internal12_GLOBAL__N_134CordRepBtreeTest_RemoveSuffix_Test8TestBodyEvE3$_0EESt6vectorIPNS3_7CordRepESaISA_EEOT_SA_EUlSA_E_EEvSA_SE_"(ptr noundef %97, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i240)
+  invoke fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS0_17CordCollectRepsIfIRZNS_13cord_internal12_GLOBAL__N_134CordRepBtreeTest_RemoveSuffix_Test8TestBodyEvE3$_0EESt6vectorIPNS3_7CordRepESaISA_EEOT_SA_EUlSA_E_EEvSA_SE_"(ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i240)
           to label %.noexc4.i unwind label %lpad.loopexit.i
 
 .noexc4.i:                                        ; preds = %for.body.i.i
@@ -84792,7 +84792,7 @@ for.body.preheader.i:                             ; preds = %if.then.i149
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %__begin3.030.i = phi ptr [ %incdec.ptr.i151, %for.body.i ], [ %add.ptr.i.i150, %for.body.preheader.i ]
   %69 = load ptr, ptr %__begin3.030.i, align 8
-  call fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS_13cord_internal12_GLOBAL__N_129CordRepBtreeTest_Rebuild_Test8TestBodyEvE3$_0EEvPNS2_7CordRepEOT_"(ptr noundef %69, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp78)
+  call fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS_13cord_internal12_GLOBAL__N_129CordRepBtreeTest_Rebuild_Test8TestBodyEvE3$_0EEvPNS2_7CordRepEOT_"(ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp78)
   %incdec.ptr.i151 = getelementptr inbounds i8, ptr %__begin3.030.i, i64 8
   %cmp8.not.i = icmp eq ptr %incdec.ptr.i151, %add.ptr.i25.i
   br i1 %cmp8.not.i, label %invoke.cont79.loopexit, label %for.body.i

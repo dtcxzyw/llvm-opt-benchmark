@@ -182,7 +182,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tls_args.i, i8 0, i64 128, i1 false)
   %7 = lshr exact i64 %bf.shl, 21
   %srt_list_seq.i = getelementptr inbounds i8, ptr %call, i64 1320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %srt_list_seq.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %srt_list_seq.i, i8 0, i64 24, i1 false)
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @chan_reset_token_hash, ptr noundef nonnull @chan_reset_token_cmp) #14
   %srt_hash_tok.i = getelementptr inbounds i8, ptr %call, i64 1312
   store ptr %call.i.i, ptr %srt_hash_tok.i, align 8
@@ -2097,7 +2097,7 @@ ossl_list_stateless_reset_tokens_insert_tail.exit: ; preds = %if.end.i, %if.then
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %num_elems.i, align 8
   %token.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %token.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %new, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token.i, ptr noundef nonnull align 1 dereferenceable(16) %new, i64 16, i1 false)
   %seq_num2 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %seq_num, ptr %seq_num2, align 8
   %srt_hash_tok = getelementptr inbounds i8, ptr %ch, i64 1312
@@ -2860,7 +2860,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %datalen
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   %token.i = getelementptr inbounds i8, ptr %srte, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %token.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %add.ptr3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr3, i64 16, i1 false)
   %srt_hash_tok = getelementptr inbounds i8, ptr %arg, i64 1312
   %2 = load ptr, ptr %srt_hash_tok, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %srte) #14
@@ -2942,11 +2942,11 @@ gen_rand_conn_id.exit.thread.i:                   ; preds = %if.end.i14
 
 if.end9.i:                                        ; preds = %if.end.i14
   %cur_peer_addr.i = getelementptr inbounds i8, ptr %arg, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %cur_peer_addr.i, ptr noundef nonnull readonly align 4 dereferenceable(112) %peer, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %cur_peer_addr.i, ptr noundef nonnull align 4 dereferenceable(112) %peer, i64 112, i1 false)
   %init_dcid.i = getelementptr inbounds i8, ptr %arg, i64 1184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %init_dcid.i, ptr noundef nonnull readonly align 8 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %init_dcid.i, ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id, i64 21, i1 false)
   %cur_remote_dcid.i = getelementptr inbounds i8, ptr %arg, i64 1247
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %cur_remote_dcid.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %src_conn_id, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %cur_remote_dcid.i, ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id, i64 21, i1 false)
   %txp.i = getelementptr inbounds i8, ptr %arg, i64 256
   %6 = load ptr, ptr %txp.i, align 8
   %call11.i = call i32 @ossl_quic_tx_packetiser_set_peer(ptr noundef %6, ptr noundef nonnull %cur_peer_addr.i) #14
@@ -3555,7 +3555,7 @@ if.end22:                                         ; preds = %if.end18
 
 ossl_quic_conn_id_eq.exit:                        ; preds = %if.end22
   %conv11.i = zext nneg i8 %3 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i85, i64 %conv11.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %id.i, ptr nonnull %id8.i85, i64 %conv11.i)
   %cmp12.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %cmp12.i.not, label %sw.epilog, label %malformed
 
@@ -3589,7 +3589,7 @@ if.end49:                                         ; preds = %if.end45
 
 ossl_quic_conn_id_eq.exit79:                      ; preds = %if.end49
   %conv11.i74 = zext nneg i8 %7 to i64
-  %bcmp.i75 = call i32 @bcmp(ptr nonnull readonly %id.i72, ptr nonnull readonly %id8.i85, i64 %conv11.i74)
+  %bcmp.i75 = call i32 @bcmp(ptr nonnull %id.i72, ptr nonnull %id8.i85, i64 %conv11.i74)
   %cmp12.i76.not = icmp eq i32 %bcmp.i75, 0
   br i1 %cmp12.i76.not, label %sw.epilog, label %malformed
 
@@ -3612,7 +3612,7 @@ if.end61:                                         ; preds = %if.end57
 
 ossl_quic_conn_id_eq.exit91:                      ; preds = %if.end61
   %conv11.i86 = zext nneg i8 %9 to i64
-  %bcmp.i87 = call i32 @bcmp(ptr nonnull readonly %id.i84, ptr nonnull readonly %id8.i85, i64 %conv11.i86)
+  %bcmp.i87 = call i32 @bcmp(ptr nonnull %id.i84, ptr nonnull %id8.i85, i64 %conv11.i86)
   %cmp12.i88.not = icmp eq i32 %bcmp.i87, 0
   br i1 %cmp12.i88.not, label %sw.epilog, label %malformed
 
@@ -4735,7 +4735,7 @@ if.then73.i.i:                                    ; preds = %land.lhs.true66.i.i
 ossl_quic_conn_id_eq.exit.i.i:                    ; preds = %if.then73.i.i
   %id.i.i.i = getelementptr inbounds i8, ptr %.pre91.i.i, i64 30
   %conv11.i.i.i = zext nneg i8 %51 to i64
-  %bcmp.i70.i.i = call i32 @bcmp(ptr nonnull readonly %id.i.i.i, ptr nonnull readonly %id8.i.i.i, i64 %conv11.i.i.i)
+  %bcmp.i70.i.i = call i32 @bcmp(ptr nonnull %id.i.i.i, ptr nonnull %id8.i.i.i, i64 %conv11.i.i.i)
   %cmp12.i.not.i.i = icmp eq i32 %bcmp.i70.i.i, 0
   br i1 %cmp12.i.not.i.i, label %if.end82.i.i, label %ch_rx_handle_packet.exit.i
 
@@ -4814,7 +4814,7 @@ if.end150.i.i:                                    ; preds = %if.end144.i.i
 ossl_quic_conn_id_eq.exit.i45.i:                  ; preds = %if.end150.i.i
   %id8.i.i47.i = getelementptr inbounds i8, ptr %64, i64 30
   %conv11.i.i48.i = zext nneg i8 %67 to i64
-  %bcmp.i.i49.i = call i32 @bcmp(ptr nonnull readonly %id.i.i46.i, ptr nonnull readonly %id8.i.i47.i, i64 %conv11.i.i48.i)
+  %bcmp.i.i49.i = call i32 @bcmp(ptr nonnull %id.i.i46.i, ptr nonnull %id8.i.i47.i, i64 %conv11.i.i48.i)
   %cmp12.i.not.i50.i = icmp eq i32 %bcmp.i.i49.i, 0
   br i1 %cmp12.i.not.i50.i, label %ch_rx_handle_packet.exit.i, label %if.end.i51.i
 

@@ -470,7 +470,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.l
   %23 = load ptr, ptr %mChannels.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
   %24 = load ptr, ptr %arrayidx.i, align 8
-  invoke void @_ZN6Assimp22FindInvalidDataProcess23ProcessAnimationChannelEP10aiNodeAnim(ptr noundef nonnull readonly align 8 dereferenceable(29) %this, ptr noundef %24)
+  invoke void @_ZN6Assimp22FindInvalidDataProcess23ProcessAnimationChannelEP10aiNodeAnim(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef %24)
           to label %.noexc unwind label %lpad3.loopexit
 
 .noexc:                                           ; preds = %for.body.i

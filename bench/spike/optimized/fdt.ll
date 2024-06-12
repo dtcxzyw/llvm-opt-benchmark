@@ -1011,7 +1011,7 @@ fdt_offset_ptr.exit:                              ; preds = %120, %117
   br i1 %.not38.i, label %.critedge.i.loopexit, label %.preheader.i, !llvm.loop !4
 
 137:                                              ; preds = %fdt_offset_ptr.exit11._crit_edge
-  %138 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef 4)
+  %138 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %0, i32 noundef %93, i32 noundef 4)
   %.not35.i = icmp eq ptr %138, null
   br i1 %.not35.i, label %fdt_next_node.exit.thread, label %139
 
@@ -1039,7 +1039,7 @@ fdt_offset_ptr.exit:                              ; preds = %120, %117
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %145, %139, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge
   %.1.i = phi i32 [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %142, %139 ], [ %spec.select.i, %145 ], [ %148, %.critedge.i.loopexit ]
   %149 = sub nsw i32 %.1.i, %74
-  %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %74, i32 noundef %149)
+  %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %0, i32 noundef %74, i32 noundef %149)
   %.not39.i = icmp eq ptr %150, null
   br i1 %.not39.i, label %fdt_next_node.exit.thread, label %fdt_next_tag.exit
 

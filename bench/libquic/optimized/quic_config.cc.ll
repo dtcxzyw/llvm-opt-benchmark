@@ -2311,8 +2311,8 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 16), ptr %connection_options_, align 8
   %send_values_.i = getelementptr inbounds i8, ptr %this, i64 56
   %receive_values_.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %send_values_.i, i8 0, i64 25, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %receive_values_.i, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %send_values_.i, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %receive_values_.i, i8 0, i64 25, i1 false)
   %idle_connection_state_lifetime_seconds_ = getelementptr inbounds i8, ptr %this, i64 120
   %tag_.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 1280525129, ptr %tag_.i.i.i, align 8
@@ -2866,7 +2866,7 @@ if.then:                                          ; preds = %entry
 
 land.rhs:                                         ; preds = %if.then
   %connection_options_.i = getelementptr inbounds i8, ptr %this, i64 40
-  call void @_ZNK3net18QuicFixedTagVector17GetReceivedValuesEv(ptr nonnull writeonly sret(%"class.std::vector") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(73) %connection_options_.i)
+  call void @_ZNK3net18QuicFixedTagVector17GetReceivedValuesEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(73) %connection_options_.i)
   %call2 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %tag)
           to label %cleanup.action unwind label %lpad
 
@@ -2897,7 +2897,7 @@ if.else:                                          ; preds = %entry
 
 land.rhs8:                                        ; preds = %if.else
   %connection_options_.i7 = getelementptr inbounds i8, ptr %this, i64 40
-  call void @_ZNK3net18QuicFixedTagVector13GetSendValuesEv(ptr nonnull writeonly sret(%"class.std::vector") align 8 %ref.tmp9, ptr noundef nonnull readonly align 8 dereferenceable(73) %connection_options_.i7)
+  call void @_ZNK3net18QuicFixedTagVector13GetSendValuesEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(73) %connection_options_.i7)
   %call13 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i32 noundef %tag)
           to label %cleanup.action16 unwind label %lpad11
 

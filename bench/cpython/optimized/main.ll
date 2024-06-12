@@ -1534,7 +1534,7 @@ config_run_code.exit.i109.i:                      ; preds = %lor.lhs.false.i.i10
 if.end11.i.i:                                     ; preds = %config_run_code.exit.i109.i, %lor.lhs.false.i.i106.i, %land.lhs.true7.i.i
   store i32 0, ptr %inspect.i96.i, align 4
   store i32 0, ptr @Py_InspectFlag, align 4
-  %call12.i103.i = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull writeonly %exitcode)
+  %call12.i103.i = call fastcc i32 @pymain_run_interactive_hook(ptr noundef nonnull %exitcode)
   %tobool13.not.i.i = icmp eq i32 %call12.i103.i, 0
   br i1 %tobool13.not.i.i, label %if.end15.i.i, label %pymain_repl.exit.i
 

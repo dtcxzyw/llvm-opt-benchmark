@@ -315,7 +315,7 @@ define hidden void @lexbor_hash_clean(ptr nocapture noundef readonly %0) local_u
   %6 = getelementptr i8, ptr %0, i64 24
   %.val3 = load i64, ptr %6, align 8
   %7 = shl i64 %.val3, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.val, i8 0, i64 %7, i1 false)
   ret void
 }
 

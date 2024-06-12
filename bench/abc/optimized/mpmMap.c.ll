@@ -1142,7 +1142,7 @@ define void @Mpm_ObjTranslateCutsFromStore(ptr nocapture noundef %0, ptr nocaptu
   %19 = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 27
-  %22 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %21, ptr noundef nonnull %4)
+  %22 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull %0, i32 noundef %21, ptr noundef nonnull %4)
   %23 = load i32, ptr %19, align 4
   %24 = and i32 %23, 33554431
   %25 = load ptr, ptr %4, align 8
@@ -1172,7 +1172,7 @@ define void @Mpm_ObjTranslateCutsFromStore(ptr nocapture noundef %0, ptr nocaptu
   %45 = lshr i32 %44, 25
   %46 = and i32 %45, 124
   %47 = zext nneg i32 %46 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr nonnull readonly align 4 %43, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr nonnull align 4 %43, i64 %47, i1 false)
   store i32 %22, ptr %.021, align 4
   %48 = load i32, ptr %15, align 4
   %49 = load i32, ptr %14, align 8
@@ -1258,7 +1258,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %6, align 4
   %85 = and i32 %.val, -2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %86 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef 1, ptr noundef nonnull %3)
+  %86 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3)
   %87 = getelementptr inbounds i8, ptr %0, i64 4892
   %88 = load i32, ptr %87, align 4
   %89 = shl nsw i32 %88, 1
@@ -1801,7 +1801,7 @@ Mig_ObjIsNode2.exit:                              ; preds = %Mpm_ObjPrepareFanin
   %285 = getelementptr inbounds i8, ptr %284, i64 32
   %286 = load i32, ptr %285, align 4
   %287 = lshr i32 %286, 27
-  %288 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef %287, ptr noundef nonnull %3)
+  %288 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull %0, i32 noundef %287, ptr noundef nonnull %3)
   %289 = load i32, ptr %285, align 4
   %290 = and i32 %289, 33554431
   %291 = load ptr, ptr %3, align 8
@@ -1831,7 +1831,7 @@ Mig_ObjIsNode2.exit:                              ; preds = %Mpm_ObjPrepareFanin
   %311 = lshr i32 %310, 25
   %312 = and i32 %311, 124
   %313 = zext nneg i32 %312 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %308, ptr nonnull readonly align 4 %309, i64 %313, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %308, ptr nonnull align 4 %309, i64 %313, i1 false)
   %.val149 = load ptr, ptr %10, align 8
   %.val150 = load i32, ptr %5, align 4
   %314 = lshr i32 %.val150, 1
@@ -2762,7 +2762,7 @@ define void @Mpm_ManPrepare(ptr nocapture noundef readonly %0) local_unnamed_add
   %.val = load i32, ptr %22, align 4
   %23 = and i32 %.val, -2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %24 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull readonly %0, i32 noundef 1, ptr noundef nonnull %2)
+  %24 = call fastcc i32 @Mpm_CutAlloc(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %2)
   %25 = load i32, ptr %6, align 4
   %26 = shl nsw i32 %25, 1
   %27 = load ptr, ptr %2, align 8

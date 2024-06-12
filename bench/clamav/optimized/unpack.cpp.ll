@@ -2928,7 +2928,7 @@ define void @_ZN6Unpack8Unpack15Eb(ptr noundef nonnull align 8 dereferenceable(5
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 22692
   %5 = getelementptr inbounds i8, ptr %0, i64 22688
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 13568, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 22736
   store i32 8193, ptr %6, align 8
@@ -3050,7 +3050,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %34, %_Z
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %0, i64 22170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %61, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %61, i8 0, i64 256, i1 false)
   br label %62
 
 62:                                               ; preds = %62, %60
@@ -3416,9 +3416,9 @@ _ZN6Unpack13UnpInitData20Ei.exit:                 ; preds = %13
   %24 = getelementptr inbounds i8, ptr %0, i64 39052
   store i32 1, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 39064
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(368) %25, i8 0, i64 368, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %25, i8 0, i64 368, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 22740
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16308) %26, i8 0, i64 16308, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16308) %26, i8 0, i64 16308, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 59501
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %0, i64 59092
@@ -3684,7 +3684,7 @@ define void @_ZN6Unpack8InitHuffEv(ptr nocapture noundef nonnull align 8 derefer
   br i1 %.not.i, label %25, label %.preheader.i, !llvm.loop !44
 
 25:                                               ; preds = %23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %15, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %15, i8 0, i64 256, i1 false)
   br label %26
 
 26:                                               ; preds = %26, %25
@@ -3794,7 +3794,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit:                ; preds = %._crit_edge.thread.
   br label %.preheader.i, !llvm.loop !50
 
 44:                                               ; preds = %42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %24, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %24, i8 0, i64 256, i1 false)
   br label %45
 
 45:                                               ; preds = %45, %44
@@ -4284,7 +4284,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit80:              ; preds = %._crit_edge.thread.
   br label %.preheader.i, !llvm.loop !52
 
 186:                                              ; preds = %184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %166, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %166, i8 0, i64 256, i1 false)
   br label %187
 
 187:                                              ; preds = %187, %186
@@ -4629,7 +4629,7 @@ _ZN6Unpack9DecodeNumEjjPjS0_.exit89:              ; preds = %._crit_edge.thread.
   br label %.preheader.i, !llvm.loop !54
 
 134:                                              ; preds = %132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %115, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %115, i8 0, i64 256, i1 false)
   br label %135
 
 135:                                              ; preds = %135, %134
@@ -14614,7 +14614,7 @@ define void @_ZN6UnpackC2EP11ComprDataIO(ptr noundef nonnull align 8 dereference
   tail call void @_ZN6Unpack11UnpInitDataEb(ptr noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext false)
   %22 = getelementptr inbounds i8, ptr %0, i64 22692
   %23 = getelementptr inbounds i8, ptr %0, i64 22688
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 13568, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 22736
   store i32 8193, ptr %24, align 8
@@ -14679,7 +14679,7 @@ define void @_ZN6UnpackC2EP11ComprDataIO(ptr noundef nonnull align 8 dereference
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %0, i64 22170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(256) %52, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %52, i8 0, i64 256, i1 false)
   br label %53
 
 53:                                               ; preds = %53, %51

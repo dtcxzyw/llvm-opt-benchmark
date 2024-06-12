@@ -73,7 +73,7 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i.i": ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 %6
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %14, i64 %3), !alias.scope !17, !noalias !24
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %14, i64 %3), !alias.scope !17, !noalias !24
   %bcmp.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %15 = icmp eq i32 %bcmp.i.i.i.fr.i.i.i, 0
   %spec.select.i.i.i = zext i1 %15 to i64
@@ -86,7 +86,7 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit33.i.i": ; preds = %.preheader.i.i
   %17 = getelementptr inbounds i8, ptr %0, i64 %5
-  %bcmp.i.i.i.i30.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %17, i64 %3), !alias.scope !25, !noalias !32
+  %bcmp.i.i.i.i30.i.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %17, i64 %3), !alias.scope !25, !noalias !32
   %bcmp.i.i.i.fr.i31.i.i = freeze i32 %bcmp.i.i.i.i30.i.i
   %18 = icmp eq i32 %bcmp.i.i.i.fr.i31.i.i, 0
   br label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit"
@@ -124,7 +124,7 @@ define { i64, i64 } @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i": ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 %6
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %14, i64 %3), !alias.scope !45, !noalias !37
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %14, i64 %3), !alias.scope !45, !noalias !37
   %bcmp.i.i.i.fr.i.i = freeze i32 %bcmp.i.i.i.i.i
   %15 = icmp eq i32 %bcmp.i.i.i.fr.i.i, 0
   %spec.select.i.i = zext i1 %15 to i64
@@ -137,7 +137,7 @@ define { i64, i64 } @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit33.i": ; preds = %.preheader.i
   %17 = getelementptr inbounds i8, ptr %0, i64 %5
-  %bcmp.i.i.i.i30.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %17, i64 %3), !alias.scope !52, !noalias !59
+  %bcmp.i.i.i.i30.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %17, i64 %3), !alias.scope !52, !noalias !59
   %bcmp.i.i.i.fr.i31.i = freeze i32 %bcmp.i.i.i.i30.i
   %18 = icmp eq i32 %bcmp.i.i.i.fr.i31.i, 0
   %spec.select35.i = zext i1 %18 to i64
@@ -157,7 +157,7 @@ define { ptr, i64 } @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12strip_prefix17hac515435bac00690E.exit", label %5
 
 5:                                                ; preds = %4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %3), !alias.scope !64
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %2, i64 %3), !alias.scope !64
   %6 = icmp eq i32 %bcmp.i.i, 0
   br i1 %6, label %7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12strip_prefix17hac515435bac00690E.exit"
 
@@ -180,7 +180,7 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha932f9614aebdad1E.exit.i": ; preds = %4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !71
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %0, i64 %3), !alias.scope !71
   %5 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit"
 
@@ -246,7 +246,7 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd04b32ae75c7a565E.exit.i.i.i": ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 %7
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %15, i64 %4), !alias.scope !91, !noalias !98
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr nonnull %15, i64 %4), !alias.scope !91, !noalias !98
   %bcmp.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
   %16 = icmp eq i32 %bcmp.i.i.i.fr.i.i.i, 0
   %spec.select.i.i.i = zext i1 %16 to i64
@@ -259,7 +259,7 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
 
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit": ; preds = %.preheader.i.i
   %18 = getelementptr inbounds i8, ptr %1, i64 %6
-  %bcmp.i.i.i.i30.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull readonly %18, i64 %4), !alias.scope !99, !noalias !106
+  %bcmp.i.i.i.i30.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr nonnull %18, i64 %4), !alias.scope !99, !noalias !106
   %bcmp.i.i.i.fr.i31.i.i = freeze i32 %bcmp.i.i.i.i30.i.i
   %19 = icmp eq i32 %bcmp.i.i.i.fr.i31.i.i, 0
   br i1 %19, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread17", label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread"

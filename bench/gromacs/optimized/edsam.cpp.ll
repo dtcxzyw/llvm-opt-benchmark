@@ -1183,7 +1183,7 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
   br i1 %exitcond167.not.i, label %88, label %76, !llvm.loop !20
 
 88:                                               ; preds = %87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %9, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %9, i8 0, i64 36, i1 false)
   %89 = icmp sgt i32 %52, 0
   br i1 %89, label %.preheader138.preheader.i, label %.preheader136.i.preheader
 
@@ -2631,17 +2631,17 @@ _ZL20translate_and_rotatePA3_fiPfS0_.exit:        ; preds = %.noexc147
 
 476:                                              ; preds = %.noexc155
   %477 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 352
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull readonly %477, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0439)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull %477, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0262.0439)
   %478 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 416
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull readonly %478, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0439)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull %478, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0262.0439)
   %479 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 480
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull readonly %479, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0439)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull %479, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0262.0439)
   %480 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 544
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull readonly %480, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0439)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull %480, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0262.0439)
   %481 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 608
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull readonly %481, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0439)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull %481, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0262.0439)
   %482 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull readonly %482, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0439)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %409, ptr noundef nonnull %482, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0262.0439)
   %483 = getelementptr inbounds i8, ptr %.sroa.0262.0439, i64 192
   %484 = load i32, ptr %483, align 8
   %485 = icmp sgt i32 %484, 0
@@ -2971,64 +2971,64 @@ _Z10nblock_abcI5edparEvbP10tmpi_comm_mPSt6vectorIT_SaIS4_EE.exit.i: ; preds = %6
 
 .noexc174:                                        ; preds = %656
   %658 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 24
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %658, i32 noundef 0)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull %6, ptr noundef nonnull %658, i32 noundef 0)
           to label %.noexc175 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc175:                                        ; preds = %.noexc174
   %659 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 112
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %659, i32 noundef 1)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull %6, ptr noundef nonnull %659, i32 noundef 1)
           to label %.noexc176 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc176:                                        ; preds = %.noexc175
   %660 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 192
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %660, i32 noundef 3)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull %6, ptr noundef nonnull %660, i32 noundef 3)
           to label %.noexc177 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc177:                                        ; preds = %.noexc176
   %661 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 272
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %661, i32 noundef 2)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull %6, ptr noundef nonnull %661, i32 noundef 2)
           to label %.noexc178 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc178:                                        ; preds = %.noexc177
   %662 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 352
   %663 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %662, i32 noundef %663)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %662, i32 noundef %663)
           to label %.noexc179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc179:                                        ; preds = %.noexc178
   %664 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 416
   %665 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %664, i32 noundef %665)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %664, i32 noundef %665)
           to label %.noexc180 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc180:                                        ; preds = %.noexc179
   %666 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 480
   %667 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %666, i32 noundef %667)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %666, i32 noundef %667)
           to label %.noexc181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc181:                                        ; preds = %.noexc180
   %668 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 544
   %669 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %668, i32 noundef %669)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %668, i32 noundef %669)
           to label %.noexc182 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc182:                                        ; preds = %.noexc181
   %670 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 608
   %671 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %670, i32 noundef %671)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %670, i32 noundef %671)
           to label %.noexc183 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc183:                                        ; preds = %.noexc182
   %672 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 672
   %673 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %672, i32 noundef %673)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %672, i32 noundef %673)
           to label %.noexc184 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc184:                                        ; preds = %.noexc183
   %674 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 792
   %675 = load i32, ptr %659, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %674, i32 noundef %675)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull %6, ptr noundef nonnull %674, i32 noundef %675)
           to label %.noexc185 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc185:                                        ; preds = %.noexc184
@@ -11292,13 +11292,13 @@ _Z11do_per_stepll.exit150:                        ; preds = %_Z11do_per_stepll.e
 
 224:                                              ; preds = %_Z11do_per_stepll.exit150
   %225 = load ptr, ptr %87, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull readonly %43, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull readonly %45, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull readonly %47, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull readonly %49, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull readonly %51, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull %43, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
   %226 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull readonly %226, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %225, ptr noundef nonnull %226, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
   %227 = load ptr, ptr %87, align 8
   call fastcc void @_ZN12_GLOBAL__N_111rad_projectERK5edparPA3_fPNS_8t_eigvecE(ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247, ptr noundef %227, ptr noundef nonnull %51)
   %228 = load ptr, ptr %87, align 8
@@ -11355,13 +11355,13 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit159: ; preds = %240, %233
 
 255:                                              ; preds = %_ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit159
   %256 = load ptr, ptr %87, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull readonly %43, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull readonly %45, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull readonly %47, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull readonly %49, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull readonly %51, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull %43, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
   %257 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull readonly %257, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %256, ptr noundef nonnull %257, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
   %258 = load ptr, ptr %87, align 8
   call fastcc void @_ZN12_GLOBAL__N_111rad_projectERK5edparPA3_fPNS_8t_eigvecE(ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247, ptr noundef %258, ptr noundef nonnull %51)
   br label %.sink.split
@@ -12107,13 +12107,13 @@ _Z11do_per_stepll.exit173:                        ; preds = %_ZL20ed_apply_const
 
 695:                                              ; preds = %_Z11do_per_stepll.exit173
   %696 = load ptr, ptr %87, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull readonly %43, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull readonly %45, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull readonly %47, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull readonly %49, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull readonly %51, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull %43, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
   %697 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull readonly %697, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %696, ptr noundef nonnull %697, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247)
   %698 = load i32, ptr %26, align 4
   %699 = icmp eq i32 %698, 0
   br i1 %699, label %703, label %700

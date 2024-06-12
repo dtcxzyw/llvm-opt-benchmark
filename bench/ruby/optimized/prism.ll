@@ -442,7 +442,7 @@ peek_offset.exit:                                 ; preds = %103
   br i1 %107, label %108, label %peek.exit.thread
 
 108:                                              ; preds = %peek_offset.exit
-  %109 = tail call ptr @memchr(ptr noundef readonly %1, i32 noundef 10, i64 noundef %2) #28
+  %109 = tail call ptr @memchr(ptr noundef %1, i32 noundef 10, i64 noundef %2) #28
   %.not89 = icmp eq ptr %109, null
   br i1 %.not89, label %peek.exit.thread, label %110
 
@@ -1277,7 +1277,7 @@ parse_program.exit:                               ; preds = %232
   %.sroa.5.0..sroa_idx.i22.i = getelementptr inbounds i8, ptr %233, i64 24
   %.sroa.31.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %233, i64 8
   %239 = load <2 x ptr>, ptr %238, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i22.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i22.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i16 120, ptr %233, align 8
   store <2 x ptr> %239, ptr %.sroa.31.0..sroa_idx.i23.i, align 8
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %233, i64 48
@@ -2234,7 +2234,7 @@ match_eol_offset.exit.thread:                     ; preds = %75, %74, %80, %matc
   %102 = ptrtoint ptr %82 to i64
   %103 = ptrtoint ptr %93 to i64
   %104 = sub i64 %102, %103
-  %105 = call ptr @memchr(ptr noundef readonly %93, i32 noundef 10, i64 noundef %104) #28
+  %105 = call ptr @memchr(ptr noundef %93, i32 noundef 10, i64 noundef %104) #28
   %106 = icmp eq ptr %105, null
   %spec.select2712 = select i1 %106, ptr %82, ptr %105
   store ptr %spec.select2712, ptr %22, align 8
@@ -3052,7 +3052,7 @@ parser_lex_ignored_newline.exit:                  ; preds = %374, %372, %371
   %404 = ptrtoint ptr %398 to i64
   %405 = ptrtoint ptr %397 to i64
   %406 = sub i64 %404, %405
-  %407 = call ptr @memchr(ptr noundef nonnull readonly %397, i32 noundef 10, i64 noundef %406) #28
+  %407 = call ptr @memchr(ptr noundef nonnull %397, i32 noundef 10, i64 noundef %406) #28
   %.not15973300 = icmp eq ptr %407, null
   br i1 %.not15973300, label %.critedge, label %.lr.ph3303
 
@@ -3082,7 +3082,7 @@ peek_at.exit:                                     ; preds = %411
   %420 = ptrtoint ptr %.val1634 to i64
   %421 = ptrtoint ptr %416 to i64
   %422 = sub i64 %420, %421
-  %423 = call ptr @memchr(ptr noundef nonnull readonly %416, i32 noundef 10, i64 noundef %422) #28
+  %423 = call ptr @memchr(ptr noundef nonnull %416, i32 noundef 10, i64 noundef %422) #28
   %.not1597 = icmp eq ptr %423, null
   br i1 %.not1597, label %.critedge, label %.lr.ph3303, !llvm.loop !30
 
@@ -3872,7 +3872,7 @@ peek_offset.exit:                                 ; preds = %737, %739
   %743 = ptrtoint ptr %.val.i1901.pre to i64
   %744 = ptrtoint ptr %.val3.i1902.pre to i64
   %745 = sub i64 %743, %744
-  %746 = call ptr @memchr(ptr noundef readonly %.val3.i1902.pre, i32 noundef 10, i64 noundef %745) #28
+  %746 = call ptr @memchr(ptr noundef %.val3.i1902.pre, i32 noundef 10, i64 noundef %745) #28
   %747 = icmp eq ptr %746, null
   br i1 %747, label %751, label %748
 
@@ -3941,7 +3941,7 @@ parser_comment.exit.i:                            ; preds = %parser_lex_callback
   %775 = ptrtoint ptr %773 to i64
   %776 = ptrtoint ptr %774 to i64
   %777 = sub i64 %775, %776
-  %778 = call ptr @memchr(ptr noundef readonly %774, i32 noundef 10, i64 noundef %777) #28
+  %778 = call ptr @memchr(ptr noundef %774, i32 noundef 10, i64 noundef %777) #28
   %779 = icmp eq ptr %778, null
   br i1 %779, label %783, label %780
 
@@ -3979,7 +3979,7 @@ lex_embdoc.exit.thread3682:                       ; preds = %783
   %790 = ptrtoint ptr %788 to i64
   %791 = ptrtoint ptr %789 to i64
   %792 = sub i64 %790, %791
-  %793 = call ptr @memchr(ptr noundef readonly %789, i32 noundef 10, i64 noundef %792) #28
+  %793 = call ptr @memchr(ptr noundef %789, i32 noundef 10, i64 noundef %792) #28
   %794 = icmp eq ptr %793, null
   br i1 %794, label %798, label %795
 
@@ -4362,7 +4362,7 @@ lex_mode_push.exit:                               ; preds = %925, %928, %929
   %938 = ptrtoint ptr %937 to i64
   %939 = ptrtoint ptr %936 to i64
   %940 = sub i64 %938, %939
-  %941 = call ptr @memchr(ptr noundef readonly %936, i32 noundef 10, i64 noundef %940) #28
+  %941 = call ptr @memchr(ptr noundef %936, i32 noundef 10, i64 noundef %940) #28
   %942 = icmp eq ptr %941, null
   br i1 %942, label %943, label %947
 
@@ -6685,7 +6685,7 @@ peek_at.exit11.i.i2300:                           ; preds = %1829
 match_eol.exit.thread:                            ; preds = %peek_at.exit11.i.i2300, %peek_at.exit.i.i2299, %1823
   %1834 = ptrtoint ptr %1824 to i64
   %1835 = sub i64 %1834, %1813
-  %1836 = call ptr @memchr(ptr noundef readonly %1811, i32 noundef 10, i64 noundef %1835) #28
+  %1836 = call ptr @memchr(ptr noundef %1811, i32 noundef 10, i64 noundef %1835) #28
   %.not16063317 = icmp eq ptr %1836, null
   br i1 %.not16063317, label %._crit_edge3319, label %.lr.ph3318
 
@@ -6697,7 +6697,7 @@ match_eol.exit.thread:                            ; preds = %peek_at.exit11.i.i2
   %1841 = ptrtoint ptr %1840 to i64
   %1842 = ptrtoint ptr %1838 to i64
   %1843 = sub i64 %1841, %1842
-  %1844 = call ptr @memchr(ptr noundef readonly %1838, i32 noundef 10, i64 noundef %1843) #28
+  %1844 = call ptr @memchr(ptr noundef %1838, i32 noundef 10, i64 noundef %1843) #28
   %.not1606 = icmp eq ptr %1844, null
   br i1 %.not1606, label %._crit_edge3319, label %.lr.ph3318, !llvm.loop !35
 
@@ -8418,7 +8418,7 @@ current_token_starts_line.exit2410.thread:        ; preds = %2617, %current_toke
   %2629 = ptrtoint ptr %2603 to i64
   %2630 = ptrtoint ptr %.val1757 to i64
   %2631 = sub i64 %2629, %2630
-  %2632 = tail call ptr @memchr(ptr noundef readonly %.val1757, i32 noundef 10, i64 noundef %2631) #28
+  %2632 = tail call ptr @memchr(ptr noundef %.val1757, i32 noundef 10, i64 noundef %2631) #28
   %2633 = icmp eq ptr %2632, null
   br i1 %2633, label %2639, label %2634
 
@@ -8670,7 +8670,7 @@ pm_heredoc_strspn_inline_whitespace.exit.thread2680: ; preds = %2671, %pm_heredo
   %2748 = ptrtoint ptr %2746 to i64
   %2749 = ptrtoint ptr %2743 to i64
   %2750 = sub i64 %2748, %2749
-  %2751 = call ptr @memchr(ptr noundef readonly %2743, i32 noundef 10, i64 noundef %2750) #28
+  %2751 = call ptr @memchr(ptr noundef %2743, i32 noundef 10, i64 noundef %2750) #28
   %2752 = icmp eq ptr %2751, null
   br i1 %2752, label %2757, label %2753
 
@@ -10079,7 +10079,7 @@ lex_numeric_prefix.exit.thread:                   ; preds = %20, %140, %pm_strsp
   br label %156
 
 lex_numeric_prefix.exit:                          ; preds = %20, %20, %20, %pm_strspn_decimal_number_validate.exit65.i
-  %153 = call fastcc i32 @lex_optional_float_suffix(ptr noundef nonnull %0, ptr noundef nonnull writeonly %8)
+  %153 = call fastcc i32 @lex_optional_float_suffix(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %154 = load ptr, ptr %10, align 8
   %155 = icmp eq i32 %153, 58
   %.val.i.pre77 = load ptr, ptr %12, align 8
@@ -11472,7 +11472,7 @@ peek.exit.thread:                                 ; preds = %match.exit, %peek_o
   br i1 %or.cond, label %104, label %match.exit360
 
 104:                                              ; preds = %peek.exit.thread
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.44, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.44, i64 8)
   %105 = icmp eq i32 %bcmp.i, 0
   br i1 %105, label %106, label %match.exit360
 
@@ -11588,7 +11588,7 @@ peek.exit377.thread:                              ; preds = %.critedge.peek.exit
   ]
 
 136:                                              ; preds = %135
-  %bcmp.i385 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.45, i64 2)
+  %bcmp.i385 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.45, i64 2)
   %137 = icmp eq i32 %bcmp.i385, 0
   br i1 %137, label %138, label %lex_keyword.exit390
 
@@ -11611,7 +11611,7 @@ peek.exit377.thread:                              ; preds = %.critedge.peek.exit
   br label %match.exit360
 
 lex_keyword.exit390:                              ; preds = %136
-  %bcmp.i391 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.46, i64 2)
+  %bcmp.i391 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.46, i64 2)
   %144 = icmp eq i32 %bcmp.i391, 0
   br i1 %144, label %145, label %lex_keyword.exit396
 
@@ -11635,7 +11635,7 @@ lex_keyword.exit390:                              ; preds = %136
   br label %match.exit360
 
 lex_keyword.exit396:                              ; preds = %lex_keyword.exit390
-  %bcmp.i397 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.47, i64 2)
+  %bcmp.i397 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.47, i64 2)
   %150 = icmp eq i32 %bcmp.i397, 0
   br i1 %150, label %151, label %lex_keyword.exit404
 
@@ -11655,7 +11655,7 @@ lex_keyword.exit396:                              ; preds = %lex_keyword.exit390
   br label %match.exit360
 
 lex_keyword.exit404:                              ; preds = %lex_keyword.exit396
-  %bcmp.i405 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %6, ptr noundef nonnull readonly dereferenceable(2) @.str.48, i64 2)
+  %bcmp.i405 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %6, ptr noundef nonnull dereferenceable(2) @.str.48, i64 2)
   %155 = icmp eq i32 %bcmp.i405, 0
   br i1 %155, label %156, label %lex_keyword.exit412
 
@@ -11675,7 +11675,7 @@ lex_keyword.exit404:                              ; preds = %lex_keyword.exit396
   br label %match.exit360
 
 160:                                              ; preds = %135
-  %bcmp.i413 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.49, i64 3)
+  %bcmp.i413 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.49, i64 3)
   %161 = icmp eq i32 %bcmp.i413, 0
   br i1 %161, label %162, label %lex_keyword.exit420
 
@@ -11695,7 +11695,7 @@ lex_keyword.exit404:                              ; preds = %lex_keyword.exit396
   br label %match.exit360
 
 lex_keyword.exit420:                              ; preds = %160
-  %bcmp.i421 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.50, i64 3)
+  %bcmp.i421 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %166 = icmp eq i32 %bcmp.i421, 0
   br i1 %166, label %167, label %lex_keyword.exit428
 
@@ -11713,7 +11713,7 @@ lex_keyword.exit420:                              ; preds = %160
   br label %match.exit360
 
 lex_keyword.exit428:                              ; preds = %lex_keyword.exit420
-  %bcmp.i429 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.51, i64 3)
+  %bcmp.i429 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.51, i64 3)
   %170 = icmp eq i32 %bcmp.i429, 0
   br i1 %170, label %171, label %lex_keyword.exit436
 
@@ -11731,7 +11731,7 @@ lex_keyword.exit428:                              ; preds = %lex_keyword.exit420
   br label %match.exit360
 
 lex_keyword.exit436:                              ; preds = %lex_keyword.exit428
-  %bcmp.i437 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.52, i64 3)
+  %bcmp.i437 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.52, i64 3)
   %174 = icmp eq i32 %bcmp.i437, 0
   br i1 %174, label %175, label %lex_keyword.exit444
 
@@ -11749,7 +11749,7 @@ lex_keyword.exit436:                              ; preds = %lex_keyword.exit428
   br label %match.exit360
 
 lex_keyword.exit444:                              ; preds = %lex_keyword.exit436
-  %bcmp.i445 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.53, i64 3)
+  %bcmp.i445 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.53, i64 3)
   %178 = icmp eq i32 %bcmp.i445, 0
   br i1 %178, label %179, label %lex_keyword.exit452
 
@@ -11769,7 +11769,7 @@ lex_keyword.exit444:                              ; preds = %lex_keyword.exit436
   br label %match.exit360
 
 lex_keyword.exit452:                              ; preds = %lex_keyword.exit444
-  %bcmp.i453 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.54, i64 3)
+  %bcmp.i453 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.54, i64 3)
   %183 = icmp eq i32 %bcmp.i453, 0
   br i1 %183, label %184, label %lex_keyword.exit460
 
@@ -11787,7 +11787,7 @@ lex_keyword.exit452:                              ; preds = %lex_keyword.exit444
   br label %match.exit360
 
 lex_keyword.exit460:                              ; preds = %lex_keyword.exit452
-  %bcmp.i461 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %6, ptr noundef nonnull readonly dereferenceable(3) @.str.55, i64 3)
+  %bcmp.i461 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.55, i64 3)
   %187 = icmp eq i32 %bcmp.i461, 0
   br i1 %187, label %188, label %lex_keyword.exit412
 
@@ -11805,7 +11805,7 @@ lex_keyword.exit460:                              ; preds = %lex_keyword.exit452
   br label %match.exit360
 
 191:                                              ; preds = %135
-  %bcmp.i469 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.56, i64 4)
+  %bcmp.i469 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.56, i64 4)
   %192 = icmp eq i32 %bcmp.i469, 0
   br i1 %192, label %193, label %lex_keyword.exit476
 
@@ -11825,7 +11825,7 @@ lex_keyword.exit460:                              ; preds = %lex_keyword.exit452
   br label %match.exit360
 
 lex_keyword.exit476:                              ; preds = %191
-  %bcmp.i477 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.57, i64 4)
+  %bcmp.i477 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.57, i64 4)
   %197 = icmp eq i32 %bcmp.i477, 0
   br i1 %197, label %198, label %lex_keyword.exit484
 
@@ -11845,7 +11845,7 @@ lex_keyword.exit476:                              ; preds = %191
   br label %match.exit360
 
 lex_keyword.exit484:                              ; preds = %lex_keyword.exit476
-  %bcmp.i485 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.58, i64 4)
+  %bcmp.i485 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.58, i64 4)
   %202 = icmp eq i32 %bcmp.i485, 0
   br i1 %202, label %203, label %lex_keyword.exit492
 
@@ -11863,7 +11863,7 @@ lex_keyword.exit484:                              ; preds = %lex_keyword.exit476
   br label %match.exit360
 
 lex_keyword.exit492:                              ; preds = %lex_keyword.exit484
-  %bcmp.i493 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.59, i64 4)
+  %bcmp.i493 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.59, i64 4)
   %206 = icmp eq i32 %bcmp.i493, 0
   br i1 %206, label %207, label %lex_keyword.exit500
 
@@ -11881,7 +11881,7 @@ lex_keyword.exit492:                              ; preds = %lex_keyword.exit484
   br label %match.exit360
 
 lex_keyword.exit500:                              ; preds = %lex_keyword.exit492
-  %bcmp.i501 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.60, i64 4)
+  %bcmp.i501 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.60, i64 4)
   %210 = icmp eq i32 %bcmp.i501, 0
   br i1 %210, label %211, label %lex_keyword.exit508
 
@@ -11899,7 +11899,7 @@ lex_keyword.exit500:                              ; preds = %lex_keyword.exit492
   br label %match.exit360
 
 lex_keyword.exit508:                              ; preds = %lex_keyword.exit500
-  %bcmp.i509 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.61, i64 4)
+  %bcmp.i509 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.61, i64 4)
   %214 = icmp eq i32 %bcmp.i509, 0
   br i1 %214, label %215, label %lex_keyword.exit516
 
@@ -11919,7 +11919,7 @@ lex_keyword.exit508:                              ; preds = %lex_keyword.exit500
   br label %match.exit360
 
 lex_keyword.exit516:                              ; preds = %lex_keyword.exit508
-  %bcmp.i517 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.38, i64 4)
+  %bcmp.i517 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.38, i64 4)
   %219 = icmp eq i32 %bcmp.i517, 0
   br i1 %219, label %220, label %lex_keyword.exit524
 
@@ -11937,7 +11937,7 @@ lex_keyword.exit516:                              ; preds = %lex_keyword.exit508
   br label %match.exit360
 
 lex_keyword.exit524:                              ; preds = %lex_keyword.exit516
-  %bcmp.i525 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %6, ptr noundef nonnull readonly dereferenceable(4) @.str.62, i64 4)
+  %bcmp.i525 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.62, i64 4)
   %223 = icmp eq i32 %bcmp.i525, 0
   br i1 %223, label %224, label %lex_keyword.exit412
 
@@ -11957,7 +11957,7 @@ lex_keyword.exit524:                              ; preds = %lex_keyword.exit516
   br label %match.exit360
 
 228:                                              ; preds = %135
-  %bcmp.i533 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.63, i64 5)
+  %bcmp.i533 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.63, i64 5)
   %229 = icmp eq i32 %bcmp.i533, 0
   br i1 %229, label %230, label %lex_keyword.exit540
 
@@ -11975,7 +11975,7 @@ lex_keyword.exit524:                              ; preds = %lex_keyword.exit516
   br label %match.exit360
 
 lex_keyword.exit540:                              ; preds = %228
-  %bcmp.i541 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.33, i64 5)
+  %bcmp.i541 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
   %233 = icmp eq i32 %bcmp.i541, 0
   br i1 %233, label %234, label %lex_keyword.exit548
 
@@ -11995,7 +11995,7 @@ lex_keyword.exit540:                              ; preds = %228
   br label %match.exit360
 
 lex_keyword.exit548:                              ; preds = %lex_keyword.exit540
-  %bcmp.i549 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.64, i64 5)
+  %bcmp.i549 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.64, i64 5)
   %238 = icmp eq i32 %bcmp.i549, 0
   br i1 %238, label %239, label %lex_keyword.exit556
 
@@ -12013,7 +12013,7 @@ lex_keyword.exit548:                              ; preds = %lex_keyword.exit540
   br label %match.exit360
 
 lex_keyword.exit556:                              ; preds = %lex_keyword.exit548
-  %bcmp.i557 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.65, i64 5)
+  %bcmp.i557 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.65, i64 5)
   %242 = icmp eq i32 %bcmp.i557, 0
   br i1 %242, label %243, label %lex_keyword.exit564
 
@@ -12031,7 +12031,7 @@ lex_keyword.exit556:                              ; preds = %lex_keyword.exit548
   br label %match.exit360
 
 lex_keyword.exit564:                              ; preds = %lex_keyword.exit556
-  %bcmp.i565 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.66, i64 5)
+  %bcmp.i565 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.66, i64 5)
   %246 = icmp eq i32 %bcmp.i565, 0
   br i1 %246, label %247, label %lex_keyword.exit572
 
@@ -12049,7 +12049,7 @@ lex_keyword.exit564:                              ; preds = %lex_keyword.exit556
   br label %match.exit360
 
 lex_keyword.exit572:                              ; preds = %lex_keyword.exit564
-  %bcmp.i573 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.67, i64 5)
+  %bcmp.i573 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.67, i64 5)
   %250 = icmp eq i32 %bcmp.i573, 0
   br i1 %250, label %251, label %lex_keyword.exit580
 
@@ -12069,7 +12069,7 @@ lex_keyword.exit572:                              ; preds = %lex_keyword.exit564
   br label %match.exit360
 
 lex_keyword.exit580:                              ; preds = %lex_keyword.exit572
-  %bcmp.i581 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.39, i64 5)
+  %bcmp.i581 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.39, i64 5)
   %255 = icmp eq i32 %bcmp.i581, 0
   br i1 %255, label %256, label %lex_keyword.exit588
 
@@ -12087,7 +12087,7 @@ lex_keyword.exit580:                              ; preds = %lex_keyword.exit572
   br label %match.exit360
 
 lex_keyword.exit588:                              ; preds = %lex_keyword.exit580
-  %bcmp.i589 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.68, i64 5)
+  %bcmp.i589 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.68, i64 5)
   %259 = icmp eq i32 %bcmp.i589, 0
   br i1 %259, label %260, label %lex_keyword.exit596
 
@@ -12105,7 +12105,7 @@ lex_keyword.exit588:                              ; preds = %lex_keyword.exit580
   br label %match.exit360
 
 lex_keyword.exit596:                              ; preds = %lex_keyword.exit588
-  %bcmp.i597 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.69, i64 5)
+  %bcmp.i597 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.69, i64 5)
   %263 = icmp eq i32 %bcmp.i597, 0
   br i1 %263, label %264, label %lex_keyword.exit604
 
@@ -12123,7 +12123,7 @@ lex_keyword.exit596:                              ; preds = %lex_keyword.exit588
   br label %match.exit360
 
 lex_keyword.exit604:                              ; preds = %lex_keyword.exit596
-  %bcmp.i605 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.70, i64 5)
+  %bcmp.i605 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.70, i64 5)
   %267 = icmp eq i32 %bcmp.i605, 0
   br i1 %267, label %268, label %lex_keyword.exit612
 
@@ -12141,7 +12141,7 @@ lex_keyword.exit604:                              ; preds = %lex_keyword.exit596
   br label %match.exit360
 
 lex_keyword.exit612:                              ; preds = %lex_keyword.exit604
-  %bcmp.i613 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.71, i64 5)
+  %bcmp.i613 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.71, i64 5)
   %271 = icmp eq i32 %bcmp.i613, 0
   br i1 %271, label %272, label %lex_keyword.exit620
 
@@ -12165,7 +12165,7 @@ lex_keyword.exit612:                              ; preds = %lex_keyword.exit604
   br label %match.exit360
 
 lex_keyword.exit620:                              ; preds = %lex_keyword.exit612
-  %bcmp.i621 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.72, i64 5)
+  %bcmp.i621 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.72, i64 5)
   %277 = icmp eq i32 %bcmp.i621, 0
   br i1 %277, label %278, label %lex_keyword.exit628
 
@@ -12189,7 +12189,7 @@ lex_keyword.exit620:                              ; preds = %lex_keyword.exit612
   br label %match.exit360
 
 lex_keyword.exit628:                              ; preds = %lex_keyword.exit620
-  %bcmp.i629 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.73, i64 5)
+  %bcmp.i629 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.73, i64 5)
   %283 = icmp eq i32 %bcmp.i629, 0
   br i1 %283, label %284, label %lex_keyword.exit412
 
@@ -12207,7 +12207,7 @@ lex_keyword.exit628:                              ; preds = %lex_keyword.exit620
   br label %match.exit360
 
 287:                                              ; preds = %135
-  %bcmp.i637 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.74, i64 6)
+  %bcmp.i637 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.74, i64 6)
   %288 = icmp eq i32 %bcmp.i637, 0
   br i1 %288, label %289, label %lex_keyword.exit644
 
@@ -12227,7 +12227,7 @@ lex_keyword.exit628:                              ; preds = %lex_keyword.exit620
   br label %match.exit360
 
 lex_keyword.exit644:                              ; preds = %287
-  %bcmp.i645 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.75, i64 6)
+  %bcmp.i645 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.75, i64 6)
   %293 = icmp eq i32 %bcmp.i645, 0
   br i1 %293, label %294, label %lex_keyword.exit652
 
@@ -12247,7 +12247,7 @@ lex_keyword.exit644:                              ; preds = %287
   br label %match.exit360
 
 lex_keyword.exit652:                              ; preds = %lex_keyword.exit644
-  %bcmp.i653 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.76, i64 6)
+  %bcmp.i653 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.76, i64 6)
   %298 = icmp eq i32 %bcmp.i653, 0
   br i1 %298, label %299, label %lex_keyword.exit660
 
@@ -12269,7 +12269,7 @@ lex_keyword.exit652:                              ; preds = %lex_keyword.exit644
   br label %match.exit360
 
 lex_keyword.exit660:                              ; preds = %lex_keyword.exit652
-  %bcmp.i661 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.77, i64 6)
+  %bcmp.i661 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.77, i64 6)
   %303 = icmp eq i32 %bcmp.i661, 0
   br i1 %303, label %304, label %lex_keyword.exit668
 
@@ -12287,7 +12287,7 @@ lex_keyword.exit660:                              ; preds = %lex_keyword.exit652
   br label %match.exit360
 
 lex_keyword.exit668:                              ; preds = %lex_keyword.exit660
-  %bcmp.i669 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %6, ptr noundef nonnull readonly dereferenceable(6) @.str.78, i64 6)
+  %bcmp.i669 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %6, ptr noundef nonnull dereferenceable(6) @.str.78, i64 6)
   %307 = icmp eq i32 %bcmp.i669, 0
   br i1 %307, label %308, label %lex_keyword.exit412
 
@@ -12311,7 +12311,7 @@ lex_keyword.exit668:                              ; preds = %lex_keyword.exit660
   br label %match.exit360
 
 313:                                              ; preds = %135
-  %bcmp.i677 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.79, i64 8)
+  %bcmp.i677 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.79, i64 8)
   %314 = icmp eq i32 %bcmp.i677, 0
   br i1 %314, label %315, label %lex_keyword.exit684
 
@@ -12329,7 +12329,7 @@ lex_keyword.exit668:                              ; preds = %lex_keyword.exit660
   br label %match.exit360
 
 lex_keyword.exit684:                              ; preds = %313
-  %bcmp.i685 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.80, i64 8)
+  %bcmp.i685 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.80, i64 8)
   %318 = icmp eq i32 %bcmp.i685, 0
   br i1 %318, label %319, label %lex_keyword.exit412
 
@@ -12347,7 +12347,7 @@ lex_keyword.exit684:                              ; preds = %313
   br label %match.exit360
 
 322:                                              ; preds = %135
-  %bcmp.i693 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %6, ptr noundef nonnull readonly dereferenceable(12) @.str.81, i64 12)
+  %bcmp.i693 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %6, ptr noundef nonnull dereferenceable(12) @.str.81, i64 12)
   %323 = icmp eq i32 %bcmp.i693, 0
   br i1 %323, label %324, label %lex_keyword.exit412
 
@@ -15273,7 +15273,7 @@ expect1.exit:                                     ; preds = %accept1.exit.i, %ac
 
 132:                                              ; preds = %120
   %133 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 23)
-  %134 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %133)
+  %134 = call fastcc ptr @pm_check_value_expression(ptr noundef %133)
   %.not.i2334 = icmp eq ptr %134, null
   br i1 %.not.i2334, label %pm_parser_scope_forwarding_positionals_check.exit, label %135
 
@@ -15368,7 +15368,7 @@ match8.exit.thread:                               ; preds = %pm_keyword_hash_nod
 
 159:                                              ; preds = %expect1.exit
   %160 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 22)
-  %161 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %160)
+  %161 = call fastcc ptr @pm_check_value_expression(ptr noundef %160)
   %.not.i2336 = icmp eq ptr %161, null
   br i1 %.not.i2336, label %pm_assert_value_expression.exit2339, label %162
 
@@ -15477,7 +15477,7 @@ pm_hash_key_static_literals_add.exit:             ; preds = %pm_keyword_hash_nod
 
 205:                                              ; preds = %204, %203
   %206 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 111)
-  %207 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %206)
+  %207 = call fastcc ptr @pm_check_value_expression(ptr noundef %206)
   %.not.i2340 = icmp eq ptr %207, null
   br i1 %.not.i2340, label %pm_assert_value_expression.exit2343, label %208
 
@@ -16796,7 +16796,7 @@ pm_when_node_create.exit:                         ; preds = %744
   %.sroa.12567.0.copyload = load ptr, ptr %.sroa.12574.0..sroa_idx, align 8
   %.sroa.22568.0.copyload = load ptr, ptr %.sroa.82575.0..sroa_idx, align 8
   %755 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 92)
-  %756 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %755)
+  %756 = call fastcc ptr @pm_check_value_expression(ptr noundef %755)
   %.not.i2344 = icmp eq ptr %756, null
   br i1 %.not.i2344, label %pm_assert_value_expression.exit2347, label %757
 
@@ -16849,7 +16849,7 @@ pm_splat_node_create.exit1902.cont:               ; preds = %pm_splat_node_creat
 
 accept1.exit1894:                                 ; preds = %752
   %770 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 37)
-  %771 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %770)
+  %771 = call fastcc ptr @pm_check_value_expression(ptr noundef %770)
   %.not.i2348 = icmp eq ptr %771, null
   br i1 %.not.i2348, label %pm_assert_value_expression.exit2351, label %772
 
@@ -17036,7 +17036,7 @@ accept1.exit1889:                                 ; preds = %807, %735
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %720, i64 24, i1 false)
   %835 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 8, i1 noundef zeroext true, i32 noundef 47)
-  %836 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %835)
+  %836 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %835)
   %.not.i2352 = icmp eq ptr %836, null
   br i1 %.not.i2352, label %pm_assert_value_expression.exit2355, label %837
 
@@ -17056,7 +17056,7 @@ pm_assert_value_expression.exit2355:              ; preds = %834, %837
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %720, i64 24, i1 false)
   %843 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 8, i1 noundef zeroext true, i32 noundef 51)
-  %844 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %843)
+  %844 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %843)
   %.not.i2356 = icmp eq ptr %844, null
   br i1 %.not.i2356, label %pm_assert_value_expression.exit2359, label %845
 
@@ -19470,7 +19470,7 @@ pm_string_node_create_current_string.exit2781:    ; preds = %1619
   %1628 = trunc i8 %1625 to i1
   %spec.store.select.i.i2772 = select i1 %1628, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i.i2773 = getelementptr inbounds i8, ptr %1620, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i2773, ptr noundef nonnull readonly align 8 dereferenceable(24) %1585, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i2773, ptr noundef nonnull align 8 dereferenceable(24) %1585, i64 24, i1 false)
   store i16 139, ptr %1620, align 8
   %.sroa.2.0..sroa_idx.i.i2774 = getelementptr inbounds i8, ptr %1620, i64 2
   store i16 %spec.store.select.i.i2772, ptr %.sroa.2.0..sroa_idx.i.i2774, align 2
@@ -19533,7 +19533,7 @@ pm_string_node_create_unescaped.exit:             ; preds = %1641
   %1653 = trunc i8 %1652 to i1
   %spec.store.select.i2785 = select i1 %1653, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %1646, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %1651, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %1651, i64 24, i1 false)
   store i16 139, ptr %1646, align 8
   %.sroa.2.0..sroa_idx.i2786 = getelementptr inbounds i8, ptr %1646, i64 2
   store i16 %spec.store.select.i2785, ptr %.sroa.2.0..sroa_idx.i2786, align 2
@@ -19563,7 +19563,7 @@ pm_string_node_create_current_string.exit2814:    ; preds = %pm_string_node_crea
   %1659 = load ptr, ptr %1584, align 8
   %1660 = load ptr, ptr %1582, align 8
   %.sroa.15.0..sroa_idx.i.i2804 = getelementptr inbounds i8, ptr %1654, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i2804, ptr noundef nonnull readonly align 8 dereferenceable(24) %1585, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i2804, ptr noundef nonnull align 8 dereferenceable(24) %1585, i64 24, i1 false)
   store i16 139, ptr %1654, align 8
   %.sroa.2.0..sroa_idx.i.i2805 = getelementptr inbounds i8, ptr %1654, i64 2
   store i16 %spec.store.select.i2785, ptr %.sroa.2.0..sroa_idx.i.i2805, align 2
@@ -20042,7 +20042,7 @@ pm_string_node_create_current_string.exit:        ; preds = %1827
   %1834 = trunc i8 %1833 to i1
   %spec.store.select.i.i = select i1 %1834, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1828, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %1817, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %1817, i64 24, i1 false)
   store i16 139, ptr %1828, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1828, i64 2
   store i16 %spec.store.select.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 2
@@ -20264,7 +20264,7 @@ pm_string_node_create_current_string.exit2239:    ; preds = %1906
   %1915 = trunc i8 %1912 to i1
   %spec.store.select.i.i2228 = select i1 %1915, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i.i2229 = getelementptr inbounds i8, ptr %1907, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i2229, ptr noundef nonnull readonly align 8 dereferenceable(24) %1868, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i2229, ptr noundef nonnull align 8 dereferenceable(24) %1868, i64 24, i1 false)
   store i16 139, ptr %1907, align 8
   %.sroa.2.0..sroa_idx.i.i2230 = getelementptr inbounds i8, ptr %1907, i64 2
   %.sroa.31.0..sroa_idx.i.i2231 = getelementptr inbounds i8, ptr %1907, i64 8
@@ -20645,7 +20645,7 @@ accept1.exit.i2294:                               ; preds = %1879
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %2056 = call fastcc noalias noundef ptr @pm_regular_expression_node_create_unescaped(ptr noundef nonnull readonly %70, ptr noundef nonnull readonly %71, ptr noundef nonnull readonly %2052, ptr noundef nonnull %5)
+  %2056 = call fastcc noalias noundef ptr @pm_regular_expression_node_create_unescaped(ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull %2052, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.loopexit2660
 
@@ -21294,7 +21294,7 @@ accept1.exit2322:                                 ; preds = %2277
 .lr.ph.i2329:                                     ; preds = %2310, %2312
   %.09.i = phi ptr [ %.0.i2330, %2312 ], [ %.07.i2328, %2310 ]
   %2314 = load i32, ptr %.09.i, align 8
-  %2315 = tail call fastcc zeroext i1 @context_terminator(i32 noundef %2314, ptr noundef nonnull readonly %92)
+  %2315 = tail call fastcc zeroext i1 @context_terminator(i32 noundef %2314, ptr noundef nonnull %92)
   br i1 %2315, label %context_recoverable.exit, label %2312
 
 context_recoverable.exit:                         ; preds = %.lr.ph.i2329
@@ -21891,7 +21891,7 @@ define internal fastcc ptr @parse_expression_infix(ptr noundef %0, ptr noundef %
   %250 = icmp ult i32 %2, 12
   %.in.i = select i1 %249, i1 %4, i1 %250
   %251 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %3, i1 noundef zeroext %.in.i, i32 noundef 89)
-  %252 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %251)
+  %252 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %251)
   %.not.i.i783 = icmp eq ptr %252, null
   br i1 %.not.i.i783, label %parse_value_expression.exit, label %253
 
@@ -21990,7 +21990,7 @@ pm_alloc_node.exit.i:                             ; preds = %parse_assignment_va
 pm_global_variable_operator_write_node_create.exit: ; preds = %pm_alloc_node.exit.i, %281, %284, %287
   %.0.i.i = phi i32 [ %294, %287 ], [ %286, %284 ], [ %283, %281 ], [ -1, %pm_alloc_node.exit.i ]
   %.sroa.6.32..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.6.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.32..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %276, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %276, i64 16, i1 false)
   %295 = getelementptr inbounds i8, ptr %6, i64 8
   %296 = load ptr, ptr %295, align 8
   %297 = getelementptr inbounds i8, ptr %6, i64 16
@@ -22165,7 +22165,7 @@ pm_global_variable_operator_write_node_create.exit: ; preds = %pm_alloc_node.exi
   %380 = load i32, ptr %379, align 8
   %381 = icmp eq i32 %380, 63
   %382 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %3, i1 noundef zeroext %381, i32 noundef 89)
-  %383 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %383 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i.i = icmp eq ptr %383, null
   br i1 %.not.i.i, label %pm_assert_value_expression.exit.i, label %384
 
@@ -22215,7 +22215,7 @@ pm_and_node_create.exit:                          ; preds = %pm_assert_value_exp
   %402 = load i32, ptr %401, align 8
   %403 = icmp eq i32 %402, 87
   %404 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %3, i1 noundef zeroext %403, i32 noundef 89)
-  %405 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %405 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i.i755 = icmp eq ptr %405, null
   br i1 %.not.i.i755, label %pm_assert_value_expression.exit.i758, label %406
 
@@ -23074,7 +23074,7 @@ define internal fastcc zeroext i1 @parse_assocs(ptr noundef %0, ptr noundef %1, 
 
 31:                                               ; preds = %28
   %32 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 91)
-  %33 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %32)
+  %33 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %32)
   %.not.i78 = icmp eq ptr %33, null
   br i1 %.not.i78, label %pm_assert_value_expression.exit, label %34
 
@@ -23184,7 +23184,7 @@ pm_hash_key_static_literals_add.exit:             ; preds = %55, %58
 
 74:                                               ; preds = %pm_hash_key_static_literals_add.exit
   %75 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 107)
-  %76 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %75)
+  %76 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %75)
   %.not.i80 = icmp eq ptr %76, null
   br i1 %.not.i80, label %pm_assert_value_expression.exit83, label %77
 
@@ -23357,7 +23357,7 @@ pm_assert_value_expression.exit83:                ; preds = %77, %74, %pm_implic
 
 142:                                              ; preds = %.backedge
   %143 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 108)
-  %144 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %143)
+  %144 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %143)
   %.not.i84 = icmp eq ptr %144, null
   br i1 %.not.i84, label %pm_assert_value_expression.exit87, label %145
 
@@ -23455,7 +23455,7 @@ expect1.exit:                                     ; preds = %accept1.exit.thread
 
 182:                                              ; preds = %expect1.exit, %178
   %183 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 111)
-  %184 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %183)
+  %184 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %183)
   %.not.i88 = icmp eq ptr %184, null
   br i1 %.not.i88, label %pm_assert_value_expression.exit91, label %185
 
@@ -24065,7 +24065,7 @@ pm_string_node_create_unescaped.exit:             ; preds = %21, %25
   %30 = trunc i8 %11 to i1
   %spec.store.select.i = select i1 %30, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   store i16 139, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %spec.store.select.i, ptr %.sroa.2.0..sroa_idx.i, align 2
@@ -24297,7 +24297,7 @@ pm_string_node_create_unescaped.exit:             ; preds = %60
   %67 = trunc i8 %66 to i1
   %spec.store.select.i = select i1 %67, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %61, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i16 139, ptr %61, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %61, i64 2
   store i16 %spec.store.select.i, ptr %.sroa.2.0..sroa_idx.i, align 2
@@ -24334,7 +24334,7 @@ pm_string_node_create_current_string.exit:        ; preds = %68
   %75 = trunc i8 %74 to i1
   %spec.store.select.i.i190 = select i1 %75, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %69, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %17, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   store i16 139, ptr %69, align 8
   %.sroa.2.0..sroa_idx.i.i191 = getelementptr inbounds i8, ptr %69, i64 2
   store i16 %spec.store.select.i.i190, ptr %.sroa.2.0..sroa_idx.i.i191, align 2
@@ -24408,7 +24408,7 @@ pm_interpolated_string_node_create.exit:          ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 72
   store ptr %.sroa.12.0.i, ptr %.sroa.12.0..sroa_idx.i, align 8
   %.sroa.9.0..sroa_idx.i212 = getelementptr inbounds i8, ptr %78, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i212, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i212, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %expect1.exit324
 
 accept1.exit214:                                  ; preds = %59
@@ -24486,7 +24486,7 @@ pm_symbol_node_create_unescaped.exit:             ; preds = %pm_alloc_node.exit.
   %.sroa.11.0.i220 = phi ptr [ %111, %110 ], [ null, %pm_alloc_node.exit.i215 ]
   %.sroa.13.0.i221 = phi ptr [ %.else.val594, %110 ], [ null, %pm_alloc_node.exit.i215 ]
   %.sroa.15.0..sroa_idx.i222 = getelementptr inbounds i8, ptr %103, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i222, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i222, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i16 141, ptr %103, align 8
   %.sroa.2.0..sroa_idx.i223 = getelementptr inbounds i8, ptr %103, i64 2
   store i16 %.0.i, ptr %.sroa.2.0..sroa_idx.i223, align 2
@@ -24551,7 +24551,7 @@ pm_string_node_create_unescaped.exit252:          ; preds = %pm_alloc_node.exit.
   %126 = trunc i8 %120 to i1
   %spec.store.select.i241 = select i1 %126, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i242 = getelementptr inbounds i8, ptr %115, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i242, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i242, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i16 139, ptr %115, align 8
   %.sroa.2.0..sroa_idx.i243 = getelementptr inbounds i8, ptr %115, i64 2
   store i16 %spec.store.select.i241, ptr %.sroa.2.0..sroa_idx.i243, align 2
@@ -24603,7 +24603,7 @@ pm_string_node_create_unescaped.exit275:          ; preds = %pm_alloc_node.exit.
   %139 = trunc i8 %133 to i1
   %spec.store.select.i264 = select i1 %139, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i265 = getelementptr inbounds i8, ptr %128, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i265, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i265, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i16 139, ptr %128, align 8
   %.sroa.2.0..sroa_idx.i266 = getelementptr inbounds i8, ptr %128, i64 2
   store i16 %spec.store.select.i264, ptr %.sroa.2.0..sroa_idx.i266, align 2
@@ -24649,7 +24649,7 @@ pm_string_node_create_unescaped.exit296:          ; preds = %accept1.exit254
   %152 = trunc i8 %151 to i1
   %spec.store.select.i285 = select i1 %152, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i286 = getelementptr inbounds i8, ptr %146, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i286, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i286, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i16 139, ptr %146, align 8
   %.sroa.2.0..sroa_idx.i287 = getelementptr inbounds i8, ptr %146, i64 2
   store i16 %spec.store.select.i285, ptr %.sroa.2.0..sroa_idx.i287, align 2
@@ -24716,7 +24716,7 @@ pm_string_node_create_unescaped.exit318:          ; preds = %pm_alloc_node.exit.
   %168 = trunc i8 %163 to i1
   %spec.store.select.i307 = select i1 %168, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i308 = getelementptr inbounds i8, ptr %158, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i308, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i308, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i16 139, ptr %158, align 8
   %.sroa.2.0..sroa_idx.i309 = getelementptr inbounds i8, ptr %158, i64 2
   %.sroa.31.0..sroa_idx.i310 = getelementptr inbounds i8, ptr %158, i64 8
@@ -24840,7 +24840,7 @@ pm_symbol_node_create_unescaped.exit359:          ; preds = %pm_alloc_node.exit.
   %.sroa.11.0.i347 = phi ptr [ %202, %201 ], [ null, %pm_alloc_node.exit.i340 ]
   %.sroa.13.0.i348 = phi ptr [ %.else.val, %201 ], [ null, %pm_alloc_node.exit.i340 ]
   %.sroa.15.0..sroa_idx.i349 = getelementptr inbounds i8, ptr %194, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i349, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i349, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i16 141, ptr %194, align 8
   %.sroa.2.0..sroa_idx.i350 = getelementptr inbounds i8, ptr %194, i64 2
   store i16 %.0.i329, ptr %.sroa.2.0..sroa_idx.i350, align 2
@@ -24881,7 +24881,7 @@ pm_string_node_create_unescaped.exit380:          ; preds = %accept1.exit326
   %210 = trunc i8 %209 to i1
   %spec.store.select.i369 = select i1 %210, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i370 = getelementptr inbounds i8, ptr %204, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i370, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i370, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i16 139, ptr %204, align 8
   %.sroa.2.0..sroa_idx.i371 = getelementptr inbounds i8, ptr %204, i64 2
   %.sroa.31.0..sroa_idx.i372 = getelementptr inbounds i8, ptr %204, i64 8
@@ -24985,7 +24985,7 @@ pm_interpolated_symbol_node_create.exit:          ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i397 = getelementptr inbounds i8, ptr %224, i64 72
   store ptr %.sroa.12.0.i391, ptr %.sroa.12.0..sroa_idx.i397, align 8
   %.sroa.9.0..sroa_idx.i399 = getelementptr inbounds i8, ptr %224, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i399, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i399, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %expect1.exit324
 
 accept1.exit386.thread:                           ; preds = %219, %219, %accept1.exit386.accept1.exit386.thread_crit_edge
@@ -25034,7 +25034,7 @@ pm_interpolated_string_node_create.exit413:       ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i410 = getelementptr inbounds i8, ptr %236, i64 72
   store ptr %.sroa.12.0.i404, ptr %.sroa.12.0..sroa_idx.i410, align 8
   %.sroa.9.0..sroa_idx.i412 = getelementptr inbounds i8, ptr %236, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i412, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i412, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %expect1.exit324
 
 accept1.exit.thread.i416:                         ; preds = %accept1.exit386.thread
@@ -25086,7 +25086,7 @@ pm_interpolated_string_node_create.exit431:       ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i428 = getelementptr inbounds i8, ptr %248, i64 72
   store ptr %.sroa.12.0.i422, ptr %.sroa.12.0..sroa_idx.i428, align 8
   %.sroa.9.0..sroa_idx.i430 = getelementptr inbounds i8, ptr %248, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i430, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i430, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %expect1.exit324
 
 258:                                              ; preds = %153
@@ -25153,7 +25153,7 @@ pm_interpolated_symbol_node_create.exit449:       ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i446 = getelementptr inbounds i8, ptr %265, i64 72
   store ptr %.sroa.12.0.i440, ptr %.sroa.12.0..sroa_idx.i446, align 8
   %.sroa.9.0..sroa_idx.i448 = getelementptr inbounds i8, ptr %265, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i448, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i448, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %expect1.exit324
 
 275:                                              ; preds = %259
@@ -25195,7 +25195,7 @@ pm_interpolated_string_node_create.exit463:       ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i460 = getelementptr inbounds i8, ptr %277, i64 72
   store ptr %.sroa.12.0.i454, ptr %.sroa.12.0..sroa_idx.i460, align 8
   %.sroa.9.0..sroa_idx.i462 = getelementptr inbounds i8, ptr %277, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i462, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i462, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %expect1.exit324
 
 accept1.exit.thread.i466:                         ; preds = %259
@@ -25237,7 +25237,7 @@ pm_interpolated_string_node_create.exit481:       ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i478 = getelementptr inbounds i8, ptr %287, i64 72
   store ptr %.sroa.12.0.i472, ptr %.sroa.12.0..sroa_idx.i478, align 8
   %.sroa.9.0..sroa_idx.i480 = getelementptr inbounds i8, ptr %287, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i480, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i480, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %expect1.exit324
 
 expect1.exit324:                                  ; preds = %accept1.exit.i322, %accept1.exit.thread.i323, %pm_symbol_node_create.exit, %pm_symbol_node_create_unescaped.exit359, %pm_interpolated_string_node_create.exit413, %pm_interpolated_string_node_create.exit431, %pm_interpolated_symbol_node_create.exit, %pm_interpolated_string_node_create.exit463, %pm_interpolated_string_node_create.exit481, %pm_interpolated_symbol_node_create.exit449, %pm_interpolated_string_node_create.exit, %pm_string_node_create_unescaped.exit252, %pm_string_node_create_unescaped.exit296, %pm_string_node_create_unescaped.exit275, %pm_symbol_node_create_unescaped.exit, %pm_string_node_create.exit
@@ -25807,7 +25807,7 @@ pm_alloc_node.exit:                               ; preds = %2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_constant_path_node_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -25856,7 +25856,7 @@ pm_alloc_node.exit:                               ; preds = %pm_assert_value_exp
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_range_node_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -25870,7 +25870,7 @@ define internal fastcc noalias noundef ptr @pm_range_node_create(ptr noundef %0,
   br label %pm_assert_value_expression.exit
 
 pm_assert_value_expression.exit:                  ; preds = %4, %6
-  %11 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %3)
+  %11 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %3)
   %.not.i37 = icmp eq ptr %11, null
   br i1 %.not.i37, label %pm_assert_value_expression.exit40, label %12
 
@@ -26626,7 +26626,7 @@ pm_string_node_create_current_string.exit:        ; preds = %4
   %13 = trunc i8 %11 to i1
   %spec.store.select.i.i = select i1 %13, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i16 139, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 2
   %.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28761,7 +28761,7 @@ pm_rescue_node_create.exit:                       ; preds = %16
   %.sroa.3.0.copyload = load ptr, ptr %7, align 8
   %.sroa.4166.0.copyload = load ptr, ptr %8, align 8
   %35 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 92)
-  %36 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %35)
+  %36 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %35)
   %.not.i.i153 = icmp eq ptr %36, null
   br i1 %.not.i.i153, label %parse_value_expression.exit156, label %37
 
@@ -28810,7 +28810,7 @@ pm_splat_node_create.exit.cont:                   ; preds = %pm_splat_node_creat
 
 accept1.exit158:                                  ; preds = %32
   %48 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 193)
-  %49 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %48)
+  %49 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %48)
   %.not.i.i144 = icmp eq ptr %49, null
   br i1 %.not.i.i144, label %parse_starred_expression.exit, label %50
 
@@ -29420,7 +29420,7 @@ parse_arguments_append.exit:                      ; preds = %74, %78
 
 94:                                               ; preds = %91
   %95 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 80)
-  %96 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %95)
+  %96 = call fastcc ptr @pm_check_value_expression(ptr noundef %95)
   %.not.i193 = icmp eq ptr %96, null
   br i1 %.not.i193, label %pm_assert_value_expression.exit, label %97
 
@@ -29598,7 +29598,7 @@ pm_parser_scope_forwarding_positionals_check.exit: ; preds = %146, %.sink.split.
 
 match4.exit:                                      ; preds = %137
   %154 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 90)
-  %155 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %154)
+  %155 = call fastcc ptr @pm_check_value_expression(ptr noundef %154)
   %.not.i195 = icmp eq ptr %155, null
   br i1 %.not.i195, label %pm_assert_value_expression.exit198, label %156
 
@@ -29823,7 +29823,7 @@ parse_arguments_append.exit175:                   ; preds = %224, %228
 .thread:                                          ; preds = %189, %50, %232
   %236 = xor i1 %.0, true
   %237 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext %236, i32 noundef 80)
-  %238 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %237)
+  %238 = call fastcc ptr @pm_check_value_expression(ptr noundef %237)
   %.not.i199 = icmp eq ptr %238, null
   br i1 %.not.i199, label %pm_assert_value_expression.exit202, label %239
 
@@ -29935,7 +29935,7 @@ pm_keyword_hash_node_create.exit177:              ; preds = %261
 
 pm_hash_key_static_literals_add.exit:             ; preds = %pm_keyword_hash_node_create.exit177, %268
   %282 = call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 14, i1 noundef zeroext false, i32 noundef 111)
-  %283 = call fastcc ptr @pm_check_value_expression(ptr noundef readonly %282)
+  %283 = call fastcc ptr @pm_check_value_expression(ptr noundef %282)
   %.not.i203 = icmp eq ptr %283, null
   br i1 %.not.i203, label %pm_assert_value_expression.exit206, label %284
 
@@ -31399,7 +31399,7 @@ context_push.exit:                                ; preds = %263, %266
   %269 = load i32, ptr %32, align 8
   store i32 %268, ptr %32, align 8
   %270 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false, i32 noundef 165)
-  %271 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %270)
+  %271 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %270)
   %.not.i = icmp eq ptr %271, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %272
 
@@ -31716,7 +31716,7 @@ context_push.exit377:                             ; preds = %404, %406
   %409 = load i32, ptr %32, align 8
   store i32 %408, ptr %32, align 8
   %410 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false, i32 noundef 166)
-  %411 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %410)
+  %411 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %410)
   %.not.i496 = icmp eq ptr %411, null
   br i1 %.not.i496, label %pm_assert_value_expression.exit499, label %412
 
@@ -33099,7 +33099,7 @@ context_push.exit:                                ; preds = %2, %12
   %15 = icmp eq i32 %1, 17
   %16 = select i1 %15, i32 47, i32 51
   %17 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 6, i1 noundef zeroext true, i32 noundef %16)
-  %18 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %17)
+  %18 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %17)
   %.not.i.i106 = icmp eq ptr %18, null
   br i1 %.not.i.i106, label %parse_value_expression.exit, label %19
 
@@ -33336,7 +33336,7 @@ pm_alloc_node.exit.i:                             ; preds = %pm_predicate_check.
 
 context_push.exit118:                             ; preds = %91, %93
   %95 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 6, i1 noundef zeroext true, i32 noundef 51)
-  %96 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %95)
+  %96 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %95)
   %.not.i.i113 = icmp eq ptr %96, null
   br i1 %.not.i.i113, label %parse_value_expression.exit116, label %97
 
@@ -34028,7 +34028,7 @@ pm_write_node_value.exit.thread:                  ; preds = %tailrecurse.i, %7, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_call_node_not_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -34575,7 +34575,7 @@ pm_alloc_node.exit.i:                             ; preds = %parse_symbol_encodi
 pm_symbol_node_create_unescaped.exit:             ; preds = %36, %40
   %43 = phi <2 x ptr> [ %42, %40 ], [ zeroinitializer, %36 ]
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i16 141, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 2
   store i16 %.0.i, ptr %.sroa.2.0..sroa_idx.i, align 2
@@ -34951,7 +34951,7 @@ define internal fastcc void @pm_parser_err_prefix(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_call_node_unary_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %2)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %2)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -35018,7 +35018,7 @@ pm_call_node_create.exit:                         ; preds = %pm_assert_value_exp
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_call_node_binary_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -35032,7 +35032,7 @@ define internal fastcc noalias noundef ptr @pm_call_node_binary_create(ptr nound
   br label %pm_assert_value_expression.exit
 
 pm_assert_value_expression.exit:                  ; preds = %4, %6
-  %11 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %3)
+  %11 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %3)
   %.not.i38 = icmp eq ptr %11, null
   br i1 %.not.i38, label %pm_assert_value_expression.exit41, label %12
 
@@ -36112,7 +36112,7 @@ pm_interpolated_symbol_node_create.exit:          ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %140, i64 72
   store ptr %.sroa.12.0.i, ptr %.sroa.12.0..sroa_idx.i, align 8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %140, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %254
 
 158:                                              ; preds = %51
@@ -36149,7 +36149,7 @@ pm_string_node_create_unescaped.exit:             ; preds = %163
   %171 = trunc i8 %170 to i1
   %spec.store.select.i = select i1 %171, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %164, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i16 139, ptr %164, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %164, i64 2
   store i16 %spec.store.select.i, ptr %.sroa.2.0..sroa_idx.i, align 2
@@ -36179,7 +36179,7 @@ pm_string_node_create_unescaped.exit160:          ; preds = %pm_string_node_crea
   %178 = trunc i8 %177 to i1
   %spec.store.select.i149 = select i1 %178, i16 16388, i16 0
   %.sroa.15.0..sroa_idx.i150 = getelementptr inbounds i8, ptr %172, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i150, ptr noundef nonnull readonly align 8 dereferenceable(24) %161, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i150, ptr noundef nonnull align 8 dereferenceable(24) %161, i64 24, i1 false)
   store i16 139, ptr %172, align 8
   %.sroa.2.0..sroa_idx.i151 = getelementptr inbounds i8, ptr %172, i64 2
   store i16 %spec.store.select.i149, ptr %.sroa.2.0..sroa_idx.i151, align 2
@@ -36267,7 +36267,7 @@ pm_interpolated_symbol_node_create.exit178:       ; preds = %pm_alloc_node.exit.
   %.sroa.12.0..sroa_idx.i175 = getelementptr inbounds i8, ptr %187, i64 72
   store ptr %.sroa.12.0.i169, ptr %.sroa.12.0..sroa_idx.i175, align 8
   %.sroa.9.0..sroa_idx.i177 = getelementptr inbounds i8, ptr %187, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i177, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx.i177, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %254
 
 205:                                              ; preds = %158
@@ -36409,7 +36409,7 @@ pm_symbol_node_create_unescaped.exit:             ; preds = %pm_alloc_node.exit.
   %.sroa.11.0.i201 = phi ptr [ %252, %248 ], [ null, %pm_alloc_node.exit.i196.cont.thread ]
   %.sroa.13.0.i202 = phi ptr [ %.else.val, %248 ], [ null, %pm_alloc_node.exit.i196.cont.thread ]
   %.sroa.15.0..sroa_idx.i203 = getelementptr inbounds i8, ptr %237, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i203, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.0..sroa_idx.i203, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i16 141, ptr %237, align 8
   %.sroa.2.0..sroa_idx.i204 = getelementptr inbounds i8, ptr %237, i64 2
   store i16 %.0.i185, ptr %.sroa.2.0..sroa_idx.i204, align 2
@@ -37099,7 +37099,7 @@ expect1.exit64:                                   ; preds = %accept1.exit.i68, %
 pm_block_node_create.exit:                        ; preds = %expect1.exit64
   %88 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx.i72 = getelementptr inbounds i8, ptr %83, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i72, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i72, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %89 = load ptr, ptr %.sroa.285.0..sroa_idx, align 8
   store i16 14, ptr %83, align 8
   %.sroa.31.0..sroa_idx.i73 = getelementptr inbounds i8, ptr %83, i64 8
@@ -38494,7 +38494,7 @@ pm_parser_local_add_location.exit:                ; preds = %32, %28, %pm_parser
 
 pm_local_variable_target_node_create_values.exit: ; preds = %pm_parser_local_add_location.exit
   %.sroa.3.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.3.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.8..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i16 96, ptr %36, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.i, i64 20, i1 false)
@@ -40532,7 +40532,7 @@ define internal fastcc noundef ptr @parse_assignment_values(ptr noundef %0, i32 
   %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 296
   %.sroa.489.0.copyload = load ptr, ptr %.sroa.489.0..sroa_idx, align 8
   %8 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %2, i1 noundef zeroext false, i32 noundef 92)
-  %9 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %8)
+  %9 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %8)
   %.not.i.i61 = icmp eq ptr %9, null
   br i1 %.not.i.i61, label %parse_value_expression.exit64, label %10
 
@@ -40585,7 +40585,7 @@ accept1.exit66:                                   ; preds = %4
   %23 = icmp ult i32 %1, 12
   %.in = select i1 %22, i1 %3, i1 %23
   %24 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %2, i1 noundef zeroext %.in, i32 noundef 85)
-  %25 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %24)
+  %25 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %24)
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %parse_starred_expression.exit, label %26
 
@@ -40696,7 +40696,7 @@ pm_array_node_elements_append.exit:               ; preds = %58, %61
   %.sroa.392.0.copyload = load ptr, ptr %.sroa.392.0..sroa_idx, align 8
   %.sroa.493.0.copyload = load ptr, ptr %.sroa.493.0..sroa_idx, align 8
   %70 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %2, i1 noundef zeroext false, i32 noundef 92)
-  %71 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %70)
+  %71 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %70)
   %.not.i.i79 = icmp eq ptr %71, null
   br i1 %.not.i.i79, label %parse_value_expression.exit82, label %72
 
@@ -40745,7 +40745,7 @@ pm_splat_node_create.exit78.cont:                 ; preds = %pm_splat_node_creat
 
 accept1.exit84:                                   ; preds = %67
   %83 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %2, i1 noundef zeroext false, i32 noundef 21)
-  %84 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %83)
+  %84 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %83)
   %.not.i.i67 = icmp eq ptr %84, null
   br i1 %.not.i.i67, label %parse_starred_expression.exit46, label %85
 
@@ -41021,7 +41021,7 @@ pm_alloc_node.exit.i142:                          ; preds = %44
   %54 = getelementptr inbounds i8, ptr %1, i64 24
   %55 = load i32, ptr %54, align 8
   %.sroa.6.32..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.6.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.32..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %50, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   %56 = load i32, ptr %2, align 8
   %57 = icmp eq i32 %56, 3
   br i1 %57, label %pm_constant_write_node_create.exit, label %58
@@ -41611,7 +41611,7 @@ define internal fastcc noundef ptr @parse_assignment_value(ptr noundef %0, i32 n
   %7 = icmp ult i32 %1, 12
   %.in = select i1 %6, i1 %3, i1 %7
   %8 = tail call fastcc ptr @parse_expression(ptr noundef %0, i32 noundef %2, i1 noundef zeroext %.in, i32 noundef %4)
-  %9 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %8)
+  %9 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %8)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %10
 
@@ -43359,7 +43359,7 @@ name_is_identifier.exit.thread:                   ; preds = %45, %char_is_identi
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_call_node_shorthand_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -43489,7 +43489,7 @@ pm_arguments_end.exit:                            ; preds = %22, %27, %34, %40, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_call_node_call_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
-  %6 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %6 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %7
 
@@ -43853,7 +43853,7 @@ pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_if_node_ternary_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #1 {
-  %7 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %7 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %8
 
@@ -44072,7 +44072,7 @@ pm_alloc_node.exit:                               ; preds = %pm_else_node_create
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_call_node_aref_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
-  %4 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %4 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %5
 
@@ -44187,7 +44187,7 @@ pm_arguments_end.exit:                            ; preds = %21, %26, %33, %39, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_match_predicate_node_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 
@@ -44234,7 +44234,7 @@ pm_alloc_node.exit:                               ; preds = %pm_assert_value_exp
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @pm_match_required_node_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
-  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
+  %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
 

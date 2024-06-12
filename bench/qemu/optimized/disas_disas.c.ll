@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @disas_initialize_debug_target(ptr noundef %s, ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
   %cap_arch.i = getelementptr inbounds i8, ptr %s, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
   store i32 -1, ptr %cap_arch.i, align 8
   %cap_insn_unit.i = getelementptr inbounds i8, ptr %s, i64 200
   store i32 4, ptr %cap_insn_unit.i, align 8
@@ -92,7 +92,7 @@ define dso_local void @target_disas(ptr noundef %out, ptr noundef %cpu, i64 noun
 entry:
   %s = alloca %struct.CPUDebug, align 8
   %cap_arch.i.i = getelementptr inbounds i8, ptr %s, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
   store i32 -1, ptr %cap_arch.i.i, align 8
   %cap_insn_unit.i.i = getelementptr inbounds i8, ptr %s, i64 200
   store i32 4, ptr %cap_insn_unit.i.i, align 8
@@ -270,7 +270,7 @@ entry:
   %s = alloca %struct.CPUDebug, align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #10
   %cap_arch.i.i = getelementptr inbounds i8, ptr %s, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
   store i32 -1, ptr %cap_arch.i.i, align 8
   %cap_insn_unit.i.i = getelementptr inbounds i8, ptr %s, i64 200
   store i32 4, ptr %cap_insn_unit.i.i, align 8
@@ -351,7 +351,7 @@ if.end13:
   %s = alloca %struct.CPUDebug, align 8
   %cap_arch.i.i = getelementptr inbounds i8, ptr %s, i64 192
   %0 = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(216) %0, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 200, i1 false)
   %cap_insn_unit.i.i = getelementptr inbounds i8, ptr %s, i64 200
   %cap_insn_split.i.i = getelementptr inbounds i8, ptr %s, i64 204
   %memory_error_func.i.i = getelementptr inbounds i8, ptr %s, i64 88

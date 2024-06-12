@@ -828,7 +828,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
 153:                                              ; preds = %.lr.ph.i.i.i
   %154 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i.i
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %155) #11
+  %156 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %155) #11
   %.not13.i.i.i = icmp eq i32 %156, 0
   br i1 %.not13.i.i.i, label %find_name.exit.i.i, label %157
 
@@ -870,7 +870,7 @@ find_name.exit.i.i:                               ; preds = %153
 170:                                              ; preds = %.lr.ph.i44.i.i
   %171 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i45.i.i
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %172) #11
+  %173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %172) #11
   %.not13.i50.i.i = icmp eq i32 %173, 0
   br i1 %.not13.i50.i.i, label %find_name.exit52.thread.i.i, label %174
 
@@ -948,7 +948,7 @@ match_this_proc.exit.i:                           ; preds = %find_name.exit52.th
 196:                                              ; preds = %.lr.ph.i.i87.i
   %197 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i88.i
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %198) #11
+  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %198) #11
   %.not13.i.i94.i = icmp eq i32 %199, 0
   br i1 %.not13.i.i94.i, label %find_name.exit.i95.i, label %200
 
@@ -990,7 +990,7 @@ find_name.exit.i95.i:                             ; preds = %196
 213:                                              ; preds = %.lr.ph.i44.i72.i
   %214 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i45.i73.i
   %215 = load ptr, ptr %214, align 8
-  %216 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %215) #11
+  %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.042, ptr noundef nonnull dereferenceable(1) %215) #11
   %.not13.i50.i78.i = icmp eq i32 %216, 0
   br i1 %.not13.i50.i78.i, label %find_name.exit52.thread.i79.i, label %217
 

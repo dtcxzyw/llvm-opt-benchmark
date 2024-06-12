@@ -14,7 +14,7 @@ define void @File_Construct(ptr nocapture noundef writeonly %0) local_unnamed_ad
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @InFile_Open(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.1)
+  %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   store ptr %3, ptr %0, align 8
   %.not3.i = icmp eq ptr %3, null
   br i1 %.not3.i, label %4, label %File_Open.exit
@@ -31,7 +31,7 @@ File_Open.exit:                                   ; preds = %2, %4
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @OutFile_Open(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
+  %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   store ptr %3, ptr %0, align 8
   %.not3.i = icmp eq ptr %3, null
   br i1 %.not3.i, label %4, label %File_Open.exit

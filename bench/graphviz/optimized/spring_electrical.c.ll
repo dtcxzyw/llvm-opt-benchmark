@@ -710,7 +710,7 @@ define void @spring_electrical_embedding_fast(i32 noundef %0, ptr noundef %1, pt
 
 33:                                               ; preds = %28
   %34 = load i32, ptr %1, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(184) %7, i8 0, i64 184, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 184, i1 false), !alias.scope !4
   store i32 %25, ptr %7, align 8, !alias.scope !4
   store i32 0, ptr %4, align 4
   %.not = icmp eq i32 %34, %30

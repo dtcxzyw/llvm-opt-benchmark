@@ -2967,7 +2967,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %251, ptr %6, align 4
   %252 = zext nneg i32 %.2366 to i64
-  %253 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull readonly %7, ptr noundef nonnull %6, i32 noundef 0)
+  %253 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0)
   br i1 %253, label %.lr.ph766, label %.critedge
 
 .lr.ph766:                                        ; preds = %.lr.ph.preheader.i, %.lr.ph.i
@@ -2978,7 +2978,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 .lr.ph.i:                                         ; preds = %.lr.ph766
   %254 = getelementptr i32, ptr %7, i64 %indvars.iv.next.i
-  %255 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef readonly %254, ptr noundef nonnull %6, i32 noundef 0)
+  %255 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef %254, ptr noundef nonnull %6, i32 noundef 0)
   br i1 %255, label %.lr.ph766, label %verify_common_type_from_oids.exit, !llvm.loop !10
 
 verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph766

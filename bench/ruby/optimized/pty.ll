@@ -126,13 +126,13 @@ define internal noundef i64 @pty_getpty(i32 noundef %0, ptr noundef %1, i64 %2) 
   %32 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %31, ptr %32, align 8
   call void @rb_execarg_parent_start(i64 noundef %29) #10
-  %33 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0)
+  %33 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0)
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %getDevice.exit.i, label %34
 
 34:                                               ; preds = %28
   call void @rb_gc() #10
-  %35 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
+  %35 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
   br label %getDevice.exit.i
 
 getDevice.exit.i:                                 ; preds = %34, %28
@@ -280,13 +280,13 @@ define internal i64 @pty_open(i64 %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [16 x i8], align 16
-  %5 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %2, ptr noundef nonnull writeonly %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0)
+  %5 = call fastcc i32 @get_device_once(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %getDevice.exit, label %6
 
 6:                                                ; preds = %1
   call void @rb_gc() #10
-  %7 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %2, ptr noundef nonnull writeonly %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1)
+  %7 = call fastcc i32 @get_device_once(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1)
   br label %getDevice.exit
 
 getDevice.exit:                                   ; preds = %1, %6
@@ -467,7 +467,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr nocapture nound
   br i1 %.not.i, label %no_mesg.exit.thread, label %no_mesg.exit
 
 no_mesg.exit:                                     ; preds = %16
-  %17 = tail call i32 @chmod(ptr noundef nonnull readonly %14, i32 noundef 384) #10
+  %17 = tail call i32 @chmod(ptr noundef nonnull %14, i32 noundef 384) #10
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %23, label %no_mesg.exit.thread
 

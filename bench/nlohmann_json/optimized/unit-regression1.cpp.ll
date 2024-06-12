@@ -8409,7 +8409,7 @@ call2.i.i.noexc:                                  ; preds = %_ZNKSt16reverse_ite
           to label %.noexc1464 unwind label %lpad1129.loopexit
 
 .noexc1464:                                       ; preds = %call2.i.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp.i1447, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i, i64 16, i1 false), !noalias !60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i1447, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i, i64 16, i1 false), !noalias !60
   store i8 0, ptr %agg.tmp1.i, align 8, !noalias !69
   store ptr null, ptr %m_value.i.i.i1451, align 8, !noalias !69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i1.i), !noalias !60
@@ -8868,7 +8868,7 @@ call2.i.i.noexc1641:                              ; preds = %_ZNKSt16reverse_ite
           to label %.noexc1643 unwind label %lpad1265.loopexit
 
 .noexc1643:                                       ; preds = %call2.i.i.noexc1641
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp.i1574, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i1575, i64 16, i1 false), !noalias !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i1574, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i1575, i64 16, i1 false), !noalias !94
   store i8 0, ptr %agg.tmp1.i1575, align 8, !noalias !103
   store ptr null, ptr %m_value.i.i.i1584, align 8, !noalias !103
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i1.i1570), !noalias !94
@@ -35517,7 +35517,7 @@ if.then9668:                                      ; preds = %invoke.cont9666
   store ptr @.str.430, ptr %text, align 8
   %_M_manager.i.i6003 = getelementptr inbounds i8, ptr %cb, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %cb, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cb, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E9_M_invokeERKSt9_Any_dataOiOS3_SH_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i6003, align 8
   %_M_manager.i.i6004 = getelementptr inbounds i8, ptr %agg.tmp9670, i64 16

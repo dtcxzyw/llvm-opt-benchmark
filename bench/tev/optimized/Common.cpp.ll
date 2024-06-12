@@ -2124,7 +2124,7 @@ define dso_local noundef zeroext i1 @_ZN3tev12matchesFuzzyENSt3__112basic_string
   br i1 %.not.i.i23, label %.loopexit55, label %.lr.ph.i.i, !llvm.loop !22
 
 .loopexit55:                                      ; preds = %.lr.ph.i.i, %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !24
   %39 = load i8, ptr %0, align 8
   %40 = and i8 %39, 1
@@ -2173,7 +2173,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   br i1 %.not.i.i28, label %.loopexit54, label %.lr.ph.i.i26, !llvm.loop !22
 
 .loopexit54:                                      ; preds = %.lr.ph.i.i26, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !27
   %62 = load i8, ptr %1, align 8
   %63 = and i8 %62, 1
@@ -3004,7 +3004,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN3tev9toTonemapENSt3__112basic_s
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !45
   %21 = load i8, ptr %0, align 8
   %22 = and i8 %21, 1
@@ -3204,7 +3204,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN3tev8toMetricENSt3__112basic_st
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !48
   %21 = load i8, ptr %0, align 8
   %22 = and i8 %21, 1

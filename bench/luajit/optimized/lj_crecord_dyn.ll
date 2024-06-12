@@ -5253,7 +5253,7 @@ if.then3:                                         ; preds = %if.then
   %arrayidx4 = getelementptr inbounds i8, ptr %5, i64 8
   %.val = load ptr, ptr %1, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %.val, i64 216
-  %call1.i = tail call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i.i, i32 noundef 0, i32 noundef %4, ptr noundef nonnull readonly %arrayidx4)
+  %call1.i = tail call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i.i, i32 noundef 0, i32 noundef %4, ptr noundef nonnull %arrayidx4)
   %6 = load ptr, ptr %1, align 8
   %arrayidx.i23 = getelementptr inbounds i8, ptr %6, i64 432
   %7 = load ptr, ptr %rd, align 8
@@ -5330,7 +5330,7 @@ if.then15:                                        ; preds = %if.then
   %arrayidx17 = getelementptr inbounds i8, ptr %10, i64 16
   %.val = load ptr, ptr %1, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %.val, i64 216
-  %call1.i = tail call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i.i, i32 noundef 0, i32 noundef %5, ptr noundef nonnull readonly %arrayidx17)
+  %call1.i = tail call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i.i, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %arrayidx17)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
@@ -5900,7 +5900,7 @@ if.end21:                                         ; preds = %if.end, %if.then
   %arrayidx27 = getelementptr inbounds i8, ptr %16, i64 8
   %.val39 = load ptr, ptr %1, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %.val39, i64 216
-  %call1.i = call fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef nonnull %arrayidx.i.i, i32 noundef 0, i32 noundef %4, ptr noundef nonnull readonly %arrayidx27)
+  %call1.i = call fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef nonnull %arrayidx.i.i, i32 noundef 0, i32 noundef %4, ptr noundef nonnull %arrayidx27)
   %tobool29.not = icmp eq i32 %5, 0
   br i1 %tobool29.not, label %if.else, label %if.then30
 
@@ -5909,7 +5909,7 @@ if.then30:                                        ; preds = %if.end21
   %arrayidx32 = getelementptr inbounds i8, ptr %17, i64 16
   %.val = load ptr, ptr %1, align 8
   %arrayidx.i.i40 = getelementptr inbounds i8, ptr %.val, i64 216
-  %call1.i41 = call fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef nonnull %arrayidx.i.i40, i32 noundef 0, i32 noundef %5, ptr noundef nonnull readonly %arrayidx32)
+  %call1.i41 = call fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef nonnull %arrayidx.i.i40, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %arrayidx32)
   br label %if.end35
 
 if.else:                                          ; preds = %if.end21

@@ -641,7 +641,7 @@ is_safe_append_member.exit:                       ; preds = %list_length.exit.i,
 is_simple_union_all.exit:                         ; preds = %85
   %88 = getelementptr inbounds i8, ptr %72, i64 32
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call fastcc zeroext i1 @is_simple_union_all_recurse(ptr noundef nonnull %72, ptr noundef nonnull readonly %61, ptr noundef %89)
+  %90 = tail call fastcc zeroext i1 @is_simple_union_all_recurse(ptr noundef nonnull %72, ptr noundef nonnull %61, ptr noundef %89)
   br i1 %90, label %91, label %is_simple_union_all.exit.is_safe_append_member.exit.thread113_crit_edge
 
 is_simple_union_all.exit.is_safe_append_member.exit.thread113_crit_edge: ; preds = %is_simple_union_all.exit

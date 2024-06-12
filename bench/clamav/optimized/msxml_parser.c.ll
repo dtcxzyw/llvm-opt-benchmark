@@ -354,7 +354,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef readonly %
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %56
-  %63 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %35, ptr noundef %59, i64 noundef %49) #9
+  %63 = tail call i32 @strncasecmp(ptr noundef nonnull %35, ptr noundef %59, i64 noundef %49) #9
   %.not.i = icmp eq i32 %63, 0
   br i1 %.not.i, label %msxml_check_key.exit, label %64
 

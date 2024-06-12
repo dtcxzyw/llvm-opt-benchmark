@@ -107,7 +107,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !11
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 16, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -172,7 +172,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !19
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 8, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -237,7 +237,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !27
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 11, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -302,7 +302,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !35
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 5, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -367,7 +367,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !43
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 7, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -432,7 +432,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !51
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 18, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -497,7 +497,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !59
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 10, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -562,7 +562,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !67
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 6, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -627,7 +627,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !75
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 9, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -692,7 +692,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !83
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !83
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 17, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -757,7 +757,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !91
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !91
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 4, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -822,7 +822,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !99
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !99
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 3, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -887,7 +887,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !107
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !107
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 2, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -952,7 +952,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !115
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !115
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 14, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -1017,7 +1017,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !123
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -1082,7 +1082,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !131
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !131
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 13, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -1147,7 +1147,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !139
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !139
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 12, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -1212,7 +1212,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
 
 17:                                               ; preds = %5, %11
   %.sroa.3.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %13, %11 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !147
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !147
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 15, ptr %18, align 8
   store i64 %2, ptr %0, align 8
@@ -1520,7 +1520,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !241
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %6, ptr %3, align 8, !noalias !241
-  %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.4, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.5, i64 noundef 4, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7866c9121dee4e4045e4d4c00cbac97c.6, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.7, i64 noundef 16, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7866c9121dee4e4045e4d4c00cbac97c.8, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.9, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7866c9121dee4e4045e4d4c00cbac97c.10)
+  %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.4, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.5, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7866c9121dee4e4045e4d4c00cbac97c.6, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.7, i64 noundef 16, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7866c9121dee4e4045e4d4c00cbac97c.8, ptr noalias noundef nonnull readonly align 1 @anon.7866c9121dee4e4045e4d4c00cbac97c.9, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7866c9121dee4e4045e4d4c00cbac97c.10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !241
   ret i1 %7
 }
@@ -1747,7 +1747,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
 5:                                                ; preds = %4
   %6 = sub i64 %1, %3
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %7, i64 %3), !alias.scope !294
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %7, i64 %3), !alias.scope !294
   %8 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h04f53986d163ac01E.llvm.8694052628166008924.exit"
 
@@ -1832,7 +1832,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
 
 "_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.8694052628166008924.exit": ; preds = %4, %8
   %.sroa.3.0.i.i = phi ptr [ inttoptr (i64 1 to ptr), %4 ], [ %10, %8 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !324
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.3.0.i.i, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !324
   store i64 %2, ptr %0, align 8, !alias.scope !324, !noalias !329
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.3.0.i.i, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !324, !noalias !329
@@ -1879,7 +1879,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 5:                                                ; preds = %4
   %6 = sub i64 %3, %1
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %7, i64 %1), !alias.scope !338
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %7, i64 %1), !alias.scope !338
   %8 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h635fa6c89c6f82adE.exit"
 

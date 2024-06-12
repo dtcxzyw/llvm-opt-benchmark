@@ -236,7 +236,7 @@ sub_2:                                            ; preds = %sub_1
   %.08.i = phi i32 [ %70, %69 ], [ 0, %._crit_edge68 ]
   %61 = getelementptr %struct.ConfigData, ptr %35, i64 %60
   %62 = load ptr, ptr %61, align 8
-  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %62) #5
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %62) #5
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %69
 

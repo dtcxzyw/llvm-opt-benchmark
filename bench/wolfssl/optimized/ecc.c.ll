@@ -1991,7 +1991,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %curveName) #20
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull %curveName) #20
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %if.end3, label %for.inc.i
 
@@ -2027,7 +2027,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %curveName) #20
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull %curveName) #20
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %if.end3, label %for.inc.i
 
@@ -6130,7 +6130,7 @@ if.end55.thread43.i:                              ; preds = %if.end6.i.i.i
   br label %if.end70.i
 
 if.then16.i.i:                                    ; preds = %if.end6.i.i.i
-  %call18.i.i = call i32 @wc_ecc_mulmod_ex(ptr noundef %14, ptr noundef nonnull %pubkey.i, ptr noundef nonnull %call.i.i.i, ptr noundef readnone %12, ptr noundef %13, i32 noundef 1, ptr poison)
+  %call18.i.i = call i32 @wc_ecc_mulmod_ex(ptr noundef %14, ptr noundef nonnull %pubkey.i, ptr noundef nonnull %call.i.i.i, ptr noundef %12, ptr noundef %13, i32 noundef 1, ptr poison)
   %cmp19.i.i = icmp eq i32 %call18.i.i, 0
   br i1 %cmp19.i.i, label %if.end.i.i.i, label %if.end55.i
 

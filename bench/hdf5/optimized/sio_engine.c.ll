@@ -311,7 +311,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
 
 .critedge5.i:                                     ; preds = %97, %.lr.ph.i, %.critedge5.sink.split.i, %.critedge.i
   %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #21
-  %104 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #21
+  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #21
   %105 = add i64 %103, 1
   %106 = add i64 %105, %104
   %107 = icmp ult i64 %106, 4096
@@ -342,16 +342,16 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %28)
   %endptr.i = getelementptr inbounds i8, ptr %28, i64 %strlen.i
   store i16 47, ptr %endptr.i, align 1
-  %120 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %18) #18
+  %120 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %18) #18
   br label %126
 
 121:                                              ; preds = %82, %80
-  %122 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #21
+  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #21
   %123 = icmp ugt i64 %122, 4095
   br i1 %123, label %sio_create_filename.exit, label %124
 
 124:                                              ; preds = %121
-  %125 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %18) #18
+  %125 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %18) #18
   br label %126
 
 126:                                              ; preds = %124, %119
@@ -686,7 +686,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
   %279 = load ptr, ptr %151, align 8
   %280 = call ptr @io_time_set(ptr noundef %279, i32 noundef 12, i32 noundef 0) #18
   %281 = add nsw i32 %32, -1
-  %282 = call fastcc i32 @dset_write(i32 noundef %281, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
+  %282 = call fastcc i32 @dset_write(i32 noundef %281, ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull %62)
   %283 = icmp slt i32 %282, 0
   br i1 %283, label %284, label %287
 
@@ -1063,7 +1063,7 @@ do_write.exit:                                    ; preds = %317, %326
   %447 = load ptr, ptr %151, align 8
   %448 = call ptr @io_time_set(ptr noundef %447, i32 noundef 13, i32 noundef 0) #18
   %449 = add nsw i32 %32, -1
-  %450 = call fastcc i32 @dset_read(i32 noundef %449, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
+  %450 = call fastcc i32 @dset_read(i32 noundef %449, ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull %62)
   %451 = icmp slt i32 %450, 0
   br i1 %451, label %452, label %455
 

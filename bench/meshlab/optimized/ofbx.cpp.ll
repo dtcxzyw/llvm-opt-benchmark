@@ -2965,7 +2965,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_(ptr dead_on_unwind noalia
   %.val.i = load ptr, ptr %8, align 8, !noalias !18
   %9 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %9, align 8, !noalias !18
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
@@ -3012,17 +3012,17 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i = load ptr, ptr %39, align 8, !noalias !21
   %40 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %40, align 8, !noalias !21
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %12, ptr %.val.val.i, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val.val.i, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !noalias !24
   %.val.i6 = load ptr, ptr %39, align 8, !noalias !24
   %41 = getelementptr i8, ptr %.val.i6, i64 32
   %.val.val.i7 = load ptr, ptr %41, align 8, !noalias !24
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %13, ptr %.val.val.i7, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val.val.i7, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %42 = tail call noundef i32 @_ZNK4ofbx6Object16getRotationOrderEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %43 = load double, ptr %4, align 8
   store double %43, ptr %14, align 8
   %44 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3033,7 +3033,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %48 = load double, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %14, i64 80
   store double %48, ptr %49, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %50 = getelementptr inbounds i8, ptr %15, i64 96
   %51 = load <2 x double>, ptr %2, align 8
   store <2 x double> %51, ptr %50, align 8
@@ -3047,7 +3047,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i8 = load ptr, ptr %39, align 8, !noalias !27
   %55 = getelementptr i8, ptr %.val.i8, i64 32
   %.val.val.i9 = load ptr, ptr %55, align 8, !noalias !27
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %18, ptr %.val.val.i9, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %.val.val.i9, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -3055,7 +3055,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i10 = load ptr, ptr %39, align 8, !noalias !30
   %56 = getelementptr i8, ptr %.val.i10, i64 32
   %.val.val.i11 = load ptr, ptr %56, align 8, !noalias !30
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %21, ptr %.val.val.i11, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr %.val.val.i11, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %57 = load <2 x double>, ptr %21, align 16, !noalias !33
@@ -3067,13 +3067,13 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %62 = fneg double %61
   store double %62, ptr %59, align 16, !alias.scope !33
   call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !36
   %.val.i12 = load ptr, ptr %39, align 8, !noalias !36
   %63 = getelementptr i8, ptr %.val.i12, i64 32
   %.val.val.i13 = load ptr, ptr %63, align 8, !noalias !36
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %23, ptr %.val.val.i13, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr %.val.val.i13, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %64 = getelementptr inbounds i8, ptr %22, i64 96
   %65 = load <2 x double>, ptr %23, align 16
@@ -3082,7 +3082,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %67 = load double, ptr %66, align 16
   %68 = getelementptr inbounds i8, ptr %22, i64 112
   store double %67, ptr %68, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %69 = getelementptr inbounds i8, ptr %24, i64 96
   %70 = load <2 x double>, ptr %12, align 16
   store <2 x double> %70, ptr %69, align 8
@@ -3090,20 +3090,20 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %72 = load double, ptr %71, align 16
   %73 = getelementptr inbounds i8, ptr %24, i64 112
   store double %72, ptr %73, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %74 = fneg double %72
   %75 = getelementptr inbounds i8, ptr %25, i64 96
   %76 = fneg <2 x double> %70
   store <2 x double> %76, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %25, i64 112
   store double %74, ptr %77, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %26, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !39
   %.val.i14 = load ptr, ptr %39, align 8, !noalias !39
   %78 = getelementptr i8, ptr %.val.i14, i64 32
   %.val.val.i15 = load ptr, ptr %78, align 8, !noalias !39
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %27, ptr %.val.val.i15, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr %.val.val.i15, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %79 = getelementptr inbounds i8, ptr %26, i64 96
   %80 = load <2 x double>, ptr %27, align 16
@@ -3112,7 +3112,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %82 = load double, ptr %81, align 16
   %83 = getelementptr inbounds i8, ptr %26, i64 112
   store double %82, ptr %83, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %84 = getelementptr inbounds i8, ptr %28, i64 96
   %85 = load <2 x double>, ptr %13, align 16
   store <2 x double> %85, ptr %84, align 8
@@ -3120,7 +3120,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %87 = load double, ptr %86, align 16
   %88 = getelementptr inbounds i8, ptr %28, i64 112
   store double %87, ptr %88, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %89 = fneg double %87
   %90 = getelementptr inbounds i8, ptr %29, i64 96
   %91 = fneg <2 x double> %85
@@ -3568,7 +3568,7 @@ define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13Rotati
   %13 = load double, ptr %1, align 8
   %14 = fmul double %13, 0x3F91DF46A2529D39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %15 = tail call double @cos(double noundef %14) #29, !noalias !75
   %16 = tail call double @sin(double noundef %14) #29, !noalias !75
   %17 = getelementptr inbounds i8, ptr %4, i64 80
@@ -3584,7 +3584,7 @@ define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13Rotati
   %23 = load double, ptr %22, align 8
   %24 = fmul double %23, 0x3F91DF46A2529D39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %25 = tail call double @cos(double noundef %24) #29, !noalias !78
   %26 = tail call double @sin(double noundef %24) #29, !noalias !78
   %27 = getelementptr inbounds i8, ptr %5, i64 80
@@ -3599,7 +3599,7 @@ define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13Rotati
   %32 = load double, ptr %31, align 8
   %33 = fmul double %32, 0x3F91DF46A2529D39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %34 = tail call double @cos(double noundef %33) #29, !noalias !81
   %35 = tail call double @sin(double noundef %33) #29, !noalias !81
   %36 = getelementptr inbounds i8, ptr %6, i64 40
@@ -4270,14 +4270,14 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i = load ptr, ptr %63, align 8, !noalias !123
   %64 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %64, align 8, !noalias !123
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %11, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !126
   %.val.i3 = load ptr, ptr %63, align 8, !noalias !126
   %65 = getelementptr i8, ptr %.val.i3, i64 32
   %.val.val.i4 = load ptr, ptr %65, align 8, !noalias !126
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %12, ptr %.val.val.i4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val.val.i4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !129
@@ -4287,9 +4287,9 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i.i = load ptr, ptr %63, align 8, !noalias !132
   %67 = getelementptr i8, ptr %.val.i.i, i64 32
   %.val.val.i.i = load ptr, ptr %67, align 8, !noalias !132
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %8, ptr %.val.val.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %7), !noalias !129
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %7), !noalias !129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !129
-  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable writeonly sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN4ofbxmlERKNS_6MatrixES2_.exit
 
@@ -4301,14 +4301,14 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i5 = load ptr, ptr %69, align 8, !noalias !135
   %70 = getelementptr i8, ptr %.val.i5, i64 32
   %.val.val.i6 = load ptr, ptr %70, align 8, !noalias !135
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %15, ptr %.val.val.i6, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val.val.i6, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !138
   %.val.i7 = load ptr, ptr %69, align 8, !noalias !138
   %71 = getelementptr i8, ptr %.val.i7, i64 32
   %.val.val.i8 = load ptr, ptr %71, align 8, !noalias !138
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %16, ptr %.val.val.i8, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val.val.i8, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !141
@@ -4318,9 +4318,9 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i.i9 = load ptr, ptr %69, align 8, !noalias !144
   %73 = getelementptr i8, ptr %.val.i.i9, i64 32
   %.val.val.i.i10 = load ptr, ptr %73, align 8, !noalias !144
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %4, ptr %.val.val.i.i10, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3), !noalias !141
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.val.i.i10, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3), !noalias !141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !141
-  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind nonnull writable writeonly sret(%"struct.ofbx::Matrix") align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.ofbx::Matrix") align 8 %14, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   br label %.preheader18.i
@@ -4471,14 +4471,14 @@ define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias no
   %.val.i = load ptr, ptr %9, align 8, !noalias !150
   %10 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %10, align 8, !noalias !150
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !153
   %.val.i1 = load ptr, ptr %9, align 8, !noalias !153
   %11 = getelementptr i8, ptr %.val.i1, i64 32
   %.val.val.i2 = load ptr, ptr %11, align 8, !noalias !153
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %7, ptr %.val.val.i2, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val.val.i2, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %3, align 16, !noalias !156
@@ -4487,7 +4487,7 @@ define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias no
   %.val.i3 = load ptr, ptr %9, align 8, !noalias !156
   %13 = getelementptr i8, ptr %.val.i3, i64 32
   %.val.val.i4 = load ptr, ptr %13, align 8, !noalias !156
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable writeonly align 8 %8, ptr %.val.val.i4, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i4, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
@@ -13854,7 +13854,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i:             ; preds = %46, %40
   br i1 %57, label %.lr.ph.preheader.i.i.i, label %72
 
 .lr.ph.preheader.i.i.i:                           ; preds = %55
-  %58 = tail call i64 @strtoull(ptr nocapture noundef readonly %.014.i.i, ptr noundef null, i32 noundef 10) #29
+  %58 = tail call i64 @strtoull(ptr nocapture noundef %.014.i.i, ptr noundef null, i32 noundef 10) #29
   store i64 %58, ptr %.0.i34.i, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i.i to i64
@@ -14013,7 +14013,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i:             ; preds = %46, %40
   br i1 %57, label %.lr.ph.preheader.i.i.i, label %72
 
 .lr.ph.preheader.i.i.i:                           ; preds = %55
-  %58 = tail call i64 @atoll(ptr nocapture noundef readonly %.014.i.i) #30
+  %58 = tail call i64 @atoll(ptr nocapture noundef %.014.i.i) #30
   store i64 %58, ptr %.0.i34.i, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i.i to i64
@@ -14172,7 +14172,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %72
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call double @atof(ptr noundef readonly %.014.i) #30
+  %58 = tail call double @atof(ptr noundef %.014.i) #30
   store double %58, ptr %.0.i34, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i to i64
@@ -14337,7 +14337,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %72
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call i32 @atoi(ptr nocapture noundef readonly %.014.i) #30
+  %58 = tail call i32 @atoi(ptr nocapture noundef %.014.i) #30
   store i32 %58, ptr %.0.i34, align 4
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i to i64
@@ -14496,7 +14496,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit:               ; preds = %40, %46
   br i1 %57, label %.lr.ph.preheader.i.i, label %73
 
 .lr.ph.preheader.i.i:                             ; preds = %55
-  %58 = tail call double @atof(ptr noundef readonly %.014.i) #30
+  %58 = tail call double @atof(ptr noundef %.014.i) #30
   %59 = fptrunc double %58 to float
   store float %59, ptr %.0.i34, align 4
   %60 = ptrtoint ptr %56 to i64
@@ -16310,7 +16310,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %62
   %.015.i.i = phi i32 [ 0, %.lr.ph16.i.i ], [ %121, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i.i ]
   %.0614.i.i = phi ptr [ %85, %.lr.ph16.i.i ], [ %spec.select.i.i.i, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i.i ]
   %88 = load ptr, ptr %86, align 8
-  %89 = call double @atof(ptr noundef readonly %.0614.i.i) #30
+  %89 = call double @atof(ptr noundef %.0614.i.i) #30
   %90 = icmp ult ptr %.0614.i.i, %88
   br i1 %90, label %.lr.ph.preheader.i.i.i, label %_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_.exit.i.i
 
@@ -17470,7 +17470,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %.015.i = phi i32 [ 0, %.lr.ph16.i ], [ %89, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.0614.i = phi ptr [ %45, %.lr.ph16.i ], [ %spec.select.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %50 = load ptr, ptr %46, align 8
-  %51 = tail call i32 @atoi(ptr nocapture noundef readonly %.0614.i) #30
+  %51 = tail call i32 @atoi(ptr nocapture noundef %.0614.i) #30
   %52 = icmp ult ptr %.0614.i, %50
   br i1 %52, label %.lr.ph.preheader.i.i, label %_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_.exit.i
 
@@ -20933,7 +20933,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %.015.i = phi i32 [ 0, %.lr.ph16.i ], [ %90, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %.0614.i = phi ptr [ %45, %.lr.ph16.i ], [ %spec.select.i.i, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %50 = load ptr, ptr %46, align 8
-  %51 = tail call double @atof(ptr noundef readonly %.0614.i) #30
+  %51 = tail call double @atof(ptr noundef %.0614.i) #30
   %52 = fptrunc double %51 to float
   %53 = icmp ult ptr %.0614.i, %50
   br i1 %53, label %.lr.ph.preheader.i.i, label %_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_.exit.i
@@ -22755,7 +22755,7 @@ define linkonce_odr void @_ZNK4ofbx8MeshImpl18getGeometricMatrixEv(ptr dead_on_u
   %15 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %15, align 8
   call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val.val, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %16 = load double, ptr %7, align 8
   %17 = fptrunc double %16 to float
   %18 = fpext float %17 to double

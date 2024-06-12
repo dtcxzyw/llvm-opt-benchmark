@@ -1148,7 +1148,7 @@ ZDICT_totalSampleSize.exit.i:                     ; preds = %.lr.ph.i.i
   %156 = or disjoint i32 %155, %153
   %157 = zext i32 %156 to i64
   %158 = add nuw nsw i64 %157, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep393.i.i.i, i8 1, i64 %158, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep393.i.i.i, i8 1, i64 %158, i1 false)
   br label %ZDICT_analyzePos.exit.i.i
 
 159:                                              ; preds = %ZDICT_count.exit.i.i.i, %.preheader308.i.i.i
@@ -1583,7 +1583,7 @@ ZDICT_count.exit302.i.i.i:                        ; preds = %.lr.ph.i296.i.i.i, 
   %337 = add i32 %.0.i.i.i, -1
   %338 = zext i32 %337 to i64
   %339 = add nuw nsw i64 %338, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i.i.i, i8 1, i64 %339, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i.i.i, i8 1, i64 %339, i1 false)
   br label %._crit_edge345.i.i.i
 
 ._crit_edge345.i.i.i:                             ; preds = %.lr.ph344.preheader.i.i.i, %334
@@ -1606,7 +1606,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %._crit_edge345.i.i.
   br i1 %340, label %.backedge.i.i, label %341
 
 341:                                              ; preds = %ZDICT_analyzePos.exit.i.i
-  %342 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %32, i64 %.sroa.0187.sroa.0.0.insert.insert.i.i.i, i32 %.sroa.7.0.i.i.i, i32 noundef 0, ptr noundef nonnull readonly %17)
+  %342 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %32, i64 %.sroa.0187.sroa.0.0.insert.insert.i.i.i, i32 %.sroa.7.0.i.i.i, i32 noundef 0, ptr noundef nonnull %17)
   %.not.i104.i.i = icmp eq i32 %342, 0
   br i1 %.not.i104.i.i, label %356, label %.preheader.i105.preheader.i.i
 
@@ -1616,7 +1616,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %._crit_edge345.i.i.
   %.sroa.0.0.copyload.i135.i.i = load i64, ptr %344, align 4
   %.sroa.2.0..sroa_idx.i136.i.i = getelementptr inbounds i8, ptr %344, i64 8
   %.sroa.2.0.copyload.i137.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i136.i.i, align 4
-  %345 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %32, i64 %.sroa.0.0.copyload.i135.i.i, i32 %.sroa.2.0.copyload.i137.i.i, i32 noundef %342, ptr noundef nonnull readonly %17)
+  %345 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef %32, i64 %.sroa.0.0.copyload.i135.i.i, i32 %.sroa.2.0.copyload.i137.i.i, i32 noundef %342, ptr noundef nonnull %17)
   %.not43.i138.i.i = icmp eq i32 %345, 0
   br i1 %.not43.i138.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i
 
@@ -1655,7 +1655,7 @@ ZDICT_removeDictItem.exit.i.i.i:                  ; preds = %._crit_edge.loopexi
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %354, align 4
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %354, i64 8
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
-  %355 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %32, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, i32 noundef %346, ptr noundef nonnull readonly %17)
+  %355 = tail call fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull %32, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, i32 noundef %346, ptr noundef nonnull %17)
   %.not43.i.i.i = icmp eq i32 %355, 0
   br i1 %.not43.i.i.i, label %ZDICT_insertDictItem.exit.i.i, label %.preheader.i.i.i.i, !llvm.loop !40
 
@@ -1994,7 +1994,7 @@ ZDICT_dictSize.exit200.thread.critedge.i:         ; preds = %394
   store i32 %.sroa.4.0.copyload, ptr %10, align 8
   %.sroa.5.4..sroa_idx = getelementptr inbounds i8, ptr %10, i64 4
   store <2 x i32> %26, ptr %.sroa.5.4..sroa_idx, align 4
-  %527 = tail call fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr noundef %0, i64 noundef %526, i64 noundef %1, ptr noundef nonnull %17, ptr noundef readonly %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10)
+  %527 = tail call fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr noundef %0, i64 noundef %526, i64 noundef %1, ptr noundef nonnull %17, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.lr.ph.i24, %.lr.ph243.i, %._crit_edge244.i, %ZDICT_dictSize.exit200.thread.critedge.i, %ZDICT_dictSize.exit200.i, %.loopexit213.i, %43, %41

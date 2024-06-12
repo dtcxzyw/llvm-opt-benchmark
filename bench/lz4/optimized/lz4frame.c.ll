@@ -314,7 +314,7 @@ do.end34:                                         ; preds = %do.end26
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr27, i64 %call.i
   %sub.ptr.rhs.cast37 = ptrtoint ptr %add.ptr35 to i64
   %sub.ptr.sub38 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast37
-  %call.i33 = call i64 @LZ4F_flush(ptr noundef %cctx, ptr noundef %add.ptr35, i64 noundef %sub.ptr.sub38, ptr nonnull readnone poison)
+  %call.i33 = call i64 @LZ4F_flush(ptr noundef %cctx, ptr noundef %add.ptr35, i64 noundef %sub.ptr.sub38, ptr nonnull poison)
   %cmp.i.i = icmp ult i64 %call.i33, -21
   br i1 %cmp.i.i, label %do.end.i, label %return
 
@@ -3489,7 +3489,7 @@ if.then627:                                       ; preds = %do.end623
   store i32 0, ptr %dStage, align 4
   store i32 0, ptr %skipChecksum, align 8
   store i64 0, ptr %frameRemainingSize.i548, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %dict.i546, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict.i546, i8 0, i64 16, i1 false)
   br label %while.end
 
 if.end628:                                        ; preds = %do.end623
@@ -3547,7 +3547,7 @@ if.end688:                                        ; preds = %if.then676, %if.end
   store i32 0, ptr %dStage, align 4
   store i32 0, ptr %skipChecksum, align 8
   store i64 0, ptr %frameRemainingSize.i548, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %dict.i546, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict.i546, i8 0, i64 16, i1 false)
   br label %while.end
 
 sw.bb689:                                         ; preds = %while.body
@@ -3611,7 +3611,7 @@ if.end773:                                        ; preds = %sw.bb752
   store i32 0, ptr %dStage, align 4
   store i32 0, ptr %skipChecksum, align 8
   store i64 0, ptr %frameRemainingSize.i548, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %dict.i546, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict.i546, i8 0, i64 16, i1 false)
   br label %while.end
 
 while.end:                                        ; preds = %if.else298, %if.end608, %sw.bb752, %if.end773, %if.then737, %if.then668, %if.end688, %if.then627, %if.then381, %if.end277, %if.then156, %if.then196, %if.then53

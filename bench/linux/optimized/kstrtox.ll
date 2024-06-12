@@ -958,7 +958,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtouint_from_user(ptr
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !6
-  %12 = call i32 @kstrtoull(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
+  %12 = call i32 @kstrtoull(ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %kstrtouint.exit, label %14
 
@@ -999,7 +999,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtoint_from_user(ptr 
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !6
-  %12 = call i32 @kstrtoll(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
+  %12 = call i32 @kstrtoll(ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %kstrtoint.exit, label %14
 
@@ -1041,7 +1041,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou16_from_user(ptr 
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !6
-  %12 = call i32 @kstrtoull(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
+  %12 = call i32 @kstrtoull(ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %kstrtou16.exit, label %14
 
@@ -1082,7 +1082,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos16_from_user(ptr 
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !6
-  %12 = call i32 @kstrtoll(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
+  %12 = call i32 @kstrtoll(ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %kstrtos16.exit, label %14
 
@@ -1124,7 +1124,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtou8_from_user(ptr n
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !6
-  %12 = call i32 @kstrtoull(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
+  %12 = call i32 @kstrtoull(ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %kstrtou8.exit, label %14
 
@@ -1165,7 +1165,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @kstrtos8_from_user(ptr n
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !6
-  %12 = call i32 @kstrtoll(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
+  %12 = call i32 @kstrtoll(ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %kstrtos8.exit, label %14
 

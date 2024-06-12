@@ -697,13 +697,13 @@ define void @_ZN20wasmtime_wit_bindgen4Opts8generate17h640193755005c8b0E(ptr noc
   %45 = extractvalue { i64, i64 } %38, 1
   %46 = getelementptr inbounds i8, ptr %30, i64 184
   %47 = getelementptr inbounds i8, ptr %30, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false), !noalias !5
   %48 = getelementptr inbounds i8, ptr %30, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !5
   store <4 x i8> <i8 0, i8 0, i8 0, i8 2>, ptr %46, align 8, !alias.scope !8, !noalias !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false), !noalias !5
   %49 = getelementptr inbounds i8, ptr %30, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) @anon.76daaaf5a2b6053e52b5bc759f8da9fb.248, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) @anon.76daaaf5a2b6053e52b5bc759f8da9fb.248, i64 32, i1 false), !noalias !5
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 168
   store i64 %44, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !8, !noalias !5
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 176
@@ -878,26 +878,26 @@ common.resume:                                    ; preds = %.body, %.body.i
 
 "_ZN73_$LT$wasmtime_wit_bindgen..Wasmtime$u20$as$u20$core..default..Default$GT$7default17h38c868298412e1c4E.exit": ; preds = %88
   %97 = getelementptr inbounds i8, ptr %32, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %32, ptr noundef nonnull align 8 dereferenceable(192) %30, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %32, ptr noundef nonnull align 8 dereferenceable(192) %30, i64 192, i1 false)
   %98 = getelementptr inbounds i8, ptr %32, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   %99 = getelementptr inbounds i8, ptr %32, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %100 = getelementptr inbounds i8, ptr %32, i64 272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %100, ptr noundef nonnull align 8 dereferenceable(72) %27, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %100, ptr noundef nonnull align 8 dereferenceable(72) %27, i64 72, i1 false)
   %101 = getelementptr inbounds i8, ptr %32, i64 448
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %101, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false)
   %102 = getelementptr inbounds i8, ptr %32, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   %103 = getelementptr inbounds i8, ptr %32, i64 496
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false)
   %104 = getelementptr inbounds i8, ptr %32, i64 544
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %104, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false)
   %105 = getelementptr inbounds i8, ptr %32, i64 376
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %105, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %105, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false)
   %106 = getelementptr inbounds i8, ptr %32, i64 592
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %106, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -961,7 +961,7 @@ default.unreachable:                              ; preds = %109
 
 .noexc:                                           ; preds = %"_ZN72_$LT$wasmtime_wit_bindgen..AsyncConfig$u20$as$u20$core..clone..Clone$GT$5clone17h0166733fb628fc8dE.exit.sink.split.i"
   %118 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %.sink.i, i64 48, i1 false), !noalias !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %.sink.i, i64 48, i1 false), !noalias !13
   br label %"_ZN72_$LT$wasmtime_wit_bindgen..AsyncConfig$u20$as$u20$core..clone..Clone$GT$5clone17h0166733fb628fc8dE.exit.i"
 
 "_ZN72_$LT$wasmtime_wit_bindgen..AsyncConfig$u20$as$u20$core..clone..Clone$GT$5clone17h0166733fb628fc8dE.exit.i": ; preds = %.noexc, %109, %109
@@ -1000,7 +1000,7 @@ default.unreachable:                              ; preds = %109
 
 .noexc.i:                                         ; preds = %129
   %131 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !13
   br label %135
 
 132:                                              ; preds = %137, %133
@@ -4805,7 +4805,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1269 unwind label %.thread49.i, !noalias !33
 
 1351:                                             ; preds = %1269
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %286, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %286, i64 24, i1 false)
   br label %.invoke58.i
 
 1352:                                             ; preds = %.invoke58.i
@@ -4989,7 +4989,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %195)
   store i64 0, ptr %195, align 8, !alias.scope !37
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !37
   store ptr %1, ptr %658, align 8, !alias.scope !37
   store ptr %2, ptr %659, align 8, !alias.scope !37
   store i8 2, ptr %.sroa.1.0..sroa_idx.i.i, align 8, !alias.scope !37
@@ -6760,7 +6760,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %81)
   store i64 0, ptr %81, align 8, !alias.scope !44
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.sroa.2.0..sroa_idx.i.i87, align 8, !alias.scope !44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx.i.i88, i8 0, i64 16, i1 false), !alias.scope !44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.3.0..sroa_idx.i.i88, i8 0, i64 16, i1 false), !alias.scope !44
   store ptr %1, ptr %563, align 8, !alias.scope !44
   store ptr %2, ptr %564, align 8, !alias.scope !44
   store i8 2, ptr %.sroa.1.0..sroa_idx.i.i89, align 8, !alias.scope !44
@@ -7718,7 +7718,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   unreachable
 
 2062:                                             ; preds = %2059, %2057, %2051
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   store ptr %41, ptr %32, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h501e2ab095e4e83eE", ptr %603, align 8
@@ -9227,7 +9227,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime18lookup_replacement6Prefix10lookup_key17h9b3d
   br label %.body
 
 118:                                              ; preds = %115, %_ZN20wasmtime_wit_bindgen8Wasmtime18lookup_replacement6Prefix10lookup_key17h9b3da83782914e07E.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   %119 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17ha3e5068f31775cd4E"(ptr nonnull align 8 %42, ptr nonnull align 8 %18)
           to label %121 unwind label %.loopexit78
@@ -9709,7 +9709,7 @@ default.unreachable70:                            ; preds = %445, %401, %5
 186:                                              ; preds = %182
   %187 = extractvalue { ptr, i64 } %185, 0
   %188 = extractvalue { ptr, i64 } %185, 1
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %145)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %145)
           to label %189 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 189:                                              ; preds = %186
@@ -10234,11 +10234,11 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   br label %308
 
 311:                                              ; preds = %304
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %305)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %305)
           to label %313 unwind label %309
 
 312:                                              ; preds = %304
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %305)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %305)
           to label %324 unwind label %309
 
 313:                                              ; preds = %311
@@ -10420,7 +10420,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   br label %.body.i
 
 370:                                              ; preds = %362, %360, %353
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   store ptr %101, ptr %102, align 8
   %371 = getelementptr inbounds i8, ptr %102, i64 8
@@ -10734,7 +10734,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator13type_resource17h8eafbee72f01e351E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84)
-  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %490)
+  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %490)
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %84, ptr align 1 %1, i64 %2)
   store ptr %84, ptr %82, align 8
   %491 = getelementptr inbounds i8, ptr %82, i64 8
@@ -10804,7 +10804,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_handle17h91ff0b535e64a727E.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
-  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %507)
+  tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %507)
   call void @_ZN20wasmtime_wit_bindgen4rust24to_rust_upper_camel_case17heaed1fbe1db4a0e0E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %81, ptr align 1 %1, i64 %2)
   invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %0, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.327, i64 29)
           to label %509 unwind label %.loopexit.split-lp.i6
@@ -11039,7 +11039,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.ex
 583:                                              ; preds = %578
   %584 = extractvalue { ptr, i64 } %581, 0
   %585 = extractvalue { ptr, i64 } %581, 1
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %556)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %556)
           to label %586 unwind label %.loopexit.split-lp.i12
 
 586:                                              ; preds = %583
@@ -11168,7 +11168,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.ex
   %618 = getelementptr inbounds i8, ptr %617, i64 448
   %619 = tail call i40 @_ZN20wasmtime_wit_bindgen5types5Types3get17hfd41f81f583b5e20E(ptr nonnull align 8 %618, i64 %3, i32 %4)
   call void @_ZN20wasmtime_wit_bindgen4rust24to_rust_upper_camel_case17heaed1fbe1db4a0e0E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %61, ptr align 1 %1, i64 %2)
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %615)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %615)
           to label %620 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i18
 
 .loopexit.split-lp.i20:                           ; preds = %739, %729, %721, %698, %628, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i18, %.loopexit.split-lp.loopexit.split-lp.loopexit.i25, %.loopexit.split-lp.loopexit.i30, %.loopexit.i34
@@ -11721,7 +11721,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum17h83440cbbf27ef863E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   %764 = load ptr, ptr %749, align 8, !align !30, !noundef !4
   %765 = load i64, ptr %750, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %744)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %744)
           to label %769 unwind label %767
 
 766:                                              ; preds = %778, %767
@@ -11867,7 +11867,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %811 = load ptr, ptr %795, align 8, !align !30, !noundef !4
   %812 = load i64, ptr %796, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %790)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %790)
           to label %816 unwind label %814
 
 813:                                              ; preds = %825, %814
@@ -12042,7 +12042,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.e
 868:                                              ; preds = %861
   %869 = extractvalue { ptr, i64 } %864, 0
   %870 = extractvalue { ptr, i64 } %864, 1
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull readonly align 8 %842)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nonnull align 8 %842)
           to label %871 unwind label %866
 
 871:                                              ; preds = %868
@@ -12181,7 +12181,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %910 = load ptr, ptr %895, align 8, !align !30, !noundef !4
   %911 = load i64, ptr %896, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull readonly align 8 %890)
+  invoke void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr nonnull align 8 %0, ptr nonnull align 8 %890)
           to label %913 unwind label %.loopexit.split-lp.i53
 
 912:                                              ; preds = %918, %.loopexit.split-lp.i53, %.loopexit1.i61
@@ -15156,7 +15156,7 @@ common.resume:                                    ; preds = %36, %19
   resume { ptr, i32 } %common.resume.op
 
 _ZN20wasmtime_wit_bindgen18InterfaceGenerator12path_to_root17hbc1e7ed6792e01bcE.exit: ; preds = %.critedge, %21, %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %26 = getelementptr inbounds i8, ptr %1, i64 64
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !32, !noundef !4

@@ -89,8 +89,8 @@ define i32 @hwloc_topology_diff_build(ptr noundef %0, ptr noundef %1, i64 nounde
 
 18:                                               ; preds = %15
   store ptr null, ptr %3, align 8
-  %19 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #14
-  %20 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %1, i32 noundef 0, i32 noundef 0) #14
+  %19 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #14
+  %20 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #14
   %21 = call fastcc i32 @hwloc_diff_trees(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20, ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not187 = icmp eq i32 %21, 0
   br i1 %.not187, label %.preheader255, label %.critedge233
@@ -614,7 +614,7 @@ define i32 @hwloc_topology_diff_build(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %exitcond320.not, label %.critedge233, label %242, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph261, %79, %84, %87, %90, %95, %100, %.lr.ph271, %113, %135, %142, %147, %.lr.ph276.split, %187, %173, %166, %.lr.ph276.split.us, %222, %217, %211, %200, %207, %242, %249, %254, %259, %264, %274, %280, %.critedge232, %._crit_edge272, %43, %._crit_edge, %32, %34, %41
-  %287 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #14
+  %287 = call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef 0, i32 noundef 0) #14
   %288 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not.i = icmp eq ptr %288, null
   br i1 %.not.i, label %.critedge233, label %hwloc_append_diff.exit.i

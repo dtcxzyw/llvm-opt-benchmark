@@ -2547,7 +2547,7 @@ Vec_IntPush.exit136:                              ; preds = %.Vec_IntGrow.exit10
   %216 = getelementptr inbounds i8, ptr %144, i64 56
   %217 = load ptr, ptr %216, align 8
   %218 = tail call ptr @Mio_GateReadName(ptr noundef %217) #13
-  %219 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #15
+  %219 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %218) #15
   %220 = trunc i64 %219 to i32
   %221 = icmp sgt i32 %220, 0
   br i1 %221, label %.lr.ph.i, label %Vec_StrPrintStr.exit

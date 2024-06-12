@@ -27988,7 +27988,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -28081,8 +28081,8 @@ entry:
   %ref.tmp113 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -28095,7 +28095,7 @@ entry:
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !715
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !715
+  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !715
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !726
   %2 = ptrtoint ptr %this.val7.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %2, 12
@@ -28469,7 +28469,7 @@ invoke.cont97:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i82, align 8
   store i32 0, ptr %ref.tmp96, align 4
   %this.val.i86 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i86, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i86, i32 0, i32 1, i32 1)
   %39 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !730
   %40 = ptrtoint ptr %this.val.i86 to i64
   %shr.i.i.i.i.i.i95 = lshr i64 %40, 12
@@ -29845,8 +29845,8 @@ entry:
   %ref.tmp251 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -29859,7 +29859,7 @@ entry:
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !749
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !749
+  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !749
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !760
   %2 = ptrtoint ptr %this.val7.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %2, 12
@@ -30232,7 +30232,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit108:         ; preds = %if.end93, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i107
   store ptr null, ptr %message_.i105, align 8
   %this.val.i109 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i109, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i109, i32 0, i32 1, i32 1)
   %conv.i.i.i.i111 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i112 = mul nuw i128 %conv.i.i.i.i111, 11376068507788127593
   %shr.i.i.i.i113 = lshr i128 %mul.i.i.i.i112, 64
@@ -30394,7 +30394,7 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %invoke.cont104.thre
   %message_.i157492 = phi ptr [ %message_.i157490, %invoke.cont104.thread ], [ %message_.i157, %if.end126 ], [ %message_.i157, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i171 ]
   store ptr null, ptr %message_.i157492, align 8
   %this.val7.i.i.i.i.i.i174 = load ptr, ptr %t, align 8, !noalias !766
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i174, i32 0, i32 1, i32 1), !noalias !766
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i174, i32 0, i32 1, i32 1), !noalias !766
   %56 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !777
   %57 = ptrtoint ptr %this.val7.i.i.i.i.i.i174 to i64
   %shr.i.i.i.i.i.i.i.i.i.i184 = lshr i64 %57, 12
@@ -30767,7 +30767,7 @@ invoke.cont206:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i295, align 8
   store i32 0, ptr %ref.tmp205, align 4
   %this.val.i299 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i299, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i299, i32 0, i32 1, i32 1)
   %92 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !780
   %93 = ptrtoint ptr %this.val.i299 to i64
   %shr.i.i.i.i.i.i308 = lshr i64 %93, 12
@@ -30917,7 +30917,7 @@ invoke.cont235:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i362, align 8
   store i32 1, ptr %ref.tmp234, align 4
   %this.val.i366 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i366, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i366, i32 0, i32 1, i32 1)
   %110 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !783
   %111 = ptrtoint ptr %this.val.i366 to i64
   %shr.i.i.i.i.i.i375 = lshr i64 %111, 12
@@ -31192,15 +31192,15 @@ entry:
   %ref.tmp251 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %0 = load <16 x i8>, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), align 16
   %cmp.i.i.i.i434 = icmp eq <16 x i8> %0, zeroinitializer
   %1 = bitcast <16 x i1> %cmp.i.i.i.i434 to i16
   %cmp.i.not27.i.i435 = icmp eq i16 %1, 0
   tail call void @llvm.assume(i1 %cmp.i.not27.i.i435)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !786
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !786
   %call38.i.i.i.i.i.i53 = invoke fastcc noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIiESaIiEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %t)
           to label %invoke.cont52 unwind label %lpad
 
@@ -31423,7 +31423,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %if.end93, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i108
   store ptr null, ptr %message_.i106, align 8
   %this.val.i110 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i110, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i110, i32 0, i32 1, i32 1)
   %24 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !797
   %25 = ptrtoint ptr %this.val.i110 to i64
   %shr.i.i.i.i.i.i112 = lshr i64 %25, 12
@@ -31575,7 +31575,7 @@ _ZN7testing15AssertionResultD2Ev.exit164:         ; preds = %invoke.cont102.thre
   %message_.i149447 = phi ptr [ %message_.i149445, %invoke.cont102.thread ], [ %message_.i149, %if.end126 ], [ %message_.i149, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i163 ]
   store ptr null, ptr %message_.i149447, align 8
   %this.val6.i.i.i.i.i.i166 = load ptr, ptr %t, align 8, !noalias !801
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i166, i32 0, i32 1, i32 1), !noalias !801
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i166, i32 0, i32 1, i32 1), !noalias !801
   %41 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !812
   %42 = ptrtoint ptr %this.val6.i.i.i.i.i.i166 to i64
   %shr.i.i.i.i.i.i.i.i.i.i168 = lshr i64 %42, 12
@@ -31949,7 +31949,7 @@ invoke.cont206:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i276, align 8
   store i32 1, ptr %ref.tmp205, align 4
   %this.val.i280 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i280, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i280, i32 0, i32 1, i32 1)
   %78 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !816
   %79 = ptrtoint ptr %this.val.i280 to i64
   %shr.i.i.i.i.i.i282 = lshr i64 %79, 12
@@ -32099,7 +32099,7 @@ invoke.cont235:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i334, align 8
   store i32 2, ptr %ref.tmp234, align 4
   %this.val.i338 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i338, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i338, i32 0, i32 1, i32 1)
   %97 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !819
   %98 = ptrtoint ptr %this.val.i338 to i64
   %shr.i.i.i.i.i.i340 = lshr i64 %98, 12
@@ -32661,7 +32661,7 @@ entry:
   %ref.tmp226 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
@@ -32680,7 +32680,7 @@ for.cond63.preheader:                             ; preds = %_ZN7testing15Assert
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit82
   %storemerge342 = phi i64 [ 0, %entry ], [ %add, %_ZN7testing15AssertionResultD2Ev.exit82 ]
   %this.val6.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !824
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !824
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !824
   %1 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !835
   %2 = ptrtoint ptr %this.val6.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %2, 12
@@ -33067,7 +33067,7 @@ for.body65:                                       ; preds = %for.cond63.preheade
   %storemerge1346 = phi i64 [ 0, %for.cond63.preheader ], [ %storemerge8343, %for.inc210 ]
   store i32 1, ptr %ref.tmp67, align 4
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %37 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !840
   %38 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %38, 12
@@ -33249,7 +33249,7 @@ invoke.cont98:                                    ; preds = %invoke.cont98.lr.ph
   %storemerge8345 = phi i64 [ %storemerge8343, %invoke.cont98.lr.ph ], [ %storemerge8, %_ZN7testing15AssertionResultD2Ev.exit257 ]
   store i64 %storemerge8345, ptr %ref.tmp97, align 8
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %57 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !848
   %58 = ptrtoint ptr %this.val.i to i64
   %shr.i.i.i.i.i.i = lshr i64 %58, 12
@@ -33397,7 +33397,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit136:         ; preds = %if.end123, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i135
   store ptr null, ptr %message_.i.i117, align 8
   %this.val6.i.i.i.i.i.i138 = load ptr, ptr %t, align 8, !noalias !851
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i138, i32 0, i32 1, i32 1), !noalias !851
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i138, i32 0, i32 1, i32 1), !noalias !851
   %75 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !862
   %76 = ptrtoint ptr %this.val6.i.i.i.i.i.i138 to i64
   %shr.i.i.i.i.i.i.i.i.i.i140 = lshr i64 %76, 12
@@ -34340,7 +34340,7 @@ entry:
   %ref.tmp195 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %t, i64 24
   %this.val5.val.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 8), align 8
   %cmp.i = icmp ult i64 %this.val5.val.i, 10
@@ -34362,7 +34362,7 @@ invoke.cont2:                                     ; preds = %if.then.i.invoke.co
   %this.val7.i.i.i.i.i.i.i = phi ptr [ %this.val7.i.i.i.i.i.i.i.pre, %if.then.i.invoke.cont2_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), %entry ]
   %t.val37 = phi i64 [ %t.val37.pre, %if.then.i.invoke.cont2_crit_edge ], [ 0, %entry ]
   %1 = getelementptr inbounds i8, ptr %t, i64 16
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !880
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !880
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i, 64
@@ -34537,7 +34537,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %20 = load i64, ptr %1, align 8
   %21 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %21, 12
@@ -34587,7 +34587,7 @@ invoke.cont23:                                    ; preds = %for.body.i.i.i
   %cmp.i.i12.i.i.i = icmp ne ptr %this.val.i.i, null
   call void @llvm.assume(i1 %cmp.i.i12.i.i.i)
   %28 = ptrtoint ptr %add.ptr19.i.i.i.le to i64
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i.i, i32 0, i32 1, i32 1), !noalias !893
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i.i, i32 0, i32 1, i32 1), !noalias !893
   %conv.i.i.i.i.i.i.i.i.i.i52 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i.i.i.i.i.i53 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i52, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i54 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i53, 64
@@ -34756,7 +34756,7 @@ invoke.cont56:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i123, align 8
   store i64 %28, ptr %ref.tmp55, align 8
   %this.val.i.i127 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i127, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i127, i32 0, i32 1, i32 1)
   %46 = load i64, ptr %1, align 8, !noalias !906
   %47 = ptrtoint ptr %this.val.i.i127 to i64
   %shr.i.i.i.i.i.i.i135 = lshr i64 %47, 12
@@ -34913,7 +34913,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %rem.lhs.trunc = trunc nuw i32 %i.0505 to i8
   %rem482 = urem i8 %rem.lhs.trunc, 10
   %this.val7.i.i.i.i.i.i.i188 = load ptr, ptr %t, align 8, !noalias !909
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i188, i32 0, i32 1, i32 1), !noalias !909
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i188, i32 0, i32 1, i32 1), !noalias !909
   %conv.i.i.i.i.i.i.i189 = zext nneg i8 %rem482 to i64
   %add.i.i.i.i.i.i.i.i.i.i190 = add i64 %conv.i.i.i.i.i.i.i189, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i191 = zext i64 %add.i.i.i.i.i.i.i.i.i.i190 to i128
@@ -35092,7 +35092,7 @@ invoke.cont111:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i262, align 8
   store i64 %28, ptr %ref.tmp110, align 8
   %this.val.i.i266 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i266, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i266, i32 0, i32 1, i32 1)
   %84 = load i64, ptr %1, align 8, !noalias !926
   %85 = ptrtoint ptr %this.val.i.i266 to i64
   %shr.i.i.i.i.i.i.i274 = lshr i64 %85, 12
@@ -35350,7 +35350,7 @@ for.body.i:                                       ; preds = %for.end145, %_ZN4ab
   %first.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i375, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE7emplaceIJRiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSF_.exit.i ], [ %dup_range.sroa.0.1, %for.end145 ]
   %arg.val.i.i.i.i.i334 = load i32, ptr %first.sroa.0.04.i, align 4, !noalias !930
   %this.val7.i.i.i.i.i.i.i335 = load ptr, ptr %t, align 8, !noalias !939
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i335, i32 0, i32 1, i32 1), !noalias !939
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i335, i32 0, i32 1, i32 1), !noalias !939
   %conv.i.i.i.i.i.i.i336 = sext i32 %arg.val.i.i.i.i.i334 to i64
   %add.i.i.i.i.i.i.i.i.i.i337 = add i64 %conv.i.i.i.i.i.i.i336, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i338 = zext i64 %add.i.i.i.i.i.i.i.i.i.i337 to i128
@@ -35526,7 +35526,7 @@ invoke.cont182:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i398, align 8
   store i64 %28, ptr %ref.tmp181, align 8
   %this.val.i.i402 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i402, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i402, i32 0, i32 1, i32 1)
   %123 = load i64, ptr %1, align 8, !noalias !946
   %124 = ptrtoint ptr %this.val.i.i402 to i64
   %shr.i.i.i.i.i.i.i410 = lshr i64 %124, 12
@@ -36381,7 +36381,7 @@ entry:
   %ref.tmp87 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %call.i18 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertIA4_cEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t)
           to label %call.i.noexc unwind label %lpad
 
@@ -37306,7 +37306,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
 define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertIA4_cEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val6 = load ptr, ptr %this, align 8
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val6, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %this.val6, i32 0, i32 1, i32 1)
   %call.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZN4absl13hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE(i64 noundef ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr noundef nonnull @.str.352, i64 noundef 3)
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %call.i.i.i.i.i.i.i.i, 3
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
@@ -37354,7 +37354,7 @@ for.body:                                         ; preds = %while.body, %for.in
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %for.body
   %9 = extractvalue { i64, ptr } %call1.i.i.i, 1
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %9, ptr noundef nonnull readonly dereferenceable(3) @.str.352, i64 3)
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %9, ptr noundef nonnull dereferenceable(3) @.str.352, i64 3)
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %return, label %for.inc
 
@@ -39397,7 +39397,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
@@ -39487,8 +39487,8 @@ entry:
   %ref.tmp109 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !987
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !987
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i, 64
@@ -39568,7 +39568,7 @@ lpad14:                                           ; preds = %invoke.cont13
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont13, %if.end.thread
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %8 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !1000
   %9 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i.i = lshr i64 %9, 12
@@ -39715,7 +39715,7 @@ _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %if.end42.thread, %i
   %message_.i30216220 = phi ptr [ %message_.i30214, %if.end42.thread ], [ %message_.i30, %if.end42 ], [ %message_.i30, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i44 ]
   store ptr null, ptr %message_.i30216220, align 8
   %this.val.i.i46 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i46, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i46, i32 0, i32 1, i32 1)
   %conv.i.i.i.i.i48 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i49 = mul nuw i128 %conv.i.i.i.i.i48, 11376068507788127593
   %shr.i.i.i.i.i50 = lshr i128 %mul.i.i.i.i.i49, 64
@@ -39878,7 +39878,7 @@ _ZN7testing15AssertionResultD2Ev.exit104:         ; preds = %if.end69.thread, %i
   store ptr null, ptr %message_.i89227231, align 8
   store i32 1, ptr %ref.tmp71, align 4
   %this.val.i.i105 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i105, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i105, i32 0, i32 1, i32 1)
   %41 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !1006
   %42 = ptrtoint ptr %this.val.i.i105 to i64
   %shr.i.i.i.i.i.i.i112 = lshr i64 %42, 12
@@ -40049,7 +40049,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %if.end92, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i130
   store ptr null, ptr %message_.i128, align 8
   %this.val.i.i132 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i132, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i132, i32 0, i32 1, i32 1)
   %60 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !1014
   %61 = ptrtoint ptr %this.val.i.i132 to i64
   %shr.i.i.i.i.i.i.i.i141 = lshr i64 %61, 12
@@ -40306,8 +40306,8 @@ entry:
   %ref.tmp87 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !1017
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !1017
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i, 64
@@ -40387,7 +40387,7 @@ lpad14:                                           ; preds = %invoke.cont13
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont13, %if.end.thread
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %8 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !1030
   %9 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i.i = lshr i64 %9, 12
@@ -40534,7 +40534,7 @@ _ZN7testing15AssertionResultD2Ev.exit42:          ; preds = %if.end42.thread, %i
   %message_.i27186190 = phi ptr [ %message_.i27184, %if.end42.thread ], [ %message_.i27, %if.end42 ], [ %message_.i27, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i41 ]
   store ptr null, ptr %message_.i27186190, align 8
   %this.val.i.i43 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i43, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i43, i32 0, i32 1, i32 1)
   %conv.i.i.i.i.i45 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i46 = mul nuw i128 %conv.i.i.i.i.i45, 11376068507788127593
   %shr.i.i.i.i.i47 = lshr i128 %mul.i.i.i.i.i46, 64
@@ -40711,7 +40711,7 @@ if.else.i.invoke.cont71_crit_edge:                ; preds = %if.else.i
 invoke.cont71:                                    ; preds = %if.else.i.invoke.cont71_crit_edge, %_ZN7testing15AssertionResultD2Ev.exit101
   %41 = phi i64 [ %.pre213, %if.else.i.invoke.cont71_crit_edge ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit101 ]
   %this.val.i.i102 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i102, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i102, i32 0, i32 1, i32 1)
   %42 = ptrtoint ptr %this.val.i.i102 to i64
   %shr.i.i.i.i.i.i.i.i111 = lshr i64 %42, 12
   %xor.i.i.i.i.i.i.i112 = xor i64 %shr.i.i.i.i.i.i.i.i111, %shr.i.i.i8.i.i.i.i.i.i.i
@@ -41094,7 +41094,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   store i32 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_123decompose_move_assignedE, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set1, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %set1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
   store i32 0, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4
   store i32 0, ptr %expected_constructed, align 4
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
@@ -41197,7 +41197,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val6.i.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !1040
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1040
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1040
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %set1, i64 16
   %14 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1051
   %15 = ptrtoint ptr %this.val6.i.i.i.i.i.i to i64
@@ -41368,7 +41368,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %if.end41, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i160
   store ptr null, ptr %message_.i158, align 8
   %this.val6.i.i.i.i.i.i163 = load ptr, ptr %set1, align 8, !noalias !1060
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i163, i32 0, i32 1, i32 1), !noalias !1060
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i163, i32 0, i32 1, i32 1), !noalias !1060
   %35 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1071
   %36 = ptrtoint ptr %this.val6.i.i.i.i.i.i163 to i64
   %shr.i.i.i.i.i.i.i.i.i.i167 = lshr i64 %36, 12
@@ -41544,7 +41544,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit238:         ; preds = %if.end63, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i237
   store ptr null, ptr %message_.i235, align 8
   %this.val6.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !1080
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1080
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1080
   %56 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1089
   %57 = ptrtoint ptr %this.val6.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i239 = lshr i64 %57, 12
@@ -41829,7 +41829,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit295:         ; preds = %if.end104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i294
   store ptr null, ptr %message_.i292, align 8
   %this.val6.i.i.i.i.i.i297 = load ptr, ptr %set1, align 8, !noalias !1103
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i297, i32 0, i32 1, i32 1), !noalias !1103
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i297, i32 0, i32 1, i32 1), !noalias !1103
   %89 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1114
   %90 = ptrtoint ptr %this.val6.i.i.i.i.i.i297 to i64
   %shr.i.i.i.i.i.i.i.i.i.i301 = lshr i64 %90, 12
@@ -42003,7 +42003,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit374:         ; preds = %if.end126, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i373
   store ptr null, ptr %message_.i371, align 8
   %this.val6.i.i.i.i.i.i376 = load ptr, ptr %set1, align 8, !noalias !1122
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i376, i32 0, i32 1, i32 1), !noalias !1122
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i376, i32 0, i32 1, i32 1), !noalias !1122
   %110 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1133
   %111 = ptrtoint ptr %this.val6.i.i.i.i.i.i376 to i64
   %shr.i.i.i.i.i.i.i.i.i.i380 = lshr i64 %111, 12
@@ -42178,7 +42178,7 @@ _ZN7testing15AssertionResultD2Ev.exit452:         ; preds = %if.end147, %_ZNKSt1
   store ptr null, ptr %message_.i449, align 8
   %set1.val = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val108 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val, i32 0, i32 1, i32 1), !noalias !1142
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val, i32 0, i32 1, i32 1), !noalias !1142
   %131 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1153
   %132 = ptrtoint ptr %set1.val to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %132, 12
@@ -42352,7 +42352,7 @@ _ZN7testing15AssertionResultD2Ev.exit486:         ; preds = %if.end174, %_ZNKSt1
   store ptr null, ptr %message_.i483, align 8
   %set1.val109 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val110 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val109, i32 0, i32 1, i32 1), !noalias !1161
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val109, i32 0, i32 1, i32 1), !noalias !1161
   %152 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1172
   %153 = ptrtoint ptr %set1.val109 to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i511 = lshr i64 %153, 12
@@ -42525,7 +42525,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit582:         ; preds = %if.end201, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i581
   store ptr null, ptr %message_.i579, align 8
   %this.val6.i.i.i.i.i583 = load ptr, ptr %set1, align 8, !noalias !1180
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i583, i32 0, i32 1, i32 1), !noalias !1180
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i583, i32 0, i32 1, i32 1), !noalias !1180
   %173 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1189
   %174 = ptrtoint ptr %this.val6.i.i.i.i.i583 to i64
   %shr.i.i.i.i.i.i.i.i.i586 = lshr i64 %174, 12
@@ -42699,7 +42699,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit649:         ; preds = %if.end223, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i648
   store ptr null, ptr %message_.i646, align 8
   %this.val6.i.i.i.i.i650 = load ptr, ptr %set1, align 8, !noalias !1197
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i650, i32 0, i32 1, i32 1), !noalias !1197
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i650, i32 0, i32 1, i32 1), !noalias !1197
   %194 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1206
   %195 = ptrtoint ptr %this.val6.i.i.i.i.i650 to i64
   %shr.i.i.i.i.i.i.i.i.i652 = lshr i64 %195, 12
@@ -42873,7 +42873,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit720:         ; preds = %if.end244, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i719
   store ptr null, ptr %message_.i717, align 8
   %this.val6.i.i.i.i.i722 = load ptr, ptr %set1, align 8, !noalias !1214
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i722, i32 0, i32 1, i32 1), !noalias !1214
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i722, i32 0, i32 1, i32 1), !noalias !1214
   %215 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1223
   %216 = ptrtoint ptr %this.val6.i.i.i.i.i722 to i64
   %shr.i.i.i.i.i.i.i.i.i726 = lshr i64 %216, 12
@@ -43047,7 +43047,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit798:         ; preds = %if.end265, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i797
   store ptr null, ptr %message_.i795, align 8
   %this.val6.i.i.i.i.i800 = load ptr, ptr %set1, align 8, !noalias !1231
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i800, i32 0, i32 1, i32 1), !noalias !1231
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i800, i32 0, i32 1, i32 1), !noalias !1231
   %236 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1240
   %237 = ptrtoint ptr %this.val6.i.i.i.i.i800 to i64
   %shr.i.i.i.i.i.i.i.i.i804 = lshr i64 %237, 12
@@ -43222,7 +43222,7 @@ _ZN7testing15AssertionResultD2Ev.exit875:         ; preds = %if.end289, %_ZNKSt1
   store ptr null, ptr %message_.i872, align 8
   %set1.val111 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val112 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val111, i32 0, i32 1, i32 1), !noalias !1249
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val111, i32 0, i32 1, i32 1), !noalias !1249
   %257 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1258
   %258 = ptrtoint ptr %set1.val111 to i64
   %shr.i.i.i.i.i.i.i.i.i.i900 = lshr i64 %258, 12
@@ -43396,7 +43396,7 @@ _ZN7testing15AssertionResultD2Ev.exit971:         ; preds = %if.end317, %_ZNKSt1
   store ptr null, ptr %message_.i968, align 8
   %set1.val113 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val114 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val113, i32 0, i32 1, i32 1), !noalias !1266
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val113, i32 0, i32 1, i32 1), !noalias !1266
   %278 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1275
   %279 = ptrtoint ptr %set1.val113 to i64
   %shr.i.i.i.i.i.i.i.i.i.i993 = lshr i64 %279, 12
@@ -43570,7 +43570,7 @@ _ZN7testing15AssertionResultD2Ev.exit1056:        ; preds = %if.end347, %_ZNKSt1
   store ptr null, ptr %message_.i1053, align 8
   %set1.val115 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val116 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val115, i32 0, i32 1, i32 1), !noalias !1283
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val115, i32 0, i32 1, i32 1), !noalias !1283
   %299 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1292
   %300 = ptrtoint ptr %set1.val115 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1081 = lshr i64 %300, 12
@@ -43744,7 +43744,7 @@ _ZN7testing15AssertionResultD2Ev.exit1152:        ; preds = %if.end374, %_ZNKSt1
   store ptr null, ptr %message_.i1149, align 8
   %set1.val117 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val118 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val117, i32 0, i32 1, i32 1), !noalias !1300
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val117, i32 0, i32 1, i32 1), !noalias !1300
   %320 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1309
   %321 = ptrtoint ptr %set1.val117 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1177 = lshr i64 %321, 12
@@ -43937,7 +43937,7 @@ for.body.i.i:                                     ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i124, i64 %first.sroa.0.03.i.i.idx
   %x.val.i.i.i.i.i1251 = load i32, ptr %first.sroa.0.03.i.i.ptr, align 4, !noalias !1317
   %this.val6.i.i.i.i.i.i.i1252 = load ptr, ptr %set2, align 8, !noalias !1324
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1252, i32 0, i32 1, i32 1), !noalias !1324
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1252, i32 0, i32 1, i32 1), !noalias !1324
   %conv.i.i.i.i.i.i.i.i1253 = sext i32 %x.val.i.i.i.i.i1251 to i64
   %341 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1250, align 8, !noalias !1327
   %shr.i.i.i.i.i.i.i.i.i.i1254 = lshr i64 %conv.i.i.i.i.i.i.i.i1253, 7
@@ -44552,7 +44552,7 @@ for.body.i.i1413:                                 ; preds = %_ZN4absl18container
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.03.i.i1414, i64 16
   %x.val.i.i.i.i.i1415 = load i32, ptr %_M_storage.i.i.i.i, align 4, !noalias !1353
   %this.val6.i.i.i.i.i.i.i1416 = load ptr, ptr %set2513, align 8, !noalias !1360
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1416, i32 0, i32 1, i32 1), !noalias !1360
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1416, i32 0, i32 1, i32 1), !noalias !1360
   %conv.i.i.i.i.i.i.i.i1417 = sext i32 %x.val.i.i.i.i.i1415 to i64
   %411 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1412, align 8, !noalias !1363
   %shr.i.i.i.i.i.i.i.i.i.i1418 = lshr i64 %conv.i.i.i.i.i.i.i.i1417, 7
@@ -45243,7 +45243,7 @@ while.body.i.i.i1613:                             ; preds = %_ZN4absl18container
 for.body.lr.ph.i:                                 ; preds = %while.body.i.i.i1613, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEED2Ev.exit1611
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set2631, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i1617 = getelementptr inbounds i8, ptr %set2631, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1617, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1617, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i1618 = getelementptr inbounds i8, ptr %set2631, i64 16
   br label %for.body.i1619
 
@@ -45252,7 +45252,7 @@ for.body.i1619:                                   ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i124, i64 %first.sroa.0.03.i.idx
   %x.val.i.i.i.i1620 = load i32, ptr %first.sroa.0.03.i.ptr, align 4, !noalias !1383
   %this.val6.i.i.i.i.i.i1621 = load ptr, ptr %set2631, align 8, !noalias !1390
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i1621, i32 0, i32 1, i32 1), !noalias !1390
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i1621, i32 0, i32 1, i32 1), !noalias !1390
   %conv.i.i.i.i.i.i.i1622 = sext i32 %x.val.i.i.i.i1620 to i64
   %492 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i1618, align 8, !noalias !1393
   %shr.i.i.i.i.i.i.i.i.i1623 = lshr i64 %conv.i.i.i.i.i.i.i1622, 7
@@ -46019,7 +46019,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   store i32 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_123decompose_move_assignedE, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set1, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %set1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
   store i32 0, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4
   store i32 0, ptr %expected_constructed, align 4
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
@@ -46122,7 +46122,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val6.i.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !1414
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1414
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1414
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %set1, i64 16
   %14 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1425
   %15 = ptrtoint ptr %this.val6.i.i.i.i.i.i to i64
@@ -46293,7 +46293,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %if.end41, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161
   store ptr null, ptr %message_.i159, align 8
   %this.val6.i.i.i.i.i.i164 = load ptr, ptr %set1, align 8, !noalias !1434
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i164, i32 0, i32 1, i32 1), !noalias !1434
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i164, i32 0, i32 1, i32 1), !noalias !1434
   %35 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1445
   %36 = ptrtoint ptr %this.val6.i.i.i.i.i.i164 to i64
   %shr.i.i.i.i.i.i.i.i.i.i168 = lshr i64 %36, 12
@@ -46472,7 +46472,7 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %if.end63, %_ZNKSt14
   %inc.i.i.i.i.i.i = add nsw i32 %56, 1
   store i32 %inc.i.i.i.i.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1454
   %this.val6.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !1457
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1457
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1457
   %57 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1464
   %58 = ptrtoint ptr %this.val6.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i240 = lshr i64 %58, 12
@@ -46754,7 +46754,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit296:         ; preds = %if.end104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i295
   store ptr null, ptr %message_.i293, align 8
   %this.val6.i.i.i.i.i.i298 = load ptr, ptr %set1, align 8, !noalias !1477
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i298, i32 0, i32 1, i32 1), !noalias !1477
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i298, i32 0, i32 1, i32 1), !noalias !1477
   %90 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1488
   %91 = ptrtoint ptr %this.val6.i.i.i.i.i.i298 to i64
   %shr.i.i.i.i.i.i.i.i.i.i302 = lshr i64 %91, 12
@@ -46928,7 +46928,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit375:         ; preds = %if.end126, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i374
   store ptr null, ptr %message_.i372, align 8
   %this.val6.i.i.i.i.i.i377 = load ptr, ptr %set1, align 8, !noalias !1496
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i377, i32 0, i32 1, i32 1), !noalias !1496
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i377, i32 0, i32 1, i32 1), !noalias !1496
   %111 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1507
   %112 = ptrtoint ptr %this.val6.i.i.i.i.i.i377 to i64
   %shr.i.i.i.i.i.i.i.i.i.i381 = lshr i64 %112, 12
@@ -47103,7 +47103,7 @@ _ZN7testing15AssertionResultD2Ev.exit453:         ; preds = %if.end147, %_ZNKSt1
   store ptr null, ptr %message_.i450, align 8
   %set1.val = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val112 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val, i32 0, i32 1, i32 1), !noalias !1515
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val, i32 0, i32 1, i32 1), !noalias !1515
   %132 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1526
   %133 = ptrtoint ptr %set1.val to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %133, 12
@@ -47277,7 +47277,7 @@ _ZN7testing15AssertionResultD2Ev.exit487:         ; preds = %if.end174, %_ZNKSt1
   store ptr null, ptr %message_.i484, align 8
   %set1.val113 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val114 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val113, i32 0, i32 1, i32 1), !noalias !1534
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val113, i32 0, i32 1, i32 1), !noalias !1534
   %153 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1545
   %154 = ptrtoint ptr %set1.val113 to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i512 = lshr i64 %154, 12
@@ -47450,7 +47450,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit583:         ; preds = %if.end201, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i582
   store ptr null, ptr %message_.i580, align 8
   %this.val6.i.i.i.i.i584 = load ptr, ptr %set1, align 8, !noalias !1553
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i584, i32 0, i32 1, i32 1), !noalias !1553
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i584, i32 0, i32 1, i32 1), !noalias !1553
   %174 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1562
   %175 = ptrtoint ptr %this.val6.i.i.i.i.i584 to i64
   %shr.i.i.i.i.i.i.i.i.i587 = lshr i64 %175, 12
@@ -47627,7 +47627,7 @@ _ZN7testing15AssertionResultD2Ev.exit649:         ; preds = %if.end223, %_ZNKSt1
   %inc.i.i.i.i.i.i650 = add nsw i32 %195, 1
   store i32 %inc.i.i.i.i.i.i650, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1570
   %this.val6.i.i.i.i.i651 = load ptr, ptr %set1, align 8, !noalias !1573
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i651, i32 0, i32 1, i32 1), !noalias !1573
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i651, i32 0, i32 1, i32 1), !noalias !1573
   %196 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1580
   %197 = ptrtoint ptr %this.val6.i.i.i.i.i651 to i64
   %shr.i.i.i.i.i.i.i.i.i653 = lshr i64 %197, 12
@@ -47800,7 +47800,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit721:         ; preds = %if.end244, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i720
   store ptr null, ptr %message_.i718, align 8
   %this.val6.i.i.i.i.i723 = load ptr, ptr %set1, align 8, !noalias !1588
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i723, i32 0, i32 1, i32 1), !noalias !1588
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i723, i32 0, i32 1, i32 1), !noalias !1588
   %217 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1597
   %218 = ptrtoint ptr %this.val6.i.i.i.i.i723 to i64
   %shr.i.i.i.i.i.i.i.i.i727 = lshr i64 %218, 12
@@ -47977,7 +47977,7 @@ _ZN7testing15AssertionResultD2Ev.exit799:         ; preds = %if.end265, %_ZNKSt1
   %inc.i.i.i.i.i.i801 = add nsw i32 %238, 1
   store i32 %inc.i.i.i.i.i.i801, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1605
   %this.val6.i.i.i.i.i802 = load ptr, ptr %set1, align 8, !noalias !1608
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i802, i32 0, i32 1, i32 1), !noalias !1608
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i802, i32 0, i32 1, i32 1), !noalias !1608
   %239 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1615
   %240 = ptrtoint ptr %this.val6.i.i.i.i.i802 to i64
   %shr.i.i.i.i.i.i.i.i.i806 = lshr i64 %240, 12
@@ -48151,7 +48151,7 @@ _ZN7testing15AssertionResultD2Ev.exit876:         ; preds = %if.end289, %_ZNKSt1
   store ptr null, ptr %message_.i873, align 8
   %set1.val115 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val116 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val115, i32 0, i32 1, i32 1), !noalias !1623
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val115, i32 0, i32 1, i32 1), !noalias !1623
   %260 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1632
   %261 = ptrtoint ptr %set1.val115 to i64
   %shr.i.i.i.i.i.i.i.i.i.i901 = lshr i64 %261, 12
@@ -48328,7 +48328,7 @@ _ZN7testing15AssertionResultD2Ev.exit972:         ; preds = %if.end317, %_ZNKSt1
   %281 = load i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1640
   %inc.i.i.i.i.i.i.i = add nsw i32 %281, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1640
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val117, i32 0, i32 1, i32 1), !noalias !1643
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val117, i32 0, i32 1, i32 1), !noalias !1643
   %282 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1650
   %283 = ptrtoint ptr %set1.val117 to i64
   %shr.i.i.i.i.i.i.i.i.i.i994 = lshr i64 %283, 12
@@ -48501,7 +48501,7 @@ _ZN7testing15AssertionResultD2Ev.exit1058:        ; preds = %if.end347, %_ZNKSt1
   store ptr null, ptr %message_.i1055, align 8
   %set1.val119 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val120 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val119, i32 0, i32 1, i32 1), !noalias !1658
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val119, i32 0, i32 1, i32 1), !noalias !1658
   %303 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1667
   %304 = ptrtoint ptr %set1.val119 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1083 = lshr i64 %304, 12
@@ -48678,7 +48678,7 @@ _ZN7testing15AssertionResultD2Ev.exit1154:        ; preds = %if.end374, %_ZNKSt1
   %324 = load i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1675
   %inc.i.i.i.i.i.i.i1175 = add nsw i32 %324, 1
   store i32 %inc.i.i.i.i.i.i.i1175, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1675
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val121, i32 0, i32 1, i32 1), !noalias !1678
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val121, i32 0, i32 1, i32 1), !noalias !1678
   %325 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1685
   %326 = ptrtoint ptr %set1.val121 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1180 = lshr i64 %326, 12
@@ -48870,7 +48870,7 @@ for.body.i.i:                                     ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i125, i64 %first.sroa.0.03.i.i.idx
   %x.val.i.i.i.i.i1253 = load i32, ptr %first.sroa.0.03.i.i.ptr, align 4, !noalias !1693
   %this.val6.i.i.i.i.i.i.i1254 = load ptr, ptr %set2, align 8, !noalias !1700
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1254, i32 0, i32 1, i32 1), !noalias !1700
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1254, i32 0, i32 1, i32 1), !noalias !1700
   %conv.i.i.i.i.i.i.i.i1255 = sext i32 %x.val.i.i.i.i.i1253 to i64
   %346 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1252, align 8, !noalias !1703
   %shr.i.i.i.i.i.i.i.i.i.i1256 = lshr i64 %conv.i.i.i.i.i.i.i.i1255, 7
@@ -49485,7 +49485,7 @@ for.body.i.i1416:                                 ; preds = %_ZN4absl18container
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.03.i.i1417, i64 16
   %x.val.i.i.i.i.i1418 = load i32, ptr %_M_storage.i.i.i.i, align 4, !noalias !1727
   %this.val6.i.i.i.i.i.i.i1419 = load ptr, ptr %set2513, align 8, !noalias !1734
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1419, i32 0, i32 1, i32 1), !noalias !1734
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1419, i32 0, i32 1, i32 1), !noalias !1734
   %conv.i.i.i.i.i.i.i.i1420 = sext i32 %x.val.i.i.i.i.i1418 to i64
   %416 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1415, align 8, !noalias !1737
   %shr.i.i.i.i.i.i.i.i.i.i1421 = lshr i64 %conv.i.i.i.i.i.i.i.i1420, 7
@@ -50176,7 +50176,7 @@ while.body.i.i.i1616:                             ; preds = %_ZN4absl18container
 for.body.lr.ph.i:                                 ; preds = %while.body.i.i.i1616, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEED2Ev.exit1614
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set2631, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i1620 = getelementptr inbounds i8, ptr %set2631, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1620, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1620, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i1621 = getelementptr inbounds i8, ptr %set2631, i64 16
   br label %for.body.i1622
 
@@ -50185,7 +50185,7 @@ for.body.i1622:                                   ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i125, i64 %first.sroa.0.03.i.idx
   %x.val.i.i.i.i1623 = load i32, ptr %first.sroa.0.03.i.ptr, align 4, !noalias !1757
   %this.val6.i.i.i.i.i.i1624 = load ptr, ptr %set2631, align 8, !noalias !1764
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i1624, i32 0, i32 1, i32 1), !noalias !1764
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i1624, i32 0, i32 1, i32 1), !noalias !1764
   %conv.i.i.i.i.i.i.i1625 = sext i32 %x.val.i.i.i.i1623 to i64
   %497 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i1621, align 8, !noalias !1767
   %shr.i.i.i.i.i.i.i.i.i1626 = lshr i64 %conv.i.i.i.i.i.i.i1625, 7
@@ -50952,7 +50952,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   store i32 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_123decompose_move_assignedE, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set1, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %set1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
   store i32 0, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4
   store i32 0, ptr %expected_constructed, align 4
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
@@ -51055,7 +51055,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val6.i.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !1788
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1788
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1788
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %set1, i64 16
   %14 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1799
   %15 = ptrtoint ptr %this.val6.i.i.i.i.i.i to i64
@@ -51226,7 +51226,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %if.end41, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161
   store ptr null, ptr %message_.i159, align 8
   %this.val6.i.i.i.i.i.i164 = load ptr, ptr %set1, align 8, !noalias !1808
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i164, i32 0, i32 1, i32 1), !noalias !1808
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i164, i32 0, i32 1, i32 1), !noalias !1808
   %35 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1819
   %36 = ptrtoint ptr %this.val6.i.i.i.i.i.i164 to i64
   %shr.i.i.i.i.i.i.i.i.i.i168 = lshr i64 %36, 12
@@ -51405,7 +51405,7 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %if.end63, %_ZNKSt14
   %inc.i.i.i.i.i.i = add nsw i32 %56, 1
   store i32 %inc.i.i.i.i.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1828
   %this.val6.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !1831
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1831
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !1831
   %57 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1838
   %58 = ptrtoint ptr %this.val6.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i240 = lshr i64 %58, 12
@@ -51687,7 +51687,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit296:         ; preds = %if.end104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i295
   store ptr null, ptr %message_.i293, align 8
   %this.val6.i.i.i.i.i.i298 = load ptr, ptr %set1, align 8, !noalias !1851
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i298, i32 0, i32 1, i32 1), !noalias !1851
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i298, i32 0, i32 1, i32 1), !noalias !1851
   %90 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1862
   %91 = ptrtoint ptr %this.val6.i.i.i.i.i.i298 to i64
   %shr.i.i.i.i.i.i.i.i.i.i302 = lshr i64 %91, 12
@@ -51861,7 +51861,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit375:         ; preds = %if.end126, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i374
   store ptr null, ptr %message_.i372, align 8
   %this.val6.i.i.i.i.i.i377 = load ptr, ptr %set1, align 8, !noalias !1870
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i377, i32 0, i32 1, i32 1), !noalias !1870
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i377, i32 0, i32 1, i32 1), !noalias !1870
   %111 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1881
   %112 = ptrtoint ptr %this.val6.i.i.i.i.i.i377 to i64
   %shr.i.i.i.i.i.i.i.i.i.i381 = lshr i64 %112, 12
@@ -52036,7 +52036,7 @@ _ZN7testing15AssertionResultD2Ev.exit453:         ; preds = %if.end147, %_ZNKSt1
   store ptr null, ptr %message_.i450, align 8
   %set1.val = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val112 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val, i32 0, i32 1, i32 1), !noalias !1889
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val, i32 0, i32 1, i32 1), !noalias !1889
   %132 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1900
   %133 = ptrtoint ptr %set1.val to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %133, 12
@@ -52210,7 +52210,7 @@ _ZN7testing15AssertionResultD2Ev.exit487:         ; preds = %if.end174, %_ZNKSt1
   store ptr null, ptr %message_.i484, align 8
   %set1.val113 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val114 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val113, i32 0, i32 1, i32 1), !noalias !1908
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val113, i32 0, i32 1, i32 1), !noalias !1908
   %153 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1919
   %154 = ptrtoint ptr %set1.val113 to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i512 = lshr i64 %154, 12
@@ -52383,7 +52383,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit583:         ; preds = %if.end201, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i582
   store ptr null, ptr %message_.i580, align 8
   %this.val6.i.i.i.i.i584 = load ptr, ptr %set1, align 8, !noalias !1927
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i584, i32 0, i32 1, i32 1), !noalias !1927
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i584, i32 0, i32 1, i32 1), !noalias !1927
   %174 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1936
   %175 = ptrtoint ptr %this.val6.i.i.i.i.i584 to i64
   %shr.i.i.i.i.i.i.i.i.i587 = lshr i64 %175, 12
@@ -52560,7 +52560,7 @@ _ZN7testing15AssertionResultD2Ev.exit649:         ; preds = %if.end223, %_ZNKSt1
   %inc.i.i.i.i.i.i650 = add nsw i32 %195, 1
   store i32 %inc.i.i.i.i.i.i650, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1944
   %this.val6.i.i.i.i.i651 = load ptr, ptr %set1, align 8, !noalias !1947
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i651, i32 0, i32 1, i32 1), !noalias !1947
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i651, i32 0, i32 1, i32 1), !noalias !1947
   %196 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1954
   %197 = ptrtoint ptr %this.val6.i.i.i.i.i651 to i64
   %shr.i.i.i.i.i.i.i.i.i653 = lshr i64 %197, 12
@@ -52733,7 +52733,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit721:         ; preds = %if.end244, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i720
   store ptr null, ptr %message_.i718, align 8
   %this.val6.i.i.i.i.i723 = load ptr, ptr %set1, align 8, !noalias !1962
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i723, i32 0, i32 1, i32 1), !noalias !1962
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i723, i32 0, i32 1, i32 1), !noalias !1962
   %217 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1971
   %218 = ptrtoint ptr %this.val6.i.i.i.i.i723 to i64
   %shr.i.i.i.i.i.i.i.i.i727 = lshr i64 %218, 12
@@ -52910,7 +52910,7 @@ _ZN7testing15AssertionResultD2Ev.exit799:         ; preds = %if.end265, %_ZNKSt1
   %inc.i.i.i.i.i.i801 = add nsw i32 %238, 1
   store i32 %inc.i.i.i.i.i.i801, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !1979
   %this.val6.i.i.i.i.i802 = load ptr, ptr %set1, align 8, !noalias !1982
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i802, i32 0, i32 1, i32 1), !noalias !1982
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i802, i32 0, i32 1, i32 1), !noalias !1982
   %239 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1989
   %240 = ptrtoint ptr %this.val6.i.i.i.i.i802 to i64
   %shr.i.i.i.i.i.i.i.i.i806 = lshr i64 %240, 12
@@ -53084,7 +53084,7 @@ _ZN7testing15AssertionResultD2Ev.exit876:         ; preds = %if.end289, %_ZNKSt1
   store ptr null, ptr %message_.i873, align 8
   %set1.val115 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val116 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val115, i32 0, i32 1, i32 1), !noalias !1997
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val115, i32 0, i32 1, i32 1), !noalias !1997
   %260 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2006
   %261 = ptrtoint ptr %set1.val115 to i64
   %shr.i.i.i.i.i.i.i.i.i.i901 = lshr i64 %261, 12
@@ -53261,7 +53261,7 @@ _ZN7testing15AssertionResultD2Ev.exit972:         ; preds = %if.end317, %_ZNKSt1
   %281 = load i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2014
   %inc.i.i.i.i.i.i.i = add nsw i32 %281, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2014
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val117, i32 0, i32 1, i32 1), !noalias !2017
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val117, i32 0, i32 1, i32 1), !noalias !2017
   %282 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2024
   %283 = ptrtoint ptr %set1.val117 to i64
   %shr.i.i.i.i.i.i.i.i.i.i994 = lshr i64 %283, 12
@@ -53434,7 +53434,7 @@ _ZN7testing15AssertionResultD2Ev.exit1058:        ; preds = %if.end347, %_ZNKSt1
   store ptr null, ptr %message_.i1055, align 8
   %set1.val119 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val120 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val119, i32 0, i32 1, i32 1), !noalias !2032
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val119, i32 0, i32 1, i32 1), !noalias !2032
   %303 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2041
   %304 = ptrtoint ptr %set1.val119 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1083 = lshr i64 %304, 12
@@ -53611,7 +53611,7 @@ _ZN7testing15AssertionResultD2Ev.exit1154:        ; preds = %if.end374, %_ZNKSt1
   %324 = load i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2049
   %inc.i.i.i.i.i.i.i1175 = add nsw i32 %324, 1
   store i32 %inc.i.i.i.i.i.i.i1175, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2049
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val121, i32 0, i32 1, i32 1), !noalias !2052
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val121, i32 0, i32 1, i32 1), !noalias !2052
   %325 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2059
   %326 = ptrtoint ptr %set1.val121 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1180 = lshr i64 %326, 12
@@ -53803,7 +53803,7 @@ for.body.i.i:                                     ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i125, i64 %first.sroa.0.03.i.i.idx
   %x.val.i.i.i.i.i1253 = load i32, ptr %first.sroa.0.03.i.i.ptr, align 4, !noalias !2067
   %this.val6.i.i.i.i.i.i.i1254 = load ptr, ptr %set2, align 8, !noalias !2074
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1254, i32 0, i32 1, i32 1), !noalias !2074
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1254, i32 0, i32 1, i32 1), !noalias !2074
   %conv.i.i.i.i.i.i.i.i1255 = sext i32 %x.val.i.i.i.i.i1253 to i64
   %346 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1252, align 8, !noalias !2077
   %shr.i.i.i.i.i.i.i.i.i.i1256 = lshr i64 %conv.i.i.i.i.i.i.i.i1255, 7
@@ -54418,7 +54418,7 @@ for.body.i.i1416:                                 ; preds = %_ZN4absl18container
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.03.i.i1417, i64 16
   %x.val.i.i.i.i.i1418 = load i32, ptr %_M_storage.i.i.i.i, align 4, !noalias !2101
   %this.val6.i.i.i.i.i.i.i1419 = load ptr, ptr %set2513, align 8, !noalias !2108
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1419, i32 0, i32 1, i32 1), !noalias !2108
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1419, i32 0, i32 1, i32 1), !noalias !2108
   %conv.i.i.i.i.i.i.i.i1420 = sext i32 %x.val.i.i.i.i.i1418 to i64
   %416 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1415, align 8, !noalias !2111
   %shr.i.i.i.i.i.i.i.i.i.i1421 = lshr i64 %conv.i.i.i.i.i.i.i.i1420, 7
@@ -55109,7 +55109,7 @@ while.body.i.i.i1616:                             ; preds = %_ZN4absl18container
 for.body.lr.ph.i:                                 ; preds = %while.body.i.i.i1616, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEED2Ev.exit1614
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set2631, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i1620 = getelementptr inbounds i8, ptr %set2631, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1620, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1620, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i1621 = getelementptr inbounds i8, ptr %set2631, i64 16
   br label %for.body.i1622
 
@@ -55118,7 +55118,7 @@ for.body.i1622:                                   ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i125, i64 %first.sroa.0.03.i.idx
   %x.val.i.i.i.i1623 = load i32, ptr %first.sroa.0.03.i.ptr, align 4, !noalias !2131
   %this.val6.i.i.i.i.i.i1624 = load ptr, ptr %set2631, align 8, !noalias !2138
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i1624, i32 0, i32 1, i32 1), !noalias !2138
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i1624, i32 0, i32 1, i32 1), !noalias !2138
   %conv.i.i.i.i.i.i.i1625 = sext i32 %x.val.i.i.i.i1623 to i64
   %497 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i1621, align 8, !noalias !2141
   %shr.i.i.i.i.i.i.i.i.i1626 = lshr i64 %conv.i.i.i.i.i.i.i1625, 7
@@ -55885,7 +55885,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   store i32 %2, ptr @_ZN4absl18container_internal12_GLOBAL__N_123decompose_move_assignedE, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set1, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %set1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i, i8 0, i64 24, i1 false)
   store i32 0, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4
   store i32 0, ptr %expected_constructed, align 4
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
@@ -55988,7 +55988,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val6.i.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !2162
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2162
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2162
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %set1, i64 16
   %14 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2173
   %15 = ptrtoint ptr %this.val6.i.i.i.i.i.i to i64
@@ -56159,7 +56159,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %if.end41, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161
   store ptr null, ptr %message_.i159, align 8
   %this.val6.i.i.i.i.i.i164 = load ptr, ptr %set1, align 8, !noalias !2182
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i164, i32 0, i32 1, i32 1), !noalias !2182
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i164, i32 0, i32 1, i32 1), !noalias !2182
   %35 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2193
   %36 = ptrtoint ptr %this.val6.i.i.i.i.i.i164 to i64
   %shr.i.i.i.i.i.i.i.i.i.i168 = lshr i64 %36, 12
@@ -56338,7 +56338,7 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %if.end63, %_ZNKSt14
   %inc.i.i.i.i.i.i = add nsw i32 %56, 1
   store i32 %inc.i.i.i.i.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2202
   %this.val6.i.i.i.i.i = load ptr, ptr %set1, align 8, !noalias !2205
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2205
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2205
   %57 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2212
   %58 = ptrtoint ptr %this.val6.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i240 = lshr i64 %58, 12
@@ -56620,7 +56620,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit296:         ; preds = %if.end104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i295
   store ptr null, ptr %message_.i293, align 8
   %this.val6.i.i.i.i.i.i298 = load ptr, ptr %set1, align 8, !noalias !2225
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i298, i32 0, i32 1, i32 1), !noalias !2225
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i298, i32 0, i32 1, i32 1), !noalias !2225
   %90 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2236
   %91 = ptrtoint ptr %this.val6.i.i.i.i.i.i298 to i64
   %shr.i.i.i.i.i.i.i.i.i.i302 = lshr i64 %91, 12
@@ -56794,7 +56794,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit375:         ; preds = %if.end126, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i374
   store ptr null, ptr %message_.i372, align 8
   %this.val6.i.i.i.i.i.i377 = load ptr, ptr %set1, align 8, !noalias !2244
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i377, i32 0, i32 1, i32 1), !noalias !2244
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i377, i32 0, i32 1, i32 1), !noalias !2244
   %111 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2255
   %112 = ptrtoint ptr %this.val6.i.i.i.i.i.i377 to i64
   %shr.i.i.i.i.i.i.i.i.i.i381 = lshr i64 %112, 12
@@ -56969,7 +56969,7 @@ _ZN7testing15AssertionResultD2Ev.exit453:         ; preds = %if.end147, %_ZNKSt1
   store ptr null, ptr %message_.i450, align 8
   %set1.val = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val112 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val, i32 0, i32 1, i32 1), !noalias !2263
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val, i32 0, i32 1, i32 1), !noalias !2263
   %132 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2274
   %133 = ptrtoint ptr %set1.val to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %133, 12
@@ -57143,7 +57143,7 @@ _ZN7testing15AssertionResultD2Ev.exit487:         ; preds = %if.end174, %_ZNKSt1
   store ptr null, ptr %message_.i484, align 8
   %set1.val113 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val114 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val113, i32 0, i32 1, i32 1), !noalias !2282
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val113, i32 0, i32 1, i32 1), !noalias !2282
   %153 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2293
   %154 = ptrtoint ptr %set1.val113 to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i512 = lshr i64 %154, 12
@@ -57316,7 +57316,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit583:         ; preds = %if.end201, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i582
   store ptr null, ptr %message_.i580, align 8
   %this.val6.i.i.i.i.i584 = load ptr, ptr %set1, align 8, !noalias !2301
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i584, i32 0, i32 1, i32 1), !noalias !2301
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i584, i32 0, i32 1, i32 1), !noalias !2301
   %174 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2310
   %175 = ptrtoint ptr %this.val6.i.i.i.i.i584 to i64
   %shr.i.i.i.i.i.i.i.i.i587 = lshr i64 %175, 12
@@ -57493,7 +57493,7 @@ _ZN7testing15AssertionResultD2Ev.exit649:         ; preds = %if.end223, %_ZNKSt1
   %inc.i.i.i.i.i.i650 = add nsw i32 %195, 1
   store i32 %inc.i.i.i.i.i.i650, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2318
   %this.val6.i.i.i.i.i651 = load ptr, ptr %set1, align 8, !noalias !2321
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i651, i32 0, i32 1, i32 1), !noalias !2321
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i651, i32 0, i32 1, i32 1), !noalias !2321
   %196 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2328
   %197 = ptrtoint ptr %this.val6.i.i.i.i.i651 to i64
   %shr.i.i.i.i.i.i.i.i.i653 = lshr i64 %197, 12
@@ -57666,7 +57666,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit721:         ; preds = %if.end244, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i720
   store ptr null, ptr %message_.i718, align 8
   %this.val6.i.i.i.i.i723 = load ptr, ptr %set1, align 8, !noalias !2336
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i723, i32 0, i32 1, i32 1), !noalias !2336
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i723, i32 0, i32 1, i32 1), !noalias !2336
   %217 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2345
   %218 = ptrtoint ptr %this.val6.i.i.i.i.i723 to i64
   %shr.i.i.i.i.i.i.i.i.i727 = lshr i64 %218, 12
@@ -57843,7 +57843,7 @@ _ZN7testing15AssertionResultD2Ev.exit799:         ; preds = %if.end265, %_ZNKSt1
   %inc.i.i.i.i.i.i801 = add nsw i32 %238, 1
   store i32 %inc.i.i.i.i.i.i801, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2353
   %this.val6.i.i.i.i.i802 = load ptr, ptr %set1, align 8, !noalias !2356
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i802, i32 0, i32 1, i32 1), !noalias !2356
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i802, i32 0, i32 1, i32 1), !noalias !2356
   %239 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2363
   %240 = ptrtoint ptr %this.val6.i.i.i.i.i802 to i64
   %shr.i.i.i.i.i.i.i.i.i806 = lshr i64 %240, 12
@@ -58017,7 +58017,7 @@ _ZN7testing15AssertionResultD2Ev.exit876:         ; preds = %if.end289, %_ZNKSt1
   store ptr null, ptr %message_.i873, align 8
   %set1.val115 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val116 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val115, i32 0, i32 1, i32 1), !noalias !2371
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val115, i32 0, i32 1, i32 1), !noalias !2371
   %260 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2380
   %261 = ptrtoint ptr %set1.val115 to i64
   %shr.i.i.i.i.i.i.i.i.i.i901 = lshr i64 %261, 12
@@ -58194,7 +58194,7 @@ _ZN7testing15AssertionResultD2Ev.exit972:         ; preds = %if.end317, %_ZNKSt1
   %281 = load i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2388
   %inc.i.i.i.i.i.i.i = add nsw i32 %281, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2388
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val117, i32 0, i32 1, i32 1), !noalias !2391
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val117, i32 0, i32 1, i32 1), !noalias !2391
   %282 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2398
   %283 = ptrtoint ptr %set1.val117 to i64
   %shr.i.i.i.i.i.i.i.i.i.i994 = lshr i64 %283, 12
@@ -58367,7 +58367,7 @@ _ZN7testing15AssertionResultD2Ev.exit1058:        ; preds = %if.end347, %_ZNKSt1
   store ptr null, ptr %message_.i1055, align 8
   %set1.val119 = load ptr, ptr %set1, align 8, !nonnull !1141, !noundef !1141
   %set1.val120 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val119, i32 0, i32 1, i32 1), !noalias !2406
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val119, i32 0, i32 1, i32 1), !noalias !2406
   %303 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2415
   %304 = ptrtoint ptr %set1.val119 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1083 = lshr i64 %304, 12
@@ -58544,7 +58544,7 @@ _ZN7testing15AssertionResultD2Ev.exit1154:        ; preds = %if.end374, %_ZNKSt1
   %324 = load i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2423
   %inc.i.i.i.i.i.i.i1175 = add nsw i32 %324, 1
   store i32 %inc.i.i.i.i.i.i.i1175, ptr @_ZN4absl18container_internal12_GLOBAL__N_121decompose_constructedE, align 4, !noalias !2423
-  call void @llvm.prefetch.p0(ptr nonnull readonly %set1.val121, i32 0, i32 1, i32 1), !noalias !2426
+  call void @llvm.prefetch.p0(ptr nonnull %set1.val121, i32 0, i32 1, i32 1), !noalias !2426
   %325 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !2433
   %326 = ptrtoint ptr %set1.val121 to i64
   %shr.i.i.i.i.i.i.i.i.i.i1180 = lshr i64 %326, 12
@@ -58736,7 +58736,7 @@ for.body.i.i:                                     ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i125, i64 %first.sroa.0.03.i.i.idx
   %x.val.i.i.i.i.i1253 = load i32, ptr %first.sroa.0.03.i.i.ptr, align 4, !noalias !2441
   %this.val6.i.i.i.i.i.i.i1254 = load ptr, ptr %set2, align 8, !noalias !2448
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1254, i32 0, i32 1, i32 1), !noalias !2448
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1254, i32 0, i32 1, i32 1), !noalias !2448
   %conv.i.i.i.i.i.i.i.i1255 = sext i32 %x.val.i.i.i.i.i1253 to i64
   %346 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1252, align 8, !noalias !2451
   %shr.i.i.i.i.i.i.i.i.i.i1256 = lshr i64 %conv.i.i.i.i.i.i.i.i1255, 7
@@ -59351,7 +59351,7 @@ for.body.i.i1416:                                 ; preds = %_ZN4absl18container
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.03.i.i1417, i64 16
   %x.val.i.i.i.i.i1418 = load i32, ptr %_M_storage.i.i.i.i, align 4, !noalias !2475
   %this.val6.i.i.i.i.i.i.i1419 = load ptr, ptr %set2513, align 8, !noalias !2482
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i1419, i32 0, i32 1, i32 1), !noalias !2482
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i1419, i32 0, i32 1, i32 1), !noalias !2482
   %conv.i.i.i.i.i.i.i.i1420 = sext i32 %x.val.i.i.i.i.i1418 to i64
   %416 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i1415, align 8, !noalias !2485
   %shr.i.i.i.i.i.i.i.i.i.i1421 = lshr i64 %conv.i.i.i.i.i.i.i.i1420, 7
@@ -60042,7 +60042,7 @@ while.body.i.i.i1616:                             ; preds = %_ZN4absl18container
 for.body.lr.ph.i:                                 ; preds = %while.body.i.i.i1616, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEED2Ev.exit1614
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set2631, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i1620 = getelementptr inbounds i8, ptr %set2631, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1620, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i1620, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i1621 = getelementptr inbounds i8, ptr %set2631, i64 16
   br label %for.body.i1622
 
@@ -60051,7 +60051,7 @@ for.body.i1622:                                   ; preds = %_ZN4absl18container
   %first.sroa.0.03.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i125, i64 %first.sroa.0.03.i.idx
   %x.val.i.i.i.i1623 = load i32, ptr %first.sroa.0.03.i.ptr, align 4, !noalias !2505
   %this.val6.i.i.i.i.i.i1624 = load ptr, ptr %set2631, align 8, !noalias !2512
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i1624, i32 0, i32 1, i32 1), !noalias !2512
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i1624, i32 0, i32 1, i32 1), !noalias !2512
   %conv.i.i.i.i.i.i.i1625 = sext i32 %x.val.i.i.i.i1623 to i64
   %497 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i1621, align 8, !noalias !2515
   %shr.i.i.i.i.i.i.i.i.i1626 = lshr i64 %conv.i.i.i.i.i.i.i1625, 7
@@ -62611,7 +62611,7 @@ entry:
   %ref.tmp180 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   store i64 7, ptr %kMinFullGroups, align 8
   br label %for.cond
 
@@ -62746,7 +62746,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %add.ptr.i = getelementptr inbounds i32, ptr %keys.sroa.0.0, i64 %storemerge397
   %4 = load i32, ptr %add.ptr.i, align 4
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %rem.i.i.i = srem i32 %4, 1000
   %conv.i.i.i = sext i32 %rem.i.i.i to i64
   %5 = load i64, ptr %2, align 8, !noalias !2574
@@ -63303,7 +63303,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont108:                                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i167, %cleanup.cont108.critedge
   store ptr null, ptr %message_.i165, align 8
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %rem.i.i = urem i32 %storemerge16, 1000
   %71 = load i64, ptr %2, align 8, !noalias !1141
   %72 = lshr i32 %rem.i.i, 7
@@ -63461,7 +63461,7 @@ cleanup.cont145:                                  ; preds = %for.body.i.i181
 for.body153:                                      ; preds = %cleanup.cont145, %for.inc195
   %__begin3.sroa.0.0399 = phi ptr [ %incdec.ptr.i286, %for.inc195 ], [ %keys.sroa.0.0, %cleanup.cont145 ]
   %91 = load i32, ptr %__begin3.sroa.0.0399, align 4
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i, i32 0, i32 1, i32 1)
   %rem.i.i219 = srem i32 %91, 1000
   %conv.i.i220 = sext i32 %rem.i.i219 to i64
   %shr.i.i.i.i.i222 = lshr i64 %conv.i.i220, 7
@@ -63619,7 +63619,7 @@ ehcleanup194:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup204
 
 for.end197:                                       ; preds = %for.inc195, %cleanup.cont145
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i, i32 0, i32 1, i32 1)
   br label %while.body.i.i.i299
 
 while.body.i.i.i299:                              ; preds = %if.end34.i.i.i321, %for.end197
@@ -63743,7 +63743,7 @@ entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %t, i64 24
   %this.val5.val.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 8), align 8
   %cmp.i = icmp ult i64 %this.val5.val.i, %n
@@ -63771,7 +63771,7 @@ for.body.lr.ph:                                   ; preds = %if.then.i, %_ZN4abs
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %storemerge80 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2600
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2600
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2600
   %add.i.i.i.i.i.i.i.i.i = add i64 %storemerge80, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -63887,7 +63887,7 @@ while.body:                                       ; preds = %for.end, %_ZN4absl1
   %n.addr.082 = phi i64 [ %n, %for.end ], [ %inc6, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE7emplaceIJmETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.exit ]
   %inc6 = add i64 %n.addr.082, 1
   %this.val7.i.i.i.i.i.i7 = load ptr, ptr %t, align 8, !noalias !2616
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i7, i32 0, i32 1, i32 1), !noalias !2616
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i7, i32 0, i32 1, i32 1), !noalias !2616
   %add.i.i.i.i.i.i.i.i.i8 = add i64 %n.addr.082, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i9 = zext i64 %add.i.i.i.i.i.i.i.i.i8 to i128
   %mul.i.i.i.i.i.i.i.i.i10 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i9, 11376068507788127593
@@ -63989,7 +63989,7 @@ entry:
   %arg.val.i.i.i = load i32, ptr %args, align 4, !noalias !2636
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2637)
   %this.val6.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !2640
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2640
+  tail call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2640
   %rem.i.i.i.i.i.i = srem i32 %arg.val.i.i.i, 1000
   %conv.i.i.i.i.i.i = sext i32 %rem.i.i.i.i.i.i to i64
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -64415,7 +64415,7 @@ entry:
   %ref.tmp31 = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %keys, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIiSaIiEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %keys, i64 noundef 0)
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
@@ -64446,7 +64446,7 @@ for.body8.lr.ph:                                  ; preds = %for.cond6.preheader
 
 for.body:                                         ; preds = %invoke.cont3
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2646
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2646
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2646
   %add.i.i.i.i.i.i.i.i.i = add i64 %storemerge, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -64555,7 +64555,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %13 = load i32, ptr %12, align 4
   %conv13 = sext i32 %13 to i64
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %add.i.i.i.i.i = add i64 %conv13, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i = zext i64 %add.i.i.i.i.i to i128
   %mul.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i, 11376068507788127593
@@ -64766,7 +64766,7 @@ _ZNSt5dequeIiSaIiEE9pop_frontEv.exit:             ; preds = %if.then.i, %if.else
   %storemerge.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %39, %if.else.i ]
   store ptr %storemerge.i, ptr %_M_start.i.i, align 8
   %this.val7.i.i.i.i.i.i26 = load ptr, ptr %t, align 8, !noalias !2672
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i26, i32 0, i32 1, i32 1), !noalias !2672
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i26, i32 0, i32 1, i32 1), !noalias !2672
   %add.i.i.i.i.i.i.i.i.i27 = add i64 %i.0114, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i28 = zext i64 %add.i.i.i.i.i.i.i.i.i27 to i128
   %mul.i.i.i.i.i.i.i.i.i29 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i28, 11376068507788127593
@@ -65350,7 +65350,7 @@ entry:
   %ref.tmp53 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #34
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #34
@@ -65370,7 +65370,7 @@ for.body.i.i:                                     ; preds = %_ZN4absl18container
   store i64 %1, ptr %ref.tmp.i.i.i.i.i.i, align 8, !noalias !2696
   %2 = extractvalue { i64, ptr } %call1.i.i.i.i.i.i, 1
   store ptr %2, ptr %0, align 8, !noalias !2696
-  %call.i.i.i.i.i.i.i8 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i.i8 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.i.noexc unwind label %lpad4
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i
@@ -65459,7 +65459,7 @@ invoke.cont24:                                    ; preds = %.noexc15
   %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   %11 = extractvalue { i64, ptr } %call1.i.i.i.i.i, 1
   store ptr %11, ptr %10, align 8, !noalias !2712
-  %call.i.i.i.i.i.i17 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
+  %call.i.i.i.i.i.i17 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad25
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %invoke.cont24
@@ -65494,7 +65494,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
   %15 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i19, i64 8
   %16 = extractvalue { i64, ptr } %call1.i.i.i.i.i20, 1
   store ptr %16, ptr %15, align 8, !noalias !2727
-  %call.i.i.i.i.i.i35 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i19)
+  %call.i.i.i.i.i.i35 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i19)
           to label %call.i.i.i.i.i.i.noexc34 unwind label %lpad33
 
 call.i.i.i.i.i.i.noexc34:                         ; preds = %invoke.cont31
@@ -66230,7 +66230,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val6 = load ptr, ptr %this, align 8
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val6, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %this.val6, i32 0, i32 1, i32 1)
   %agg.tmp1.sroa.0.0.copyload.i.i.i.i = load i64, ptr %key, align 8
   %agg.tmp1.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %agg.tmp1.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp1.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -66287,7 +66287,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %for.body
   br i1 %cmp.i2.i.i.i.i.i.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %9, ptr readonly %f.val.val3.i.i.i, i64 %8)
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %9, ptr %f.val.val3.i.i.i, i64 %8)
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %return, label %for.inc
 
@@ -68550,7 +68550,7 @@ entry:
   %ref.tmp19 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   br label %for.body
 
@@ -68562,7 +68562,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.036 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %shl = shl i64 %i.036, 40
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2820
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2820
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2820
   %add.i.i.i.i.i.i.i.i.i = add i64 %shl, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -68648,7 +68648,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i.i
 for.body5:                                        ; preds = %for.cond3.preheader, %for.inc27
   %i2.037 = phi i64 [ 0, %for.cond3.preheader ], [ %inc28, %for.inc27 ]
   %this.val.i = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i, i32 0, i32 1, i32 1)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont14 unwind label %lpad.loopexit
 
@@ -68852,14 +68852,14 @@ entry:
   %t2 = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %storemerge100 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2837
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2837
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2837
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %storemerge100, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -68940,7 +68940,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i.i
 for.end:                                          ; preds = %for.inc
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t2, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i8 = getelementptr inbounds i8, ptr %t2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i8, i8 0, i64 24, i1 false)
   %t.val = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
   %t.val6 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8
   %10 = load i8, ptr %t.val, align 1
@@ -68979,7 +68979,7 @@ invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph
   %__begin2.sroa.0.0101 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont11.lr.ph ], [ %__begin2.sroa.0.1, %while.end.i.i ]
   %arg.val.i.i.i.i.i10 = load i64, ptr %__begin2.sroa.6.0102, align 8, !noalias !2855
   %this.val7.i.i.i.i.i.i.i11 = load ptr, ptr %t2, align 8, !noalias !2866
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i11, i32 0, i32 1, i32 1), !noalias !2866
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i11, i32 0, i32 1, i32 1), !noalias !2866
   %add.i.i.i.i.i.i.i.i.i.i12 = add i64 %arg.val.i.i.i.i.i10, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i13 = zext i64 %add.i.i.i.i.i.i.i.i.i.i12 to i128
   %mul.i.i.i.i.i.i.i.i.i.i14 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i13, 11376068507788127593
@@ -69218,7 +69218,7 @@ entry:
   %ref.tmp100 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   store i64 15, ptr %capacity, align 8
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   br label %for.body
@@ -69226,7 +69226,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %storemerge246 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2869
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2869
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2869
   %add.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %storemerge246, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -69423,7 +69423,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i33, %cleanup.cont.critedge
   store ptr null, ptr %message_.i31, align 8
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 2) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -69619,7 +69619,7 @@ cleanup.cont46:                                   ; preds = %_ZNKSt14default_del
 for.body51:                                       ; preds = %cleanup.cont46, %for.inc54
   %storemerge10247 = phi i64 [ 0, %cleanup.cont46 ], [ %inc55, %for.inc54 ]
   %this.val7.i.i.i.i.i.i.i70 = load ptr, ptr %t, align 8, !noalias !2896
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i70, i32 0, i32 1, i32 1), !noalias !2896
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i70, i32 0, i32 1, i32 1), !noalias !2896
   %add.i.i.i.i.i.i.i.i.i.i71 = or disjoint i64 %storemerge10247, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i72 = zext i64 %add.i.i.i.i.i.i.i.i.i.i71 to i128
   %mul.i.i.i.i.i.i.i.i.i.i73 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i72, 11376068507788127593
@@ -69806,7 +69806,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont80:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i154, %cleanup.cont80.critedge
   store ptr null, ptr %message_.i152, align 8
   %this.val.i156 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i156, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i156, i32 0, i32 1, i32 1)
   %64 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !2918
   %65 = ptrtoint ptr %this.val.i156 to i64
   %shr.i.i.i.i.i.i165 = lshr i64 %65, 12
@@ -70091,8 +70091,8 @@ entry:
   %ref.tmp115 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -70105,7 +70105,7 @@ entry:
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2921
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2921
+  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2921
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !2932
   %2 = ptrtoint ptr %this.val7.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %2, 12
@@ -70493,7 +70493,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit96:          ; preds = %if.end93, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i95
   store ptr null, ptr %message_.i93, align 8
   %this.val.i97 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i97, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i97, i32 0, i32 1, i32 1)
   %39 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !2935
   %40 = ptrtoint ptr %this.val.i97 to i64
   %shr.i.i.i.i.i.i106 = lshr i64 %40, 12
@@ -70754,7 +70754,7 @@ entry:
   %ref.tmp82 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   store i32 100, ptr %kNumElements, align 4
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -70763,7 +70763,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit ]
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2938
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2938
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2938
   %add.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -71506,14 +71506,14 @@ entry:
   %ref.tmp40 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2980
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2980
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2980
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -72073,7 +72073,7 @@ invoke.cont10:                                    ; preds = %for.body
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(48) %ref.tmp7, i8 0, i64 48, i1 false), !alias.scope !2998
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp7, i8 0, i64 48, i1 false), !alias.scope !2998
   %sub.i.i.i = add nsw i64 %mul.i, -1
   %div.i.i.i = sdiv i64 %sub.i.i.i, 7
   %add.i.i.i = add nsw i64 %div.i.i.i, %mul.i
@@ -72090,7 +72090,7 @@ while.body.i:                                     ; preds = %_ZN4absl18container
   %mul1.i = mul i64 %seed.0131.i, 17
   %add.i = add i64 %mul1.i, 13
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t1.i, align 8, !noalias !2998
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false), !noalias !2998
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false), !noalias !2998
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %while.body.i
@@ -72108,7 +72108,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %9 = load i64, ptr %__begin3.sroa.0.0127.i, align 8
   %xor.i = xor i64 %9, %add.i
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t1.i, align 8, !noalias !3001
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3012
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3012
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -72993,7 +72993,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIlSaIlE
   call void @llvm.experimental.noalias.scope.decl(metadata !3026)
   store <2 x double> <double 5.000000e-02, double 1.000000e+00>, ptr %expected, align 16, !alias.scope !3026
   %pecentile_ratios.i = getelementptr inbounds i8, ptr %expected, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %pecentile_ratios.i, i8 0, i64 24, i1 false), !alias.scope !3026
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %pecentile_ratios.i, i8 0, i64 24, i1 false), !alias.scope !3026
   %call5.i.i.i.i2.i.i25 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad9.loopexit.split-lp
 
@@ -73006,7 +73006,7 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %for.end
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %expected, i64 24
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !3026
   %pecentile_probes.i = getelementptr inbounds i8, ptr %expected, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %pecentile_probes.i, i8 0, i64 24, i1 false), !alias.scope !3026
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pecentile_probes.i, i8 0, i64 24, i1 false), !alias.scope !3026
   %call5.i.i.i.i2.i9.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #39
           to label %invoke.cont18 unwind label %_ZNSt6vectorISt4pairIddESaIS1_EED2Ev.exit.i, !noalias !3026
 
@@ -73071,7 +73071,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %invoke.cont.i31 unwind label %lpad.i30
 
 invoke.cont.i31:                                  ; preds = %.noexc
-  %call6.i = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %call33)
+  %call6.i = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(48) %call33)
           to label %invoke.cont46 unwind label %lpad.i30
 
 lpad.i30:                                         ; preds = %invoke.cont.i31, %.noexc
@@ -73186,7 +73186,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   %0 = phi ptr [ %call5.i.i.i.i15, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i ], [ null, %if.end.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %mul = shl nuw nsw i64 %N, 1
   %1 = getelementptr inbounds i8, ptr %t, i64 24
   %this.val5.val.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 8), align 8
@@ -73232,7 +73232,7 @@ for.body.lr.ph.i:                                 ; preds = %for.body.lr.ph.i.lr
 for.body.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE7emplaceIJRmETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSF_.exit.i, %for.body.lr.ph.i
   %storemerge7.i = phi i64 [ %b.0131, %for.body.lr.ph.i ], [ %inc.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE7emplaceIJRmETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSF_.exit.i ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !3029
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3029
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3029
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %storemerge7.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -73823,7 +73823,7 @@ if.then:                                          ; preds = %entry, %_ZNSt3mapIm
   %_M_storage.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store i64 %__k.val, ptr %_M_storage.i.i.i.i.i7, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
   br i1 %cmp.i17, label %if.then.i.i, label %if.else12.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -74149,7 +74149,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %invoke.cont4
   %7 = load ptr, ptr %ref.tmp2, align 8
   %add.ptr.i35 = getelementptr inbounds i8, ptr %7, i64 16
-  %call2.i36 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i35, ptr noundef nonnull readonly align 8 dereferenceable(48) %stats)
+  %call2.i36 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i35, ptr noundef nonnull align 8 dereferenceable(48) %stats)
           to label %invoke.cont8 unwind label %lpad3
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -74299,7 +74299,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 invoke.cont29:                                    ; preds = %invoke.cont27
   %25 = load ptr, ptr %ref.tmp23, align 8
   %add.ptr.i54 = getelementptr inbounds i8, ptr %25, i64 16
-  %call2.i55 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i54, ptr noundef nonnull readonly align 8 dereferenceable(48) %stats)
+  %call2.i55 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i54, ptr noundef nonnull align 8 dereferenceable(48) %stats)
           to label %invoke.cont31 unwind label %lpad26
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -74453,7 +74453,7 @@ invoke.cont63:                                    ; preds = %invoke.cont60
 invoke.cont65:                                    ; preds = %invoke.cont63
   %45 = load ptr, ptr %ref.tmp54, align 8
   %add.ptr.i93 = getelementptr inbounds i8, ptr %45, i64 16
-  %call2.i94 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i93, ptr noundef nonnull readonly align 8 dereferenceable(48) %stats)
+  %call2.i94 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i93, ptr noundef nonnull align 8 dereferenceable(48) %stats)
           to label %invoke.cont67 unwind label %lpad57
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -74645,7 +74645,7 @@ invoke.cont109:                                   ; preds = %invoke.cont106
 invoke.cont111:                                   ; preds = %invoke.cont109
   %69 = load ptr, ptr %ref.tmp100, align 8
   %add.ptr.i137 = getelementptr inbounds i8, ptr %69, i64 16
-  %call2.i138 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i137, ptr noundef nonnull readonly align 8 dereferenceable(48) %stats)
+  %call2.i138 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i137, ptr noundef nonnull align 8 dereferenceable(48) %stats)
           to label %invoke.cont113 unwind label %lpad103
 
 invoke.cont113:                                   ; preds = %invoke.cont111
@@ -77169,7 +77169,7 @@ invoke.cont10:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %rng.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dist.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %t1.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(48) %ref.tmp7, i8 0, i64 48, i1 false), !alias.scope !3108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp7, i8 0, i64 48, i1 false), !alias.scope !3108
   invoke void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %rd.i)
           to label %invoke.cont.i unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.thread, !noalias !3108
 
@@ -77212,7 +77212,7 @@ invoke.cont3.i:                                   ; preds = %for.body.i.i.i
 while.body.i:                                     ; preds = %_ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit.i, %invoke.cont3.i
   %dec209.i = phi i64 [ 299, %invoke.cont3.i ], [ %dec.i, %_ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t1.i, align 8, !noalias !3108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false), !noalias !3108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false), !noalias !3108
   %7 = load ptr, ptr %_M_finish.i.i9, align 8, !noalias !3108
   %8 = load ptr, ptr %ref.tmp8, align 8, !noalias !3108
   %sub.ptr.lhs.cast.i19.i = ptrtoint ptr %7 to i64
@@ -77247,7 +77247,7 @@ for.body12.i:                                     ; preds = %for.inc.i, %for.con
   %mul2.i.i = mul nuw nsw i64 %j.0203.i, 13
   %add.i.i = add i64 %mul.i.i, %mul2.i.i
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t1.i, align 8, !noalias !3112
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3123
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3123
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %add.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -78187,7 +78187,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIlSaIlE
   call void @llvm.experimental.noalias.scope.decl(metadata !3138)
   store <2 x double> <double 5.000000e-02, double 2.000000e-01>, ptr %expected, align 16, !alias.scope !3138
   %pecentile_ratios.i = getelementptr inbounds i8, ptr %expected, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %pecentile_ratios.i, i8 0, i64 24, i1 false), !alias.scope !3138
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %pecentile_ratios.i, i8 0, i64 24, i1 false), !alias.scope !3138
   %call5.i.i.i.i2.i.i24 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #39
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad9.loopexit.split-lp
 
@@ -78200,7 +78200,7 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %for.end
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %expected, i64 24
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !3138
   %pecentile_probes.i = getelementptr inbounds i8, ptr %expected, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %pecentile_probes.i, i8 0, i64 24, i1 false), !alias.scope !3138
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pecentile_probes.i, i8 0, i64 24, i1 false), !alias.scope !3138
   %call5.i.i.i.i2.i9.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #39
           to label %invoke.cont18 unwind label %_ZNSt6vectorISt4pairIddESaIS1_EED2Ev.exit.i, !noalias !3138
 
@@ -78265,7 +78265,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %invoke.cont.i30 unwind label %lpad.i29
 
 invoke.cont.i30:                                  ; preds = %.noexc
-  %call6.i = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %call33)
+  %call6.i = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(48) %call33)
           to label %invoke.cont45 unwind label %lpad.i29
 
 lpad.i29:                                         ; preds = %invoke.cont.i30, %.noexc
@@ -78686,8 +78686,8 @@ entry:
   %ref.tmp459 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3145
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3145
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %0 = load <16 x i8>, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), align 16, !noalias !3145
   %cmp.i.i.i.i.i.i.i.i1056 = icmp eq <16 x i8> %0, zeroinitializer
@@ -78702,7 +78702,7 @@ call38.i.i.i.i.i.i.noexc:                         ; preds = %entry
   %add.ptr.i3.i.i.i.i.i = getelementptr inbounds i64, ptr %.val2.i.i.i.i.i, i64 %call38.i.i.i.i.i.i76
   store i64 1, ptr %add.ptr.i3.i.i.i.i.i, align 8, !noalias !3145
   %this.val6.i.i.i.i.i.i78 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i78, i32 0, i32 1, i32 1), !noalias !3156
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i78, i32 0, i32 1, i32 1), !noalias !3156
   %2 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1141
   %3 = ptrtoint ptr %this.val6.i.i.i.i.i.i78 to i64
   %shr.i.i.i.i.i.i.i.i.i.i80 = lshr i64 %3, 12
@@ -78769,7 +78769,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %this.val7.i.i.i.i.i.i128 = phi ptr [ %this.val7.i.i.i.i.i.i128.pre, %call38.i.i.i.i.i.i.noexc121 ], [ %this.val7.i.i.i.i.i.i81, %for.body.i.i.i.i.i.i89 ]
   %11 = phi i64 [ %.pre, %call38.i.i.i.i.i.i.noexc121 ], [ %2, %for.body.i.i.i.i.i.i89 ]
   %this.val6.i.i.i.i.i.i125 = phi ptr [ %this.val6.i.i.i.i.i.i125.pre, %call38.i.i.i.i.i.i.noexc121 ], [ %this.val6.i.i.i.i.i.i78, %for.body.i.i.i.i.i.i89 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i125, i32 0, i32 1, i32 1), !noalias !3167
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i125, i32 0, i32 1, i32 1), !noalias !3167
   br label %while.body.i.i.i.i.i.i129
 
 while.body.i.i.i.i.i.i129:                        ; preds = %if.end36.i.i.i.i.i.i165, %invoke.cont4
@@ -78833,7 +78833,7 @@ invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.
   %19 = phi i64 [ %.pre1074, %call38.i.i.i.i.i.i.noexc168 ], [ %11, %for.body.i.i.i.i.i.i136 ]
   %this.val.i = phi ptr [ %this.val.i.pre, %call38.i.i.i.i.i.i.noexc168 ], [ %this.val6.i.i.i.i.i.i125, %for.body.i.i.i.i.i.i136 ]
   store i32 1, ptr %ref.tmp8, align 4
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.end.i.i, %invoke.cont9
@@ -78979,7 +78979,7 @@ invoke.cont31:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i, align 8
   store i32 2, ptr %ref.tmp30, align 4
   %this.val.i178 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i178, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i178, i32 0, i32 1, i32 1)
   %38 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3181
   %39 = ptrtoint ptr %this.val.i178 to i64
   %shr.i.i.i.i.i.i180 = lshr i64 %39, 12
@@ -79129,7 +79129,7 @@ invoke.cont60:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i232, align 8
   store i32 3, ptr %ref.tmp59, align 4
   %this.val.i236 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i236, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i236, i32 0, i32 1, i32 1)
   %57 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3184
   %58 = ptrtoint ptr %this.val.i236 to i64
   %shr.i.i.i.i.i.i238 = lshr i64 %58, 12
@@ -79390,7 +79390,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit317:         ; preds = %if.end108, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i316
   store ptr null, ptr %message_.i314, align 8
   %this.val.i318 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i318, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i318, i32 0, i32 1, i32 1)
   %87 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3187
   %88 = ptrtoint ptr %this.val.i318 to i64
   %shr.i.i.i.i.i.i320 = lshr i64 %88, 12
@@ -79451,7 +79451,7 @@ invoke.cont111:                                   ; preds = %for.end.i.i341, %if
 invoke.cont116:                                   ; preds = %invoke.cont111
   store i32 1, ptr %ref.tmp115, align 4
   %this.val.i356 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i356, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i356, i32 0, i32 1, i32 1)
   %96 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3190
   %97 = ptrtoint ptr %this.val.i356 to i64
   %shr.i.i.i.i.i.i358 = lshr i64 %97, 12
@@ -79600,7 +79600,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit413:         ; preds = %if.end141, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i412
   store ptr null, ptr %message_.i410, align 8
   %this.val.i414 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i414, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i414, i32 0, i32 1, i32 1)
   %115 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3193
   %116 = ptrtoint ptr %this.val.i414 to i64
   %shr.i.i.i.i.i.i416 = lshr i64 %116, 12
@@ -79753,7 +79753,7 @@ invoke.cont175:                                   ; preds = %invoke.cont149.thre
   store ptr null, ptr %message_.i4511084, align 8
   store i32 3, ptr %ref.tmp174, align 4
   %this.val.i467 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i467, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i467, i32 0, i32 1, i32 1)
   %132 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3196
   %133 = ptrtoint ptr %this.val.i467 to i64
   %shr.i.i.i.i.i.i469 = lshr i64 %133, 12
@@ -80013,7 +80013,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit553:         ; preds = %if.end223, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i552
   store ptr null, ptr %message_.i550, align 8
   %this.val.i554 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i554, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i554, i32 0, i32 1, i32 1)
   %161 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3199
   %162 = ptrtoint ptr %this.val.i554 to i64
   %shr.i.i.i.i.i.i556 = lshr i64 %162, 12
@@ -80073,7 +80073,7 @@ invoke.cont227:                                   ; preds = %for.end.i.i577, %if
 
 invoke.cont229:                                   ; preds = %invoke.cont227
   %this.val.i593 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i593, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i593, i32 0, i32 1, i32 1)
   %170 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3202
   %171 = ptrtoint ptr %this.val.i593 to i64
   %shr.i.i.i.i.i.i595 = lshr i64 %171, 12
@@ -80225,7 +80225,7 @@ _ZN7testing15AssertionResultD2Ev.exit647:         ; preds = %invoke.cont237.thre
   %message_.i6321088 = phi ptr [ %message_.i6321086, %invoke.cont237.thread ], [ %message_.i632, %if.end260 ], [ %message_.i632, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i646 ]
   store ptr null, ptr %message_.i6321088, align 8
   %this.val.i648 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i648, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i648, i32 0, i32 1, i32 1)
   %187 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3205
   %188 = ptrtoint ptr %this.val.i648 to i64
   %shr.i.i.i.i.i.i650 = lshr i64 %188, 12
@@ -80378,7 +80378,7 @@ invoke.cont296:                                   ; preds = %invoke.cont269.thre
   store ptr null, ptr %message_.i6871092, align 8
   store i32 3, ptr %ref.tmp295, align 4
   %this.val.i703 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i703, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i703, i32 0, i32 1, i32 1)
   %204 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3208
   %205 = ptrtoint ptr %this.val.i703 to i64
   %shr.i.i.i.i.i.i705 = lshr i64 %205, 12
@@ -80638,7 +80638,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit789:         ; preds = %if.end344, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i788
   store ptr null, ptr %message_.i786, align 8
   %this.val.i790 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i790, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i790, i32 0, i32 1, i32 1)
   %233 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3211
   %234 = ptrtoint ptr %this.val.i790 to i64
   %shr.i.i.i.i.i.i792 = lshr i64 %234, 12
@@ -80698,7 +80698,7 @@ invoke.cont348:                                   ; preds = %for.end.i.i813, %if
 
 invoke.cont350:                                   ; preds = %invoke.cont348
   %this.val.i829 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i829, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i829, i32 0, i32 1, i32 1)
   %242 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3214
   %243 = ptrtoint ptr %this.val.i829 to i64
   %shr.i.i.i.i.i.i831 = lshr i64 %243, 12
@@ -80850,7 +80850,7 @@ _ZN7testing15AssertionResultD2Ev.exit883:         ; preds = %invoke.cont358.thre
   %message_.i8681096 = phi ptr [ %message_.i8681094, %invoke.cont358.thread ], [ %message_.i868, %if.end381 ], [ %message_.i868, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i882 ]
   store ptr null, ptr %message_.i8681096, align 8
   %this.val.i884 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i884, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i884, i32 0, i32 1, i32 1)
   %259 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3217
   %260 = ptrtoint ptr %this.val.i884 to i64
   %shr.i.i.i.i.i.i886 = lshr i64 %260, 12
@@ -81002,7 +81002,7 @@ _ZN7testing15AssertionResultD2Ev.exit938:         ; preds = %invoke.cont390.thre
   %message_.i9231100 = phi ptr [ %message_.i9231098, %invoke.cont390.thread ], [ %message_.i923, %if.end413 ], [ %message_.i923, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i937 ]
   store ptr null, ptr %message_.i9231100, align 8
   %this.val.i939 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i939, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i939, i32 0, i32 1, i32 1)
   %276 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3220
   %277 = ptrtoint ptr %this.val.i939 to i64
   %shr.i.i.i.i.i.i941 = lshr i64 %277, 12
@@ -81388,7 +81388,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIiESaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 127)
   %this.val6.i.i.i.i.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3223
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3223
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %0 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1141
   %1 = ptrtoint ptr %this.val6.i.i.i.i.i.i to i64
@@ -81456,7 +81456,7 @@ invoke.cont6:                                     ; preds = %for.body.i.i.i.i.i.
   %this.val7.i.i.i.i.i.i13 = phi ptr [ %this.val7.i.i.i.i.i.i13.pre, %call38.i.i.i.i.i.i.noexc ], [ %this.val7.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %9 = phi i64 [ %.pre, %call38.i.i.i.i.i.i.noexc ], [ %0, %for.body.i.i.i.i.i.i ]
   %this.val6.i.i.i.i.i.i10 = phi ptr [ %this.val6.i.i.i.i.i.i10.pre, %call38.i.i.i.i.i.i.noexc ], [ %this.val6.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i10, i32 0, i32 1, i32 1), !noalias !3234
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i10, i32 0, i32 1, i32 1), !noalias !3234
   br label %while.body.i.i.i.i.i.i14
 
 while.body.i.i.i.i.i.i14:                         ; preds = %if.end36.i.i.i.i.i.i50, %invoke.cont6
@@ -81519,7 +81519,7 @@ invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.
   %this.val7.i.i.i.i.i.i60 = phi ptr [ %this.val7.i.i.i.i.i.i60.pre, %call38.i.i.i.i.i.i.noexc53 ], [ %this.val7.i.i.i.i.i.i13, %for.body.i.i.i.i.i.i21 ]
   %17 = phi i64 [ %.pre396, %call38.i.i.i.i.i.i.noexc53 ], [ %9, %for.body.i.i.i.i.i.i21 ]
   %this.val6.i.i.i.i.i.i57 = phi ptr [ %this.val6.i.i.i.i.i.i57.pre, %call38.i.i.i.i.i.i.noexc53 ], [ %this.val6.i.i.i.i.i.i10, %for.body.i.i.i.i.i.i21 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i57, i32 0, i32 1, i32 1), !noalias !3245
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i57, i32 0, i32 1, i32 1), !noalias !3245
   br label %while.body.i.i.i.i.i.i61
 
 while.body.i.i.i.i.i.i61:                         ; preds = %if.end36.i.i.i.i.i.i97, %invoke.cont9
@@ -81582,7 +81582,7 @@ invoke.cont12:                                    ; preds = %for.body.i.i.i.i.i.
   %this.val7.i.i.i.i.i.i107 = phi ptr [ %this.val7.i.i.i.i.i.i107.pre, %call38.i.i.i.i.i.i.noexc100 ], [ %this.val7.i.i.i.i.i.i60, %for.body.i.i.i.i.i.i68 ]
   %25 = phi i64 [ %.pre399, %call38.i.i.i.i.i.i.noexc100 ], [ %17, %for.body.i.i.i.i.i.i68 ]
   %this.val6.i.i.i.i.i.i104 = phi ptr [ %this.val6.i.i.i.i.i.i104.pre, %call38.i.i.i.i.i.i.noexc100 ], [ %this.val6.i.i.i.i.i.i57, %for.body.i.i.i.i.i.i68 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i104, i32 0, i32 1, i32 1), !noalias !3256
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i104, i32 0, i32 1, i32 1), !noalias !3256
   br label %while.body.i.i.i.i.i.i108
 
 while.body.i.i.i.i.i.i108:                        ; preds = %if.end36.i.i.i.i.i.i144, %invoke.cont12
@@ -81645,7 +81645,7 @@ invoke.cont15:                                    ; preds = %for.body.i.i.i.i.i.
   %this.val5.i.i = phi ptr [ %this.val5.i.i.pre, %call38.i.i.i.i.i.i.noexc147 ], [ %this.val7.i.i.i.i.i.i107, %for.body.i.i.i.i.i.i115 ]
   %33 = phi i64 [ %.pre402, %call38.i.i.i.i.i.i.noexc147 ], [ %25, %for.body.i.i.i.i.i.i115 ]
   %this.val.i = phi ptr [ %this.val.i.pre, %call38.i.i.i.i.i.i.noexc147 ], [ %this.val6.i.i.i.i.i.i104, %for.body.i.i.i.i.i.i115 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end34.i.i, %invoke.cont15
@@ -81701,7 +81701,7 @@ invoke.cont17:                                    ; preds = %for.end.i.i, %if.th
 
 invoke.cont18:                                    ; preds = %invoke.cont17
   %this.val.i151 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i151, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i151, i32 0, i32 1, i32 1)
   %41 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3270
   %42 = ptrtoint ptr %this.val.i151 to i64
   %shr.i.i.i.i.i.i153 = lshr i64 %42, 12
@@ -81761,7 +81761,7 @@ invoke.cont21:                                    ; preds = %for.end.i.i174, %if
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %this.val6.i.i.i.i.i.i190 = load ptr, ptr %t, align 8, !noalias !1141
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i190, i32 0, i32 1, i32 1), !noalias !3273
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i190, i32 0, i32 1, i32 1), !noalias !3273
   %50 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !1141
   %51 = ptrtoint ptr %this.val6.i.i.i.i.i.i190 to i64
   %shr.i.i.i.i.i.i.i.i.i.i192 = lshr i64 %51, 12
@@ -81828,7 +81828,7 @@ invoke.cont26:                                    ; preds = %for.body.i.i.i.i.i.
   %this.val7.i.i.i.i.i.i240 = phi ptr [ %this.val7.i.i.i.i.i.i240.pre, %call38.i.i.i.i.i.i.noexc233 ], [ %this.val7.i.i.i.i.i.i193, %for.body.i.i.i.i.i.i201 ]
   %59 = phi i64 [ %.pre405, %call38.i.i.i.i.i.i.noexc233 ], [ %50, %for.body.i.i.i.i.i.i201 ]
   %this.val6.i.i.i.i.i.i237 = phi ptr [ %this.val6.i.i.i.i.i.i237.pre, %call38.i.i.i.i.i.i.noexc233 ], [ %this.val6.i.i.i.i.i.i190, %for.body.i.i.i.i.i.i201 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i237, i32 0, i32 1, i32 1), !noalias !3284
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i237, i32 0, i32 1, i32 1), !noalias !3284
   br label %while.body.i.i.i.i.i.i241
 
 while.body.i.i.i.i.i.i241:                        ; preds = %if.end36.i.i.i.i.i.i277, %invoke.cont26
@@ -81891,7 +81891,7 @@ invoke.cont29:                                    ; preds = %for.body.i.i.i.i.i.
   %this.val7.i.i.i.i.i.i287 = phi ptr [ %this.val7.i.i.i.i.i.i287.pre, %call38.i.i.i.i.i.i.noexc280 ], [ %this.val7.i.i.i.i.i.i240, %for.body.i.i.i.i.i.i248 ]
   %67 = phi i64 [ %.pre408, %call38.i.i.i.i.i.i.noexc280 ], [ %59, %for.body.i.i.i.i.i.i248 ]
   %this.val6.i.i.i.i.i.i284 = phi ptr [ %this.val6.i.i.i.i.i.i284.pre, %call38.i.i.i.i.i.i.noexc280 ], [ %this.val6.i.i.i.i.i.i237, %for.body.i.i.i.i.i.i248 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i284, i32 0, i32 1, i32 1), !noalias !3295
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i284, i32 0, i32 1, i32 1), !noalias !3295
   br label %while.body.i.i.i.i.i.i288
 
 while.body.i.i.i.i.i.i288:                        ; preds = %if.end36.i.i.i.i.i.i324, %invoke.cont29
@@ -84649,8 +84649,8 @@ entry:
   %ref.tmp149 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -84683,7 +84683,7 @@ if.else.i.invoke.cont25_crit_edge:                ; preds = %if.else.i
 invoke.cont25:                                    ; preds = %if.else.i.invoke.cont25_crit_edge, %entry
   %2 = phi i64 [ %.pre267, %if.else.i.invoke.cont25_crit_edge ], [ 0, %entry ]
   %this.val.i39 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i39, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i39, i32 0, i32 1, i32 1)
   %3 = ptrtoint ptr %this.val.i39 to i64
   %shr.i.i.i.i.i.i48 = lshr i64 %3, 12
   %xor.i.i.i.i.i49 = xor i64 %shr.i.i.i.i.i.i48, %shr.i.i.i.i.i
@@ -84829,7 +84829,7 @@ _ZN7testing15AssertionResultD2Ev.exit102:         ; preds = %invoke.cont35.threa
   %message_.i87271 = phi ptr [ %message_.i87269, %invoke.cont35.thread ], [ %message_.i87, %if.end57 ], [ %message_.i87, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i101 ]
   store ptr null, ptr %message_.i87271, align 8
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !3419
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3419
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3419
   %18 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3430
   %19 = ptrtoint ptr %this.val7.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %19, 12
@@ -85219,7 +85219,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit174:         ; preds = %if.end127, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i173
   store ptr null, ptr %message_.i171, align 8
   %this.val.i175 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i175, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i175, i32 0, i32 1, i32 1)
   %55 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3433
   %56 = ptrtoint ptr %this.val.i175 to i64
   %shr.i.i.i.i.i.i184 = lshr i64 %56, 12
@@ -85488,8 +85488,8 @@ entry:
   %ref.tmp169 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -85502,7 +85502,7 @@ entry:
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !3436
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3436
+  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3436
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3447
   %2 = ptrtoint ptr %this.val7.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %2, 12
@@ -85991,7 +85991,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %if.end117, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i132
   store ptr null, ptr %message_.i130, align 8
   %this.val.i134 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i134, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i134, i32 0, i32 1, i32 1)
   %50 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3450
   %51 = ptrtoint ptr %this.val.i134 to i64
   %shr.i.i.i.i.i.i143 = lshr i64 %51, 12
@@ -86143,7 +86143,7 @@ invoke.cont154:                                   ; preds = %invoke.cont128.thre
   %message_.i182322 = phi ptr [ %message_.i182320, %invoke.cont128.thread ], [ %message_.i182, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i196 ], [ %message_.i182, %if.end150 ]
   store ptr null, ptr %message_.i182322, align 8
   store i32 0, ptr %ref.tmp153, align 4
-  call void @llvm.prefetch.p0(ptr readonly %__tmp.i.i.sroa.0.0.copyload, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %__tmp.i.i.sroa.0.0.copyload, i32 0, i32 1, i32 1)
   %66 = ptrtoint ptr %__tmp.i.i.sroa.0.0.copyload to i64
   %shr.i.i.i.i.i.i207 = lshr i64 %66, 12
   %xor.i.i.i.i.i208 = xor i64 %shr.i.i.i.i.i.i207, %shr.i.i.i.i.i
@@ -86423,8 +86423,8 @@ entry:
   %ref.tmp122 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -86437,7 +86437,7 @@ entry:
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !1141
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3453
+  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3453
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !1141
   %2 = ptrtoint ptr %this.val7.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %2, 12
@@ -86509,7 +86509,7 @@ invoke.cont26:                                    ; preds = %for.body.i.i.i.i.i.
   %this.val6.i.i.i.i.i.i46 = phi ptr [ %this.val6.i.i.i.i.i.i46.pre, %call40.i.i.i.i.i.i.noexc ], [ %this.val6.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %10 = phi i64 [ %.pre291, %call40.i.i.i.i.i.i.noexc ], [ %1, %for.body.i.i.i.i.i.i ]
   %this.val7.i.i.i.i.i.i31 = phi ptr [ %this.val7.i.i.i.i.i.i31.pre, %call40.i.i.i.i.i.i.noexc ], [ %this.val7.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i31, i32 0, i32 1, i32 1), !noalias !3464
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i31, i32 0, i32 1, i32 1), !noalias !3464
   %conv.i.i.i.i.i.i.i.i.i34 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i.i.i.i.i35 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i34, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i36 = lshr i128 %mul.i.i.i.i.i.i.i.i.i35, 64
@@ -86814,7 +86814,7 @@ invoke.cont78:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i135, align 8
   store i32 0, ptr %ref.tmp77, align 4
   %this.val.i139 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i139, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i139, i32 0, i32 1, i32 1)
   %40 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3478
   %41 = ptrtoint ptr %this.val.i139 to i64
   %shr.i.i.i.i.i.i148 = lshr i64 %41, 12
@@ -86964,7 +86964,7 @@ invoke.cont106:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i202, align 8
   store i32 1, ptr %ref.tmp105, align 4
   %this.val.i206 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i206, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i206, i32 0, i32 1, i32 1)
   %58 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3481
   %59 = ptrtoint ptr %this.val.i206 to i64
   %shr.i.i.i.i.i.i215 = lshr i64 %59, 12
@@ -87210,8 +87210,8 @@ entry:
   %ref.tmp23 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3484
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3484
   %conv.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i, 64
@@ -87255,7 +87255,7 @@ invoke.cont:                                      ; preds = %while.body.i.i.i.i.
   %this.val6.i.i.i.i.i.i23 = phi ptr [ %this.val6.i.i.i.i.i.i23.pre, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
   %3 = phi i64 [ %.pre136, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
   %this.val7.i.i.i.i.i.i8 = phi ptr [ %this.val7.i.i.i.i.i.i8.pre, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i8, i32 0, i32 1, i32 1), !noalias !3495
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i8, i32 0, i32 1, i32 1), !noalias !3495
   %conv.i.i.i.i.i.i.i.i.i11 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i.i.i.i.i12 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i11, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i13 = lshr i128 %mul.i.i.i.i.i.i.i.i.i12, 64
@@ -87330,7 +87330,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %this.val5.i.i = phi ptr [ %this.val5.i.i.pre, %call40.i.i.i.i.i.i.noexc62 ], [ %this.val6.i.i.i.i.i.i23, %for.body.i.i.i.i.i.i31 ]
   %12 = phi i64 [ %.pre139, %call40.i.i.i.i.i.i.noexc62 ], [ %3, %for.body.i.i.i.i.i.i31 ]
   %this.val.i = phi ptr [ %this.val.i.pre, %call40.i.i.i.i.i.i.noexc62 ], [ %this.val7.i.i.i.i.i.i8, %for.body.i.i.i.i.i.i31 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.pre-phi, %shr.i.i.i8.i.i.i.i.i.i
   br label %while.body.i.i
 
@@ -87412,7 +87412,7 @@ invoke.cont10:                                    ; preds = %if.then17.i.invoke.
   %this.val5.i.i77 = phi ptr [ %this.val5.i.i77.pre, %if.then17.i.invoke.cont10_crit_edge ], [ %this.val5.i.i, %invoke.cont8 ]
   %21 = phi i64 [ %.pre142, %if.then17.i.invoke.cont10_crit_edge ], [ %12, %invoke.cont8 ]
   %this.val.i66 = phi ptr [ %this.val.i66.pre, %if.then17.i.invoke.cont10_crit_edge ], [ %this.val.i, %invoke.cont8 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i66, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i66, i32 0, i32 1, i32 1)
   br label %while.body.i.i81
 
 while.body.i.i81:                                 ; preds = %if.end34.i.i102, %invoke.cont10
@@ -87921,8 +87921,8 @@ entry:
   %ref.tmp32 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3525
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3525
   %conv.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i, 64
@@ -88861,8 +88861,8 @@ entry:
   %ref.tmp23 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3552
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3552
   %conv.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i, 64
@@ -88906,7 +88906,7 @@ invoke.cont:                                      ; preds = %while.body.i.i.i.i.
   %this.val6.i.i.i.i.i.i23 = phi ptr [ %this.val6.i.i.i.i.i.i23.pre, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
   %3 = phi i64 [ %.pre138, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
   %this.val7.i.i.i.i.i.i8 = phi ptr [ %this.val7.i.i.i.i.i.i8.pre, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i8, i32 0, i32 1, i32 1), !noalias !3563
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i8, i32 0, i32 1, i32 1), !noalias !3563
   %conv.i.i.i.i.i.i.i.i.i11 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i.i.i.i.i12 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i11, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i13 = lshr i128 %mul.i.i.i.i.i.i.i.i.i12, 64
@@ -88981,7 +88981,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %this.val5.i.i = phi ptr [ %this.val5.i.i.pre, %call40.i.i.i.i.i.i.noexc62 ], [ %this.val6.i.i.i.i.i.i23, %for.body.i.i.i.i.i.i31 ]
   %12 = phi i64 [ %.pre141, %call40.i.i.i.i.i.i.noexc62 ], [ %3, %for.body.i.i.i.i.i.i31 ]
   %this.val.i = phi ptr [ %this.val.i.pre, %call40.i.i.i.i.i.i.noexc62 ], [ %this.val7.i.i.i.i.i.i8, %for.body.i.i.i.i.i.i31 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.pre-phi, %shr.i.i.i8.i.i.i.i.i.i
   br label %while.body.i.i
 
@@ -89058,7 +89058,7 @@ if.end10.i:                                       ; preds = %land.lhs.true4.i
 
 invoke.cont10:                                    ; preds = %invoke.cont8, %if.then7.i, %if.end10.i
   %this.val.i67 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i67, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i67, i32 0, i32 1, i32 1)
   %22 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8, !noalias !3574
   %23 = ptrtoint ptr %this.val.i67 to i64
   %shr.i.i.i.i.i.i76 = lshr i64 %23, 12
@@ -90040,7 +90040,7 @@ for.body.i.i.i:                                   ; preds = %_ZN4absl18container
   store i64 %2, ptr %ref.tmp.i.i.i.i.i.i.i, align 8, !noalias !3600
   %3 = extractvalue { i64, ptr } %call1.i.i.i.i.i.i.i, 1
   store ptr %3, ptr %1, align 8, !noalias !3600
-  %call.i.i.i.i.i.i3.i.i = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i3.i.i = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.noexc.i.i unwind label %lpad.i.i
 
 call.i.i.i.i.i.i.noexc.i.i:                       ; preds = %for.body.i.i.i
@@ -90174,8 +90174,8 @@ entry:
   %ref.tmp172 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3606
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3606
   %conv.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i, 64
@@ -90454,7 +90454,7 @@ invoke.cont45:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i61, align 8
   store i32 0, ptr %ref.tmp44, align 4
   %this.val.i = load ptr, ptr %u, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %u, i64 16
   %30 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !3617
   %31 = ptrtoint ptr %this.val.i to i64
@@ -90757,7 +90757,7 @@ invoke.cont100:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i121, align 8
   store i32 0, ptr %ref.tmp99, align 4
   %this.val.i125 = load ptr, ptr %u72, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i125, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i125, i32 0, i32 1, i32 1)
   %capacity_.i.i.i.i132 = getelementptr inbounds i8, ptr %u72, i64 16
   %66 = load i64, ptr %capacity_.i.i.i.i132, align 8, !noalias !3620
   %67 = ptrtoint ptr %this.val.i125 to i64
@@ -91060,7 +91060,7 @@ invoke.cont156:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i233, align 8
   store i32 0, ptr %ref.tmp155, align 4
   %this.val.i237 = load ptr, ptr %u128, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i237, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i237, i32 0, i32 1, i32 1)
   %capacity_.i.i.i.i244 = getelementptr inbounds i8, ptr %u128, i64 16
   %102 = load i64, ptr %capacity_.i.i.i.i244, align 8, !noalias !3623
   %103 = ptrtoint ptr %this.val.i237 to i64
@@ -91521,12 +91521,12 @@ entry:
   %ref.tmp66 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3626
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3633
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3633
-  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -91664,7 +91664,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull readonly align 8 dereferenceable(32) %t)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %t)
           to label %invoke.cont28 unwind label %lpad20
 
 invoke.cont28:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -91794,7 +91794,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZNKSt14default_del
   %27 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   store ptr @.str.429, ptr %27, align 8
   %this.val.i = load ptr, ptr %u, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i96 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 97) to i128
   %mul.i.i = mul nuw i128 %conv.i.i96, 11376068507788127593
   %shr.i.i97 = lshr i128 %mul.i.i, 64
@@ -92421,12 +92421,12 @@ entry:
   %ref.tmp229 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3643
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3650
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3650
-  %call.i.i.i.i.i37 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i37 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -92564,7 +92564,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont21:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %if.end
   store ptr null, ptr %message_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %u, ptr noundef nonnull readonly align 8 dereferenceable(32) %t, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %t, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %ref.tmp18, align 4
@@ -92688,7 +92688,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZNKSt14default_del
   %26 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store ptr @.str.429, ptr %26, align 8
   %this.val.i = load ptr, ptr %u, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i508 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 97) to i128
   %mul.i.i = mul nuw i128 %conv.i.i508, 11376068507788127593
   %shr.i.i509 = lshr i128 %mul.i.i, 64
@@ -92929,12 +92929,12 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
 _ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev.exit119: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev.exit, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE13destroy_slotsEv.exit.i.i.i111
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t72, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i120 = getelementptr inbounds i8, ptr %t72, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i120, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i120, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i123), !noalias !3656
   store i64 1, ptr %ref.tmp.i.i.i.i123, align 8, !noalias !3663
   %_M_str.i.i.i.i.i124 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i123, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i124, align 8, !noalias !3663
-  %call.i.i.i.i.i137 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t72, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i123)
+  %call.i.i.i.i.i137 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t72, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i123)
           to label %call.i.i.i.i.i.noexc136 unwind label %lpad74
 
 call.i.i.i.i.i.noexc136:                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev.exit119
@@ -93082,7 +93082,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont104:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i167, %if.end97
   store ptr null, ptr %message_.i165, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %u99, ptr noundef nonnull readonly align 8 dereferenceable(32) %t72, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %u99, ptr noundef nonnull align 8 dereferenceable(32) %t72, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t72, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i120, i8 0, i64 24, i1 false)
   store i32 1, ptr %ref.tmp101, align 4
@@ -93206,7 +93206,7 @@ call.i.i.i.i.i.i.i.i.i.noexc248:                  ; preds = %_ZNKSt14default_del
   %80 = getelementptr inbounds i8, ptr %ref.tmp125, i64 8
   store ptr @.str.429, ptr %80, align 8
   %this.val.i199 = load ptr, ptr %u99, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i199, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i199, i32 0, i32 1, i32 1)
   %capacity_.i.i.i.i206 = getelementptr inbounds i8, ptr %u99, i64 16
   %81 = load i64, ptr %capacity_.i.i.i.i206, align 8
   %82 = ptrtoint ptr %this.val.i199 to i64
@@ -93431,12 +93431,12 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
 _ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev.exit313: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev.exit292, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE13destroy_slotsEv.exit.i.i.i305
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t157, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i314 = getelementptr inbounds i8, ptr %t157, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i314, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i314, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i317), !noalias !3669
   store i64 1, ptr %ref.tmp.i.i.i.i317, align 8, !noalias !3676
   %_M_str.i.i.i.i.i318 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i317, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i318, align 8, !noalias !3676
-  %call.i.i.i.i.i331 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t157, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i317)
+  %call.i.i.i.i.i331 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t157, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i317)
           to label %call.i.i.i.i.i.noexc330 unwind label %lpad159
 
 call.i.i.i.i.i.noexc330:                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev.exit313
@@ -93584,7 +93584,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont189:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i361, %if.end182
   store ptr null, ptr %message_.i359, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %u184, ptr noundef nonnull readonly align 8 dereferenceable(32) %t157, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %u184, ptr noundef nonnull align 8 dereferenceable(32) %t157, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t157, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i314, i8 0, i64 24, i1 false)
   store i32 1, ptr %ref.tmp186, align 4
@@ -93708,7 +93708,7 @@ call.i.i.i.i.i.i.i.i.i.noexc442:                  ; preds = %_ZNKSt14default_del
   %133 = getelementptr inbounds i8, ptr %ref.tmp210, i64 8
   store ptr @.str.429, ptr %133, align 8
   %this.val.i393 = load ptr, ptr %u184, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i393, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i393, i32 0, i32 1, i32 1)
   %capacity_.i.i.i.i400 = getelementptr inbounds i8, ptr %u184, i64 16
   %134 = load i64, ptr %capacity_.i.i.i.i400, align 8
   %135 = ptrtoint ptr %this.val.i393 to i64
@@ -94021,12 +94021,12 @@ entry:
   %ref.tmp66 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3682
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3689
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3689
-  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -94293,7 +94293,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZNKSt14default_del
   %26 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   store ptr @.str.429, ptr %26, align 8
   %this.val.i = load ptr, ptr %u, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i96 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 97) to i128
   %mul.i.i = mul nuw i128 %conv.i.i96, 11376068507788127593
   %shr.i.i97 = lshr i128 %mul.i.i, 64
@@ -94620,12 +94620,12 @@ entry:
   %ref.tmp61 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3695
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3702
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3702
-  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -94765,9 +94765,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i21 = getelementptr inbounds i8, ptr %u, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i21, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i)
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %t)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %t)
           to label %invoke.cont23 unwind label %lpad17
 
 invoke.cont23:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -94895,7 +94895,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZNKSt14default_del
   %27 = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
   store ptr @.str.429, ptr %27, align 8
   %this.val.i = load ptr, ptr %u, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i104 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 97) to i128
   %mul.i.i = mul nuw i128 %conv.i.i104, 11376068507788127593
   %shr.i.i105 = lshr i128 %mul.i.i, 64
@@ -95448,12 +95448,12 @@ entry:
   %ref.tmp60 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3708
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3715
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3715
-  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -95706,7 +95706,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZNKSt14default_del
   %24 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   store ptr @.str.429, ptr %24, align 8
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i78 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 97) to i128
   %mul.i.i = mul nuw i128 %conv.i.i78, 11376068507788127593
   %shr.i.i79 = lshr i128 %mul.i.i, 64
@@ -95998,12 +95998,12 @@ entry:
   %ref.tmp60 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3724
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3731
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3731
-  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i12 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -96267,7 +96267,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZNKSt14default_del
   %27 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   store ptr @.str.429, ptr %27, align 8
   %this.val.i = load ptr, ptr %u, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i98 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 97) to i128
   %mul.i.i = mul nuw i128 %conv.i.i98, 11376068507788127593
   %shr.i.i99 = lshr i128 %mul.i.i, 64
@@ -96582,12 +96582,12 @@ entry:
   %ref.tmp9 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !3737
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3744
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.428, ptr %_M_str.i.i.i.i.i, align 8, !noalias !3744
-  %call.i.i.i.i.i4 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i4 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -96840,7 +96840,7 @@ entry:
   %ref.tmp35 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA2_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(2) @.str.428, ptr noundef nonnull align 1 dereferenceable(2) @.str.429)
           to label %invoke.cont unwind label %lpad.thread
 
@@ -96911,7 +96911,7 @@ for.body.i:                                       ; preds = %_ZN4absl18container
   store i64 %6, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !3757
   %7 = extractvalue { i64, ptr } %call1.i.i.i.i.i, 1
   store ptr %7, ptr %5, align 8, !noalias !3757
-  %call.i.i.i.i.i.i7 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
+  %call.i.i.i.i.i.i7 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad19.loopexit
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
@@ -96945,11 +96945,11 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
   br i1 %cmp.i.not.i, label %invoke.cont27, label %for.body.i, !llvm.loop !3763
 
 invoke.cont27:                                    ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE7emplaceIJRSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES9_INS7_8iteratorEbEDpOSJ_.exit.i, %arraydestroy.done11
-  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull readonly align 8 dereferenceable(32) %t)
+  invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %t)
           to label %invoke.cont28 unwind label %lpad19.loopexit.split-lp
 
 invoke.cont28:                                    ; preds = %invoke.cont27
-  %call.i.i10 = invoke fastcc noundef zeroext i1 @_ZN4absl18container_internaleqERKNS0_12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEES9_(ptr noundef nonnull readonly align 8 dereferenceable(32) %u, ptr noundef nonnull readonly align 8 dereferenceable(32) %t)
+  %call.i.i10 = invoke fastcc noundef zeroext i1 @_ZN4absl18container_internaleqERKNS0_12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %t)
           to label %call.i.i.noexc unwind label %lpad29
 
 call.i.i.noexc:                                   ; preds = %invoke.cont28
@@ -96968,7 +96968,7 @@ if.end.i.i:                                       ; preds = %call.i.i.noexc
 
 .noexc12:                                         ; preds = %if.end.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ss.i.i.i.i.i.i, i64 16
-  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull readonly align 8 dereferenceable(32) %u, ptr noundef %add.ptr.i.i.i.i.i.i)
+  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef %add.ptr.i.i.i.i.i.i)
           to label %invoke.cont.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i, !noalias !3776
 
 invoke.cont.i.i.i.i.i.i:                          ; preds = %.noexc12
@@ -96990,7 +96990,7 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_intern
 
 .noexc.i.i.i:                                     ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_111StringTableES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i.i
   %add.ptr.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i.i, i64 16
-  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull readonly align 8 dereferenceable(32) %t, ptr noundef %add.ptr.i.i.i5.i.i.i)
+  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef %add.ptr.i.i.i5.i.i.i)
           to label %invoke.cont.i.i.i7.i.i.i unwind label %lpad.i.i.i6.i.i.i, !noalias !3785
 
 invoke.cont.i.i.i7.i.i.i:                         ; preds = %.noexc.i.i.i
@@ -97632,7 +97632,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %wh
   %13 = extractvalue { i64, ptr } %call1.i.i.i, 0
   %14 = extractvalue { i64, ptr } %call1.i.i.i, 1
   %this.val.i.i.i.i.i = load ptr, ptr %spec.select, align 8
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val.i.i.i.i.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %this.val.i.i.i.i.i, i32 0, i32 1, i32 1)
   %call.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZN4absl13hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE(i64 noundef ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr noundef %14, i64 noundef %13)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %call.i.i.i.i.i.i.i.i.i.i.i.i.i, %13
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -97719,7 +97719,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
 
 land.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.body.i.i.i.i.i.i.i
   %30 = extractvalue { i64, ptr } %call1.i.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %30, ptr readonly %14, i64 %13)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %30, ptr %14, i64 %13)
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i
 
@@ -97909,7 +97909,7 @@ entry:
   %ref.tmp73 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA2_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(2) @.str.428, ptr noundef nonnull align 1 dereferenceable(2) @.str.429)
           to label %invoke.cont unwind label %lpad.thread
 
@@ -97980,7 +97980,7 @@ for.body.i:                                       ; preds = %_ZN4absl18container
   store i64 %6, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !3801
   %7 = extractvalue { i64, ptr } %call1.i.i.i.i.i, 1
   store ptr %7, ptr %5, align 8, !noalias !3801
-  %call.i.i.i.i.i.i8 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
+  %call.i.i.i.i.i.i8 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad24
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
@@ -98016,7 +98016,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
 invoke.cont25:                                    ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE7emplaceIJRSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES9_INS7_8iteratorEbEDpOSJ_.exit.i, %arraydestroy.done11
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i10 = getelementptr inbounds i8, ptr %u, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i10, i8 0, i64 24, i1 false)
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA2_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp27, ptr noundef nonnull align 1 dereferenceable(2) @.str.428, ptr noundef nonnull align 1 dereferenceable(2) @.str.428)
           to label %invoke.cont31 unwind label %lpad30.thread
 
@@ -98087,7 +98087,7 @@ for.body.i29:                                     ; preds = %_ZN4absl18container
   store i64 %17, ptr %ref.tmp.i.i.i.i.i26, align 8, !noalias !3814
   %18 = extractvalue { i64, ptr } %call1.i.i.i.i.i31, 1
   store ptr %18, ptr %16, align 8, !noalias !3814
-  %call.i.i.i.i.i.i43 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i26)
+  %call.i.i.i.i.i.i43 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i26)
           to label %call.i.i.i.i.i.i.noexc42 unwind label %lpad66.loopexit
 
 call.i.i.i.i.i.i.noexc42:                         ; preds = %for.body.i29
@@ -98454,7 +98454,7 @@ entry:
   %ref.tmp.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp13.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp20.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4absl18container_internaleqERKNS0_12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEES9_(ptr noundef nonnull readonly align 8 dereferenceable(32) %val1, ptr noundef nonnull readonly align 8 dereferenceable(32) %val2)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4absl18container_internaleqERKNS0_12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %val1, ptr noundef nonnull align 8 dereferenceable(32) %val2)
   br i1 %call.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -98766,7 +98766,7 @@ invoke.cont11.i:                                  ; preds = %_ZNKSt14default_del
 
 .noexc120.i:                                      ; preds = %invoke.cont11.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss.i.i.i.i, i64 16
-  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull readonly align 8 dereferenceable(32) %val1, ptr noundef %add.ptr.i.i.i.i)
+  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %val1, ptr noundef %add.ptr.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i, !noalias !3828
 
 invoke.cont.i.i.i.i:                              ; preds = %.noexc120.i
@@ -98872,7 +98872,7 @@ invoke.cont18.i:                                  ; preds = %_ZNKSt14default_del
 
 .noexc162.i:                                      ; preds = %invoke.cont18.i
   %add.ptr.i.i.i159.i = getelementptr inbounds i8, ptr %ss.i.i.i158.i, i64 16
-  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull readonly align 8 dereferenceable(32) %val2, ptr noundef %add.ptr.i.i.i159.i)
+  invoke fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %val2, ptr noundef %add.ptr.i.i.i159.i)
           to label %invoke.cont.i.i.i161.i unwind label %lpad.i.i.i160.i, !noalias !3836
 
 invoke.cont.i.i.i161.i:                           ; preds = %.noexc162.i
@@ -99048,7 +99048,7 @@ entry:
   %ref.tmp73 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA2_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(2) @.str.429, ptr noundef nonnull align 1 dereferenceable(2) @.str.429)
           to label %invoke.cont unwind label %lpad.thread
 
@@ -99119,7 +99119,7 @@ for.body.i:                                       ; preds = %_ZN4absl18container
   store i64 %6, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !3846
   %7 = extractvalue { i64, ptr } %call1.i.i.i.i.i, 1
   store ptr %7, ptr %5, align 8, !noalias !3846
-  %call.i.i.i.i.i.i8 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
+  %call.i.i.i.i.i.i8 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad24
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
@@ -99155,7 +99155,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
 invoke.cont25:                                    ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE7emplaceIJRSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES9_INS7_8iteratorEbEDpOSJ_.exit.i, %arraydestroy.done11
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i10 = getelementptr inbounds i8, ptr %u, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i10, i8 0, i64 24, i1 false)
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA2_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp27, ptr noundef nonnull align 1 dereferenceable(2) @.str.428, ptr noundef nonnull align 1 dereferenceable(2) @.str.428)
           to label %invoke.cont31 unwind label %lpad30.thread
 
@@ -99226,7 +99226,7 @@ for.body.i29:                                     ; preds = %_ZN4absl18container
   store i64 %17, ptr %ref.tmp.i.i.i.i.i26, align 8, !noalias !3859
   %18 = extractvalue { i64, ptr } %call1.i.i.i.i.i31, 1
   store ptr %18, ptr %16, align 8, !noalias !3859
-  %call.i.i.i.i.i.i43 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i26)
+  %call.i.i.i.i.i.i43 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i26)
           to label %call.i.i.i.i.i.i.noexc42 unwind label %lpad66.loopexit
 
 call.i.i.i.i.i.i.noexc42:                         ; preds = %for.body.i29
@@ -99627,8 +99627,8 @@ entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3865
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3865
   %conv.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i, 64
@@ -99672,7 +99672,7 @@ invoke.cont:                                      ; preds = %while.body.i.i.i.i.
   %this.val5.i.i = phi ptr [ %this.val5.i.i.pre, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
   %3 = phi i64 [ %.pre76, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
   %this.val.i = phi ptr [ %this.val.i.pre, %call40.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %4 = ptrtoint ptr %this.val.i to i64
   %shr.i.i.i.i.i.i = lshr i64 %4, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i8.i.i.i.i.i.i
@@ -99730,7 +99730,7 @@ invoke.cont3:                                     ; preds = %for.end.i.i, %if.th
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   %this.val7.i.i.i.i.i.i3 = load ptr, ptr %t, align 8, !noalias !3879
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i3, i32 0, i32 1, i32 1), !noalias !3879
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i3, i32 0, i32 1, i32 1), !noalias !3879
   %11 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8
   %12 = ptrtoint ptr %this.val7.i.i.i.i.i.i3 to i64
   %shr.i.i.i.i.i.i.i.i.i.i13 = lshr i64 %12, 12
@@ -99894,14 +99894,14 @@ entry:
   %ref.tmp13 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3890
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3890
   %add.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -99980,7 +99980,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %this.val5.i.i = phi ptr [ %this.val5.i.i.pre, %call40.i.i.i.i.i.i.noexc ], [ %this.val6.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %9 = phi i64 [ %.pre, %call40.i.i.i.i.i.i.noexc ], [ %0, %for.body.i.i.i.i.i.i ]
   %this.val.i = phi ptr [ %this.val.i.pre, %call40.i.i.i.i.i.i.noexc ], [ %this.val7.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end34.i.i, %invoke.cont
@@ -100259,8 +100259,8 @@ entry:
   %ref.tmp63 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3905
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !3905
   %conv.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i, 64
@@ -100307,7 +100307,7 @@ invoke.cont:                                      ; preds = %while.body.i.i.i.i.
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %storemerge273 = phi i64 [ 1, %invoke.cont ], [ %inc, %for.inc ]
   %this.val7.i.i.i.i.i.i16 = load ptr, ptr %t, align 8, !noalias !3916
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i16, i32 0, i32 1, i32 1), !noalias !3916
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i16, i32 0, i32 1, i32 1), !noalias !3916
   %add.i.i.i.i.i.i.i.i.i17 = add i64 %storemerge273, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i18 = zext i64 %add.i.i.i.i.i.i.i.i.i17 to i128
   %mul.i.i.i.i.i.i.i.i.i19 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i18, 11376068507788127593
@@ -100414,7 +100414,7 @@ if.end.i.i.i68:                                   ; preds = %for.end
 _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit73: ; preds = %for.end, %if.end.i.i.i68
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t7, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i74 = getelementptr inbounds i8, ptr %t7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i74, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i74, i8 0, i64 24, i1 false)
   %cmp.i = icmp eq i64 %storemerge273, 0
   br i1 %cmp.i, label %invoke.cont22.thread, label %if.then17.i
 
@@ -100440,7 +100440,7 @@ for.body15.preheader:                             ; preds = %if.then17.i
 for.body15:                                       ; preds = %for.body15.preheader, %for.inc18
   %storemerge1275 = phi i64 [ %inc19, %for.inc18 ], [ 0, %for.body15.preheader ]
   %this.val7.i.i.i.i.i.i77 = load ptr, ptr %t7, align 8, !noalias !3928
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i77, i32 0, i32 1, i32 1), !noalias !3928
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i77, i32 0, i32 1, i32 1), !noalias !3928
   %add.i.i.i.i.i.i.i.i.i78 = add i64 %storemerge1275, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i79 = zext i64 %add.i.i.i.i.i.i.i.i.i78 to i128
   %mul.i.i.i.i.i.i.i.i.i80 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i79, 11376068507788127593
@@ -100644,7 +100644,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val.i.i = load ptr, ptr %t7, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %39 = load i64, ptr %26, align 8
   %40 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %40, 12
@@ -100712,7 +100712,7 @@ invoke.cont42:                                    ; preds = %for.end.i.i.i, %_ZN
   %this.val6.i.i.i.i.i.i162 = phi ptr [ %this.val6.i.i.i.i.i.i162.pre, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i.invoke.cont42_crit_edge ], [ %this.val5.i.i.i, %for.end.i.i.i ]
   %47 = phi i64 [ %.pre285, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i.invoke.cont42_crit_edge ], [ %39, %for.end.i.i.i ]
   %this.val7.i.i.i.i.i.i147 = phi ptr [ %this.val7.i.i.i.i.i.i147.pre, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i.invoke.cont42_crit_edge ], [ %this.val.i.i, %for.end.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i147, i32 0, i32 1, i32 1), !noalias !3945
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i147, i32 0, i32 1, i32 1), !noalias !3945
   br label %while.body.i.i.i.i.i.i163
 
 while.body.i.i.i.i.i.i163:                        ; preds = %if.end38.i.i.i.i.i.i198, %invoke.cont42
@@ -101167,7 +101167,7 @@ for.body.i.i.i:                                   ; preds = %_ZN4absl18container
   %first.addr.0.val.i.i.i = load i32, ptr %first.addr.04.i.i.ptr.i, align 4
   %conv.i.i.i.i.i.i.i.i.i.i = sext i32 %first.addr.0.val.i.i.i to i64
   %this.val7.i.i.i.i.i.i.i.i.i = load ptr, ptr %s, align 8, !noalias !3961
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3961
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3961
   %1 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3972
   %shr.i.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %conv.i.i.i.i.i.i.i.i.i.i, 7
   %2 = ptrtoint ptr %this.val7.i.i.i.i.i.i.i.i.i to i64
@@ -101337,7 +101337,7 @@ lpad.i.i:                                         ; preds = %if.then.i18.i.i.i.i
 
 invoke.cont:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE7emplaceIJRKiETnNSt9enable_ifIXntsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSA_8iteratorEbEDpOSF_.exit.i.i.i
   %this.val.i = load ptr, ptr %s, align 8, !nonnull !1141, !noundef !1141
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i, i32 0, i32 1, i32 1)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont13 unwind label %lpad9
 
@@ -101459,7 +101459,7 @@ for.body.i.i.i27:                                 ; preds = %_ZN4absl18container
   %first.addr.0.val.i.i.i30 = load i32, ptr %first.addr.04.i.i.ptr.i29, align 4
   %conv.i.i.i.i.i.i.i.i.i.i31 = sext i32 %first.addr.0.val.i.i.i30 to i64
   %this.val7.i.i.i.i.i.i.i.i.i32 = load ptr, ptr %ts, align 8, !noalias !3977
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i.i.i32, i32 0, i32 1, i32 1), !noalias !3977
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i.i.i32, i32 0, i32 1, i32 1), !noalias !3977
   %37 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i26, align 8, !noalias !3988
   %shr.i.i.i.i.i.i.i.i.i.i.i.i33 = lshr i64 %conv.i.i.i.i.i.i.i.i.i.i31, 7
   %38 = ptrtoint ptr %this.val7.i.i.i.i.i.i.i.i.i32 to i64
@@ -101638,7 +101638,7 @@ if.end.i.i.i.i65:                                 ; preds = %lpad.i.i62
 
 invoke.cont39:                                    ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE7emplaceIJRKiETnNSt9enable_ifIXntsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSA_8iteratorEbEDpOSF_.exit.i.i.i
   %this.val.i127 = load ptr, ptr %ts, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i127, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i127, i32 0, i32 1, i32 1)
   %this.val.i.i182 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i26, align 8
   %cmp.i.i183 = icmp eq i64 %this.val.i.i182, 0
   br i1 %cmp.i.i183, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEED2Ev.exit, label %if.end.i.i184
@@ -102377,7 +102377,7 @@ entry:
   %ref.tmp30 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   br label %for.body
@@ -102385,7 +102385,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
   %storemerge55 = phi i64 [ 3, %entry ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit ]
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !3996
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3996
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !3996
   %add.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %storemerge55, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -104840,15 +104840,15 @@ entry:
   %ref.tmp105 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t1, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t2, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i13 = getelementptr inbounds i8, ptr %t2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i13, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i), !noalias !4084
   store i64 1, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4091
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr @.str.299, ptr %_M_str.i.i.i.i.i, align 8, !noalias !4091
-  %call.i.i.i.i.i14 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t1, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i14 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.i.i.noexc:                             ; preds = %entry
@@ -104878,7 +104878,7 @@ invoke.cont:                                      ; preds = %.noexc, %call.i.i.i
   store i64 1, ptr %ref.tmp.i.i.i.i17, align 8, !noalias !4104
   %_M_str.i.i.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i17, i64 8
   store ptr @.str.210, ptr %_M_str.i.i.i.i.i19, align 8, !noalias !4104
-  %call.i.i.i.i.i32 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t1, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i17)
+  %call.i.i.i.i.i32 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i17)
           to label %call.i.i.i.i.i.noexc31 unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.i.i.noexc31:                           ; preds = %invoke.cont
@@ -104908,7 +104908,7 @@ invoke.cont3:                                     ; preds = %.noexc33, %call.i.i
   store i64 1, ptr %ref.tmp.i.i.i.i37, align 8, !noalias !4117
   %_M_str.i.i.i.i.i39 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i37, i64 8
   store ptr @.str.299, ptr %_M_str.i.i.i.i.i39, align 8, !noalias !4117
-  %call.i.i.i.i.i52 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t2, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i37)
+  %call.i.i.i.i.i52 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i37)
           to label %call.i.i.i.i.i.noexc51 unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.i.i.noexc51:                           ; preds = %invoke.cont3
@@ -104938,7 +104938,7 @@ invoke.cont5:                                     ; preds = %.noexc53, %call.i.i
   store i64 1, ptr %ref.tmp.i.i.i.i57, align 8, !noalias !4130
   %_M_str.i.i.i.i.i59 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i57, i64 8
   store ptr @.str.293, ptr %_M_str.i.i.i.i.i59, align 8, !noalias !4130
-  %call.i.i.i.i.i72 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t2, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i57)
+  %call.i.i.i.i.i72 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i57)
           to label %call.i.i.i.i.i.noexc71 unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.i.i.noexc71:                           ; preds = %invoke.cont5
@@ -105249,7 +105249,7 @@ _ZSt4nextIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_112StringPol
   %cmp.i.i.i.i.i9.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
   store ptr %t1, ptr %ref.tmp5.i, align 8
   store ptr %it.sroa.5.015.i, ptr %slot.i, align 8
-  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull writeonly align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp5.i, ptr %it.sroa.5.015.i)
+  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i, ptr %it.sroa.5.015.i)
           to label %.noexc108 unwind label %lpad.loopexit
 
 .noexc108:                                        ; preds = %_ZSt4nextIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_112StringPolicyENS3_10StringHashENS3_8StringEqESaIiEE8iteratorEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i
@@ -106759,7 +106759,7 @@ entry:
   store ptr %2, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4203)
   %3 = load ptr, ptr %f, align 8, !noalias !4203
-  %call.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp), !noalias !4203
+  %call.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp), !noalias !4203
   %4 = extractvalue { i64, i8 } %call.i, 0
   %5 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i = trunc i8 %5 to i1
@@ -107360,7 +107360,7 @@ invoke.cont35:                                    ; preds = %_ZNSt11_Tuple_implI
   call void @llvm.experimental.noalias.scope.decl(metadata !4237)
   call void @llvm.experimental.noalias.scope.decl(metadata !4240)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %matchers.i.i.i.i.i.i), !noalias !4243
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %matchers.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !4246
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !4246
   %call5.i.i.i.i.i3.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #39
           to label %invoke.cont3.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i83, !noalias !4246
 
@@ -108349,7 +108349,7 @@ invoke.cont97:                                    ; preds = %.noexc167
   call void @llvm.experimental.noalias.scope.decl(metadata !4262)
   call void @llvm.experimental.noalias.scope.decl(metadata !4265)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %matchers.i.i.i.i.i.i176), !noalias !4268
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %matchers.i.i.i.i.i.i176, i8 0, i64 24, i1 false), !noalias !4271
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers.i.i.i.i.i.i176, i8 0, i64 24, i1 false), !noalias !4271
   %call5.i.i.i.i.i3.i.i.i.i.i.i183 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #39
           to label %invoke.cont3.i.i.i.i.i.i189 unwind label %lpad.i.i.i.i.i.i184, !noalias !4271
 
@@ -109350,7 +109350,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i) #34, !noalias !4275
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i), !noalias !4275
   %this.val7.i.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !4278
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4278
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4278
   %call.i.i.i.i.i.i.i.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %raw.i) #34, !noalias !4278
   %10 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i.i.i.i, 0
   %11 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -110231,7 +110231,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
   %cmp.i.not22 = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.not22, label %for.end24, label %for.body.lr.ph
 
@@ -110721,7 +110721,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i), !noalias !4312
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i), !noalias !4312
   %vtable_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %vtable_.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !4312
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vtable_.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !4312
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i64 16), ptr %agg.result, align 8, !alias.scope !4312
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %a)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i, !noalias !4312
@@ -112631,7 +112631,7 @@ _ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %_ZN7testing15Assert
   store ptr null, ptr %message_.i138, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t2, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !4323)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %res.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -112646,7 +112646,7 @@ invoke.cont129.thread632:                         ; preds = %_ZN7testing15Assert
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 25
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 1, !alias.scope !4323
   %scevgep.i.i.i = getelementptr inbounds i8, ptr %res, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i.i, i8 0, i64 64, i1 false), !alias.scope !4323
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i, i8 0, i64 64, i1 false), !alias.scope !4323
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %res.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %inserted633 = getelementptr inbounds i8, ptr %res, i64 16
@@ -112660,7 +112660,7 @@ if.end.i:                                         ; preds = %_ZN7testing15Assert
   store ptr %t2, ptr %ref.tmp.i, align 8, !noalias !4323
   %slot.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %slot_space_.i.i.i, ptr %slot.i, align 8, !noalias !4323
-  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull writeonly align 8 %res.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i, ptr %slot_space_.i.i.i)
+  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull align 8 %res.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr %slot_space_.i.i.i)
           to label %.noexc unwind label %lpad128
 
 .noexc:                                           ; preds = %if.end.i
@@ -112685,7 +112685,7 @@ invoke.cont129.thread:                            ; preds = %if.then7.i, %if.the
   %_M_engaged.i.i.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %res, i64 25
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i6.i, align 1, !alias.scope !4323
   %scevgep.i.i7.i = getelementptr inbounds i8, ptr %res, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i7.i, i8 0, i64 64, i1 false), !alias.scope !4323
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i7.i, i8 0, i64 64, i1 false), !alias.scope !4323
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %res.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %inserted626 = getelementptr inbounds i8, ptr %res, i64 16
@@ -113238,7 +113238,7 @@ _ZN7testing15AssertionResultD2Ev.exit266:         ; preds = %if.end264, %_ZNKSt1
   store ptr null, ptr %message_.i263, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !4326)
   %this.val.i.i = load ptr, ptr %t, align 8, !noalias !4326
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1), !noalias !4326
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1), !noalias !4326
   %conv.i.i = zext i64 xor (i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 -7070675565921424023), i64 2406455355769102452) to i128
   %conv11.i.i = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 -3953163161851223812) to i128
   %mul.i.i = mul nuw i128 %conv.i.i, %conv11.i.i
@@ -113290,7 +113290,7 @@ for.body.i.i.i:                                   ; preds = %while.body.i.i.i, %
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i
   %104 = extractvalue { i64, ptr } %call1.i.i.i.i.i.i, 1
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %104, ptr noundef nonnull readonly dereferenceable(10) @.str.484, i64 10)
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %104, ptr noundef nonnull dereferenceable(10) @.str.484, i64 10)
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
@@ -113330,7 +113330,7 @@ cond.true.i:                                      ; preds = %_ZN4absl18container
   %_M_engaged.i.i.i.i.i.i.i.i267 = getelementptr inbounds i8, ptr %ref.tmp266, i64 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i267, align 1, !alias.scope !4326
   %scevgep.i.i.i268 = getelementptr inbounds i8, ptr %ref.tmp266, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i.i268, i8 0, i64 64, i1 false), !alias.scope !4326
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i268, i8 0, i64 64, i1 false), !alias.scope !4326
   br label %invoke.cont267
 
 cond.false.i:                                     ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE4findIA11_cEENS7_8iteratorERKT_.exit.i
@@ -113580,7 +113580,7 @@ if.then.i322:                                     ; preds = %_ZN7testing15Assert
   %_M_engaged.i.i.i.i.i.i.i.i324 = getelementptr inbounds i8, ptr %ref.tmp326, i64 25
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i324, align 1, !alias.scope !4333
   %scevgep.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp326, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i.i325, i8 0, i64 64, i1 false), !alias.scope !4333
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i325, i8 0, i64 64, i1 false), !alias.scope !4333
   br label %invoke.cont327
 
 if.end.i326:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit317
@@ -113588,7 +113588,7 @@ if.end.i326:                                      ; preds = %_ZN7testing15Assert
   store ptr %t2, ptr %ref.tmp.i319, align 8, !noalias !4333
   %slot.i328 = getelementptr inbounds i8, ptr %ref.tmp.i319, i64 8
   store ptr %slot_space_.i.i.i327, ptr %slot.i328, align 8, !noalias !4333
-  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull writeonly align 8 %res.i318, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i319, ptr %slot_space_.i.i.i327)
+  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull align 8 %res.i318, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i319, ptr %slot_space_.i.i.i327)
           to label %.noexc344 unwind label %lpad131
 
 .noexc344:                                        ; preds = %if.end.i326
@@ -113613,7 +113613,7 @@ _ZN4absl18container_internal12CommonAccess5ResetINS0_11node_handleINS0_12_GLOBAL
   %_M_engaged.i.i.i.i.i.i.i6.i341 = getelementptr inbounds i8, ptr %ref.tmp326, i64 25
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i6.i341, align 1, !alias.scope !4333
   %scevgep.i.i7.i342 = getelementptr inbounds i8, ptr %ref.tmp326, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i7.i342, i8 0, i64 64, i1 false), !alias.scope !4333
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i7.i342, i8 0, i64 64, i1 false), !alias.scope !4333
   br label %invoke.cont327
 
 if.else.i331:                                     ; preds = %.noexc344
@@ -114140,7 +114140,7 @@ _ZN7testing15AssertionResultD2Ev.exit428:         ; preds = %if.end430, %_ZNKSt1
   store i64 %call.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4367
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %k0, ptr %_M_str.i.i.i.i.i, align 8, !noalias !4367
-  %call.i.i.i.i.i431 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
+  %call.i.i.i.i.i431 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad131
 
 call.i.i.i.i.i.noexc:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit428
@@ -114205,7 +114205,7 @@ if.then.i446:                                     ; preds = %_ZN4absl18container
   %_M_engaged.i.i.i.i.i.i.i.i448 = getelementptr inbounds i8, ptr %ref.tmp436, i64 25
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i448, align 1, !alias.scope !4373
   %scevgep.i.i.i449 = getelementptr inbounds i8, ptr %ref.tmp436, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i.i449, i8 0, i64 64, i1 false), !alias.scope !4373
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i449, i8 0, i64 64, i1 false), !alias.scope !4373
   br label %invoke.cont437
 
 if.end.i450:                                      ; preds = %_ZN4absl18container_internal11node_handleINS0_12_GLOBAL__N_112StringPolicyENS0_18hash_policy_traitsIS3_vEESaIiEvED2Ev.exit441
@@ -114213,7 +114213,7 @@ if.end.i450:                                      ; preds = %_ZN4absl18container
   store ptr %t2, ptr %ref.tmp.i443, align 8, !noalias !4373
   %slot.i452 = getelementptr inbounds i8, ptr %ref.tmp.i443, i64 8
   store ptr %slot_space_.i.i.i451, ptr %slot.i452, align 8, !noalias !4373
-  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull writeonly align 8 %res.i442, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp.i443, ptr %slot_space_.i.i.i451)
+  invoke fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull align 8 %res.i442, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i443, ptr %slot_space_.i.i.i451)
           to label %.noexc468 unwind label %lpad131
 
 .noexc468:                                        ; preds = %if.end.i450
@@ -114238,7 +114238,7 @@ _ZN4absl18container_internal12CommonAccess5ResetINS0_11node_handleINS0_12_GLOBAL
   %_M_engaged.i.i.i.i.i.i.i6.i465 = getelementptr inbounds i8, ptr %ref.tmp436, i64 25
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i6.i465, align 1, !alias.scope !4373
   %scevgep.i.i7.i466 = getelementptr inbounds i8, ptr %ref.tmp436, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i7.i466, i8 0, i64 64, i1 false), !alias.scope !4373
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i7.i466, i8 0, i64 64, i1 false), !alias.scope !4373
   br label %invoke.cont437
 
 if.else.i455:                                     ; preds = %.noexc468
@@ -114990,7 +114990,7 @@ eh.resume:                                        ; preds = %lpad4.body, %lpad.b
 define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE7extractIA23_cTnNSt9enable_ifIXntsr3std7is_sameIT_NS7_8iteratorEEE5valueEiE4typeELi0EEENS0_11node_handleIS3_NS0_18hash_policy_traitsIS3_vEES6_vEERKSB_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(23) %key) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val.i = load ptr, ptr %this, align 8
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #34
   %call.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZN4absl13hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi8EE(i64 noundef ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr noundef nonnull %key, i64 noundef %call.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %call.i.i.i.i.i.i.i.i.i, %call.i.i.i
@@ -115035,7 +115035,7 @@ for.body.i.i:                                     ; preds = %while.body.i.i, %fo
   %call1.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr19.i.i) #34
   %8 = extractvalue { i64, ptr } %call1.i.i.i.i.i, 0
   %9 = extractvalue { i64, ptr } %call1.i.i.i.i.i, 1
-  %call.i.i.i.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #34
+  %call.i.i.i.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #34
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %call.i.i.i.i.i.i.i.i, %8
   br i1 %cmp.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i, label %for.inc.i.i
 
@@ -115044,7 +115044,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i, label %if.then.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %9, ptr nonnull readonly %key, i64 %8)
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %9, ptr nonnull %key, i64 %8)
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -115084,7 +115084,7 @@ cond.true:                                        ; preds = %_ZN4absl18container
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 1
   %scevgep.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %scevgep.i.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i, i8 0, i64 64, i1 false)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE4findIA23_cEENS7_8iteratorERKT_.exit
@@ -115423,7 +115423,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4absl18container
   %first.addr.04.i.i.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %first.addr.04.i.i.idx.i.i
   %arg.val.i.i.i.i.i.i.i.i = load i32, ptr %first.addr.04.i.i.ptr.i.i, align 4, !noalias !4383
   %this.val7.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !4392
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4392
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4392
   %conv.i.i.i.i.i.i.i.i.i.i = sext i32 %arg.val.i.i.i.i.i.i.i.i to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -115506,7 +115506,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE7emplaceIJRKiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSG_.exit.i.i.i.i
   %this.val.i.i = load ptr, ptr %t, align 8, !noalias !4399
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1), !noalias !4399
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1), !noalias !4399
   %conv.i.i.i.i.i = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
@@ -115698,7 +115698,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   br i1 %tobool.i.i.i.i.i.i, label %if.end.i.i, label %invoke.cont42
 
 if.end.i.i:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  call void @llvm.prefetch.p0(ptr nonnull readonly %t.val33, i32 0, i32 1, i32 1), !noalias !4411
+  call void @llvm.prefetch.p0(ptr nonnull %t.val33, i32 0, i32 1, i32 1), !noalias !4411
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %node.sroa.22.0, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i49 = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i49, 11376068507788127593
@@ -116087,7 +116087,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit116:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit100, %if.end104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i115
   store ptr null, ptr %message_.i101, align 8
   %this.val.i.i117 = load ptr, ptr %t, align 8, !noalias !4430
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i117, i32 0, i32 1, i32 1), !noalias !4430
+  call void @llvm.prefetch.p0(ptr %this.val.i.i117, i32 0, i32 1, i32 1), !noalias !4430
   %conv.i.i.i.i.i119 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 2) to i128
   %mul.i.i.i.i.i120 = mul nuw i128 %conv.i.i.i.i.i119, 11376068507788127593
   %shr.i.i.i.i.i121 = lshr i128 %mul.i.i.i.i.i120, 64
@@ -116273,7 +116273,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit204:         ; preds = %if.end133, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i203
   store ptr null, ptr %message_.i201, align 8
   %this.val7.i.i.i.i.i.i.i205 = load ptr, ptr %t, align 8, !noalias !4442
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i205, i32 0, i32 1, i32 1), !noalias !4442
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i205, i32 0, i32 1, i32 1), !noalias !4442
   %93 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4455
   %94 = ptrtoint ptr %this.val7.i.i.i.i.i.i.i205 to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i215 = lshr i64 %94, 12
@@ -116438,7 +116438,7 @@ _ZN7testing15AssertionResultD2Ev.exit268:         ; preds = %if.end161, %_ZNKSt1
   %t.val = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
   %t.val32 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i, align 8
   call void @llvm.assume(i1 %cmp.i.i154.not)
-  call void @llvm.prefetch.p0(ptr nonnull readonly %t.val, i32 0, i32 1, i32 1), !noalias !4458
+  call void @llvm.prefetch.p0(ptr nonnull %t.val, i32 0, i32 1, i32 1), !noalias !4458
   %add.i.i.i.i.i.i.i.i.i.i304 = add i64 %node.sroa.22.2443, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i305 = zext i64 %add.i.i.i.i.i.i.i.i.i.i304 to i128
   %mul.i.i.i.i.i.i.i.i.i.i306 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i305, 11376068507788127593
@@ -117500,7 +117500,7 @@ for.body:                                         ; preds = %_ZN4absl18container
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %tables, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tables, i8 0, i64 24, i1 false)
   %cmp8.not.i = icmp eq i32 %3, 0
   %4 = load ptr, ptr %reference, align 8
   %sub.ptr.rhs.cast.i6.i.i = ptrtoint ptr %4 to i64
@@ -117512,14 +117512,14 @@ for.body8:                                        ; preds = %invoke.cont, %_ZNSt
   %i.0143 = phi i32 [ 0, %invoke.cont ], [ %inc, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %cond.i12.i.i.i141142 = phi ptr [ null, %invoke.cont ], [ %37, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %ref.tmp9, align 8, !alias.scope !4536
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !4536
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !4536
   br i1 %cmp8.not.i, label %invoke.cont11, label %invoke.cont1.i
 
 invoke.cont1.i:                                   ; preds = %for.body8, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE6insertImTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_lENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EmTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPm0EEESt4pairINSB_8iteratorEbEOSF_.exit.i
   %agg.result.val110.i = phi i64 [ %agg.result.val1.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE6insertImTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_lENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EmTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPm0EEESt4pairINSB_8iteratorEbEOSF_.exit.i ], [ 0, %for.body8 ]
   %shr.i.i9.i = phi i64 [ %shr.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE6insertImTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_lENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EmTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPm0EEESt4pairINSB_8iteratorEbEOSF_.exit.i ], [ 0, %for.body8 ]
   %this.val7.i.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp9, align 8, !alias.scope !4536, !noalias !4539
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4539
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4539
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %shr.i.i9.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -117709,7 +117709,7 @@ invoke.cont11:                                    ; preds = %_ZN4absl18container
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont13.thread
 
 invoke.cont13.thread:                             ; preds = %invoke.cont11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %ref.tmp9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 32
@@ -117749,7 +117749,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN4abs
 _ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i13, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::container_internal::(anonymous namespace)::ValueTable", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %ref.tmp9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %for.body.i.i.i.i.i.i
@@ -117758,7 +117758,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i141142, %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4555)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !4558
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !4558
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !4560, !noalias !4555
   %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !4560, !noalias !4555
@@ -118163,7 +118163,7 @@ define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_115MakeSim
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %0 = getelementptr i8, ptr %agg.result, i64 24
   %cmp8.not = icmp eq i64 %size, 0
   br i1 %cmp8.not, label %nrvo.skipdtor, label %invoke.cont1.lr.ph
@@ -118176,7 +118176,7 @@ invoke.cont1:                                     ; preds = %invoke.cont1.lr.ph,
   %agg.result.val110 = phi i64 [ 0, %invoke.cont1.lr.ph ], [ %agg.result.val1, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE6insertImTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_lENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EmTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPm0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
   %shr.i.i9 = phi i64 [ 0, %invoke.cont1.lr.ph ], [ %shr.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE6insertImTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_lENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EmTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPm0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %agg.result, align 8, !noalias !4569
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4569
+  tail call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4569
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %shr.i.i9, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -118501,7 +118501,7 @@ entry:
   %trial = alloca %"class.std::vector.411", align 8
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp17 = alloca %"class.testing::internal::AssertHelper", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %garbage, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %garbage, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %t, i64 8
   %1 = getelementptr inbounds i8, ptr %t, i64 16
   %2 = getelementptr inbounds i8, ptr %t, i64 24
@@ -118627,7 +118627,7 @@ if.end:                                           ; preds = %land.rhs.i.i, %invo
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %t, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %t, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 32
@@ -118668,7 +118668,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN4abs
 _ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i12, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::container_internal::(anonymous namespace)::ValueTable", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %t, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %t, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %for.body.i.i.i.i.i.i
@@ -118677,7 +118677,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i7582, %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4585)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !4588
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !4588
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !4590, !noalias !4585
   %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !4590, !noalias !4585
@@ -118962,8 +118962,8 @@ entry:
   %ref.tmp14 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %table, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %table, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !4592
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !4592
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i, 64
@@ -119007,7 +119007,7 @@ invoke.cont:                                      ; preds = %while.body.i.i.i.i.
   %this.val5.i.i.i = phi ptr [ %this.val5.i.i.i.pre, %call40.i.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i.i ]
   %3 = phi i64 [ %.pre125, %call40.i.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i.i ]
   %this.val.i.i = phi ptr [ %this.val.i.i.pre, %call40.i.i.i.i.i.i.i.noexc ], [ poison, %while.body.i.i.i.i.i.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %4 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %4, 12
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i8.i.i.i.i.i.i.i
@@ -119056,7 +119056,7 @@ invoke.cont2:                                     ; preds = %for.body.i.i.i
   call void @llvm.assume(i1 %cmp.i.i12.i.i.i)
   %11 = ptrtoint ptr %add.ptr19.i.i.i.le to i64
   store i64 %11, ptr %old_ptr, align 8
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i.i, i32 0, i32 1, i32 1), !noalias !4605
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i.i, i32 0, i32 1, i32 1), !noalias !4605
   %conv.i.i.i.i.i.i.i.i.i.i10 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
   %mul.i.i.i.i.i.i.i.i.i.i11 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i10, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i12 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i11, 64
@@ -119130,7 +119130,7 @@ invoke.cont5:                                     ; preds = %for.body.i.i.i.i.i.
   %this.val5.i.i.i74 = phi ptr [ %this.val5.i.i.i74.pre, %call40.i.i.i.i.i.i.i.noexc61 ], [ %this.val5.i.i.i, %for.body.i.i.i.i.i.i.i30 ]
   %19 = phi i64 [ %.pre128, %call40.i.i.i.i.i.i.i.noexc61 ], [ %3, %for.body.i.i.i.i.i.i.i30 ]
   %this.val.i.i64 = phi ptr [ %this.val.i.i64.pre, %call40.i.i.i.i.i.i.i.noexc61 ], [ %this.val.i.i, %for.body.i.i.i.i.i.i.i30 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i64, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i64, i32 0, i32 1, i32 1)
   br label %while.body.i.i.i78
 
 while.body.i.i.i78:                               ; preds = %for.end.i.i.i95, %invoke.cont5
@@ -119639,7 +119639,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvRKN4absl18container_internal14HashtablezInfoEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %tables, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tables, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %tables, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %tables, i64 16
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 1) to i128
@@ -119667,7 +119667,7 @@ for.body:                                         ; preds = %_ZNSt8functionIFvRK
 if.then.i:                                        ; preds = %for.body
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %tables.val96786, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %tables.val96786, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i.i, i8 0, i64 24, i1 false)
   br label %invoke.cont5
 
 if.else.i:                                        ; preds = %for.body
@@ -119708,14 +119708,14 @@ _ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTabl
   %add.ptr.i.i = getelementptr inbounds %"struct.absl::container_internal::(anonymous namespace)::CustomAllocIntTable", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %add.ptr.i.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12.i.i7984, %_ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4621)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i, i64 32, i1 false), !alias.scope !4624
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i, i64 32, i1 false), !alias.scope !4624
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !4626, !noalias !4621
   %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !4626, !noalias !4621
@@ -119747,7 +119747,7 @@ invoke.cont5:                                     ; preds = %_ZNSt6vectorIN4absl
   %add.ptr19.i.i72 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %add.ptr19.i.i7385, %if.then.i ]
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %tables.val96786, %if.then.i ]
   %tables.val966 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 32
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4628
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4628
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %8 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4641
   %9 = ptrtoint ptr %this.val7.i.i.i.i.i.i.i to i64
@@ -120989,14 +120989,14 @@ entry:
   %ref.tmp41 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !4650
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4650
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4650
   %add.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -121217,7 +121217,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i24, %cleanup.cont.critedge
   store ptr null, ptr %message_.i22, align 8
   %this.val.i26 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i26, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i26, i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
@@ -121282,7 +121282,7 @@ if.end34.i.i:                                     ; preds = %for.end.i.i
 
 invoke.cont22:                                    ; preds = %for.end.i.i, %if.then.i.i27
   %call25.pn.i.i = phi ptr [ %add.ptr19.i.i.le, %if.then.i.i27 ], [ undef, %for.end.i.i ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i26, i32 0, i32 1, i32 1), !noalias !4672
+  call void @llvm.prefetch.p0(ptr %this.val.i26, i32 0, i32 1, i32 1), !noalias !4672
   %conv.i.i.i.i.i.i.i.i.i.i32 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 100) to i128
   %mul.i.i.i.i.i.i.i.i.i.i33 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i32, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i34 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i33, 64
@@ -121355,7 +121355,7 @@ invoke.cont26:                                    ; preds = %for.body.i.i.i.i.i.
   %this.val6.i.i.i.i.i.i.i101 = phi ptr [ %this.val6.i.i.i.i.i.i.i101.pre, %call40.i.i.i.i.i.i.i.noexc83 ], [ %this.val5.i.i, %for.body.i.i.i.i.i.i.i52 ]
   %39 = phi i64 [ %.pre190, %call40.i.i.i.i.i.i.i.noexc83 ], [ %23, %for.body.i.i.i.i.i.i.i52 ]
   %this.val7.i.i.i.i.i.i.i86 = phi ptr [ %this.val7.i.i.i.i.i.i.i86.pre, %call40.i.i.i.i.i.i.i.noexc83 ], [ %this.val.i26, %for.body.i.i.i.i.i.i.i52 ]
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i86, i32 0, i32 1, i32 1), !noalias !4685
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i86, i32 0, i32 1, i32 1), !noalias !4685
   %conv.i.i.i.i.i.i.i.i.i.i89 = zext i64 add (i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), i64 200) to i128
   %mul.i.i.i.i.i.i.i.i.i.i90 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i89, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i91 = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i90, 64
@@ -121656,7 +121656,7 @@ invoke.cont:
   store i8 0, ptr %frozen, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %t, i64 32
   store ptr %frozen, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %t, i64 24
@@ -121693,7 +121693,7 @@ for.cond5.preheader:                              ; preds = %invoke.cont4, %for.
 for.body7:                                        ; preds = %for.cond5.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond5.preheader ], [ %indvars.iv.next, %for.inc ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !4706
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4706
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4706
   %3 = load i64, ptr %2, align 8, !noalias !4719
   %4 = ptrtoint ptr %this.val7.i.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %4, 12
@@ -121875,7 +121875,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ;
 for.body12:                                       ; preds = %for.inc, %for.inc16
   %indvars.iv276 = phi i64 [ %indvars.iv.next277, %for.inc16 ], [ 30, %for.inc ]
   %this.val.i.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %26 = load i64, ptr %2, align 8, !noalias !4724
   %27 = ptrtoint ptr %this.val.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %27, 12
@@ -123740,14 +123740,14 @@ entry:
   store ptr %instances2.i, ptr %instance_count_.i.i62.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %c1.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %c1.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %allocator1.i, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i63.i = getelementptr inbounds i8, ptr %c2.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i63.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i63.i, i8 0, i64 24, i1 false)
   %1 = getelementptr inbounds i8, ptr %c2.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %allocator2.i, i64 16, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c1.i, i64 16
   %2 = getelementptr inbounds i8, ptr %c1.i, i64 24
   %instance_count_.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c1.i, i64 40
@@ -123756,7 +123756,7 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %this.val6.i.i.i.i.i.i.i.i = load ptr, ptr %c1.i, align 8, !noalias !4745
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4745
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4745
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -124276,9 +124276,9 @@ _ZN7testing15AssertionResultD2Ev.exit125.i:       ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tmp.i.i)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %tmp.i.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i, i8 0, i64 24, i1 false)
   %65 = getelementptr inbounds i8, ptr %tmp.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %that.val.i.i.i = load i64, ptr %2, align 8
   %shr.i.i.i.i.i = lshr i64 %that.val.i.i.i, 1
   %cmp.i.i126.i = icmp ult i64 %that.val.i.i.i, 2
@@ -124879,14 +124879,14 @@ if.then.i.i.i.i.i.i248.i:                         ; preds = %_ZN4absl18container
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEED2Ev.exit260.i: ; preds = %if.then.i.i.i.i.i.i248.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE13destroy_slotsEv.exit.i.i240.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEED2Ev.exit.i
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1124.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i261.i = getelementptr inbounds i8, ptr %c1124.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i261.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i261.i, i8 0, i64 24, i1 false)
   %136 = getelementptr inbounds i8, ptr %c1124.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %136, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %allocator1.i, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2125.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i262.i = getelementptr inbounds i8, ptr %c2125.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i262.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i262.i, i8 0, i64 24, i1 false)
   %137 = getelementptr inbounds i8, ptr %c2125.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %137, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %allocator2.i, i64 16, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i272.i = getelementptr inbounds i8, ptr %c1124.i, i64 16
   %instance_count_.i.i.i.i.i.i.i.i.i.i.i.i.i303.i = getelementptr inbounds i8, ptr %c1124.i, i64 40
   br label %for.body131.i
@@ -124894,7 +124894,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 for.body131.i:                                    ; preds = %for.inc135.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEED2Ev.exit260.i
   %indvars.iv795.i = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEED2Ev.exit260.i ], [ %indvars.iv.next796.i, %for.inc135.i ]
   %this.val6.i.i.i.i.i.i.i264.i = load ptr, ptr %c1124.i, align 8, !noalias !4793
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i264.i, i32 0, i32 1, i32 1), !noalias !4793
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i264.i, i32 0, i32 1, i32 1), !noalias !4793
   %add.i.i.i.i.i.i.i.i.i.i266.i = add i64 %indvars.iv795.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i267.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i266.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i268.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i267.i, 11376068507788127593
@@ -125331,9 +125331,9 @@ _ZN7testing15AssertionResultD2Ev.exit405.i:       ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tmp.i406.i)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %tmp.i406.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i408.i = getelementptr inbounds i8, ptr %tmp.i406.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i408.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i408.i, i8 0, i64 24, i1 false)
   %186 = getelementptr inbounds i8, ptr %tmp.i406.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %186, ptr noundef nonnull readonly align 8 dereferenceable(16) %137, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false)
   %187 = getelementptr inbounds i8, ptr %c1124.i, i64 24
   %that.val.i.i409.i = load i64, ptr %187, align 8
   %shr.i.i.i.i410.i = lshr i64 %that.val.i.i409.i, 1
@@ -126548,12 +126548,12 @@ _ZN4absl18container_internal30TestCopyAssignAllocPropagationINS0_12_GLOBAL__N_11
   store ptr %instances1.i3, ptr %instance_count_.i.i.i24, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1.i7, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i25 = getelementptr inbounds i8, ptr %c1.i7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i25, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i25, i8 0, i64 24, i1 false)
   %303 = getelementptr inbounds i8, ptr %c1.i7, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %303, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef nonnull align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2.i8, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i78.i = getelementptr inbounds i8, ptr %c2.i8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i78.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i78.i, i8 0, i64 24, i1 false)
   %304 = getelementptr inbounds i8, ptr %c2.i8, i64 32
   store ptr %bytes2.i4, ptr %304, align 8
   %allocator2.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %c2.i8, i64 40
@@ -126568,7 +126568,7 @@ _ZN4absl18container_internal30TestCopyAssignAllocPropagationINS0_12_GLOBAL__N_11
 for.body.i27:                                     ; preds = %for.inc.i88, %_ZN4absl18container_internal30TestCopyAssignAllocPropagationINS0_12_GLOBAL__N_115RawHashSetAllocEEEvv.exit
   %indvars.iv.i28 = phi i64 [ 0, %_ZN4absl18container_internal30TestCopyAssignAllocPropagationINS0_12_GLOBAL__N_115RawHashSetAllocEEEvv.exit ], [ %indvars.iv.next.i89, %for.inc.i88 ]
   %this.val6.i.i.i.i.i.i.i.i29 = load ptr, ptr %c1.i7, align 8, !noalias !4863
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i.i29, i32 0, i32 1, i32 1), !noalias !4863
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i.i29, i32 0, i32 1, i32 1), !noalias !4863
   %add.i.i.i.i.i.i.i.i.i.i.i30 = add i64 %indvars.iv.i28, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i31 = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i30 to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i32 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i31, 11376068507788127593
@@ -127754,14 +127754,14 @@ if.then.i.i.i.i.i.i252.i:                         ; preds = %_ZN4absl18container
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEED2Ev.exit264.i: ; preds = %if.then.i.i.i.i.i.i252.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE13destroy_slotsEv.exit.i.i244.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEED2Ev.exit.i
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1122.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i265.i = getelementptr inbounds i8, ptr %c1122.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i265.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i265.i, i8 0, i64 24, i1 false)
   %445 = getelementptr inbounds i8, ptr %c1122.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %445, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %445, ptr noundef nonnull align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2123.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i266.i = getelementptr inbounds i8, ptr %c2123.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i266.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i266.i, i8 0, i64 24, i1 false)
   %446 = getelementptr inbounds i8, ptr %c2123.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %446, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %446, ptr noundef nonnull align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i276.i = getelementptr inbounds i8, ptr %c1122.i, i64 16
   %instance_count_.i.i.i.i.i.i.i.i.i.i.i.i.i307.i = getelementptr inbounds i8, ptr %c1122.i, i64 40
   br label %for.body129.i
@@ -127769,7 +127769,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 for.body129.i:                                    ; preds = %for.inc133.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEED2Ev.exit264.i
   %indvars.iv894.i = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEED2Ev.exit264.i ], [ %indvars.iv.next895.i, %for.inc133.i ]
   %this.val6.i.i.i.i.i.i.i268.i = load ptr, ptr %c1122.i, align 8, !noalias !4912
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i268.i, i32 0, i32 1, i32 1), !noalias !4912
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i268.i, i32 0, i32 1, i32 1), !noalias !4912
   %add.i.i.i.i.i.i.i.i.i.i270.i = add i64 %indvars.iv894.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i271.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i270.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i272.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i271.i, 11376068507788127593
@@ -128653,12 +128653,12 @@ if.then.i.i.i.i.i.i548.i:                         ; preds = %_ZN4absl18container
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit560.i: ; preds = %if.then.i.i.i.i.i.i548.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE13destroy_slotsEv.exit.i.i540.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit.i205
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1263.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i561.i = getelementptr inbounds i8, ptr %c1263.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i561.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i561.i, i8 0, i64 24, i1 false)
   %543 = getelementptr inbounds i8, ptr %c1263.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %543, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %543, ptr noundef nonnull align 8 dereferenceable(16) %allocator1.i6, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2264.i, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i562.i = getelementptr inbounds i8, ptr %c2264.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i562.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i562.i, i8 0, i64 24, i1 false)
   %544 = getelementptr inbounds i8, ptr %c2264.i, i64 32
   store ptr %bytes2.i4, ptr %544, align 8
   %allocator2.sroa.3.0..sroa_idx874.i = getelementptr inbounds i8, ptr %c2264.i, i64 40
@@ -128670,7 +128670,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 for.body270.i:                                    ; preds = %for.inc274.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit560.i
   %indvars.iv898.i = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit560.i ], [ %indvars.iv.next899.i, %for.inc274.i ]
   %this.val6.i.i.i.i.i.i.i564.i = load ptr, ptr %c1263.i, align 8, !noalias !4959
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i564.i, i32 0, i32 1, i32 1), !noalias !4959
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i564.i, i32 0, i32 1, i32 1), !noalias !4959
   %add.i.i.i.i.i.i.i.i.i.i566.i = add i64 %indvars.iv898.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i567.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i566.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i568.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i567.i, 11376068507788127593
@@ -129587,14 +129587,14 @@ entry:
   store ptr %instances2, ptr %instance_count_.i.i87, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %c1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %c1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i88 = getelementptr inbounds i8, ptr %c2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i88, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i88, i8 0, i64 24, i1 false)
   %1 = getelementptr inbounds i8, ptr %c2, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %allocator2, i64 16, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c1, i64 16
   %2 = getelementptr inbounds i8, ptr %c1, i64 24
   %old_capacity_.i.i = getelementptr inbounds i8, ptr %resize_helper.i, i64 8
@@ -129605,7 +129605,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr %c1, align 8, !noalias !4996
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4996
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !4996
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -130789,14 +130789,14 @@ if.then.i.i.i.i.i.i266:                           ; preds = %_ZN4absl18container
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEED2Ev.exit278: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEED2Ev.exit, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE13destroy_slotsEv.exit.i.i258, %if.then.i.i.i.i.i.i266
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1124, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i279 = getelementptr inbounds i8, ptr %c1124, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i279, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i279, i8 0, i64 24, i1 false)
   %141 = getelementptr inbounds i8, ptr %c1124, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %141, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2125, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i280 = getelementptr inbounds i8, ptr %c2125, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i280, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i280, i8 0, i64 24, i1 false)
   %142 = getelementptr inbounds i8, ptr %c2125, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %142, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i290 = getelementptr inbounds i8, ptr %c1124, i64 16
   %instance_count_.i.i.i.i.i.i.i.i.i.i.i.i.i321 = getelementptr inbounds i8, ptr %c1124, i64 40
   br label %for.body131
@@ -130804,7 +130804,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 for.body131:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEED2Ev.exit278, %for.inc135
   %indvars.iv1020 = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEED2Ev.exit278 ], [ %indvars.iv.next1021, %for.inc135 ]
   %this.val6.i.i.i.i.i.i.i282 = load ptr, ptr %c1124, align 8, !noalias !5045
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i282, i32 0, i32 1, i32 1), !noalias !5045
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i282, i32 0, i32 1, i32 1), !noalias !5045
   %add.i.i.i.i.i.i.i.i.i.i284 = add i64 %indvars.iv1020, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i285 = zext i64 %add.i.i.i.i.i.i.i.i.i.i284 to i128
   %mul.i.i.i.i.i.i.i.i.i.i286 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i285, 11376068507788127593
@@ -131690,14 +131690,14 @@ if.then.i.i.i.i.i.i561:                           ; preds = %_ZN4absl18container
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit573: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE13destroy_slotsEv.exit.i.i553, %if.then.i.i.i.i.i.i561
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c1266, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i574 = getelementptr inbounds i8, ptr %c1266, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i574, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i574, i8 0, i64 24, i1 false)
   %240 = getelementptr inbounds i8, ptr %c1266, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %240, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, ptr noundef nonnull align 8 dereferenceable(16) %allocator1, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c2267, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i575 = getelementptr inbounds i8, ptr %c2267, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i575, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i575, i8 0, i64 24, i1 false)
   %241 = getelementptr inbounds i8, ptr %c2267, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %241, ptr noundef nonnull readonly align 8 dereferenceable(16) %allocator2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %241, ptr noundef nonnull align 8 dereferenceable(16) %allocator2, i64 16, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i585 = getelementptr inbounds i8, ptr %c1266, i64 16
   %instance_count_.i.i.i.i.i.i.i.i.i.i.i.i.i618 = getelementptr inbounds i8, ptr %c1266, i64 40
   br label %for.body273
@@ -131705,7 +131705,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 for.body273:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit573, %for.inc277
   %indvars.iv1024 = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev.exit573 ], [ %indvars.iv.next1025, %for.inc277 ]
   %this.val6.i.i.i.i.i.i.i577 = load ptr, ptr %c1266, align 8, !noalias !5092
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i577, i32 0, i32 1, i32 1), !noalias !5092
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i577, i32 0, i32 1, i32 1), !noalias !5092
   %add.i.i.i.i.i.i.i.i.i.i579 = add i64 %indvars.iv1024, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i580 = zext i64 %add.i.i.i.i.i.i.i.i.i.i579 to i128
   %mul.i.i.i.i.i.i.i.i.i.i581 = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i580, 11376068507788127593
@@ -134818,7 +134818,7 @@ for.body.i.i:                                     ; preds = %while.end.i.i.i.i, 
   %it.sroa.0.032.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.lr.ph.i.i ], [ %it.sroa.0.1.i.i, %while.end.i.i.i.i ]
   %arg.val.i.i.i.i.i.i.i = load i64, ptr %it.sroa.6.033.i.i, align 8, !noalias !5207
   %this.val6.i.i.i.i.i.i.i.i.i = load ptr, ptr %this, align 8, !noalias !5218
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5218
+  tail call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5218
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %arg.val.i.i.i.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -138375,8 +138375,8 @@ _ZN4absl18container_internal12_GLOBAL__N_119CountedHashIntTableD2Ev.exit: ; pred
   store ptr null, ptr %message_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t17, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i42 = getelementptr inbounds i8, ptr %t17, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i42, i8 0, i64 24, i1 false)
-  call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5370
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i42, i8 0, i64 24, i1 false)
+  call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5370
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t17, i64 32
   store i32 1, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !noalias !5370
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t17, i64 16
@@ -138503,7 +138503,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %if.end42, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i77
   store ptr null, ptr %message_.i75, align 8
   %this.val.i.i = load ptr, ptr %t17, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %21 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %inc.i.i.i = add nsw i32 %21, 1
   store i32 %inc.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
@@ -138692,8 +138692,8 @@ if.end.i.i.i110:                                  ; preds = %_ZN7testing15Assert
 _ZN4absl18container_internal12_GLOBAL__N_119CountedHashIntTableD2Ev.exit115: ; preds = %_ZN7testing15AssertionResultD2Ev.exit107, %if.end.i.i.i110
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t71, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i116 = getelementptr inbounds i8, ptr %t71, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i116, i8 0, i64 24, i1 false)
-  call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5387
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i116, i8 0, i64 24, i1 false)
+  call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5387
   %add.ptr.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %t71, i64 32
   store i32 1, ptr %add.ptr.i.i.i.i.i.i.i.i.i118, align 8, !noalias !5387
   %capacity_.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %t71, i64 16
@@ -138836,7 +138836,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit206:         ; preds = %if.end97, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i205
   store ptr null, ptr %message_.i203, align 8
   %this.val.i.i207 = load ptr, ptr %t71, align 8, !noalias !5400
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i.i207, i32 0, i32 1, i32 1), !noalias !5400
+  call void @llvm.prefetch.p0(ptr %this.val.i.i207, i32 0, i32 1, i32 1), !noalias !5400
   %56 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i118, align 8, !noalias !5400
   %inc.i.i.i209 = add nsw i32 %56, 1
   store i32 %inc.i.i.i209, ptr %add.ptr.i.i.i.i.i.i.i.i.i118, align 8, !noalias !5400
@@ -139038,7 +139038,7 @@ _ZN7testing15AssertionResultD2Ev.exit276:         ; preds = %if.end123, %_ZNKSt1
 
 if.end.i:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit276
   %this.val7.i.i.i.i.i.i = load ptr, ptr %t71, align 8, !noalias !5409
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5409
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5409
   %inc.i.i.i.i.i.i.i = add nsw i32 %t71.val34.pre622, 1
   store i32 %inc.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i118, align 8, !noalias !5409
   %sext.i.i.i.i.i.i = shl i64 %node.sroa.12.0, 32
@@ -139235,8 +139235,8 @@ if.end.i.i.i317:                                  ; preds = %_ZN7testing15Assert
 _ZN4absl18container_internal12_GLOBAL__N_119CountedHashIntTableD2Ev.exit322: ; preds = %_ZN7testing15AssertionResultD2Ev.exit312, %if.end.i.i.i317
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t151, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i323 = getelementptr inbounds i8, ptr %t151, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i323, i8 0, i64 24, i1 false)
-  call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5424
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i323, i8 0, i64 24, i1 false)
+  call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5424
   %add.ptr.i.i.i.i.i.i.i.i325 = getelementptr inbounds i8, ptr %t151, i64 32
   store i32 1, ptr %add.ptr.i.i.i.i.i.i.i.i325, align 8, !noalias !5424
   %capacity_.i.i.i.i.i.i.i.i328 = getelementptr inbounds i8, ptr %t151, i64 16
@@ -139395,8 +139395,8 @@ if.end.i.i.i403:                                  ; preds = %_ZN7testing15Assert
 _ZN4absl18container_internal12_GLOBAL__N_119CountedHashIntTableD2Ev.exit408: ; preds = %_ZN7testing15AssertionResultD2Ev.exit400, %if.end.i.i.i403
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %src, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i409 = getelementptr inbounds i8, ptr %src, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i409, i8 0, i64 24, i1 false)
-  call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5435
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i409, i8 0, i64 24, i1 false)
+  call void @llvm.prefetch.p0(ptr nonnull getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1), !noalias !5435
   %add.ptr.i.i.i.i.i.i.i.i.i411 = getelementptr inbounds i8, ptr %src, i64 32
   store i32 1, ptr %add.ptr.i.i.i.i.i.i.i.i.i411, align 8, !noalias !5435
   %capacity_.i.i.i.i.i.i.i.i.i414 = getelementptr inbounds i8, ptr %src, i64 16
@@ -139411,7 +139411,7 @@ invoke.cont183:                                   ; preds = %_ZN4absl18container
   %src.val4.i.pre = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i409, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %dst, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i465 = getelementptr inbounds i8, ptr %dst, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i465, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.sroa.3.0.this.sroa_idx.i.i465, i8 0, i64 28, i1 false)
   %116 = load i8, ptr %src.val.i.pre, align 1
   %cmp.i3.i.i.i = icmp slt i8 %116, -1
   br i1 %cmp.i3.i.i.i, label %while.body.i.i.i512, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE5beginEv.exit.i
@@ -139480,7 +139480,7 @@ _ZSt4nextIN4absl18container_internal12raw_hash_setINS1_12_GLOBAL__N_111ValuePoli
   %.lcssa.i.i.i.i.i.i = phi i8 [ %123, %for.body.i ], [ %129, %while.body.i.i.i.i.i.i508 ]
   %cmp.i.i.i.i.i9.i = icmp eq i8 %.lcssa.i.i.i.i.i.i, -1
   %this.val7.i.i.i.i.i.i469 = load ptr, ptr %dst, align 8, !noalias !5449
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i469, i32 0, i32 1, i32 1), !noalias !5449
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i469, i32 0, i32 1, i32 1), !noalias !5449
   %130 = load i64, ptr %it.sroa.5.025.i, align 8, !noalias !5449
   %131 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i467, align 8, !noalias !5449
   %inc.i.i.i.i.i.i.i470 = add nsw i32 %131, 1
@@ -140421,7 +140421,7 @@ entry:
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %0 = getelementptr inbounds i8, ptr %t, i64 24
   %message_.i23 = getelementptr inbounds i8, ptr %gtest_ar, i64 8
@@ -140436,7 +140436,7 @@ for.cond.loopexit:                                ; preds = %_ZN7testing15Assert
 for.body:                                         ; preds = %entry, %for.cond.loopexit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond.loopexit ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !5464
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5464
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5464
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
@@ -140638,7 +140638,7 @@ for.body20:                                       ; preds = %cleanup.cont, %_ZN7
   %inc156 = phi i32 [ 0, %cleanup.cont ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit118 ]
   %conv = zext nneg i32 %inc156 to i64
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %add.i.i.i.i = add i64 %conv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
@@ -140797,7 +140797,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %invoke.cont29.thread, %if.end50, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i44
   store ptr null, ptr %message_.i30, align 8
   %this.val.i46 = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i46, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i46, i32 0, i32 1, i32 1)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar52)
           to label %invoke.cont60 unwind label %lpad.loopexit
 
@@ -141006,7 +141006,7 @@ entry:
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   store i32 0, ptr %i, align 4
   %0 = getelementptr inbounds i8, ptr %t, i64 24
   %message_.i23 = getelementptr inbounds i8, ptr %gtest_ar, i64 8
@@ -141017,7 +141017,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc78
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc78 ]
-  %call.i.i.i.i.i.i15 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 4 dereferenceable(4) %i)
+  %call.i.i.i.i.i.i15 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 4 dereferenceable(4) %i)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body
@@ -141166,7 +141166,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   %inc146 = phi i32 [ %inc, %_ZN7testing15AssertionResultD2Ev.exit118 ], [ 0, %for.body20.preheader ]
   %conv = zext nneg i32 %inc146 to i64
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %add.i.i.i.i = add i64 %conv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
@@ -141325,7 +141325,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %invoke.cont29.thread, %if.end50, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i44
   store ptr null, ptr %message_.i30, align 8
   %this.val.i46 = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i46, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i46, i32 0, i32 1, i32 1)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar52)
           to label %invoke.cont60 unwind label %lpad.loopexit
 
@@ -141479,7 +141479,7 @@ define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setIN
 entry:
   %tmp.i.i.i = alloca [8 x i8], align 8
   %this.val6 = load ptr, ptr %this, align 8
-  tail call void @llvm.prefetch.p0(ptr readonly %this.val6, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %this.val6, i32 0, i32 1, i32 1)
   %0 = load i32, ptr %key, align 4
   %conv = sext i32 %0 to i64
   %add.i.i.i = add i64 %conv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -141896,7 +141896,7 @@ entry:
   %ref.tmp70 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %0 = getelementptr inbounds i8, ptr %t, i64 24
@@ -141933,7 +141933,7 @@ for.body9:                                        ; preds = %for.body4, %for.inc
 for.body12:                                       ; preds = %for.body9, %for.inc
   %i.0171 = phi i64 [ %inc, %for.inc ], [ 0, %for.body9 ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !5508
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5508
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5508
   %sext153 = shl i64 %i.0171, 32
   %conv.i.i.i.i.i.i.i = ashr exact i64 %sext153, 32
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -142180,7 +142180,7 @@ for.body20:                                       ; preds = %if.end, %_ZN7testin
   %i17.0173 = phi i64 [ %inc82, %_ZN7testing15AssertionResultD2Ev.exit117 ], [ 0, %if.end ]
   %conv24 = trunc nuw nsw i64 %i17.0173 to i32
   %this.val.i39 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i39, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i39, i32 0, i32 1, i32 1)
   %add.i.i.i.i = add i64 %i17.0173, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
@@ -142334,7 +142334,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont31.thread, %if.end51, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val.i47 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i47, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i47, i32 0, i32 1, i32 1)
   %47 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !5528
   %48 = ptrtoint ptr %this.val.i47 to i64
   %shr.i.i.i.i.i.i56 = lshr i64 %48, 12
@@ -142639,7 +142639,7 @@ entry:
   %ref.tmp70 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp5, i64 1
   %0 = getelementptr inbounds i8, ptr %t, i64 24
   %old_capacity_.i.i141 = getelementptr inbounds i8, ptr %resize_helper.i138, i64 8
@@ -142690,7 +142690,7 @@ for.body12:                                       ; preds = %for.body9, %for.inc
   %i.0276 = phi i64 [ %inc, %for.inc ], [ 0, %for.body9 ]
   %conv = trunc nuw nsw i64 %i.0276 to i32
   store i32 %conv, ptr %ref.tmp13, align 4
-  %call.i.i.i.i.i.i28 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 4 dereferenceable(4) %ref.tmp13)
+  %call.i.i.i.i.i.i28 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body12
@@ -143113,7 +143113,7 @@ for.body20:                                       ; preds = %if.end, %_ZN7testin
   %i17.0278 = phi i64 [ %inc82, %_ZN7testing15AssertionResultD2Ev.exit117 ], [ 0, %if.end ]
   %conv24 = trunc nuw nsw i64 %i17.0278 to i32
   %this.val.i39 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i39, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i39, i32 0, i32 1, i32 1)
   %add.i.i.i.i = add i64 %i17.0278, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
@@ -143267,7 +143267,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont31.thread, %if.end51, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val.i47 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i47, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i47, i32 0, i32 1, i32 1)
   %64 = load i64, ptr %capacity_.i.i.i142, align 8, !noalias !5551
   %65 = ptrtoint ptr %this.val.i47 to i64
   %shr.i.i.i.i.i.i56 = lshr i64 %65, 12
@@ -143562,7 +143562,7 @@ entry:
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %capacity_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %0 = getelementptr inbounds i8, ptr %t, i64 24
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -143584,7 +143584,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
 for.body7:                                        ; preds = %for.body4, %for.inc
   %i.0160 = phi i64 [ %inc, %for.inc ], [ 0, %for.body4 ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !5557
-  call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5557
+  call void @llvm.prefetch.p0(ptr %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5557
   %sext142 = shl i64 %i.0160, 32
   %conv.i.i.i.i.i.i.i = ashr exact i64 %sext142, 32
   %add.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -143819,7 +143819,7 @@ for.body13:                                       ; preds = %_ZN4absl18container
   %sext = shl i64 %i10.0162, 32
   %conv18 = ashr exact i64 %sext, 32
   %this.val.i25 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i25, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i25, i32 0, i32 1, i32 1)
   %add.i.i.i.i = add nuw nsw i64 %conv18, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
@@ -143973,7 +143973,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont24.thread, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val.i33 = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i33, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i33, i32 0, i32 1, i32 1)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont52 unwind label %lpad.loopexit
 
@@ -144211,7 +144211,7 @@ entry:
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %t, i64 24
   %.phi.trans.insert11.i = getelementptr inbounds i8, ptr %t, i64 16
   %old_capacity_.i.i = getelementptr inbounds i8, ptr %resize_helper.i, i64 8
@@ -144236,7 +144236,7 @@ for.body7:                                        ; preds = %for.body4, %for.inc
   %i.0169 = phi i64 [ %inc, %for.inc ], [ 0, %for.body4 ]
   %conv = trunc i64 %i.0169 to i32
   store i32 %conv, ptr %ref.tmp8, align 4
-  %call.i.i.i.i.i.i22 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 4 dereferenceable(4) %ref.tmp8)
+  %call.i.i.i.i.i.i22 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body7
@@ -144488,7 +144488,7 @@ for.body13:                                       ; preds = %_ZN4absl18container
   %sext = shl i64 %i10.0171, 32
   %conv18 = ashr exact i64 %sext, 32
   %this.val.i25 = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i25, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i25, i32 0, i32 1, i32 1)
   %add.i.i.i.i = add nuw nsw i64 %conv18, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 11376068507788127593
@@ -144642,7 +144642,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont24.thread, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   %this.val.i33 = load ptr, ptr %t, align 8, !nonnull !1141, !noundef !1141
-  call void @llvm.prefetch.p0(ptr nonnull readonly %this.val.i33, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr nonnull %this.val.i33, i32 0, i32 1, i32 1)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont52 unwind label %lpad.loopexit
 
@@ -144896,7 +144896,7 @@ entry:
   %ref.tmp120 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %verifier, i64 48
   store ptr %_M_single_bucket.i.i, ptr %verifier, align 8
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %verifier, i64 8
@@ -144928,7 +144928,7 @@ invoke.cont:                                      ; preds = %for.body
   %conv = sub i8 0, %3
   store i8 %conv, ptr %u, align 1
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i.i = zext i8 %conv to i64
   %add.i.i.i.i = add i64 %conv.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
@@ -145182,7 +145182,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i43, align 8
   %arg.val.i.i.i.i.i = load i8, ptr %u, align 1, !noalias !5606
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !5617
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5617
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5617
   %conv.i.i.i.i.i.i.i.i.i = zext i8 %arg.val.i.i.i.i.i to i64
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
@@ -147291,7 +147291,7 @@ entry:
   %ref.tmp120 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %verifier, i64 48
   store ptr %_M_single_bucket.i.i, ptr %verifier, align 8
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %verifier, i64 8
@@ -147323,7 +147323,7 @@ invoke.cont:                                      ; preds = %for.body
   %conv = sub i8 0, %3
   store i8 %conv, ptr %u, align 1
   %this.val.i = load ptr, ptr %t, align 8
-  call void @llvm.prefetch.p0(ptr readonly %this.val.i, i32 0, i32 1, i32 1)
+  call void @llvm.prefetch.p0(ptr %this.val.i, i32 0, i32 1, i32 1)
   %conv.i.i.i = zext i8 %conv to i64
   %add.i.i.i.i = add i64 %conv.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
@@ -147577,7 +147577,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i43, align 8
   %arg.val.i.i.i.i.i = load i8, ptr %u, align 1, !noalias !5670
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !5681
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5681
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !5681
   %conv.i.i.i.i.i.i.i.i.i = zext i8 %arg.val.i.i.i.i.i to i64
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128

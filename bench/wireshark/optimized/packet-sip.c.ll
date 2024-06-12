@@ -3139,7 +3139,7 @@ sip_is_known_request.exit:                        ; preds = %157
   %184 = add i32 %183, %.015941597
   store i32 0, ptr %15, align 4
   %185 = getelementptr inbounds i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %185, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %185, i8 -1, i64 56, i1 false)
   %186 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %184, i32 noundef %37, i8 noundef zeroext 32) #15
   %187 = add i32 %186, -1
   %188 = getelementptr inbounds i8, ptr %15, i64 16
@@ -3563,7 +3563,7 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
   %393 = load i32, ptr @ett_sip_element, align 4
   %394 = call ptr @proto_item_add_subtree(ptr noundef %392, i32 noundef %393) #15
   store i32 0, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %395 = add i32 %.11319, 2
   %396 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %395, ptr noundef nonnull %22)
   %.not1459 = icmp eq i32 %396, -1
@@ -3656,7 +3656,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %439 = load i32, ptr @ett_sip_element, align 4
   %440 = call ptr @proto_item_add_subtree(ptr noundef %438, i32 noundef %439) #15
   store i32 0, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %441 = add i32 %.11319, 2
   %442 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %441, ptr noundef nonnull %22)
   %.not1457 = icmp eq i32 %442, -1
@@ -3740,7 +3740,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %484 = load i32, ptr @ett_sip_element, align 4
   %485 = call ptr @proto_item_add_subtree(ptr noundef %483, i32 noundef %484) #15
   store i32 0, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %486 = add i32 %.11319, 2
   %487 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %486, ptr noundef nonnull %22)
   %.not1456 = icmp eq i32 %487, -1
@@ -3816,7 +3816,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %527 = load i32, ptr @ett_sip_element, align 4
   %528 = call ptr @proto_item_add_subtree(ptr noundef %526, i32 noundef %527) #15
   store i32 0, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %529 = add i32 %.11319, 2
   %530 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %529, ptr noundef nonnull %22)
   %.not1449 = icmp eq i32 %530, -1
@@ -3838,7 +3838,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %539 = load i32, ptr @ett_sip_element, align 4
   %540 = call ptr @proto_item_add_subtree(ptr noundef %538, i32 noundef %539) #15
   store i32 0, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %541 = add i32 %.11319, 2
   %542 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %360, i32 noundef %541, ptr noundef nonnull %22)
   %.not1447 = icmp eq i32 %542, -1
@@ -3860,7 +3860,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %551 = load i32, ptr @ett_sip_element, align 4
   %552 = call ptr @proto_item_add_subtree(ptr noundef %550, i32 noundef %551) #15
   store i32 0, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %299, i8 -1, i64 56, i1 false)
   %553 = add i32 %.11319, 2
   %554 = call fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %360, i32 noundef %553, ptr noundef nonnull %22)
   %.not1443 = icmp eq i32 %554, -1
@@ -4368,7 +4368,7 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   %.115821829 = phi i8 [ %.21583, %814 ], [ %.015811879, %.preheader1650 ]
   %.115861828 = phi i8 [ %.6, %814 ], [ %.015851878, %.preheader1650 ]
   store i32 0, ptr %11, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %295, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %295, i8 -1, i64 56, i1 false)
   %821 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %819, i32 noundef %820, ptr noundef nonnull %11)
   %822 = icmp eq i32 %821, -1
   br i1 %822, label %dissect_sip_contact_item.exit.thread, label %823
@@ -5425,7 +5425,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1369:                                             ; preds = %1365
   %1370 = getelementptr inbounds i8, ptr %1361, i64 8
   %1371 = load ptr, ptr %1370, align 8
-  %1372 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1304, ptr noundef nonnull dereferenceable(1) %1371) #16
+  %1372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1304, ptr noundef nonnull dereferenceable(1) %1371) #16
   %1373 = icmp eq i32 %1372, 0
   br i1 %1373, label %1374, label %1377
 
@@ -7137,7 +7137,7 @@ define internal fastcc void @dissect_sip_route_header(ptr noundef %0, ptr nounde
   %14 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.042, i32 noundef %13, i8 noundef zeroext 44) #15
   %.not39 = icmp eq i32 %14, -1
   store i32 0, ptr %7, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(56) %10, i8 -1, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %10, i8 -1, i64 56, i1 false)
   br i1 %.not39, label %22, label %15
 
 15:                                               ; preds = %11
@@ -8383,7 +8383,7 @@ define internal fastcc i32 @sip_is_packet_resend(ptr noundef %0, ptr noundef %1,
   %78 = load i32, ptr %32, align 8
   %79 = load i32, ptr %33, align 4
   %80 = load ptr, ptr %34, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   store i32 %78, ptr %77, align 8
   %81 = icmp eq i32 %79, 0
   br i1 %81, label %copy_address_wmem.exit, label %82
@@ -8405,7 +8405,7 @@ copy_address_wmem.exit:                           ; preds = %70, %82
   %90 = load i32, ptr %40, align 8
   %91 = load i32, ptr %41, align 4
   %92 = load ptr, ptr %42, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
   store i32 %90, ptr %89, align 8
   %93 = icmp eq i32 %91, 0
   br i1 %93, label %copy_address_wmem.exit118, label %94

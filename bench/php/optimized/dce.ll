@@ -3157,7 +3157,7 @@ is_var_dead.exit.i:                               ; preds = %1786
 1802:                                             ; preds = %is_var_dead.exit.i, %1790, %1777
   %1803 = getelementptr inbounds i8, ptr %1721, i64 24
   %1804 = load i32, ptr %1803, align 4
-  %1805 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef nonnull readonly %5, i32 noundef %1770, i32 noundef %1804, ptr noundef nonnull %1719)
+  %1805 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef nonnull %5, i32 noundef %1770, i32 noundef %1804, ptr noundef nonnull %1719)
   br i1 %1805, label %1818, label %1806
 
 1806:                                             ; preds = %1802
@@ -3244,7 +3244,7 @@ is_var_dead.exit99.i:                             ; preds = %1841
 1857:                                             ; preds = %is_var_dead.exit99.i, %1845, %1832
   %1858 = getelementptr inbounds i8, ptr %1721, i64 28
   %1859 = load i32, ptr %1858, align 4
-  %1860 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef nonnull readonly %5, i32 noundef %1824, i32 noundef %1859, ptr noundef nonnull %1719)
+  %1860 = call fastcc zeroext i1 @try_remove_var_def(ptr noundef nonnull %5, i32 noundef %1824, i32 noundef %1859, ptr noundef nonnull %1719)
   br i1 %1860, label %1890, label %1861
 
 1861:                                             ; preds = %1857

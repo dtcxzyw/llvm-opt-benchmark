@@ -329,7 +329,7 @@ if.else.i.i:                                      ; preds = %for.end
   %sub.i.i16 = add nuw nsw i64 %conv.i, 63
   %10 = lshr i64 %sub.i.i16, 3
   %mul.i.i17 = and i64 %10, 1073741816
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %8, i8 0, i64 %mul.i.i17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %mul.i.i17, i1 false)
   br label %plaform_bus_refresh_irqs.exit
 
 plaform_bus_refresh_irqs.exit:                    ; preds = %if.then.i.i, %if.else.i.i

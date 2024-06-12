@@ -577,7 +577,7 @@ lexbor_grisu2.exit:                               ; preds = %lexbor_dec_count.ex
   %314 = ptrtoint ptr %306 to i64
   %315 = ptrtoint ptr %311 to i64
   %316 = sub i64 %314, %315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.020.i.i, ptr noundef nonnull align 1 dereferenceable(1) %311, i64 %316, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i.i, ptr noundef nonnull align 1 dereferenceable(1) %311, i64 %316, i1 false)
   %317 = add i64 %316, 3
   br label %lexbor_write_exponent.exit.i
 
@@ -640,7 +640,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %313, %301
   %342 = ptrtoint ptr %334 to i64
   %343 = ptrtoint ptr %339 to i64
   %344 = sub i64 %342, %343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.020.i125.i, ptr noundef nonnull align 1 dereferenceable(1) %339, i64 %344, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i125.i, ptr noundef nonnull align 1 dereferenceable(1) %339, i64 %344, i1 false)
   %345 = add i64 %344, 1
   br label %lexbor_write_exponent.exit126.i
 

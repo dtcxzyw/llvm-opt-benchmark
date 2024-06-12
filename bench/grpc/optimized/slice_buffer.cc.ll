@@ -854,7 +854,7 @@ if.then.i.i:                                      ; preds = %if.then5
   br label %_ZNK9grpc_core11SliceBuffer8RefSliceEm.exit
 
 _ZNK9grpc_core11SliceBuffer8RefSliceEm.exit:      ; preds = %if.then5, %if.then.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %return
 
 if.end6:                                          ; preds = %entry

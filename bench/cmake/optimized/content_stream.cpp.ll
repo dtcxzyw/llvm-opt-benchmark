@@ -438,7 +438,7 @@ _ZN3dap13ContentReader5matchEPKc.exit:            ; preds = %.lr.ph.i.i, %9
   br label %.loopexit
 
 42:                                               ; preds = %2
-  %43 = tail call noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull readonly @.str, i64 noundef 15)
+  %43 = tail call noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str, i64 noundef 15)
   br i1 %43, label %_ZN3dap13ContentReader5matchEPKc.exit.thread, label %44
 
 44:                                               ; preds = %42

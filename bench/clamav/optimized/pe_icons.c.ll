@@ -482,7 +482,7 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr nocapture noundef %0, i32 
   br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %63
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %6, ptr nonnull align 1 %66, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %66, i64 %spec.select.i.i, i1 false)
   %.not583.i = icmp ugt i64 %64, 39
   br i1 %.not583.i, label %70, label %fmap_readn.exit.thread.i
 

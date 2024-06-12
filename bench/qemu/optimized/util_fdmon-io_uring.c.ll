@@ -537,7 +537,7 @@ get_sqe.exit:                                     ; preds = %entry, %if.end8.i
   store i32 %2, ptr %fd1.i.i, align 4
   %3 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %4 = getelementptr inbounds i8, ptr %retval.0.i, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 %or11.i, ptr %4, align 4
   %5 = ptrtoint ptr %node to i64
   %user_data.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32

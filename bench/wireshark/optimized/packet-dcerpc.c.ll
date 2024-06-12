@@ -1072,7 +1072,7 @@ define void @decode_dcerpc_reset_all() local_unnamed_addr #0 {
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %13, %10, %6, %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %3, i64 24
   %15 = load i32, ptr %14, align 8
   %.not.i.i6.i = icmp eq i32 %15, 0
@@ -1095,7 +1095,7 @@ free_address.exit.i:                              ; preds = %13, %10, %6, %.lr.p
   br label %free_address.exit8.i
 
 free_address.exit8.i:                             ; preds = %23, %20, %16, %free_address.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %3, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
@@ -4127,7 +4127,7 @@ dcerpc_get_decode_data.exit:                      ; preds = %1, %7
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 216
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 %15, ptr %13, align 8
   %20 = icmp eq i32 %17, 0
   br i1 %20, label %copy_address.exit, label %21
@@ -4151,7 +4151,7 @@ copy_address.exit:                                ; preds = %dcerpc_get_decode_d
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 240
   %33 = load ptr, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store i32 %29, ptr %27, align 8
   %34 = icmp eq i32 %31, 0
   br i1 %34, label %copy_address.exit18, label %35
@@ -4343,7 +4343,7 @@ define internal noundef i32 @decode_dcerpc_binding_reset(ptr nocapture readnone 
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %6, %11, %15, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %7, i64 24
   %20 = load i32, ptr %19, align 8
   %.not.i.i9 = icmp eq i32 %20, 0
@@ -4366,7 +4366,7 @@ free_address.exit:                                ; preds = %6, %11, %15, %18
   br label %free_address.exit11
 
 free_address.exit11:                              ; preds = %free_address.exit, %21, %25, %28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %7, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @g_string_free(ptr noundef %30, i32 noundef 1) #16
@@ -4387,7 +4387,7 @@ define internal noundef i32 @dcerpc_decode_as_change(ptr nocapture readnone %0, 
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %7, ptr %6, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %copy_address.exit, label %13
@@ -4411,7 +4411,7 @@ copy_address.exit:                                ; preds = %4, %13
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store i32 %21, ptr %19, align 8
   %26 = icmp eq i32 %23, 0
   br i1 %26, label %copy_address.exit17, label %27
@@ -4470,7 +4470,7 @@ define internal void @dcerpc_decode_as_free(ptr noundef %0) #0 {
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %11, %8, %4, %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i6.i = icmp eq i32 %13, 0
@@ -4493,7 +4493,7 @@ free_address.exit.i:                              ; preds = %11, %8, %4, %2
   br label %free_address.exit8.i
 
 free_address.exit8.i:                             ; preds = %21, %18, %14, %free_address.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
@@ -4980,7 +4980,7 @@ define internal void @dcerpcstat_init(ptr noundef %0, ptr noundef %1) #0 {
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   %10 = load i16, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %10, ptr %11, align 4
   %12 = load ptr, ptr @dcerpc_uuids, align 8
@@ -4998,7 +4998,7 @@ dcerpc_get_proto_hf_opnum.exit:                   ; preds = %7, %14
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   %17 = load i16, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   store i16 %17, ptr %18, align 4
   %19 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5163,7 +5163,7 @@ define internal i32 @dcerpcstat_param(ptr noundef %0, ptr nocapture noundef read
   %64 = getelementptr i8, ptr %32, i64 23
   store i8 %63, ptr %64, align 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   store i16 %31, ptr %65, align 4
   %66 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5180,7 +5180,7 @@ dcerpc_get_proto_sub_dissector.exit:              ; preds = %30, %68
   %.0.i = phi ptr [ %70, %68 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
   %71 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %31, ptr %71, align 4
   %72 = load ptr, ptr @uuid_dissector_table, align 8
@@ -6890,7 +6890,7 @@ define internal noalias noundef ptr @dcerpc_fragment_persistent_key(ptr nocaptur
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 %6, ptr %4, align 8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %copy_address.exit, label %12
@@ -6914,7 +6914,7 @@ copy_address.exit:                                ; preds = %3, %12
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 240
   %24 = load ptr, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store i32 %20, ptr %18, align 8
   %25 = icmp eq i32 %22, 0
   br i1 %25, label %copy_address.exit9, label %26
@@ -6972,7 +6972,7 @@ define internal void @dcerpc_fragment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -6995,7 +6995,7 @@ free_address.exit:                                ; preds = %2, %4, %8, %11
   br label %free_address.exit7
 
 free_address.exit7:                               ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 72, ptr noundef nonnull %0) #16
   br label %22
 

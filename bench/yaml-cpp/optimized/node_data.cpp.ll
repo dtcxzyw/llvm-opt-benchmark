@@ -1048,7 +1048,7 @@ _ZN4YAML6detail9node_data9reset_mapEv.exit.i:     ; preds = %while.body.i.i.i.i,
   br label %sw.epilog
 
 sw.bb3.i:                                         ; preds = %entry
-  tail call void @_ZN4YAML6detail9node_data23convert_sequence_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %pMemory)
+  tail call void @_ZN4YAML6detail9node_data23convert_sequence_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %pMemory)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
@@ -1402,7 +1402,7 @@ _ZN4YAML6detail9node_data9reset_mapEv.exit.i:     ; preds = %while.body.i.i.i.i,
   br label %sw.epilog
 
 sw.bb3.i:                                         ; preds = %entry
-  tail call void @_ZN4YAML6detail9node_data23convert_sequence_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %pMemory)
+  tail call void @_ZN4YAML6detail9node_data23convert_sequence_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %pMemory)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry

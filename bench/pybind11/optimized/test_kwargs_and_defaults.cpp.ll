@@ -14492,8 +14492,8 @@ define internal fastcc void @_ZNK8pybind113argaSIZ34test_submodule_kwargs_and_de
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca %"struct.pybind11::arg", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull readonly align 8 dereferenceable(9) %1, i64 9, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(9) %1, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = tail call { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZ34test_submodule_kwargs_and_defaultsRN8pybind117module_EE10CustomRepr, ptr noundef null)
   %8 = extractvalue { ptr, ptr } %7, 0

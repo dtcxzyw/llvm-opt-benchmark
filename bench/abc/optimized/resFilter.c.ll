@@ -33,7 +33,7 @@ Abc_InfoIsOne.exit:                               ; preds = %16
   %23 = load ptr, ptr %.val, align 8
   %24 = sext i32 %14 to i64
   %25 = shl nsw i64 %24, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %23, i8 0, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %25, i1 false)
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr i8, ptr %26, i64 28
   %.val1518.i = load i32, ptr %27, align 4
@@ -210,7 +210,7 @@ Vec_VecClear.exit365:                             ; preds = %70, %Vec_VecClear.e
   %104 = load i32, ptr %13, align 8
   %105 = sext i32 %104 to i64
   %106 = shl nsw i64 %105, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %103, i8 0, i64 %106, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %103, i8 0, i64 %106, i1 false)
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr i8, ptr %107, i64 28
   %.val1518.i367 = load i32, ptr %108, align 4
@@ -390,7 +390,7 @@ Abc_InfoIsOne.exit385.thread:                     ; preds = %139, %.critedge2, %
   %195 = load i32, ptr %13, align 8
   %196 = sext i32 %195 to i64
   %197 = shl nsw i64 %196, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %194, i8 0, i64 %197, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %194, i8 0, i64 %197, i1 false)
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr i8, ptr %198, i64 28
   %.val1518.i387 = load i32, ptr %199, align 4
@@ -896,7 +896,7 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %244, %.critedge6.Ab
   %422 = load i32, ptr %13, align 8
   %423 = sext i32 %422 to i64
   %424 = shl nsw i64 %423, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %421, i8 0, i64 %424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %421, i8 0, i64 %424, i1 false)
   %425 = load ptr, ptr %0, align 8
   %426 = getelementptr i8, ptr %425, i64 28
   %.val1518.i433 = load i32, ptr %426, align 4
@@ -1222,7 +1222,7 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %486, %.critedge10.A
   %564 = load i32, ptr %13, align 8
   %565 = sext i32 %564 to i64
   %566 = shl nsw i64 %565, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %563, i8 0, i64 %566, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %563, i8 0, i64 %566, i1 false)
   %567 = load ptr, ptr %0, align 8
   %568 = getelementptr i8, ptr %567, i64 28
   %.val1518.i451 = load i32, ptr %568, align 4
@@ -1604,7 +1604,7 @@ Abc_InfoIsOne.exit:                               ; preds = %15
   %22 = load ptr, ptr %.val176, align 8
   %23 = sext i32 %13 to i64
   %24 = shl nsw i64 %23, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %22, i8 0, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 %24, i1 false)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr i8, ptr %25, i64 28
   %.val1518.i = load i32, ptr %26, align 4
@@ -1787,7 +1787,7 @@ Res_FilterCriticalFanin.exit:                     ; preds = %95
   %104 = load i32, ptr %12, align 8
   %105 = sext i32 %104 to i64
   %106 = shl nsw i64 %105, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %103, i8 0, i64 %106, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %103, i8 0, i64 %106, i1 false)
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr i8, ptr %107, i64 28
   %.val1518.i233 = load i32, ptr %108, align 4

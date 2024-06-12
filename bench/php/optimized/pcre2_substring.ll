@@ -177,7 +177,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %100, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %100, i64 %93, i1 false)
   %101 = getelementptr inbounds i8, ptr %2, i64 %93
   store i8 0, ptr %101, align 1
   store i64 %93, ptr %3, align 8

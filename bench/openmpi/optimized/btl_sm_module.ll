@@ -1307,7 +1307,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %opal_o
 
 21:                                               ; preds = %opal_obj_run_destructors.exit25
   %22 = getelementptr inbounds i8, ptr %20, i64 32
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #15
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #15
   %24 = add i64 %23, 33
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %20, i64 %24, i1 false)
   tail call void @free(ptr noundef nonnull %20) #12

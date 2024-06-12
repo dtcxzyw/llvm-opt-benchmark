@@ -234,7 +234,7 @@ if.then.i:                                        ; preds = %entry
 
 AUD_vlog.exit:                                    ; preds = %entry, %if.then.i
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i = call i32 @vfprintf(ptr noundef %1, ptr noundef readonly %fmt, ptr noundef nonnull %ap) #20
+  %call1.i = call i32 @vfprintf(ptr noundef %1, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -6425,7 +6425,7 @@ entry.tail.i:                                     ; preds = %entry
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %entry, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %opt, ptr noundef nonnull dereferenceable(5) @.str.92) #25
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %opt, ptr noundef nonnull dereferenceable(5) @.str.92) #25
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -6802,7 +6802,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.35, i64 noundef %div)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #22
   store i64 %call.i, ptr %rate, align 8
   %.pre = load i32, ptr %bytes_per_frame, align 4
@@ -6851,7 +6851,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.35, i64 noundef %div.i)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #22
   store i64 %call.i.i, ptr %rate, align 8
   %.pre.i = load i32, ptr %bytes_per_frame.i, align 4

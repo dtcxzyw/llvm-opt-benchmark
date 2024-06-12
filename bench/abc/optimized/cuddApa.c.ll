@@ -894,7 +894,7 @@ define noalias noundef ptr @Cudd_ApaCountMinterm(ptr nocapture noundef readonly 
 .lr.ph.preheader.i:                               ; preds = %20
   %22 = zext nneg i32 %spec.select.i to i64
   %23 = shl nuw nsw i64 %22, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %18, i8 0, i64 %23, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %23, i1 false)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %20
@@ -928,7 +928,7 @@ Cudd_ApaPowerOfTwo.exit:                          ; preds = %._crit_edge.i, %27
 .lr.ph.preheader.i70:                             ; preds = %35
   %37 = zext nneg i32 %24 to i64
   %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 4 %32, i8 0, i64 %38, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %38, i1 false)
   br label %Cudd_ApaSetToLiteral.exit
 
 Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.preheader.i70

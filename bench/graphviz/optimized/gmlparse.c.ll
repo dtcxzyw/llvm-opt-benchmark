@@ -455,7 +455,7 @@ setDir.exit:                                      ; preds = %142
   %146 = getelementptr inbounds i8, ptr %145, i64 32
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %147, align 8
-  %149 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.1) #20
+  %149 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.1) #20
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %gv_strdup.exit
 
@@ -563,7 +563,7 @@ mkEdge.exit:                                      ; preds = %186
   %207 = getelementptr inbounds i8, ptr %206, i64 32
   %208 = load ptr, ptr %207, align 8
   %209 = load ptr, ptr %208, align 8
-  %210 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.1) #20
+  %210 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.1) #20
   %211 = icmp eq ptr %210, null
   br i1 %211, label %212, label %gv_strdup.exit222
 
@@ -1183,13 +1183,13 @@ gv_alloc.exit:                                    ; preds = %5
 
 sortToStr.exit:                                   ; preds = %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
   %.0.i = phi ptr [ null, %45 ], [ @.str.42, %44 ], [ @.str.41, %43 ], [ @.str.40, %42 ], [ @.str.39, %41 ], [ @.str.38, %40 ], [ @.str.37, %39 ], [ @.str.36, %38 ], [ @.str.35, %37 ], [ @.str.34, %36 ], [ @.str.33, %35 ], [ @.str.32, %34 ], [ @.str.31, %33 ], [ @.str.30, %32 ], [ @.str.29, %31 ], [ @.str.28, %30 ], [ @.str.27, %29 ], [ @.str.26, %28 ], [ @.str.25, %27 ], [ @.str.24, %26 ], [ @.str.23, %25 ], [ @.str.22, %24 ], [ @.str.21, %23 ], [ @.str.20, %22 ], [ @.str.19, %21 ], [ @.str.18, %20 ], [ @.str.17, %19 ], [ @.str.16, %18 ], [ @.str.15, %17 ], [ @.str.14, %16 ], [ @.str.1, %15 ], [ @.str.13, %14 ], [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.10, %11 ]
-  %46 = tail call noalias ptr @strdup(ptr noundef readonly %.0.i) #20
+  %46 = tail call noalias ptr @strdup(ptr noundef %.0.i) #20
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %gv_strdup.exit
 
 48:                                               ; preds = %sortToStr.exit
   %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i) #24
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #24
   %51 = add i64 %50, 1
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.9, i64 noundef %51) #22
   tail call fastcc void @graphviz_exit() #23
@@ -3804,7 +3804,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #20
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -3864,7 +3864,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #20
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #20
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

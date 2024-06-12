@@ -516,10 +516,10 @@ define ptr @Saig_ManDecPropertyOutput(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #12
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #10
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #9
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #9
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %10

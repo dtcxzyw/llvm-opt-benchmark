@@ -57,11 +57,11 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %X = getelementptr inbounds i8, ptr %point, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %point_x, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %point_x, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %X, align 8
   %conv.i = sext i32 %0 to i64
   %mul.i = shl nsw i64 %conv.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %point_x, ptr align 8 %1, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %point_x, ptr align 8 %1, i64 %mul.i, i1 false)
   %top.i14 = getelementptr inbounds i8, ptr %point, i64 40
   %2 = load i32, ptr %top.i14, align 8
   %cmp.i15 = icmp sgt i32 %2, 4
@@ -69,11 +69,11 @@ lor.lhs.false:                                    ; preds = %if.end
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %Y = getelementptr inbounds i8, ptr %point, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %point_y, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %point_y, i8 0, i64 32, i1 false)
   %3 = load ptr, ptr %Y, align 8
   %conv.i17 = sext i32 %2 to i64
   %mul.i18 = shl nsw i64 %conv.i17, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %point_y, ptr align 8 %3, i64 %mul.i18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %point_y, ptr align 8 %3, i64 %mul.i18, i1 false)
   %top.i21 = getelementptr inbounds i8, ptr %point, i64 64
   %4 = load i32, ptr %top.i21, align 8
   %cmp.i22 = icmp sgt i32 %4, 4
@@ -85,11 +85,11 @@ if.then10:                                        ; preds = %lor.lhs.false6, %lo
 
 if.end11:                                         ; preds = %lor.lhs.false6
   %Z = getelementptr inbounds i8, ptr %point, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %point_z, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %point_z, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr %Z, align 8
   %conv.i24 = sext i32 %4 to i64
   %mul.i25 = shl nsw i64 %conv.i24, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %point_z, ptr align 8 %5, i64 %mul.i25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %point_z, ptr align 8 %5, i64 %mul.i25, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p2.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p4.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p8.i)
@@ -633,11 +633,11 @@ for.end70.i:                                      ; preds = %for.body66.preheade
 
 lor.lhs.false76.i:                                ; preds = %for.end70.i
   %X73.i = getelementptr inbounds i8, ptr %p_, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(32) %table.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %table.i, i8 0, i64 32, i1 false)
   %60 = load ptr, ptr %X73.i, align 8
   %conv.i.i = sext i32 %59 to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 64 %table.i, ptr align 8 %60, i64 %mul.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %table.i, ptr align 8 %60, i64 %mul.i.i, i1 false)
   %top.i107.i = getelementptr inbounds i8, ptr %p_, i64 40
   %61 = load i32, ptr %top.i107.i, align 8
   %cmp.i108.i = icmp sgt i32 %61, 4
@@ -646,11 +646,11 @@ lor.lhs.false76.i:                                ; preds = %for.end70.i
 lor.lhs.false82.i:                                ; preds = %lor.lhs.false76.i
   %Y79.i = getelementptr inbounds i8, ptr %p_, i64 32
   %Y.i = getelementptr inbounds i8, ptr %table.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 32 dereferenceable(32) %Y.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %Y.i, i8 0, i64 32, i1 false)
   %62 = load ptr, ptr %Y79.i, align 8
   %conv.i110.i = sext i32 %61 to i64
   %mul.i111.i = shl nsw i64 %conv.i110.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 32 %Y.i, ptr align 8 %62, i64 %mul.i111.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %Y.i, ptr align 8 %62, i64 %mul.i111.i, i1 false)
   %top.i114.i = getelementptr inbounds i8, ptr %p_, i64 64
   %63 = load i32, ptr %top.i114.i, align 8
   %cmp.i115.i = icmp sgt i32 %63, 4
@@ -663,11 +663,11 @@ if.then88.i:                                      ; preds = %lor.lhs.false82.i, 
 if.end89.i:                                       ; preds = %lor.lhs.false82.i
   %Z85.i = getelementptr inbounds i8, ptr %p_, i64 56
   %Z.i = getelementptr inbounds i8, ptr %table.i, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(32) %Z.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %Z.i, i8 0, i64 32, i1 false)
   %64 = load ptr, ptr %Z85.i, align 8
   %conv.i117.i = sext i32 %63 to i64
   %mul.i118.i = shl nsw i64 %conv.i117.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 64 %Z.i, ptr align 8 %64, i64 %mul.i118.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %Z.i, ptr align 8 %64, i64 %mul.i118.i, i1 false)
   %arrayidx90.i = getelementptr inbounds i8, ptr %table.i, i64 96
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx90.i, ptr noundef nonnull %table.i) #6
   %arrayidx92.i = getelementptr inbounds i8, ptr %table.i, i64 192

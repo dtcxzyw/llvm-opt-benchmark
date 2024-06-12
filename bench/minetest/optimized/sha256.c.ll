@@ -1460,7 +1460,7 @@ entry:
   %cmp = icmp eq ptr %md, null
   %spec.store.select = select i1 %cmp, ptr @SHA256.m, ptr %md
   %0 = getelementptr inbounds i8, ptr %c, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %c, align 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %c, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 16

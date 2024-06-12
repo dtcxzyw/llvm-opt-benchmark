@@ -929,7 +929,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true
   %2 = and i32 %ce.val.i, 61504
   %tobool.not.i.not.i.i = icmp eq i32 %2, 32832
   %cond.i.i.i = select i1 %tobool.not.i.not.i.i, i32 511, i32 438
-  %call.i.i.i = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %path, i32 noundef 193, i32 noundef %cond.i.i.i) #14
+  %call.i.i.i = call noundef i32 (ptr, i32, ...) @open64(ptr noundef %path, i32 noundef 193, i32 noundef %cond.i.i.i) #14
   br label %open_output_fd.exit.i
 
 open_output_fd.exit.i:                            ; preds = %if.else.i.i, %if.then.i.i
@@ -1114,7 +1114,7 @@ open_output_fd.exit:                              ; preds = %write_file_entry
   %15 = and i32 %ce.val, 61504
   %tobool.not.i.not.i = icmp eq i32 %15, 32832
   %cond.i.i87 = select i1 %tobool.not.i.not.i, i32 511, i32 438
-  %call.i.i88 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %path, i32 noundef 193, i32 noundef %cond.i.i87) #14
+  %call.i.i88 = call noundef i32 (ptr, i32, ...) @open64(ptr noundef %path, i32 noundef 193, i32 noundef %cond.i.i87) #14
   %cmp70 = icmp slt i32 %call.i.i88, 0
   br i1 %cmp70, label %if.then71, label %if.then77
 

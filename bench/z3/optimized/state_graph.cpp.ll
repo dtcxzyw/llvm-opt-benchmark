@@ -2177,8 +2177,8 @@ land.rhs.i.i:                                     ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN11state_graph16rename_edge_coreEjjjj.exit:     ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %land.rhs.i.i
   %31 = phi i1 [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ], [ %cmp4.i.i, %land.rhs.i.i ], [ false, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit.i ]
-  call void @_ZN11state_graph16remove_edge_coreEjj(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s2.addr.0, i32 noundef %19)
-  call void @_ZN11state_graph13add_edge_coreEjjb(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s1.addr.0, i32 noundef %19, i1 noundef zeroext %31)
+  call void @_ZN11state_graph16remove_edge_coreEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %s2.addr.0, i32 noundef %19)
+  call void @_ZN11state_graph13add_edge_coreEjjb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %s1.addr.0, i32 noundef %19, i1 noundef zeroext %31)
   %32 = load i32, ptr %14, align 8
   %inc.i = add i32 %32, 1
   store i32 %inc.i, ptr %14, align 8
@@ -2409,8 +2409,8 @@ land.rhs.i.i126:                                  ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN11state_graph16rename_edge_coreEjjjj.exit138:  ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit.i118, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i123, %land.rhs.i.i126
   %62 = phi i1 [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i123 ], [ %cmp4.i.i132, %land.rhs.i.i126 ], [ false, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit.i118 ]
-  call void @_ZN11state_graph16remove_edge_coreEjj(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %50, i32 noundef %s2.addr.0)
-  call void @_ZN11state_graph13add_edge_coreEjjb(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %50, i32 noundef %s1.addr.0, i1 noundef zeroext %62)
+  call void @_ZN11state_graph16remove_edge_coreEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %50, i32 noundef %s2.addr.0)
+  call void @_ZN11state_graph13add_edge_coreEjjb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %50, i32 noundef %s1.addr.0, i1 noundef zeroext %62)
   %63 = load i32, ptr %45, align 8
   %inc.i140 = add i32 %63, 1
   store i32 %inc.i140, ptr %45, align 8

@@ -31849,22 +31849,22 @@ if.then.i47:                                      ; preds = %for.body.i
   ]
 
 if.end.i126.i.i:                                  ; preds = %if.then.i47
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %call7.val.val.i, ptr noundef nonnull dereferenceable(11) @.str.12, i64 11)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %call7.val.val.i, ptr noundef nonnull dereferenceable(11) @.str.12, i64 11)
   %45 = icmp eq i32 %bcmp.i.i, 0
   br i1 %45, label %for.inc.sink.split.i, label %if.end19.i.i
 
 if.end.i117.i.i:                                  ; preds = %if.then.i47
-  %bcmp20.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %call7.val.val.i, ptr noundef nonnull dereferenceable(6) @.str.13, i64 6)
+  %bcmp20.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call7.val.val.i, ptr noundef nonnull dereferenceable(6) @.str.13, i64 6)
   %46 = icmp eq i32 %bcmp20.i.i, 0
   br i1 %46, label %if.end.i, label %if.end19.i.i
 
 if.end.i108.i.i:                                  ; preds = %if.then.i47
-  %bcmp21.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %call7.val.val.i, ptr noundef nonnull dereferenceable(3) @.str.7, i64 3)
+  %bcmp21.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %call7.val.val.i, ptr noundef nonnull dereferenceable(3) @.str.7, i64 3)
   %47 = icmp eq i32 %bcmp21.i.i, 0
   br i1 %47, label %if.end.i, label %if.end.i.i.i48
 
 if.end.i.i.i48:                                   ; preds = %if.end.i108.i.i
-  %bcmp22.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %call7.val.val.i, ptr noundef nonnull dereferenceable(3) @.str.14, i64 3)
+  %bcmp22.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %call7.val.val.i, ptr noundef nonnull dereferenceable(3) @.str.14, i64 3)
   %48 = icmp eq i32 %bcmp22.i.i, 0
   br i1 %48, label %if.end.i, label %if.end19.i.i
 
@@ -31884,7 +31884,7 @@ if.end.i:                                         ; preds = %if.end.i.i.i48, %if
   store ptr %50, ptr %memberKey.i, align 8, !noalias !20
   store i8 %frombool.i.i, ptr %isStatic3.i.i, align 8, !noalias !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i), !noalias !20
-  %call.i.i = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i)
+  %call.i.i = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i)
   %52 = load ptr, ptr %TheBucket.i.i, align 8, !noalias !20
   %idx.ext.i.i.i.i = zext i32 %classMemberIndexByIdentifier.sroa.23.057.i to i64
   %add.ptr.i.i.i.i50 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %classMemberIndexByIdentifier.sroa.0.060.i, i64 %idx.ext.i.i.i.i
@@ -31904,7 +31904,7 @@ if.else.i:                                        ; preds = %if.end.i
   %55 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !20
   %conv.i.i = zext i32 %55 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i), !noalias !20
-  %call.i.i.i51 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
+  %call.i.i.i51 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
   %56 = load ptr, ptr %TheBucket.i.i.i, align 8, !noalias !20
   br i1 %call.i.i.i51, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i, label %if.end.i.i22.i
 
@@ -32022,7 +32022,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i
   %classMemberIndexByIdentifier.sroa.11.4.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i.i ]
-  %63 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.addr.i.i.i.i.i)
+  %63 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.addr.i.i.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %TheBucket.addr.i.i.i.i.i, align 8, !noalias !20
   br label %if.end12.i.i.i.i.i
 
@@ -32043,7 +32043,7 @@ if.end12.i.i.i.i.i:                               ; preds = %_ZN4llvh12DenseMapB
   %sub.i.i.i.i.i.i = sext i1 %.not.i to i32
   %spec.select.i = add i32 %classMemberIndexByIdentifier.sroa.18.2.i, %sub.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.addr.i.i.i.i.i), !noalias !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %64, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %64, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, i64 9, i1 false)
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 16
   store i64 0, ptr %second.i.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
@@ -32133,7 +32133,7 @@ _ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJ
   %isStatic3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i30.i, i64 8
   store i8 %frombool.i.i.i, ptr %isStatic3.i.i.i, align 8
   %method.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i30.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %method.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %method.i.i.i, i8 0, i64 24, i1 false)
   %83 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !20
   %add.i.i61 = add i32 %83, 1
   store i32 %add.i.i61, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !20

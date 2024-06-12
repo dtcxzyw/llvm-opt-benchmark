@@ -53611,7 +53611,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser27parse_dyldinfo_gen
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   store i32 0, ptr %10, align 4
   store i64 0, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %72 = load ptr, ptr %19, align 8
   invoke void @_ZN4LIEF5MachO6Binary8segmentsEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator.2309") align 8 %13, ptr noundef nonnull align 8 dereferenceable(384) %72)
           to label %73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -69746,7 +69746,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF5MachO12BinaryParser27parse_dyldinfo_gen
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   store i32 0, ptr %10, align 4
   store i64 0, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %72 = load ptr, ptr %19, align 8
   invoke void @_ZN4LIEF5MachO6Binary8segmentsEv(ptr dead_on_unwind nonnull writable sret(%"class.LIEF::ref_iterator.2309") align 8 %13, ptr noundef nonnull align 8 dereferenceable(384) %72)
           to label %73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

@@ -619,7 +619,7 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
   store ptr %31, ptr %5, align 8
-  %32 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull readonly %0, ptr noundef %27, ptr noundef nonnull %6)
+  %32 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %6)
   %.not9.i = icmp eq i32 %32, 0
   %.pre.i = load ptr, ptr %5, align 8
   br i1 %.not9.i, label %41, label %33
@@ -636,7 +636,7 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   br i1 %40, label %Acec_DetectBoothOne.exit, label %41
 
 41:                                               ; preds = %33, %23
-  %42 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull readonly %0, ptr noundef %.pre.i, ptr noundef nonnull %6)
+  %42 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull %0, ptr noundef %.pre.i, ptr noundef nonnull %6)
   %.not10.i = icmp eq i32 %42, 0
   br i1 %.not10.i, label %53, label %43
 
@@ -678,13 +678,13 @@ Acec_DetectBoothOne.exit:                         ; preds = %33, %43
   %62 = and i64 %61, -2
   %63 = inttoptr i64 %62 to ptr
   store ptr %63, ptr %3, align 8
-  %64 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull readonly %0, ptr noundef %59, ptr noundef nonnull writeonly %6)
+  %64 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull %6)
   %.not9.i17 = icmp eq i32 %64, 0
   %65 = load ptr, ptr %3, align 8
   br i1 %.not9.i17, label %66, label %Acec_DetectBoothTwo.exit
 
 66:                                               ; preds = %55
-  %67 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull readonly %0, ptr noundef %65, ptr noundef nonnull writeonly %6)
+  %67 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %6)
   %.not10.i20 = icmp eq i32 %67, 0
   br i1 %.not10.i20, label %Acec_DetectBoothTwo.exit.thread, label %68
 

@@ -529,7 +529,7 @@ lpad.i:                                           ; preds = %if.then.i
 if.end.i:                                         ; preds = %_ZN4absl12lts_2023080211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
   %str.sroa.4.0.i35.i = phi ptr [ %add.ptr.i.i.i, %_ZN4absl12lts_2023080211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %1, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i ]
   %str.sroa.0.0.i34.i = phi i64 [ %sub.i.i.i, %_ZN4absl12lts_2023080211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false), !noalias !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false), !noalias !12
   store i16 46, ptr %addr, align 4, !noalias !12
   %9 = add i64 %str.sroa.0.0.i34.i, -108
   %cmp.i = icmp ult i64 %9, -109
@@ -606,7 +606,7 @@ lpad18.i:                                         ; preds = %if.then7.i
 
 if.end20.i:                                       ; preds = %if.end.i
   %sun_path.i = getelementptr inbounds i8, ptr %addr, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %sun_path.i, ptr nonnull align 1 %str.sroa.4.0.i35.i, i64 %str.sroa.0.0.i34.i, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path.i, ptr nonnull align 1 %str.sroa.4.0.i35.i, i64 %str.sroa.0.0.i34.i, i1 false), !noalias !12
   %20 = trunc i64 %str.sroa.0.0.i34.i to i32
   %conv.i = add nsw i32 %20, 3
   %len.i = getelementptr inbounds i8, ptr %addr, i64 128

@@ -1156,7 +1156,7 @@ if.else.i:                                        ; preds = %if.else.i.loopexit,
   %add3.i = add nuw nsw i64 %div1.i, 1
   %cond.i.i185 = tail call i64 @llvm.umin.i64(i64 %add.i176, i64 %add3.i)
   %types_alloc_size.i186 = getelementptr inbounds i8, ptr %mb, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %block_size_.i183, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %block_size_.i183, i8 0, i64 16, i1 false)
   %33 = load i64, ptr %types_alloc_size.i186, align 8
   %cmp.not.i187 = icmp ugt i64 %33, %num_literals.i.0.lcssa
   br i1 %cmp.not.i187, label %if.end24.i, label %if.then.i188
@@ -1264,7 +1264,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %cond
 
 InitContextBlockSplitter.exit:                    ; preds = %for.body.i.i
   %last_histogram_ix_.i202 = getelementptr inbounds i8, ptr %call, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %last_histogram_ix_.i202, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_histogram_ix_.i202, i8 0, i64 16, i1 false)
   %cmd_blocks.i = getelementptr inbounds i8, ptr %call, i64 2200
   %command_split.i = getelementptr inbounds i8, ptr %mb, i64 48
   %command_histograms.i = getelementptr inbounds i8, ptr %mb, i64 192

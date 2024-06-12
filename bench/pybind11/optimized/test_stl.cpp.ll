@@ -77178,7 +77178,7 @@ define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1INSt7__cxx11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZTIZ18test_submodule_stlRN8pybind117module_EE16MoveOutContainer, ptr %4, align 8
   %8 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -83392,7 +83392,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %8 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
   %.val15.val.i = load ptr, ptr %8, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br i1 %.not.i, label %14, label %10
 
 10:                                               ; preds = %1
@@ -90083,7 +90083,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %22
   %30 = ptrtoint ptr %.val19.i to i64
   %31 = ptrtoint ptr %.val18.i to i64
   %32 = sub i64 %30, %31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !2491
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !alias.scope !2491
   %.not.i.i.i.i.i.i.i21.i = icmp eq ptr %.val19.i, %.val18.i
   br i1 %.not.i.i.i.i.i.i.i21.i, label %.thread.i.i.i23.i, label %35
 
@@ -94789,7 +94789,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt6
   %5 = alloca %"class.std::allocator", align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2670)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2673)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !2676
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !2676
   %6 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #30
           to label %7 unwind label %85, !noalias !2676
 
@@ -94999,7 +94999,7 @@ _ZNSt12_Vector_baseIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS
   br i1 %79, label %80, label %_ZNSt6vectorIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 80:                                               ; preds = %_ZNSt12_Vector_baseIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %77, ptr align 8 %.val16.i.i.i.i.i, i64 %65, i1 false), !noalias !2676
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %77, ptr align 8 %.val16.i.i.i.i.i, i64 %65, i1 false), !noalias !2676
   br label %_ZNSt6vectorIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i
 
 _ZNSt6vectorIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i.i.i.i: ; preds = %80, %_ZNSt12_Vector_baseIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS4_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -95941,7 +95941,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ18test_submodule_stlRN8pybind117module_EE14Issue1561Inner, ptr %2, align 8
   %5 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)

@@ -47082,7 +47082,7 @@ add_pbf_error.exit796:                            ; preds = %1357, %1362
   %1387 = getelementptr inbounds i8, ptr %1384, i64 24
   %1388 = getelementptr inbounds i8, ptr %1384, i64 72
   store ptr null, ptr %1388, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %1387, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1387, i8 0, i64 32, i1 false)
   br label %timelib_skip_day_suffix.exit
 
 1389:                                             ; preds = %timelib_lookup_format.exit
@@ -48025,7 +48025,7 @@ timelib_lookup_format.exit901:                    ; preds = %.lr.ph1093
   %1842 = getelementptr inbounds i8, ptr %1839, i64 24
   %1843 = getelementptr inbounds i8, ptr %1839, i64 72
   store ptr null, ptr %1843, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %1842, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1842, i8 0, i64 32, i1 false)
   br label %timelib_time_reset_unset_fields.exit902
 
 1844:                                             ; preds = %timelib_lookup_format.exit901

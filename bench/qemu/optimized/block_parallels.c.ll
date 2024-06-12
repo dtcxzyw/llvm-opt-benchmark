@@ -1303,7 +1303,7 @@ if.else.i:                                        ; preds = %while.end
   %sub.i = add nuw nsw i64 %conv, 63
   %14 = lshr i64 %sub.i, 3
   %mul.i = and i64 %14, 1073741816
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %13, i8 0, i64 %mul.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %mul.i, i1 false)
   br label %return
 
 return:                                           ; preds = %while.body, %if.else.i, %if.then.i26

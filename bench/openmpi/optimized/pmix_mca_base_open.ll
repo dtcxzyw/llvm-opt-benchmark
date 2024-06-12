@@ -167,7 +167,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not21, label %117, label %56
 
 56:                                               ; preds = %48
-  %57 = call noalias ptr @strdup(ptr noundef nonnull readonly %55) #8
+  %57 = call noalias ptr @strdup(ptr noundef nonnull %55) #8
   %.not40.i = icmp eq ptr %57, null
   br i1 %.not40.i, label %.critedge47.i, label %.lr.ph.i
 
@@ -330,7 +330,7 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
   %123 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %124, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %124, i8 0, i64 64, i1 false)
   %125 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %126 = load ptr, ptr %125, align 8
   %.not6.i.i = icmp eq ptr %126, null

@@ -1117,7 +1117,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %22 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %23 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i.i, %.noexc23 ]
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %13, i64 %15, i1 false), !noalias !180
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %13, i64 %15, i1 false), !noalias !180
   %25 = load i64, ptr %11, align 8, !alias.scope !169, !noalias !174, !noundef !9
   %26 = add i64 %25, %15
   store i64 %26, ptr %11, align 8, !alias.scope !169, !noalias !174
@@ -1267,7 +1267,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %21 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %22 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i, %.noexc23 ]
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %12, i64 %14, i1 false), !noalias !208
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %12, i64 %14, i1 false), !noalias !208
   %24 = load i64, ptr %11, align 8, !alias.scope !197, !noalias !202, !noundef !9
   %25 = add i64 %24, %14
   store i64 %25, ptr %11, align 8, !alias.scope !197, !noalias !202
@@ -1952,7 +1952,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %23 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %24 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i.i, %.noexc23 ]
   %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %14, i64 %16, i1 false), !noalias !323
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %14, i64 %16, i1 false), !noalias !323
   %26 = load i64, ptr %11, align 8, !alias.scope !312, !noalias !317, !noundef !9
   %27 = add i64 %26, %16
   store i64 %27, ptr %11, align 8, !alias.scope !312, !noalias !317

@@ -4429,7 +4429,7 @@ if.then15:                                        ; preds = %if.end14
   %port17 = getelementptr inbounds i8, ptr %4, i64 2
   %5 = load i16, ptr %port17, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @__ctype_b_loc() #23
   %6 = load ptr, ptr %call.i.i, align 8
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %6, i64 98
@@ -4451,7 +4451,7 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
   %11 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i.i, ptr align 1 %10, i64 %conv10.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %10, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %5) #23
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
@@ -36431,7 +36431,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len15.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %call.i.i29, align 8
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %0, i64 98
   %1 = load i16, ptr %arrayidx2.i.i, align 2
@@ -36452,7 +36452,7 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
   %5 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i.i, ptr align 1 %4, i64 %conv10.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %4, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 0) #23
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
@@ -36602,7 +36602,7 @@ if.then2:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len22.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr.i26, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i26, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %call.i.i29, align 8
   %arrayidx2.i.i30 = getelementptr inbounds i8, ptr %18, i64 98
   %19 = load i16, ptr %arrayidx2.i.i30, align 2
@@ -36623,7 +36623,7 @@ if.then8.i.i35:                                   ; preds = %if.then4.i.i32
   %h_length.i.i38 = getelementptr inbounds i8, ptr %call6.i.i33, i64 20
   %23 = load i32, ptr %h_length.i.i38, align 4
   %conv10.i.i39 = sext i32 %23 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i.i36, ptr align 1 %22, i64 %conv10.i.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i36, ptr align 1 %22, i64 %conv10.i.i39, i1 false)
   store i16 2, ptr %addr.i26, align 4
   %call13.c.i.i40 = tail call zeroext i16 @htons(i16 noundef zeroext 0) #23
   %sin_port.c.i.i41 = getelementptr inbounds i8, ptr %addr.i26, i64 2
@@ -36869,7 +36869,7 @@ define internal fastcc void @tcp_connect(ptr nocapture noundef %sockfd, i16 noun
 entry:
   %on.i = alloca i32, align 4
   %addr = alloca %struct.sockaddr_in, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %call.i = tail call ptr @__ctype_b_loc() #23
   %0 = load ptr, ptr %call.i, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %0, i64 98
@@ -36891,7 +36891,7 @@ if.then8.i:                                       ; preds = %if.then4.i
   %h_length.i = getelementptr inbounds i8, ptr %call6.i, i64 20
   %5 = load i32, ptr %h_length.i, align 4
   %conv10.i = sext i32 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %sin_addr.i, ptr align 1 %4, i64 %conv10.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i, ptr align 1 %4, i64 %conv10.i, i1 false)
   store i16 2, ptr %addr, align 4
   %call13.c.i = tail call zeroext i16 @htons(i16 noundef zeroext %port) #23
   %sin_port.c.i = getelementptr inbounds i8, ptr %addr, i64 2

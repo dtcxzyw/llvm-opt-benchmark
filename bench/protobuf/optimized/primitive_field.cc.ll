@@ -7215,7 +7215,7 @@ cond.false:                                       ; preds = %entry
 
 cleanup.done:                                     ; preds = %entry
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 38, ptr nonnull @.str.79)
-  %call.i = tail call fastcc noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive13HasCachedSizeEv(ptr noundef nonnull readonly align 8 dereferenceable(104) %this)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive13HasCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
   br i1 %call.i, label %if.end.i, label %_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive28GenerateCacheSizeInitializerEPNS0_2io7PrinterE.exit
 
 if.end.i:                                         ; preds = %cleanup.done
@@ -7230,7 +7230,7 @@ _ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive28GenerateCach
 define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive37GenerateConstexprAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 38, ptr nonnull @.str.81)
-  %call.i = tail call fastcc noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive13HasCachedSizeEv(ptr noundef nonnull readonly align 8 dereferenceable(104) %this)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive13HasCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
   br i1 %call.i, label %if.end.i, label %_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive28GenerateCacheSizeInitializerEPNS0_2io7PrinterE.exit
 
 if.end.i:                                         ; preds = %entry
@@ -7257,7 +7257,7 @@ cond.false:                                       ; preds = %entry
 
 cleanup.done:                                     ; preds = %entry
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 46, ptr nonnull @.str.82)
-  %call.i = tail call fastcc noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive13HasCachedSizeEv(ptr noundef nonnull readonly align 8 dereferenceable(104) %this)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive13HasCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
   br i1 %call.i, label %if.end.i, label %_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitive28GenerateCacheSizeInitializerEPNS0_2io7PrinterE.exit
 
 if.end.i:                                         ; preds = %cleanup.done
@@ -8060,7 +8060,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -8132,7 +8132,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -8342,7 +8342,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -8557,7 +8557,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -8633,7 +8633,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

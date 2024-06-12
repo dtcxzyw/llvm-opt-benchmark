@@ -2071,7 +2071,7 @@ define internal fastcc noundef i32 @intel_adjust_aligned_offset(ptr nocapture no
   br i1 %77, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %43, %48, %72
-  %78 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %2)
+  %78 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %2)
   %79 = icmp eq i32 %78, %3
   br i1 %79, label %is_surface_linear.exit.thread, label %80
 
@@ -2316,7 +2316,7 @@ define internal fastcc i32 @intel_compute_aligned_offset(ptr nocapture noundef r
   br i1 %62, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %28, %33, %57
-  %63 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %3)
+  %63 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %3)
   %64 = icmp eq i32 %63, %4
   br i1 %64, label %is_surface_linear.exit.thread, label %65
 
@@ -3409,7 +3409,7 @@ define dso_local noundef i32 @intel_fill_fb_info(ptr noundef readonly %0, ptr no
   br i1 %565, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %533, %538, %562
-  %566 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %1)
+  %566 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %1)
   %567 = icmp eq i32 %566, %.pre155
   %.pre148 = load ptr, ptr %18, align 8
   br i1 %567, label %is_surface_linear.exit.thread, label %587
@@ -5230,7 +5230,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
   br i1 %157, label %is_surface_linear.exit, label %is_surface_linear.exit.thread
 
 is_surface_linear.exit:                           ; preds = %124, %129, %153
-  %158 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly %0)
+  %158 = tail call i32 @intel_fb_rc_ccs_cc_plane(ptr noundef %0)
   %159 = icmp eq i32 %158, %112
   br i1 %159, label %is_surface_linear.exit.is_surface_linear.exit.thread_crit_edge, label %190
 

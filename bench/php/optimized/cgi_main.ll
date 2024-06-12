@@ -726,13 +726,13 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond326, label %39, label %43
 
 .thread440:                                       ; preds = %32, %29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %.lr.ph.split.us.preheader
 
 43:                                               ; preds = %39
   %.not471 = icmp eq i8 %40, 45
   call void @free(ptr noundef %36) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br i1 %.not471, label %.critedge2.thread, label %.lr.ph.split.us.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread440, %43
@@ -3255,7 +3255,7 @@ define internal noundef i64 @sapi_cgi_ub_write(ptr nocapture noundef readonly %0
 .lr.ph:                                           ; preds = %2, %9
   %.01321 = phi i64 [ %11, %9 ], [ %1, %2 ]
   %.01420 = phi ptr [ %10, %9 ], [ %0, %2 ]
-  %3 = tail call i64 @write(i32 noundef 1, ptr noundef readonly %.01420, i64 noundef %.01321) #28
+  %3 = tail call i64 @write(i32 noundef 1, ptr noundef %.01420, i64 noundef %.01321) #28
   %4 = trunc i64 %3 to i32
   %5 = icmp slt i32 %4, 1
   %6 = and i64 %3, 2147483647

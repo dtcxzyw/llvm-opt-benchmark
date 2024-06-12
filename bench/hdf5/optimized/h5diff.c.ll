@@ -1901,7 +1901,7 @@ sub_0155:                                         ; preds = %.tail, %.tail.threa
 
 75:                                               ; preds = %.lr.ph.i
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #16
-  %77 = call i32 @strncmp(ptr noundef %74, ptr noundef readonly %57, i64 noundef %76) #16
+  %77 = call i32 @strncmp(ptr noundef %74, ptr noundef %57, i64 noundef %76) #16
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %88
 
@@ -1912,7 +1912,7 @@ sub_0155:                                         ; preds = %.tail, %.tail.threa
   br i1 %82, label %is_exclude_path.exit, label %88
 
 83:                                               ; preds = %.lr.ph.i
-  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull readonly dereferenceable(1) %57) #16
+  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %57) #16
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %88
 
@@ -2029,7 +2029,7 @@ is_exclude_path.exit:                             ; preds = %79, %86, %.loopexit
 
 147:                                              ; preds = %.lr.ph.i109
   %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #16
-  %149 = call i32 @strncmp(ptr noundef %146, ptr noundef readonly %57, i64 noundef %148) #16
+  %149 = call i32 @strncmp(ptr noundef %146, ptr noundef %57, i64 noundef %148) #16
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %160
 
@@ -2040,7 +2040,7 @@ is_exclude_path.exit:                             ; preds = %79, %86, %.loopexit
   br i1 %154, label %is_exclude_path.exit114, label %160
 
 155:                                              ; preds = %.lr.ph.i109
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull readonly dereferenceable(1) %57) #16
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) %57) #16
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %160
 
@@ -2086,7 +2086,7 @@ is_exclude_path.exit114:                          ; preds = %151, %158, %.loopex
 
 172:                                              ; preds = %.lr.ph.i118
   %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #16
-  %174 = call i32 @strncmp(ptr noundef %171, ptr noundef readonly %61, i64 noundef %173) #16
+  %174 = call i32 @strncmp(ptr noundef %171, ptr noundef %61, i64 noundef %173) #16
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %185
 
@@ -2097,7 +2097,7 @@ is_exclude_path.exit114:                          ; preds = %151, %158, %.loopex
   br i1 %179, label %is_exclude_path.exit123, label %185
 
 180:                                              ; preds = %.lr.ph.i118
-  %181 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull readonly dereferenceable(1) %61) #16
+  %181 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(1) %61) #16
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %185
 
@@ -2175,7 +2175,7 @@ is_exclude_path.exit123:                          ; preds = %176, %183, %.loopex
 
 213:                                              ; preds = %.lr.ph.i127
   %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #16
-  %215 = call i32 @strncmp(ptr noundef %212, ptr noundef readonly %204, i64 noundef %214) #16
+  %215 = call i32 @strncmp(ptr noundef %212, ptr noundef %204, i64 noundef %214) #16
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %226
 
@@ -2186,7 +2186,7 @@ is_exclude_path.exit123:                          ; preds = %176, %183, %.loopex
   br i1 %220, label %is_exclude_path.exit132, label %226
 
 221:                                              ; preds = %.lr.ph.i127
-  %222 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull readonly dereferenceable(1) %204) #16
+  %222 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(1) %204) #16
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %224, label %226
 
@@ -2255,7 +2255,7 @@ is_exclude_path.exit132:                          ; preds = %217, %224, %.loopex
 
 252:                                              ; preds = %.lr.ph.i136
   %253 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #16
-  %254 = call i32 @strncmp(ptr noundef %251, ptr noundef readonly %243, i64 noundef %253) #16
+  %254 = call i32 @strncmp(ptr noundef %251, ptr noundef %243, i64 noundef %253) #16
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %265
 
@@ -2266,7 +2266,7 @@ is_exclude_path.exit132:                          ; preds = %217, %224, %.loopex
   br i1 %259, label %is_exclude_path.exit141, label %265
 
 260:                                              ; preds = %.lr.ph.i136
-  %261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %251, ptr noundef nonnull readonly dereferenceable(1) %243) #16
+  %261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %251, ptr noundef nonnull dereferenceable(1) %243) #16
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %263, label %265
 

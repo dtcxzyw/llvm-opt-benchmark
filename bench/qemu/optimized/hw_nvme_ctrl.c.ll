@@ -9943,8 +9943,8 @@ if.end8:                                          ; preds = %while.body
   store ptr %entry10, ptr %tql_prev33, align 8
   %ns.i = getelementptr inbounds i8, ptr %25, i64 8
   %opaque.i = getelementptr inbounds i8, ptr %25, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %ns.i, i8 0, i64 18, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %opaque.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %ns.i, i8 0, i64 18, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %opaque.i, i8 0, i64 24, i1 false)
   %30 = load i16, ptr %cid, align 1
   %cid43 = getelementptr inbounds i8, ptr %25, i64 52
   store i16 %30, ptr %cid43, align 4
@@ -14017,7 +14017,7 @@ if.end45:                                         ; preds = %do.cond.i, %if.else
 if.then48:                                        ; preds = %if.end45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %0, i64 noundef %1, i32 noundef %add, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %add, i32 noundef 1)
   %tobool.not.i101 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i101, label %nvme_check_dulbe.exit, label %if.then.i102
 
@@ -14279,7 +14279,7 @@ if.end32:                                         ; preds = %if.end28
 if.then35:                                        ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
   %tobool.not.i77 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i77, label %nvme_check_dulbe.exit, label %if.then.i78
 
@@ -14583,7 +14583,7 @@ if.end36:                                         ; preds = %if.end32
 if.then39:                                        ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %add, i32 noundef 1)
   %tobool.not.i49 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i49, label %nvme_check_dulbe.exit, label %if.then.i50
 
@@ -14853,7 +14853,7 @@ nvme_get_zone_by_slba.exit:                       ; preds = %nvme_zone_idx.exit.
   br i1 %tobool80.not, label %invalid, label %if.end82
 
 if.end82:                                         ; preds = %nvme_get_zone_by_slba.exit
-  %call.i92 = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef nonnull readonly %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
+  %call.i92 = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef nonnull %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
   %tobool85.not = icmp eq i16 %call.i92, 0
   br i1 %tobool85.not, label %if.end88, label %invalid
 
@@ -15525,7 +15525,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool20.not.i, label %if.end22.i, label %return
 
 if.end22.i:                                       ; preds = %if.end17.i
-  %call.i.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef readonly %n, ptr noundef nonnull %req.val, ptr noundef nonnull %arrayidx, i32 noundef 1)
+  %call.i.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef %n, ptr noundef nonnull %req.val, ptr noundef nonnull %arrayidx, i32 noundef 1)
   %tobool24.not.i = icmp eq i16 %call.i.i, 0
   br i1 %tobool24.not.i, label %if.end26.i, label %return
 
@@ -16960,7 +16960,7 @@ if.end123:                                        ; preds = %if.end93, %if.then1
   br i1 %tobool125.not, label %if.end127, label %invalid
 
 if.end127:                                        ; preds = %if.end123
-  %call.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef readonly %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
+  %call.i = tail call fastcc zeroext i16 @nvme_zrm_open_flags(ptr noundef %n, ptr noundef nonnull %0, ptr noundef nonnull %arrayidx.i, i32 noundef 1)
   %tobool129.not = icmp eq i16 %call.i, 0
   br i1 %tobool129.not, label %if.end131, label %invalid
 
@@ -17075,7 +17075,7 @@ if.then21.i:                                      ; preds = %while.body.i
 if.end24.i:                                       ; preds = %while.body.i
   %81 = trunc i64 %80 to i32
   %conv28.i = sub i32 %nlb.addr.020.i, %81
-  %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef readonly %n, ptr noundef %60, i16 noundef zeroext %63)
+  %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef %n, ptr noundef %60, i16 noundef zeroext %63)
   %tobool.not.i133 = icmp eq i32 %conv28.i, 0
   br i1 %tobool.not.i133, label %if.end150, label %while.body.i, !llvm.loop !49
 
@@ -18446,7 +18446,7 @@ nvme_fdp_alloc_event.exit:                        ; preds = %if.then8.i, %if.els
   %idxprom.i = zext i32 %12 to i64
   %arrayidx.i = getelementptr [63 x %struct.NvmeFdpEvent], ptr %fdp2, i64 0, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %call.i = tail call fastcc i64 @nvme_get_timestamp(ptr noundef readonly %n)
+  %call.i = tail call fastcc i64 @nvme_get_timestamp(ptr noundef %n)
   %timestamp.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i64 %call.i, ptr %timestamp.i, align 1
   store i8 0, ptr %arrayidx.i, align 1
@@ -20121,7 +20121,7 @@ if.end16:                                         ; preds = %if.end13
 if.then18:                                        ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull readonly %1, i64 noundef %slba.0, i32 noundef %nlb.0, i32 noundef 1)
+  %call.i = tail call fastcc i32 @nvme_block_status_all(ptr noundef nonnull %1, i64 noundef %slba.0, i32 noundef %nlb.0, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %nvme_check_dulbe.exit, label %if.then.i29
 
@@ -21745,7 +21745,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call fastcc zeroext range(i16 0, 16831) i16 @nvme_zns_check_resources(ptr noundef readonly %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call fastcc zeroext range(i16 0, 16831) i16 @nvme_zns_check_resources(ptr noundef %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   %tobool.not = icmp eq i16 %call.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -22517,7 +22517,7 @@ while.end:                                        ; preds = %find_first_bit.exit
   br i1 %cmp19, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %while.end.thread, %while.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %changed_nsids, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %changed_nsids, i8 0, i64 40, i1 false)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %while.end

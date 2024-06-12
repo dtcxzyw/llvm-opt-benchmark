@@ -1341,7 +1341,7 @@ entry.split:                                      ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
   %call4 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc)
   br label %if.end
 
@@ -1361,7 +1361,7 @@ entry.split.i:                                    ; preds = %entry
   br label %EVP_CipherInit.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
   %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
   br label %EVP_CipherInit.exit
 
@@ -1381,7 +1381,7 @@ entry.split.i:                                    ; preds = %entry
   br label %EVP_CipherInit.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
   %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
   br label %EVP_CipherInit.exit
 

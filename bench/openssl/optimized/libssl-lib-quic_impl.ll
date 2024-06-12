@@ -1198,7 +1198,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -1351,7 +1351,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -1563,7 +1563,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -1631,7 +1631,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2323,7 +2323,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2867,7 +2867,7 @@ entry:
   %xso2.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -3473,7 +3473,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -3997,7 +3997,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -4467,7 +4467,7 @@ entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -4953,7 +4953,7 @@ entry:
   %xso2.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -5121,7 +5121,7 @@ entry:
   %xso2.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i.i = icmp eq ptr %conn, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -5250,7 +5250,7 @@ entry:
   %xso2.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -5362,7 +5362,7 @@ entry:
   %xso2.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i.i = icmp eq ptr %s, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -6218,7 +6218,7 @@ entry:
   %xso2.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %cmp.i.i = icmp eq ptr %ssl, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx, i8 0, i64 20, i1 false)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry

@@ -124,7 +124,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %20 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false)
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 40), align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i = icmp eq ptr %23, null
@@ -237,7 +237,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
   %.011.i = phi ptr [ %.0.i, %72 ], [ %.09.i, %66 ]
   %68 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull readonly dereferenceable(4) @.str.7) #18
+  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(4) @.str.7) #18
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %pmix_cmd_line_get_param.exit, label %72
 
@@ -325,7 +325,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i241
   %.011.i246 = phi ptr [ %.0.i247, %123 ], [ %.09.i, %72 ]
   %119 = getelementptr inbounds i8, ptr %.011.i246, i64 144
   %120 = load ptr, ptr %119, align 8
-  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull readonly dereferenceable(10) @.str.17) #18
+  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(10) @.str.17) #18
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %pmix_cmd_line_get_param.exit250, label %123
 
@@ -346,7 +346,7 @@ pmix_cmd_line_get_param.exit250:                  ; preds = %.lr.ph.i245
   %.011.i254 = phi ptr [ %.0.i255, %133 ], [ %.09.i, %123 ]
   %129 = getelementptr inbounds i8, ptr %.011.i254, i64 144
   %130 = load ptr, ptr %129, align 8
-  %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull readonly dereferenceable(4) @.str.19) #18
+  %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(4) @.str.19) #18
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %pmix_cmd_line_get_param.exit258, label %133
 
@@ -428,7 +428,7 @@ pmix_cmd_line_get_param.exit258:                  ; preds = %.lr.ph.i253
   %174 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 1, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %3, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %175, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %175, i8 0, i64 64, i1 false)
   %176 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %177 = load ptr, ptr %176, align 8
   %.not6.i259 = icmp eq ptr %177, null
@@ -527,7 +527,7 @@ pmix_obj_run_destructors.exit272:                 ; preds = %.lr.ph.i269, %207
   %221 = getelementptr inbounds i8, ptr %6, i64 48
   store i32 1, ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %222, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %222, i8 0, i64 64, i1 false)
   %223 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %224 = load ptr, ptr %223, align 8
   %.not6.i273 = icmp eq ptr %224, null
@@ -615,7 +615,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %246, %
 261:                                              ; preds = %260, %pmix_obj_new_tma.exit
   store ptr @pmix_list_t_class, ptr %229, align 8
   store i32 1, ptr %230, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %231, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %231, i8 0, i64 64, i1 false)
   %262 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %263 = load ptr, ptr %262, align 8
   %.not6.i279 = icmp eq ptr %263, null
@@ -1063,7 +1063,7 @@ pmix_obj_run_destructors.exit315:                 ; preds = %.lr.ph.i312, %._cri
   %478 = getelementptr inbounds i8, ptr %5, i64 56
   store i32 1, ptr %478, align 8
   %479 = getelementptr inbounds i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %479, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %479, i8 0, i64 64, i1 false)
   %480 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %481 = load ptr, ptr %480, align 8
   %.not6.i316 = icmp eq ptr %481, null
@@ -1315,7 +1315,7 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %
   %.011.i = phi ptr [ %.0.i, %9 ], [ %.09.i, %2 ]
   %5 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #18
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #18
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %pmix_cmd_line_get_param.exit.loopexit, label %9
 

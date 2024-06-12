@@ -141,7 +141,7 @@ switch.early.test:                                ; preds = %5
   store ptr %28, ptr %0, align 8
   %29 = load i64, ptr %23, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr readonly align 1 %1, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %1, i64 %18, i1 false)
   %31 = add i64 %29, %18
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   store i8 61, ptr %32, align 1
@@ -150,7 +150,7 @@ switch.early.test:                                ; preds = %5
   %34 = getelementptr i8, ptr %32, i64 1
   store i8 34, ptr %34, align 1
   %35 = getelementptr inbounds i8, ptr %28, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull readonly align 1 %6, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %6, i64 %21, i1 false)
   %36 = add i64 %33, %21
   %37 = getelementptr inbounds i8, ptr %28, i64 %36
   store i8 34, ptr %37, align 1
@@ -186,7 +186,7 @@ switch.early.test:                                ; preds = %5
   store ptr %58, ptr %0, align 8
   %59 = load i64, ptr %54, align 8
   %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %1, i64 %3, i1 false)
   %61 = add i64 %59, %3
   %62 = getelementptr i8, ptr %58, i64 %61
   store i8 61, ptr %62, align 1

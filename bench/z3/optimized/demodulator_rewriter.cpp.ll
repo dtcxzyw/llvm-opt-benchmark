@@ -6179,7 +6179,7 @@ if.end12:                                         ; preds = %_ZNK15ref_vector_co
   %23 = load ptr, ptr %second.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %deltas.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %call.i = tail call noundef zeroext i1 @_ZN23demodulator_match_subst10match_argsEP3appPKP4expr(ptr noundef nonnull align 8 dereferenceable(161) %m_match_subst, ptr noundef nonnull readonly %19, ptr noundef readonly %21)
+  %call.i = tail call noundef zeroext i1 @_ZN23demodulator_match_subst10match_argsEP3appPKP4expr(ptr noundef nonnull align 8 dereferenceable(161) %m_match_subst, ptr noundef nonnull %19, ptr noundef %21)
   br i1 %call.i, label %if.then.i15, label %_ZN23demodulator_match_substclEP3appP4exprPKS3_R7obj_refIS2_11ast_managerE.exit
 
 if.then.i15:                                      ; preds = %if.end12

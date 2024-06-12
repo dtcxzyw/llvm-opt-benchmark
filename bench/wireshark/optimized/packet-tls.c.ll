@@ -3129,7 +3129,7 @@ define internal noundef i32 @ssl_follow_tap_listener(ptr nocapture noundef %0, p
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 216
   %21 = load ptr, ptr %20, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store i32 %17, ptr %15, align 8
   %22 = icmp eq i32 %19, 0
   br i1 %22, label %copy_address.exit, label %23
@@ -3157,7 +3157,7 @@ copy_address.exit:                                ; preds = %12, %23
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %1, i64 240
   %38 = load ptr, ptr %37, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i32 %34, ptr %32, align 8
   %39 = icmp eq i32 %36, 0
   br i1 %39, label %copy_address.exit49, label %40

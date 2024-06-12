@@ -441,7 +441,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %138 = and i32 %128, 1
   %.not.i.i = icmp eq i32 %138, 0
   %139 = select i1 %.not.i.i, i32 0, i32 5
-  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %136, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %137, i32 noundef %139) #6
+  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %136, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %137, i32 noundef %139) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.79, ptr noundef nonnull %136) #6
   br label %141
 
@@ -454,7 +454,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 0, ptr %144, align 1
   %.not.i.i315 = icmp eq i32 %.pre-phi323, 0
   %145 = select i1 %.not.i.i315, i32 0, i32 5
-  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %144, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %.pre-phi, i32 noundef %145) #6
+  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %144, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %.pre-phi, i32 noundef %145) #6
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %142, i32 noundef 23, ptr noundef nonnull @.str.80, ptr noundef nonnull %144) #6
   br label %383
 

@@ -764,7 +764,7 @@ _persist_free_msg_members.exit.i:                 ; preds = %96, %95
   store ptr @.str.45, ptr %2, align 8
   store i16 1433, ptr %43, align 8
   store ptr %2, ptr %44, align 8
-  %108 = call ptr @slurm_persist_msg_pack(ptr noundef nonnull readonly %21, ptr noundef nonnull %3)
+  %108 = call ptr @slurm_persist_msg_pack(ptr noundef nonnull %21, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store ptr %108, ptr %6, align 8
@@ -1783,7 +1783,7 @@ define i32 @slurm_persist_conn_process_msg(ptr nocapture noundef %0, ptr noundef
   store i16 1433, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %31, align 8
-  %32 = call ptr @slurm_persist_msg_pack(ptr noundef readonly %0, ptr noundef nonnull %12)
+  %32 = call ptr @slurm_persist_msg_pack(ptr noundef %0, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   store ptr %32, ptr %4, align 8
@@ -1816,7 +1816,7 @@ define i32 @slurm_persist_conn_process_msg(ptr nocapture noundef %0, ptr noundef
   store i16 1433, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %44, align 8
-  %45 = call ptr @slurm_persist_msg_pack(ptr noundef readonly %0, ptr noundef nonnull %10)
+  %45 = call ptr @slurm_persist_msg_pack(ptr noundef %0, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   store ptr %45, ptr %4, align 8
@@ -1843,7 +1843,7 @@ define i32 @slurm_persist_conn_process_msg(ptr nocapture noundef %0, ptr noundef
   store i16 1433, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %54, align 8
-  %55 = call ptr @slurm_persist_msg_pack(ptr noundef readonly %0, ptr noundef nonnull %8)
+  %55 = call ptr @slurm_persist_msg_pack(ptr noundef %0, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store ptr %55, ptr %4, align 8

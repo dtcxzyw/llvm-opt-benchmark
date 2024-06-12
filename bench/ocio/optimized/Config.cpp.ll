@@ -23378,7 +23378,7 @@ if.end27:                                         ; preds = %invoke.cont8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc.exit.thread
 
 _ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc.exit.thread: ; preds = %if.end27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %nt, i8 0, i64 16, i1 false), !alias.scope !207
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nt, i8 0, i64 16, i1 false), !alias.scope !207
   br label %if.end61
 
 if.end.i.i:                                       ; preds = %if.end27
@@ -23680,7 +23680,7 @@ if.end124:                                        ; preds = %invoke.cont94
   br i1 %cmp.not.i.i42, label %if.end.i.i44, label %_ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc.exit55.thread
 
 _ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc.exit55.thread: ; preds = %if.end124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %nt125, i8 0, i64 16, i1 false), !alias.scope !214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nt125, i8 0, i64 16, i1 false), !alias.scope !214
   br label %if.end164
 
 if.end.i.i44:                                     ; preds = %if.end124
@@ -42655,7 +42655,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %namedTransform, i8 0, i64 16, i1 false), !alias.scope !315
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %namedTransform, i8 0, i64 16, i1 false), !alias.scope !315
   br label %_ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc.exit
 
 if.end.i.i:                                       ; preds = %entry

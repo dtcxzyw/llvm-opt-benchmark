@@ -61,8 +61,8 @@ entry:
 define noundef i32 @ossl_blake2s_init(ptr nocapture noundef %c, ptr nocapture noundef readonly %P) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   %1 = load i8, ptr %P, align 1
   %conv.i = zext i8 %1 to i64
   %outlen.i = getelementptr inbounds i8, ptr %c, i64 120
@@ -91,8 +91,8 @@ define noundef i32 @ossl_blake2s_init_key(ptr nocapture noundef %c, ptr nocaptur
 entry:
   %block = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %c, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   %1 = load i8, ptr %P, align 1
   %conv.i = zext i8 %1 to i64
   %outlen.i = getelementptr inbounds i8, ptr %c, i64 120
@@ -135,7 +135,7 @@ if.then.i:                                        ; preds = %blake2s_init_param.
 if.end.i:                                         ; preds = %if.then.i
   %buf.i = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %block, i64 %sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %block, i64 %sub.i, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 64)
   store i64 0, ptr %buflen.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %block, i64 %sub.i

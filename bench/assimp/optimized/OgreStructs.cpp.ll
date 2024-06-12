@@ -5371,8 +5371,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %buffer.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %buffer.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(9) %call, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %call, i8 0, i64 9, i1 false)
   %indexData = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %call, ptr %indexData, align 8
   ret void

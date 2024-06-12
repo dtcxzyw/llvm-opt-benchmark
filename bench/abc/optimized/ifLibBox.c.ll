@@ -497,10 +497,10 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %49
 
 49:                                               ; preds = %45
-  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #22
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #22
   %51 = add i64 %50, 1
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #21
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %48) #20
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %48) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %45, %49
@@ -745,10 +745,10 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
 
 Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
   %.03848 = phi ptr [ %7, %17 ], [ %65, %._crit_edge ]
-  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.03848) #22
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03848) #22
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #21
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.03848) #20
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.03848) #20
   %28 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
   %29 = tail call i32 @atoi(ptr nocapture noundef %28) #22
   %30 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)

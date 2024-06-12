@@ -104,7 +104,7 @@ entry:
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %testName, ptr %name.i, align 8
   %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fData, i8 0, i64 32, i1 false)
@@ -119,7 +119,7 @@ entry:
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %name.i, align 8
   %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %data, ptr %fData, align 8

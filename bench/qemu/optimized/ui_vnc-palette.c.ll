@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noalias noundef ptr @palette_new(i64 noundef %max, i32 noundef %bpp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8216) ptr @g_malloc0(i64 noundef 8216) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(8216) %call, i8 0, i64 8216, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %call, i8 0, i64 8216, i1 false)
   %max1.i = getelementptr inbounds i8, ptr %call, i64 6152
   store i64 %max, ptr %max1.i, align 8
   %bpp2.i = getelementptr inbounds i8, ptr %call, i64 6160

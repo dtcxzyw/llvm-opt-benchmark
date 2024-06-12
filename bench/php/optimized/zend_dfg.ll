@@ -1639,7 +1639,7 @@ zend_bitset_last.exit:                            ; preds = %.preheader, %535
   %561 = mul nsw i32 %560, %9
   %562 = sext i32 %561 to i64
   %563 = getelementptr inbounds i64, ptr %17, i64 %562
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %557, ptr readonly align 8 %563, i64 %513, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %557, ptr align 8 %563, i64 %513, i1 false)
   %564 = load i32, ptr %553, align 4
   %565 = icmp sgt i32 %564, 1
   br i1 %565, label %.lr.ph346, label %.loopexit328
@@ -1679,7 +1679,7 @@ zend_bitset_union.exit:                           ; preds = %zend_bitset_union.e
   br i1 %580, label %.lr.ph346, label %.loopexit328
 
 581:                                              ; preds = %552
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %557, i8 0, i64 %513, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %557, i8 0, i64 %513, i1 false)
   br label %.loopexit328
 
 .loopexit328:                                     ; preds = %zend_bitset_union.exit, %558, %581
@@ -1707,7 +1707,7 @@ zend_bitset_union.exit:                           ; preds = %zend_bitset_union.e
 
 zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loopexit328
   %595 = getelementptr inbounds i64, ptr %17, i64 %556
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %595, ptr readonly %11, i64 %513)
+  %bcmp.i = tail call i32 @bcmp(ptr %595, ptr %11, i64 %513)
   %596 = icmp eq i32 %bcmp.i, 0
   br i1 %596, label %.lr.ph.i.preheader.backedge, label %597
 
@@ -1715,7 +1715,7 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loop
   br label %.lr.ph.i.preheader
 
 597:                                              ; preds = %zend_bitset_union_with_difference.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %595, ptr readonly align 8 %11, i64 %513, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %595, ptr align 8 %11, i64 %513, i1 false)
   %598 = load ptr, ptr %514, align 8
   %599 = getelementptr inbounds i8, ptr %548, i64 28
   %600 = load i32, ptr %599, align 4

@@ -4106,7 +4106,7 @@ if.end36.i:                                       ; preds = %while.body32.i, %la
 
 if.end43.i:                                       ; preds = %if.end36.i
   %13 = getelementptr inbounds i8, ptr %str.addr.4.i, i64 %dec12.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull align 1 %13, i64 %12, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %13, i64 %12, i1 false)
   br i1 %cmp10.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end43.i
@@ -4240,7 +4240,7 @@ if.end36.i:                                       ; preds = %while.body32.i, %la
 
 if.end43.i:                                       ; preds = %if.end36.i
   %13 = getelementptr inbounds i8, ptr %str.addr.4.i, i64 %dec12.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull align 1 %13, i64 %12, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %13, i64 %12, i1 false)
   br i1 %cmp10.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end43.i
@@ -4351,7 +4351,7 @@ if.end36.i:                                       ; preds = %while.body32.i, %la
 
 if.end43.i:                                       ; preds = %if.end36.i
   %9 = getelementptr inbounds i8, ptr %str.addr.4.i, i64 %dec12.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
   br i1 %cmp10.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end43.i
@@ -4461,7 +4461,7 @@ if.end36.i:                                       ; preds = %while.body32.i, %la
 
 if.end43.i:                                       ; preds = %if.end36.i
   %9 = getelementptr inbounds i8, ptr %str.addr.4.i, i64 %dec12.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
   br i1 %cmp10.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end43.i
@@ -4578,7 +4578,7 @@ if.end36.i.i:                                     ; preds = %while.body32.i.i, %
 
 if.end43.i.i:                                     ; preds = %if.end36.i.i
   %9 = getelementptr inbounds i8, ptr %str.addr.4.i.i, i64 %dec12.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr nonnull align 1 %9, i64 %8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %9, i64 %8, i1 false)
   br i1 %cmp10.i.i, label %if.then45.i.i, label %if.end47.i.i
 
 if.then45.i.i:                                    ; preds = %if.end43.i.i
@@ -4726,7 +4726,7 @@ if.end36.i.i:                                     ; preds = %while.body32.i.i, %
 
 if.end43.i.i:                                     ; preds = %if.end36.i.i
   %9 = getelementptr inbounds i8, ptr %str.addr.4.i.i, i64 %dec12.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr nonnull align 1 %9, i64 %8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %9, i64 %8, i1 false)
   br i1 %cmp10.i.i, label %if.then45.i.i, label %if.end47.i.i
 
 if.then45.i.i:                                    ; preds = %if.end43.i.i
@@ -4872,7 +4872,7 @@ if.end36.i:                                       ; preds = %while.body32.i, %la
 
 if.end43.i:                                       ; preds = %if.end36.i
   %9 = getelementptr inbounds i8, ptr %str.addr.4.i, i64 %dec12.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
   br i1 %cmp10.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end43.i
@@ -4982,7 +4982,7 @@ if.end36.i:                                       ; preds = %while.body32.i, %la
 
 if.end43.i:                                       ; preds = %if.end36.i
   %9 = getelementptr inbounds i8, ptr %str.addr.4.i, i64 %dec12.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %9, i64 %8, i1 false)
   br i1 %cmp10.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end43.i

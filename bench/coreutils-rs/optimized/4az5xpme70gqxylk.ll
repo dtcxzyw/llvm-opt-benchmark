@@ -1284,7 +1284,7 @@ define void @_ZN9uu_base3211base_common8base_app17hefdbe568f9f0f9a1E(ptr noalias
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !358
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !357
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !350
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %23, ptr noundef nonnull align 8 dereferenceable(592) %13, i64 592, i1 false), !alias.scope !365, !noalias !366
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %23, ptr noundef nonnull align 8 dereferenceable(592) %13, i64 592, i1 false), !alias.scope !365, !noalias !366
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !340
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %13), !noalias !340
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
@@ -1367,7 +1367,7 @@ define void @_ZN9uu_base3211base_common8base_app17hefdbe568f9f0f9a1E(ptr noalias
   %.sroa.6.0..sroa_idx4.i67 = getelementptr inbounds i8, ptr %23, i64 448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i67, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i59, i64 16, i1 false), !noalias !384
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i59)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %24, ptr noundef nonnull align 8 dereferenceable(592) %23, i64 592, i1 false), !alias.scope !377, !noalias !396
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %24, ptr noundef nonnull align 8 dereferenceable(592) %23, i64 592, i1 false), !alias.scope !377, !noalias !396
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %23)
   %208 = getelementptr inbounds i8, ptr %24, i64 128
   %209 = getelementptr inbounds i8, ptr %24, i64 144

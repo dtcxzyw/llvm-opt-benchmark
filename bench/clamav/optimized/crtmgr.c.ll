@@ -317,7 +317,7 @@ define ptr @crtmgr_lookup(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.022.i, i64 200
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull readonly dereferenceable(20) %6, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull dereferenceable(20) %6, i64 20)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %14, label %24
 
@@ -337,7 +337,7 @@ define ptr @crtmgr_lookup(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.022.i, i64 240
-  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull readonly dereferenceable(20) %8, i64 20)
+  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull dereferenceable(20) %8, i64 20)
   %.not19.i = icmp eq i32 %bcmp18.i, 0
   br i1 %.not19.i, label %crtmgr_block_list_lookup.exit, label %24
 
@@ -383,7 +383,7 @@ define noundef zeroext i1 @crtmgr_add(ptr nocapture noundef %0, ptr nocapture no
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %.022.i, i64 200
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull readonly dereferenceable(20) %6, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull dereferenceable(20) %6, i64 20)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %14, label %24
 
@@ -403,7 +403,7 @@ define noundef zeroext i1 @crtmgr_add(ptr nocapture noundef %0, ptr nocapture no
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.022.i, i64 240
-  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull readonly dereferenceable(20) %8, i64 20)
+  %bcmp18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %23, ptr noundef nonnull dereferenceable(20) %8, i64 20)
   %.not19.i = icmp eq i32 %bcmp18.i, 0
   br i1 %.not19.i, label %crtmgr_block_list_lookup.exit, label %24
 

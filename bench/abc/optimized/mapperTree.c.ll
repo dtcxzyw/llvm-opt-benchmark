@@ -332,10 +332,10 @@ define i32 @Map_LibraryCompareLibNames(ptr noundef readonly %0, ptr noundef read
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #18
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %3
@@ -344,10 +344,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
   br i1 %.not.i39, label %Abc_UtilStrsav.exit40, label %9
 
 9:                                                ; preds = %Abc_UtilStrsav.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #17
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #18
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %1) #16
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %1) #16
   br label %Abc_UtilStrsav.exit40
 
 Abc_UtilStrsav.exit40:                            ; preds = %Abc_UtilStrsav.exit, %9

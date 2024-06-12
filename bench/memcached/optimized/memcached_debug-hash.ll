@@ -405,7 +405,7 @@ for.body.i.i.i.i.i:                               ; preds = %XXH3_accumulate_512
   %mul.i.i.i.i2.i = shl nuw i64 %n.02.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i1.i, i64 %mul.i.i.i.i2.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !35
+  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !35
   %mul2.i.i.i.i.i = shl nuw nsw i64 %n.02.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @XXH3_kSecret, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -487,7 +487,7 @@ for.body.i29.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %X
   %mul.i31.i.i.i.i = shl nuw i64 %n.02.i30.i.i.i.i, 6
   %add.ptr.i32.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr11.i.i.i4.i, i64 %mul.i31.i.i.i.i
   %add.ptr1.i33.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i32.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i33.i.i.i.i, i32 0, i32 3, i32 1), !noalias !65
+  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i33.i.i.i.i, i32 0, i32 3, i32 1), !noalias !65
   %mul2.i34.i.i.i.i = shl nuw nsw i64 %n.02.i30.i.i.i.i, 3
   %add.ptr3.i35.i.i.i.i = getelementptr inbounds i8, ptr @XXH3_kSecret, i64 %mul2.i34.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)

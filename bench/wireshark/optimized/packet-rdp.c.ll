@@ -1866,7 +1866,7 @@ define hidden void @rdp_transport_set_udp_conversation(ptr nocapture noundef rea
   %24 = load i32, ptr %0, align 8
   %25 = load i32, ptr %20, align 4
   %26 = load ptr, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 %24, ptr %7, align 8
   %27 = icmp eq i32 %25, 0
   br i1 %27, label %copy_address_wmem.exit, label %28
@@ -2993,7 +2993,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %40
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %1, i64 240
   %54 = load ptr, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %50, ptr %48, align 8
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %copy_address_wmem.exit, label %56
@@ -5060,7 +5060,7 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   %62 = load i32, ptr %41, align 8
   %63 = load i32, ptr %58, align 4
   %64 = load ptr, ptr %42, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 %62, ptr %7, align 8
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %copy_address_wmem.exit, label %66

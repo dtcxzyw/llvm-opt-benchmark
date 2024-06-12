@@ -338,7 +338,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromString(ptr nocapture noundef 
   %45 = getelementptr inbounds i8, ptr %13, i64 8
   %46 = getelementptr inbounds i8, ptr %13, i64 160
   %47 = getelementptr inbounds i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %47, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 32, i1 false)
   %48 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %13, i64 24
@@ -380,7 +380,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   %63 = getelementptr inbounds i8, ptr %13, i64 4256
   %64 = getelementptr inbounds i8, ptr %13, i64 64
   %65 = getelementptr inbounds i8, ptr %13, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %65, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %65, i8 0, i64 56, i1 false)
   %66 = getelementptr inbounds i8, ptr %13, i64 72
   store ptr %63, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %13, i64 80
@@ -818,7 +818,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %.thr
   %56 = getelementptr inbounds i8, ptr %2, i64 4256
   %57 = getelementptr inbounds i8, ptr %2, i64 64
   %58 = getelementptr inbounds i8, ptr %2, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %58, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %58, i8 0, i64 56, i1 false)
   %59 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %56, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %2, i64 80
@@ -1026,7 +1026,7 @@ lxb_encoding_decode_buf_add_to.exit.i:            ; preds = %26
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %30
   %38 = shl i64 %28, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %37, ptr nonnull readonly align 4 %24, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %37, ptr nonnull align 4 %24, i64 %38, i1 false)
   %39 = load i64, ptr %29, align 8
   %40 = add i64 %39, %28
   store i64 %40, ptr %29, align 8
@@ -1119,7 +1119,7 @@ define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(5) @.str.114) #12
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.114) #12
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %dom_search_child.exit, label %16
 
@@ -1152,7 +1152,7 @@ dom_search_child.exit:                            ; preds = %11, %16, %6
 26:                                               ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds i8, ptr %.011.i.i, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(5) @.str.115) #12
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(5) @.str.115) #12
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %dom_search_child.exit.i, label %31
 
@@ -1203,7 +1203,7 @@ dom_place_remove_element_and_hoist_children.exit: ; preds = %31, %._crit_edge.i,
 43:                                               ; preds = %.lr.ph.i.i25
   %44 = getelementptr inbounds i8, ptr %.011.i.i26, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull readonly dereferenceable(5) @.str.116) #12
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(5) @.str.116) #12
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %dom_search_child.exit.i29, label %48
 
@@ -1261,7 +1261,7 @@ dom_place_remove_element_and_hoist_children.exit37: ; preds = %48, %._crit_edge.
 62:                                               ; preds = %.lr.ph.i.i40
   %63 = getelementptr inbounds i8, ptr %.011.i.i41, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull readonly dereferenceable(5) @.str.114) #12
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(5) @.str.114) #12
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %dom_search_child.exit.i44, label %67
 
@@ -1320,7 +1320,7 @@ dom_place_remove_element_and_hoist_children.exit52: ; preds = %67, %._crit_edge.
 77:                                               ; preds = %.lr.ph.i.i55
   %78 = getelementptr inbounds i8, ptr %.011.i.i56, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(5) @.str.114) #12
+  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(5) @.str.114) #12
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %dom_search_child.exit.i59, label %82
 
@@ -1445,7 +1445,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef re
   %52 = getelementptr inbounds i8, ptr %11, i64 8
   %53 = getelementptr inbounds i8, ptr %11, i64 160
   %54 = getelementptr inbounds i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %54, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 32, i1 false)
   %55 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %53, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %11, i64 24
@@ -1487,7 +1487,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   %70 = getelementptr inbounds i8, ptr %11, i64 4256
   %71 = getelementptr inbounds i8, ptr %11, i64 64
   %72 = getelementptr inbounds i8, ptr %11, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %72, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %72, i8 0, i64 56, i1 false)
   %73 = getelementptr inbounds i8, ptr %11, i64 72
   store ptr %70, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %11, i64 80
@@ -1566,7 +1566,7 @@ dom_setup_parser_encoding_manually.exit93:        ; preds = %lxb_encoding_data_b
   %108 = getelementptr inbounds i8, ptr %11, i64 4256
   %109 = getelementptr inbounds i8, ptr %11, i64 64
   %110 = getelementptr inbounds i8, ptr %11, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %110, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %110, i8 0, i64 56, i1 false)
   %111 = getelementptr inbounds i8, ptr %11, i64 72
   store ptr %108, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %11, i64 80
@@ -1948,7 +1948,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %12
 
 18:                                               ; preds = %lxb_encoding_data_by_name.exit
   %19 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %19, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 32, i1 false)
   %20 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %5, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1959,7 +1959,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %12
 lxb_encoding_encode_init.exit:                    ; preds = %12, %2, %lxb_encoding_data_by_name.exit, %18
   %.0.i2 = phi ptr [ null, %lxb_encoding_data_by_name.exit ], [ %16, %18 ], [ null, %2 ], [ null, %12 ]
   %22 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %22, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, i8 0, i64 56, i1 false)
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %6, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2031,7 +2031,7 @@ lxb_encoding_decode_buf_add_to.exit.i:            ; preds = %52
   %58 = load ptr, ptr %23, align 8
   %59 = getelementptr inbounds i32, ptr %58, i64 %54
   %60 = shl i64 %53, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr nonnull readonly align 4 %50, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr nonnull align 4 %50, i64 %60, i1 false)
   %61 = load i64, ptr %22, align 8
   %62 = add i64 %61, %53
   store i64 %62, ptr %22, align 8

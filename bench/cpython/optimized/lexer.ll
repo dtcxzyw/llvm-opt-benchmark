@@ -242,7 +242,7 @@ if.end16.i.i.i:                                   ; preds = %if.end12.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %call.i.i.i.i = tail call ptr @memchr(ptr noundef readonly %10, i32 noundef 0, i64 noundef %sub.ptr.sub.i.i.i) #7
+  %call.i.i.i.i = tail call ptr @memchr(ptr noundef %10, i32 noundef 0, i64 noundef %sub.ptr.sub.i.i.i) #7
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.i.not.i.i.i, label %for.cond.i.i.i, label %if.then23.i.i.i
 
@@ -298,7 +298,7 @@ if.end16.i198.i.i:                                ; preds = %if.end12.i195.i.i
   %sub.ptr.lhs.cast.i199.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i200.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i201.i.i = sub i64 %sub.ptr.lhs.cast.i199.i.i, %sub.ptr.rhs.cast.i200.i.i
-  %call.i.i202.i.i = tail call ptr @memchr(ptr noundef readonly %20, i32 noundef 0, i64 noundef %sub.ptr.sub.i201.i.i) #7
+  %call.i.i202.i.i = tail call ptr @memchr(ptr noundef %20, i32 noundef 0, i64 noundef %sub.ptr.sub.i201.i.i) #7
   %cmp.i.not.i203.i.i = icmp eq ptr %call.i.i202.i.i, null
   br i1 %cmp.i.not.i203.i.i, label %for.cond.i182.i.i, label %if.then23.i204.i.i
 
@@ -481,7 +481,7 @@ if.end16.i264.i.i:                                ; preds = %if.end12.i261.i.i
   %sub.ptr.lhs.cast.i265.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i266.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i267.i.i = sub i64 %sub.ptr.lhs.cast.i265.i.i, %sub.ptr.rhs.cast.i266.i.i
-  %call.i.i268.i.i = tail call ptr @memchr(ptr noundef readonly %41, i32 noundef 0, i64 noundef %sub.ptr.sub.i267.i.i) #7
+  %call.i.i268.i.i = tail call ptr @memchr(ptr noundef %41, i32 noundef 0, i64 noundef %sub.ptr.sub.i267.i.i) #7
   %cmp.i.not.i269.i.i = icmp eq ptr %call.i.i268.i.i, null
   br i1 %cmp.i.not.i269.i.i, label %for.cond.i248.i.i, label %if.then23.i270.i.i
 
@@ -646,7 +646,7 @@ if.end16.i310.i.i:                                ; preds = %if.end12.i307.i.i
   %sub.ptr.lhs.cast.i311.i.i = ptrtoint ptr %67 to i64
   %sub.ptr.rhs.cast.i312.i.i = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i313.i.i = sub i64 %sub.ptr.lhs.cast.i311.i.i, %sub.ptr.rhs.cast.i312.i.i
-  %call.i.i314.i.i = tail call ptr @memchr(ptr noundef readonly %66, i32 noundef 0, i64 noundef %sub.ptr.sub.i313.i.i) #7
+  %call.i.i314.i.i = tail call ptr @memchr(ptr noundef %66, i32 noundef 0, i64 noundef %sub.ptr.sub.i313.i.i) #7
   %cmp.i.not.i315.i.i = icmp eq ptr %call.i.i314.i.i, null
   br i1 %cmp.i.not.i315.i.i, label %for.cond.i294.i.i, label %if.then23.i316.i.i
 
@@ -915,7 +915,7 @@ if.end16.i355.i.i:                                ; preds = %if.end12.i352.i.i
   %sub.ptr.lhs.cast.i356.i.i = ptrtoint ptr %102 to i64
   %sub.ptr.rhs.cast.i357.i.i = ptrtoint ptr %101 to i64
   %sub.ptr.sub.i358.i.i = sub i64 %sub.ptr.lhs.cast.i356.i.i, %sub.ptr.rhs.cast.i357.i.i
-  %call.i.i359.i.i = tail call ptr @memchr(ptr noundef readonly %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i358.i.i) #7
+  %call.i.i359.i.i = tail call ptr @memchr(ptr noundef %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i358.i.i) #7
   %cmp.i.not.i360.i.i = icmp eq ptr %call.i.i359.i.i, null
   br i1 %cmp.i.not.i360.i.i, label %for.cond.i339.i.i, label %if.then23.i361.i.i
 
@@ -980,7 +980,7 @@ if.end16.i388.i.i:                                ; preds = %if.end12.i385.i.i
   %sub.ptr.lhs.cast.i389.i.i = ptrtoint ptr %113 to i64
   %sub.ptr.rhs.cast.i390.i.i = ptrtoint ptr %112 to i64
   %sub.ptr.sub.i391.i.i = sub i64 %sub.ptr.lhs.cast.i389.i.i, %sub.ptr.rhs.cast.i390.i.i
-  %call.i.i392.i.i = tail call ptr @memchr(ptr noundef readonly %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i391.i.i) #7
+  %call.i.i392.i.i = tail call ptr @memchr(ptr noundef %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i391.i.i) #7
   %cmp.i.not.i393.i.i = icmp eq ptr %call.i.i392.i.i, null
   br i1 %cmp.i.not.i393.i.i, label %for.cond.i372.i.i, label %if.then23.i394.i.i
 
@@ -1091,7 +1091,7 @@ if.end16.i434.i.i:                                ; preds = %if.end12.i431.i.i
   %sub.ptr.lhs.cast.i435.i.i = ptrtoint ptr %128 to i64
   %sub.ptr.rhs.cast.i436.i.i = ptrtoint ptr %127 to i64
   %sub.ptr.sub.i437.i.i = sub i64 %sub.ptr.lhs.cast.i435.i.i, %sub.ptr.rhs.cast.i436.i.i
-  %call.i.i438.i.i = tail call ptr @memchr(ptr noundef readonly %127, i32 noundef 0, i64 noundef %sub.ptr.sub.i437.i.i) #7
+  %call.i.i438.i.i = tail call ptr @memchr(ptr noundef %127, i32 noundef 0, i64 noundef %sub.ptr.sub.i437.i.i) #7
   %cmp.i.not.i439.i.i = icmp eq ptr %call.i.i438.i.i, null
   br i1 %cmp.i.not.i439.i.i, label %for.cond.i418.i.i, label %if.then23.i440.i.i
 
@@ -1285,7 +1285,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef readonly %8, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef %8, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then23.i
 
@@ -1585,7 +1585,7 @@ if.end16.i919:                                    ; preds = %if.end12.i916
   %sub.ptr.lhs.cast.i920 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i921 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i922 = sub i64 %sub.ptr.lhs.cast.i920, %sub.ptr.rhs.cast.i921
-  %call.i.i923 = tail call ptr @memchr(ptr noundef readonly %40, i32 noundef 0, i64 noundef %sub.ptr.sub.i922) #7
+  %call.i.i923 = tail call ptr @memchr(ptr noundef %40, i32 noundef 0, i64 noundef %sub.ptr.sub.i922) #7
   %cmp.i.not.i924 = icmp eq ptr %call.i.i923, null
   br i1 %cmp.i.not.i924, label %for.cond.i903, label %if.then23.i925
 
@@ -1676,7 +1676,7 @@ if.end16.i965:                                    ; preds = %if.end12.i962
   %sub.ptr.lhs.cast.i966 = ptrtoint ptr %52 to i64
   %sub.ptr.rhs.cast.i967 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i968 = sub i64 %sub.ptr.lhs.cast.i966, %sub.ptr.rhs.cast.i967
-  %call.i.i969 = tail call ptr @memchr(ptr noundef readonly %51, i32 noundef 0, i64 noundef %sub.ptr.sub.i968) #7
+  %call.i.i969 = tail call ptr @memchr(ptr noundef %51, i32 noundef 0, i64 noundef %sub.ptr.sub.i968) #7
   %cmp.i.not.i970 = icmp eq ptr %call.i.i969, null
   br i1 %cmp.i.not.i970, label %for.cond.i949.outer, label %if.then23.i971
 
@@ -1782,7 +1782,7 @@ if.end16.i998:                                    ; preds = %if.end12.i995
   %sub.ptr.lhs.cast.i999 = ptrtoint ptr %63 to i64
   %sub.ptr.rhs.cast.i1000 = ptrtoint ptr %62 to i64
   %sub.ptr.sub.i1001 = sub i64 %sub.ptr.lhs.cast.i999, %sub.ptr.rhs.cast.i1000
-  %call.i.i1002 = tail call ptr @memchr(ptr noundef readonly %62, i32 noundef 0, i64 noundef %sub.ptr.sub.i1001) #7
+  %call.i.i1002 = tail call ptr @memchr(ptr noundef %62, i32 noundef 0, i64 noundef %sub.ptr.sub.i1001) #7
   %cmp.i.not.i1003 = icmp eq ptr %call.i.i1002, null
   br i1 %cmp.i.not.i1003, label %for.cond.i982, label %if.then23.i1004
 
@@ -2117,7 +2117,7 @@ if.end16.i1057:                                   ; preds = %if.end12.i1054
   %sub.ptr.lhs.cast.i1058 = ptrtoint ptr %102 to i64
   %sub.ptr.rhs.cast.i1059 = ptrtoint ptr %101 to i64
   %sub.ptr.sub.i1060 = sub i64 %sub.ptr.lhs.cast.i1058, %sub.ptr.rhs.cast.i1059
-  %call.i.i1061 = tail call ptr @memchr(ptr noundef readonly %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i1060) #7
+  %call.i.i1061 = tail call ptr @memchr(ptr noundef %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i1060) #7
   %cmp.i.not.i1062 = icmp eq ptr %call.i.i1061, null
   br i1 %cmp.i.not.i1062, label %for.cond.i1041, label %if.then23.i1063
 
@@ -2217,7 +2217,7 @@ if.end16.i1090:                                   ; preds = %if.end12.i1087
   %sub.ptr.lhs.cast.i1091 = ptrtoint ptr %113 to i64
   %sub.ptr.rhs.cast.i1092 = ptrtoint ptr %112 to i64
   %sub.ptr.sub.i1093 = sub i64 %sub.ptr.lhs.cast.i1091, %sub.ptr.rhs.cast.i1092
-  %call.i.i1094 = tail call ptr @memchr(ptr noundef readonly %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i1093) #7
+  %call.i.i1094 = tail call ptr @memchr(ptr noundef %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i1093) #7
   %cmp.i.not.i1095 = icmp eq ptr %call.i.i1094, null
   br i1 %cmp.i.not.i1095, label %for.cond.i1074, label %if.then23.i1096
 
@@ -2572,7 +2572,7 @@ if.end16.i1146:                                   ; preds = %if.end12.i1143
   %sub.ptr.lhs.cast.i1147 = ptrtoint ptr %157 to i64
   %sub.ptr.rhs.cast.i1148 = ptrtoint ptr %156 to i64
   %sub.ptr.sub.i1149 = sub i64 %sub.ptr.lhs.cast.i1147, %sub.ptr.rhs.cast.i1148
-  %call.i.i1150 = tail call ptr @memchr(ptr noundef readonly %156, i32 noundef 0, i64 noundef %sub.ptr.sub.i1149) #7
+  %call.i.i1150 = tail call ptr @memchr(ptr noundef %156, i32 noundef 0, i64 noundef %sub.ptr.sub.i1149) #7
   %cmp.i.not.i1151 = icmp eq ptr %call.i.i1150, null
   br i1 %cmp.i.not.i1151, label %for.cond.i1130, label %if.then23.i1152
 
@@ -2773,7 +2773,7 @@ if.end16.i1179:                                   ; preds = %if.end12.i1176
   %sub.ptr.lhs.cast.i1180 = ptrtoint ptr %184 to i64
   %sub.ptr.rhs.cast.i1181 = ptrtoint ptr %183 to i64
   %sub.ptr.sub.i1182 = sub i64 %sub.ptr.lhs.cast.i1180, %sub.ptr.rhs.cast.i1181
-  %call.i.i1183 = tail call ptr @memchr(ptr noundef readonly %183, i32 noundef 0, i64 noundef %sub.ptr.sub.i1182) #7
+  %call.i.i1183 = tail call ptr @memchr(ptr noundef %183, i32 noundef 0, i64 noundef %sub.ptr.sub.i1182) #7
   %cmp.i.not.i1184 = icmp eq ptr %call.i.i1183, null
   br i1 %cmp.i.not.i1184, label %for.cond.i1163, label %if.then23.i1185
 
@@ -2851,7 +2851,7 @@ if.end16.i1212:                                   ; preds = %if.end12.i1209
   %sub.ptr.lhs.cast.i1213 = ptrtoint ptr %194 to i64
   %sub.ptr.rhs.cast.i1214 = ptrtoint ptr %193 to i64
   %sub.ptr.sub.i1215 = sub i64 %sub.ptr.lhs.cast.i1213, %sub.ptr.rhs.cast.i1214
-  %call.i.i1216 = tail call ptr @memchr(ptr noundef readonly %193, i32 noundef 0, i64 noundef %sub.ptr.sub.i1215) #7
+  %call.i.i1216 = tail call ptr @memchr(ptr noundef %193, i32 noundef 0, i64 noundef %sub.ptr.sub.i1215) #7
   %cmp.i.not.i1217 = icmp eq ptr %call.i.i1216, null
   br i1 %cmp.i.not.i1217, label %for.cond.i1196.backedge, label %if.then23.i1218
 
@@ -2972,7 +2972,7 @@ if.end16.i1245:                                   ; preds = %if.end12.i1242
   %sub.ptr.lhs.cast.i1246 = ptrtoint ptr %207 to i64
   %sub.ptr.rhs.cast.i1247 = ptrtoint ptr %206 to i64
   %sub.ptr.sub.i1248 = sub i64 %sub.ptr.lhs.cast.i1246, %sub.ptr.rhs.cast.i1247
-  %call.i.i1249 = tail call ptr @memchr(ptr noundef readonly %206, i32 noundef 0, i64 noundef %sub.ptr.sub.i1248) #7
+  %call.i.i1249 = tail call ptr @memchr(ptr noundef %206, i32 noundef 0, i64 noundef %sub.ptr.sub.i1248) #7
   %cmp.i.not.i1250 = icmp eq ptr %call.i.i1249, null
   br i1 %cmp.i.not.i1250, label %for.cond.i1229.outer, label %if.then23.i1251
 
@@ -3107,7 +3107,7 @@ if.end16.i1278:                                   ; preds = %if.end12.i1275
   %sub.ptr.lhs.cast.i1279 = ptrtoint ptr %223 to i64
   %sub.ptr.rhs.cast.i1280 = ptrtoint ptr %222 to i64
   %sub.ptr.sub.i1281 = sub i64 %sub.ptr.lhs.cast.i1279, %sub.ptr.rhs.cast.i1280
-  %call.i.i1282 = tail call ptr @memchr(ptr noundef readonly %222, i32 noundef 0, i64 noundef %sub.ptr.sub.i1281) #7
+  %call.i.i1282 = tail call ptr @memchr(ptr noundef %222, i32 noundef 0, i64 noundef %sub.ptr.sub.i1281) #7
   %cmp.i.not.i1283 = icmp eq ptr %call.i.i1282, null
   br i1 %cmp.i.not.i1283, label %for.cond.i1262.outer, label %if.then23.i1284
 
@@ -3243,7 +3243,7 @@ if.end16.i1311:                                   ; preds = %if.end12.i1308
   %sub.ptr.lhs.cast.i1312 = ptrtoint ptr %240 to i64
   %sub.ptr.rhs.cast.i1313 = ptrtoint ptr %239 to i64
   %sub.ptr.sub.i1314 = sub i64 %sub.ptr.lhs.cast.i1312, %sub.ptr.rhs.cast.i1313
-  %call.i.i1315 = tail call ptr @memchr(ptr noundef readonly %239, i32 noundef 0, i64 noundef %sub.ptr.sub.i1314) #7
+  %call.i.i1315 = tail call ptr @memchr(ptr noundef %239, i32 noundef 0, i64 noundef %sub.ptr.sub.i1314) #7
   %cmp.i.not.i1316 = icmp eq ptr %call.i.i1315, null
   br i1 %cmp.i.not.i1316, label %for.cond.i1295, label %if.then23.i1317
 
@@ -3528,7 +3528,7 @@ if.end16.i1344:                                   ; preds = %if.end12.i1341
   %sub.ptr.lhs.cast.i1345 = ptrtoint ptr %272 to i64
   %sub.ptr.rhs.cast.i1346 = ptrtoint ptr %271 to i64
   %sub.ptr.sub.i1347 = sub i64 %sub.ptr.lhs.cast.i1345, %sub.ptr.rhs.cast.i1346
-  %call.i.i1348 = tail call ptr @memchr(ptr noundef readonly %271, i32 noundef 0, i64 noundef %sub.ptr.sub.i1347) #7
+  %call.i.i1348 = tail call ptr @memchr(ptr noundef %271, i32 noundef 0, i64 noundef %sub.ptr.sub.i1347) #7
   %cmp.i.not.i1349 = icmp eq ptr %call.i.i1348, null
   br i1 %cmp.i.not.i1349, label %for.cond.i1328, label %if.then23.i1350
 
@@ -3592,7 +3592,7 @@ if.end16.i1377:                                   ; preds = %if.end12.i1374
   %sub.ptr.lhs.cast.i1378 = ptrtoint ptr %282 to i64
   %sub.ptr.rhs.cast.i1379 = ptrtoint ptr %281 to i64
   %sub.ptr.sub.i1380 = sub i64 %sub.ptr.lhs.cast.i1378, %sub.ptr.rhs.cast.i1379
-  %call.i.i1381 = tail call ptr @memchr(ptr noundef readonly %281, i32 noundef 0, i64 noundef %sub.ptr.sub.i1380) #7
+  %call.i.i1381 = tail call ptr @memchr(ptr noundef %281, i32 noundef 0, i64 noundef %sub.ptr.sub.i1380) #7
   %cmp.i.not.i1382 = icmp eq ptr %call.i.i1381, null
   br i1 %cmp.i.not.i1382, label %for.cond.i1361, label %if.then23.i1383
 
@@ -3789,7 +3789,7 @@ if.end16.i1423:                                   ; preds = %if.end12.i1420
   %sub.ptr.lhs.cast.i1424 = ptrtoint ptr %309 to i64
   %sub.ptr.rhs.cast.i1425 = ptrtoint ptr %308 to i64
   %sub.ptr.sub.i1426 = sub i64 %sub.ptr.lhs.cast.i1424, %sub.ptr.rhs.cast.i1425
-  %call.i.i1427 = tail call ptr @memchr(ptr noundef readonly %308, i32 noundef 0, i64 noundef %sub.ptr.sub.i1426) #7
+  %call.i.i1427 = tail call ptr @memchr(ptr noundef %308, i32 noundef 0, i64 noundef %sub.ptr.sub.i1426) #7
   %cmp.i.not.i1428 = icmp eq ptr %call.i.i1427, null
   br i1 %cmp.i.not.i1428, label %for.cond.i1407, label %if.then23.i1429
 
@@ -3853,7 +3853,7 @@ if.end16.i1456:                                   ; preds = %if.end12.i1453
   %sub.ptr.lhs.cast.i1457 = ptrtoint ptr %319 to i64
   %sub.ptr.rhs.cast.i1458 = ptrtoint ptr %318 to i64
   %sub.ptr.sub.i1459 = sub i64 %sub.ptr.lhs.cast.i1457, %sub.ptr.rhs.cast.i1458
-  %call.i.i1460 = tail call ptr @memchr(ptr noundef readonly %318, i32 noundef 0, i64 noundef %sub.ptr.sub.i1459) #7
+  %call.i.i1460 = tail call ptr @memchr(ptr noundef %318, i32 noundef 0, i64 noundef %sub.ptr.sub.i1459) #7
   %cmp.i.not.i1461 = icmp eq ptr %call.i.i1460, null
   br i1 %cmp.i.not.i1461, label %for.cond.i1440, label %if.then23.i1462
 
@@ -3982,7 +3982,7 @@ if.end16.i1502:                                   ; preds = %if.end12.i1499
   %sub.ptr.lhs.cast.i1503 = ptrtoint ptr %333 to i64
   %sub.ptr.rhs.cast.i1504 = ptrtoint ptr %332 to i64
   %sub.ptr.sub.i1505 = sub i64 %sub.ptr.lhs.cast.i1503, %sub.ptr.rhs.cast.i1504
-  %call.i.i1506 = tail call ptr @memchr(ptr noundef readonly %332, i32 noundef 0, i64 noundef %sub.ptr.sub.i1505) #7
+  %call.i.i1506 = tail call ptr @memchr(ptr noundef %332, i32 noundef 0, i64 noundef %sub.ptr.sub.i1505) #7
   %cmp.i.not.i1507 = icmp eq ptr %call.i.i1506, null
   br i1 %cmp.i.not.i1507, label %for.cond.i1486, label %if.then23.i1508
 
@@ -4141,7 +4141,7 @@ if.end16.i1535:                                   ; preds = %if.end12.i1532
   %sub.ptr.lhs.cast.i1536 = ptrtoint ptr %348 to i64
   %sub.ptr.rhs.cast.i1537 = ptrtoint ptr %347 to i64
   %sub.ptr.sub.i1538 = sub i64 %sub.ptr.lhs.cast.i1536, %sub.ptr.rhs.cast.i1537
-  %call.i.i1539 = tail call ptr @memchr(ptr noundef readonly %347, i32 noundef 0, i64 noundef %sub.ptr.sub.i1538) #7
+  %call.i.i1539 = tail call ptr @memchr(ptr noundef %347, i32 noundef 0, i64 noundef %sub.ptr.sub.i1538) #7
   %cmp.i.not.i1540 = icmp eq ptr %call.i.i1539, null
   br i1 %cmp.i.not.i1540, label %for.cond.i1519, label %if.then23.i1541
 
@@ -4215,7 +4215,7 @@ if.end16.i1568:                                   ; preds = %if.end12.i1565
   %sub.ptr.lhs.cast.i1569 = ptrtoint ptr %357 to i64
   %sub.ptr.rhs.cast.i1570 = ptrtoint ptr %356 to i64
   %sub.ptr.sub.i1571 = sub i64 %sub.ptr.lhs.cast.i1569, %sub.ptr.rhs.cast.i1570
-  %call.i.i1572 = tail call ptr @memchr(ptr noundef readonly %356, i32 noundef 0, i64 noundef %sub.ptr.sub.i1571) #7
+  %call.i.i1572 = tail call ptr @memchr(ptr noundef %356, i32 noundef 0, i64 noundef %sub.ptr.sub.i1571) #7
   %cmp.i.not.i1573 = icmp eq ptr %call.i.i1572, null
   br i1 %cmp.i.not.i1573, label %for.cond.i1552, label %if.then23.i1574
 
@@ -4378,7 +4378,7 @@ if.end16.i1601:                                   ; preds = %if.end12.i1598
   %sub.ptr.lhs.cast.i1602 = ptrtoint ptr %375 to i64
   %sub.ptr.rhs.cast.i1603 = ptrtoint ptr %374 to i64
   %sub.ptr.sub.i1604 = sub i64 %sub.ptr.lhs.cast.i1602, %sub.ptr.rhs.cast.i1603
-  %call.i.i1605 = tail call ptr @memchr(ptr noundef readonly %374, i32 noundef 0, i64 noundef %sub.ptr.sub.i1604) #7
+  %call.i.i1605 = tail call ptr @memchr(ptr noundef %374, i32 noundef 0, i64 noundef %sub.ptr.sub.i1604) #7
   %cmp.i.not.i1606 = icmp eq ptr %call.i.i1605, null
   br i1 %cmp.i.not.i1606, label %for.cond.i1585, label %if.then23.i1607
 
@@ -4446,7 +4446,7 @@ if.end16.i1634:                                   ; preds = %if.end12.i1631
   %sub.ptr.lhs.cast.i1635 = ptrtoint ptr %385 to i64
   %sub.ptr.rhs.cast.i1636 = ptrtoint ptr %384 to i64
   %sub.ptr.sub.i1637 = sub i64 %sub.ptr.lhs.cast.i1635, %sub.ptr.rhs.cast.i1636
-  %call.i.i1638 = tail call ptr @memchr(ptr noundef readonly %384, i32 noundef 0, i64 noundef %sub.ptr.sub.i1637) #7
+  %call.i.i1638 = tail call ptr @memchr(ptr noundef %384, i32 noundef 0, i64 noundef %sub.ptr.sub.i1637) #7
   %cmp.i.not.i1639 = icmp eq ptr %call.i.i1638, null
   br i1 %cmp.i.not.i1639, label %for.cond.i1618, label %if.then23.i1640
 
@@ -4790,7 +4790,7 @@ if.end16:                                         ; preds = %if.end12
   %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call.i = tail call ptr @memchr(ptr noundef readonly %7, i32 noundef 0, i64 noundef %sub.ptr.sub) #7
+  %call.i = tail call ptr @memchr(ptr noundef %7, i32 noundef 0, i64 noundef %sub.ptr.sub) #7
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %for.cond, label %if.then23
 
@@ -4847,7 +4847,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef readonly %4, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef %4, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then3.sink.split.sink.split
 
@@ -4897,7 +4897,7 @@ if.end16.i35:                                     ; preds = %if.end12.i32
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i37 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i37
-  %call.i.i39 = tail call ptr @memchr(ptr noundef readonly %13, i32 noundef 0, i64 noundef %sub.ptr.sub.i38) #7
+  %call.i.i39 = tail call ptr @memchr(ptr noundef %13, i32 noundef 0, i64 noundef %sub.ptr.sub.i38) #7
   %cmp.i.not.i40 = icmp eq ptr %call.i.i39, null
   br i1 %cmp.i.not.i40, label %for.cond.i19, label %if.then3.sink.split.sink.split
 
@@ -4950,7 +4950,7 @@ if.end16.i68:                                     ; preds = %if.end12.i65
   %sub.ptr.lhs.cast.i69 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i70 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i71 = sub i64 %sub.ptr.lhs.cast.i69, %sub.ptr.rhs.cast.i70
-  %call.i.i72 = tail call ptr @memchr(ptr noundef readonly %21, i32 noundef 0, i64 noundef %sub.ptr.sub.i71) #7
+  %call.i.i72 = tail call ptr @memchr(ptr noundef %21, i32 noundef 0, i64 noundef %sub.ptr.sub.i71) #7
   %cmp.i.not.i73 = icmp eq ptr %call.i.i72, null
   br i1 %cmp.i.not.i73, label %for.cond.i52, label %if.then23.i74
 
@@ -5129,7 +5129,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef readonly %7, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef %7, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then23.i
 
@@ -5287,7 +5287,7 @@ if.end16.i83:                                     ; preds = %if.end12.i80
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i85 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
-  %call.i.i87 = tail call ptr @memchr(ptr noundef readonly %25, i32 noundef 0, i64 noundef %sub.ptr.sub.i86) #7
+  %call.i.i87 = tail call ptr @memchr(ptr noundef %25, i32 noundef 0, i64 noundef %sub.ptr.sub.i86) #7
   %cmp.i.not.i88 = icmp eq ptr %call.i.i87, null
   br i1 %cmp.i.not.i88, label %for.cond.i67, label %if.then23.i89
 
@@ -5412,7 +5412,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef readonly %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i.backedge, label %if.then23.i
 
@@ -5496,7 +5496,7 @@ if.end16.i31:                                     ; preds = %if.end12.i28
   %sub.ptr.lhs.cast.i32 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i33 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.lhs.cast.i32, %sub.ptr.rhs.cast.i33
-  %call.i.i35 = tail call ptr @memchr(ptr noundef readonly %17, i32 noundef 0, i64 noundef %sub.ptr.sub.i34) #7
+  %call.i.i35 = tail call ptr @memchr(ptr noundef %17, i32 noundef 0, i64 noundef %sub.ptr.sub.i34) #7
   %cmp.i.not.i36 = icmp eq ptr %call.i.i35, null
   br i1 %cmp.i.not.i36, label %for.cond.i15, label %if.then23.i37
 
@@ -5769,7 +5769,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef readonly %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then23.i
 

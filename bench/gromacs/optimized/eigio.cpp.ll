@@ -437,7 +437,7 @@ define void @_Z18write_eigenvectorsPKciPKfbiiiPA3_S1_bS4_bS2_(ptr noundef %0, i3
   %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store ptr %0, ptr %13, align 8
   %16 = mul nsw i32 %1, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %14, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %14, i8 0, i64 36, i1 false)
   %17 = sext i32 %1 to i64
   %18 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 173, i64 noundef %17, i64 noundef 12)
   %19 = load ptr, ptr @stderr, align 8

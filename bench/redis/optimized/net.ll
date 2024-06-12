@@ -462,7 +462,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i
   %3 = phi ptr [ %call.i.i, %if.then3.i ], [ %1, %if.end.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %if.then3.i
@@ -640,7 +640,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i
   %6 = phi ptr [ %call.i.i, %if.then3.i ], [ %4, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %timeout, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
   %.pre = load ptr, ptr %connect_timeout, align 8
   br label %if.end20
 
@@ -1067,7 +1067,7 @@ if.then3.i:                                       ; preds = %if.end.i31
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i31
   %7 = phi ptr [ %call.i.i33, %if.then3.i ], [ %5, %if.end.i31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %timeout, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
   %.pre = load ptr, ptr %connect_timeout, align 8
   br label %if.end25
 

@@ -888,7 +888,7 @@ invoke.cont5:
 
 invoke.cont21:                                    ; preds = %invoke.cont5
   %m_num_bce.i = getelementptr inbounds i8, ptr %this, i64 196
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40) %m_num_bce.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %m_num_bce.i, i8 0, i64 40, i1 false)
   ret void
 
 lpad20:                                           ; preds = %invoke.cont5

@@ -334,7 +334,7 @@ php_sprintf_appendchars.exit:                     ; preds = %35, %76
   %77 = phi ptr [ %.091.i, %76 ], [ %38, %35 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = getelementptr inbounds i8, ptr %78, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr readonly align 1 %.0407527, i64 %.0401528, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %.0407527, i64 %.0401528, i1 false)
   %80 = load i64, ptr %20, align 8
   %81 = add i64 %80, %.0401528
   store i64 %81, ptr %20, align 8
@@ -428,7 +428,7 @@ php_sprintf_appendchars.exit279:                  ; preds = %83, %127
   %128 = phi ptr [ %.091.i277, %127 ], [ %89, %83 ]
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = getelementptr inbounds i8, ptr %129, i64 %87
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr readonly align 1 %.0407527, i64 %86, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr align 1 %.0407527, i64 %86, i1 false)
   %131 = load i64, ptr %20, align 8
   %132 = add i64 %131, %86
   store i64 %132, ptr %20, align 8

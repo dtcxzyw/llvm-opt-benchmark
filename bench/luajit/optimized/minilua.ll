@@ -378,7 +378,7 @@ if.end.i.i:                                       ; preds = %entry
   store i64 0, ptr %errfunc.i.i.i, align 8
   %tt.i.i.i = getelementptr inbounds i8, ptr %malloc.i.i, i64 128
   store i32 0, ptr %tt.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ci.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ci.i.i.i, i8 0, i64 16, i1 false)
   store i64 0, ptr %size_ci.i.i.i, align 4
   %frealloc.i.i = getelementptr inbounds i8, ptr %malloc.i.i, i64 200
   store ptr @l_alloc, ptr %frealloc.i.i, align 8
@@ -629,7 +629,7 @@ lua_rawseti.exit:                                 ; preds = %luaH_setnum.exit.i,
   store ptr %incdec.ptr.i28, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %l_gt.i.i = getelementptr inbounds i8, ptr %retval.0.i6.i, i64 120
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %retval.0.i6.i, ptr noundef nonnull readonly @.str.1, i64 noundef 3)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %retval.0.i6.i, ptr noundef nonnull @.str.1, i64 noundef 3)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i31 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i31, align 8
@@ -757,8 +757,8 @@ libsize.exit.i:                                   ; preds = %for.body.i.i, %if.t
   %top6.i.i.i = getelementptr inbounds i8, ptr %L, i64 16
   %2 = load ptr, ptr %top6.i.i.i, align 8
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %2, i64 -16
-  %call1.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %libname) #34
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly %libname, i64 noundef %call1.i.i)
+  %call1.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %libname) #34
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %libname, i64 noundef %call1.i.i)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i, align 8
@@ -801,8 +801,8 @@ if.end.i:                                         ; preds = %if.then3.i
   store ptr %incdec.ptr.i37.i, ptr %top6.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i38.i)
   %add.ptr8.i.i40.i = getelementptr inbounds i8, ptr %9, i64 -32
-  %call1.i41.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %libname) #34
-  %call2.i42.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly %libname, i64 noundef %call1.i41.i)
+  %call1.i41.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %libname) #34
+  %call2.i42.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %libname, i64 noundef %call1.i41.i)
   store ptr %call2.i42.i, ptr %key.i38.i, align 8
   %tt.i43.i = getelementptr inbounds i8, ptr %key.i38.i, i64 8
   store i32 4, ptr %tt.i43.i, align 8
@@ -872,8 +872,8 @@ for.end.i:                                        ; preds = %for.end.i, %for.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i61.i)
   %23 = load ptr, ptr %top6.i.i62.i, align 8
   %add.ptr8.i.i63.i = getelementptr inbounds i8, ptr %23, i64 -32
-  %call1.i64.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #34
-  %call2.i65.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly %22, i64 noundef %call1.i64.i)
+  %call1.i64.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #34
+  %call2.i65.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef %22, i64 noundef %call1.i64.i)
   store ptr %call2.i65.i, ptr %key.i61.i, align 8
   store i32 4, ptr %tt.i66.i, align 8
   %24 = load ptr, ptr %top6.i.i62.i, align 8
@@ -976,7 +976,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 lua_pushlstring.exit:                             ; preds = %if.else, %luaC_step.exit.i
   %top.i4 = getelementptr inbounds i8, ptr %L, i64 16
   %12 = load ptr, ptr %top.i4, align 8
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly %s, i64 noundef %call)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %s, i64 noundef %call)
   store ptr %call.i, ptr %12, align 8
   br label %if.end
 
@@ -1302,7 +1302,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %if.then, %luaC_step.exit.i
   %13 = phi ptr [ %L.val, %if.then ], [ %.pre, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.271, i64 noundef 6)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.271, i64 noundef 6)
   store ptr %call.i, ptr %13, align 8
   %tt.i = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %tt.i, align 8
@@ -1395,7 +1395,7 @@ if.end49:                                         ; preds = %if.end23.thread, %w
   store ptr @getF, ptr %reader2.i.i, align 8
   %data3.i.i = getelementptr inbounds i8, ptr %z.i, i64 24
   store ptr %lf, ptr %data3.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %z.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %z.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i)
   store ptr %z.i, ptr %p.i.i, align 8
   %name2.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
@@ -2126,7 +2126,7 @@ entry:
   %currentwhite.i = getelementptr inbounds i8, ptr %2, i64 32
   store i8 67, ptr %currentwhite.i, align 8
   %rootgc.i = getelementptr inbounds i8, ptr %2, i64 40
-  %call.i = tail call fastcc ptr @sweeplist(ptr noundef readonly %L, ptr noundef nonnull %rootgc.i, i64 noundef -3)
+  %call.i = tail call fastcc ptr @sweeplist(ptr noundef %L, ptr noundef nonnull %rootgc.i, i64 noundef -3)
   %size.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %size.i, align 4
   %cmp8.i = icmp sgt i32 %3, 0
@@ -2136,7 +2136,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
   %4 = load ptr, ptr %2, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
-  %call2.i = tail call fastcc ptr @sweeplist(ptr noundef readonly %L, ptr noundef %arrayidx.i, i64 noundef -3)
+  %call2.i = tail call fastcc ptr @sweeplist(ptr noundef %L, ptr noundef %arrayidx.i, i64 noundef -3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i32, ptr %size.i, align 4
   %6 = sext i32 %5 to i64
@@ -5922,7 +5922,7 @@ if.then11.i:                                      ; preds = %if.else.i131
   %217 = load ptr, ptr %cond789.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %216, i64 24
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %217, i64 24
-  %call18.i.i = tail call i32 @strcoll(ptr noundef nonnull readonly %add.ptr.i.i, ptr noundef nonnull readonly %add.ptr1.i.i) #34
+  %call18.i.i = tail call i32 @strcoll(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr1.i.i) #34
   %cmp.not19.i.i = icmp eq i32 %call18.i.i, 0
   br i1 %cmp.not19.i.i, label %if.else.preheader.i.i, label %l_strcmp.exit.i
 
@@ -9570,7 +9570,7 @@ if.then11:                                        ; preds = %if.else
   %9 = load ptr, ptr %r, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 24
   %add.ptr1.i = getelementptr inbounds i8, ptr %9, i64 24
-  %call18.i = tail call i32 @strcoll(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr1.i) #34
+  %call18.i = tail call i32 @strcoll(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr1.i) #34
   %cmp.not19.i = icmp eq i32 %call18.i, 0
   br i1 %cmp.not19.i, label %if.else.preheader.i, label %l_strcmp.exit
 
@@ -13530,7 +13530,7 @@ entry:
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.94, i64 noundef 2)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.94, i64 noundef 2)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i15.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i15.i, align 8
@@ -13612,7 +13612,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 
 lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i, %entry
   %17 = load ptr, ptr %top.i.i, align 8
-  %call.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.95, i64 noundef 7)
+  %call.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.95, i64 noundef 7)
   store ptr %call.i.i, ptr %17, align 8
   %tt.i19.i = getelementptr inbounds i8, ptr %17, i64 8
   store i32 4, ptr %tt.i19.i, align 8
@@ -13620,7 +13620,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %incdec.ptr.i20.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i21.i)
-  %call2.i24.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.96, i64 noundef 8)
+  %call2.i24.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.96, i64 noundef 8)
   store ptr %call2.i24.i, ptr %key.i21.i, align 8
   %tt.i25.i = getelementptr inbounds i8, ptr %key.i21.i, i64 8
   store i32 4, ptr %tt.i25.i, align 8
@@ -13636,7 +13636,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i.i)
   %21 = load ptr, ptr %top.i.i, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 -32
-  %call2.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.97, i64 noundef 6)
+  %call2.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.97, i64 noundef 6)
   store ptr %call2.i.i.i, ptr %key.i.i.i, align 8
   %tt.i.i.i = getelementptr inbounds i8, ptr %key.i.i.i, i64 8
   store i32 4, ptr %tt.i.i.i, align 8
@@ -13652,7 +13652,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i29.i)
   %24 = load ptr, ptr %top.i.i, align 8
   %add.ptr8.i.i.i31.i = getelementptr inbounds i8, ptr %24, i64 -32
-  %call2.i.i33.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.98, i64 noundef 5)
+  %call2.i.i33.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.98, i64 noundef 5)
   store ptr %call2.i.i33.i, ptr %key.i.i29.i, align 8
   %tt.i.i34.i = getelementptr inbounds i8, ptr %key.i.i29.i, i64 8
   store i32 4, ptr %tt.i.i34.i, align 8
@@ -13819,7 +13819,7 @@ luaC_step.exit.i109.i:                            ; preds = %if.else27.i.i103.i,
 
 base_open.exit:                                   ; preds = %lua_createtable.exit.i, %luaC_step.exit.i109.i
   %54 = load ptr, ptr %top.i.i, align 8
-  %call.i112.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.99, i64 noundef 2)
+  %call.i112.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.99, i64 noundef 2)
   store ptr %call.i112.i, ptr %54, align 8
   %tt.i113.i = getelementptr inbounds i8, ptr %54, i64 8
   store i32 4, ptr %tt.i113.i, align 8
@@ -13828,7 +13828,7 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   store ptr %incdec.ptr.i114.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i122.i)
   %add.ptr8.i.i124.i = getelementptr inbounds i8, ptr %55, i64 -16
-  %call2.i126.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.49, i64 noundef 6)
+  %call2.i126.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.49, i64 noundef 6)
   store ptr %call2.i126.i, ptr %key.i122.i, align 8
   %tt.i127.i = getelementptr inbounds i8, ptr %key.i122.i, i64 8
   store i32 4, ptr %tt.i127.i, align 8
@@ -13841,7 +13841,7 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i122.i)
   tail call fastcc void @lua_pushcclosure(ptr noundef %L, ptr noundef nonnull @luaB_newproxy, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i131.i)
-  %call2.i134.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.100, i64 noundef 8)
+  %call2.i134.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.100, i64 noundef 8)
   store ptr %call2.i134.i, ptr %key.i131.i, align 8
   %tt.i135.i = getelementptr inbounds i8, ptr %key.i131.i, i64 8
   store i32 4, ptr %tt.i135.i, align 8
@@ -13874,7 +13874,7 @@ entry:
   %l_G.i.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G.i.i.i.i, align 8
   %l_registry.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
-  %call2.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i.i, ptr %key.i.i.i, align 8
   %tt.i.i.i = getelementptr inbounds i8, ptr %key.i.i.i, i64 8
   store i32 4, ptr %tt.i.i.i, align 8
@@ -13985,7 +13985,7 @@ lua_createtable.exit.i.i:                         ; preds = %luaC_step.exit.i.i.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i17.i.i)
   %20 = load ptr, ptr %l_G.i.i.i.i, align 8
   %l_registry.i.i19.i.i = getelementptr inbounds i8, ptr %20, i64 160
-  %call2.i21.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i21.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i21.i.i, ptr %key.i17.i.i, align 8
   %tt.i22.i.i = getelementptr inbounds i8, ptr %key.i17.i.i, i64 8
   store i32 4, ptr %tt.i22.i.i, align 8
@@ -14012,7 +14012,7 @@ luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exi
   store ptr %incdec.ptr.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   %add.ptr8.i.i5.i = getelementptr inbounds i8, ptr %26, i64 -16
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.46, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.46, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i6.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i6.i, align 8
@@ -14035,8 +14035,8 @@ for.end.i.i.i:                                    ; preds = %for.end.i.i.i, %lua
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i61.i.i.i)
   %31 = load ptr, ptr %top.i.i.i, align 8
   %add.ptr8.i.i63.i.i.i = getelementptr inbounds i8, ptr %31, i64 -32
-  %call1.i64.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #34
-  %call2.i65.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef readonly %30, i64 noundef %call1.i64.i.i.i)
+  %call1.i64.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #34
+  %call2.i65.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %30, i64 noundef %call1.i64.i.i.i)
   store ptr %call2.i65.i.i.i, ptr %key.i61.i.i.i, align 8
   store i32 4, ptr %tt.i66.i.i.i, align 8
   %32 = load ptr, ptr %top.i.i.i, align 8
@@ -14140,7 +14140,7 @@ lua_replace.exit:                                 ; preds = %if.then3.i, %land.l
   store ptr %add.ptr9.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %add.ptr8.i.i = getelementptr i8, ptr %59, i64 -32
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.198, i64 noundef 5)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.198, i64 noundef 5)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i15 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i15, align 8
@@ -14392,7 +14392,7 @@ luaC_step.exit.i36.i:                             ; preds = %if.else27.i.i30.i, 
 
 createmetatable.exit:                             ; preds = %lua_createtable.exit.i, %luaC_step.exit.i36.i
   %24 = phi ptr [ %incdec.ptr.i.i, %lua_createtable.exit.i ], [ %.pre.i, %luaC_step.exit.i36.i ]
-  %call.i39.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.7, i64 noundef 0)
+  %call.i39.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.7, i64 noundef 0)
   store ptr %call.i39.i, ptr %24, align 8
   %tt.i40.i = getelementptr inbounds i8, ptr %24, i64 8
   store i32 4, ptr %tt.i40.i, align 8
@@ -14425,7 +14425,7 @@ createmetatable.exit:                             ; preds = %lua_createtable.exi
   store ptr %incdec.ptr.i57.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   %add.ptr8.i.i59.i = getelementptr inbounds i8, ptr %32, i64 -16
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.46, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.46, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i60.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i60.i, align 8
@@ -15549,7 +15549,7 @@ lua_createtable.exit:                             ; preds = %if.then4, %luaC_ste
   %cond.i.i = select i1 %cmp21.not.i.i, ptr @luaO_nilobject_, ptr %upvalue.i.i
   %31 = load ptr, ptr %cond.i.i, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %26, i64 -16
-  %call.i.i33 = tail call fastcc ptr @luaH_get(ptr noundef %31, ptr noundef nonnull readonly %add.ptr2.i)
+  %call.i.i33 = tail call fastcc ptr @luaH_get(ptr noundef %31, ptr noundef nonnull %add.ptr2.i)
   %flags.i.i = getelementptr inbounds i8, ptr %31, i64 10
   store i8 0, ptr %flags.i.i, align 2
   %cmp.not.i.i = icmp eq ptr %call.i.i33, @luaO_nilobject_
@@ -15577,7 +15577,7 @@ if.then8.i.i:                                     ; preds = %land.lhs.true.i.i
   unreachable
 
 if.end9.i.i:                                      ; preds = %land.lhs.true.i.i, %if.else.i.i37
-  %call10.i.i = tail call fastcc ptr @newkey(ptr noundef nonnull %L, ptr noundef nonnull %31, ptr noundef nonnull readonly %add.ptr2.i)
+  %call10.i.i = tail call fastcc ptr @newkey(ptr noundef nonnull %L, ptr noundef nonnull %31, ptr noundef nonnull %add.ptr2.i)
   br label %luaH_set.exit.i
 
 luaH_set.exit.i:                                  ; preds = %if.end9.i.i, %lua_createtable.exit
@@ -16208,7 +16208,7 @@ luaL_optlstring.exit:                             ; preds = %if.else.i.luaL_optl
   store ptr @getS, ptr %reader2.i.i.i, align 8
   %data3.i.i.i = getelementptr inbounds i8, ptr %z.i.i, i64 24
   store ptr %ls.i, ptr %data3.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %z.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %z.i.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i.i.i)
   store ptr %z.i.i, ptr %p.i.i.i, align 8
   %name2.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 32
@@ -18851,7 +18851,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 lua_pushlstring.exit:                             ; preds = %if.end5, %luaC_step.exit.i
   %top.i = getelementptr inbounds i8, ptr %L, i64 16
   %19 = load ptr, ptr %top.i, align 8
-  %call.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.7, i64 noundef 0)
+  %call.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.7, i64 noundef 0)
   store ptr %call.i, ptr %19, align 8
   %tt.i = getelementptr inbounds i8, ptr %19, i64 8
   store i32 4, ptr %tt.i, align 8
@@ -19776,8 +19776,8 @@ if.end:                                           ; preds = %luaC_step.exit, %en
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %funcstate.i)
   %buff1.i = getelementptr inbounds i8, ptr %lexstate.i, i64 72
   store ptr %buff, ptr %buff1.i, align 8
-  %call.i21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #34
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly %12, i64 noundef %call.i21)
+  %call.i21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #34
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef %12, i64 noundef %call.i21)
   %decpoint.i.i = getelementptr inbounds i8, ptr %lexstate.i, i64 88
   store i8 46, ptr %decpoint.i.i, align 8
   %L1.i.i = getelementptr inbounds i8, ptr %lexstate.i, i64 56
@@ -19929,7 +19929,7 @@ if.then.i8.i:                                     ; preds = %luaX_next.exit.i
   %37 = load ptr, ptr %L1.i.i, align 8
   %call1.i.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %37, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.90)
   %38 = load i32, ptr %t4.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %lexstate.i, ptr noundef %call1.i.i.i, i32 noundef %38)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %lexstate.i, ptr noundef %call1.i.i.i, i32 noundef %38)
   unreachable
 
 luaY_parser.exit:                                 ; preds = %luaX_next.exit.i
@@ -20394,7 +20394,7 @@ while.cond.preheader:                             ; preds = %entry
   br label %land.rhs
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.146, i32 noundef 0)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.146, i32 noundef 0)
   unreachable
 
 land.rhs:                                         ; preds = %while.cond.preheader, %testnext.exit
@@ -20462,7 +20462,7 @@ if.then.i.i689:                                   ; preds = %cond.exit711
   %10 = load ptr, ptr %L.i, align 8
   %call1.i.i.i692 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %10, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.78)
   %11 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i692, i32 noundef %11)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i692, i32 noundef %11)
   unreachable
 
 check.exit.i693:                                  ; preds = %cond.exit711
@@ -20558,7 +20558,7 @@ if.then.i.i.i.i405:                               ; preds = %while.end.i.i.i380
   %24 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i.i.i406 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load i32, ptr %t.i.i.i.i.i406, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %24, ptr noundef nonnull @.str.148, i32 noundef %25)
+  call fastcc void @luaX_lexerror(ptr noundef %24, ptr noundef nonnull @.str.148, i32 noundef %25)
   unreachable
 
 fixjump.exit.i.i.i384:                            ; preds = %while.end.i.i.i380
@@ -20610,7 +20610,7 @@ if.then.i.i.i403:                                 ; preds = %while.end.i.i
   %29 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i.i404 = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load i32, ptr %t.i.i.i.i404, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %29, ptr noundef nonnull @.str.148, i32 noundef %30)
+  call fastcc void @luaX_lexerror(ptr noundef %29, ptr noundef nonnull @.str.148, i32 noundef %30)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -20669,7 +20669,7 @@ if.then.i.i.i46.i:                                ; preds = %while.end.i.i36.i
   %36 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i.i47.i = getelementptr inbounds i8, ptr %36, i64 16
   %37 = load i32, ptr %t.i.i.i.i47.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %36, ptr noundef nonnull @.str.148, i32 noundef %37)
+  call fastcc void @luaX_lexerror(ptr noundef %36, ptr noundef nonnull @.str.148, i32 noundef %37)
   unreachable
 
 fixjump.exit.i.i40.i:                             ; preds = %while.end.i.i36.i
@@ -20722,7 +20722,7 @@ if.then.i.i647:                                   ; preds = %cond.exit
   %44 = load ptr, ptr %L.i, align 8
   %call1.i.i.i650 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %44, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.78)
   %45 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i650, i32 noundef %45)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i650, i32 noundef %45)
   unreachable
 
 check.exit.i651:                                  ; preds = %cond.exit
@@ -20805,7 +20805,7 @@ if.then.i.i.i81.i:                                ; preds = %while.end.i.i70.i
   %57 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i.i82.i = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load i32, ptr %t.i.i.i.i82.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %57, ptr noundef nonnull @.str.148, i32 noundef %58)
+  call fastcc void @luaX_lexerror(ptr noundef %57, ptr noundef nonnull @.str.148, i32 noundef %58)
   unreachable
 
 fixjump.exit.i.i74.i:                             ; preds = %while.end.i.i70.i
@@ -20857,7 +20857,7 @@ if.then.i.i111.i:                                 ; preds = %while.end.i101.i
   %62 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i113.i = getelementptr inbounds i8, ptr %62, i64 16
   %63 = load i32, ptr %t.i.i.i113.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %62, ptr noundef nonnull @.str.148, i32 noundef %63)
+  call fastcc void @luaX_lexerror(ptr noundef %62, ptr noundef nonnull @.str.148, i32 noundef %63)
   unreachable
 
 fixjump.exit.i105.i:                              ; preds = %while.end.i101.i
@@ -20916,7 +20916,7 @@ if.then.i.i.i146.i:                               ; preds = %while.end.i.i136.i
   %69 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i.i148.i = getelementptr inbounds i8, ptr %69, i64 16
   %70 = load i32, ptr %t.i.i.i.i148.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %69, ptr noundef nonnull @.str.148, i32 noundef %70)
+  call fastcc void @luaX_lexerror(ptr noundef %69, ptr noundef nonnull @.str.148, i32 noundef %70)
   unreachable
 
 fixjump.exit.i.i140.i:                            ; preds = %while.end.i.i136.i
@@ -21007,7 +21007,7 @@ if.then.i.i180.i:                                 ; preds = %while.end.i170.i
   %80 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i182.i = getelementptr inbounds i8, ptr %80, i64 16
   %81 = load i32, ptr %t.i.i.i182.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %80, ptr noundef nonnull @.str.148, i32 noundef %81)
+  call fastcc void @luaX_lexerror(ptr noundef %80, ptr noundef nonnull @.str.148, i32 noundef %81)
   unreachable
 
 fixjump.exit.i174.i:                              ; preds = %while.end.i170.i
@@ -21067,7 +21067,7 @@ if.then.i.i.i215.i:                               ; preds = %while.end.i.i205.i
   %87 = load ptr, ptr %ls.i.i.i360, align 8
   %t.i.i.i.i217.i = getelementptr inbounds i8, ptr %87, i64 16
   %88 = load i32, ptr %t.i.i.i.i217.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %87, ptr noundef nonnull @.str.148, i32 noundef %88)
+  call fastcc void @luaX_lexerror(ptr noundef %87, ptr noundef nonnull @.str.148, i32 noundef %88)
   unreachable
 
 fixjump.exit.i.i209.i:                            ; preds = %while.end.i.i205.i
@@ -21139,7 +21139,7 @@ if.then.i.i.i259:                                 ; preds = %cond.exit.i248
   %98 = load ptr, ptr %L.i, align 8
   %call1.i.i.i.i261 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %98, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.65)
   %99 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i.i261, i32 noundef %99)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i.i261, i32 noundef %99)
   unreachable
 
 check.exit.i.i262:                                ; preds = %cond.exit.i248
@@ -21222,7 +21222,7 @@ if.then.i.i.i.i336:                               ; preds = %while.end.i.i.i285
   %111 = load ptr, ptr %ls.i.i.i268.le1048, align 8
   %t.i.i.i.i.i337 = getelementptr inbounds i8, ptr %111, i64 16
   %112 = load i32, ptr %t.i.i.i.i.i337, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %111, ptr noundef nonnull @.str.148, i32 noundef %112)
+  call fastcc void @luaX_lexerror(ptr noundef %111, ptr noundef nonnull @.str.148, i32 noundef %112)
   unreachable
 
 fixjump.exit.i.i.i289:                            ; preds = %while.end.i.i.i285
@@ -21286,7 +21286,7 @@ if.then.i.i.i.i.i332:                             ; preds = %while.end.i.i.i.i32
   %118 = load ptr, ptr %ls.i.i.i268.le1046, align 8
   %t.i.i.i.i.i.i334 = getelementptr inbounds i8, ptr %118, i64 16
   %119 = load i32, ptr %t.i.i.i.i.i.i334, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %118, ptr noundef nonnull @.str.148, i32 noundef %119)
+  call fastcc void @luaX_lexerror(ptr noundef %118, ptr noundef nonnull @.str.148, i32 noundef %119)
   unreachable
 
 fixjump.exit.i.i.i.i326:                          ; preds = %while.end.i.i.i.i322
@@ -21351,7 +21351,7 @@ if.then.i.i.i47.i:                                ; preds = %while.end.i.i37.i
   %125 = load ptr, ptr %ls.i.i.i268.le, align 8
   %t.i.i.i.i48.i = getelementptr inbounds i8, ptr %125, i64 16
   %126 = load i32, ptr %t.i.i.i.i48.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %125, ptr noundef nonnull @.str.148, i32 noundef %126)
+  call fastcc void @luaX_lexerror(ptr noundef %125, ptr noundef nonnull @.str.148, i32 noundef %126)
   unreachable
 
 fixjump.exit.i.i41.i:                             ; preds = %while.end.i.i37.i
@@ -21441,7 +21441,7 @@ if.then.i.i.i191:                                 ; preds = %luaX_next.exit.i188
   %137 = load ptr, ptr %L.i, align 8
   %call1.i.i.i.i193 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %137, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %138 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i.i193, i32 noundef %138)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i.i193, i32 noundef %138)
   unreachable
 
 check.exit.i.i194:                                ; preds = %luaX_next.exit.i188
@@ -21545,7 +21545,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i607
   %154 = load ptr, ptr %ls.i611.le, align 8
   %t.i.i.i609 = getelementptr inbounds i8, ptr %154, i64 16
   %155 = load i32, ptr %t.i.i.i609, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %154, ptr noundef nonnull @.str.150, i32 noundef %155)
+  call fastcc void @luaX_lexerror(ptr noundef %154, ptr noundef nonnull @.str.150, i32 noundef %155)
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i607
@@ -21608,7 +21608,7 @@ if.then.i.i580:                                   ; preds = %while.body.i.i204
   %162 = load ptr, ptr %L.i, align 8
   %call1.i.i.i582 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %162, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %163 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i582, i32 noundef %163)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i582, i32 noundef %163)
   unreachable
 
 check.exit.i583:                                  ; preds = %while.body.i.i204
@@ -21646,7 +21646,7 @@ if.then.i.i569:                                   ; preds = %forlist.exit.i
   %169 = load ptr, ptr %L.i, align 8
   %call1.i.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %169, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.72)
   %170 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i, i32 noundef %170)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i, i32 noundef %170)
   unreachable
 
 check.exit.i:                                     ; preds = %forlist.exit.i
@@ -21739,7 +21739,7 @@ if.then4.i.i.i.i545:                              ; preds = %if.then.i.i9.i.i535
   %185 = load ptr, ptr %ls.i.i.i.i546, align 8
   %t.i.i.i.i.i547 = getelementptr inbounds i8, ptr %185, i64 16
   %186 = load i32, ptr %t.i.i.i.i.i547, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %185, ptr noundef nonnull @.str.150, i32 noundef %186)
+  call fastcc void @luaX_lexerror(ptr noundef %185, ptr noundef nonnull @.str.150, i32 noundef %186)
   unreachable
 
 if.end.i.i.i.i537:                                ; preds = %if.then.i.i9.i.i535
@@ -21782,7 +21782,7 @@ if.then4.i:                                       ; preds = %if.then.i516
   %191 = load ptr, ptr %ls.i, align 8
   %t.i.i518 = getelementptr inbounds i8, ptr %191, i64 16
   %192 = load i32, ptr %t.i.i518, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %191, ptr noundef nonnull @.str.150, i32 noundef %192)
+  call fastcc void @luaX_lexerror(ptr noundef %191, ptr noundef nonnull @.str.150, i32 noundef %192)
   unreachable
 
 if.end.i517:                                      ; preds = %if.then.i516
@@ -21797,7 +21797,7 @@ luaK_checkstack.exit:                             ; preds = %explist1.exit, %if.
   br label %forstat.exit
 
 sw.default.i209:                                  ; preds = %str_checkname.exit.i200
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.165, i32 noundef %142)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.165, i32 noundef %142)
   unreachable
 
 forstat.exit:                                     ; preds = %fornum.exit.i, %luaK_checkstack.exit
@@ -21923,7 +21923,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i
   %209 = load ptr, ptr %ls.i.i.i.i.i, align 8
   %t.i.i.i.i.i.i = getelementptr inbounds i8, ptr %209, i64 16
   %210 = load i32, ptr %t.i.i.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %209, ptr noundef nonnull @.str.148, i32 noundef %210)
+  call fastcc void @luaX_lexerror(ptr noundef %209, ptr noundef nonnull @.str.148, i32 noundef %210)
   unreachable
 
 fixjump.exit.i.i.i.i:                             ; preds = %while.end.i.i.i.i
@@ -21991,7 +21991,7 @@ if.then.i.i.i.i168:                               ; preds = %while.end.i.i.i
   %217 = load ptr, ptr %ls.i.i.i.i169, align 8
   %t.i.i.i.i.i170 = getelementptr inbounds i8, ptr %217, i64 16
   %218 = load i32, ptr %t.i.i.i.i.i170, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %217, ptr noundef nonnull @.str.148, i32 noundef %218)
+  call fastcc void @luaX_lexerror(ptr noundef %217, ptr noundef nonnull @.str.148, i32 noundef %218)
   unreachable
 
 fixjump.exit.i.i.i:                               ; preds = %while.end.i.i.i
@@ -22053,7 +22053,7 @@ if.then.i.i.i56.i:                                ; preds = %while.end.i.i46.i
   %226 = load ptr, ptr %ls.i.i.i164.le, align 8
   %t.i.i.i.i57.i = getelementptr inbounds i8, ptr %226, i64 16
   %227 = load i32, ptr %t.i.i.i.i57.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %226, ptr noundef nonnull @.str.148, i32 noundef %227)
+  call fastcc void @luaX_lexerror(ptr noundef %226, ptr noundef nonnull @.str.148, i32 noundef %227)
   unreachable
 
 fixjump.exit.i.i50.i:                             ; preds = %while.end.i.i46.i
@@ -22120,7 +22120,7 @@ if.then.i.i.i.i91.i:                              ; preds = %while.end.i.i.i81.i
   %233 = load ptr, ptr %ls.i.i.i.i92.i, align 8
   %t.i.i.i.i.i93.i = getelementptr inbounds i8, ptr %233, i64 16
   %234 = load i32, ptr %t.i.i.i.i.i93.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %233, ptr noundef nonnull @.str.148, i32 noundef %234)
+  call fastcc void @luaX_lexerror(ptr noundef %233, ptr noundef nonnull @.str.148, i32 noundef %234)
   unreachable
 
 fixjump.exit.i.i.i85.i:                           ; preds = %while.end.i.i.i81.i
@@ -22294,7 +22294,7 @@ if.then.i.i.i67:                                  ; preds = %if.then.i8
   %257 = load ptr, ptr %L.i, align 8
   %call1.i.i.i.i69 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %257, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %258 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i.i69, i32 noundef %258)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i.i69, i32 noundef %258)
   unreachable
 
 check.exit.i.i70:                                 ; preds = %if.then.i8
@@ -22340,7 +22340,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i12.i
   %265 = load ptr, ptr %ls.i.i.i103, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %265, i64 16
   %266 = load i32, ptr %t.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %265, ptr noundef nonnull @.str.150, i32 noundef %266)
+  call fastcc void @luaX_lexerror(ptr noundef %265, ptr noundef nonnull @.str.150, i32 noundef %266)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i12.i
@@ -22418,7 +22418,7 @@ if.then.i.i.i41:                                  ; preds = %if.else.i, %testnex
   %280 = load ptr, ptr %L.i, align 8
   %call1.i.i.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %280, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %281 = load i32, ptr %t, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i.i, i32 noundef %281)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i.i, i32 noundef %281)
   unreachable
 
 check.exit.i.i:                                   ; preds = %if.else.i, %testnext.exit.i
@@ -22560,7 +22560,7 @@ if.then4.i.i.i461:                                ; preds = %if.then.i.i9.i452
   %302 = load ptr, ptr %ls.i.i.i462, align 8
   %t.i.i.i.i463 = getelementptr inbounds i8, ptr %302, i64 16
   %303 = load i32, ptr %t.i.i.i.i463, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %302, ptr noundef nonnull @.str.150, i32 noundef %303)
+  call fastcc void @luaX_lexerror(ptr noundef %302, ptr noundef nonnull @.str.150, i32 noundef %303)
   unreachable
 
 if.end.i.i.i454:                                  ; preds = %if.then.i.i9.i452
@@ -22723,7 +22723,7 @@ if.then4.i.i.i420:                                ; preds = %if.then.i.i9.i
   %325 = load ptr, ptr %ls.i.i.i421, align 8
   %t.i.i.i.i422 = getelementptr inbounds i8, ptr %325, i64 16
   %326 = load i32, ptr %t.i.i.i.i422, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %325, ptr noundef nonnull @.str.150, i32 noundef %326)
+  call fastcc void @luaX_lexerror(ptr noundef %325, ptr noundef nonnull @.str.150, i32 noundef %326)
   unreachable
 
 if.end.i.i.i413:                                  ; preds = %if.then.i.i9.i
@@ -22817,7 +22817,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %349 = load ptr, ptr %ls.i.i.i.i, align 8
   %t.i.i.i.i.i = getelementptr inbounds i8, ptr %349, i64 16
   %350 = load i32, ptr %t.i.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %349, ptr noundef nonnull @.str.150, i32 noundef %350)
+  call fastcc void @luaX_lexerror(ptr noundef %349, ptr noundef nonnull @.str.150, i32 noundef %350)
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
@@ -22907,7 +22907,7 @@ if.then4.i.i.i27.i:                               ; preds = %if.then.i.i9.i.i
   %364 = load ptr, ptr %ls.i.i.i28.i, align 8
   %t.i.i.i.i29.i = getelementptr inbounds i8, ptr %364, i64 16
   %365 = load i32, ptr %t.i.i.i.i29.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %364, ptr noundef nonnull @.str.150, i32 noundef %365)
+  call fastcc void @luaX_lexerror(ptr noundef %364, ptr noundef nonnull @.str.150, i32 noundef %365)
   unreachable
 
 if.end.i.i.i21.i:                                 ; preds = %if.then.i.i9.i.i
@@ -23523,7 +23523,7 @@ if.then.i192:                                     ; preds = %luaM_realloc_.exit1
   %add.ptr.i = getelementptr inbounds i8, ptr %96, i64 24
   %len.i = getelementptr inbounds i8, ptr %96, i64 16
   %97 = load i64, ptr %len.i, align 8
-  %call.i193 = tail call fastcc ptr @luaX_newstring(ptr noundef nonnull readonly %ls, ptr noundef nonnull %add.ptr.i, i64 noundef %97)
+  %call.i193 = tail call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull %add.ptr.i, i64 noundef %97)
   br label %anchor_token.exit
 
 anchor_token.exit:                                ; preds = %luaM_realloc_.exit191, %if.then.i192
@@ -25150,7 +25150,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 if.then31:                                        ; preds = %if.end
   %t.i = getelementptr inbounds i8, ptr %ls, i64 16
   %22 = load i32, ptr %t.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.134, i32 noundef %22)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.134, i32 noundef %22)
   unreachable
 
 if.end32:                                         ; preds = %if.end
@@ -25455,7 +25455,7 @@ if.then.i:                                        ; preds = %sw.bb35
   br i1 %cmp2.i56, label %if.then3.i, label %cond.true.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.142, i32 noundef 0) #40
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.142, i32 noundef 0) #40
   unreachable
 
 cond.true.i:                                      ; preds = %if.then.i
@@ -25651,7 +25651,7 @@ if.end.i62:                                       ; preds = %cond.end26.i, %land
 if.then31.i:                                      ; preds = %if.end.i62
   %t.i.i = getelementptr inbounds i8, ptr %ls, i64 16
   %62 = load i32, ptr %t.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.134, i32 noundef %62)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.134, i32 noundef %62)
   unreachable
 
 inclinenumber.exit:                               ; preds = %if.end.i62
@@ -26620,7 +26620,7 @@ luaX_token2str.exit.i:                            ; preds = %if.else.i.i10, %con
   %retval.0.i.i = phi ptr [ %7, %if.else.i.i10 ], [ %call1.i.i, %cond.true.i.i ], [ %call3.i.i, %cond.false.i.i ]
   %call1.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.164, ptr noundef %retval.0.i.i)
   %8 = load i32, ptr %t.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i, i32 noundef %8)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i, i32 noundef %8)
   unreachable
 
 if.else:                                          ; preds = %if.then
@@ -26686,7 +26686,7 @@ luaX_token2str.exit33:                            ; preds = %cond.true.i29, %con
   %retval.0.i22 = phi ptr [ %17, %if.else.i18 ], [ %call1.i30, %cond.true.i29 ], [ %call3.i32, %cond.false.i31 ]
   %call4 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.163, ptr noundef %retval.0.i14, ptr noundef %retval.0.i22, i32 noundef %where)
   %18 = load i32, ptr %t.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call4, i32 noundef %18)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call4, i32 noundef %18)
   unreachable
 
 if.end5:                                          ; preds = %if.else.i.i, %if.then.i.i
@@ -26723,7 +26723,7 @@ while.body:                                       ; preds = %land.rhs
 if.then:                                          ; preds = %while.body, %entry
   %t.i = getelementptr inbounds i8, ptr %ls, i64 16
   %3 = load i32, ptr %t.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %ls, ptr noundef nonnull @.str.172, i32 noundef %3)
+  tail call fastcc void @luaX_lexerror(ptr noundef %ls, ptr noundef nonnull @.str.172, i32 noundef %3)
   unreachable
 
 if.end:                                           ; preds = %land.rhs
@@ -26791,7 +26791,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
   %13 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %13, ptr noundef nonnull @.str.148, i32 noundef %14)
+  tail call fastcc void @luaX_lexerror(ptr noundef %13, ptr noundef nonnull @.str.148, i32 noundef %14)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -26848,7 +26848,7 @@ if.then.i.i:                                      ; preds = %while.end.i
   %19 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %t.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %19, ptr noundef nonnull @.str.148, i32 noundef %20)
+  tail call fastcc void @luaX_lexerror(ptr noundef %19, ptr noundef nonnull @.str.148, i32 noundef %20)
   unreachable
 
 fixjump.exit.i:                                   ; preds = %while.end.i
@@ -26907,7 +26907,7 @@ luaX_token2str.exit.i.i:                          ; preds = %if.else.i.i.i, %con
   %retval.0.i.i.i = phi ptr [ %5, %if.else.i.i.i ], [ %call1.i.i.i, %cond.true.i.i.i ], [ %call3.i.i.i, %cond.false.i.i.i ]
   %call1.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.164, ptr noundef %retval.0.i.i.i)
   %6 = load i32, ptr %t.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i, i32 noundef %6)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i, i32 noundef %6)
   unreachable
 
 check.exit:                                       ; preds = %entry
@@ -27035,7 +27035,7 @@ if.then.i.i:                                      ; preds = %while.end.i
   %13 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i32, ptr %t.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %13, ptr noundef nonnull @.str.148, i32 noundef %14)
+  tail call fastcc void @luaX_lexerror(ptr noundef %13, ptr noundef nonnull @.str.148, i32 noundef %14)
   unreachable
 
 fixjump.exit.i:                                   ; preds = %while.end.i
@@ -27099,7 +27099,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
   %21 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 16
   %22 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %21, ptr noundef nonnull @.str.148, i32 noundef %22)
+  tail call fastcc void @luaX_lexerror(ptr noundef %21, ptr noundef nonnull @.str.148, i32 noundef %22)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -27133,7 +27133,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %enterlevel.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.146, i32 noundef 0)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.146, i32 noundef 0)
   unreachable
 
 enterlevel.exit:                                  ; preds = %entry
@@ -27302,7 +27302,7 @@ if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %20 = load ptr, ptr %ls.i.i.i.i.i, align 8
   %t.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i32, ptr %t.i.i.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %20, ptr noundef nonnull @.str.150, i32 noundef %21)
+  tail call fastcc void @luaX_lexerror(ptr noundef %20, ptr noundef nonnull @.str.150, i32 noundef %21)
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i
@@ -27578,7 +27578,7 @@ sw.bb8.i:                                         ; preds = %enterlevel.exit
   br i1 %tobool.not.i, label %if.then.i29, label %if.end.i27
 
 if.then.i29:                                      ; preds = %sw.bb8.i
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.151, i32 noundef 279)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.151, i32 noundef 279)
   unreachable
 
 if.end.i27:                                       ; preds = %sw.bb8.i
@@ -27863,7 +27863,7 @@ if.then.i.i.i.i102:                               ; preds = %while.end.i.i.i
   %74 = load ptr, ptr %ls.i.i.i.i, align 8
   %t.i.i.i.i.i = getelementptr inbounds i8, ptr %74, i64 16
   %75 = load i32, ptr %t.i.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %74, ptr noundef nonnull @.str.148, i32 noundef %75)
+  call fastcc void @luaX_lexerror(ptr noundef %74, ptr noundef nonnull @.str.148, i32 noundef %75)
   unreachable
 
 fixjump.exit.i.i.i:                               ; preds = %while.end.i.i.i
@@ -27926,7 +27926,7 @@ if.then.i.i.i.i.i99:                              ; preds = %while.end.i.i.i.i
   %82 = load ptr, ptr %ls.i.i.i.i.i100, align 8
   %t.i.i.i.i.i.i101 = getelementptr inbounds i8, ptr %82, i64 16
   %83 = load i32, ptr %t.i.i.i.i.i.i101, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %82, ptr noundef nonnull @.str.148, i32 noundef %83)
+  call fastcc void @luaX_lexerror(ptr noundef %82, ptr noundef nonnull @.str.148, i32 noundef %83)
   unreachable
 
 fixjump.exit.i.i.i.i:                             ; preds = %while.end.i.i.i.i
@@ -27988,7 +27988,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i9.i.i
   %91 = load ptr, ptr %ls.i.i.i12.i, align 8
   %t.i.i.i.i13.i = getelementptr inbounds i8, ptr %91, i64 16
   %92 = load i32, ptr %t.i.i.i.i13.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %91, ptr noundef nonnull @.str.150, i32 noundef %92)
+  call fastcc void @luaX_lexerror(ptr noundef %91, ptr noundef nonnull @.str.150, i32 noundef %92)
   unreachable
 
 if.end.i.i.i.i68:                                 ; preds = %if.then.i.i9.i.i
@@ -28106,7 +28106,7 @@ if.then.i.i.i157:                                 ; preds = %while.end.i.i
   %106 = load ptr, ptr %ls.i.i.i158, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %106, i64 16
   %107 = load i32, ptr %t.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %106, ptr noundef nonnull @.str.148, i32 noundef %107)
+  call fastcc void @luaX_lexerror(ptr noundef %106, ptr noundef nonnull @.str.148, i32 noundef %107)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -28169,7 +28169,7 @@ if.then.i.i95.i:                                  ; preds = %while.end.i85.i
   %113 = load ptr, ptr %ls.i.i96.i, align 8
   %t.i.i.i97.i = getelementptr inbounds i8, ptr %113, i64 16
   %114 = load i32, ptr %t.i.i.i97.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %113, ptr noundef nonnull @.str.148, i32 noundef %114)
+  call fastcc void @luaX_lexerror(ptr noundef %113, ptr noundef nonnull @.str.148, i32 noundef %114)
   unreachable
 
 fixjump.exit.i89.i:                               ; preds = %while.end.i85.i
@@ -28305,7 +28305,7 @@ if.then4.i.i.i.i127:                              ; preds = %if.then.i.i9.i.i118
   %137 = load ptr, ptr %ls.i.i.i.i128, align 8
   %t.i.i.i.i.i129 = getelementptr inbounds i8, ptr %137, i64 16
   %138 = load i32, ptr %t.i.i.i.i.i129, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %137, ptr noundef nonnull @.str.150, i32 noundef %138)
+  call fastcc void @luaX_lexerror(ptr noundef %137, ptr noundef nonnull @.str.150, i32 noundef %138)
   unreachable
 
 if.end.i.i.i.i120:                                ; preds = %if.then.i.i9.i.i118
@@ -28786,7 +28786,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
   %12 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %12, ptr noundef nonnull @.str.150, i32 noundef %13)
+  tail call fastcc void @luaX_lexerror(ptr noundef %12, ptr noundef nonnull @.str.150, i32 noundef %13)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i9.i
@@ -29237,7 +29237,7 @@ if.then.i.i:                                      ; preds = %while.end.i
   %6 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i32, ptr %t.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %6, ptr noundef nonnull @.str.148, i32 noundef %7)
+  tail call fastcc void @luaX_lexerror(ptr noundef %6, ptr noundef nonnull @.str.148, i32 noundef %7)
   unreachable
 
 fixjump.exit.i:                                   ; preds = %while.end.i
@@ -29405,7 +29405,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
   %29 = load ptr, ptr %ls.i.i68, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %29, ptr noundef nonnull @.str.148, i32 noundef %30)
+  tail call fastcc void @luaX_lexerror(ptr noundef %29, ptr noundef nonnull @.str.148, i32 noundef %30)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -29483,7 +29483,7 @@ if.then.i.i.i113:                                 ; preds = %while.end.i.i103
   %42 = load ptr, ptr %ls.i.i72, align 8
   %t.i.i.i.i114 = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load i32, ptr %t.i.i.i.i114, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %42, ptr noundef nonnull @.str.148, i32 noundef %43)
+  tail call fastcc void @luaX_lexerror(ptr noundef %42, ptr noundef nonnull @.str.148, i32 noundef %43)
   unreachable
 
 fixjump.exit.i.i107:                              ; preds = %while.end.i.i103
@@ -29751,7 +29751,7 @@ if.then.i:                                        ; preds = %if.end.i
   %10 = load ptr, ptr %ls.i, align 8
   %t.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i32, ptr %t.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %10, ptr noundef nonnull @.str.148, i32 noundef %11)
+  tail call fastcc void @luaX_lexerror(ptr noundef %10, ptr noundef nonnull @.str.148, i32 noundef %11)
   unreachable
 
 fixjump.exit:                                     ; preds = %if.end.i
@@ -29774,7 +29774,7 @@ if.then.i30:                                      ; preds = %if.else
   %16 = load ptr, ptr %ls.i31, align 8
   %t.i.i32 = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load i32, ptr %t.i.i32, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %16, ptr noundef nonnull @.str.148, i32 noundef %17)
+  tail call fastcc void @luaX_lexerror(ptr noundef %16, ptr noundef nonnull @.str.148, i32 noundef %17)
   unreachable
 
 if.end:                                           ; preds = %if.else, %fixjump.exit
@@ -29974,7 +29974,7 @@ entry:
   %0 = load ptr, ptr %L1, align 8
   %h = getelementptr inbounds i8, ptr %fs, i64 8
   %1 = load ptr, ptr %h, align 8
-  %call.i = tail call fastcc ptr @luaH_get(ptr noundef %1, ptr noundef readonly %k)
+  %call.i = tail call fastcc ptr @luaH_get(ptr noundef %1, ptr noundef %k)
   %flags.i = getelementptr inbounds i8, ptr %1, i64 10
   store i8 0, ptr %flags.i, align 2
   %cmp.not.i = icmp eq ptr %call.i, @luaO_nilobject_
@@ -30002,7 +30002,7 @@ if.then8.i:                                       ; preds = %land.lhs.true.i
   unreachable
 
 if.end9.i:                                        ; preds = %land.lhs.true.i, %if.else.i
-  %call10.i = tail call fastcc ptr @newkey(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly %k)
+  %call10.i = tail call fastcc ptr @newkey(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %k)
   br label %luaH_set.exit
 
 luaH_set.exit:                                    ; preds = %entry, %if.end9.i
@@ -30311,7 +30311,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
   %12 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %12, ptr noundef nonnull @.str.150, i32 noundef %13)
+  tail call fastcc void @luaX_lexerror(ptr noundef %12, ptr noundef nonnull @.str.150, i32 noundef %13)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i9.i
@@ -30389,7 +30389,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i9.i.i
   %24 = load ptr, ptr %ls.i, align 8
   %t.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load i32, ptr %t.i.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %24, ptr noundef nonnull @.str.150, i32 noundef %25)
+  call fastcc void @luaX_lexerror(ptr noundef %24, ptr noundef nonnull @.str.150, i32 noundef %25)
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i9.i.i
@@ -30658,7 +30658,7 @@ if.then4.i.i.i.i104:                              ; preds = %if.then.i.i.i.i75
   %74 = load ptr, ptr %ls.i, align 8
   %t.i.i.i.i.i106 = getelementptr inbounds i8, ptr %74, i64 16
   %75 = load i32, ptr %t.i.i.i.i.i106, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %74, ptr noundef nonnull @.str.150, i32 noundef %75)
+  call fastcc void @luaX_lexerror(ptr noundef %74, ptr noundef nonnull @.str.150, i32 noundef %75)
   unreachable
 
 if.end.i.i.i.i77:                                 ; preds = %if.then.i.i.i.i75
@@ -30758,7 +30758,7 @@ if.then4.i.i.i28.i:                               ; preds = %if.then.i.i9.i.i114
   %91 = load ptr, ptr %ls.i, align 8
   %t.i.i.i.i30.i = getelementptr inbounds i8, ptr %91, i64 16
   %92 = load i32, ptr %t.i.i.i.i30.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %91, ptr noundef nonnull @.str.150, i32 noundef %92)
+  call fastcc void @luaX_lexerror(ptr noundef %91, ptr noundef nonnull @.str.150, i32 noundef %92)
   unreachable
 
 if.end.i.i.i21.i:                                 ; preds = %if.then.i.i9.i.i114
@@ -30941,7 +30941,7 @@ sw.bb1.i:                                         ; preds = %entry
   br label %prefixexp.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.159, i32 noundef %1)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.159, i32 noundef %1)
   unreachable
 
 prefixexp.exit:                                   ; preds = %luaX_next.exit61, %sw.bb1.i
@@ -31046,7 +31046,7 @@ if.then.i.i.i:                                    ; preds = %luaX_next.exit
   %14 = load ptr, ptr %L.i.i.i.i, align 8
   %call1.i.i.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %14, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %15 = load i32, ptr %t.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i.i, i32 noundef %15)
+  call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i.i, i32 noundef %15)
   unreachable
 
 check.exit.i.i:                                   ; preds = %luaX_next.exit
@@ -31119,7 +31119,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i15.i
   %26 = load ptr, ptr %ls.i37.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i32, ptr %t.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %26, ptr noundef nonnull @.str.150, i32 noundef %27)
+  call fastcc void @luaX_lexerror(ptr noundef %26, ptr noundef nonnull @.str.150, i32 noundef %27)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i15.i
@@ -31328,7 +31328,7 @@ if.then4.i.i.i36:                                 ; preds = %if.then.i.i9.i
   %66 = load ptr, ptr %ls.i37.i, align 8
   %t.i.i.i.i38 = getelementptr inbounds i8, ptr %66, i64 16
   %67 = load i32, ptr %t.i.i.i.i38, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %66, ptr noundef nonnull @.str.150, i32 noundef %67)
+  call fastcc void @luaX_lexerror(ptr noundef %66, ptr noundef nonnull @.str.150, i32 noundef %67)
   unreachable
 
 if.end.i.i.i30:                                   ; preds = %if.then.i.i9.i
@@ -31708,7 +31708,7 @@ if.else.i:                                        ; preds = %sw.bb5
   br label %if.end
 
 sw.default:                                       ; preds = %do.body
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.158, i32 noundef %3)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.158, i32 noundef %3)
   unreachable
 
 land.rhs:                                         ; preds = %str_checkname.exit
@@ -31816,7 +31816,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i27
   %29 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load i32, ptr %t.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %29, ptr noundef nonnull @.str.150, i32 noundef %30)
+  tail call fastcc void @luaX_lexerror(ptr noundef %29, ptr noundef nonnull @.str.150, i32 noundef %30)
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i27
@@ -32012,7 +32012,7 @@ if.then.i.i.i:                                    ; preds = %luaX_next.exit
   %4 = load ptr, ptr %L.i.i.i.i, align 8
   %call1.i.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %4, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %5 = load i32, ptr %t4.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i.i, i32 noundef %5)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i.i, i32 noundef %5)
   unreachable
 
 check.exit.i.i:                                   ; preds = %luaX_next.exit
@@ -32080,7 +32080,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.161, i32 noundef 40)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.161, i32 noundef 40)
   unreachable
 
 if.end:                                           ; preds = %sw.bb
@@ -32185,7 +32185,7 @@ if.then4.i.i.i77:                                 ; preds = %if.then.i.i9.i68
   %17 = load ptr, ptr %ls.i.i.i78, align 8
   %t.i.i.i.i79 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %t.i.i.i.i79, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %17, ptr noundef nonnull @.str.150, i32 noundef %18)
+  call fastcc void @luaX_lexerror(ptr noundef %17, ptr noundef nonnull @.str.150, i32 noundef %18)
   unreachable
 
 if.end.i.i.i70:                                   ; preds = %if.then.i.i9.i68
@@ -32268,7 +32268,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   %37 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %38 = load i32, ptr %t.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %37, ptr noundef nonnull @.str.150, i32 noundef %38)
+  call fastcc void @luaX_lexerror(ptr noundef %37, ptr noundef nonnull @.str.150, i32 noundef %38)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -32326,7 +32326,7 @@ if.else.i33:                                      ; preds = %sw.bb8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.162, i32 noundef %2)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.162, i32 noundef %2)
   unreachable
 
 sw.epilog:                                        ; preds = %if.else.i33, %if.then.i32, %sw.bb7, %if.end6
@@ -32388,7 +32388,7 @@ if.then4.i.i.i49:                                 ; preds = %if.then.i.i9.i
   %52 = load ptr, ptr %ls.i.i.i50, align 8
   %t.i.i.i.i51 = getelementptr inbounds i8, ptr %52, i64 16
   %53 = load i32, ptr %t.i.i.i.i51, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %52, ptr noundef nonnull @.str.150, i32 noundef %53)
+  call fastcc void @luaX_lexerror(ptr noundef %52, ptr noundef nonnull @.str.150, i32 noundef %53)
   unreachable
 
 if.end.i.i.i43:                                   ; preds = %if.then.i.i9.i
@@ -32457,7 +32457,7 @@ if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr %L.i.i.i, align 8
   %call1.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.88)
   %2 = load i32, ptr %t.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i, i32 noundef %2)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i, i32 noundef %2)
   unreachable
 
 check.exit.i:                                     ; preds = %entry
@@ -32818,7 +32818,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   %9 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %9, ptr noundef nonnull @.str.150, i32 noundef %10)
+  tail call fastcc void @luaX_lexerror(ptr noundef %9, ptr noundef nonnull @.str.150, i32 noundef %10)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -32928,7 +32928,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
   %8 = load ptr, ptr %ls.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %8, ptr noundef nonnull @.str.148, i32 noundef %9)
+  tail call fastcc void @luaX_lexerror(ptr noundef %8, ptr noundef nonnull @.str.148, i32 noundef %9)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -33059,7 +33059,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
   %22 = load ptr, ptr %ls, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %22, ptr noundef nonnull @.str.148, i32 noundef %23)
+  tail call fastcc void @luaX_lexerror(ptr noundef %22, ptr noundef nonnull @.str.148, i32 noundef %23)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -33128,7 +33128,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
   %8 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i32, ptr %t.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %8, ptr noundef nonnull @.str.150, i32 noundef %9)
+  call fastcc void @luaX_lexerror(ptr noundef %8, ptr noundef nonnull @.str.150, i32 noundef %9)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i9.i
@@ -33191,7 +33191,7 @@ if.then.i.i:                                      ; preds = %adjustlocalvars.exi
   %7 = load ptr, ptr %L.i.i.i, align 8
   %call1.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %7, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.65)
   %8 = load i32, ptr %t.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef %call1.i.i.i, i32 noundef %8)
+  tail call fastcc void @luaX_lexerror(ptr noundef nonnull %ls, ptr noundef %call1.i.i.i, i32 noundef %8)
   unreachable
 
 check.exit.i:                                     ; preds = %adjustlocalvars.exit
@@ -33276,7 +33276,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
   %19 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %19, ptr noundef nonnull @.str.148, i32 noundef %20)
+  tail call fastcc void @luaX_lexerror(ptr noundef %19, ptr noundef nonnull @.str.148, i32 noundef %20)
   unreachable
 
 fixjump.exit.i.i:                                 ; preds = %while.end.i.i
@@ -33356,7 +33356,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i46
   %32 = load ptr, ptr %ls.i.i48, align 8
   %t.i.i.i = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load i32, ptr %t.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %32, ptr noundef nonnull @.str.150, i32 noundef %33)
+  call fastcc void @luaX_lexerror(ptr noundef %32, ptr noundef nonnull @.str.150, i32 noundef %33)
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i46
@@ -33437,7 +33437,7 @@ if.then.i.i.i76:                                  ; preds = %while.end.i.i66
   %42 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i77 = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load i32, ptr %t.i.i.i.i77, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %42, ptr noundef nonnull @.str.148, i32 noundef %43)
+  call fastcc void @luaX_lexerror(ptr noundef %42, ptr noundef nonnull @.str.148, i32 noundef %43)
   unreachable
 
 fixjump.exit.i.i70:                               ; preds = %while.end.i.i66
@@ -33531,7 +33531,7 @@ if.then.i.i.i123:                                 ; preds = %while.end.i.i112
   %60 = load ptr, ptr %ls.i87, align 8
   %t.i.i.i.i124 = getelementptr inbounds i8, ptr %60, i64 16
   %61 = load i32, ptr %t.i.i.i.i124, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %60, ptr noundef nonnull @.str.148, i32 noundef %61)
+  call fastcc void @luaX_lexerror(ptr noundef %60, ptr noundef nonnull @.str.148, i32 noundef %61)
   unreachable
 
 fixjump.exit.i.i116:                              ; preds = %while.end.i.i112
@@ -33596,7 +33596,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i
   %67 = load ptr, ptr %ls.i.i.i.i, align 8
   %t.i.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 16
   %68 = load i32, ptr %t.i.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %67, ptr noundef nonnull @.str.148, i32 noundef %68)
+  call fastcc void @luaX_lexerror(ptr noundef %67, ptr noundef nonnull @.str.148, i32 noundef %68)
   unreachable
 
 fixjump.exit.i.i.i:                               ; preds = %while.end.i.i.i
@@ -33698,7 +33698,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   %18 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load i32, ptr %t.i.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %18, ptr noundef nonnull @.str.150, i32 noundef %19)
+  tail call fastcc void @luaX_lexerror(ptr noundef %18, ptr noundef nonnull @.str.150, i32 noundef %19)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -33737,7 +33737,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   %23 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %t.i.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %23, ptr noundef nonnull @.str.150, i32 noundef %24)
+  tail call fastcc void @luaX_lexerror(ptr noundef %23, ptr noundef nonnull @.str.150, i32 noundef %24)
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -33799,7 +33799,7 @@ if.then4.i.i.i28:                                 ; preds = %if.then.i.i9.i
   %32 = load ptr, ptr %ls.i.i.i29, align 8
   %t.i.i.i.i30 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load i32, ptr %t.i.i.i.i30, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %32, ptr noundef nonnull @.str.150, i32 noundef %33)
+  tail call fastcc void @luaX_lexerror(ptr noundef %32, ptr noundef nonnull @.str.150, i32 noundef %33)
   unreachable
 
 if.end.i.i.i22:                                   ; preds = %if.then.i.i9.i
@@ -33840,7 +33840,7 @@ if.then4.i.i46:                                   ; preds = %if.then.i.i40
   %37 = load ptr, ptr %ls.i.i47, align 8
   %t.i.i.i48 = getelementptr inbounds i8, ptr %37, i64 16
   %38 = load i32, ptr %t.i.i.i48, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %37, ptr noundef nonnull @.str.150, i32 noundef %38)
+  tail call fastcc void @luaX_lexerror(ptr noundef %37, ptr noundef nonnull @.str.150, i32 noundef %38)
   unreachable
 
 if.end.i.i42:                                     ; preds = %if.then.i.i40
@@ -34052,7 +34052,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @luaX_lexerror(ptr noundef readonly %ls, ptr noundef nonnull @.str.173, i32 noundef %2)
+  tail call fastcc void @luaX_lexerror(ptr noundef %ls, ptr noundef nonnull @.str.173, i32 noundef %2)
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -34177,7 +34177,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   %23 = load ptr, ptr %ls.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %t.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %23, ptr noundef nonnull @.str.150, i32 noundef %24)
+  call fastcc void @luaX_lexerror(ptr noundef %23, ptr noundef nonnull @.str.150, i32 noundef %24)
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -34314,7 +34314,7 @@ if.then4.i.i.i53:                                 ; preds = %if.then.i.i9.i
   %43 = load ptr, ptr %ls.i.i.i, align 8
   %t.i.i.i.i54 = getelementptr inbounds i8, ptr %43, i64 16
   %44 = load i32, ptr %t.i.i.i.i54, align 8
-  call fastcc void @luaX_lexerror(ptr noundef readonly %43, ptr noundef nonnull @.str.150, i32 noundef %44)
+  call fastcc void @luaX_lexerror(ptr noundef %43, ptr noundef nonnull @.str.150, i32 noundef %44)
   unreachable
 
 if.end.i.i.i47:                                   ; preds = %if.then.i.i9.i
@@ -35239,7 +35239,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 if.then.i.i47:                                    ; preds = %luaC_step.exit.i.i, %if.else.i106
   %top.i.i111 = getelementptr inbounds i8, ptr %34, i64 16
   %46 = load ptr, ptr %top.i.i111, align 8
-  %call.i.i112 = call fastcc ptr @luaS_newlstr(ptr noundef %34, ptr noundef nonnull readonly %buffer.i, i64 noundef %sub.ptr.sub.i)
+  %call.i.i112 = call fastcc ptr @luaS_newlstr(ptr noundef %34, ptr noundef nonnull %buffer.i, i64 noundef %sub.ptr.sub.i)
   store ptr %call.i.i112, ptr %46, align 8
   %tt.i.i113 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 4, ptr %tt.i.i113, align 8
@@ -36467,7 +36467,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 lua_pushlstring.exit:                             ; preds = %if.else, %luaC_step.exit.i
   %top.i = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load ptr, ptr %top.i, align 8
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %1, ptr noundef nonnull readonly %buffer, i64 noundef %sub.ptr.sub)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %1, ptr noundef nonnull %buffer, i64 noundef %sub.ptr.sub)
   store ptr %call.i, ptr %13, align 8
   %tt.i = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %tt.i, align 8
@@ -38509,7 +38509,7 @@ lua_createtable.exit:                             ; preds = %entry, %luaC_step.e
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %13 = load ptr, ptr %top.i, align 8
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %13, i64 -32
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i3 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i3, align 8
@@ -38646,7 +38646,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %entry, %luaC_step.exit.i
   %13 = phi ptr [ %incdec.ptr.i, %entry ], [ %.pre, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.222, i64 noundef 26)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.222, i64 noundef 26)
   store ptr %call.i, ptr %13, align 8
   %tt.i3 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %tt.i3, align 8
@@ -38667,7 +38667,7 @@ entry:
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i, align 8
@@ -38786,8 +38786,8 @@ lua_setfenv.exit:                                 ; preds = %if.end, %if.then.i,
   store ptr %incdec.ptr.i16, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %add.ptr8.i.i18 = getelementptr inbounds i8, ptr %29, i64 -64
-  %call1.i19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %fname) #34
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef readonly %fname, i64 noundef %call1.i19)
+  %call1.i19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fname) #34
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fname, i64 noundef %call1.i19)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i20 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i20, align 8
@@ -38969,7 +38969,7 @@ aux_close.exit:                                   ; preds = %tofile.exit, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i4.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i4.i, align 8
@@ -39170,7 +39170,7 @@ aux_close.exit:                                   ; preds = %if.then, %sw.bb.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i4.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i4.i, align 8
@@ -39252,7 +39252,7 @@ if.then2:                                         ; preds = %sw.epilog.i
   %l_G.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %7 = load ptr, ptr %l_G.i.i, align 8
   %l_registry.i.i = getelementptr inbounds i8, ptr %7, i64 160
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i17 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i17, align 8
@@ -39501,7 +39501,7 @@ aux_close.exit:                                   ; preds = %lua_settop.exit, %s
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i4.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i4.i, align 8
@@ -39895,7 +39895,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 
 test_eof.exit:                                    ; preds = %cond.true, %luaC_step.exit.i.i
   %40 = load ptr, ptr %0, align 8
-  %call.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly null, i64 noundef 0)
+  %call.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef null, i64 noundef 0)
   store ptr %call.i.i, ptr %40, align 8
   %tt.i.i51 = getelementptr inbounds i8, ptr %40, i64 8
   store i32 4, ptr %tt.i.i51, align 8
@@ -40588,7 +40588,7 @@ luaL_checklstring.exit:                           ; preds = %if.else
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %23 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %23, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i15 = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i15, align 8
@@ -40761,7 +40761,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_checklstring.e
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %3 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %3, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i8 = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i8, align 8
@@ -40939,7 +40939,7 @@ lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %s
   %l_G.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %5 = load ptr, ptr %l_G.i.i, align 8
   %l_registry.i.i = getelementptr inbounds i8, ptr %5, i64 160
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i10 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i10, align 8
@@ -41115,7 +41115,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %if.then6, %luaC_step.exit.i
   %36 = phi ptr [ %incdec.ptr.i18, %if.then6 ], [ %.pre85, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.220, i64 noundef 11)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.220, i64 noundef 11)
   store ptr %call.i, ptr %36, align 8
   br label %if.end8
 
@@ -41184,7 +41184,7 @@ luaC_step.exit.i59:                               ; preds = %if.else27.i.i53, %i
 
 lua_pushlstring.exit71:                           ; preds = %if.else7, %luaC_step.exit.i59
   %45 = phi ptr [ %incdec.ptr.i18, %if.else7 ], [ %.pre, %luaC_step.exit.i59 ]
-  %call.i62 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.221, i64 noundef 4)
+  %call.i62 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.221, i64 noundef 4)
   store ptr %call.i62, ptr %45, align 8
   br label %if.end8
 
@@ -41319,7 +41319,7 @@ if.then2:                                         ; preds = %if.then
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %3 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %3, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i, align 8
@@ -42748,7 +42748,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 if.then.i.i116:                                   ; preds = %luaC_step.exit.i.i, %if.else.i125
   %top.i.i133 = getelementptr inbounds i8, ptr %91, i64 16
   %103 = load ptr, ptr %top.i.i133, align 8
-  %call.i.i134 = call fastcc ptr @luaS_newlstr(ptr noundef %91, ptr noundef nonnull readonly %buffer.i, i64 noundef %sub.ptr.sub.i128)
+  %call.i.i134 = call fastcc ptr @luaS_newlstr(ptr noundef %91, ptr noundef nonnull %buffer.i, i64 noundef %sub.ptr.sub.i128)
   store ptr %call.i.i134, ptr %103, align 8
   %tt.i.i135 = getelementptr inbounds i8, ptr %103, i64 8
   store i32 4, ptr %tt.i.i135, align 8
@@ -43196,7 +43196,7 @@ lor.end.i.i.i:                                    ; preds = %if.then.i.i.i.i, %l
 if.else35.i.i:                                    ; preds = %if.else29.i.i
   %conv31.i.i = sext i8 %35 to i32
   %sub.i.i = add nsw i32 %conv31.i.i, -49
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call20)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vl.i.i.i)
   %44 = load ptr, ptr %L1.i, align 8
   %call.i33.i.i = call fastcc ptr @lua_tolstring(ptr noundef %44, i32 noundef -1, ptr noundef nonnull %vl.i.i.i)
@@ -43285,7 +43285,7 @@ sw.bb2.i:                                         ; preds = %lua_type.exit.i46
   %59 = load ptr, ptr %top.i.i.i43, align 8
   %incdec.ptr.i30.i = getelementptr inbounds i8, ptr %59, i64 16
   store ptr %incdec.ptr.i30.i, ptr %top.i.i.i43, align 8
-  %call3.i50 = call fastcc i32 @push_captures(ptr noundef nonnull readonly %ms, ptr noundef %src.0, ptr noundef nonnull %call20)
+  %call3.i50 = call fastcc i32 @push_captures(ptr noundef nonnull %ms, ptr noundef %src.0, ptr noundef nonnull %call20)
   %60 = load ptr, ptr %top.i.i.i43, align 8
   %narrow.i.i = xor i32 %call3.i50, -1
   %idx.neg.i.i = sext i32 %narrow.i.i to i64
@@ -43294,7 +43294,7 @@ sw.bb2.i:                                         ; preds = %lua_type.exit.i46
   br label %sw.epilog.i
 
 sw.bb4.i:                                         ; preds = %lua_type.exit.i46
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef 0, ptr noundef %src.0, ptr noundef nonnull %call20)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef 0, ptr noundef %src.0, ptr noundef nonnull %call20)
   %61 = load ptr, ptr %base.i.i.i41, align 8
   %add.ptr.i.i34.i = getelementptr i8, ptr %61, i64 32
   %62 = load ptr, ptr %top.i.i.i43, align 8
@@ -43395,7 +43395,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 
 lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i, %if.then.i49
   %77 = phi ptr [ %add.ptr8.i.i.i, %if.then.i49 ], [ %.pre.i, %luaC_step.exit.i.i ]
-  %call.i51.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %25, ptr noundef readonly %src.0, i64 noundef %sub.ptr.sub.i)
+  %call.i51.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %25, ptr noundef %src.0, i64 noundef %sub.ptr.sub.i)
   store ptr %call.i51.i, ptr %77, align 8
   %tt.i52.i = getelementptr inbounds i8, ptr %77, i64 8
   store i32 4, ptr %tt.i52.i, align 8
@@ -43879,7 +43879,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 if.then.i.i:                                      ; preds = %luaC_step.exit.i.i, %if.else.i
   %top.i.i24 = getelementptr inbounds i8, ptr %15, i64 16
   %27 = load ptr, ptr %top.i.i24, align 8
-  %call.i.i25 = call fastcc ptr @luaS_newlstr(ptr noundef %15, ptr noundef nonnull readonly %buffer.i, i64 noundef %sub.ptr.sub.i)
+  %call.i.i25 = call fastcc ptr @luaS_newlstr(ptr noundef %15, ptr noundef nonnull %buffer.i, i64 noundef %sub.ptr.sub.i)
   store ptr %call.i.i25, ptr %27, align 8
   %tt.i.i26 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 4, ptr %tt.i.i26, align 8
@@ -44483,7 +44483,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %if.then9, %luaC_step.exit.i
   %41 = load ptr, ptr %top.i.i.i, align 8
-  %call.i26 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly %add.ptr10, i64 noundef %add)
+  %call.i26 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %add.ptr10, i64 noundef %add)
   store ptr %call.i26, ptr %41, align 8
   br label %if.end11
 
@@ -44558,7 +44558,7 @@ luaC_step.exit.i55:                               ; preds = %if.else27.i.i49, %i
 
 lua_pushlstring.exit67:                           ; preds = %if.else, %luaC_step.exit.i55
   %53 = load ptr, ptr %top.i.i.i, align 8
-  %call.i58 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.7, i64 noundef 0)
+  %call.i58 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.7, i64 noundef 0)
   store ptr %call.i58, ptr %53, align 8
   br label %if.end11
 
@@ -44839,7 +44839,7 @@ land.rhs.i43:                                     ; preds = %if.else12.i, %land.
 
 while.body.i:                                     ; preds = %land.rhs.i43
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i44, i64 1
-  %bcmp.i = call i32 @bcmp(ptr nonnull %incdec.ptr.i, ptr nonnull readonly %add.ptr.i, i64 %dec.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %incdec.ptr.i, ptr nonnull %add.ptr.i, i64 %dec.i)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %if.then15, label %if.else12.i
 
@@ -46255,7 +46255,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 lua_pushlstring.exit:                             ; preds = %if.then2, %luaC_step.exit.i
   %top.i = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load ptr, ptr %top.i, align 8
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %1, ptr noundef readonly %s, i64 noundef %sub.ptr.sub)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %1, ptr noundef %s, i64 noundef %sub.ptr.sub)
   store ptr %call.i, ptr %13, align 8
   br label %if.end26
 
@@ -46366,7 +46366,7 @@ luaC_step.exit.i48:                               ; preds = %if.else27.i.i42, %i
 lua_pushlstring.exit60:                           ; preds = %if.else19, %luaC_step.exit.i48
   %top.i50 = getelementptr inbounds i8, ptr %15, i64 16
   %31 = load ptr, ptr %top.i50, align 8
-  %call.i51 = tail call fastcc ptr @luaS_newlstr(ptr noundef %15, ptr noundef readonly %19, i64 noundef %14)
+  %call.i51 = tail call fastcc ptr @luaS_newlstr(ptr noundef %15, ptr noundef %19, i64 noundef %14)
   store ptr %call.i51, ptr %31, align 8
   br label %if.end26
 
@@ -46693,7 +46693,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %if.end, %luaC_step.exit.i
   %30 = phi ptr [ %18, %if.end ], [ %.pre, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef readonly %fname.addr.0, i64 noundef %sub.ptr.sub)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fname.addr.0, i64 noundef %sub.ptr.sub)
   store ptr %call.i, ptr %30, align 8
   %tt.i28 = getelementptr inbounds i8, ptr %30, i64 8
   store i32 4, ptr %tt.i28, align 8
@@ -46874,7 +46874,7 @@ luaC_step.exit.i113:                              ; preds = %if.else27.i.i107, %
 
 lua_pushlstring.exit125:                          ; preds = %lua_createtable.exit, %luaC_step.exit.i113
   %62 = phi ptr [ %incdec.ptr.i78, %lua_createtable.exit ], [ %.pre173, %luaC_step.exit.i113 ]
-  %call.i116 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef readonly %fname.addr.0, i64 noundef %sub.ptr.sub)
+  %call.i116 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fname.addr.0, i64 noundef %sub.ptr.sub)
   store ptr %call.i116, ptr %62, align 8
   %tt.i117 = getelementptr inbounds i8, ptr %62, i64 8
   store i32 4, ptr %tt.i117, align 8
@@ -48880,7 +48880,7 @@ lua_pushlstring.exit:                             ; preds = %for.end, %luaC_step
   %42 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 8)
   %conv = zext nneg i32 %42 to i64
   %43 = load ptr, ptr %top.i.i, align 8
-  %call.i23 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly %buf, i64 noundef %conv)
+  %call.i23 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %conv)
   store ptr %call.i23, ptr %43, align 8
   %tt.i24 = getelementptr inbounds i8, ptr %43, i64 8
   store i32 4, ptr %tt.i24, align 8

@@ -3560,7 +3560,7 @@ lor.lhs.false.i.i.i.i.i.i.i.i126:                 ; preds = %if.end3.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i29.i, label %for.cond.i.i.i.i.i.i.i.i261, label %for.inc.i.i129, !llvm.loop !46
 
 if.end6.i.i266:                                   ; preds = %for.cond.i.i.i.i.i.i.i.i261, %for.body.i.i.i.i.i.i319, %if.end.i.i.i.i.i.i.i28.i
-  %call9.i45.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L18sameRolePropertiesERKNS_13RoseBuildImplERKNS_12_GLOBAL__N_116RoseAliasingInfoENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESE_(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 dereferenceable(112) %rai, ptr %agg.tmp.sroa.0.0.copyload.i.fr.i, i64 %a.sroa.10.0.copyload.i107, ptr %b.sroa.0.0.copyload.i.i112, i64 %b.sroa.12.0.copyload.i.i)
+  %call9.i45.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L18sameRolePropertiesERKNS_13RoseBuildImplERKNS_12_GLOBAL__N_116RoseAliasingInfoENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESE_(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull align 8 dereferenceable(112) %rai, ptr %agg.tmp.sroa.0.0.copyload.i.fr.i, i64 %a.sroa.10.0.copyload.i107, ptr %b.sroa.0.0.copyload.i.i112, i64 %b.sroa.12.0.copyload.i.i)
           to label %call9.i.noexc.i267 unwind label %lpad.i
 
 call9.i.noexc.i267:                               ; preds = %if.end6.i.i266

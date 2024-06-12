@@ -1808,7 +1808,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr nocapture noundef readonly %0
   %.pre-phi.i = phi ptr [ %64, %79 ], [ %64, %81 ], [ %64, %68 ], [ %.pre.i, %61 ]
   %85 = phi i32 [ %80, %79 ], [ %83, %81 ], [ %76, %68 ], [ %62, %61 ]
   %86 = zext nneg i32 %85 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %52, ptr align 1 %.pre-phi.i, i64 %86, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %.pre-phi.i, i64 %86, i1 false)
   br label %memcpyInnerDatum.exit
 
 memcpyInnerDatum.exit:                            ; preds = %84, %56, %.thread
@@ -2003,7 +2003,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %.pre-phi.i = phi ptr [ %85, %100 ], [ %85, %102 ], [ %85, %89 ], [ %.pre.i, %82 ]
   %106 = phi i32 [ %101, %100 ], [ %104, %102 ], [ %97, %89 ], [ %83, %82 ]
   %107 = zext nneg i32 %106 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %73, ptr align 1 %.pre-phi.i, i64 %107, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %.pre-phi.i, i64 %107, i1 false)
   br label %memcpyInnerDatum.exit
 
 memcpyInnerDatum.exit:                            ; preds = %105, %77, %61

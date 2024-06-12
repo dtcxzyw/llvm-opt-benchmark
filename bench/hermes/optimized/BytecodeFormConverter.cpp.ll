@@ -108,7 +108,7 @@ if.then2:                                         ; preds = %if.end
   %bytes.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %conv, i64 8
   store i64 %buffer.coerce1, ptr %bytes.sroa.3.0.this.sroa_idx.i, align 8
   %fields_.i = getelementptr inbounds i8, ptr %conv, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %fields_.i, ptr noundef nonnull readonly align 8 dereferenceable(264) %fields, i64 264, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %fields_.i, ptr noundef nonnull align 8 dereferenceable(264) %fields, i64 264, i1 false)
   %bcProvider_.i = getelementptr inbounds i8, ptr %conv, i64 280
   %call.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes6BufferE, i64 16), ptr %call.i.i, align 8, !noalias !4
@@ -218,7 +218,7 @@ if.else:                                          ; preds = %if.end
   %bytes.sroa.3.0.this.sroa_idx.i10 = getelementptr inbounds i8, ptr %conv4, i64 8
   store i64 %buffer.coerce1, ptr %bytes.sroa.3.0.this.sroa_idx.i10, align 8
   %fields_.i11 = getelementptr inbounds i8, ptr %conv4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %fields_.i11, ptr noundef nonnull readonly align 8 dereferenceable(264) %fields, i64 264, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %fields_.i11, ptr noundef nonnull align 8 dereferenceable(264) %fields, i64 264, i1 false)
   %bcProvider_.i12 = getelementptr inbounds i8, ptr %conv4, i64 280
   %call.i.i13 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes6BufferE, i64 16), ptr %call.i.i13, align 8, !noalias !8

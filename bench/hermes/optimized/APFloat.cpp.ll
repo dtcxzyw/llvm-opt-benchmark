@@ -4277,7 +4277,7 @@ if.end:                                           ; preds = %if.then.i, %_ZN4llv
   %6 = zext nneg i32 %5 to i64
   %call3 = call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #24
   %mul = and i32 %sub.i.i, -64
-  %call.i12 = call noundef i32 @_ZNK4llvh6detail9IEEEFloat28convertToSignExtendedIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %V, ptr nonnull %call3, i64 poison, i32 noundef %mul, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull writeonly %ignored)
+  %call.i12 = call noundef i32 @_ZNK4llvh6detail9IEEEFloat28convertToSignExtendedIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %V, ptr nonnull %call3, i64 poison, i32 noundef %mul, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull %ignored)
   %cmp.i = icmp eq i32 %call.i12, 1
   br i1 %cmp.i, label %if.then.i13, label %if.end9
 
@@ -9956,7 +9956,7 @@ _ZN4llvh6detail12_GLOBAL__N_16appendERNS_15SmallVectorImplIcEENS_9StringRefE.exi
   %conv.i9.i.i118.pre-phi = phi i64 [ %conv.i5.i.i113, %_ZN4llvh9StringRefC2EPKc.exit265 ], [ %.pre632, %if.end.i.thread.i122 ]
   %7 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %7, i64 %conv.i9.i.i118.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i119, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i119, ptr noundef nonnull align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
   %.pre.i.i120 = load i32, ptr %Size.i.i.i112, align 8
   %conv.i12.i.i121 = add i32 %.pre.i.i120, 3
   store i32 %conv.i12.i.i121, ptr %Size.i.i.i112, align 8
@@ -10022,7 +10022,7 @@ _ZN4llvh6detail12_GLOBAL__N_16appendERNS_15SmallVectorImplIcEENS_9StringRefE.exi
   %conv.i9.i.i138.pre-phi = phi i64 [ %conv.i5.i.i133, %_ZN4llvh9StringRefC2EPKc.exit275 ], [ %.pre633, %if.end.i.thread.i142 ]
   %16 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i139 = getelementptr inbounds i8, ptr %16, i64 %conv.i9.i.i138.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i.i139, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i.i139, ptr noundef nonnull align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
   %.pre.i.i140 = load i32, ptr %Size.i.i.i132, align 8
   %conv.i12.i.i141 = add i32 %.pre.i.i140, 6
   store i32 %conv.i12.i.i141, ptr %Size.i.i.i132, align 8
@@ -10044,7 +10044,7 @@ _ZN4llvh6detail12_GLOBAL__N_16appendERNS_15SmallVectorImplIcEENS_9StringRefE.exi
   %conv.i9.i.i155.pre-phi = phi i64 [ %conv.i5.i.i133, %_ZN4llvh9StringRefC2EPKc.exit285 ], [ %.pre634, %if.end.i.thread.i159 ]
   %17 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i156 = getelementptr inbounds i8, ptr %17, i64 %conv.i9.i.i155.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i156, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.11, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i.i.i156, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false)
   %.pre.i.i157 = load i32, ptr %Size.i.i.i132, align 8
   %conv.i12.i.i158 = add i32 %.pre.i.i157, 3
   store i32 %conv.i12.i.i158, ptr %Size.i.i.i132, align 8
@@ -15573,7 +15573,7 @@ entry:
   %ref.tmp5 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -15591,7 +15591,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %entry, %if.then.i, %delete.notnull.i
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %RHS)
   %U.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp3)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp3)
   %2 = load ptr, ptr %U.i, align 8
   %cmp.i43.not = icmp eq ptr %2, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i43.not, label %if.end.i, label %if.then.i2
@@ -15833,7 +15833,7 @@ entry:
   %ref.tmp5 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -15851,7 +15851,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %entry, %if.then.i, %delete.notnull.i
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %RHS)
   %U.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp3)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp3)
   %2 = load ptr, ptr %U.i, align 8
   %cmp.i38.not = icmp eq ptr %2, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i38.not, label %if.end.i, label %if.then.i2
@@ -15993,7 +15993,7 @@ entry:
   %ref.tmp5 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -16011,7 +16011,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %entry, %if.then.i, %delete.notnull.i
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %RHS)
   %U.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp3)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp3)
   %2 = load ptr, ptr %U.i, align 8
   %cmp.i38.not = icmp eq ptr %2, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i38.not, label %if.end.i, label %if.then.i2
@@ -16155,7 +16155,7 @@ entry:
   %ref.tmp7 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -16173,10 +16173,10 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %entry, %if.then.i, %delete.notnull.i
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %Multiplicand)
   %U.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp3)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i1, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp3)
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %Addend)
   %U.i2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i2, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp5)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i2, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp5)
   %2 = load ptr, ptr %U.i, align 8
   %cmp.i.i.not = icmp eq ptr %2, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.i.not, label %if.end.i, label %if.then.i3
@@ -16357,7 +16357,7 @@ entry:
   %ref.tmp3 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -17455,7 +17455,7 @@ entry:
   %ref.tmp3 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -17567,13 +17567,13 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp2)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp2)
   %0 = load ptr, ptr %U.i, align 8
   %cmp.i10.not = icmp eq ptr %0, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i10.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i7 = call noundef i32 @_ZNK4llvh6detail9IEEEFloat28convertToSignExtendedIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %Input.coerce0, i64 poison, i32 noundef %Width, i1 noundef zeroext %IsSigned, i32 noundef %RM, ptr noundef writeonly %IsExact)
+  %call.i7 = call noundef i32 @_ZNK4llvh6detail9IEEEFloat28convertToSignExtendedIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %Input.coerce0, i64 poison, i32 noundef %Width, i1 noundef zeroext %IsSigned, i32 noundef %RM, ptr noundef %IsExact)
   %cmp.i8 = icmp eq i32 %call.i7, 1
   br i1 %cmp.i8, label %if.then.i9, label %_ZNK4llvh7APFloat16convertToIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb.exit
 
@@ -17673,7 +17673,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i32 @_ZNK4llvh6detail9IEEEFloat28convertToSignExtendedIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %Input.coerce0, i64 poison, i32 noundef %Width, i1 noundef zeroext %IsSigned, i32 noundef %RM, ptr noundef writeonly %IsExact)
+  %call.i = tail call noundef i32 @_ZNK4llvh6detail9IEEEFloat28convertToSignExtendedIntegerENS_15MutableArrayRefImEEjbNS_11APFloatBase12roundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %Input.coerce0, i64 poison, i32 noundef %Width, i1 noundef zeroext %IsSigned, i32 noundef %RM, ptr noundef %IsExact)
   %cmp.i6 = icmp eq i32 %call.i, 1
   br i1 %cmp.i6, label %if.then.i, label %return
 
@@ -17994,7 +17994,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp2)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp2)
   %0 = load ptr, ptr %U.i, align 8
   %cmp.i11.not = icmp eq ptr %0, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i11.not, label %if.end.i, label %if.then.i
@@ -18552,7 +18552,7 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp2)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp2)
   %0 = load ptr, ptr %U.i, align 8
   %cmp.i7.not = icmp eq ptr %0, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i7.not, label %if.end.i, label %if.then.i
@@ -18620,7 +18620,7 @@ entry:
   %ref.tmp4 = alloca %"class.llvh::APInt", align 8
   call void @_ZNK4llvh6detail13DoubleAPFloat14bitcastToAPIntEv(ptr nonnull sret(%"class.llvh::APInt") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %U.i = getelementptr inbounds i8, ptr %Tmp, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp)
+  call void @_ZN4llvh6detail9IEEEFloat28initFromPPCDoubleDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp)
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i32, ptr %BitWidth.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i32 %0, 64
@@ -19952,7 +19952,7 @@ if.else.i.i44:                                    ; preds = %sw.bb5
 
 _ZN4llvh5APInt15getAllOnesValueEj.exit51:         ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i45, %if.else.i.i44
   %U.i52 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat26initFromF80LongDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i52, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp6)
+  call void @_ZN4llvh6detail9IEEEFloat26initFromF80LongDoubleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i52, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp6)
   %26 = load i32, ptr %BitWidth.i.i42, align 8
   %cmp.i.i.i54 = icmp ult i32 %26, 65
   %27 = load ptr, ptr %ref.tmp6, align 8
@@ -19980,7 +19980,7 @@ if.else.i.i61:                                    ; preds = %sw.bb7
 
 _ZN4llvh5APInt15getAllOnesValueEj.exit68:         ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i62, %if.else.i.i61
   %U.i69 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  call void @_ZN4llvh6detail9IEEEFloat22initFromQuadrupleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i69, ptr noundef nonnull readonly align 8 dereferenceable(12) %ref.tmp8)
+  call void @_ZN4llvh6detail9IEEEFloat22initFromQuadrupleAPIntERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %U.i69, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp8)
   %28 = load i32, ptr %BitWidth.i.i59, align 8
   %cmp.i.i.i71 = icmp ult i32 %28, 65
   %29 = load ptr, ptr %ref.tmp8, align 8

@@ -99,7 +99,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %.029.i = phi i64 [ %31, %30 ], [ 0, %29 ]
   %32 = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.1195, i64 %.029.i
   %.sroa.023.0.copyload.i = load ptr, ptr %32, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.023.0.copyload.i, ptr noundef nonnull readonly dereferenceable(1) %27) #13
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.023.0.copyload.i, ptr noundef nonnull dereferenceable(1) %27) #13
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %30
 
@@ -198,7 +198,7 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
   %.029.i70 = phi i64 [ %72, %71 ], [ 0, %70 ]
   %73 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.1192, i64 %.029.i70
   %.sroa.023.0.copyload.i71 = load ptr, ptr %73, align 8
-  %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.023.0.copyload.i71, ptr noundef nonnull readonly dereferenceable(1) %68) #13
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.023.0.copyload.i71, ptr noundef nonnull dereferenceable(1) %68) #13
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %71
 

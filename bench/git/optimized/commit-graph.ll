@@ -702,7 +702,7 @@ if.end108:                                        ; preds = %if.else, %if.then10
   %39 = load ptr, ptr %hash_algo.i, align 8
   %rawsz.i = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load i64, ptr %rawsz.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid, ptr readonly align 1 %add.ptr114, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr114, i64 %40, i1 false)
   %41 = load ptr, ptr %hash_algo.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -1316,11 +1316,11 @@ if.end.i.i24:                                     ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i24
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %arrayidx.i, ptr noundef nonnull dereferenceable(32) %oid.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i24
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %arrayidx.i, ptr noundef nonnull dereferenceable(20) %oid.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -1347,11 +1347,11 @@ st_mult.exit.i:                                   ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i32.i, label %if.then.i.i38.i, label %if.end.i.i33.i
 
 if.then.i.i38.i:                                  ; preds = %st_mult.exit.i
-  %bcmp3.i.i39.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(32) %add.ptr.i, i64 32)
+  %bcmp3.i.i39.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %arrayidx.i, ptr noundef nonnull dereferenceable(32) %add.ptr.i, i64 32)
   br label %hasheq.exit.i
 
 if.end.i.i33.i:                                   ; preds = %st_mult.exit.i
-  %bcmp.i.i34.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(20) %add.ptr.i, i64 20)
+  %bcmp.i.i34.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %arrayidx.i, ptr noundef nonnull dereferenceable(20) %add.ptr.i, i64 20)
   br label %hasheq.exit.i
 
 hasheq.exit.i:                                    ; preds = %if.end.i.i33.i, %if.then.i.i38.i
@@ -2314,7 +2314,7 @@ find_commit_pos_in_graph.exit.i:                  ; preds = %land.rhs.i.i.i
 
 if.then2.i:                                       ; preds = %find_commit_pos_in_graph.exit.i, %commit_graph_position.exit.i.i
   %pos.17.i = phi i32 [ %add.i.i.i, %find_commit_pos_in_graph.exit.i ], [ %6, %commit_graph_position.exit.i.i ]
-  %call3.i = call fastcc i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef nonnull %item, ptr noundef readonly %1, i32 noundef %pos.17.i)
+  %call3.i = call fastcc i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef nonnull %item, ptr noundef %1, i32 noundef %pos.17.i)
   br label %return
 
 return:                                           ; preds = %if.then2.i, %find_commit_pos_in_graph.exit.thread8.i, %if.end5, %if.end
@@ -2825,7 +2825,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 load_tree_for_commit.exit:                        ; preds = %while.end.i, %land.lhs.true.i.i
   %mul.i.i = mul i64 %add.i, %conv.i
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %mul.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid.i, ptr readonly align 1 %add.ptr.i, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i, ptr align 1 %add.ptr.i, i64 %12, i1 false)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
@@ -3368,7 +3368,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %39 = load ptr, ptr %hash_algo.i, align 8
   %rawsz.i = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load i64, ptr %rawsz.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid, ptr readonly align 1 %add.ptr, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr, i64 %40, i1 false)
   %41 = load ptr, ptr %hash_algo.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -4170,11 +4170,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(32) %add.ptr3.i.i, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull dereferenceable(32) %add.ptr3.i.i, i64 32)
   br label %oideq.exit.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(20) %add.ptr3.i.i, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %add.ptr.i.i, ptr noundef nonnull dereferenceable(20) %add.ptr3.i.i, i64 20)
   br label %oideq.exit.i.i
 
 oideq.exit.i.i:                                   ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -4784,7 +4784,7 @@ st_mult.exit.i313:                                ; preds = %do.body.i
 
 st_mult.exit.i.i:                                 ; preds = %st_mult.exit.i313
   %252 = load ptr, ptr %commits2.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call5.i, ptr readonly align 1 %252, i64 %mul.i.i314, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i, ptr align 1 %252, i64 %mul.i.i314, i1 false)
   br label %copy_array.exit.i
 
 copy_array.exit.i:                                ; preds = %st_mult.exit.i.i, %st_mult.exit.i313
@@ -6121,7 +6121,7 @@ load_oid_from_graph.exit.i:                       ; preds = %if.end.i.i
   %27 = load ptr, ptr %hash_algo.i.i.i, align 8
   %rawsz.i.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load i64, ptr %rawsz.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid53.i, ptr readonly align 1 %add.ptr.i.i, i64 %28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid53.i, ptr align 1 %add.ptr.i.i, i64 %28, i1 false)
   %29 = load ptr, ptr %hash_algo.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -6292,11 +6292,11 @@ if.end.i.i38:                                     ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i38
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.i36, ptr noundef nonnull readonly dereferenceable(32) %oid18.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i36, ptr noundef nonnull dereferenceable(32) %oid18.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i38
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i36, ptr noundef nonnull readonly dereferenceable(20) %oid18.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i36, ptr noundef nonnull dereferenceable(20) %oid18.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -6485,7 +6485,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %12 = load ptr, ptr %hash_algo.i.i, align 8
   %rawsz.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i64, ptr %rawsz.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %cur_oid.i, ptr readonly align 1 %add.ptr.i, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %cur_oid.i, ptr align 1 %add.ptr.i, i64 %13, i1 false)
   %14 = load ptr, ptr %hash_algo.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -6507,11 +6507,11 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i
-  %call.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %prev_oid.i, ptr noundef nonnull readonly dereferenceable(32) %cur_oid.i, i64 noundef 32) #26
+  %call.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %prev_oid.i, ptr noundef nonnull dereferenceable(32) %cur_oid.i, i64 noundef 32) #26
   br label %oidcmp.exit.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i
-  %call1.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %prev_oid.i, ptr noundef nonnull readonly dereferenceable(20) %cur_oid.i, i64 noundef 20) #26
+  %call1.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %prev_oid.i, ptr noundef nonnull dereferenceable(20) %cur_oid.i, i64 noundef 20) #26
   br label %oidcmp.exit.i
 
 oidcmp.exit.i:                                    ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -6538,7 +6538,7 @@ _.exit84.i:                                       ; preds = %if.end3.i81.i, %if.
 
 if.end12.i:                                       ; preds = %_.exit84.i, %oidcmp.exit.i, %for.body.i
   %18 = phi i32 [ %.pre.i, %_.exit84.i ], [ %conv.i.i.i, %oidcmp.exit.i ], [ %conv.i.i.i, %for.body.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %prev_oid.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %cur_oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %prev_oid.i, ptr noundef nonnull align 4 dereferenceable(32) %cur_oid.i, i64 32, i1 false)
   store i32 %18, ptr %algo.i75.i, align 4
   %19 = load i8, ptr %cur_oid.i, align 4
   %conv13303.i = zext i8 %19 to i32
@@ -6673,7 +6673,7 @@ find_commit_pos_in_graph.exit.i.i:                ; preds = %land.rhs.i.i.i.i
 
 parse_commit_in_graph_one.exit.i:                 ; preds = %find_commit_pos_in_graph.exit.i.i, %commit_graph_position.exit.i.i.i
   %pos.17.i.i = phi i32 [ %add.i.i.i.i, %find_commit_pos_in_graph.exit.i.i ], [ %38, %commit_graph_position.exit.i.i.i ]
-  %call3.i.i = call fastcc i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef nonnull %call23.i, ptr noundef nonnull readonly %g.addr.020, i32 noundef %pos.17.i.i)
+  %call3.i.i = call fastcc i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef nonnull %call23.i, ptr noundef nonnull %g.addr.020, i32 noundef %pos.17.i.i)
   %tobool25.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool25.not.i, label %if.then26.i, label %for.inc.i
 
@@ -6779,7 +6779,7 @@ for.body55.i:                                     ; preds = %for.inc158.i, %for.
   %62 = load ptr, ptr %hash_algo.i128.i, align 8
   %rawsz.i129.i = getelementptr inbounds i8, ptr %62, i64 16
   %63 = load i64, ptr %rawsz.i129.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %cur_oid.i, ptr readonly align 1 %add.ptr63.i, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %cur_oid.i, ptr align 1 %add.ptr63.i, i64 %63, i1 false)
   %64 = load ptr, ptr %hash_algo.i128.i, align 8
   %sub.ptr.lhs.cast.i.i131.i = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i.i132.i = sub i64 %sub.ptr.lhs.cast.i.i131.i, ptrtoint (ptr @hash_algos to i64)
@@ -6809,7 +6809,7 @@ _.exit141.i:                                      ; preds = %if.end3.i138.i, %if
   br label %for.inc158.i
 
 if.end72.i:                                       ; preds = %for.body55.i
-  %call73.i = call fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr noundef nonnull readonly %g.addr.020, ptr noundef %call64.i)
+  %call73.i = call fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr noundef nonnull %g.addr.020, ptr noundef %call64.i)
   %oid.i = getelementptr inbounds i8, ptr %call73.i, i64 4
   %call74.i = call ptr @get_commit_tree_oid(ptr noundef %call66.i) #22
   %algo.i142.i = getelementptr inbounds i8, ptr %call73.i, i64 36
@@ -6836,11 +6836,11 @@ if.end.i147.i:                                    ; preds = %if.else.i144.i, %if
   br i1 %cmp.i.i150.i, label %if.then.i.i153.i, label %if.end.i.i151.i
 
 if.then.i.i153.i:                                 ; preds = %if.end.i147.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.i, ptr noundef nonnull readonly dereferenceable(32) %call74.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i, ptr noundef nonnull dereferenceable(32) %call74.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i151.i:                                  ; preds = %if.end.i147.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %call74.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i, ptr noundef nonnull dereferenceable(20) %call74.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i151.i, %if.then.i.i153.i
@@ -6956,7 +6956,7 @@ find_commit_pos_in_graph.exit.i189.i:             ; preds = %land.rhs.i.i.i181.i
 
 if.then2.i192.i:                                  ; preds = %find_commit_pos_in_graph.exit.i189.i, %commit_graph_position.exit.i.i203.i
   %pos.17.i193.i = phi i32 [ %add.i.i.i191.i, %find_commit_pos_in_graph.exit.i189.i ], [ %77, %commit_graph_position.exit.i.i203.i ]
-  %call3.i194.i = call fastcc i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef nonnull %72, ptr noundef nonnull readonly %g.addr.020, i32 noundef %pos.17.i193.i)
+  %call3.i194.i = call fastcc i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef nonnull %72, ptr noundef nonnull %g.addr.020, i32 noundef %pos.17.i193.i)
   br label %parse_commit_in_graph_one.exit208.i
 
 parse_commit_in_graph_one.exit208.i:              ; preds = %if.then2.i192.i, %find_commit_pos_in_graph.exit.thread8.i198.i, %if.end93.i
@@ -6988,11 +6988,11 @@ if.end.i214.i:                                    ; preds = %if.else.i211.i, %if
   br i1 %cmp.i.i217.i, label %if.then.i.i223.i, label %if.end.i.i218.i
 
 if.then.i.i223.i:                                 ; preds = %if.end.i214.i
-  %bcmp3.i.i224.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid97.i, ptr noundef nonnull readonly dereferenceable(32) %oid100.i, i64 32)
+  %bcmp3.i.i224.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid97.i, ptr noundef nonnull dereferenceable(32) %oid100.i, i64 32)
   br label %oideq.exit227.i
 
 if.end.i.i218.i:                                  ; preds = %if.end.i214.i
-  %bcmp.i.i219.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid97.i, ptr noundef nonnull readonly dereferenceable(20) %oid100.i, i64 20)
+  %bcmp.i.i219.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid97.i, ptr noundef nonnull dereferenceable(20) %oid100.i, i64 20)
   br label %oideq.exit227.i
 
 oideq.exit227.i:                                  ; preds = %if.end.i.i218.i, %if.then.i.i223.i
@@ -7361,7 +7361,7 @@ load_oid_from_graph.exit:                         ; preds = %if.end.i
   %8 = load ptr, ptr %hash_algo.i.i, align 8
   %rawsz.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i64, ptr %rawsz.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid, ptr readonly align 1 %add.ptr.i, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr.i, i64 %9, i1 false)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
@@ -7713,11 +7713,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 noundef 32) #26
+  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid2, i64 noundef 32) #26
   br label %oidcmp.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 noundef 20) #26
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid2, i64 noundef 20) #26
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i.i, %if.end.i.i

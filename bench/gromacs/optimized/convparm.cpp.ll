@@ -541,13 +541,13 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   ]
 
 .preheader418.i.preheader.i:                      ; preds = %.thread441.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull readonly align 4 dereferenceable(24) %44, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) %44, i64 24, i1 false)
   br label %.loopexit56.i
 
 .preheader.i.i:                                   ; preds = %.thread441.i.i
   %invariant.gep.i.i = getelementptr inbounds i8, ptr %.sroa.02.013, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull readonly align 4 dereferenceable(24) %44, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 4 dereferenceable(24) %invariant.gep.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) %44, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 4 dereferenceable(24) %invariant.gep.i.i, i64 24, i1 false)
   br label %.loopexit56.i
 
 57:                                               ; preds = %.thread441.i.i
@@ -632,7 +632,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   %102 = load float, ptr %44, align 4
   store float %102, ptr %10, align 16
   %scevgep.i = getelementptr i8, ptr %.sroa.02.013, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull readonly align 4 dereferenceable(20) %scevgep.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull align 4 dereferenceable(20) %scevgep.i, i64 20, i1 false)
   br label %.loopexit56.i
 
 103:                                              ; preds = %.thread441.i.i

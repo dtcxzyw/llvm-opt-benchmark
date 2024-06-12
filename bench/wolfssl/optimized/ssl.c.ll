@@ -4529,7 +4529,7 @@ while.cond.i:                                     ; preds = %while.body.i
 while.body.i:                                     ; preds = %if.end5.i, %while.cond.i
   %signers.012.i = phi ptr [ %signers.0.i, %while.cond.i ], [ %signers.010.i, %if.end5.i ]
   %subjectKeyIdHash.i = getelementptr inbounds i8, ptr %signers.012.i, i64 76
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %extSubjKeyId, ptr noundef nonnull dereferenceable(20) %subjectKeyIdHash.i, i64 20)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %extSubjKeyId, ptr noundef nonnull dereferenceable(20) %subjectKeyIdHash.i, i64 20)
   %cmp7.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp7.i, label %AlreadySigner.exit, label %while.cond.i
 
@@ -8603,7 +8603,7 @@ if.end50:                                         ; preds = %if.else45, %if.then
   %8 = trunc i64 %bf.load52 to i8
   %9 = lshr i8 %8, 4
   %conv56 = and i8 %9, 3
-  %call.i = call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef nonnull %id.0, ptr noundef nonnull %sess, ptr noundef nonnull writeonly %row, i8 noundef zeroext 1, i8 noundef zeroext %conv56)
+  %call.i = call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef nonnull %id.0, ptr noundef nonnull %sess, ptr noundef nonnull %row, i8 noundef zeroext 1, i8 noundef zeroext %conv56)
   %cmp58 = icmp ne i32 %call.i, 0
   %10 = load ptr, ptr %sess, align 8
   %cmp62 = icmp eq ptr %10, null
@@ -8628,7 +8628,7 @@ if.then77:                                        ; preds = %if.else73
   %13 = trunc i64 %bf.load82 to i8
   %14 = lshr i8 %13, 4
   %conv86 = and i8 %14, 3
-  %call.i37 = call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef nonnull %id.0, ptr noundef nonnull %wrSess, ptr noundef nonnull writeonly %row, i8 noundef zeroext 0, i8 noundef zeroext %conv86)
+  %call.i37 = call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef nonnull %id.0, ptr noundef nonnull %wrSess, ptr noundef nonnull %row, i8 noundef zeroext 0, i8 noundef zeroext %conv86)
   %cmp88 = icmp eq i32 %call.i37, 0
   %15 = load ptr, ptr %wrSess, align 8
   %cmp91 = icmp ne ptr %15, null

@@ -85,7 +85,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not.i47, label %.loopexit.i, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #14
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #14
   %27 = load ptr, ptr %3, align 8
   %.not1517.i = icmp eq ptr %27, null
   br i1 %.not1517.i, label %.loopexit.i, label %.lr.ph.i
@@ -93,7 +93,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 .lr.ph.i:                                         ; preds = %25, %38
   %28 = phi ptr [ %40, %38 ], [ %27, %25 ]
   %.01218.i = phi ptr [ %39, %38 ], [ %3, %25 ]
-  %29 = tail call i32 @strncmp(ptr noundef nonnull readonly %24, ptr noundef nonnull %28, i64 noundef %26) #14
+  %29 = tail call i32 @strncmp(ptr noundef nonnull %24, ptr noundef nonnull %28, i64 noundef %26) #14
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %38
 
@@ -115,7 +115,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 .loopexit.i:                                      ; preds = %38, %25, %22
-  %41 = tail call ptr @getenv(ptr noundef nonnull readonly %24) #13
+  %41 = tail call ptr @getenv(ptr noundef nonnull %24) #13
   br label %list_env_get.exit
 
 list_env_get.exit:                                ; preds = %35, %.loopexit.i
@@ -264,7 +264,7 @@ define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph.i:                                         ; preds = %7, %17
   %9 = phi ptr [ %19, %17 ], [ %8, %7 ]
   %.01218.i = phi ptr [ %18, %17 ], [ %2, %7 ]
-  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(5) @.str.1, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #14
+  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.1, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
@@ -285,7 +285,7 @@ list_env_get.exit.thread:                         ; preds = %12
   br i1 %.not15.i, label %list_env_get.exit, label %.lr.ph.i, !llvm.loop !4
 
 list_env_get.exit:                                ; preds = %17, %4, %7
-  %20 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #13
+  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #13
   %.not24 = icmp eq ptr %20, null
   br i1 %.not24, label %path_env_load.exit, label %21
 

@@ -1501,7 +1501,7 @@ entry:
 
 if.then.i8:                                       ; preds = %entry
   %0 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 12, i64 1, ptr nonnull %out)
-  %call.i5 = tail call i32 @fputs(ptr noundef readonly %m, ptr noundef nonnull %out)
+  %call.i5 = tail call i32 @fputs(ptr noundef %m, ptr noundef nonnull %out)
   %1 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 4, i64 1, ptr nonnull %out)
   br label %_ZL7puts_fpP8_IO_FILEPKc.exit10
 

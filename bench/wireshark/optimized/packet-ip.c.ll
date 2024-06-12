@@ -2159,9 +2159,9 @@ proto_item_set_hidden.exit531:                    ; preds = %proto_item_set_hidd
 
 411:                                              ; preds = %proto_item_set_hidden.exit531
   %412 = tail call i32 @llvm.bswap.i32(i32 %220)
-  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %412, i32 noundef 0)
+  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %412, i32 noundef 0)
   %413 = tail call i32 @llvm.bswap.i32(i32 %310)
-  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %413, i32 noundef 1)
+  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %413, i32 noundef 1)
   br label %414
 
 414:                                              ; preds = %proto_item_set_hidden.exit531, %411, %local_network_control_block_addr_valid_ttl.exit.thread

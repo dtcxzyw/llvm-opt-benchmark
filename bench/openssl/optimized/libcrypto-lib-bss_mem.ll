@@ -347,7 +347,7 @@ mem_read.exit.thread:                             ; preds = %cond.end.i
   %data.i = getelementptr inbounds i8, ptr %bm.0.i, i64 8
   %12 = load ptr, ptr %data.i, align 8
   %conv11.i = zext nneg i32 %spec.select22.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %buf, ptr align 1 %12, i64 %conv11.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %12, i64 %conv11.i, i1 false)
   %13 = load i64, ptr %bm.0.i, align 8
   %sub.i = sub i64 %13, %conv11.i
   store i64 %sub.i, ptr %bm.0.i, align 8

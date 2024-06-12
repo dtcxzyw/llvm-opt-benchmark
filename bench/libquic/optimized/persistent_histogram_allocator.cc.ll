@@ -336,7 +336,7 @@ _ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteI
   %sample_map_id_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %5, ptr %sample_map_id_.i.i, align 8, !noalias !7
   %user_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %user_.i.i, i8 0, i64 64, i1 false), !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %user_.i.i, i8 0, i64 64, i1 false), !noalias !7
   %6 = load ptr, ptr %second.i, align 8
   store ptr %call.i, ptr %second.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null

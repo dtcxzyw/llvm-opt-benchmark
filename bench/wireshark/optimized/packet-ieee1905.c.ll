@@ -3129,7 +3129,7 @@ define internal noalias noundef ptr @ieee1905_fragment_persistent_key(ptr nocapt
   %18 = getelementptr inbounds i8, ptr %0, i64 212
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i32 %17, ptr %14, align 8
   %21 = icmp eq i32 %19, 0
   br i1 %21, label %copy_address.exit, label %22
@@ -3151,7 +3151,7 @@ copy_address.exit:                                ; preds = %12, %22
   %30 = getelementptr inbounds i8, ptr %0, i64 236
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   store i32 %29, ptr %28, align 8
   %33 = icmp eq i32 %31, 0
   br i1 %33, label %copy_address.exit11, label %34
@@ -3212,7 +3212,7 @@ define internal void @ieee1905_fragment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -3235,7 +3235,7 @@ free_address.exit:                                ; preds = %2, %4, %8, %11
   br label %free_address.exit7
 
 free_address.exit7:                               ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 56, ptr noundef nonnull %0) #11
   br label %22
 

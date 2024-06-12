@@ -47,7 +47,7 @@ define noundef ptr @Mio_ParseFormulaOper(ptr nocapture readnone %0, i32 noundef 
   br label %293
 
 19:                                               ; preds = %4
-  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef readonly %16, ptr noundef readonly %12, i32 noundef 1, i32 noundef 1)
+  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef %16, ptr noundef %12, i32 noundef 1, i32 noundef 1)
   %21 = getelementptr i8, ptr %20, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %22 = load i32, ptr %.val.i.i, align 4
@@ -2988,14 +2988,14 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
   br i1 %57, label %.lr.ph.preheader.i.i, label %Exp_TruthLit.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader45.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %54, i8 -1, i64 %59, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, i8 -1, i64 %59, i1 false)
   br label %Exp_TruthLit.exit.i
 
 .preheader43.i.i:                                 ; preds = %61
   br i1 %57, label %.lr.ph49.preheader.i.i, label %Exp_TruthLit.exit.i
 
 .lr.ph49.preheader.i.i:                           ; preds = %.preheader43.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %54, i8 0, i64 %59, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, i8 0, i64 %59, i1 false)
   br label %Exp_TruthLit.exit.i
 
 65:                                               ; preds = %61
@@ -3085,14 +3085,14 @@ Exp_TruthLit.exit.i:                              ; preds = %.lr.ph51.split.i.i,
   br i1 %57, label %.lr.ph.preheader.i119.i, label %._crit_edge202.i
 
 .lr.ph.preheader.i119.i:                          ; preds = %.preheader45.i118.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %55, i8 -1, i64 %59, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %55, i8 -1, i64 %59, i1 false)
   br label %.lr.ph201.i
 
 .preheader43.i120.i:                              ; preds = %Exp_TruthLit.exit.i
   br i1 %57, label %.lr.ph49.preheader.i121.i, label %._crit_edge202.i
 
 .lr.ph49.preheader.i121.i:                        ; preds = %.preheader43.i120.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %55, i8 0, i64 %59, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %55, i8 0, i64 %59, i1 false)
   br label %.lr.ph201.i
 
 98:                                               ; preds = %Exp_TruthLit.exit.i
@@ -3238,7 +3238,7 @@ Exp_TruthLit.exit146.i:                           ; preds = %.lr.ph51.split.i126
 .lr.ph.preheader.i148.i:                          ; preds = %.preheader45.i147.i
   %150 = zext nneg i32 %10 to i64
   %151 = shl nuw nsw i64 %150, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %14, i8 -1, i64 %151, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, i8 -1, i64 %151, i1 false)
   br label %Exp_TruthLit.exit175.i
 
 .preheader43.i149.i:                              ; preds = %143
@@ -3248,7 +3248,7 @@ Exp_TruthLit.exit146.i:                           ; preds = %.lr.ph51.split.i126
 .lr.ph49.preheader.i150.i:                        ; preds = %.preheader43.i149.i
   %153 = zext nneg i32 %10 to i64
   %154 = shl nuw nsw i64 %153, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %14, i8 0, i64 %154, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, i8 0, i64 %154, i1 false)
   br label %Exp_TruthLit.exit175.i
 
 155:                                              ; preds = %143

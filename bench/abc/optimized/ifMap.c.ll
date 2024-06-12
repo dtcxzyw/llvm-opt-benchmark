@@ -770,7 +770,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   %233 = getelementptr i8, ptr %0, i64 724
   %.val637 = load i32, ptr %233, align 4
   %234 = sext i32 %.val637 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %232, ptr nonnull readonly align 4 %95, i64 %234, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %232, ptr nonnull align 4 %95, i64 %234, i1 false)
   br label %235
 
 235:                                              ; preds = %219, %224, %93
@@ -2239,7 +2239,7 @@ If_CutTruthWR.exit738:                            ; preds = %1038, %1041
 .lr.ph18.preheader.i.i740:                        ; preds = %If_CutTruthWR.exit738
   %wide.trip.count24.i.i741 = zext nneg i32 %1063 to i64
   %1065 = shl nuw nsw i64 %wide.trip.count24.i.i741, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull readonly align 8 dereferenceable(1) %1059, i64 %1065, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %1059, i64 %1065, i1 false)
   %1066 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef nonnull %8, i32 noundef %1033, i32 noundef %1035)
   %.not.i742 = icmp eq i32 %1066, 0
   br i1 %.not.i742, label %.lr.ph.i.i743, label %Abc_TtProcessBiDec.exit
@@ -3382,7 +3382,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   %1647 = getelementptr i8, ptr %0, i64 724
   %.val636 = load i32, ptr %1647, align 4
   %1648 = sext i32 %.val636 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %95, ptr readonly align 4 %.pre954, i64 %1648, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %95, ptr align 4 %.pre954, i64 %1648, i1 false)
   br label %1649
 
 1649:                                             ; preds = %.critedge._crit_edge, %1638
@@ -3813,7 +3813,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   %77 = load ptr, ptr %76, align 8
   %.val106 = load i32, ptr %53, align 4
   %78 = sext i32 %.val106 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %77, ptr nonnull readonly align 4 %67, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %77, ptr nonnull align 4 %67, i64 %78, i1 false)
   %79 = tail call i32 @If_CutFilter(ptr noundef %50, ptr noundef %77, i32 noundef %30) #20
   %.not102 = icmp eq i32 %79, 0
   br i1 %.not102, label %80, label %129
@@ -3950,7 +3950,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   %145 = getelementptr i8, ptr %0, i64 724
   %.val = load i32, ptr %145, align 4
   %146 = sext i32 %.val to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %144, ptr readonly align 4 %.pre135, i64 %146, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %144, ptr align 4 %.pre135, i64 %146, i1 false)
   br label %147
 
 147:                                              ; preds = %._crit_edge129._crit_edge, %135
@@ -5513,7 +5513,7 @@ Abc_TtCopy.exit.us.us.i:                          ; preds = %.lr.ph18.i.us.us.pr
   br i1 %128, label %.lr.ph18.i.us.preheader.i, label %Abc_TtCopy.exit.us.i
 
 .lr.ph18.i.us.preheader.i:                        ; preds = %.split.us.split.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %indvar62.i.sroa.phi, ptr readonly align 8 %0, i64 %137, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %indvar62.i.sroa.phi, ptr align 8 %0, i64 %137, i1 false)
   br label %Abc_TtCopy.exit.us.i
 
 Abc_TtCopy.exit.us.i:                             ; preds = %.lr.ph18.i.us.preheader.i, %.split.us.split.i

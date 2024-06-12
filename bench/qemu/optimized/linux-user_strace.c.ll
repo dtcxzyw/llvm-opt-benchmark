@@ -6230,7 +6230,7 @@ if.then:                                          ; preds = %print_signal.exit
   store i32 %info.val.i, ptr %uinfo, align 8
   %si_code11.i = getelementptr inbounds i8, ptr %uinfo, i64 8
   %_sifields.i = getelementptr inbounds i8, ptr %uinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
   switch i32 %si_code6.val.i, label %sw.default.i [
     i32 0, label %do.body12.i
     i32 -6, label %do.body12.i
@@ -6342,7 +6342,7 @@ if.then:                                          ; preds = %print_signal.exit
   store i32 %info.val.i, ptr %uinfo, align 8
   %si_code11.i = getelementptr inbounds i8, ptr %uinfo, i64 8
   %_sifields.i = getelementptr inbounds i8, ptr %uinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
   switch i32 %si_code6.val.i, label %sw.default.i [
     i32 0, label %do.body12.i
     i32 -6, label %do.body12.i
@@ -7539,7 +7539,7 @@ if.then:                                          ; preds = %print_signal.exit
   store i32 %info.val.i, ptr %uinfo, align 8
   %si_code11.i = getelementptr inbounds i8, ptr %uinfo, i64 8
   %_sifields.i = getelementptr inbounds i8, ptr %uinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
   switch i32 %si_code6.val.i, label %sw.default.i [
     i32 0, label %do.body12.i
     i32 -6, label %do.body12.i

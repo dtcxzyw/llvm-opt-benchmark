@@ -2464,7 +2464,7 @@ do.end21:                                         ; preds = %do.body15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i56)
   %fis.i = getelementptr inbounds i8, ptr %cmd, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i56, ptr noundef nonnull readonly align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i56, ptr noundef nonnull align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
   %22 = load i64, ptr %ctba, align 8
   %23 = load ptr, ptr %ahci, align 8
   %24 = load ptr, ptr %23, align 8
@@ -2909,7 +2909,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
   %12 = getelementptr inbounds i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
   tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call)
+  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call)
   %atapi_cmd.i = getelementptr inbounds i8, ptr %call, i64 96
   %14 = load ptr, ptr %atapi_cmd.i, align 8
@@ -3353,7 +3353,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
   %14 = getelementptr inbounds i8, ptr %ahci, i64 24
   %15 = load i8, ptr %14, align 8
   tail call void @qpci_io_writel(ptr noundef %12, i64 %13, i8 %15, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
+  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %16 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %16) #16
@@ -3450,7 +3450,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %13 = getelementptr inbounds i8, ptr %ahci, i64 24
   %14 = load i8, ptr %13, align 8
   tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
+  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %15 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %15) #16
@@ -3511,7 +3511,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %13 = getelementptr inbounds i8, ptr %ahci, i64 24
   %14 = load i8, ptr %13, align 8
   tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef %mul.i1.i7.i.i, i32 noundef %shl.i.i) #16
-  tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
+  tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %15 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %15) #16

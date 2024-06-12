@@ -9659,7 +9659,7 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %311, %291
   %.0.i.i.i.i.i = phi i32 [ %294, %291 ], [ %314, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %315 = load i32, ptr @hf_kafka_record_header_value, align 4
-  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull writeonly %16)
+  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull %16)
   %317 = load ptr, ptr %12, align 8
   %318 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %317, ptr noundef nonnull @.str.574, ptr noundef %318) #6

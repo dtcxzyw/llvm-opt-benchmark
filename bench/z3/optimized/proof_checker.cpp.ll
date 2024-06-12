@@ -1210,7 +1210,7 @@ invoke.cont15:                                    ; preds = %if.then
   store i32 -1, ptr %m_family_id.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13proof_checker15hyp_decl_pluginE, i64 16), ptr %call16, align 8
   %m_cons.i = getelementptr inbounds i8, ptr %call16, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_cons.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_cons.i, i8 0, i64 32, i1 false)
   invoke void @_ZN11ast_manager15register_pluginERK6symbolP11decl_plugin(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %fam_name, ptr noundef nonnull %call16)
           to label %if.end unwind label %lpad12
 
@@ -18996,7 +18996,7 @@ entry:
   store i32 -1, ptr %m_family_id.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13proof_checker15hyp_decl_pluginE, i64 16), ptr %call, align 8
   %m_cons.i = getelementptr inbounds i8, ptr %call, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_cons.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_cons.i, i8 0, i64 32, i1 false)
   ret ptr %call
 }
 

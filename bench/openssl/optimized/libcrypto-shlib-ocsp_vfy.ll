@@ -21,7 +21,7 @@ entry:
   %chain = alloca ptr, align 8
   store ptr null, ptr %chain, align 8
   %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
-  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr noundef nonnull readonly %responderId.i)
+  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr noundef nonnull %responderId.i)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true
 
@@ -33,7 +33,7 @@ if.end.i:                                         ; preds = %entry
 land.lhs.true.i:                                  ; preds = %if.end.i
   %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
-  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull readonly %responderId.i)
+  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull %responderId.i)
   %tobool.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool.not.i, label %if.then, label %if.end4
 
@@ -373,14 +373,14 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
 entry:
   %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
-  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull readonly %responderId.i)
+  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull %responderId.i)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %ocsp_find_signer.exit
 
 if.end.i:                                         ; preds = %entry
   %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
-  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull readonly %responderId.i)
+  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull %responderId.i)
   %tobool.not.i = icmp ne ptr %call3.i, null
   %1 = zext i1 %tobool.not.i to i32
   br label %ocsp_find_signer.exit

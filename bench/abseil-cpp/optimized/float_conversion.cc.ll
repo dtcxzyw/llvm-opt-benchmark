@@ -377,7 +377,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1
   %sub.ptr.rhs.cast41.i.i.i = ptrtoint ptr %add.ptr3.i18.i.i to i64
   %sub.ptr.sub42.neg.i.i.i = sub i64 %sub.ptr.rhs.cast41.i.i.i, %sub.ptr.lhs.cast.i.i.i
   %sub43.i.i.i = add i64 %sub.ptr.sub42.neg.i.i.i, %state.val.i.i.i
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i, i64 %30, ptr nonnull %integral_digits_start.0.i.i.i, i64 noundef 0, i64 noundef %sub43.i.i.i, i64 0, ptr nonnull @.str.4)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 %30, ptr nonnull %integral_digits_start.0.i.i.i, i64 noundef 0, i64 noundef %sub43.i.i.i, i64 0, ptr nonnull @.str.4)
   call void @llvm.lifetime.end.p0(i64 171, ptr nonnull %buffer.i.i.i)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
@@ -913,7 +913,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatAINS_7uint128EEEvNS1_18HexFloa
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %exp_buffer.i.i, i64 2
   %call46.i.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %cond43.i.i, ptr noundef nonnull %add.ptr45.i.i)
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %exp_buffer.i.i) #16
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp108.i, i64 %sub.ptr.sub.i93.i, ptr nonnull %digits_buffer.i.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i.i, i64 %call.i.i.i.i, ptr nonnull %exp_buffer.i.i)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108.i, i64 %sub.ptr.sub.i93.i, ptr nonnull %digits_buffer.i.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i.i, i64 %call.i.i.i.i, ptr nonnull %exp_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digits_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %exp_buffer.i.i)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
@@ -1335,7 +1335,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatSt
   %sub.ptr.rhs.cast37.i.i = ptrtoint ptr %add.ptr3.i15.i to i64
   %sub.ptr.sub38.neg.i.i = sub i64 %sub.ptr.rhs.cast37.i.i, %sub.ptr.lhs.cast.i.i
   %sub39.i.i = add i64 %sub.ptr.sub38.neg.i.i, %state.val.i.i
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp, i64 %31, ptr %integral_digits_start.0.i.i, i64 noundef 0, i64 noundef %sub39.i.i, i64 0, ptr nonnull @.str.4)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %31, ptr %integral_digits_start.0.i.i, i64 noundef 0, i64 noundef %sub39.i.i, i64 0, ptr nonnull @.str.4)
   call void @llvm.lifetime.end.p0(i64 171, ptr nonnull %buffer.i.i)
   br label %return
 
@@ -1716,7 +1716,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParams
   %add.ptr39.i = getelementptr inbounds i8, ptr %exp_buffer.i, i64 2
   %call40.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %cond37.i, ptr noundef nonnull %add.ptr39.i)
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %exp_buffer.i) #16
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp107, i64 %sub.ptr.sub.i99, ptr nonnull %digits_buffer.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i, i64 %call.i.i.i, ptr nonnull %exp_buffer.i)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107, i64 %sub.ptr.sub.i99, ptr nonnull %digits_buffer.i, i64 noundef 2, i64 noundef %trailing_zeros.0.i, i64 %call.i.i.i, ptr nonnull %exp_buffer.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digits_buffer.i)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %exp_buffer.i)
   br label %return
@@ -2358,10 +2358,10 @@ entry:
   %call9 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   %3 = extractvalue { i64, ptr } %call9, 0
   %4 = extractvalue { i64, ptr } %call9, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %incdec.ptr, ptr readonly align 1 %4, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %4, i64 %3, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr, i64 %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
   %add.ptr.i17 = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   %incdec.ptr13 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store i8 76, ptr %add.ptr.i17, align 1
@@ -4002,7 +4002,7 @@ define internal void @"_ZN4absl19functional_internal12InvokeObjectIZNS_19str_for
 entry:
   %agg.tmp1.i.i.i = alloca %"class.absl::str_format_internal::(anonymous namespace)::BinaryToDecimal", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp1.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp1.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %args, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp1.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %args, i64 56, i1 false)
   %decimal_end_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   %0 = load i64, ptr %decimal_end_.i.i.i.i.i, align 8
   %1 = load i64, ptr %agg.tmp1.i.i.i, align 8
@@ -6625,10 +6625,10 @@ entry:
   %call9 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   %3 = extractvalue { i64, ptr } %call9, 0
   %4 = extractvalue { i64, ptr } %call9, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %incdec.ptr, ptr readonly align 1 %4, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %4, i64 %3, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr, i64 %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
   %add.ptr.i16 = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   %5 = load i8, ptr %conv, align 4
   %6 = icmp ult i8 %5, 19

@@ -2786,7 +2786,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i215
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont118, %if.then.i.i.i210, %if.then2.i.i.i215
   %m_dep.i = getelementptr inbounds i8, ptr %cl, i64 16
   %103 = load ptr, ptr %m_dep.i, align 8
-  invoke void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef readonly %call3.i158159, ptr noundef %call.i193194, ptr noundef %103)
+  invoke void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %call3.i158159, ptr noundef %call.i193194, ptr noundef %103)
           to label %invoke.cont125 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont125:                                   ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -6148,7 +6148,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit10.i:         ; preds = %if.end.i7.i, %land.
 if.then8:                                         ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_0clEP4exprS4_.exit"
   %m_dep.i = getelementptr inbounds i8, ptr %cl, i64 16
   %21 = load ptr, ptr %m_dep.i, align 8
-  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly %13, ptr noundef %14, ptr noundef %21)
+  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %13, ptr noundef %14, ptr noundef %21)
   store i8 0, ptr %m_alive, align 4
   br label %if.end152
 
@@ -6204,7 +6204,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit10.i86:       ; preds = %if.end.i7.i84, %lan
 if.then12:                                        ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_0clEP4exprS4_.exit93"
   %m_dep.i94 = getelementptr inbounds i8, ptr %cl, i64 16
   %28 = load ptr, ptr %m_dep.i94, align 8
-  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly %14, ptr noundef nonnull %13, ptr noundef %28)
+  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef %28)
   store i8 0, ptr %m_alive, align 4
   br label %if.end152
 
@@ -6320,7 +6320,7 @@ if.then25:                                        ; preds = %"_ZZN20eliminate_pr
   %call.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %48, i32 noundef 0, i32 noundef 8, ptr noundef %41)
   %m_dep.i136 = getelementptr inbounds i8, ptr %cl, i64 16
   %49 = load ptr, ptr %m_dep.i136, align 8
-  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly %40, ptr noundef %call.i, ptr noundef %49)
+  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %40, ptr noundef %call.i, ptr noundef %49)
   store i8 0, ptr %m_alive, align 4
   br label %if.end152
 
@@ -6378,7 +6378,7 @@ if.then31:                                        ; preds = %"_ZZN20eliminate_pr
   %call.i165 = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %56, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %40)
   %m_dep.i166 = getelementptr inbounds i8, ptr %cl, i64 16
   %57 = load ptr, ptr %m_dep.i166, align 8
-  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly %41, ptr noundef %call.i165, ptr noundef %57)
+  tail call void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %41, ptr noundef %call.i165, ptr noundef %57)
   store i8 0, ptr %m_alive, align 4
   br label %if.end152
 
@@ -7090,7 +7090,7 @@ invoke.cont39:                                    ; preds = %_ZN11ast_manager7in
   %14 = load ptr, ptr %13, align 8
   %m_dep.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %m_dep.i, align 8
-  invoke void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %f, ptr noundef %call.i25, ptr noundef %15)
+  invoke void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %f, ptr noundef %call.i25, ptr noundef %15)
           to label %invoke.cont43 unwind label %lpad10
 
 invoke.cont43:                                    ; preds = %invoke.cont39
@@ -7972,7 +7972,7 @@ if.end44:                                         ; preds = %if.then2.i.i.i.i.if
   %122 = load ptr, ptr %18, align 8
   %m_dep.i = getelementptr inbounds i8, ptr %122, i64 16
   %123 = load ptr, ptr %m_dep.i, align 8
-  invoke void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef readonly %arg.0, ptr noundef %121, ptr noundef %123)
+  invoke void @_ZN20eliminate_predicates12insert_macroEP3appP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef %arg.0, ptr noundef %121, ptr noundef %123)
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %if.end44
@@ -9004,7 +9004,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %m_dep.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %10 = load ptr, ptr %m_dep.i.i, align 8, !noalias !43
   %11 = load ptr, ptr %m_fml.i.i, align 8, !noalias !43
-  %call5.i = tail call noundef ptr @_ZN20eliminate_predicates11init_clauseEP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEj(ptr noundef nonnull readonly align 8 dereferenceable(400) %this, ptr noundef %11, ptr noundef %10, i32 noundef %__begin1.sroa.4.030)
+  %call5.i = tail call noundef ptr @_ZN20eliminate_predicates11init_clauseEP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEj(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %11, ptr noundef %10, i32 noundef %__begin1.sroa.4.030)
   tail call void @_ZN20eliminate_predicates12add_use_listERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(53) %call5.i)
   %12 = load ptr, ptr %m_clauses, align 8
   %cmp.i.i = icmp eq ptr %12, null

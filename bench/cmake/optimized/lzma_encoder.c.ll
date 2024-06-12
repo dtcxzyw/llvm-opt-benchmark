@@ -738,7 +738,7 @@ define internal fastcc noundef zeroext i1 @rc_encode(ptr nocapture noundef %0, p
   store i64 1, ptr %12, align 8
   store i32 -1, ptr %10, align 8
   store i8 0, ptr %11, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %rc_shift_low.exit.thread
 
 118:                                              ; preds = %47, %80, %78, %64, %52
@@ -819,7 +819,7 @@ is_options_valid.exit:                            ; preds = %15
   %32 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 0, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 736
   %35 = getelementptr inbounds i8, ptr %0, i64 2972
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false)

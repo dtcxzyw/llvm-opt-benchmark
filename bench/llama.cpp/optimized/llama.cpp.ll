@@ -8411,7 +8411,7 @@ if.then.i.i36:                                    ; preds = %for.body.i
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %10, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZ20llama_sample_typicalE3$_0EEEvT_SB_T0_T1_"(ptr nonnull %call5.i.i.i.i2.i.i32, ptr %__first.addr.0.i.i.i.i.i133, i64 noundef %mul.i.i, ptr nonnull readonly %shifted_scores)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZ20llama_sample_typicalE3$_0EEEvT_SB_T0_T1_"(ptr nonnull %call5.i.i.i.i2.i.i32, ptr %__first.addr.0.i.i.i.i.i133, i64 noundef %mul.i.i, ptr nonnull %shifted_scores)
   %cmp.i1.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 128
   br i1 %cmp.i1.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
 
@@ -11967,7 +11967,7 @@ if.then.i.i.i22.i:                                ; preds = %lpad23.i
   br label %ehcleanup.i
 
 if.end25.i:                                       ; preds = %_ZNSt6vectorIPK21llama_grammar_elementSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i12.i, %invoke.cont20.i
-  invoke fastcc void @_ZL27llama_grammar_advance_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERS_ISA_SaISA_EE(ptr noundef nonnull readonly align 8 dereferenceable(24) %grammar, ptr noundef nonnull align 8 dereferenceable(24) %new_stack.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22)
+  invoke fastcc void @_ZL27llama_grammar_advance_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERS_ISA_SaISA_EE(ptr noundef nonnull align 8 dereferenceable(24) %grammar, ptr noundef nonnull align 8 dereferenceable(24) %new_stack.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22)
           to label %invoke.cont26.i unwind label %lpad23.loopexit.i
 
 invoke.cont26.i:                                  ; preds = %if.end25.i
@@ -15306,7 +15306,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %args_copy.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buffer.i)
   call void @llvm.va_copy.p0(ptr nonnull %args_copy.i, ptr nonnull %args)
-  %call.i = call i32 @vsnprintf(ptr noundef nonnull %buffer.i, i64 noundef 128, ptr noundef readonly %format, ptr noundef nonnull %args) #44
+  %call.i = call i32 @vsnprintf(ptr noundef nonnull %buffer.i, i64 noundef 128, ptr noundef %format, ptr noundef nonnull %args) #44
   %cmp.i = icmp slt i32 %call.i, 128
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -15320,7 +15320,7 @@ if.else.i:                                        ; preds = %entry
   %add.i = add nuw nsw i32 %call.i, 1
   %2 = zext nneg i32 %add.i to i64
   %call3.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #46
-  %call6.i = call i32 @vsnprintf(ptr noundef nonnull %call3.i, i64 noundef %2, ptr noundef readonly %format, ptr noundef nonnull %args_copy.i) #44
+  %call6.i = call i32 @vsnprintf(ptr noundef nonnull %call3.i, i64 noundef %2, ptr noundef %format, ptr noundef nonnull %args_copy.i) #44
   %idxprom.i = zext nneg i32 %call.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call3.i, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
@@ -16383,7 +16383,7 @@ if.end156:                                        ; preds = %invoke.cont.i.i, %i
   store ptr %token, ptr %token.i, align 8, !alias.scope !124
   %embd.i = getelementptr inbounds i8, ptr %ref.tmp168, i64 16
   %all_pos_0.i = getelementptr inbounds i8, ptr %ref.tmp168, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %embd.i, i8 0, i64 40, i1 false), !alias.scope !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %embd.i, i8 0, i64 40, i1 false), !alias.scope !124
   store i32 %sub, ptr %all_pos_0.i, align 8, !alias.scope !124
   %all_pos_1.i = getelementptr inbounds i8, ptr %ref.tmp168, i64 60
   store i32 1, ptr %all_pos_1.i, align 4, !alias.scope !124
@@ -19591,7 +19591,7 @@ if.then.i250.i:                                   ; preds = %for.body268.i
 call.i.i.i.i251.noexc.i:                          ; preds = %if.then.i250.i
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i64 16), ptr %call.i.i.i.i251279.i, align 8
   %_M_func.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i251279.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %_M_func.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %compute.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_func.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %compute.i, i64 64, i1 false)
   store ptr %call.i.i.i.i251279.i, ptr %agg.tmp.i.i.i.i.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull %agg.tmp.i.i.i.i.i, ptr noundef null)
           to label %invoke.cont3.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
@@ -19671,7 +19671,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond
 call.i.i.i.noexc.i.i.i:                           ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i64 16), ptr %call.i.i.i18.i.i.i, align 8
   %_M_func.i.i.i.i.i.i260.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %_M_func.i.i.i.i.i.i260.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %compute.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_func.i.i.i.i.i.i260.i, ptr noundef nonnull align 8 dereferenceable(64) %compute.i, i64 64, i1 false)
   store ptr %call.i.i.i18.i.i.i, ptr %agg.tmp.i.i.i.i.i248.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i248.i, ptr noundef null)
           to label %invoke.cont3.i.i.i.i.i.i unwind label %lpad2.i.i.i.i.i.i
@@ -24642,7 +24642,7 @@ entry:
   store ptr %tokens, ptr %token.i, align 8, !alias.scope !193
   %embd.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %all_pos_0.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %embd.i, i8 0, i64 40, i1 false), !alias.scope !193
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %embd.i, i8 0, i64 40, i1 false), !alias.scope !193
   store i32 %n_past, ptr %all_pos_0.i, align 8, !alias.scope !193
   %all_pos_1.i = getelementptr inbounds i8, ptr %agg.tmp, i64 60
   store i32 1, ptr %all_pos_1.i, align 4, !alias.scope !193
@@ -65424,7 +65424,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -67374,7 +67374,7 @@ entry:
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 {
 entry:
   %_M_func = getelementptr inbounds i8, ptr %this, i64 8
-  tail call fastcc void @"_ZZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_paramsENK3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(64) %_M_func)
+  tail call fastcc void @"_ZZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_paramsENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(64) %_M_func)
   ret void
 }
 

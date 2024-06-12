@@ -852,7 +852,7 @@ if.then40:                                        ; preds = %if.end37
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %if.end37
-  %call.i27 = call ptr @getenv(ptr noundef nonnull readonly @.str.16) #21
+  %call.i27 = call ptr @getenv(ptr noundef nonnull @.str.16) #21
   %tobool.not.i28 = icmp eq ptr %call.i27, null
   br i1 %tobool.not.i28, label %set_from_env.exit, label %if.then.i29
 
@@ -861,7 +861,7 @@ if.then.i29:                                      ; preds = %if.end41
   br label %set_from_env.exit
 
 set_from_env.exit:                                ; preds = %if.end41, %if.then.i29
-  %call.i30 = call ptr @getenv(ptr noundef nonnull readonly @.str.17) #21
+  %call.i30 = call ptr @getenv(ptr noundef nonnull @.str.17) #21
   %tobool.not.i31 = icmp eq ptr %call.i30, null
   br i1 %tobool.not.i31, label %set_from_env.exit33, label %if.then.i32
 
@@ -870,7 +870,7 @@ if.then.i32:                                      ; preds = %set_from_env.exit
   br label %set_from_env.exit33
 
 set_from_env.exit33:                              ; preds = %set_from_env.exit, %if.then.i32
-  %call.i34 = call ptr @getenv(ptr noundef nonnull readonly @.str.18) #21
+  %call.i34 = call ptr @getenv(ptr noundef nonnull @.str.18) #21
   %tobool.not.i35 = icmp eq ptr %call.i34, null
   br i1 %tobool.not.i35, label %set_from_env.exit37, label %if.then.i36
 
@@ -879,7 +879,7 @@ if.then.i36:                                      ; preds = %set_from_env.exit33
   br label %set_from_env.exit37
 
 set_from_env.exit37:                              ; preds = %set_from_env.exit33, %if.then.i36
-  %call.i38 = call ptr @getenv(ptr noundef nonnull readonly @.str.19) #21
+  %call.i38 = call ptr @getenv(ptr noundef nonnull @.str.19) #21
   %tobool.not.i39 = icmp eq ptr %call.i38, null
   br i1 %tobool.not.i39, label %set_from_env.exit41, label %if.then.i40
 
@@ -888,7 +888,7 @@ if.then.i40:                                      ; preds = %set_from_env.exit37
   br label %set_from_env.exit41
 
 set_from_env.exit41:                              ; preds = %set_from_env.exit37, %if.then.i40
-  %call.i42 = call ptr @getenv(ptr noundef nonnull readonly @.str.20) #21
+  %call.i42 = call ptr @getenv(ptr noundef nonnull @.str.20) #21
   %tobool.not.i43 = icmp eq ptr %call.i42, null
   br i1 %tobool.not.i43, label %set_from_env.exit45, label %if.then.i44
 
@@ -897,7 +897,7 @@ if.then.i44:                                      ; preds = %set_from_env.exit41
   br label %set_from_env.exit45
 
 set_from_env.exit45:                              ; preds = %set_from_env.exit41, %if.then.i44
-  %call.i46 = call ptr @getenv(ptr noundef nonnull readonly @.str.21) #21
+  %call.i46 = call ptr @getenv(ptr noundef nonnull @.str.21) #21
   %tobool.not.i47 = icmp eq ptr %call.i46, null
   br i1 %tobool.not.i47, label %set_from_env.exit49, label %if.then.i48
 
@@ -906,7 +906,7 @@ if.then.i48:                                      ; preds = %set_from_env.exit45
   br label %set_from_env.exit49
 
 set_from_env.exit49:                              ; preds = %set_from_env.exit45, %if.then.i48
-  %call.i50 = call ptr @getenv(ptr noundef nonnull readonly @.str.22) #21
+  %call.i50 = call ptr @getenv(ptr noundef nonnull @.str.22) #21
   %tobool.not.i51 = icmp eq ptr %call.i50, null
   br i1 %tobool.not.i51, label %set_from_env.exit53, label %if.then.i52
 
@@ -954,7 +954,7 @@ if.then56:                                        ; preds = %if.end54
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then56, %if.end54
-  %call.i54 = call ptr @getenv(ptr noundef nonnull readonly @.str.25) #21
+  %call.i54 = call ptr @getenv(ptr noundef nonnull @.str.25) #21
   %tobool.not.i55 = icmp eq ptr %call.i54, null
   br i1 %tobool.not.i55, label %set_from_env.exit57, label %if.then.i56
 
@@ -963,7 +963,7 @@ if.then.i56:                                      ; preds = %if.end57
   br label %set_from_env.exit57
 
 set_from_env.exit57:                              ; preds = %if.end57, %if.then.i56
-  %call.i58 = call ptr @getenv(ptr noundef nonnull readonly @.str.26) #21
+  %call.i58 = call ptr @getenv(ptr noundef nonnull @.str.26) #21
   %tobool.not.i59 = icmp eq ptr %call.i58, null
   br i1 %tobool.not.i59, label %set_from_env.exit61, label %if.then.i60
 
@@ -972,7 +972,7 @@ if.then.i60:                                      ; preds = %set_from_env.exit57
   br label %set_from_env.exit61
 
 set_from_env.exit61:                              ; preds = %set_from_env.exit57, %if.then.i60
-  %call.i62 = call ptr @getenv(ptr noundef nonnull readonly @.str.27) #21
+  %call.i62 = call ptr @getenv(ptr noundef nonnull @.str.27) #21
   %tobool.not.i63 = icmp eq ptr %call.i62, null
   br i1 %tobool.not.i63, label %set_from_env.exit65, label %if.then.i64
 
@@ -3668,14 +3668,14 @@ if.then3.i:                                       ; preds = %do.cond.i.i
 if.end5.i:                                        ; preds = %do.body.i.i
   %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %len.i, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %str.addr.0.i.i) #22
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str.addr.0.i.i) #22
   %cmp.i11.i = icmp ult i64 %6, %call.i.i
   br i1 %cmp.i11.i, label %if.then8.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end5.i
   %sub.i.i = sub i64 %6, %call.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i, ptr readonly %str.addr.0.i.i, i64 %call.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i.i, ptr %str.addr.0.i.i, i64 %call.i.i)
   %tobool.not.i12.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i12.i, label %if.end11.i, label %if.then8.i
 
@@ -4344,7 +4344,7 @@ entry:
   %tmpfile = getelementptr inbounds i8, ptr %call1, i64 8
   tail call void @strbuf_init(ptr noundef nonnull %tmpfile, i64 noundef 0) #21
   %oid2 = getelementptr inbounds i8, ptr %call1, i64 304
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid2, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid2, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call1, i64 336
@@ -4803,11 +4803,11 @@ if.end.i20:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i20
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %real_oid, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %real_oid, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i20
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %real_oid, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %real_oid, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -5910,7 +5910,7 @@ while.cond13.i.backedge:                          ; preds = %land.rhs.i55, %whil
   br label %while.cond13.i, !llvm.loop !47
 
 while.end.i:                                      ; preds = %while.cond13.i
-  %call1.i.i = call i32 @strncasecmp(ptr noundef nonnull readonly %p.3.i, ptr noundef nonnull @.str.179, i64 noundef 7) #22
+  %call1.i.i = call i32 @strncasecmp(ptr noundef nonnull %p.3.i, ptr noundef nonnull @.str.179, i64 noundef 7) #22
   %tobool.not.i33.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i33.i, label %if.end.i.i, label %extract_param.exit.i
 

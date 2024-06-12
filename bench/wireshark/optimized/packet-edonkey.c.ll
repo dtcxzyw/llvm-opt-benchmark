@@ -3414,7 +3414,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br label %255
 
 30:                                               ; preds = %proto_item_set_hidden.exit
-  %31 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
+  %31 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
   %32 = load i32, ptr @hf_kademlia_tcp_port, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %32, ptr noundef %1, i32 noundef %31, i32 noundef 2, i32 noundef -2147483648) #7
   %34 = add i32 %31, 2
@@ -3424,7 +3424,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br label %255
 
 38:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
-  %39 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
+  %39 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
   %40 = load i32, ptr @hf_kademlia_tcp_port, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %40, ptr noundef %1, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648) #7
   %42 = add i32 %39, 2
@@ -3439,7 +3439,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br label %255
 
 49:                                               ; preds = %proto_item_set_hidden.exit
-  %50 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
+  %50 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
   %51 = load i32, ptr @hf_kademlia_tcp_port, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %51, ptr noundef %1, i32 noundef %50, i32 noundef 2, i32 noundef -2147483648) #7
   %53 = add i32 %50, 2

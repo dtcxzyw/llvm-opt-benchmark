@@ -596,7 +596,7 @@ ieee80211_get_tkip_p2k.exit:                      ; preds = %26, %30
   %33 = shl nuw i16 %32, 8
   %34 = zext i8 %17 to i16
   %35 = or disjoint i16 %33, %34
-  call fastcc void @tkip_mixing_phase2(ptr noundef %22, ptr noundef %21, i16 noundef zeroext %35, ptr noundef nonnull writeonly %6)
+  call fastcc void @tkip_mixing_phase2(ptr noundef %22, ptr noundef %21, i16 noundef zeroext %35, ptr noundef nonnull %6)
   tail call void @_raw_spin_unlock(ptr noundef %7) #13
   %36 = call i32 @ieee80211_wep_encrypt_data(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %3, i64 noundef %4) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13

@@ -1446,7 +1446,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
   %205 = phi ptr [ %204, %203 ], [ %22, %199 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %17, i8 0, i64 16, i1 false), !annotation !11
   %206 = getelementptr inbounds i8, ptr %17, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %206, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %206, i8 0, i64 3, i1 false)
   %207 = getelementptr inbounds i8, ptr %205, i64 4
   %208 = load i16, ptr %207, align 4
   %209 = getelementptr inbounds i8, ptr %205, i64 14
@@ -1762,7 +1762,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
 
 intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
   %398 = getelementptr inbounds i8, ptr %16, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %398, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %398, i8 0, i64 3, i1 false)
   %399 = getelementptr inbounds i8, ptr %2, i64 612
   %400 = load i16, ptr %399, align 4
   %401 = getelementptr inbounds i8, ptr %2, i64 622
@@ -3179,7 +3179,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mo
 
 intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %4, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %8, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %8, i8 0, i64 3, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 14

@@ -1738,7 +1738,7 @@ rule_cmp.exit132.thread.i.i:                      ; preds = %rule_cmp.exit132.th
   %.2156.i.i = phi ptr [ %.2157.i.i, %.critedge.i.i ], [ null, %667 ]
   %.4154.i.i = phi ptr [ %.4155.i.i, %.critedge.i.i ], [ null, %667 ]
   %674 = phi ptr [ %672, %.critedge.i.i ], [ @.str.26, %667 ]
-  %675 = call fastcc i64 @doabbr(ptr noundef nonnull %492, ptr noundef readonly %570, ptr noundef %674, i1 noundef zeroext false, i64 noundef 0, i1 noundef zeroext true)
+  %675 = call fastcc i64 @doabbr(ptr noundef nonnull %492, ptr noundef %570, ptr noundef %674, i1 noundef zeroext false, i64 noundef 0, i1 noundef zeroext true)
   %676 = getelementptr i8, ptr %492, i64 %675
   %677 = getelementptr i8, ptr %569, i64 -176
   %678 = load i64, ptr %677, align 8
@@ -1815,7 +1815,7 @@ stringoffset.exit.i.i:                            ; preds = %702, %697, %692
   %718 = trunc i8 %717 to i1
   %719 = getelementptr inbounds i8, ptr %.2156.i.i, i64 80
   %720 = load i64, ptr %719, align 8
-  %721 = call fastcc i64 @doabbr(ptr noundef %713, ptr noundef readonly %570, ptr noundef %715, i1 noundef zeroext %718, i64 noundef %720, i1 noundef zeroext true)
+  %721 = call fastcc i64 @doabbr(ptr noundef %713, ptr noundef %570, ptr noundef %715, i1 noundef zeroext %718, i64 noundef %720, i1 noundef zeroext true)
   %722 = add i64 %721, %712
   %723 = load i64, ptr %719, align 8
   %.not119.i.i = icmp eq i64 %723, 3600
@@ -2058,7 +2058,7 @@ thread-pre-split.i77:                             ; preds = %795, %789, %788, %.
   %834 = getelementptr inbounds i8, ptr %809, i64 49
   %835 = load i8, ptr %834, align 1
   %836 = trunc i8 %835 to i1
-  %837 = call fastcc i64 @doabbr(ptr noundef nonnull %478, ptr noundef readonly %809, ptr noundef null, i1 noundef zeroext %836, i64 noundef %833, i1 noundef zeroext false)
+  %837 = call fastcc i64 @doabbr(ptr noundef nonnull %478, ptr noundef %809, ptr noundef null, i1 noundef zeroext %836, i64 noundef %833, i1 noundef zeroext false)
   %838 = load i64, ptr %823, align 8
   %839 = icmp slt i64 %838, 0
   br i1 %839, label %840, label %843
@@ -5497,7 +5497,7 @@ sub_169:                                          ; preds = %sub_068
   br label %inzcont.exit
 
 88:                                               ; preds = %85
-  %89 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef %71, i1 noundef zeroext true)
+  %89 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull %29, i32 noundef %71, i1 noundef zeroext true)
   br label %inzcont.exit
 
 inzcont.exit:                                     ; preds = %87, %88
@@ -5620,7 +5620,7 @@ getsave.exit.i:                                   ; preds = %123, %120
   %139 = getelementptr i8, ptr %29, i64 56
   %140 = load ptr, ptr %139, align 8
   call fastcc void @rulesub(ptr noundef nonnull @inrule.r, ptr noundef %130, ptr noundef %132, ptr noundef %134, ptr noundef %136, ptr noundef %138, ptr noundef %140)
-  %141 = call noalias ptr @strdup(ptr noundef nonnull readonly %106) #25
+  %141 = call noalias ptr @strdup(ptr noundef nonnull %106) #25
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %ecpyalloc.exit.i
 
@@ -5635,7 +5635,7 @@ ecpyalloc.exit.i:                                 ; preds = %getsave.exit.i
   store ptr %141, ptr getelementptr inbounds (i8, ptr @inrule.r, i64 16), align 8
   %147 = getelementptr i8, ptr %29, i64 72
   %148 = load ptr, ptr %147, align 8
-  %149 = call noalias ptr @strdup(ptr noundef readonly %148) #25
+  %149 = call noalias ptr @strdup(ptr noundef %148) #25
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %ecpyalloc.exit11.i
 
@@ -5781,7 +5781,7 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %201, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %212, %.preheader.i57
-  %214 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef %71, i1 noundef zeroext false)
+  %214 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull %29, i32 noundef %71, i1 noundef zeroext false)
   br label %inzone.exit
 
 inzone.exit:                                      ; preds = %185, %192, %200, %208, %._crit_edge.i
@@ -5817,7 +5817,7 @@ inzone.exit:                                      ; preds = %185, %192, %200, %2
 228:                                              ; preds = %224
   %229 = load ptr, ptr @filename, align 8
   %230 = load i32, ptr @linenum, align 4
-  %231 = call noalias ptr @strdup(ptr noundef nonnull readonly %220) #25
+  %231 = call noalias ptr @strdup(ptr noundef nonnull %220) #25
   %232 = icmp eq ptr %231, null
   br i1 %232, label %233, label %ecpyalloc.exit.i59
 
@@ -5829,7 +5829,7 @@ inzone.exit:                                      ; preds = %185, %192, %200, %2
   unreachable
 
 ecpyalloc.exit.i59:                               ; preds = %228
-  %237 = call noalias ptr @strdup(ptr noundef readonly %226) #25
+  %237 = call noalias ptr @strdup(ptr noundef %226) #25
   %238 = icmp eq ptr %237, null
   br i1 %238, label %239, label %ecpyalloc.exit5.i
 
@@ -5904,7 +5904,7 @@ growalloc.exit.i62:                               ; preds = %size_product.exit.i
   br label %inrule.exit
 
 266:                                              ; preds = %264
-  %267 = call fastcc i64 @getleapdatetime(ptr noundef nonnull readonly %29, i1 noundef zeroext false)
+  %267 = call fastcc i64 @getleapdatetime(ptr noundef nonnull %29, i1 noundef zeroext false)
   %268 = icmp sgt i64 %267, -1
   br i1 %268, label %269, label %inrule.exit
 
@@ -6018,7 +6018,7 @@ leapadd.exit.i:                                   ; preds = %290, %._crit_edge.l
   br label %inrule.exit
 
 312:                                              ; preds = %308
-  %313 = call fastcc i64 @getleapdatetime(ptr noundef nonnull readonly %29, i1 noundef zeroext true)
+  %313 = call fastcc i64 @getleapdatetime(ptr noundef nonnull %29, i1 noundef zeroext true)
   store i64 %313, ptr @leapexpires, align 8
   br label %inrule.exit
 
@@ -6094,7 +6094,7 @@ sub_1:                                            ; preds = %sub_0
 
 21:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %22 = call i64 @readlink(ptr noundef readonly %1, ptr noundef nonnull %3, i64 noundef 1) #25
+  %22 = call i64 @readlink(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 1) #25
   %23 = icmp sgt i64 %22, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %24
@@ -6186,7 +6186,7 @@ hardlinkerr.exit75.thread79:                      ; preds = %37, %44, %hardlinke
 
 65:                                               ; preds = %59, %56
   %66 = phi i64 [ 0, %56 ], [ %64, %59 ]
-  %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #26
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %68 = add i64 %58, 1
   %69 = add i64 %68, %66
   %70 = add i64 %69, %67
@@ -6206,7 +6206,7 @@ emalloc.exit.i:                                   ; preds = %65
   %78 = getelementptr i8, ptr %71, i64 %58
   store i8 47, ptr %78, align 1
   %79 = getelementptr i8, ptr %78, i64 %66
-  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) %0) #25
+  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %0) #25
   %.pr = load i8, ptr %71, align 1
   br label %81
 
@@ -6456,7 +6456,7 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mkdirs(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
-  %3 = tail call noalias ptr @strdup(ptr noundef readonly %0) #25
+  %3 = tail call noalias ptr @strdup(ptr noundef %0) #25
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %ecpyalloc.exit
 
@@ -7040,7 +7040,7 @@ define internal fastcc noundef zeroext i1 @inzsub(ptr nocapture noundef readonly
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %5, align 8
-  %10 = tail call noalias ptr @strdup(ptr noundef readonly %9) #25
+  %10 = tail call noalias ptr @strdup(ptr noundef %9) #25
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %ecpyalloc.exit
 
@@ -7101,7 +7101,7 @@ ecpyalloc.exit:                                   ; preds = %8, %3
   %.055 = phi ptr [ %25, %29 ], [ null, %ecpyalloc.exit ]
   %33 = getelementptr ptr, ptr %0, i64 %.053
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noalias ptr @strdup(ptr noundef readonly %34) #25
+  %35 = tail call noalias ptr @strdup(ptr noundef %34) #25
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %ecpyalloc.exit73
 
@@ -7115,7 +7115,7 @@ ecpyalloc.exit:                                   ; preds = %8, %3
 ecpyalloc.exit73:                                 ; preds = %32
   store ptr %35, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 32), align 8
   %41 = load ptr, ptr %21, align 8
-  %42 = tail call noalias ptr @strdup(ptr noundef readonly %41) #25
+  %42 = tail call noalias ptr @strdup(ptr noundef %41) #25
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %ecpyalloc.exit74
 
@@ -7381,7 +7381,7 @@ define internal fastcc void @rulesub(ptr noundef %0, ptr noundef %1, ptr noundef
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 73
   store i8 0, ptr %18, align 1
-  %19 = tail call noalias ptr @strdup(ptr noundef readonly %6) #25
+  %19 = tail call noalias ptr @strdup(ptr noundef %6) #25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %ecpyalloc.exit
 
@@ -7547,7 +7547,7 @@ lowerit.exit.thread:                              ; preds = %lowerit.exit.thread
   br label %139
 
 85:                                               ; preds = %82
-  %86 = call noalias ptr @strdup(ptr noundef readonly %5) #25
+  %86 = call noalias ptr @strdup(ptr noundef %5) #25
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %ecpyalloc.exit93
 

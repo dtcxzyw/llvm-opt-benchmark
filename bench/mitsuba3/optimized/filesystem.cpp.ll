@@ -751,7 +751,7 @@ define noundef zeroext i1 @_ZN7mitsuba10filesystem16create_directoryERKNS0_4path
   %6 = alloca %"class.std::__1::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  invoke void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
+  invoke void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(25) %0)
           to label %_ZN7mitsuba10filesystem6existsERKNS0_4pathE.exit unwind label %7
 
 7:                                                ; preds = %1
@@ -779,7 +779,7 @@ _ZN7mitsuba10filesystem6existsERKNS0_4pathE.exit: ; preds = %1
 18:                                               ; preds = %_ZN7mitsuba10filesystem6existsERKNS0_4pathE.exit
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  invoke void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
+  invoke void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(25) %0)
           to label %_ZN7mitsuba10filesystem12is_directoryERKNS0_4pathE.exit unwind label %19
 
 19:                                               ; preds = %18
@@ -2575,7 +2575,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7mitsuba10filesystemls
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = alloca %"class.std::__1::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(25) %1), !noalias !36
+  call void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(25) %1), !noalias !36
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNK7mitsuba10filesystem4path6stringEv.exit unwind label %5
 

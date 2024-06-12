@@ -3851,7 +3851,7 @@ define internal void @handle_OpenReceiveChannelAckMessage(ptr noundef %0, ptr no
   br label %read_skinny_ipv4or6.exit
 
 33:                                               ; preds = %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %27, %33
@@ -4100,7 +4100,7 @@ define internal void @handle_MediaTransmissionFailureMessage(ptr noundef %0, ptr
   br label %read_skinny_ipv4or6.exit
 
 36:                                               ; preds = %29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %30, %36
@@ -4896,7 +4896,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelAckMessage(ptr noundef 
   br label %read_skinny_ipv4or6.exit
 
 31:                                               ; preds = %24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %25, %31
@@ -6582,7 +6582,7 @@ define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr 
   br label %read_skinny_ipv4or6.exit
 
 45:                                               ; preds = %38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %39, %45
@@ -6681,7 +6681,7 @@ define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -6769,7 +6769,7 @@ define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -7109,7 +7109,7 @@ define internal void @handle_StartMediaTransmissionMessage(ptr noundef %0, ptr n
   br label %read_skinny_ipv4or6.exit
 
 38:                                               ; preds = %31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
@@ -7874,7 +7874,7 @@ define internal void @handle_StartMulticastMediaReceptionMessage(ptr noundef %0,
   br label %read_skinny_ipv4or6.exit
 
 38:                                               ; preds = %31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
@@ -8016,7 +8016,7 @@ define internal void @handle_StartMulticastMediaTransmissionMessage(ptr noundef 
   br label %read_skinny_ipv4or6.exit
 
 38:                                               ; preds = %31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
@@ -8377,7 +8377,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
   br label %146
 
 145:                                              ; preds = %138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %146
 
 146:                                              ; preds = %145, %139, %.thread.i
@@ -9811,7 +9811,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   br label %324
 
 323:                                              ; preds = %316
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %324
 
 324:                                              ; preds = %323, %317, %.thread.i
@@ -11583,7 +11583,7 @@ define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, pt
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -11700,7 +11700,7 @@ define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr 
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -11815,7 +11815,7 @@ define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, 
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -11903,7 +11903,7 @@ define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, p
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -11991,7 +11991,7 @@ define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, pt
   br label %read_skinny_ipv4or6.exit
 
 40:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
@@ -12132,7 +12132,7 @@ define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, pt
   br label %read_skinny_ipv4or6.exit
 
 43:                                               ; preds = %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %37, %43
@@ -12231,7 +12231,7 @@ define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %
   br label %read_skinny_ipv4or6.exit
 
 43:                                               ; preds = %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %read_skinny_ipv4or6.exit
 
 read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %37, %43

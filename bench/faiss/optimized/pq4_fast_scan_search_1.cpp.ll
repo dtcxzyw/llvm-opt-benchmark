@@ -946,7 +946,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResul
   store i8 0, ptr %154, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %59, align 8
   store i32 0, ptr %155, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %156, align 8
   store i64 %.01314.i.i.i.i, ptr %157, align 8
   %164 = load ptr, ptr %160, align 8
@@ -992,7 +992,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %175, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %58, align 8
   store i32 0, ptr %176, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i89.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %58, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i89.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %58, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %177, align 8
   store i64 %.01314.i90.i.i.i, ptr %178, align 8
   br label %185
@@ -1056,7 +1056,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %208, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %57, align 8
   store i32 0, ptr %209, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i93.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %57, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i93.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %57, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %210, align 8
   store i64 %.01314.i94.i.i.i, ptr %211, align 8
   br label %218
@@ -1121,7 +1121,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %241, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %56, align 8
   store i32 0, ptr %242, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i98.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %56, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i98.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %56, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %243, align 8
   store i64 %.01314.i99.i.i.i, ptr %244, align 8
   br label %251
@@ -1186,7 +1186,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %274, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %275, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %55, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %55, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %276, align 8
   store i64 %.01314.i105.i.i.i, ptr %277, align 8
   br label %284
@@ -1251,7 +1251,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %307, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %54, align 8
   store i32 0, ptr %308, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %54, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %54, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %309, align 8
   store i64 %.01314.i111.i.i.i, ptr %310, align 8
   br label %.preheader.i.i.i.i.i
@@ -1313,7 +1313,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %337, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %53, align 8
   store i32 0, ptr %338, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %53, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %53, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %339, align 8
   store i64 %.01314.i116.i.i.i, ptr %340, align 8
   br label %.preheader.i.i117.i.i.i
@@ -1386,7 +1386,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %373, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %374, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i121.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %52, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i121.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %52, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %375, align 8
   store i64 %.01314.i122.i.i.i, ptr %376, align 8
   br label %.preheader.i.i123.i.i.i
@@ -1449,7 +1449,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %402, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %51, align 8
   store i32 0, ptr %403, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i128.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %51, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i128.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %51, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %404, align 8
   store i64 %.01314.i129.i.i.i, ptr %405, align 8
   br label %.preheader.i.i130.i.i.i
@@ -1740,7 +1740,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %523, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %45, align 8
   store i32 0, ptr %524, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %45)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %45)
   store i64 0, ptr %525, align 8
   store i64 %.0131.i.i.i.i, ptr %526, align 8
   %533 = load ptr, ptr %529, align 8
@@ -1786,7 +1786,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %544, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %44, align 8
   store i32 0, ptr %545, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i89.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %44)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i89.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %44)
   store i64 0, ptr %546, align 8
   store i64 %.0131.i90.i.i.i, ptr %547, align 8
   br label %554
@@ -1850,7 +1850,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %577, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %43, align 8
   store i32 0, ptr %578, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i93.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %43)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i93.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %43)
   store i64 0, ptr %579, align 8
   store i64 %.0131.i94.i.i.i, ptr %580, align 8
   br label %587
@@ -1915,7 +1915,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %610, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %611, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i98.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i98.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %42)
   store i64 0, ptr %612, align 8
   store i64 %.0131.i99.i.i.i, ptr %613, align 8
   br label %620
@@ -1980,7 +1980,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %643, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %41, align 8
   store i32 0, ptr %644, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %41)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %41)
   store i64 0, ptr %645, align 8
   store i64 %.0131.i105.i.i.i, ptr %646, align 8
   br label %653
@@ -2045,7 +2045,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %676, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %40, align 8
   store i32 0, ptr %677, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %40)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %40)
   store i64 0, ptr %678, align 8
   store i64 %.0131.i111.i.i.i, ptr %679, align 8
   br label %.preheader.i.i.i39.i.i
@@ -2107,7 +2107,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %706, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %39, align 8
   store i32 0, ptr %707, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %39)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %39)
   store i64 0, ptr %708, align 8
   store i64 %.0131.i116.i.i.i, ptr %709, align 8
   br label %.preheader.i.i117.i33.i.i
@@ -2180,7 +2180,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %742, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %38, align 8
   store i32 0, ptr %743, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i121.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %38)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i121.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %38)
   store i64 0, ptr %744, align 8
   store i64 %.0131.i122.i.i.i, ptr %745, align 8
   br label %.preheader.i.i123.i26.i.i
@@ -2243,7 +2243,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %771, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %37, align 8
   store i32 0, ptr %772, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i128.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %37)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i128.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %37)
   store i64 0, ptr %773, align 8
   store i64 %.0131.i129.i.i.i, ptr %774, align 8
   br label %.preheader.i.i130.i19.i.i
@@ -2538,7 +2538,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %898, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %31, align 8
   store i32 0, ptr %899, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i110, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i110, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.sroa.012.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %900, align 4
   %.sroa.0.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %901, align 4
   %906 = zext i16 %.sroa.012.sroa.0.0.copyload.i.i.i.i.i to i64
@@ -2580,7 +2580,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %917, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %30, align 8
   store i32 0, ptr %918, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i89.i.i.i105, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i89.i.i.i105, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i.i.i.i = load i64, ptr %920, align 8
   br label %924
 
@@ -2637,7 +2637,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %943, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %29, align 8
   store i32 0, ptr %944, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i95.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %29, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i95.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %29, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i97.i.i.i = load i64, ptr %946, align 8
   br label %950
 
@@ -2695,7 +2695,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %969, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %28, align 8
   store i32 0, ptr %970, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i103.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %28, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i103.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %28, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i105.i.i.i = load i64, ptr %972, align 8
   br label %976
 
@@ -2753,7 +2753,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %995, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %27, align 8
   store i32 0, ptr %996, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i112.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %27, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i112.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %27, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i114.i.i.i = load i64, ptr %998, align 8
   br label %1002
 
@@ -2811,7 +2811,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1021, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %26, align 8
   store i32 0, ptr %1022, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i121.i.i.i97, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i121.i.i.i97, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i123.i.i.i = load i64, ptr %1024, align 8
   br label %.preheader.i.i.i.i.i99
 
@@ -2866,7 +2866,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1044, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %25, align 8
   store i32 0, ptr %1045, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.016.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %25, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.016.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %25, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted17.i.i.i.i.i = load i64, ptr %1047, align 8
   br label %.preheader.i.i129.i.i.i
 
@@ -2934,7 +2934,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1074, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %24, align 8
   store i32 0, ptr %1075, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %24, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %24, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i137.i.i.i = load i64, ptr %1077, align 8
   br label %.preheader.i.i138.i.i.i
 
@@ -2990,7 +2990,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1096, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %23, align 8
   store i32 0, ptr %1097, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i145.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %23, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i145.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %23, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %.promoted.i.i147.i.i.i = load i64, ptr %1099, align 8
   br label %.preheader.i.i148.i.i.i
 
@@ -3269,7 +3269,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1210, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %17, align 8
   store i32 0, ptr %1211, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i116, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %17)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i116, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %17)
   %.sroa.012.sroa.0.0.copyload.i.i.i88.i.i = load i16, ptr %1212, align 4
   %.sroa.0.sroa.0.0.copyload.i.i.i89.i.i = load i16, ptr %1213, align 4
   %1218 = zext i16 %.sroa.012.sroa.0.0.copyload.i.i.i88.i.i to i64
@@ -3311,7 +3311,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1229, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %16, align 8
   store i32 0, ptr %1230, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i89.i.i.i114, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %16)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i89.i.i.i114, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %16)
   %.promoted.i.i.i81.i.i = load i64, ptr %1232, align 8
   br label %1236
 
@@ -3368,7 +3368,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1255, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %15, align 8
   store i32 0, ptr %1256, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i95.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %15)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i95.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %15)
   %.promoted.i.i97.i73.i.i = load i64, ptr %1258, align 8
   br label %1262
 
@@ -3426,7 +3426,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1281, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %14, align 8
   store i32 0, ptr %1282, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i103.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %14)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i103.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %14)
   %.promoted.i.i105.i65.i.i = load i64, ptr %1284, align 8
   br label %1288
 
@@ -3484,7 +3484,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1307, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %13, align 8
   store i32 0, ptr %1308, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i112.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %13)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i112.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %13)
   %.promoted.i.i114.i57.i.i = load i64, ptr %1310, align 8
   br label %1314
 
@@ -3542,7 +3542,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1333, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %1334, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i121.i.i.i112, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i121.i.i.i112, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   %.promoted.i.i123.i49.i.i = load i64, ptr %1336, align 8
   br label %.preheader.i.i.i50.i.i
 
@@ -3597,7 +3597,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1356, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %1357, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.03.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.03.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   %.promoted17.i.i.i39.i.i = load i64, ptr %1359, align 8
   br label %.preheader.i.i129.i40.i.i
 
@@ -3665,7 +3665,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1386, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %1387, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   %.promoted.i.i137.i29.i.i = load i64, ptr %1389, align 8
   br label %.preheader.i.i138.i30.i.i
 
@@ -3721,7 +3721,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1408, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %1409, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i145.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i145.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   %.promoted.i.i147.i19.i.i = load i64, ptr %1411, align 8
   br label %.preheader.i.i148.i20.i.i
 
@@ -4277,7 +4277,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fI
   store i8 0, ptr %155, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %67, align 8
   store i32 0, ptr %156, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
@@ -4326,7 +4326,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_17SIMDResultHandlerE
   store i8 0, ptr %173, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %174, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %181 = load ptr, ptr %0, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8
@@ -4377,7 +4377,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_17SIMDResultHandlerE
   store i8 0, ptr %194, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %195, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %200 = load ptr, ptr %0, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 8
   %202 = load ptr, ptr %201, align 8
@@ -4436,7 +4436,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_17SIMDResultHandlerE
   store i8 0, ptr %217, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %58, align 8
   store i32 0, ptr %218, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %58, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %58, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 8
   %225 = load ptr, ptr %224, align 8
@@ -4495,7 +4495,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_17SIMDResultHandlerE
   store i8 0, ptr %240, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %241, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %55, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %55, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %246 = load ptr, ptr %0, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 8
@@ -4557,7 +4557,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_17SIMDResultHandlerE
   store i8 0, ptr %263, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %264, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %271 = load ptr, ptr %0, align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
@@ -4608,7 +4608,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_17SIMDResultHandlerE
   store i8 0, ptr %284, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %49, align 8
   store i32 0, ptr %285, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i114.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %49, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i114.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %49, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %290 = load ptr, ptr %0, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
@@ -4671,7 +4671,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_17SIMDResultHandlerE
   store i8 0, ptr %309, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %46, align 8
   store i32 0, ptr %310, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %46, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %46, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %315 = load ptr, ptr %0, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 8
   %317 = load ptr, ptr %316, align 8
@@ -4728,7 +4728,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_17SIMDResultHandlerE
   store i8 0, ptr %329, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %43, align 8
   store i32 0, ptr %330, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %43, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %43, ptr noundef nonnull align 4 dereferenceable(36) %7)
   %335 = load ptr, ptr %0, align 8
   %336 = getelementptr inbounds i8, ptr %335, i64 8
   %337 = load ptr, ptr %336, align 8
@@ -5014,7 +5014,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_17SIMDResultHandler
   store i8 0, ptr %441, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %35, align 8
   store i32 0, ptr %442, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %35)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %35)
   %448 = load ptr, ptr %0, align 8
   %449 = getelementptr inbounds i8, ptr %448, i64 8
   %450 = load ptr, ptr %449, align 8
@@ -5063,7 +5063,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_17SIMDResultHandlerE
   store i8 0, ptr %459, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %460, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %32)
   %467 = load ptr, ptr %0, align 8
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
@@ -5114,7 +5114,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_17SIMDResultHandlerE
   store i8 0, ptr %480, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %29, align 8
   store i32 0, ptr %481, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %29)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %29)
   %486 = load ptr, ptr %0, align 8
   %487 = getelementptr inbounds i8, ptr %486, i64 8
   %488 = load ptr, ptr %487, align 8
@@ -5173,7 +5173,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_17SIMDResultHandlerE
   store i8 0, ptr %503, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %26, align 8
   store i32 0, ptr %504, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %26)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %26)
   %509 = load ptr, ptr %0, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 8
   %511 = load ptr, ptr %510, align 8
@@ -5232,7 +5232,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_17SIMDResultHandlerE
   store i8 0, ptr %526, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %23, align 8
   store i32 0, ptr %527, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %23)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %23)
   %532 = load ptr, ptr %0, align 8
   %533 = getelementptr inbounds i8, ptr %532, i64 8
   %534 = load ptr, ptr %533, align 8
@@ -5294,7 +5294,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_17SIMDResultHandlerE
   store i8 0, ptr %549, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %20, align 8
   store i32 0, ptr %550, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %20)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %20)
   %557 = load ptr, ptr %0, align 8
   %558 = getelementptr inbounds i8, ptr %557, i64 8
   %559 = load ptr, ptr %558, align 8
@@ -5345,7 +5345,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_17SIMDResultHandlerE
   store i8 0, ptr %570, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %17, align 8
   store i32 0, ptr %571, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i114.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %17)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i114.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %17)
   %576 = load ptr, ptr %0, align 8
   %577 = getelementptr inbounds i8, ptr %576, i64 8
   %578 = load ptr, ptr %577, align 8
@@ -5408,7 +5408,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_17SIMDResultHandlerE
   store i8 0, ptr %595, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %14, align 8
   store i32 0, ptr %596, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %14)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %14)
   %601 = load ptr, ptr %0, align 8
   %602 = getelementptr inbounds i8, ptr %601, i64 8
   %603 = load ptr, ptr %602, align 8
@@ -5465,7 +5465,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_17SIMDResultHandlerE
   store i8 0, ptr %615, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %616, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   %621 = load ptr, ptr %0, align 8
   %622 = getelementptr inbounds i8, ptr %621, i64 8
   %623 = load ptr, ptr %622, align 8
@@ -18131,7 +18131,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -18183,7 +18183,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %397 = load i8, ptr %386, align 8
@@ -18441,7 +18441,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %492, align 8
   store i64 %.01317.i92.i.i.i, ptr %493, align 8
   %506 = load i8, ptr %495, align 8
@@ -18700,7 +18700,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %599, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %600, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %601, align 8
   store i64 %.01317.i136.i.i.i, ptr %602, align 8
   %615 = load i8, ptr %604, align 8
@@ -18959,7 +18959,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %708, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %709, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %710, align 8
   store i64 %.01317.i183.i.i.i, ptr %711, align 8
   %724 = load i8, ptr %713, align 8
@@ -19209,7 +19209,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %817, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %818, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %819, align 8
   store i64 %.01314.i230.i.i.i, ptr %820, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -19246,7 +19246,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %832, align 8
   store i64 %.01314.i234.i.i.i, ptr %833, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -19283,7 +19283,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %843, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %844, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %845, align 8
   store i64 %.01314.i238.i.i.i, ptr %846, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -19320,7 +19320,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %856, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %857, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %858, align 8
   store i64 %.01314.i242.i.i.i, ptr %859, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -19587,7 +19587,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %961, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %962, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %963, align 8
   store i64 %.0131.i.i.i.i, ptr %964, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -19639,7 +19639,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %976, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %977, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %978, align 8
   store i64 %.0134.i.i.i.i, ptr %979, align 8
   %992 = load i8, ptr %981, align 8
@@ -19897,7 +19897,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1085, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1086, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1087, align 8
   store i64 %.0134.i92.i.i.i, ptr %1088, align 8
   %1101 = load i8, ptr %1090, align 8
@@ -20156,7 +20156,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1194, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1195, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1196, align 8
   store i64 %.0134.i136.i.i.i, ptr %1197, align 8
   %1210 = load i8, ptr %1199, align 8
@@ -20415,7 +20415,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1303, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1304, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1305, align 8
   store i64 %.0134.i183.i.i.i, ptr %1306, align 8
   %1319 = load i8, ptr %1308, align 8
@@ -20665,7 +20665,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1412, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1413, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1414, align 8
   store i64 %.0131.i230.i.i.i, ptr %1415, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -20702,7 +20702,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1425, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1426, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1427, align 8
   store i64 %.0131.i234.i.i.i, ptr %1428, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -20739,7 +20739,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1438, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1439, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1440, align 8
   store i64 %.0131.i238.i.i.i, ptr %1441, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -20776,7 +20776,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1451, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1452, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1453, align 8
   store i64 %.0131.i242.i.i.i, ptr %1454, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -21049,7 +21049,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1562, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1563, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1564, align 8
   store i64 %.01314.i.i.i.i64, ptr %1565, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -21096,7 +21096,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1577, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1578, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1579, align 8
   store i64 %.01314.i89.i.i.i, ptr %1580, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -21143,7 +21143,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1593, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1594, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1595, align 8
   store i64 %.01314.i93.i.i.i, ptr %1596, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -21200,7 +21200,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1613, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1614, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1615, align 8
   store i64 %.01314.i98.i.i.i, ptr %1616, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -21257,7 +21257,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1633, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1634, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1635, align 8
   store i64 %.01314.i105.i.i.i, ptr %1636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -21317,7 +21317,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1653, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1654, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1655, align 8
   store i64 %.01314.i111.i.i.i, ptr %1656, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -21371,7 +21371,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1669, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1670, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1671, align 8
   store i64 %.01314.i116.i.i.i, ptr %1672, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -21424,7 +21424,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1689, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1690, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1691, align 8
   store i64 %.01314.i120.i.i.i, ptr %1692, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -21479,7 +21479,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1706, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1707, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1708, align 8
   store i64 %.01314.i127.i.i.i, ptr %1709, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -21757,7 +21757,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1815, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1816, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1817, align 8
   store i64 %.0131.i.i.i.i66, ptr %1818, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -21804,7 +21804,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1832, align 8
   store i64 %.0131.i89.i.i.i, ptr %1833, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -21851,7 +21851,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1846, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1847, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1848, align 8
   store i64 %.0131.i93.i.i.i, ptr %1849, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -21908,7 +21908,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1866, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1867, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1868, align 8
   store i64 %.0131.i98.i.i.i, ptr %1869, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -21965,7 +21965,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1886, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1887, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1888, align 8
   store i64 %.0131.i105.i.i.i, ptr %1889, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -22025,7 +22025,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1906, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1907, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1908, align 8
   store i64 %.0131.i111.i.i.i, ptr %1909, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -22079,7 +22079,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1922, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1923, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1924, align 8
   store i64 %.0131.i116.i.i.i, ptr %1925, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -22132,7 +22132,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1942, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1943, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1944, align 8
   store i64 %.0131.i120.i.i.i, ptr %1945, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -22187,7 +22187,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1959, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1960, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1961, align 8
   store i64 %.0131.i127.i.i.i, ptr %1962, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -22477,7 +22477,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2074, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2075, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2076, align 8
   store i64 %.01314.i.i.i.i138, ptr %2077, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -22528,7 +22528,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2089, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2090, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2091, align 8
   store i64 %.01318.i.i.i.i, ptr %2092, align 8
   %2104 = load i8, ptr %2094, align 8
@@ -22814,7 +22814,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2217, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2218, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2219, align 8
   store i64 %.01318.i92.i.i.i, ptr %2220, align 8
   %2232 = load i8, ptr %2222, align 8
@@ -23101,7 +23101,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2345, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2346, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2347, align 8
   store i64 %.01318.i139.i.i.i, ptr %2348, align 8
   %2360 = load i8, ptr %2350, align 8
@@ -23388,7 +23388,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2473, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2474, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2475, align 8
   store i64 %.01318.i189.i.i.i, ptr %2476, align 8
   %2488 = load i8, ptr %2478, align 8
@@ -23667,7 +23667,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2601, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2602, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2603, align 8
   store i64 %.01314.i239.i.i.i, ptr %2604, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -23704,7 +23704,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2614, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2615, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2616, align 8
   store i64 %.01314.i243.i.i.i, ptr %2617, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -23741,7 +23741,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2627, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2628, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2629, align 8
   store i64 %.01314.i247.i.i.i, ptr %2630, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -23778,7 +23778,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2640, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2641, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2642, align 8
   store i64 %.01314.i251.i.i.i, ptr %2643, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -24039,7 +24039,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2745, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2746, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2747, align 8
   store i64 %.0131.i.i.i.i145, ptr %2748, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -24090,7 +24090,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2760, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2761, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2762, align 8
   store i64 %.0134.i.i.i.i142, ptr %2763, align 8
   %2775 = load i8, ptr %2765, align 8
@@ -24376,7 +24376,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2888, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2889, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2890, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2891, align 8
   %2903 = load i8, ptr %2893, align 8
@@ -24663,7 +24663,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %3016, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %3017, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %3018, align 8
   store i64 %.0134.i139.i.i.i, ptr %3019, align 8
   %3031 = load i8, ptr %3021, align 8
@@ -24950,7 +24950,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3144, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3145, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3146, align 8
   store i64 %.0134.i189.i.i.i, ptr %3147, align 8
   %3159 = load i8, ptr %3149, align 8
@@ -25229,7 +25229,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3272, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3273, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3274, align 8
   store i64 %.0131.i239.i.i.i, ptr %3275, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -25266,7 +25266,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3285, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3286, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3287, align 8
   store i64 %.0131.i243.i.i.i, ptr %3288, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -25303,7 +25303,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3298, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3299, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3300, align 8
   store i64 %.0131.i247.i.i.i, ptr %3301, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -25340,7 +25340,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3311, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3312, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3313, align 8
   store i64 %.0131.i251.i.i.i, ptr %3314, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -25955,7 +25955,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -26005,7 +26005,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %395 = load i8, ptr %386, align 8
@@ -26254,7 +26254,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %481, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %482, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %483, align 8
   store i64 %.01317.i92.i.i.i, ptr %484, align 8
   %495 = load i8, ptr %486, align 8
@@ -26504,7 +26504,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %583, align 8
   store i64 %.01317.i136.i.i.i, ptr %584, align 8
   %595 = load i8, ptr %586, align 8
@@ -26754,7 +26754,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %681, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %682, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %683, align 8
   store i64 %.01317.i183.i.i.i, ptr %684, align 8
   %695 = load i8, ptr %686, align 8
@@ -26997,7 +26997,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %781, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %782, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %783, align 8
   store i64 %.01314.i230.i.i.i, ptr %784, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -27034,7 +27034,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %796, align 8
   store i64 %.01314.i234.i.i.i, ptr %797, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -27071,7 +27071,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %807, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %808, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %809, align 8
   store i64 %.01314.i238.i.i.i, ptr %810, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -27108,7 +27108,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %820, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %821, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %822, align 8
   store i64 %.01314.i242.i.i.i, ptr %823, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -27375,7 +27375,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %925, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %926, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %927, align 8
   store i64 %.0131.i.i.i.i, ptr %928, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -27425,7 +27425,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %940, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %941, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %942, align 8
   store i64 %.0134.i.i.i.i, ptr %943, align 8
   %954 = load i8, ptr %945, align 8
@@ -27674,7 +27674,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1040, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1041, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1042, align 8
   store i64 %.0134.i92.i.i.i, ptr %1043, align 8
   %1054 = load i8, ptr %1045, align 8
@@ -27924,7 +27924,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1140, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1141, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1142, align 8
   store i64 %.0134.i136.i.i.i, ptr %1143, align 8
   %1154 = load i8, ptr %1145, align 8
@@ -28174,7 +28174,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1240, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1241, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1242, align 8
   store i64 %.0134.i183.i.i.i, ptr %1243, align 8
   %1254 = load i8, ptr %1245, align 8
@@ -28417,7 +28417,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1340, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1341, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1342, align 8
   store i64 %.0131.i230.i.i.i, ptr %1343, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -28454,7 +28454,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1353, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1354, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1355, align 8
   store i64 %.0131.i234.i.i.i, ptr %1356, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -28491,7 +28491,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1368, align 8
   store i64 %.0131.i238.i.i.i, ptr %1369, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -28528,7 +28528,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1379, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1380, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1381, align 8
   store i64 %.0131.i242.i.i.i, ptr %1382, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -28801,7 +28801,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1492, align 8
   store i64 %.01314.i.i.i.i64, ptr %1493, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -28848,7 +28848,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1505, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1506, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1507, align 8
   store i64 %.01314.i89.i.i.i, ptr %1508, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -28895,7 +28895,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1521, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1522, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1523, align 8
   store i64 %.01314.i93.i.i.i, ptr %1524, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -28952,7 +28952,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1541, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1542, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1543, align 8
   store i64 %.01314.i98.i.i.i, ptr %1544, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -29009,7 +29009,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1561, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1562, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1563, align 8
   store i64 %.01314.i105.i.i.i, ptr %1564, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -29069,7 +29069,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1583, align 8
   store i64 %.01314.i111.i.i.i, ptr %1584, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -29123,7 +29123,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1597, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1598, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1599, align 8
   store i64 %.01314.i116.i.i.i, ptr %1600, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -29176,7 +29176,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1617, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1618, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1619, align 8
   store i64 %.01314.i120.i.i.i, ptr %1620, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -29231,7 +29231,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1634, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1635, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1636, align 8
   store i64 %.01314.i127.i.i.i, ptr %1637, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -29509,7 +29509,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1743, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1744, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1745, align 8
   store i64 %.0131.i.i.i.i66, ptr %1746, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -29556,7 +29556,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1758, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1759, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1760, align 8
   store i64 %.0131.i89.i.i.i, ptr %1761, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -29603,7 +29603,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1774, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1775, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1776, align 8
   store i64 %.0131.i93.i.i.i, ptr %1777, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -29660,7 +29660,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1796, align 8
   store i64 %.0131.i98.i.i.i, ptr %1797, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -29717,7 +29717,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1814, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1815, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1816, align 8
   store i64 %.0131.i105.i.i.i, ptr %1817, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -29777,7 +29777,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1834, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1835, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1836, align 8
   store i64 %.0131.i111.i.i.i, ptr %1837, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -29831,7 +29831,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1850, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1851, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1852, align 8
   store i64 %.0131.i116.i.i.i, ptr %1853, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -29884,7 +29884,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1870, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1871, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1872, align 8
   store i64 %.0131.i120.i.i.i, ptr %1873, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -29939,7 +29939,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1887, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1888, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1889, align 8
   store i64 %.0131.i127.i.i.i, ptr %1890, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -30229,7 +30229,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2002, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2003, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2004, align 8
   store i64 %.01314.i.i.i.i138, ptr %2005, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -30278,7 +30278,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2017, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2018, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2019, align 8
   store i64 %.01318.i.i.i.i, ptr %2020, align 8
   %2030 = load i8, ptr %2022, align 8
@@ -30555,7 +30555,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2136, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2137, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2138, align 8
   store i64 %.01318.i92.i.i.i, ptr %2139, align 8
   %2149 = load i8, ptr %2141, align 8
@@ -30833,7 +30833,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2255, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2256, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2257, align 8
   store i64 %.01318.i139.i.i.i, ptr %2258, align 8
   %2268 = load i8, ptr %2260, align 8
@@ -31111,7 +31111,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2374, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2375, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2376, align 8
   store i64 %.01318.i189.i.i.i, ptr %2377, align 8
   %2387 = load i8, ptr %2379, align 8
@@ -31383,7 +31383,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2493, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2494, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2495, align 8
   store i64 %.01314.i239.i.i.i, ptr %2496, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -31420,7 +31420,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2506, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2507, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2508, align 8
   store i64 %.01314.i243.i.i.i, ptr %2509, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -31457,7 +31457,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2519, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2520, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2521, align 8
   store i64 %.01314.i247.i.i.i, ptr %2522, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -31494,7 +31494,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2532, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2533, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2534, align 8
   store i64 %.01314.i251.i.i.i, ptr %2535, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -31755,7 +31755,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2637, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2638, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2639, align 8
   store i64 %.0131.i.i.i.i145, ptr %2640, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -31804,7 +31804,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2652, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2653, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2654, align 8
   store i64 %.0134.i.i.i.i142, ptr %2655, align 8
   %2665 = load i8, ptr %2657, align 8
@@ -32081,7 +32081,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2771, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2772, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2773, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2774, align 8
   %2784 = load i8, ptr %2776, align 8
@@ -32359,7 +32359,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2890, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %2891, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %2892, align 8
   store i64 %.0134.i139.i.i.i, ptr %2893, align 8
   %2903 = load i8, ptr %2895, align 8
@@ -32637,7 +32637,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3009, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3010, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3011, align 8
   store i64 %.0134.i189.i.i.i, ptr %3012, align 8
   %3022 = load i8, ptr %3014, align 8
@@ -32909,7 +32909,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3128, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3129, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3130, align 8
   store i64 %.0131.i239.i.i.i, ptr %3131, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -32946,7 +32946,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3141, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3142, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3143, align 8
   store i64 %.0131.i243.i.i.i, ptr %3144, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -32983,7 +32983,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3154, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3155, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3156, align 8
   store i64 %.0131.i247.i.i.i, ptr %3157, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -33020,7 +33020,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3167, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3168, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3169, align 8
   store i64 %.0131.i251.i.i.i, ptr %3170, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -39219,7 +39219,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -39271,7 +39271,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %397 = load i8, ptr %386, align 8
@@ -39529,7 +39529,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %492, align 8
   store i64 %.01317.i92.i.i.i, ptr %493, align 8
   %506 = load i8, ptr %495, align 8
@@ -39788,7 +39788,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %599, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %600, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %601, align 8
   store i64 %.01317.i136.i.i.i, ptr %602, align 8
   %615 = load i8, ptr %604, align 8
@@ -40047,7 +40047,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %708, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %709, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %710, align 8
   store i64 %.01317.i183.i.i.i, ptr %711, align 8
   %724 = load i8, ptr %713, align 8
@@ -40297,7 +40297,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %817, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %818, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %819, align 8
   store i64 %.01314.i230.i.i.i, ptr %820, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -40334,7 +40334,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %832, align 8
   store i64 %.01314.i234.i.i.i, ptr %833, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -40371,7 +40371,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %843, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %844, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %845, align 8
   store i64 %.01314.i238.i.i.i, ptr %846, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -40408,7 +40408,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %856, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %857, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %858, align 8
   store i64 %.01314.i242.i.i.i, ptr %859, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -40675,7 +40675,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %961, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %962, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %963, align 8
   store i64 %.0131.i.i.i.i, ptr %964, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -40727,7 +40727,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %976, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %977, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %978, align 8
   store i64 %.0134.i.i.i.i, ptr %979, align 8
   %992 = load i8, ptr %981, align 8
@@ -40985,7 +40985,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1085, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1086, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1087, align 8
   store i64 %.0134.i92.i.i.i, ptr %1088, align 8
   %1101 = load i8, ptr %1090, align 8
@@ -41244,7 +41244,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1194, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1195, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1196, align 8
   store i64 %.0134.i136.i.i.i, ptr %1197, align 8
   %1210 = load i8, ptr %1199, align 8
@@ -41503,7 +41503,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1303, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1304, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1305, align 8
   store i64 %.0134.i183.i.i.i, ptr %1306, align 8
   %1319 = load i8, ptr %1308, align 8
@@ -41753,7 +41753,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1412, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1413, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1414, align 8
   store i64 %.0131.i230.i.i.i, ptr %1415, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -41790,7 +41790,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1425, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1426, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1427, align 8
   store i64 %.0131.i234.i.i.i, ptr %1428, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -41827,7 +41827,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1438, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1439, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1440, align 8
   store i64 %.0131.i238.i.i.i, ptr %1441, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -41864,7 +41864,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1451, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1452, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1453, align 8
   store i64 %.0131.i242.i.i.i, ptr %1454, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -42137,7 +42137,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1562, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1563, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1564, align 8
   store i64 %.01314.i.i.i.i64, ptr %1565, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -42184,7 +42184,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1577, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1578, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1579, align 8
   store i64 %.01314.i89.i.i.i, ptr %1580, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -42231,7 +42231,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1593, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1594, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1595, align 8
   store i64 %.01314.i93.i.i.i, ptr %1596, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -42288,7 +42288,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1613, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1614, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1615, align 8
   store i64 %.01314.i98.i.i.i, ptr %1616, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -42345,7 +42345,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1633, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1634, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1635, align 8
   store i64 %.01314.i105.i.i.i, ptr %1636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -42405,7 +42405,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1653, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1654, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1655, align 8
   store i64 %.01314.i111.i.i.i, ptr %1656, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -42459,7 +42459,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1669, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1670, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1671, align 8
   store i64 %.01314.i116.i.i.i, ptr %1672, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -42512,7 +42512,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1689, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1690, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1691, align 8
   store i64 %.01314.i120.i.i.i, ptr %1692, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -42567,7 +42567,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1706, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1707, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1708, align 8
   store i64 %.01314.i127.i.i.i, ptr %1709, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -42845,7 +42845,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1815, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1816, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1817, align 8
   store i64 %.0131.i.i.i.i66, ptr %1818, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -42892,7 +42892,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1832, align 8
   store i64 %.0131.i89.i.i.i, ptr %1833, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -42939,7 +42939,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1846, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1847, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1848, align 8
   store i64 %.0131.i93.i.i.i, ptr %1849, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -42996,7 +42996,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1866, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1867, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1868, align 8
   store i64 %.0131.i98.i.i.i, ptr %1869, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -43053,7 +43053,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1886, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1887, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1888, align 8
   store i64 %.0131.i105.i.i.i, ptr %1889, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -43113,7 +43113,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1906, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1907, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1908, align 8
   store i64 %.0131.i111.i.i.i, ptr %1909, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -43167,7 +43167,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1922, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1923, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1924, align 8
   store i64 %.0131.i116.i.i.i, ptr %1925, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -43220,7 +43220,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1942, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1943, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1944, align 8
   store i64 %.0131.i120.i.i.i, ptr %1945, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -43275,7 +43275,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1959, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1960, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1961, align 8
   store i64 %.0131.i127.i.i.i, ptr %1962, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -43565,7 +43565,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2074, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2075, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2076, align 8
   store i64 %.01314.i.i.i.i138, ptr %2077, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -43616,7 +43616,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2089, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2090, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2091, align 8
   store i64 %.01318.i.i.i.i, ptr %2092, align 8
   %2104 = load i8, ptr %2094, align 8
@@ -43902,7 +43902,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2217, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2218, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2219, align 8
   store i64 %.01318.i92.i.i.i, ptr %2220, align 8
   %2232 = load i8, ptr %2222, align 8
@@ -44189,7 +44189,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2345, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2346, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2347, align 8
   store i64 %.01318.i139.i.i.i, ptr %2348, align 8
   %2360 = load i8, ptr %2350, align 8
@@ -44476,7 +44476,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2473, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2474, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2475, align 8
   store i64 %.01318.i189.i.i.i, ptr %2476, align 8
   %2488 = load i8, ptr %2478, align 8
@@ -44755,7 +44755,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2601, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2602, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2603, align 8
   store i64 %.01314.i239.i.i.i, ptr %2604, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -44792,7 +44792,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2614, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2615, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2616, align 8
   store i64 %.01314.i243.i.i.i, ptr %2617, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -44829,7 +44829,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2627, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2628, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2629, align 8
   store i64 %.01314.i247.i.i.i, ptr %2630, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -44866,7 +44866,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2640, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2641, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2642, align 8
   store i64 %.01314.i251.i.i.i, ptr %2643, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -45127,7 +45127,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2745, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2746, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2747, align 8
   store i64 %.0131.i.i.i.i145, ptr %2748, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -45178,7 +45178,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2760, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2761, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2762, align 8
   store i64 %.0134.i.i.i.i142, ptr %2763, align 8
   %2775 = load i8, ptr %2765, align 8
@@ -45464,7 +45464,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2888, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2889, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2890, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2891, align 8
   %2903 = load i8, ptr %2893, align 8
@@ -45751,7 +45751,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %3016, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %3017, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %3018, align 8
   store i64 %.0134.i139.i.i.i, ptr %3019, align 8
   %3031 = load i8, ptr %3021, align 8
@@ -46038,7 +46038,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3144, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3145, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3146, align 8
   store i64 %.0134.i189.i.i.i, ptr %3147, align 8
   %3159 = load i8, ptr %3149, align 8
@@ -46317,7 +46317,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3272, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3273, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3274, align 8
   store i64 %.0131.i239.i.i.i, ptr %3275, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -46354,7 +46354,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3285, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3286, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3287, align 8
   store i64 %.0131.i243.i.i.i, ptr %3288, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -46391,7 +46391,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3298, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3299, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3300, align 8
   store i64 %.0131.i247.i.i.i, ptr %3301, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -46428,7 +46428,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3311, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3312, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3313, align 8
   store i64 %.0131.i251.i.i.i, ptr %3314, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -47043,7 +47043,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -47093,7 +47093,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %395 = load i8, ptr %386, align 8
@@ -47342,7 +47342,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %481, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %482, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %483, align 8
   store i64 %.01317.i92.i.i.i, ptr %484, align 8
   %495 = load i8, ptr %486, align 8
@@ -47592,7 +47592,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %583, align 8
   store i64 %.01317.i136.i.i.i, ptr %584, align 8
   %595 = load i8, ptr %586, align 8
@@ -47842,7 +47842,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %681, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %682, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %683, align 8
   store i64 %.01317.i183.i.i.i, ptr %684, align 8
   %695 = load i8, ptr %686, align 8
@@ -48085,7 +48085,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %781, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %782, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %783, align 8
   store i64 %.01314.i230.i.i.i, ptr %784, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -48122,7 +48122,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %796, align 8
   store i64 %.01314.i234.i.i.i, ptr %797, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -48159,7 +48159,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %807, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %808, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %809, align 8
   store i64 %.01314.i238.i.i.i, ptr %810, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -48196,7 +48196,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %820, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %821, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %822, align 8
   store i64 %.01314.i242.i.i.i, ptr %823, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -48463,7 +48463,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %925, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %926, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %927, align 8
   store i64 %.0131.i.i.i.i, ptr %928, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -48513,7 +48513,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %940, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %941, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %942, align 8
   store i64 %.0134.i.i.i.i, ptr %943, align 8
   %954 = load i8, ptr %945, align 8
@@ -48762,7 +48762,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1040, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1041, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1042, align 8
   store i64 %.0134.i92.i.i.i, ptr %1043, align 8
   %1054 = load i8, ptr %1045, align 8
@@ -49012,7 +49012,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1140, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1141, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1142, align 8
   store i64 %.0134.i136.i.i.i, ptr %1143, align 8
   %1154 = load i8, ptr %1145, align 8
@@ -49262,7 +49262,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1240, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1241, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1242, align 8
   store i64 %.0134.i183.i.i.i, ptr %1243, align 8
   %1254 = load i8, ptr %1245, align 8
@@ -49505,7 +49505,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1340, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1341, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1342, align 8
   store i64 %.0131.i230.i.i.i, ptr %1343, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -49542,7 +49542,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1353, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1354, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1355, align 8
   store i64 %.0131.i234.i.i.i, ptr %1356, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -49579,7 +49579,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1368, align 8
   store i64 %.0131.i238.i.i.i, ptr %1369, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -49616,7 +49616,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1379, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1380, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1381, align 8
   store i64 %.0131.i242.i.i.i, ptr %1382, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -49889,7 +49889,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1492, align 8
   store i64 %.01314.i.i.i.i64, ptr %1493, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -49936,7 +49936,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1505, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1506, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1507, align 8
   store i64 %.01314.i89.i.i.i, ptr %1508, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -49983,7 +49983,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1521, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1522, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1523, align 8
   store i64 %.01314.i93.i.i.i, ptr %1524, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -50040,7 +50040,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1541, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1542, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1543, align 8
   store i64 %.01314.i98.i.i.i, ptr %1544, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -50097,7 +50097,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1561, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1562, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1563, align 8
   store i64 %.01314.i105.i.i.i, ptr %1564, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -50157,7 +50157,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1583, align 8
   store i64 %.01314.i111.i.i.i, ptr %1584, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -50211,7 +50211,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1597, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1598, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1599, align 8
   store i64 %.01314.i116.i.i.i, ptr %1600, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -50264,7 +50264,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1617, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1618, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1619, align 8
   store i64 %.01314.i120.i.i.i, ptr %1620, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -50319,7 +50319,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1634, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1635, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1636, align 8
   store i64 %.01314.i127.i.i.i, ptr %1637, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -50597,7 +50597,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1743, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1744, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1745, align 8
   store i64 %.0131.i.i.i.i66, ptr %1746, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -50644,7 +50644,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1758, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1759, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1760, align 8
   store i64 %.0131.i89.i.i.i, ptr %1761, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -50691,7 +50691,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1774, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1775, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1776, align 8
   store i64 %.0131.i93.i.i.i, ptr %1777, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -50748,7 +50748,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1796, align 8
   store i64 %.0131.i98.i.i.i, ptr %1797, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -50805,7 +50805,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1814, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1815, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1816, align 8
   store i64 %.0131.i105.i.i.i, ptr %1817, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -50865,7 +50865,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1834, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1835, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1836, align 8
   store i64 %.0131.i111.i.i.i, ptr %1837, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -50919,7 +50919,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1850, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1851, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1852, align 8
   store i64 %.0131.i116.i.i.i, ptr %1853, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -50972,7 +50972,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1870, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1871, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1872, align 8
   store i64 %.0131.i120.i.i.i, ptr %1873, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -51027,7 +51027,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1887, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1888, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1889, align 8
   store i64 %.0131.i127.i.i.i, ptr %1890, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -51317,7 +51317,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2002, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2003, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2004, align 8
   store i64 %.01314.i.i.i.i138, ptr %2005, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -51366,7 +51366,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2017, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2018, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2019, align 8
   store i64 %.01318.i.i.i.i, ptr %2020, align 8
   %2030 = load i8, ptr %2022, align 8
@@ -51643,7 +51643,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2136, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2137, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2138, align 8
   store i64 %.01318.i92.i.i.i, ptr %2139, align 8
   %2149 = load i8, ptr %2141, align 8
@@ -51921,7 +51921,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2255, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2256, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2257, align 8
   store i64 %.01318.i139.i.i.i, ptr %2258, align 8
   %2268 = load i8, ptr %2260, align 8
@@ -52199,7 +52199,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2374, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2375, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2376, align 8
   store i64 %.01318.i189.i.i.i, ptr %2377, align 8
   %2387 = load i8, ptr %2379, align 8
@@ -52471,7 +52471,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2493, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2494, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2495, align 8
   store i64 %.01314.i239.i.i.i, ptr %2496, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -52508,7 +52508,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2506, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2507, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2508, align 8
   store i64 %.01314.i243.i.i.i, ptr %2509, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -52545,7 +52545,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2519, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2520, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2521, align 8
   store i64 %.01314.i247.i.i.i, ptr %2522, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -52582,7 +52582,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2532, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2533, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2534, align 8
   store i64 %.01314.i251.i.i.i, ptr %2535, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -52843,7 +52843,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2637, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2638, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2639, align 8
   store i64 %.0131.i.i.i.i145, ptr %2640, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -52892,7 +52892,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2652, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2653, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2654, align 8
   store i64 %.0134.i.i.i.i142, ptr %2655, align 8
   %2665 = load i8, ptr %2657, align 8
@@ -53169,7 +53169,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2771, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2772, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2773, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2774, align 8
   %2784 = load i8, ptr %2776, align 8
@@ -53447,7 +53447,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2890, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %2891, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %2892, align 8
   store i64 %.0134.i139.i.i.i, ptr %2893, align 8
   %2903 = load i8, ptr %2895, align 8
@@ -53725,7 +53725,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3009, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3010, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3011, align 8
   store i64 %.0134.i189.i.i.i, ptr %3012, align 8
   %3022 = load i8, ptr %3014, align 8
@@ -53997,7 +53997,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3128, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3129, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3130, align 8
   store i64 %.0131.i239.i.i.i, ptr %3131, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -54034,7 +54034,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3141, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3142, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3143, align 8
   store i64 %.0131.i243.i.i.i, ptr %3144, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -54071,7 +54071,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3154, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3155, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3156, align 8
   store i64 %.0131.i247.i.i.i, ptr %3157, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -54108,7 +54108,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3167, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3168, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3169, align 8
   store i64 %.0131.i251.i.i.i, ptr %3170, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItiEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -60304,7 +60304,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -60356,7 +60356,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %397 = load i8, ptr %386, align 8
@@ -60614,7 +60614,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %492, align 8
   store i64 %.01317.i92.i.i.i, ptr %493, align 8
   %506 = load i8, ptr %495, align 8
@@ -60873,7 +60873,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %599, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %600, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %601, align 8
   store i64 %.01317.i136.i.i.i, ptr %602, align 8
   %615 = load i8, ptr %604, align 8
@@ -61132,7 +61132,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %708, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %709, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %710, align 8
   store i64 %.01317.i183.i.i.i, ptr %711, align 8
   %724 = load i8, ptr %713, align 8
@@ -61382,7 +61382,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %817, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %818, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %819, align 8
   store i64 %.01314.i230.i.i.i, ptr %820, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -61419,7 +61419,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %832, align 8
   store i64 %.01314.i234.i.i.i, ptr %833, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -61456,7 +61456,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %843, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %844, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %845, align 8
   store i64 %.01314.i238.i.i.i, ptr %846, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -61493,7 +61493,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %856, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %857, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %858, align 8
   store i64 %.01314.i242.i.i.i, ptr %859, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -61760,7 +61760,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %961, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %962, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %963, align 8
   store i64 %.0131.i.i.i.i, ptr %964, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -61812,7 +61812,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %976, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %977, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %978, align 8
   store i64 %.0134.i.i.i.i, ptr %979, align 8
   %992 = load i8, ptr %981, align 8
@@ -62070,7 +62070,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1085, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1086, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1087, align 8
   store i64 %.0134.i92.i.i.i, ptr %1088, align 8
   %1101 = load i8, ptr %1090, align 8
@@ -62329,7 +62329,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1194, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1195, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1196, align 8
   store i64 %.0134.i136.i.i.i, ptr %1197, align 8
   %1210 = load i8, ptr %1199, align 8
@@ -62588,7 +62588,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1303, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1304, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1305, align 8
   store i64 %.0134.i183.i.i.i, ptr %1306, align 8
   %1319 = load i8, ptr %1308, align 8
@@ -62838,7 +62838,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1412, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1413, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1414, align 8
   store i64 %.0131.i230.i.i.i, ptr %1415, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -62875,7 +62875,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1425, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1426, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1427, align 8
   store i64 %.0131.i234.i.i.i, ptr %1428, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -62912,7 +62912,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1438, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1439, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1440, align 8
   store i64 %.0131.i238.i.i.i, ptr %1441, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -62949,7 +62949,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1451, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1452, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1453, align 8
   store i64 %.0131.i242.i.i.i, ptr %1454, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -63222,7 +63222,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1562, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1563, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1564, align 8
   store i64 %.01314.i.i.i.i64, ptr %1565, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -63269,7 +63269,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1577, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1578, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1579, align 8
   store i64 %.01314.i89.i.i.i, ptr %1580, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -63316,7 +63316,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1593, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1594, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1595, align 8
   store i64 %.01314.i93.i.i.i, ptr %1596, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -63373,7 +63373,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1613, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1614, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1615, align 8
   store i64 %.01314.i98.i.i.i, ptr %1616, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -63430,7 +63430,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1633, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1634, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1635, align 8
   store i64 %.01314.i105.i.i.i, ptr %1636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -63490,7 +63490,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1653, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1654, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1655, align 8
   store i64 %.01314.i111.i.i.i, ptr %1656, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -63544,7 +63544,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1669, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1670, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1671, align 8
   store i64 %.01314.i116.i.i.i, ptr %1672, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -63597,7 +63597,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1689, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1690, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1691, align 8
   store i64 %.01314.i120.i.i.i, ptr %1692, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -63652,7 +63652,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1706, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1707, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1708, align 8
   store i64 %.01314.i127.i.i.i, ptr %1709, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -63930,7 +63930,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1815, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1816, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1817, align 8
   store i64 %.0131.i.i.i.i66, ptr %1818, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -63977,7 +63977,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1832, align 8
   store i64 %.0131.i89.i.i.i, ptr %1833, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -64024,7 +64024,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1846, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1847, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1848, align 8
   store i64 %.0131.i93.i.i.i, ptr %1849, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -64081,7 +64081,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1866, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1867, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1868, align 8
   store i64 %.0131.i98.i.i.i, ptr %1869, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -64138,7 +64138,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1886, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1887, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1888, align 8
   store i64 %.0131.i105.i.i.i, ptr %1889, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -64198,7 +64198,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1906, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1907, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1908, align 8
   store i64 %.0131.i111.i.i.i, ptr %1909, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -64252,7 +64252,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1922, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1923, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1924, align 8
   store i64 %.0131.i116.i.i.i, ptr %1925, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -64305,7 +64305,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1942, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1943, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1944, align 8
   store i64 %.0131.i120.i.i.i, ptr %1945, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -64360,7 +64360,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1959, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1960, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1961, align 8
   store i64 %.0131.i127.i.i.i, ptr %1962, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -64650,7 +64650,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2074, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2075, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2076, align 8
   store i64 %.01314.i.i.i.i138, ptr %2077, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -64701,7 +64701,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2089, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2090, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2091, align 8
   store i64 %.01318.i.i.i.i, ptr %2092, align 8
   %2104 = load i8, ptr %2094, align 8
@@ -64986,7 +64986,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2216, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2217, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2218, align 8
   store i64 %.01318.i92.i.i.i, ptr %2219, align 8
   %2231 = load i8, ptr %2221, align 8
@@ -65272,7 +65272,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2343, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2344, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2345, align 8
   store i64 %.01318.i139.i.i.i, ptr %2346, align 8
   %2358 = load i8, ptr %2348, align 8
@@ -65558,7 +65558,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2470, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2471, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2472, align 8
   store i64 %.01318.i189.i.i.i, ptr %2473, align 8
   %2485 = load i8, ptr %2475, align 8
@@ -65836,7 +65836,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2597, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2598, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2599, align 8
   store i64 %.01314.i239.i.i.i, ptr %2600, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -65873,7 +65873,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2610, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2611, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2612, align 8
   store i64 %.01314.i243.i.i.i, ptr %2613, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -65910,7 +65910,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2623, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2624, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2625, align 8
   store i64 %.01314.i247.i.i.i, ptr %2626, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -65947,7 +65947,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2636, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2637, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2638, align 8
   store i64 %.01314.i251.i.i.i, ptr %2639, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -66208,7 +66208,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2741, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2742, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2743, align 8
   store i64 %.0131.i.i.i.i145, ptr %2744, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -66259,7 +66259,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2756, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2757, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2758, align 8
   store i64 %.0134.i.i.i.i142, ptr %2759, align 8
   %2771 = load i8, ptr %2761, align 8
@@ -66544,7 +66544,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2883, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2884, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2885, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2886, align 8
   %2898 = load i8, ptr %2888, align 8
@@ -66830,7 +66830,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %3010, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %3011, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %3012, align 8
   store i64 %.0134.i139.i.i.i, ptr %3013, align 8
   %3025 = load i8, ptr %3015, align 8
@@ -67116,7 +67116,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3137, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3138, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3139, align 8
   store i64 %.0134.i189.i.i.i, ptr %3140, align 8
   %3152 = load i8, ptr %3142, align 8
@@ -67394,7 +67394,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3264, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3265, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3266, align 8
   store i64 %.0131.i239.i.i.i, ptr %3267, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -67431,7 +67431,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3277, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3278, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3279, align 8
   store i64 %.0131.i243.i.i.i, ptr %3280, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -67468,7 +67468,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3290, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3291, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3292, align 8
   store i64 %.0131.i247.i.i.i, ptr %3293, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -67505,7 +67505,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3303, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3304, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3305, align 8
   store i64 %.0131.i251.i.i.i, ptr %3306, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -68120,7 +68120,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -68170,7 +68170,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %395 = load i8, ptr %386, align 8
@@ -68419,7 +68419,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %481, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %482, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %483, align 8
   store i64 %.01317.i92.i.i.i, ptr %484, align 8
   %495 = load i8, ptr %486, align 8
@@ -68669,7 +68669,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %583, align 8
   store i64 %.01317.i136.i.i.i, ptr %584, align 8
   %595 = load i8, ptr %586, align 8
@@ -68919,7 +68919,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %681, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %682, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %683, align 8
   store i64 %.01317.i183.i.i.i, ptr %684, align 8
   %695 = load i8, ptr %686, align 8
@@ -69162,7 +69162,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %781, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %782, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %783, align 8
   store i64 %.01314.i230.i.i.i, ptr %784, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -69199,7 +69199,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %796, align 8
   store i64 %.01314.i234.i.i.i, ptr %797, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -69236,7 +69236,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %807, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %808, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %809, align 8
   store i64 %.01314.i238.i.i.i, ptr %810, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -69273,7 +69273,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %820, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %821, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %822, align 8
   store i64 %.01314.i242.i.i.i, ptr %823, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -69540,7 +69540,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %925, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %926, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %927, align 8
   store i64 %.0131.i.i.i.i, ptr %928, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -69590,7 +69590,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %940, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %941, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %942, align 8
   store i64 %.0134.i.i.i.i, ptr %943, align 8
   %954 = load i8, ptr %945, align 8
@@ -69839,7 +69839,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1040, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1041, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1042, align 8
   store i64 %.0134.i92.i.i.i, ptr %1043, align 8
   %1054 = load i8, ptr %1045, align 8
@@ -70089,7 +70089,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1140, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1141, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1142, align 8
   store i64 %.0134.i136.i.i.i, ptr %1143, align 8
   %1154 = load i8, ptr %1145, align 8
@@ -70339,7 +70339,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1240, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1241, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1242, align 8
   store i64 %.0134.i183.i.i.i, ptr %1243, align 8
   %1254 = load i8, ptr %1245, align 8
@@ -70582,7 +70582,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1340, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1341, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1342, align 8
   store i64 %.0131.i230.i.i.i, ptr %1343, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -70619,7 +70619,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1353, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1354, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1355, align 8
   store i64 %.0131.i234.i.i.i, ptr %1356, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -70656,7 +70656,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1368, align 8
   store i64 %.0131.i238.i.i.i, ptr %1369, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -70693,7 +70693,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1379, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1380, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1381, align 8
   store i64 %.0131.i242.i.i.i, ptr %1382, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -70966,7 +70966,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1492, align 8
   store i64 %.01314.i.i.i.i64, ptr %1493, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -71013,7 +71013,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1505, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1506, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1507, align 8
   store i64 %.01314.i89.i.i.i, ptr %1508, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -71060,7 +71060,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1521, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1522, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1523, align 8
   store i64 %.01314.i93.i.i.i, ptr %1524, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -71117,7 +71117,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1541, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1542, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1543, align 8
   store i64 %.01314.i98.i.i.i, ptr %1544, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -71174,7 +71174,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1561, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1562, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1563, align 8
   store i64 %.01314.i105.i.i.i, ptr %1564, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -71234,7 +71234,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1583, align 8
   store i64 %.01314.i111.i.i.i, ptr %1584, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -71288,7 +71288,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1597, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1598, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1599, align 8
   store i64 %.01314.i116.i.i.i, ptr %1600, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -71341,7 +71341,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1617, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1618, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1619, align 8
   store i64 %.01314.i120.i.i.i, ptr %1620, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -71396,7 +71396,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1634, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1635, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1636, align 8
   store i64 %.01314.i127.i.i.i, ptr %1637, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -71674,7 +71674,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1743, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1744, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1745, align 8
   store i64 %.0131.i.i.i.i66, ptr %1746, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -71721,7 +71721,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1758, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1759, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1760, align 8
   store i64 %.0131.i89.i.i.i, ptr %1761, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -71768,7 +71768,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1774, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1775, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1776, align 8
   store i64 %.0131.i93.i.i.i, ptr %1777, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -71825,7 +71825,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1796, align 8
   store i64 %.0131.i98.i.i.i, ptr %1797, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -71882,7 +71882,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1814, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1815, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1816, align 8
   store i64 %.0131.i105.i.i.i, ptr %1817, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -71942,7 +71942,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1834, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1835, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1836, align 8
   store i64 %.0131.i111.i.i.i, ptr %1837, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -71996,7 +71996,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1850, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1851, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1852, align 8
   store i64 %.0131.i116.i.i.i, ptr %1853, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -72049,7 +72049,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1870, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1871, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1872, align 8
   store i64 %.0131.i120.i.i.i, ptr %1873, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -72104,7 +72104,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1887, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1888, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1889, align 8
   store i64 %.0131.i127.i.i.i, ptr %1890, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -72394,7 +72394,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2002, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2003, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2004, align 8
   store i64 %.01314.i.i.i.i138, ptr %2005, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -72443,7 +72443,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2017, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2018, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2019, align 8
   store i64 %.01318.i.i.i.i, ptr %2020, align 8
   %2030 = load i8, ptr %2022, align 8
@@ -72719,7 +72719,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2135, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2136, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2137, align 8
   store i64 %.01318.i92.i.i.i, ptr %2138, align 8
   %2148 = load i8, ptr %2140, align 8
@@ -72996,7 +72996,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2253, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2254, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2255, align 8
   store i64 %.01318.i139.i.i.i, ptr %2256, align 8
   %2266 = load i8, ptr %2258, align 8
@@ -73273,7 +73273,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2371, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2372, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2373, align 8
   store i64 %.01318.i189.i.i.i, ptr %2374, align 8
   %2384 = load i8, ptr %2376, align 8
@@ -73544,7 +73544,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2489, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2490, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2491, align 8
   store i64 %.01314.i239.i.i.i, ptr %2492, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -73581,7 +73581,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2502, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2503, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2504, align 8
   store i64 %.01314.i243.i.i.i, ptr %2505, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -73618,7 +73618,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2515, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2516, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2517, align 8
   store i64 %.01314.i247.i.i.i, ptr %2518, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -73655,7 +73655,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2528, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2529, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2530, align 8
   store i64 %.01314.i251.i.i.i, ptr %2531, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -73916,7 +73916,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2633, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2634, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2635, align 8
   store i64 %.0131.i.i.i.i145, ptr %2636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -73965,7 +73965,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2648, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2649, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2650, align 8
   store i64 %.0134.i.i.i.i142, ptr %2651, align 8
   %2661 = load i8, ptr %2653, align 8
@@ -74241,7 +74241,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2766, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2767, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2768, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2769, align 8
   %2779 = load i8, ptr %2771, align 8
@@ -74518,7 +74518,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2884, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %2885, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %2886, align 8
   store i64 %.0134.i139.i.i.i, ptr %2887, align 8
   %2897 = load i8, ptr %2889, align 8
@@ -74795,7 +74795,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3002, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3003, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3004, align 8
   store i64 %.0134.i189.i.i.i, ptr %3005, align 8
   %3015 = load i8, ptr %3007, align 8
@@ -75066,7 +75066,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3120, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3121, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3122, align 8
   store i64 %.0131.i239.i.i.i, ptr %3123, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -75103,7 +75103,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3133, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3134, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3135, align 8
   store i64 %.0131.i243.i.i.i, ptr %3136, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -75140,7 +75140,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3146, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3147, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3148, align 8
   store i64 %.0131.i247.i.i.i, ptr %3149, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -75177,7 +75177,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3159, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3160, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3161, align 8
   store i64 %.0131.i251.i.i.i, ptr %3162, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMaxItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -81361,7 +81361,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -81413,7 +81413,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %397 = load i8, ptr %386, align 8
@@ -81671,7 +81671,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %492, align 8
   store i64 %.01317.i92.i.i.i, ptr %493, align 8
   %506 = load i8, ptr %495, align 8
@@ -81930,7 +81930,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %599, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %600, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %601, align 8
   store i64 %.01317.i136.i.i.i, ptr %602, align 8
   %615 = load i8, ptr %604, align 8
@@ -82189,7 +82189,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %708, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %709, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %710, align 8
   store i64 %.01317.i183.i.i.i, ptr %711, align 8
   %724 = load i8, ptr %713, align 8
@@ -82439,7 +82439,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %817, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %818, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %819, align 8
   store i64 %.01314.i230.i.i.i, ptr %820, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -82476,7 +82476,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %832, align 8
   store i64 %.01314.i234.i.i.i, ptr %833, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -82513,7 +82513,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %843, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %844, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %845, align 8
   store i64 %.01314.i238.i.i.i, ptr %846, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -82550,7 +82550,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %856, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %857, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %858, align 8
   store i64 %.01314.i242.i.i.i, ptr %859, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -82817,7 +82817,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %961, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %962, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %963, align 8
   store i64 %.0131.i.i.i.i, ptr %964, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -82869,7 +82869,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %976, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %977, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %978, align 8
   store i64 %.0134.i.i.i.i, ptr %979, align 8
   %992 = load i8, ptr %981, align 8
@@ -83127,7 +83127,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1085, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1086, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1087, align 8
   store i64 %.0134.i92.i.i.i, ptr %1088, align 8
   %1101 = load i8, ptr %1090, align 8
@@ -83386,7 +83386,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1194, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1195, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1196, align 8
   store i64 %.0134.i136.i.i.i, ptr %1197, align 8
   %1210 = load i8, ptr %1199, align 8
@@ -83645,7 +83645,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1303, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1304, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1305, align 8
   store i64 %.0134.i183.i.i.i, ptr %1306, align 8
   %1319 = load i8, ptr %1308, align 8
@@ -83895,7 +83895,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1412, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1413, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1414, align 8
   store i64 %.0131.i230.i.i.i, ptr %1415, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -83932,7 +83932,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1425, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1426, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1427, align 8
   store i64 %.0131.i234.i.i.i, ptr %1428, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -83969,7 +83969,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1438, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1439, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1440, align 8
   store i64 %.0131.i238.i.i.i, ptr %1441, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -84006,7 +84006,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1451, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1452, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1453, align 8
   store i64 %.0131.i242.i.i.i, ptr %1454, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -84279,7 +84279,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1562, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1563, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1564, align 8
   store i64 %.01314.i.i.i.i64, ptr %1565, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -84326,7 +84326,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1577, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1578, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1579, align 8
   store i64 %.01314.i89.i.i.i, ptr %1580, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -84373,7 +84373,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1593, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1594, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1595, align 8
   store i64 %.01314.i93.i.i.i, ptr %1596, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -84430,7 +84430,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1613, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1614, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1615, align 8
   store i64 %.01314.i98.i.i.i, ptr %1616, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -84487,7 +84487,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1633, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1634, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1635, align 8
   store i64 %.01314.i105.i.i.i, ptr %1636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -84547,7 +84547,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1653, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1654, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1655, align 8
   store i64 %.01314.i111.i.i.i, ptr %1656, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -84601,7 +84601,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1669, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1670, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1671, align 8
   store i64 %.01314.i116.i.i.i, ptr %1672, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -84654,7 +84654,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1689, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1690, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1691, align 8
   store i64 %.01314.i120.i.i.i, ptr %1692, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -84709,7 +84709,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1706, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1707, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1708, align 8
   store i64 %.01314.i127.i.i.i, ptr %1709, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -84987,7 +84987,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1815, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1816, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1817, align 8
   store i64 %.0131.i.i.i.i66, ptr %1818, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -85034,7 +85034,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1830, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1831, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1832, align 8
   store i64 %.0131.i89.i.i.i, ptr %1833, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -85081,7 +85081,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1846, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1847, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1848, align 8
   store i64 %.0131.i93.i.i.i, ptr %1849, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -85138,7 +85138,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1866, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1867, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1868, align 8
   store i64 %.0131.i98.i.i.i, ptr %1869, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -85195,7 +85195,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1886, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1887, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1888, align 8
   store i64 %.0131.i105.i.i.i, ptr %1889, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -85255,7 +85255,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1906, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1907, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1908, align 8
   store i64 %.0131.i111.i.i.i, ptr %1909, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -85309,7 +85309,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1922, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1923, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1924, align 8
   store i64 %.0131.i116.i.i.i, ptr %1925, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -85362,7 +85362,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1942, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1943, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1944, align 8
   store i64 %.0131.i120.i.i.i, ptr %1945, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -85417,7 +85417,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1959, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1960, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1961, align 8
   store i64 %.0131.i127.i.i.i, ptr %1962, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -85707,7 +85707,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2074, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2075, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2076, align 8
   store i64 %.01314.i.i.i.i138, ptr %2077, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -85758,7 +85758,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2089, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2090, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2091, align 8
   store i64 %.01318.i.i.i.i, ptr %2092, align 8
   %2104 = load i8, ptr %2094, align 8
@@ -86043,7 +86043,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2216, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2217, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2218, align 8
   store i64 %.01318.i92.i.i.i, ptr %2219, align 8
   %2231 = load i8, ptr %2221, align 8
@@ -86329,7 +86329,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2343, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2344, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2345, align 8
   store i64 %.01318.i139.i.i.i, ptr %2346, align 8
   %2358 = load i8, ptr %2348, align 8
@@ -86615,7 +86615,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2470, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2471, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2472, align 8
   store i64 %.01318.i189.i.i.i, ptr %2473, align 8
   %2485 = load i8, ptr %2475, align 8
@@ -86893,7 +86893,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2597, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2598, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2599, align 8
   store i64 %.01314.i239.i.i.i, ptr %2600, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -86930,7 +86930,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2610, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2611, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2612, align 8
   store i64 %.01314.i243.i.i.i, ptr %2613, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -86967,7 +86967,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2623, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2624, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2625, align 8
   store i64 %.01314.i247.i.i.i, ptr %2626, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -87004,7 +87004,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2636, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2637, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2638, align 8
   store i64 %.01314.i251.i.i.i, ptr %2639, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -87265,7 +87265,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2741, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2742, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2743, align 8
   store i64 %.0131.i.i.i.i145, ptr %2744, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -87316,7 +87316,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2756, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2757, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2758, align 8
   store i64 %.0134.i.i.i.i142, ptr %2759, align 8
   %2771 = load i8, ptr %2761, align 8
@@ -87601,7 +87601,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2883, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2884, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2885, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2886, align 8
   %2898 = load i8, ptr %2888, align 8
@@ -87887,7 +87887,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %3010, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %3011, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %3012, align 8
   store i64 %.0134.i139.i.i.i, ptr %3013, align 8
   %3025 = load i8, ptr %3015, align 8
@@ -88173,7 +88173,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3137, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3138, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3139, align 8
   store i64 %.0134.i189.i.i.i, ptr %3140, align 8
   %3152 = load i8, ptr %3142, align 8
@@ -88451,7 +88451,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3264, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3265, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3266, align 8
   store i64 %.0131.i239.i.i.i, ptr %3267, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -88488,7 +88488,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3277, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3278, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3279, align 8
   store i64 %.0131.i243.i.i.i, ptr %3280, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -88525,7 +88525,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3290, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3291, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3292, align 8
   store i64 %.0131.i247.i.i.i, ptr %3293, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -88562,7 +88562,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3303, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3304, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3305, align 8
   store i64 %.0131.i251.i.i.i, ptr %3306, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb1EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1990)
@@ -89177,7 +89177,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
   store i8 0, ptr %366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %275, align 8
   store i32 0, ptr %367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %275, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %368, align 8
   store i64 %.01314.i.i.i.i, ptr %369, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
@@ -89227,7 +89227,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %381, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %272, align 8
   store i32 0, ptr %382, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %272, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %383, align 8
   store i64 %.01317.i.i.i.i, ptr %384, align 8
   %395 = load i8, ptr %386, align 8
@@ -89476,7 +89476,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %481, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %262, align 8
   store i32 0, ptr %482, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %262, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %483, align 8
   store i64 %.01317.i92.i.i.i, ptr %484, align 8
   %495 = load i8, ptr %486, align 8
@@ -89726,7 +89726,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %252, align 8
   store i32 0, ptr %582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %252, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %583, align 8
   store i64 %.01317.i136.i.i.i, ptr %584, align 8
   %595 = load i8, ptr %586, align 8
@@ -89976,7 +89976,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %681, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %242, align 8
   store i32 0, ptr %682, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.018.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %242, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %683, align 8
   store i64 %.01317.i183.i.i.i, ptr %684, align 8
   %695 = load i8, ptr %686, align 8
@@ -90219,7 +90219,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %781, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %232, align 8
   store i32 0, ptr %782, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %783, align 8
   store i64 %.01314.i230.i.i.i, ptr %784, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %232, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -90256,7 +90256,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %231, align 8
   store i32 0, ptr %795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %796, align 8
   store i64 %.01314.i234.i.i.i, ptr %797, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %231, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -90293,7 +90293,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %807, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %230, align 8
   store i32 0, ptr %808, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %809, align 8
   store i64 %.01314.i238.i.i.i, ptr %810, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %230, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -90330,7 +90330,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %820, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %229, align 8
   store i32 0, ptr %821, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %822, align 8
   store i64 %.01314.i242.i.i.i, ptr %823, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %229, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -90597,7 +90597,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %925, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %223, align 8
   store i32 0, ptr %926, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %223)
   store i64 0, ptr %927, align 8
   store i64 %.0131.i.i.i.i, ptr %928, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
@@ -90647,7 +90647,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %940, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %220, align 8
   store i32 0, ptr %941, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %220)
   store i64 0, ptr %942, align 8
   store i64 %.0134.i.i.i.i, ptr %943, align 8
   %954 = load i8, ptr %945, align 8
@@ -90896,7 +90896,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1040, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %210, align 8
   store i32 0, ptr %1041, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %210)
   store i64 0, ptr %1042, align 8
   store i64 %.0134.i92.i.i.i, ptr %1043, align 8
   %1054 = load i8, ptr %1045, align 8
@@ -91146,7 +91146,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1140, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %200, align 8
   store i32 0, ptr %1141, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i135.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %200)
   store i64 0, ptr %1142, align 8
   store i64 %.0134.i136.i.i.i, ptr %1143, align 8
   %1154 = load i8, ptr %1145, align 8
@@ -91396,7 +91396,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1240, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %190, align 8
   store i32 0, ptr %1241, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i182.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %190)
   store i64 0, ptr %1242, align 8
   store i64 %.0134.i183.i.i.i, ptr %1243, align 8
   %1254 = load i8, ptr %1245, align 8
@@ -91639,7 +91639,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1340, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %180, align 8
   store i32 0, ptr %1341, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i229.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %180)
   store i64 0, ptr %1342, align 8
   store i64 %.0131.i230.i.i.i, ptr %1343, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %180, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -91676,7 +91676,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1353, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %179, align 8
   store i32 0, ptr %1354, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i233.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %179)
   store i64 0, ptr %1355, align 8
   store i64 %.0131.i234.i.i.i, ptr %1356, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %179, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -91713,7 +91713,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1366, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %178, align 8
   store i32 0, ptr %1367, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i237.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %178)
   store i64 0, ptr %1368, align 8
   store i64 %.0131.i238.i.i.i, ptr %1369, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %178, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -91750,7 +91750,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1379, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %177, align 8
   store i32 0, ptr %1380, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i241.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %177)
   store i64 0, ptr %1381, align 8
   store i64 %.0131.i242.i.i.i, ptr %1382, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_19SingleResultHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %177, ptr noundef nonnull align 8 dereferenceable(128) %282)
@@ -92023,7 +92023,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1490, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %171, align 8
   store i32 0, ptr %1491, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i63, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %171, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1492, align 8
   store i64 %.01314.i.i.i.i64, ptr %1493, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
@@ -92070,7 +92070,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1505, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %168, align 8
   store i32 0, ptr %1506, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1507, align 8
   store i64 %.01314.i89.i.i.i, ptr %1508, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
@@ -92117,7 +92117,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1521, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %165, align 8
   store i32 0, ptr %1522, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %165, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1523, align 8
   store i64 %.01314.i93.i.i.i, ptr %1524, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
@@ -92174,7 +92174,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1541, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %162, align 8
   store i32 0, ptr %1542, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %162, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1543, align 8
   store i64 %.01314.i98.i.i.i, ptr %1544, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
@@ -92231,7 +92231,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1561, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %159, align 8
   store i32 0, ptr %1562, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %159, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1563, align 8
   store i64 %.01314.i105.i.i.i, ptr %1564, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
@@ -92291,7 +92291,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1581, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %156, align 8
   store i32 0, ptr %1582, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1583, align 8
   store i64 %.01314.i111.i.i.i, ptr %1584, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
@@ -92345,7 +92345,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1597, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %153, align 8
   store i32 0, ptr %1598, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1599, align 8
   store i64 %.01314.i116.i.i.i, ptr %1600, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
@@ -92398,7 +92398,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1617, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %150, align 8
   store i32 0, ptr %1618, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %150, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1619, align 8
   store i64 %.01314.i120.i.i.i, ptr %1620, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
@@ -92453,7 +92453,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1634, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %147, align 8
   store i32 0, ptr %1635, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %147, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %1636, align 8
   store i64 %.01314.i127.i.i.i, ptr %1637, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
@@ -92731,7 +92731,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %1743, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %139, align 8
   store i32 0, ptr %1744, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i65, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %139)
   store i64 0, ptr %1745, align 8
   store i64 %.0131.i.i.i.i66, ptr %1746, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
@@ -92778,7 +92778,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %1758, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %136, align 8
   store i32 0, ptr %1759, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i88.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %136)
   store i64 0, ptr %1760, align 8
   store i64 %.0131.i89.i.i.i, ptr %1761, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
@@ -92825,7 +92825,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %1774, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %133, align 8
   store i32 0, ptr %1775, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i92.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %133)
   store i64 0, ptr %1776, align 8
   store i64 %.0131.i93.i.i.i, ptr %1777, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
@@ -92882,7 +92882,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %1794, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %130, align 8
   store i32 0, ptr %1795, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i97.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %130)
   store i64 0, ptr %1796, align 8
   store i64 %.0131.i98.i.i.i, ptr %1797, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
@@ -92939,7 +92939,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %1814, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %127, align 8
   store i32 0, ptr %1815, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i104.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %127)
   store i64 0, ptr %1816, align 8
   store i64 %.0131.i105.i.i.i, ptr %1817, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
@@ -92999,7 +92999,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %1834, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %124, align 8
   store i32 0, ptr %1835, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i110.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %124)
   store i64 0, ptr %1836, align 8
   store i64 %.0131.i111.i.i.i, ptr %1837, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
@@ -93053,7 +93053,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %1850, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %121, align 8
   store i32 0, ptr %1851, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i115.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %121)
   store i64 0, ptr %1852, align 8
   store i64 %.0131.i116.i.i.i, ptr %1853, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
@@ -93106,7 +93106,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %1870, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %118, align 8
   store i32 0, ptr %1871, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i119.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %118)
   store i64 0, ptr %1872, align 8
   store i64 %.0131.i120.i.i.i, ptr %1873, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
@@ -93161,7 +93161,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %1887, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %115, align 8
   store i32 0, ptr %1888, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i126.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %115)
   store i64 0, ptr %1889, align 8
   store i64 %.0131.i127.i.i.i, ptr %1890, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
@@ -93451,7 +93451,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2002, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %107, align 8
   store i32 0, ptr %2003, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i.i.i.i137, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %107, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2004, align 8
   store i64 %.01314.i.i.i.i138, ptr %2005, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
@@ -93500,7 +93500,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2017, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %104, align 8
   store i32 0, ptr %2018, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %104, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2019, align 8
   store i64 %.01318.i.i.i.i, ptr %2020, align 8
   %2030 = load i8, ptr %2022, align 8
@@ -93776,7 +93776,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2135, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %94, align 8
   store i32 0, ptr %2136, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i91.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %94, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2137, align 8
   store i64 %.01318.i92.i.i.i, ptr %2138, align 8
   %2148 = load i8, ptr %2140, align 8
@@ -94053,7 +94053,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2253, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %84, align 8
   store i32 0, ptr %2254, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %84, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2255, align 8
   store i64 %.01318.i139.i.i.i, ptr %2256, align 8
   %2266 = load i8, ptr %2258, align 8
@@ -94330,7 +94330,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %2371, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %74, align 8
   store i32 0, ptr %2372, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.019.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %74, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2373, align 8
   store i64 %.01318.i189.i.i.i, ptr %2374, align 8
   %2384 = load i8, ptr %2376, align 8
@@ -94601,7 +94601,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %2489, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %64, align 8
   store i32 0, ptr %2490, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2491, align 8
   store i64 %.01314.i239.i.i.i, ptr %2492, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -94638,7 +94638,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %2502, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %63, align 8
   store i32 0, ptr %2503, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2504, align 8
   store i64 %.01314.i243.i.i.i, ptr %2505, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %63, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -94675,7 +94675,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %2515, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %62, align 8
   store i32 0, ptr %2516, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2517, align 8
   store i64 %.01314.i247.i.i.i, ptr %2518, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -94712,7 +94712,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %2528, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %61, align 8
   store i32 0, ptr %2529, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull readonly align 4 dereferenceable(36) %7)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_15NormTableScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.015.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 4 dereferenceable(36) %7)
   store i64 0, ptr %2530, align 8
   store i64 %.01314.i251.i.i.i, ptr %2531, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %61, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -94973,7 +94973,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
   store i8 0, ptr %2633, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i64 16), ptr %55, align 8
   store i32 0, ptr %2634, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i.i.i.i144, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %55)
   store i64 0, ptr %2635, align 8
   store i64 %.0131.i.i.i.i145, ptr %2636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -95022,7 +95022,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi1ENS_20simd_result_handle
   store i8 0, ptr %2648, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi4EEE, i64 16), ptr %52, align 8
   store i32 0, ptr %2649, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i.i.i.i141, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %52)
   store i64 0, ptr %2650, align 8
   store i64 %.0134.i.i.i.i142, ptr %2651, align 8
   %2661 = load i8, ptr %2653, align 8
@@ -95298,7 +95298,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi2ENS_20simd_result_handle
   store i8 0, ptr %2766, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi6EEE, i64 16), ptr %42, align 8
   store i32 0, ptr %2767, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi3ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi6EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i91.i.i.i139, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %42)
   store i64 0, ptr %2768, align 8
   store i64 %.0134.i92.i.i.i140, ptr %2769, align 8
   %2779 = load i8, ptr %2771, align 8
@@ -95575,7 +95575,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi3ENS_20simd_result_handle
   store i8 0, ptr %2884, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi8EEE, i64 16), ptr %32, align 8
   store i32 0, ptr %2885, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi4ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi8EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i138.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %32)
   store i64 0, ptr %2886, align 8
   store i64 %.0134.i139.i.i.i, ptr %2887, align 8
   %2897 = load i8, ptr %2889, align 8
@@ -95852,7 +95852,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi4ENS_20simd_result_handle
   store i8 0, ptr %3002, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi10EEE, i64 16), ptr %22, align 8
   store i32 0, ptr %3003, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi1ELi5ENS_20simd_result_handlers19FixedStorageHandlerILi1ELi10EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.05.i188.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(336) %22)
   store i64 0, ptr %3004, align 8
   store i64 %.0134.i189.i.i.i, ptr %3005, align 8
   %3015 = load i8, ptr %3007, align 8
@@ -96123,7 +96123,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi1ELi5ENS_20simd_result_handle
   store i8 0, ptr %3120, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i64 16), ptr %12, align 8
   store i32 0, ptr %3121, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i238.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %12)
   store i64 0, ptr %3122, align 8
   store i64 %.0131.i239.i.i.i, ptr %3123, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -96160,7 +96160,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi1ENS_20simd_result_handle
   store i8 0, ptr %3133, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EEE, i64 16), ptr %11, align 8
   store i32 0, ptr %3134, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi2ELi2ENS_20simd_result_handlers19FixedStorageHandlerILi2ELi4EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i242.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %11)
   store i64 0, ptr %3135, align 8
   store i64 %.0131.i243.i.i.i, ptr %3136, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi4EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %11, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -96197,7 +96197,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi2ELi2ENS_20simd_result_handle
   store i8 0, ptr %3146, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i64 16), ptr %10, align 8
   store i32 0, ptr %3147, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi3ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi3ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i246.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(208) %10)
   store i64 0, ptr %3148, align 8
   store i64 %.0131.i247.i.i.i, ptr %3149, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(184) %1918)
@@ -96234,7 +96234,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi3ELi1ENS_20simd_result_handle
   store i8 0, ptr %3159, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i64 16), ptr %9, align 8
   store i32 0, ptr %3160, align 4
-  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef readonly %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
+  call fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi4ELi1ENS_20simd_result_handlers19FixedStorageHandlerILi4ELi2EEENS_11DummyScalerEEEviPKhS7_RT1_RKT2_(i32 noundef %4, ptr noundef %.02.i250.i.i.i, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(272) %9)
   store i64 0, ptr %3161, align 8
   store i64 %.0131.i251.i.i.i, ptr %3162, align 8
   call void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EE16to_other_handlerINS0_16ReservoirHandlerINS_4CMinItlEELb0EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull align 8 dereferenceable(184) %1918)

@@ -1100,8 +1100,8 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
 613:                                              ; preds = %.loopexit31.i, %.lr.ph45.i
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next66.i, %.loopexit31.i ]
   %.sroa.024.043.i = phi ptr [ %602, %.lr.ph45.i ], [ %783, %.loopexit31.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %614 = getelementptr inbounds i8, ptr %.sroa.024.043.i, i64 40
   %615 = load i32, ptr %614, align 8
   %616 = icmp eq i32 %615, 2

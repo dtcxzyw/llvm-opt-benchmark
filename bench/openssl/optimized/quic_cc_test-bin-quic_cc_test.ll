@@ -103,7 +103,7 @@ if.end:                                           ; preds = %entry
   %spare_capacity.i = getelementptr inbounds i8, ptr %sim, i64 32
   store i64 16000, ptr %spare_capacity.i, align 8
   %total_acked.i = getelementptr inbounds i8, ptr %sim, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %total_acked.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_acked.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @net_pkt_cmp) #8
   %pkts.i = getelementptr inbounds i8, ptr %sim, i64 40
   store ptr %call.i.i, ptr %pkts.i, align 8

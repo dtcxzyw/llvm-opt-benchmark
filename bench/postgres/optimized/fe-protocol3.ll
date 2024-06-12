@@ -1772,7 +1772,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %54 = getelementptr inbounds i8, ptr %1, i64 156
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %.0115, -1
-  %57 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %.0116) #16
+  %57 = tail call noalias ptr @strdup(ptr noundef nonnull %.0116) #16
   %58 = icmp eq ptr %57, null
   br i1 %58, label %reportErrorPosition.exit, label %59
 

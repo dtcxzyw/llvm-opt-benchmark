@@ -4337,7 +4337,7 @@ _ZN4llvh11SmallStringILj128EED2Ev.exit98:         ; preds = %cleanup, %if.then.i
 define hidden { i32, ptr } @_ZN4llvh3sys2fs16createUniqueFileERKNS_5TwineERNS_15SmallVectorImplIcEEj(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i32 noundef %Mode) local_unnamed_addr #0 {
 entry:
   %FD = alloca i32, align 4
-  %call.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull writeonly align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext false, i32 noundef %Mode, i32 noundef 1, i32 noundef 0)
+  %call.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext false, i32 noundef %Mode, i32 noundef 1, i32 noundef 0)
   %0 = extractvalue { i32, ptr } %call.i, 0
   %cmp.i.not = icmp eq i32 %0, 0
   br i1 %cmp.i.not, label %if.end, label %return
@@ -4482,7 +4482,7 @@ if.then.i.i32:                                    ; preds = %_ZN4llvhplERKNS_5Tw
 _ZN4llvh5TwineC2EPKc.exit.i:                      ; preds = %if.then.i.i32, %_ZN4llvhplERKNS_5TwineES2_.exit31
   %storemerge.i.i = phi i8 [ 3, %if.then.i.i32 ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit31 ]
   store i8 %storemerge.i.i, ptr %LHSKind.i.i, align 8
-  %call3.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %ResultFD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext true, i32 noundef 384, i32 noundef %Type, i32 noundef 0)
+  %call3.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %ResultFD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext true, i32 noundef 384, i32 noundef %Type, i32 noundef 0)
   %8 = load ptr, ptr %Storage.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh3sys2fsL19createTemporaryFileERKNS_5TwineERiRNS_15SmallVectorImplIcEE8FSEntity.exit, label %if.then.i.i.i.i
@@ -4501,7 +4501,7 @@ _ZN4llvh3sys2fsL19createTemporaryFileERKNS_5TwineERiRNS_15SmallVectorImplIcEE8FS
 define hidden { i32, ptr } @_ZN4llvh3sys2fs19createTemporaryFileERKNS_5TwineENS_9StringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Prefix, ptr %Suffix.coerce0, i64 %Suffix.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath) local_unnamed_addr #0 {
 entry:
   %FD = alloca i32, align 4
-  %call.i = call fastcc { i32, ptr } @_ZN4llvh3sys2fsL19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEE8FSEntity(ptr noundef nonnull align 8 dereferenceable(18) %Prefix, ptr %Suffix.coerce0, i64 %Suffix.coerce1, ptr noundef nonnull writeonly align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i32 noundef 1)
+  %call.i = call fastcc { i32, ptr } @_ZN4llvh3sys2fsL19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEE8FSEntity(ptr noundef nonnull align 8 dereferenceable(18) %Prefix, ptr %Suffix.coerce0, i64 %Suffix.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i32 noundef 1)
   %0 = extractvalue { i32, ptr } %call.i, 0
   %cmp.i.not = icmp eq i32 %0, 0
   br i1 %cmp.i.not, label %if.end, label %return
@@ -9205,7 +9205,7 @@ entry:
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ResultPath, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %call.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull writeonly align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext false, i32 noundef %Mode, i32 noundef 1, i32 noundef 4)
+  %call.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext false, i32 noundef %Mode, i32 noundef 1, i32 noundef 4)
   %0 = extractvalue { i32, ptr } %call.i, 0
   %cmp.i.not = icmp eq i32 %0, 0
   br i1 %cmp.i.not, label %if.end, label %_ZN4llvh5ErrorD2Ev.exit

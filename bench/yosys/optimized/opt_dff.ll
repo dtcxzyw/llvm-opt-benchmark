@@ -21001,7 +21001,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit1745: ; preds = %_
   %4194 = getelementptr inbounds i8, ptr %.sroa.02506.04172, i64 56
   %4195 = load ptr, ptr %4194, align 8, !noalias !74
   %4196 = getelementptr inbounds i8, ptr %4195, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %345, ptr noundef nonnull align 8 dereferenceable(24) %4196, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %345, ptr noundef nonnull align 8 dereferenceable(24) %4196, i64 24, i1 false)
   br label %4464
 
 4197:                                             ; preds = %._crit_edge4170
@@ -24825,7 +24825,7 @@ _ZNSt3setISt4pairIN5Yosys5RTLIL6SigBitEbESt4lessIS4_ESaIS4_EED2Ev.exit1984: ; pr
   %5722 = getelementptr inbounds i8, ptr %.sroa.02348.04181, i64 104
   %5723 = load ptr, ptr %5722, align 8, !noalias !84
   %5724 = getelementptr inbounds i8, ptr %5723, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %358, ptr noundef nonnull align 8 dereferenceable(24) %5724, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %358, ptr noundef nonnull align 8 dereferenceable(24) %5724, i64 24, i1 false)
   br label %6097
 
 5725:                                             ; preds = %5711

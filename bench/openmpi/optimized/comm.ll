@@ -1140,7 +1140,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %50 = getelementptr inbounds i8, ptr %0, i64 296
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %52 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %6, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef %.2, ptr noundef %.054, ptr noundef null, ptr noundef %51, ptr noundef %1, ptr noundef %.052, i32 noundef 0, ptr noundef nonnull %5)
+  %52 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %6, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef %.2, ptr noundef %.054, ptr noundef null, ptr noundef %51, ptr noundef %1, ptr noundef %.052, i32 noundef 0, ptr noundef nonnull %5)
   %.not.i85 = icmp eq i32 %52, 0
   br i1 %.not.i85, label %53, label %ompi_comm_set.exit.thread96
 
@@ -1711,7 +1711,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %132 = load ptr, ptr %131, align 8
   %133 = select i1 %5, i32 2, i32 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %134 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %9, ptr noundef %0, i32 noundef %spec.select, ptr noundef nonnull %68, i32 noundef %.2160, ptr noundef %.1, ptr noundef null, ptr noundef %132, ptr noundef %130, ptr noundef %.0138, i32 noundef %133, ptr noundef nonnull %7)
+  %134 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %spec.select, ptr noundef nonnull %68, i32 noundef %.2160, ptr noundef %.1, ptr noundef null, ptr noundef %132, ptr noundef %130, ptr noundef %.0138, i32 noundef %133, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %134, 0
   br i1 %.not.i, label %135, label %ompi_comm_set.exit.thread199
 
@@ -2364,7 +2364,7 @@ define internal fastcc i32 @ompi_comm_split_unguided(ptr noundef %0, i32 noundef
 14:                                               ; preds = %8
   %15 = icmp eq i32 %1, -32766
   %16 = select i1 %15, i32 -32766, i32 0
-  %17 = call i32 @ompi_comm_split_with_info(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %2, ptr noundef null, ptr noundef nonnull writeonly %9, i1 noundef zeroext false)
+  %17 = call i32 @ompi_comm_split_with_info(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %2, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext false)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %19, label %18
 
@@ -2611,7 +2611,7 @@ define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 nounde
   %37 = getelementptr inbounds i8, ptr %0, i64 296
   %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %39 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %14, ptr noundef nonnull %0, i32 noundef %35, ptr noundef %36, i32 noundef %33, ptr noundef %32, ptr noundef null, ptr noundef %38, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
+  %39 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %14, ptr noundef nonnull %0, i32 noundef %35, ptr noundef %36, i32 noundef %33, ptr noundef %32, ptr noundef null, ptr noundef %38, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %40, label %ompi_comm_set.exit.thread55
 
@@ -2696,7 +2696,7 @@ ompi_comm_set.exit:                               ; preds = %40
   %76 = load ptr, ptr %75, align 8
   %77 = call i32 @opal_info_remove_unreferenced(ptr noundef %76) #19
   %78 = load ptr, ptr %14, align 8
-  %79 = call i32 @ompi_comm_split_with_info(ptr noundef %78, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef writeonly %8, i1 noundef zeroext false)
+  %79 = call i32 @ompi_comm_split_with_info(ptr noundef %78, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %8, i1 noundef zeroext false)
   %80 = call i32 @ompi_comm_free(ptr noundef nonnull %14)
   br label %81
 
@@ -2756,7 +2756,7 @@ define i32 @ompi_comm_dup_with_info(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %17 = getelementptr inbounds i8, ptr %0, i64 248
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %19 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %5, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %.026, i32 noundef 2, ptr noundef nonnull %4)
+  %19 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %.026, i32 noundef 2, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %ompi_comm_set.exit.thread54
 
@@ -3003,7 +3003,7 @@ define i32 @ompi_comm_idup(ptr noundef %0, ptr nocapture noundef writeonly %1, p
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc i32 @ompi_comm_idup_internal(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef null, ptr noundef writeonly %1, ptr noundef writeonly %2)
+  %8 = tail call fastcc i32 @ompi_comm_idup_internal(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef null, ptr noundef %1, ptr noundef %2)
   ret i32 %8
 }
 
@@ -3032,7 +3032,7 @@ define i32 @ompi_comm_create_group(ptr noundef %0, ptr noundef %1, i32 noundef %
   %12 = getelementptr inbounds i8, ptr %0, i64 296
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %14 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %7, ptr noundef %0, i32 noundef %9, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %11, ptr noundef %13, ptr noundef %1, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5)
+  %14 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %9, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %11, ptr noundef %13, ptr noundef %1, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %ompi_comm_set.exit.thread45
 
@@ -3265,7 +3265,7 @@ define i32 @ompi_comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noca
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %11 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %7, ptr noundef null, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6)
+  %11 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %7, ptr noundef null, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6)
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %12, label %ompi_comm_set_simple.exit.thread23
 
@@ -3599,7 +3599,7 @@ ompi_comm_invalid.exit:                           ; preds = %25
   %81 = getelementptr inbounds i8, ptr %0, i64 296
   %82 = load ptr, ptr %81, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %83 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %13, ptr noundef nonnull %0, i32 noundef %79, ptr noundef null, i32 noundef %80, ptr noundef null, ptr noundef null, ptr noundef %82, ptr noundef %77, ptr noundef %76, i32 noundef 0, ptr noundef nonnull %7)
+  %83 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef %79, ptr noundef null, i32 noundef %80, ptr noundef null, ptr noundef null, ptr noundef %82, ptr noundef %77, ptr noundef %76, i32 noundef 0, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %83, 0
   br i1 %.not.i, label %84, label %ompi_comm_set.exit.thread85
 
@@ -4304,7 +4304,7 @@ ompi_comm_extended_cid_block_available.exit.i:    ; preds = %154
   br i1 %.not.i115, label %ompi_comm_extended_cid_block_new.exit, label %162
 
 162:                                              ; preds = %ompi_comm_extended_cid_block_available.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false)
   %163 = add nuw i8 %161, 1
   store i8 %163, ptr %160, align 8
   %164 = getelementptr inbounds i8, ptr %13, i64 8

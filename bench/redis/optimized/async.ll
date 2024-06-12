@@ -47,7 +47,7 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   store ptr null, ptr %call.i.i.i, align 8
   %size.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %size.i.i.i.i, i8 0, i64 24, i1 false)
   %type1.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr @callbackDict, ptr %type1.i.i.i, align 8
   %privdata.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
@@ -60,7 +60,7 @@ if.end.i:                                         ; preds = %if.end
 if.end4.i:                                        ; preds = %if.end.i
   store ptr null, ptr %call.i.i31.i, align 8
   %size.i.i.i34.i = getelementptr inbounds i8, ptr %call.i.i31.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i.i34.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %size.i.i.i34.i, i8 0, i64 24, i1 false)
   %type1.i.i35.i = getelementptr inbounds i8, ptr %call.i.i31.i, i64 8
   store ptr @callbackDict, ptr %type1.i.i35.i, align 8
   %privdata.i.i36.i = getelementptr inbounds i8, ptr %call.i.i31.i, i64 40
@@ -150,7 +150,7 @@ if.end29.i:                                       ; preds = %for.inc.i.i.i, %lan
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %23(ptr noundef %22) #14
   store ptr null, ptr %call.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %size.i.i.i.i, i8 0, i64 24, i1 false)
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %24(ptr noundef nonnull %call.i.i.i) #14
   br i1 %cmp.i32.i, label %if.then6, label %if.then31.i
@@ -238,7 +238,7 @@ dictRelease.exit72.i:                             ; preds = %for.inc.i.i69.i, %l
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %44(ptr noundef %43) #14
   store ptr null, ptr %call.i.i31.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i40.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %size.i.i40.i, i8 0, i64 24, i1 false)
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %45(ptr noundef nonnull %call.i.i31.i) #14
   br label %if.then6
@@ -832,7 +832,7 @@ dictRelease.exit:                                 ; preds = %land.rhs.i.i, %for.
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %46(ptr noundef %45) #14
   store ptr null, ptr %26, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %size.i.i, i8 0, i64 24, i1 false)
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %47(ptr noundef nonnull %26) #14
   br label %if.end
@@ -985,7 +985,7 @@ dictRelease.exit125:                              ; preds = %land.rhs.i.i99, %fo
   %78 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %78(ptr noundef %77) #14
   store ptr null, ptr %58, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %size.i.i93, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %size.i.i93, i8 0, i64 24, i1 false)
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   tail call void %79(ptr noundef nonnull %58) #14
   br label %do.body
@@ -1853,7 +1853,7 @@ if.then3.i.i81:                                   ; preds = %if.then.i.i78
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then3.i.i81, %if.then.i.i78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %cb94.i, ptr noundef nonnull align 8 dereferenceable(32) %119, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cb94.i, ptr noundef nonnull align 8 dereferenceable(32) %119, i64 32, i1 false)
   %122 = load ptr, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
   call void %122(ptr noundef nonnull %119) #14
   %123 = load ptr, ptr @hiredisAllocFns, align 8
@@ -1862,7 +1862,7 @@ while.body.i:                                     ; preds = %if.then3.i.i81, %if
   br i1 %cmp.i59.i, label %__redisPushCallback.exit.i, label %if.end.i60.i
 
 if.end.i60.i:                                     ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb94.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cb94.i, i64 32, i1 false)
   store ptr null, ptr %call.i.i.i, align 8
   %124 = load ptr, ptr %replies20, align 8
   %cmp4.i.i = icmp eq ptr %124, null
@@ -3768,7 +3768,7 @@ if.then120:                                       ; preds = %if.else116
   br i1 %cmp.i131, label %oom.thread, label %if.end.i132
 
 if.end.i132:                                      ; preds = %if.then120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i130, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i130, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 32, i1 false)
   store ptr null, ptr %call.i.i130, align 8
   %145 = load ptr, ptr %replies, align 8
   %cmp4.i = icmp eq ptr %145, null
@@ -3805,7 +3805,7 @@ if.then132:                                       ; preds = %if.else128
   br i1 %cmp.i147, label %oom.thread, label %if.end.i136
 
 if.end.i136:                                      ; preds = %if.then132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 32, i1 false)
   store ptr null, ptr %call.i.i146, align 8
   %148 = load ptr, ptr %sub133, align 8
   %cmp4.i137 = icmp eq ptr %148, null
@@ -3834,7 +3834,7 @@ if.else140:                                       ; preds = %if.else128
   br i1 %cmp.i147, label %oom.thread, label %if.end.i148
 
 if.end.i148:                                      ; preds = %if.else140
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull readonly align 8 dereferenceable(32) %cb, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i146, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 32, i1 false)
   store ptr null, ptr %call.i.i146, align 8
   %150 = load ptr, ptr %replies141, align 8
   %cmp4.i149 = icmp eq ptr %150, null

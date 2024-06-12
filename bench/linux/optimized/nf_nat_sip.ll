@@ -500,7 +500,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %.val = load i16, ptr %140, align 2
   %141 = icmp eq i16 %.val, 2
   %142 = select i1 %141, ptr @.str.17, ptr @.str.18
-  %143 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %142, ptr noundef %132) #9
+  %143 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %142, ptr noundef %132) #9
   %144 = load i32, ptr %20, align 4
   %145 = load i32, ptr %21, align 4
   %146 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %144, i32 noundef %145, ptr noundef nonnull %23, i32 noundef %143), !range !14
@@ -543,7 +543,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %.val9 = load i16, ptr %174, align 2
   %175 = icmp eq i16 %.val9, 2
   %176 = select i1 %175, ptr @.str.17, ptr @.str.19
-  %177 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %176, ptr noundef %166) #9
+  %177 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %176, ptr noundef %166) #9
   %178 = load i32, ptr %20, align 4
   %179 = load i32, ptr %21, align 4
   %180 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %178, i32 noundef %179, ptr noundef nonnull %23, i32 noundef %177), !range !14

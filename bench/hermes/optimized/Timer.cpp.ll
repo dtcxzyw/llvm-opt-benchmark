@@ -2432,7 +2432,7 @@ for.body:                                         ; preds = %_ZN4llvh3sys15Smart
   store i8 0, ptr %Triggered.i, align 1
   %Running.i = getelementptr inbounds i8, ptr %T.010, i64 128
   store i8 0, ptr %Running.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %T.010, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %T.010, i8 0, i64 64, i1 false)
   %Next = getelementptr inbounds i8, ptr %T.010, i64 152
   %T.0 = load ptr, ptr %Next, align 8
   %tobool.not = icmp eq ptr %T.0, null
@@ -2589,7 +2589,7 @@ for.body.i:                                       ; preds = %_ZN4llvh3sys15Smart
   store i8 0, ptr %Triggered.i.i, align 1
   %Running.i.i = getelementptr inbounds i8, ptr %T.010.i, i64 128
   store i8 0, ptr %Running.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %T.010.i, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %T.010.i, i8 0, i64 64, i1 false)
   %Next.i = getelementptr inbounds i8, ptr %T.010.i, i64 152
   %T.0.i = load ptr, ptr %Next.i, align 8
   %tobool.not.i3 = icmp eq ptr %T.0.i, null

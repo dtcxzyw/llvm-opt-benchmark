@@ -85,7 +85,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   %42 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %12, i32 3
   %43 = load i64, ptr %42, align 8
   %44 = shl i64 %43, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %32, i8 0, i64 %44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %44, i1 false)
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %38, %41
@@ -384,7 +384,7 @@ define dso_local void @rb_parser_st_clear(ptr nocapture noundef %0) local_unname
   %8 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %7, i32 3
   %9 = load i64, ptr %8, align 8
   %10 = shl i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %5, i8 0, i64 %10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %10, i1 false)
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %1, %6
@@ -1040,7 +1040,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr nocapture noundef %0
   %18 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %4, i32 3
   %19 = load i64, ptr %18, align 8
   %20 = shl i64 %19, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %16, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %16, i8 0, i64 %20, i1 false)
   br label %21
 
 21:                                               ; preds = %17, %14
@@ -1662,7 +1662,7 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly %0, ptr
   %26 = shl i64 24, %24
   %27 = getelementptr inbounds i8, ptr %1, i64 48
   %28 = load ptr, ptr %27, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %20, ptr readonly align 1 %28, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %28, i64 %26, i1 false)
   br label %nonempty_memcpy.exit
 
 nonempty_memcpy.exit:                             ; preds = %23, %25
@@ -1678,7 +1678,7 @@ nonempty_memcpy.exit:                             ; preds = %23, %25
   br i1 %.not.i24, label %nonempty_memcpy.exit25, label %34
 
 34:                                               ; preds = %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %17, ptr nonnull readonly align 1 %29, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 1 %29, i64 %33, i1 false)
   br label %nonempty_memcpy.exit25
 
 nonempty_memcpy.exit25:                           ; preds = %34, %30, %nonempty_memcpy.exit, %16, %8
@@ -1696,7 +1696,7 @@ define dso_local noalias noundef ptr @rb_parser_st_copy(ptr nocapture noundef re
   br i1 %3, label %rb_parser_st_replace.exit.thread, label %4
 
 4:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %2, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1739,7 +1739,7 @@ define dso_local noalias noundef ptr @rb_parser_st_copy(ptr nocapture noundef re
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %21, ptr readonly align 1 %27, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %27, i64 %20, i1 false)
   br label %nonempty_memcpy.exit.i
 
 nonempty_memcpy.exit.i:                           ; preds = %25, %24
@@ -1753,7 +1753,7 @@ nonempty_memcpy.exit.i:                           ; preds = %25, %24
   br i1 %.not.i24.i, label %rb_parser_st_replace.exit.thread, label %32
 
 32:                                               ; preds = %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %19, ptr nonnull readonly align 1 %6, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull align 1 %6, i64 %31, i1 false)
   br label %rb_parser_st_replace.exit.thread
 
 rb_parser_st_replace.exit:                        ; preds = %18, %10

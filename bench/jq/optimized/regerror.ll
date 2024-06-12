@@ -519,18 +519,18 @@ to_ascii.exit.thread:                             ; preds = %18
   %43 = sext i32 %.0.i to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 %43
   %45 = lshr i32 %36, 24
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #8
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #8
   %47 = getelementptr i8, ptr %44, i64 4
   %48 = lshr i32 %36, 16
   %49 = and i32 %48, 255
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %47, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %49) #8
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %47, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %49) #8
   %51 = getelementptr i8, ptr %44, i64 6
   %52 = lshr i32 %36, 8
   %53 = and i32 %52, 255
-  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %51, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %53) #8
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %51, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %53) #8
   %55 = getelementptr i8, ptr %44, i64 8
   %56 = and i32 %36, 255
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %55, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %56) #8
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %56) #8
   br label %75
 
 58:                                               ; preds = %38
@@ -543,10 +543,10 @@ to_ascii.exit.thread:                             ; preds = %18
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   %64 = lshr i32 %36, 8
   %65 = and i32 %64, 255
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %63, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %65) #8
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %63, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %65) #8
   %67 = getelementptr i8, ptr %63, i64 4
   %68 = and i32 %36, 255
-  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %67, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %68) #8
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %67, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %68) #8
   br label %75
 
 70:                                               ; preds = %34
@@ -583,7 +583,7 @@ to_ascii.exit:                                    ; preds = %27
   %88 = trunc i64 %.fr to i32
   %89 = call i32 @llvm.smin.i32(i32 %88, i32 27)
   %90 = sext i32 %89 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %23, i64 %90, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %23, i64 %90, i1 false)
   %91 = icmp sgt i64 %.fr, 27
   %92 = call ptr @onig_error_code_to_format(i32 noundef %1)
   %93 = sext i32 %89 to i64
@@ -780,7 +780,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %42 = getelementptr inbounds i8, ptr %.25573, i64 1
   %43 = load i8, ptr %.25573, align 1
   %44 = zext i8 %43 to i32
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #8
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #8
   %46 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #8
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader, label %.loopexit
@@ -852,7 +852,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %75 = getelementptr inbounds i8, ptr %.05396, i64 1
   %76 = load i8, ptr %.05396, align 1
   %77 = zext i8 %76 to i32
-  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %77) #8
+  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %77) #8
   %79 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #8
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph94.preheader, label %.loopexit65

@@ -895,10 +895,10 @@ define void @Abc_SclReadTimingConstr(ptr nocapture noundef readnone %0, ptr noca
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #18
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #18
   %16 = add i64 %15, 1
   %17 = call noalias ptr @malloc(i64 noundef %16) #17
-  %18 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #16
+  %18 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %12, %14

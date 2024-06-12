@@ -59960,7 +59960,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistribut
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i) #22
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_50UniformIntDistributionTest_ParamSerializeTest_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_50UniformIntDistributionTest_ParamSerializeTest_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 lpad.i8.i:                                        ; preds = %call.i.noexc.i.i, %invoke.cont7.i
@@ -60732,7 +60732,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistribut
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i8) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i9) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i10) #22
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_62UniformIntDistributionTest_ViolatesPreconditionsDeathTest_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i27, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i30)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_62UniformIntDistributionTest_ViolatesPreconditionsDeathTest_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i27, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i30)
           to label %invoke.cont9.i243 unwind label %lpad8.i242
 
 lpad.i8.i49:                                      ; preds = %call.i.noexc.i.i53, %invoke.cont7.i47
@@ -61498,7 +61498,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistribut
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i262) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i263) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i264) #22
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_43UniformIntDistributionTest_TestMoments_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i281, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i284)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_43UniformIntDistributionTest_TestMoments_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i281, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i284)
           to label %invoke.cont9.i518 unwind label %lpad8.i517
 
 lpad.i8.i303:                                     ; preds = %call.i.noexc.i.i307, %invoke.cont7.i301
@@ -62264,7 +62264,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistribut
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i537) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i538) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i539) #22
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_48UniformIntDistributionTest_ChiSquaredTest50_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i556, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i559)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_48UniformIntDistributionTest_ChiSquaredTest50_TestEEENS0_5TypesIsJtijlmEEEE8RegisterEPKcRKNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i556, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i559)
           to label %invoke.cont9.i793 unwind label %lpad8.i792
 
 lpad.i8.i578:                                     ; preds = %call.i.noexc.i.i582, %invoke.cont7.i576

@@ -4913,7 +4913,7 @@ define void @slurm_print_ctl_conf(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %.not12.i, label %_print_config_plugin_params_list.exit, label %25
 
 25:                                               ; preds = %23
-  %fputs.i = call i32 @fputs(ptr readonly %22, ptr %0)
+  %fputs.i = call i32 @fputs(ptr %22, ptr %0)
   %26 = call ptr @list_iterator_create(ptr noundef nonnull %21) #13
   %27 = call ptr @list_next(ptr noundef %26) #13
   %.not1314.i = icmp eq ptr %27, null

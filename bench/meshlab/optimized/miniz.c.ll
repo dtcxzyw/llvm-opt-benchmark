@@ -7357,7 +7357,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
   %190 = phi i64 [ %.pre30.i74, %186 ], [ %106, %174 ]
   %191 = phi ptr [ %185, %186 ], [ %175, %174 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 %190
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %192, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %192, ptr noundef nonnull align 1 dereferenceable(16) @.str.11, i64 16, i1 false)
   store i64 %176, ptr %11, align 8
   %193 = load ptr, ptr %25, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 37
@@ -9519,7 +9519,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
   %38 = trunc i64 %37 to i32
   br i1 %.not, label %40, label %39
 
@@ -11147,7 +11147,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %10
   store i64 %47, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %47, ptr %48, align 8
-  %49 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #31
+  %49 = call i32 @utime(ptr noundef %2, ptr noundef nonnull %5) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %mz_zip_reader_file_stat.exit.thread
 
@@ -12381,7 +12381,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_mem_archive(ptr noundef %0, i64 noun
   br i1 %.not, label %90, label %.sink.split
 
 9:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   %10 = call i32 @mz_zip_reader_init_mem(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2)
   %.not26 = icmp eq i32 %10, 0
   br i1 %.not26, label %11, label %15
@@ -12579,7 +12579,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file_archive(ptr noundef %0, i32 nou
   br i1 %.not22, label %87, label %.sink.split
 
 6:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   %7 = call i32 @mz_zip_reader_init_file_v2(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef %1, i64 noundef 0, i64 noundef 0)
   %.not23 = icmp eq i32 %7, 0
   br i1 %.not23, label %8, label %12
@@ -14160,7 +14160,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   %205 = getelementptr inbounds i8, ptr %21, i64 14
   %206 = getelementptr inbounds i8, ptr %21, i64 26
   %207 = trunc i64 %80 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(12) %205, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %205, i8 0, i64 12, i1 false)
   store i8 %207, ptr %206, align 2
   %208 = lshr i64 %80, 8
   %209 = trunc nuw i64 %208 to i8
@@ -14272,7 +14272,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   %273 = getelementptr inbounds i8, ptr %21, i64 14
   %274 = getelementptr inbounds i8, ptr %21, i64 26
   %275 = trunc i64 %80 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(12) %273, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %273, i8 0, i64 12, i1 false)
   store i8 %275, ptr %274, align 2
   %276 = lshr i64 %80, 8
   %277 = trunc nuw i64 %276 to i8
@@ -15609,7 +15609,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %147 = getelementptr inbounds i8, ptr %19, i64 14
   %148 = getelementptr inbounds i8, ptr %19, i64 26
   %149 = trunc i64 %68 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(12) %147, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %147, i8 0, i64 12, i1 false)
   store i8 %149, ptr %148, align 2
   %150 = lshr i64 %68, 8
   %151 = trunc nuw i64 %150 to i8
@@ -15711,7 +15711,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %209 = getelementptr inbounds i8, ptr %19, i64 14
   %210 = getelementptr inbounds i8, ptr %19, i64 26
   %211 = trunc i64 %68 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(12) %209, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %209, i8 0, i64 12, i1 false)
   store i8 %211, ptr %210, align 2
   %212 = lshr i64 %68, 8
   %213 = trunc nuw i64 %212 to i8
@@ -16137,7 +16137,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %
   %7 = alloca %struct.stat, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
-  %9 = call i32 @stat(ptr noundef readonly %2, ptr noundef nonnull %7) #31
+  %9 = call i32 @stat(ptr noundef %2, ptr noundef nonnull %7) #31
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %13, label %10
 
@@ -17997,7 +17997,7 @@ define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef 
 define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly %7) local_unnamed_addr #7 {
   %9 = alloca %struct.mz_zip_archive, align 8
   %10 = alloca %struct.stat, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
   %11 = icmp slt i32 %6, 0
   %spec.store.select = select i1 %11, i32 6, i32 %6
   %12 = icmp ne ptr %0, null
@@ -18164,7 +18164,7 @@ mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
   store i32 1, ptr %81, align 8
   store i32 2, ptr %44, align 4
   %82 = select i1 %.not.i, ptr @.str.17, ptr @.str.16
-  %83 = call noalias ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull %82)
+  %83 = call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull %82)
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %mz_zip_writer_init_file_v2.exit
 
@@ -18397,7 +18397,7 @@ define ptr @mz_zip_extract_archive_file_to_heap_v2(ptr noundef %0, ptr noundef %
   br i1 %.not25, label %109, label %.sink.split
 
 14:                                               ; preds = %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
   %15 = or i32 %4, 2048
   %16 = call i32 @mz_zip_reader_init_file_v2(ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef %15, i64 noundef 0, i64 noundef 0)
   %.not26 = icmp eq i32 %16, 0

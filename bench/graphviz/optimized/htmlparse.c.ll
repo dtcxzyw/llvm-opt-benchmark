@@ -341,7 +341,7 @@ gv_alloc.exit.i:                                  ; preds = %107
 
 agxblen.exit.i.i:                                 ; preds = %gv_alloc.exit.i
   %115 = zext i8 %.val.i.i to i64
-  %116 = call noalias ptr @strndup(ptr noundef nonnull readonly %108, i64 noundef %115) #16
+  %116 = call noalias ptr @strndup(ptr noundef nonnull %108, i64 noundef %115) #16
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %appendFItemList.exit
 

@@ -655,7 +655,7 @@ _ZNSt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS2_EED2Ev.exit40: ; 
   br label %for.inc
 
 if.else84:                                        ; preds = %if.else
-  %call.i = call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef nonnull readonly %retval.0.i.i)
+  %call.i = call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef nonnull %retval.0.i.i)
   %call10.i = call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr nonnull %call36) #22
   br i1 %call10.i, label %do.body91, label %do.body106
 
@@ -1142,7 +1142,7 @@ if.end.i212:                                      ; preds = %do.body10
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit220: ; preds = %if.end.i212, %if.then.i217
   %retval.i203.sroa.0.0 = phi ptr [ %27, %if.then.i217 ], [ %add.ptr.i215, %if.end.i212 ]
-  %call.i = tail call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef readonly %23)
+  %call.i = tail call ptr @_ZN4node4Blob22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %23)
   %call10.i = tail call noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr %retval.i203.sroa.0.0) #22
   br i1 %call10.i, label %lor.lhs.false.i191, label %do.body24
 
@@ -2113,7 +2113,7 @@ _ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5Valu
   store <2 x ptr> %26, ptr %views.sroa.12.0194, align 8
   store ptr null, ptr %ref.tmp46, align 16
   %length.i.i.i.i.i = getelementptr inbounds i8, ptr %views.sroa.12.0194, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %length, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %length, i64 16, i1 false)
   br label %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.then41
@@ -2151,7 +2151,7 @@ _ZNSt12_Vector_baseIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS
   store <2 x ptr> %28, ptr %add.ptr.i.i.i, align 8
   store ptr null, ptr %ref.tmp46, align 16
   %length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %length, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %length, i64 16, i1 false)
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
@@ -2166,7 +2166,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   store ptr null, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !8
   %length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 16
   %length3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %length3.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %length3.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !13
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %views.sroa.22.0195
@@ -2287,7 +2287,7 @@ _ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5Valu
   store <2 x ptr> %40, ptr %views.sroa.12.0194, align 8
   store ptr null, ptr %ref.tmp68, align 16
   %length.i.i.i.i.i48 = getelementptr inbounds i8, ptr %views.sroa.12.0194, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length.i.i.i.i.i48, ptr noundef nonnull align 16 dereferenceable(16) %length77, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length.i.i.i.i.i48, ptr noundef nonnull align 16 dereferenceable(16) %length77, i64 16, i1 false)
   br label %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit124
 
 if.else.i.i51:                                    ; preds = %do.end63
@@ -2325,7 +2325,7 @@ _ZNSt12_Vector_baseIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS
   store <2 x ptr> %42, ptr %add.ptr.i.i.i70, align 8
   store ptr null, ptr %ref.tmp68, align 16
   %length.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i70, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length.i.i.i.i.i.i73, ptr noundef nonnull align 16 dereferenceable(16) %length77, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length.i.i.i.i.i.i73, ptr noundef nonnull align 16 dereferenceable(16) %length77, i64 16, i1 false)
   br i1 %cmp.i.i.i.i.i59, label %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i85, label %for.body.i.i.i.i.i.i75
 
 for.body.i.i.i.i.i.i75:                           ; preds = %_ZNSt12_Vector_baseIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE11_M_allocateEm.exit.i.i.i68, %for.body.i.i.i.i.i.i75
@@ -2340,7 +2340,7 @@ for.body.i.i.i.i.i.i75:                           ; preds = %_ZNSt12_Vector_base
   store ptr null, ptr %__first.addr.02.i.i.i.i.i.i77, align 8, !alias.scope !18, !noalias !15
   %length.i.i.i.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i76, i64 16
   %length3.i.i.i.i.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i77, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %length.i.i.i.i.i.i.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(16) %length3.i.i.i.i.i.i.i.i.i.i81, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length.i.i.i.i.i.i.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(16) %length3.i.i.i.i.i.i.i.i.i.i81, i64 16, i1 false), !alias.scope !20
   %incdec.ptr.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i77, i64 32
   %incdec.ptr1.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i76, i64 32
   %cmp.not.i.i.i.i.i.i84 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i82, %views.sroa.22.0195

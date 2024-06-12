@@ -798,7 +798,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   %300 = zext i32 %297 to i64
   %301 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %300
   %302 = zext i32 %.0.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr readonly align 1 %288, i64 %302, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr align 1 %288, i64 %302, i1 false)
   br label %zgfx_write_from_history.exit
 
 303:                                              ; preds = %296
@@ -806,11 +806,11 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   %305 = zext i32 %297 to i64
   %306 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %305
   %307 = zext i32 %304 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr readonly align 1 %288, i64 %307, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr align 1 %288, i64 %307, i1 false)
   %308 = getelementptr i8, ptr %288, i64 %307
   %309 = sub i32 %.0.i.i, %304
   %310 = zext i32 %309 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %0, ptr readonly align 1 %308, i64 %310, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %0, ptr align 1 %308, i64 %310, i1 false)
   br label %zgfx_write_from_history.exit
 
 zgfx_write_from_history.exit:                     ; preds = %299, %303

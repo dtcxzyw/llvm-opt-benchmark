@@ -585,7 +585,7 @@ define void @_ZN5faiss24RangeSearchPartialResultC2EPNS_17RangeSearchResultE(ptr 
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40

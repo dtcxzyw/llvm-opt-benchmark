@@ -154,7 +154,7 @@ sw.bb.i:                                          ; preds = %trace_luring_co_sub
   %len2.i.i.i = getelementptr inbounds i8, ptr %luringcb, i64 32
   store i32 %10, ptr %len2.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %luringcb, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %14, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %14, i8 0, i64 36, i1 false)
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %trace_luring_co_submit.exit
@@ -177,7 +177,7 @@ sw.bb2.i:                                         ; preds = %trace_luring_co_sub
   %len2.i.i37.i = getelementptr inbounds i8, ptr %luringcb, i64 32
   store i32 %17, ptr %len2.i.i37.i, align 8
   %21 = getelementptr inbounds i8, ptr %luringcb, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %21, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, i8 0, i64 36, i1 false)
   br label %sw.epilog.i
 
 sw.bb7.i:                                         ; preds = %trace_luring_co_submit.exit
@@ -200,7 +200,7 @@ sw.bb7.i:                                         ; preds = %trace_luring_co_sub
   %len2.i.i41.i = getelementptr inbounds i8, ptr %luringcb, i64 32
   store i32 %24, ptr %len2.i.i41.i, align 8
   %28 = getelementptr inbounds i8, ptr %luringcb, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %28, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %28, i8 0, i64 36, i1 false)
   br label %sw.epilog.i
 
 sw.bb12.i:                                        ; preds = %trace_luring_co_submit.exit
@@ -213,7 +213,7 @@ sw.bb12.i:                                        ; preds = %trace_luring_co_sub
   store i32 %fd, ptr %fd1.i.i44.i, align 4
   %29 = getelementptr inbounds i8, ptr %luringcb, i64 16
   %30 = getelementptr inbounds i8, ptr %luringcb, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
   store i32 1, ptr %30, align 4
   br label %sw.epilog.i
 

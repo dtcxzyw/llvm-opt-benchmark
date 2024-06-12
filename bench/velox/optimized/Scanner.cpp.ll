@@ -1614,7 +1614,7 @@ cond.end25:                                       ; preds = %entry
 invoke.cont27:                                    ; preds = %cond.end25
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
   %yylineno.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
   %yy_did_buffer_switch_on_eof.i = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i, align 8
   %yy_looking_for_trail_begin.i = getelementptr inbounds i8, ptr %this, i64 712
@@ -1624,8 +1624,8 @@ invoke.cont27:                                    ; preds = %cond.end25
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
   %yy_state_buf.i = getelementptr inbounds i8, ptr %this, i64 672
   store ptr null, ptr %yy_state_buf.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
   ret void
 
 lpad15:                                           ; preds = %entry, %cond.end25
@@ -1691,7 +1691,7 @@ invoke.cont8:                                     ; preds = %entry
 invoke.cont10:                                    ; preds = %invoke.cont8
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
   %yylineno.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
   %yy_did_buffer_switch_on_eof.i = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i, align 8
   %yy_looking_for_trail_begin.i = getelementptr inbounds i8, ptr %this, i64 712
@@ -1701,8 +1701,8 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
   %yy_state_buf.i = getelementptr inbounds i8, ptr %this, i64 672
   store ptr null, ptr %yy_state_buf.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
   ret void
 
 lpad7:                                            ; preds = %invoke.cont8, %entry
@@ -3172,7 +3172,7 @@ lpad15.i.i:                                       ; preds = %cond.end25.i.i, %.n
 invoke.cont:                                      ; preds = %cond.end25.i.i
   %yy_c_buf_p.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 608
   %yylineno.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %yy_c_buf_p.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i.i.i, i8 0, i64 16, i1 false)
   %yy_did_buffer_switch_on_eof.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i.i.i, align 8
   %yy_looking_for_trail_begin.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 712
@@ -3182,8 +3182,8 @@ invoke.cont:                                      ; preds = %cond.end25.i.i
   %yy_buffer_stack_top.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 632
   %yy_state_buf.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 672
   store ptr null, ptr %yy_state_buf.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %yy_buffer_stack_top.i.i.i, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %yy_looking_for_trail_begin.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %yy_buffer_stack_top.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %yy_looking_for_trail_begin.i.i.i, i8 0, i64 20, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4type7ScannerE, i64 16), ptr %scanner, align 8
   %outputType_.i = getelementptr inbounds i8, ptr %scanner, i64 736
   store ptr %agg.result, ptr %outputType_.i, align 8

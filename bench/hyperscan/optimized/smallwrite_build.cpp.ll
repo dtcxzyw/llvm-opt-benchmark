@@ -1117,7 +1117,7 @@ invoke.cont.i:                                    ; preds = %call.i.noexc
   br i1 %cmp.i.i.i.not.i, label %do.end.i, label %if.end.i
 
 do.end.i:                                         ; preds = %invoke.cont.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %nfa, i8 0, i64 24, i1 false), !alias.scope !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nfa, i8 0, i64 24, i1 false), !alias.scope !41
   br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i
 
 lpad.i:                                           ; preds = %call.i.noexc
@@ -1649,7 +1649,7 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i:           ; preds = %if.then.i.i.i, %_ZN
   br i1 %cmp.i.i.i22.not.i, label %do.end34.i, label %if.end39.i
 
 do.end34.i:                                       ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %nfa, i8 0, i64 24, i1 false), !alias.scope !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nfa, i8 0, i64 24, i1 false), !alias.scope !41
   br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -1678,12 +1678,12 @@ if.end54.i:                                       ; preds = %if.end39.i
   store i64 %116, ptr %nfa, align 8, !alias.scope !41
   %bytes.i23.i = getelementptr inbounds i8, ptr %nfa, i64 8
   %bytes3.i24.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes.i23.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i24.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i23.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i24.i, i64 16, i1 false)
   br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i
 
 cleanup.i:                                        ; preds = %if.end39.i, %invoke.cont18.i, %do.end10.i
   %small_region.1 = phi i32 [ %102, %invoke.cont18.i ], [ %small_region.0, %if.end39.i ], [ %102, %do.end10.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %nfa, i8 0, i64 24, i1 false), !alias.scope !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nfa, i8 0, i64 24, i1 false), !alias.scope !41
   %.pr34.i = load ptr, ptr %nfa.i, align 8, !noalias !41
   %cmp.not.i.i25.i = icmp eq ptr %.pr34.i, null
   br i1 %cmp.not.i.i25.i, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i, label %if.then.i.i26.i
@@ -4271,7 +4271,7 @@ invoke.cont8.i.i.i:                               ; preds = %call.i.i.i.i.noexc
           to label %_ZN5boost17two_bit_color_mapIN3ue29ue2_graphINS1_7LitTrieENS1_18LitTrieVertexPropsENS1_16LitTrieEdgePropsEE8prop_mapIRKmS4_EEEC2ERKSB_.exit.i.i.i.i.i unwind label %lpad.i.i.i
 
 _ZN5boost17two_bit_color_mapIN3ue29ue2_graphINS1_7LitTrieENS1_18LitTrieVertexPropsENS1_16LitTrieEdgePropsEE8prop_mapIRKmS4_EEEC2ERKSB_.exit.i.i.i.i.i: ; preds = %invoke.cont8.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp1.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i.i, i64 16, i1 false)
   %data.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i.i.i, i64 16
   store ptr %call.i.i.i.i28, ptr %data.i.i.i.i.i, align 8
   %pn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i.i.i, i64 24
@@ -5196,7 +5196,7 @@ call5.i.i.i.i.i.i.noexc.i.i.i.i.i.i:              ; preds = %do.end18.i.i.i.i.i.
   %v.i.sroa.8.0.add.ptr.i.i.i100.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i21.i.i.i.i.i.i, i64 16
   store i64 %29, ptr %v.i.sroa.8.0.add.ptr.i.i.i100.sroa_idx.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i21.i.i.i.i.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %root.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %root.i, i64 16, i1 false)
   %124 = load i64, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.not.i.i.i.i.i.i.i.i = icmp eq i64 %124, 0
   br i1 %cmp.not.not.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i, label %invoke.cont23.thread.i.i.i.i.i.i.i.i

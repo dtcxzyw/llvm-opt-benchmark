@@ -7824,7 +7824,7 @@ define { ptr, i8 } @_ZNK3gmx19SelectionCollection9selectionESt17basic_string_vie
   br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %18
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %15, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %15, ptr %2, i64 %1)
   %19 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %20
 
@@ -7840,7 +7840,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %18
   br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i: ; preds = %25
-  %bcmp.i.i.i21.i.i.i = tail call i32 @bcmp(ptr %22, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i21.i.i.i = tail call i32 @bcmp(ptr %22, ptr %2, i64 %1)
   %26 = icmp eq i32 %bcmp.i.i.i21.i.i.i, 0
   br i1 %26, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit38", label %27
 
@@ -7856,7 +7856,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20.i.i.i: ; preds = %25
   br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit40", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i: ; preds = %32
-  %bcmp.i.i.i29.i.i.i = tail call i32 @bcmp(ptr %29, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i29.i.i.i = tail call i32 @bcmp(ptr %29, ptr %2, i64 %1)
   %33 = icmp eq i32 %bcmp.i.i.i29.i.i.i, 0
   br i1 %33, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit42", label %34
 
@@ -7872,7 +7872,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28.i.i.i: ; preds = %32
   br i1 %14, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit44", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i: ; preds = %39
-  %bcmp.i.i.i37.i.i.i = tail call i32 @bcmp(ptr %36, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i37.i.i.i = tail call i32 @bcmp(ptr %36, ptr %2, i64 %1)
   %40 = icmp eq i32 %bcmp.i.i.i37.i.i.i, 0
   br i1 %40, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit.loopexit.split.loop.exit46", label %41
 
@@ -7909,7 +7909,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i36.i.i.i: ; preds = %39
   br i1 %51, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i: ; preds = %50
-  %bcmp.i.i.i45.i.i.i = tail call i32 @bcmp(ptr %47, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i45.i.i.i = tail call i32 @bcmp(ptr %47, ptr %2, i64 %1)
   %52 = icmp eq i32 %bcmp.i.i.i45.i.i.i, 0
   br i1 %52, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %53
 
@@ -7930,7 +7930,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44.i.i.i: ; preds = %50
   br i1 %60, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i: ; preds = %59
-  %bcmp.i.i.i53.i.i.i = tail call i32 @bcmp(ptr %56, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i53.i.i.i = tail call i32 @bcmp(ptr %56, ptr %2, i64 %1)
   %61 = icmp eq i32 %bcmp.i.i.i53.i.i.i, 0
   br i1 %61, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %62
 
@@ -7951,7 +7951,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52.i.i.i: ; preds = %59
   br i1 %69, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i: ; preds = %68
-  %bcmp.i.i.i61.i.i.i = tail call i32 @bcmp(ptr %65, ptr readonly %2, i64 %1)
+  %bcmp.i.i.i61.i.i.i = tail call i32 @bcmp(ptr %65, ptr %2, i64 %1)
   %70 = icmp eq i32 %bcmp.i.i.i61.i.i.i, 0
   br i1 %70, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS3_19SelectionCollection9selectionESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ET_SL_SL_T0_.exit", label %71
 

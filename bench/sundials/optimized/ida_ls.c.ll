@@ -283,7 +283,7 @@ switch.early.test:                                ; preds = %67
   %103 = getelementptr inbounds i8, ptr %calloc, i64 280
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %calloc, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %104, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %104, i8 0, i64 64, i1 false)
   %105 = getelementptr inbounds i8, ptr %calloc, i64 104
   store double 5.000000e-02, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %calloc, i64 120
@@ -479,7 +479,7 @@ define i32 @idaLsInitialize(ptr noundef %0) #0 {
 
 34:                                               ; preds = %.critedge, %30, %11
   %35 = getelementptr inbounds i8, ptr %3, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
   %36 = getelementptr inbounds i8, ptr %3, i64 288
   %37 = load i32, ptr %36, align 8
   %.not43 = icmp eq i32 %37, 0

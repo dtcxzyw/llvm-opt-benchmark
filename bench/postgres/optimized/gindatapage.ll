@@ -1191,7 +1191,7 @@ BufferGetPage.exit:                               ; preds = %39, %45
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %96 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %96, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %96, i8 0, i64 56, i1 false)
   %97 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %0, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %6, i64 88
@@ -1266,7 +1266,7 @@ define dso_local void @ginInsertItemPointers(ptr noundef %0, i32 noundef %1, ptr
   %6 = alloca %struct.GinBtreeData, align 8
   %7 = alloca %struct.GinBtreeDataLeafInsertData, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 88
@@ -1329,7 +1329,7 @@ declare void @ginInsertValue(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginScanBeginPostingTree(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2387,7 +2387,7 @@ addItemsToLeaf.exit.i:                            ; preds = %.critedge.thread.i.
   br label %378
 
 369:                                              ; preds = %366
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %312, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %312, i64 6, i1 false)
   %.0107.val122142.i.i = load ptr, ptr %272, align 8
   %.not130143.i.i = icmp eq ptr %.0107.val122142.i.i, %79
   br i1 %.not130143.i.i, label %.loopexit.i.thread.i, label %.lr.ph145.i.i
@@ -2938,7 +2938,7 @@ BufferGetPage.exit.i.i:                           ; preds = %607, %606
   %635 = mul nsw i64 %634, 10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 2 %631, i64 %635, i1 false)
   %636 = getelementptr [820 x %struct.PostingItem], ptr %10, i64 0, i64 %634
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %636, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %636, ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
   %637 = zext i16 %610 to i64
   %638 = getelementptr [820 x %struct.PostingItem], ptr %10, i64 0, i64 %637
   %639 = getelementptr i8, ptr %631, i64 %635
@@ -3254,7 +3254,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
 GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
   %.pre-phi.i.i = phi i64 [ %.pre-phi, %116 ], [ %.pre19.i.i, %123 ], [ %.pre-phi, %112 ]
   %.0.i.i13 = phi ptr [ %120, %116 ], [ %120, %123 ], [ %115, %112 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i13, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i13, ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
   %128 = add i16 %108, 1
   %129 = getelementptr i8, ptr %.0.i.i.i, i64 %.pre-phi.i.i
   %130 = getelementptr inbounds i8, ptr %129, i64 4
@@ -3298,7 +3298,7 @@ GinDataPageAddPostingItem.exit.i:                 ; preds = %123, %116, %112
 
 156:                                              ; preds = %152
   store i16 %96, ptr @dataExecPlaceToPageInternal.data, align 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @dataExecPlaceToPageInternal.data, i64 2), ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) getelementptr inbounds (i8, ptr @dataExecPlaceToPageInternal.data, i64 2), ptr noundef nonnull align 2 dereferenceable(10) %3, i64 10, i1 false)
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #12
   tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @dataExecPlaceToPageInternal.data, i32 noundef 12) #12
   br label %dataExecPlaceToPageLeaf.exit

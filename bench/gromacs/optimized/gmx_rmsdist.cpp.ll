@@ -1653,14 +1653,14 @@ _ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i:      ; preds = %._crit_edge.i.i, %6
 702:                                              ; preds = %.lr.ph.i197.i
   %703 = getelementptr inbounds i8, ptr %698, i64 16
   %704 = load ptr, ptr %703, align 8
-  %705 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %704, ptr noundef nonnull readonly dereferenceable(1) %680) #19
+  %705 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %704, ptr noundef nonnull dereferenceable(1) %680) #19
   %706 = icmp eq i32 %705, 0
   br i1 %706, label %707, label %712
 
 707:                                              ; preds = %702
   %708 = getelementptr inbounds i8, ptr %698, i64 24
   %709 = load ptr, ptr %708, align 8
-  %710 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %709, ptr noundef nonnull readonly dereferenceable(1) %684) #19
+  %710 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %709, ptr noundef nonnull dereferenceable(1) %684) #19
   %711 = icmp eq i32 %710, 0
   br label %712
 
@@ -1697,14 +1697,14 @@ _ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i:      ; preds = %._crit_edge.i.i, %6
 722:                                              ; preds = %.lr.ph57.i.i
   %723 = getelementptr inbounds i8, ptr %718, i64 16
   %724 = load ptr, ptr %723, align 8
-  %725 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %724, ptr noundef nonnull readonly dereferenceable(1) %688) #19
+  %725 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %724, ptr noundef nonnull dereferenceable(1) %688) #19
   %726 = icmp eq i32 %725, 0
   br i1 %726, label %727, label %732
 
 727:                                              ; preds = %722
   %728 = getelementptr inbounds i8, ptr %718, i64 24
   %729 = load ptr, ptr %728, align 8
-  %730 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %729, ptr noundef nonnull readonly dereferenceable(1) %691) #19
+  %730 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %729, ptr noundef nonnull dereferenceable(1) %691) #19
   %731 = icmp eq i32 %730, 0
   br label %732
 

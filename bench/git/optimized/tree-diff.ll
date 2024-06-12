@@ -407,11 +407,11 @@ if.end.i:                                         ; preds = %if.end141, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %entry1.i, ptr noundef nonnull readonly dereferenceable(32) %entry136, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %entry1.i, ptr noundef nonnull dereferenceable(32) %entry136, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %entry1.i, ptr noundef nonnull readonly dereferenceable(20) %entry136, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %entry1.i, ptr noundef nonnull dereferenceable(20) %entry136, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -568,7 +568,7 @@ entry:
   %0 = load ptr, ptr %pathchange.i, align 8
   store ptr null, ptr %phead.i, align 8
   store ptr @emit_diff_first_parent_only, ptr %pathchange.i, align 8
-  %call.i.i = call fastcc noundef ptr @ll_diff_tree_paths(ptr noundef nonnull %phead.i, ptr noundef %new_oid, ptr noundef nonnull readonly %old_oid.addr.i, i32 noundef 1, ptr noundef nonnull %base, ptr noundef %opt, i32 noundef 0)
+  %call.i.i = call fastcc noundef ptr @ll_diff_tree_paths(ptr noundef nonnull %phead.i, ptr noundef %new_oid, ptr noundef nonnull %old_oid.addr.i, i32 noundef 1, ptr noundef nonnull %base, ptr noundef %opt, i32 noundef 0)
   %1 = load ptr, ptr %call.i.i, align 8
   call void @free(ptr noundef %1) #10
   store ptr null, ptr %call.i.i, align 8
@@ -655,7 +655,7 @@ do.end.i:                                         ; preds = %if.then
   %17 = load ptr, ptr %pathchange.i.i, align 8
   store ptr null, ptr %phead.i.i, align 8
   store ptr @emit_diff_first_parent_only, ptr %pathchange.i.i, align 8
-  %call.i.i.i = call fastcc noundef ptr @ll_diff_tree_paths(ptr noundef nonnull %phead.i.i, ptr noundef %new_oid, ptr noundef nonnull readonly %old_oid.addr.i.i, i32 noundef 1, ptr noundef nonnull %base, ptr noundef nonnull %diff_opts.i, i32 noundef 0)
+  %call.i.i.i = call fastcc noundef ptr @ll_diff_tree_paths(ptr noundef nonnull %phead.i.i, ptr noundef %new_oid, ptr noundef nonnull %old_oid.addr.i.i, i32 noundef 1, ptr noundef nonnull %base, ptr noundef nonnull %diff_opts.i, i32 noundef 0)
   %18 = load ptr, ptr %call.i.i.i, align 8
   call void @free(ptr noundef %18) #10
   store ptr null, ptr %call.i.i.i, align 8
@@ -909,7 +909,7 @@ if.end13.i:                                       ; preds = %if.then10.i, %land.
   %12 = load ptr, ptr %path15.i, align 8
   %13 = load i64, ptr %len, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %path.0, i64 %conv.i59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %path.0, i64 %conv.i59, i1 false)
   %14 = load ptr, ptr %path15.i, align 8
   %arrayidx22.i = getelementptr inbounds i8, ptr %14, i64 %add.i.i
   store i8 0, ptr %arrayidx22.i, align 1
@@ -925,7 +925,7 @@ cond.false.i:                                     ; preds = %if.end13.i
 path_appendnew.exit:                              ; preds = %if.end13.i, %cond.false.i
   %cond.i = phi ptr [ %call26.i, %cond.false.i ], [ %oid.0, %if.end13.i ]
   %oid24.i = getelementptr inbounds i8, ptr %p.1.i, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid24.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %cond.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid24.i, ptr noundef nonnull align 4 dereferenceable(32) %cond.i, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %cond.i, i64 32
   %15 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %p.1.i, i64 52
@@ -948,7 +948,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %mode54.us = getelementptr inbounds i8, ptr %arrayidx3773.us, i64 4
   store i32 0, ptr %mode54.us, align 4
   %oid58.us = getelementptr inbounds i8, ptr %arrayidx3773.us, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid58.us, ptr noundef nonnull readonly align 4 dereferenceable(32) %call49.us, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid58.us, ptr noundef nonnull align 4 dereferenceable(32) %call49.us, i64 32, i1 false)
   %algo.i.us = getelementptr inbounds i8, ptr %call49.us, i64 32
   %16 = load i32, ptr %algo.i.us, align 4
   %algo3.i.us = getelementptr inbounds i8, ptr %arrayidx3773.us, i64 40
@@ -983,7 +983,7 @@ if.end50:                                         ; preds = %if.else48, %if.then
   %mode54 = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i, i64 0, i64 %indvars.iv, i32 1
   store i32 %mode_i.0, ptr %mode54, align 4
   %oid58 = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i, i64 0, i64 %indvars.iv, i32 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid58, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid_i.0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid58, ptr noundef nonnull align 4 dereferenceable(32) %oid_i.0, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid_i.0, i64 32
   %19 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i, i64 0, i64 %indvars.iv, i32 2, i32 1

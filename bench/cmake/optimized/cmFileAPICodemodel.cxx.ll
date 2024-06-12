@@ -11010,7 +11010,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_18JBTIndexESaIS1_EE11_M_allocateEm.exit.i.i.i.
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i:             ; preds = %.noexc125.i.i.i
   %2019 = and i64 %2011, 9223372036854775804
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2018, ptr readonly align 4 %.val32.i.i.i.i.i, i64 %2019, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2018, ptr align 4 %.val32.i.i.i.i.i, i64 %2019, i1 false)
   br label %_ZNSt6vectorIN12_GLOBAL__N_18JBTIndexESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_18JBTIndexESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i, %.noexc125.i.i.i
@@ -11039,7 +11039,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_18JBTIndexESaIS1_EE13_M_deallocateEPS1_m.exit.
   br i1 %.not.i.i.i.i.i.i.i120.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_18JBTIndexESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i.i.i.i.i, label %2026
 
 2026:                                             ; preds = %2025
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %.val.i.i.i.i.i208, ptr align 4 %.val32.i.i.i.i.i, i64 %2011, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %.val.i.i.i.i.i208, ptr align 4 %.val32.i.i.i.i.i, i64 %2011, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_18JBTIndexESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i.i.i.i.i
 
 2027:                                             ; preds = %2022
@@ -11047,7 +11047,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_18JBTIndexESaIS1_EE13_M_deallocateEPS1_m.exit.
   br i1 %.not.i.i.i.i.i40.i.i.i.i.i, label %_ZSt4copyIPN12_GLOBAL__N_18JBTIndexES2_ET0_T_S4_S3_.exit.i.i.i.i.i, label %2028
 
 2028:                                             ; preds = %2027
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %.val.i.i.i.i.i208, ptr align 4 %.val32.i.i.i.i.i, i64 %2024, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %.val.i.i.i.i.i208, ptr align 4 %.val32.i.i.i.i.i, i64 %2024, i1 false)
   %.pre.i.i.i.i.i = load ptr, ptr %2006, align 8
   %.val26.pre.i.i.i.i.i = load ptr, ptr %1863, align 8, !alias.scope !255, !noalias !259
   %.val27.pre.i.i.i.i.i = load ptr, ptr %1871, align 8, !alias.scope !255, !noalias !259
@@ -11503,7 +11503,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %2191 = sdiv i64 %2190, 2
   store i64 %2191, ptr %27, align 8, !noalias !258
   %2192 = icmp sgt i64 %2188, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1883, i8 0, i64 16, i1 false), !noalias !258
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1883, i8 0, i64 16, i1 false), !noalias !258
   br i1 %2192, label %.lr.ph.i.i.i.i126.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESA_EC2ESF_l.exit.thread.i.i.i.i.i
 
 .lr.ph.i.i.i.i126.i.i.i:                          ; preds = %2185, %select.unfold.i.i.i.i.i.i.i
@@ -24691,20 +24691,20 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norma
   br i1 %10, label %.lr.ph.i, label %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_T1_.exit.thread
 
 _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_T1_.exit.thread: ; preds = %4
-  tail call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_(ptr %0, ptr %1, ptr readonly %3)
+  tail call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_(ptr %0, ptr %1, ptr %3)
   br label %._crit_edge
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.sroa.011.012.i = phi ptr [ %11, %.lr.ph.i ], [ %0, %4 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.011.012.i, i64 280
-  tail call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_(ptr %.sroa.011.012.i, ptr nonnull %11, ptr readonly %3)
+  tail call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_(ptr %.sroa.011.012.i, ptr nonnull %11, ptr %3)
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %5, %12
   %14 = icmp sgt i64 %13, 240
   br i1 %14, label %.lr.ph.i, label %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_T1_.exit, !llvm.loop !433
 
 _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_T1_.exit: ; preds = %.lr.ph.i
-  tail call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_(ptr nonnull %11, ptr %1, ptr readonly %3)
+  tail call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_(ptr nonnull %11, ptr %1, ptr %3)
   %15 = icmp sgt i64 %7, 280
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -24823,7 +24823,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7
   %.lcssa.i = phi i64 [ %8, %18 ], [ %61, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEET0_T_SO_SO_SO_SN_T1_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.lcssa.i, i64 %.050)
   %62 = getelementptr inbounds %"class.(anonymous namespace)::JBT", ptr %.sroa.029.0.lcssa.i, i64 %.sroa.speculated.i
-  tail call fastcc void @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEET0_T_SO_SO_SO_SN_T1_(ptr %.sroa.029.0.lcssa.i, ptr %62, ptr %62, ptr %1, ptr noundef %.0.lcssa.i, ptr readonly %3)
+  tail call fastcc void @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEET0_T_SO_SO_SO_SN_T1_(ptr %.sroa.029.0.lcssa.i, ptr %62, ptr %62, ptr %1, ptr noundef %.0.lcssa.i, ptr %3)
   %63 = shl nsw i64 %.050, 2
   %.not28.i = icmp slt i64 %17, %63
   br i1 %.not28.i, label %_ZSt17__merge_sort_loopIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEElNSA_5__ops15_Iter_comp_iterIPFbRKS8_SJ_EEEEvT_SN_T0_T1_T2_.exit, label %.lr.ph.i21.preheader
@@ -24947,7 +24947,7 @@ _ZSt17__merge_sort_loopIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char
   %.lcssa.i24 = phi i64 [ %17, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_lNS0_5__ops15_Iter_comp_iterIPFbRKSA_SJ_EEEEvT_SN_T0_T1_T2_.exit ], [ %114, %_ZSt12__move_mergeIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEENSA_5__ops15_Iter_comp_iterIPFbRKS8_SJ_EEEET0_T_SO_SO_SO_SN_T1_.exit ]
   %.sroa.speculated.i25 = tail call i64 @llvm.smin.i64(i64 %.lcssa.i24, i64 %19)
   %115 = getelementptr inbounds %"class.(anonymous namespace)::JBT", ptr %.0.lcssa.i23, i64 %.sroa.speculated.i25
-  tail call fastcc void @_ZSt12__move_mergeIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEENSA_5__ops15_Iter_comp_iterIPFbRKS8_SJ_EEEET0_T_SO_SO_SO_SN_T1_(ptr noundef %.0.lcssa.i23, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %9, ptr %.sroa.021.0.lcssa.i, ptr readonly %3)
+  tail call fastcc void @_ZSt12__move_mergeIPN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN9__gnu_cxx17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEENSA_5__ops15_Iter_comp_iterIPFbRKS8_SJ_EEEET0_T_SO_SO_SO_SN_T1_(ptr noundef %.0.lcssa.i23, ptr noundef %115, ptr noundef %115, ptr noundef nonnull %9, ptr %.sroa.021.0.lcssa.i, ptr %3)
   %116 = icmp slt i64 %63, %8
   br i1 %116, label %18, label %._crit_edge, !llvm.loop !439
 

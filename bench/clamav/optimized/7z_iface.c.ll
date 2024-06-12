@@ -382,7 +382,7 @@ define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr nocapture nounde
   br i1 %.not26.i, label %.sink.split, label %20
 
 20:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 1 %19, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %19, i64 %spec.select.i, i1 false)
   %21 = icmp ult i64 %spec.select.i, 2147483648
   br i1 %21, label %.fmap_readn.exit_crit_edge, label %.sink.split
 

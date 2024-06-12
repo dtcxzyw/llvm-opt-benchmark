@@ -397,7 +397,7 @@ logicalrep_sync_worker_count.exit:                ; preds = %55, %28, %._crit_ed
   store i32 0, ptr %63, align 8
   store i8 0, ptr %64, align 8
   %82 = getelementptr inbounds i8, ptr %63, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
   store i32 -1, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %63, i64 84
   store i8 0, ptr %83, align 4
@@ -610,7 +610,7 @@ logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
   %186 = call zeroext i1 @LWLockAcquire(ptr noundef %185, i32 noundef 0) #13
   store i32 0, ptr %.171113, align 8
   store i8 0, ptr %126, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
   store i32 -1, ptr %140, align 8
   store i8 0, ptr %141, align 4
   %187 = load ptr, ptr @MainLWLockArray, align 8
@@ -680,7 +680,7 @@ logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
 223:                                              ; preds = %217
   store i32 0, ptr %.171113, align 8
   store i8 0, ptr %126, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
   store i32 -1, ptr %140, align 8
   store i8 0, ptr %141, align 4
   br label %224
@@ -1281,7 +1281,7 @@ logicalrep_worker_detach.exit:                    ; preds = %8, %._crit_edge.i
   store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %66, i64 24
   %69 = getelementptr inbounds i8, ptr %66, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
   store i32 -1, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %66, i64 84
   store i8 0, ptr %70, align 4

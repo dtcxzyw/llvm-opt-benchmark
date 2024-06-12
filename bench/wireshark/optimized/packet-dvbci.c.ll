@@ -1679,7 +1679,7 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   br i1 %.not, label %pref_key_string_to_bin.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #15
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #15
   %20 = and i64 %19, 4294967295
   %.not.i = icmp eq i64 %20, 32
   br i1 %.not.i, label %21, label %pref_key_string_to_bin.exit
@@ -1720,7 +1720,7 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   br i1 %.not9, label %pref_key_string_to_bin.exit8, label %36
 
 36:                                               ; preds = %pref_key_string_to_bin.exit
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #15
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #15
   %38 = and i64 %37, 4294967295
   %.not.i2 = icmp eq i64 %38, 32
   br i1 %.not.i2, label %39, label %pref_key_string_to_bin.exit8

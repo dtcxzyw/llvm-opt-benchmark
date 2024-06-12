@@ -1282,7 +1282,7 @@ define noundef ptr @_Z32trjtools_gmx_prepare_tng_writingRKNSt10filesystem7__cxx1
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = getelementptr inbounds i8, ptr %29, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i32 -1, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %29, i64 8
   store <2 x float> zeroinitializer, ptr %32, align 8
@@ -1775,7 +1775,7 @@ define noundef ptr @_Z8open_trxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef no
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 -1, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   store <2 x float> zeroinitializer, ptr %16, align 8
@@ -2637,7 +2637,7 @@ define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstat
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 116
   %33 = getelementptr inbounds i8, ptr %3, i64 156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(37) %32, i8 0, i64 37, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %32, i8 0, i64 37, i1 false)
   store i32 4, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %3, i64 160
   store i8 0, ptr %34, align 8
@@ -2648,7 +2648,7 @@ define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstat
   store i32 0, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = getelementptr inbounds i8, ptr %36, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i32 -1, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   store <2 x float> zeroinitializer, ptr %39, align 8

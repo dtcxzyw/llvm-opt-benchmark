@@ -318,7 +318,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.end6.i.i.i.i
 xmemdupz.exit:                                    ; preds = %if.end6.i.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 %cond
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i.i.i.i, ptr readonly align 1 %str, i64 %cond, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i.i.i.i, ptr align 1 %str, i64 %cond, i1 false)
   ret ptr %call1.i.i.i.i
 }
 
@@ -839,7 +839,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %p.016 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end4 ]
   %count.addr.015 = phi i64 [ %count, %while.body.lr.ph ], [ %sub, %if.end4 ]
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %count.addr.015, i64 8388608)
-  %call8.i = call i64 @write(i32 noundef %fd, ptr noundef readonly %p.016, i64 noundef %spec.store.select.i) #19
+  %call8.i = call i64 @write(i32 noundef %fd, ptr noundef %p.016, i64 noundef %spec.store.select.i) #19
   %cmp19.i = icmp slt i64 %call8.i, 0
   br i1 %cmp19.i, label %if.then2.lr.ph.i, label %if.end
 
@@ -853,7 +853,7 @@ if.then2.i:                                       ; preds = %while.body.backedge
   br i1 %cmp4.i, label %while.body.backedge.i, label %if.end6.i
 
 while.body.backedge.i:                            ; preds = %handle_nonblock.exit.i, %if.then2.i
-  %call.i = call i64 @write(i32 noundef %fd, ptr noundef readonly %p.016, i64 noundef %spec.store.select.i) #19
+  %call.i = call i64 @write(i32 noundef %fd, ptr noundef %p.016, i64 noundef %spec.store.select.i) #19
   %cmp1.i = icmp slt i64 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end
 

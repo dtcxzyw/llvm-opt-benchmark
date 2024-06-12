@@ -5885,10 +5885,10 @@ define void @Rtl_NtkPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %.val6.val.i = load ptr, ptr %56, align 8
   %57 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 9, i64 1, ptr %.val6.val.i)
   %58 = load i32, ptr %55, align 4
-  tail call void @Rtl_NtkPrintSig(ptr noundef nonnull readonly %0, i32 noundef %58)
+  tail call void @Rtl_NtkPrintSig(ptr noundef nonnull %0, i32 noundef %58)
   %59 = getelementptr inbounds i8, ptr %55, i64 4
   %60 = load i32, ptr %59, align 4
-  tail call void @Rtl_NtkPrintSig(ptr noundef nonnull readonly %0, i32 noundef %60)
+  tail call void @Rtl_NtkPrintSig(ptr noundef nonnull %0, i32 noundef %60)
   %.val.i = load ptr, ptr %2, align 8
   %61 = getelementptr i8, ptr %.val.i, i64 72
   %.val.val.i = load ptr, ptr %61, align 8
@@ -9961,10 +9961,10 @@ define noundef ptr @Rtl_LibReadFile(ptr noundef %0, ptr noundef readonly %1) loc
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #38
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #35
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %1) #37
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %1) #37
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %18
@@ -13485,14 +13485,14 @@ Rtl_NtkMapWires.exit71:                           ; preds = %.lr.ph.split.i, %.c
   %117 = getelementptr i8, ptr %.val56, i64 16
   %.val56.val = load ptr, ptr %117, align 8
   %118 = tail call ptr @Abc_NamStr(ptr noundef %.val56.val, i32 noundef %.val55) #37
-  %119 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %118) #38
+  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #38
   %120 = trunc i64 %119 to i32
   %.not.i72 = icmp sgt i32 %120, 20
   br i1 %.not.i72, label %121, label %Rtl_ShortenName.exit
 
 121:                                              ; preds = %Rtl_NtkMapWires.exit71
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16
-  %122 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull readonly dereferenceable(1) %118) #37
+  %122 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull dereferenceable(1) %118) #37
   store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
   br label %Rtl_ShortenName.exit
 
@@ -14646,14 +14646,14 @@ Rtl_NtkMapWires.exit59:                           ; preds = %.lr.ph.split.i, %._
   %116 = getelementptr i8, ptr %.val45, i64 16
   %.val45.val = load ptr, ptr %116, align 8
   %117 = tail call ptr @Abc_NamStr(ptr noundef %.val45.val, i32 noundef %.val) #37
-  %118 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %117) #38
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #38
   %119 = trunc i64 %118 to i32
   %.not.i60 = icmp sgt i32 %119, 20
   br i1 %.not.i60, label %120, label %Rtl_ShortenName.exit
 
 120:                                              ; preds = %Rtl_NtkMapWires.exit59
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16
-  %121 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull readonly dereferenceable(1) %117) #37
+  %121 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull dereferenceable(1) %117) #37
   store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
   br label %Rtl_ShortenName.exit
 
@@ -16667,7 +16667,7 @@ Rtl_LibUpdateBoxes.exit:                          ; preds = %Rtl_NtkUpdateBoxes.
   %107 = getelementptr inbounds i8, ptr %106, i64 496
   %108 = load ptr, ptr %107, align 8
   tail call void @Rtl_NtkPrintBufs(ptr noundef nonnull %100, ptr noundef %108)
-  tail call void @Rtl_LibSolve(ptr noundef nonnull readonly %1, ptr noundef nonnull %100)
+  tail call void @Rtl_LibSolve(ptr noundef nonnull %1, ptr noundef nonnull %100)
   br label %109
 
 109:                                              ; preds = %88, %93, %96, %92
@@ -17565,10 +17565,10 @@ define ptr @Gia_ManDupPermIO(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #38
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #38
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #35
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #37
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #37
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %7

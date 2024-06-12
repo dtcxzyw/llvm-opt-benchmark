@@ -973,7 +973,7 @@ invoke.cont71.i.i.i:                              ; preds = %invoke.cont56.i.i.i
   store i64 %or.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8
   %second.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0217.i.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp72.i.i.i, i8 0, i64 32, i1 false), !alias.scope !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72.i.i.i, i8 0, i64 32, i1 false), !alias.scope !34
   %call.i.i39.i.i.i = invoke noundef i64 @_ZNK5boost14dynamic_bitsetImSaImEE14m_do_find_fromEm(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, i64 noundef 0)
           to label %call.i.i.noexc.i.i.i unwind label %lpad65.loopexit.split-lp.i.i.i
 
@@ -1136,7 +1136,7 @@ invoke.cont87.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 invoke.cont91.i.i.i:                              ; preds = %invoke.cont87.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp92.i.i.i, i8 0, i64 32, i1 false), !alias.scope !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92.i.i.i, i8 0, i64 32, i1 false), !alias.scope !41
   %67 = load ptr, ptr %temp.i.i.i, align 8
   %_M_finish.i.i127.i.i.i = getelementptr inbounds i8, ptr %temp.i.i.i, i64 8
   %68 = load ptr, ptr %_M_finish.i.i127.i.i.i, align 8
@@ -1772,7 +1772,7 @@ if.end.i.i96.i.i:                                 ; preds = %if.else.i.i99.i.i, 
 
 call5.i.i.i.i2.i.i.noexc.i.i:                     ; preds = %if.end.i.i96.i.i
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i103.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i.i103.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %init.i.i.i, i64 32, i1 false), !noalias !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i.i103.i.i, ptr noundef nonnull align 8 dereferenceable(32) %init.i.i.i, i64 32, i1 false), !noalias !47
   %start_floating.i.i38.i = getelementptr inbounds i8, ptr %n.i, i64 1186
   %121 = load i16, ptr %start_floating.i.i38.i, align 2, !noalias !47
   %cmp.not.i.i.i = icmp eq i16 %121, 0
@@ -1787,8 +1787,8 @@ if.else.i.i101.i.i:                               ; preds = %call5.i.i.i.i2.i.i.
 
 _ZNSt12_Vector_baseIN3ue28bitfieldILm256EEESaIS2_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %if.else.i.i101.i.i
   %add.ptr.i.i.i102.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i3.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i102.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %initDS.i.i.i, i64 32, i1 false), !noalias !47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i3.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %init.i.i.i, i64 32, i1 false), !noalias !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i102.i.i, ptr noundef nonnull align 8 dereferenceable(32) %initDS.i.i.i, i64 32, i1 false), !noalias !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %init.i.i.i, i64 32, i1 false), !noalias !47
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i3.i.i.i, i64 64
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i103.i.i) #23, !noalias !47
   br label %for.body.lr.ph.i.i
@@ -2069,13 +2069,13 @@ _ZNSt5queueISt4pairIN3ue28bitfieldILm256EEEtESt5dequeIS4_SaIS4_EEE3popEv.exit.i.
   %conv51.i.i = zext i16 %153 to i64
   %154 = load ptr, ptr %states.i.i.i, align 8
   %reports.i.i = getelementptr inbounds %"struct.ue2::dstate", ptr %154, i64 %conv51.i.i, i32 4
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE9reports_iERKNS_8bitfieldILm256EEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull readonly align 8 dereferenceable(1512) %n.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %m.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %reports.i.i)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE9reports_iERKNS_8bitfieldILm256EEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull align 8 dereferenceable(1512) %n.i, ptr noundef nonnull align 8 dereferenceable(32) %m.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %reports.i.i)
           to label %invoke.cont53.i.i unwind label %lpad43.loopexit.split-lp.loopexit.i.i
 
 invoke.cont53.i.i:                                ; preds = %_ZNSt5queueISt4pairIN3ue28bitfieldILm256EEEtESt5dequeIS4_SaIS4_EEE3popEv.exit.i.i
   %155 = load ptr, ptr %states.i.i.i, align 8
   %reports_eod.i.i = getelementptr inbounds %"struct.ue2::dstate", ptr %155, i64 %conv51.i.i, i32 5
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE9reports_iERKNS_8bitfieldILm256EEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull readonly align 8 dereferenceable(1512) %n.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %m.i.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %reports_eod.i.i)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE9reports_iERKNS_8bitfieldILm256EEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull align 8 dereferenceable(1512) %n.i, ptr noundef nonnull align 8 dereferenceable(32) %m.i.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %reports_eod.i.i)
           to label %if.end95.i.i unwind label %lpad43.loopexit.split-lp.loopexit.i.i
 
 lpad41.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN3ue28bitfieldILm256EEESaIS2_EEC2EmRKS3_.exit.i.i.i
@@ -2125,7 +2125,7 @@ for.end.i.i.i46.i:                                ; preds = %for.body.i.i.prehea
   %switch.downshift = lshr i48 1099511693568, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   %retval.0.i.i.i.i.i.i = select i1 %162, i8 %switch.masked, i8 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %succ.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %dead.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %succ.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %dead.i.i, i64 32, i1 false)
   br label %for.body.i.i.i.i48.i
 
 for.body.i.i.i.i48.i:                             ; preds = %for.inc.i.i.i.i.i, %for.end.i.i.i46.i
@@ -2306,7 +2306,7 @@ for.body11.i.i.i.i.backedge:                      ; preds = %if.then18.i.i.i.i.i
 
 for.end28.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %for.inc26.i.i.i.i, %for.cond.i.i.i.i.i, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit.i.i.i.i
   %top_allowed.0.lcssa.i.i.i.i = phi i8 [ %retval.0.i.i.i.i.i.i, %_ZNK3ue28bitfieldILm256EE10find_firstEv.exit.i.i.i.i ], [ %top_allowed.1.i.i.i.i, %for.cond.i.i.i.i.i ], [ %top_allowed.1.i.i.i.i, %for.inc26.i.i.i.i ], [ %retval.0.i.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %active_squash.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %squash.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %active_squash.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %squash.i.i.i, i64 32, i1 false)
   %183 = load <2 x i64>, ptr %succ.i.i.i.i, align 16
   %184 = load <2 x i64>, ptr %active_squash.i.i.i.i, align 16, !alias.scope !64
   %185 = and <2 x i64> %184, %183
@@ -2614,7 +2614,7 @@ for.end61.i.i.i.i:                                ; preds = %for.inc.i103.i.i.i.
   %222 = load i16, ptr %arrayidx.i.i.i.i.i45.i, align 8
   %idxprom63.i.i.i.i = zext i16 %222 to i64
   %arrayidx64.i.i.i.i = getelementptr inbounds %"class.ue2::bitfield", ptr %succs.sroa.0.0.i.i, i64 %idxprom63.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx64.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %m.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx64.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m.i.i, i64 32, i1 false)
   %tobool65.i.i.i.i = trunc nuw i8 %top_allowed.0.lcssa.i.i.i.i to i1
   br i1 %tobool65.i.i.i.i, label %if.then66.i.i.i.i, label %_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE10transitionERKNS_8bitfieldILm256EEEPS5_.exit.i.i
 
@@ -11059,13 +11059,13 @@ _ZNSt5queueISt4pairISt6vectorItSaItEEtESt5dequeIS4_SaIS4_EEE3popEv.exit.i: ; pre
   %conv52.i = zext i16 %169 to i64
   %177 = load ptr, ptr %states.i.i.i, align 8
   %reports.i = getelementptr inbounds %"struct.ue2::dstate", ptr %177, i64 %conv52.i, i32 4
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull readonly align 8 dereferenceable(1132) %n, ptr noundef nonnull readonly align 8 dereferenceable(24) %m.i, i64 32, ptr noundef nonnull align 8 dereferenceable(32) %reports.i)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull align 8 dereferenceable(1132) %n, ptr noundef nonnull align 8 dereferenceable(24) %m.i, i64 32, ptr noundef nonnull align 8 dereferenceable(32) %reports.i)
           to label %invoke.cont54.i unwind label %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont54.i:                                  ; preds = %_ZNSt5queueISt4pairISt6vectorItSaItEEtESt5dequeIS4_SaIS4_EEE3popEv.exit.i
   %178 = load ptr, ptr %states.i.i.i, align 8
   %reports_eod.i = getelementptr inbounds %"struct.ue2::dstate", ptr %178, i64 %conv52.i, i32 5
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull readonly align 8 dereferenceable(1132) %n, ptr noundef nonnull readonly align 8 dereferenceable(24) %m.i, i64 64, ptr noundef nonnull align 8 dereferenceable(32) %reports_eod.i)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull align 8 dereferenceable(1132) %n, ptr noundef nonnull align 8 dereferenceable(24) %m.i, i64 64, ptr noundef nonnull align 8 dereferenceable(32) %reports_eod.i)
           to label %if.end94.i unwind label %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 lpad41.i:                                         ; preds = %_ZNSt16allocator_traitsISaISt6vectorItSaItEEEE8allocateERS3_m.exit.i.i.i.i.i

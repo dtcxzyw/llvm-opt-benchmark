@@ -102,7 +102,7 @@ for.end.i:                                        ; preds = %for.body26.i
   %arrayidx42.i = getelementptr i8, ptr %h, i64 %i.024.i
   %sub.i = sub i64 %h_len, %i.024.i
   %cond50.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 32)
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %arrayidx42.i, ptr nonnull align 16 %ux.i, i64 %cond50.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx42.i, ptr nonnull align 16 %ux.i, i64 %cond50.i, i1 false)
   %add.i = add i64 %i.024.i, 32
   %cmp21.i = icmp ult i64 %add.i, %h_len
   br i1 %cmp21.i, label %for.cond23.preheader.i, label %core_h2c_string_to_hash_sha256.exit, !llvm.loop !6
@@ -190,7 +190,7 @@ for.end.i40:                                      ; preds = %for.body26.i33
   %arrayidx42.i48 = getelementptr i8, ptr %h, i64 %i.024.i32
   %sub.i49 = sub i64 %h_len, %i.024.i32
   %cond50.i50 = call i64 @llvm.umin.i64(i64 %sub.i49, i64 64)
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %arrayidx42.i48, ptr nonnull align 16 %ux.i9, i64 %cond50.i50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx42.i48, ptr nonnull align 16 %ux.i9, i64 %cond50.i50, i1 false)
   %add.i51 = add i64 %i.024.i32, 64
   %cmp21.i52 = icmp ult i64 %add.i51, %h_len
   br i1 %cmp21.i52, label %for.cond23.preheader.i31, label %core_h2c_string_to_hash_sha512.exit, !llvm.loop !8

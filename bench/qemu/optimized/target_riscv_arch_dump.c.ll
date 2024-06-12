@@ -27,7 +27,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %0 = getelementptr inbounds i8, ptr %note, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(396) %0, i8 0, i64 379, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(396) %0, i8 0, i64 379, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 376) #6
@@ -37,7 +37,7 @@ entry:
   %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
   %name5.i = getelementptr inbounds i8, ptr %note, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
   %pr_pid = getelementptr inbounds i8, ptr %note, i64 52
   store i32 %call2, ptr %pr_pid, align 4
@@ -80,7 +80,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %0 = getelementptr inbounds i8, ptr %note, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(224) %0, i8 0, i64 207, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %0, i8 0, i64 207, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 204) #6
@@ -90,7 +90,7 @@ entry:
   %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
   %name5.i = getelementptr inbounds i8, ptr %note, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
   %pr_pid = getelementptr inbounds i8, ptr %note, i64 44
   store i32 %call2, ptr %pr_pid, align 4

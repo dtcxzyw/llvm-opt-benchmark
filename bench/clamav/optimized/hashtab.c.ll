@@ -981,7 +981,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %34, label %cli_hashtab_find.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %27, i64 noundef %2) #19
+  %36 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %27, i64 noundef %2) #19
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
@@ -2322,7 +2322,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %30, i64 noundef %7) #19
+  %39 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %30, i64 noundef %7) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %cli_hashtab_find.exit, label %41
 
@@ -2472,7 +2472,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %30, i64 noundef %7) #19
+  %39 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %30, i64 noundef %7) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %cli_hashtab_find.exit, label %41
 
@@ -2579,7 +2579,7 @@ hash.exit.i.i:                                    ; preds = %._crit_edge.loopexi
   br i1 %94, label %cli_hashtab_find.exit.i, label %95
 
 95:                                               ; preds = %93
-  %96 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %87, i64 noundef %7) #19
+  %96 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %87, i64 noundef %7) #19
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %cli_hashtab_find.exit.i, label %98
 
@@ -2734,7 +2734,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @strncmp(ptr noundef readonly %1, ptr noundef nonnull %30, i64 noundef %7) #19
+  %39 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %30, i64 noundef %7) #19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %cli_hashtab_find.exit, label %41
 

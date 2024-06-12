@@ -965,7 +965,7 @@ if.then.i.i:                                      ; preds = %sw.bb225
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -1055,7 +1055,7 @@ if.then.i69.i:                                    ; preds = %sw.bb9.i
   br i1 %cmp2.i70.i, label %if.then3.i77.i, label %if.end.i71.i
 
 if.then3.i77.i:                                   ; preds = %if.then.i69.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i71.i:                                     ; preds = %if.then.i69.i
@@ -1169,7 +1169,7 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb37.i
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
@@ -1278,7 +1278,7 @@ if.then.i42.i.i.i:                                ; preds = %while.cond.i.i.i
   br i1 %cmp2.i43.i.i.i, label %if.then3.i50.i.i.i, label %if.end.i44.i.i.i
 
 if.then3.i50.i.i.i:                               ; preds = %if.then.i42.i.i.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i44.i.i.i:                                 ; preds = %if.then.i42.i.i.i
@@ -1480,7 +1480,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -1682,7 +1682,7 @@ if.then.i.i125.i:                                 ; preds = %for.body.i96.i
   br i1 %cmp2.i.i126.i, label %if.then3.i.i132.i, label %if.end.i.i127.i
 
 if.then3.i.i132.i:                                ; preds = %if.then.i.i125.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i.i127.i:                                  ; preds = %if.then.i.i125.i
@@ -1837,7 +1837,7 @@ if.then.i143.i:                                   ; preds = %only_save.i
   br i1 %cmp2.i144.i, label %if.then3.i151.i, label %if.end.i145.i
 
 if.then3.i151.i:                                  ; preds = %if.then.i143.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i145.i:                                    ; preds = %if.then.i143.i
@@ -1880,7 +1880,7 @@ if.then.i163.i:                                   ; preds = %sw.default112.i
   br i1 %cmp2.i164.i, label %if.then3.i171.i, label %if.end.i165.i
 
 if.then3.i171.i:                                  ; preds = %if.then.i163.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i165.i:                                    ; preds = %if.then.i163.i
@@ -1952,7 +1952,7 @@ if.then.i183.i:                                   ; preds = %while.end130.i
   br i1 %cmp2.i184.i, label %if.then3.i191.i, label %if.end.i185.i
 
 if.then3.i191.i:                                  ; preds = %if.then.i183.i
-  call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i185.i:                                    ; preds = %if.then.i183.i
@@ -2075,7 +2075,7 @@ if.then.i198:                                     ; preds = %sw.bb227
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i199
 
 if.then3.i:                                       ; preds = %if.then.i198
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i199:                                      ; preds = %if.then.i198
@@ -2229,7 +2229,7 @@ if.then.i241:                                     ; preds = %do.body
   br i1 %cmp2.i242, label %if.then3.i249, label %if.end.i243
 
 if.then3.i249:                                    ; preds = %if.then.i241
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i243:                                      ; preds = %if.then.i241
@@ -2554,7 +2554,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -2629,7 +2629,7 @@ if.then.i26:                                      ; preds = %while.body
   br i1 %cmp2.i27, label %if.then3.i34, label %if.end.i28
 
 if.then3.i34:                                     ; preds = %if.then.i26
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i28:                                       ; preds = %if.then.i26
@@ -2714,7 +2714,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -2817,7 +2817,7 @@ if.then.i52:                                      ; preds = %if.then17
   br i1 %cmp2.i53, label %if.then3.i60, label %if.end.i54
 
 if.then3.i60:                                     ; preds = %if.then.i52
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i54:                                       ; preds = %if.then.i52
@@ -2884,7 +2884,7 @@ if.then.i71:                                      ; preds = %sw.bb36
   br i1 %cmp2.i72, label %if.then3.i79, label %if.end.i73
 
 if.then3.i79:                                     ; preds = %if.then.i71
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i73:                                       ; preds = %if.then.i71
@@ -3008,7 +3008,7 @@ if.then.i95:                                      ; preds = %if.then42
   br i1 %cmp2.i96, label %if.then3.i103, label %if.end.i97
 
 if.then3.i103:                                    ; preds = %if.then.i95
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i97:                                       ; preds = %if.then.i95
@@ -3213,7 +3213,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -3308,7 +3308,7 @@ if.then.i.i:                                      ; preds = %if.then.i31
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -3388,7 +3388,7 @@ if.then.i43:                                      ; preds = %if.then18
   br i1 %cmp2.i44, label %if.then3.i51, label %if.end.i45
 
 if.then3.i51:                                     ; preds = %if.then.i43
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i45:                                       ; preds = %if.then.i43
@@ -3463,7 +3463,7 @@ if.then.i63:                                      ; preds = %if.then46
   br i1 %cmp2.i64, label %if.then3.i71, label %if.end.i65
 
 if.then3.i71:                                     ; preds = %if.then.i63
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i65:                                       ; preds = %if.then.i63
@@ -3530,7 +3530,7 @@ if.then.i82:                                      ; preds = %if.end64
   br i1 %cmp2.i83, label %if.then3.i90, label %if.end.i84
 
 if.then3.i90:                                     ; preds = %if.then.i82
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i84:                                       ; preds = %if.then.i82
@@ -3594,7 +3594,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -3731,7 +3731,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call fastcc void @lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
+  tail call fastcc void @lexerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.42, i32 noundef 0) #7
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i

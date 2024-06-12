@@ -8246,222 +8246,222 @@ entry:
   ]
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1596.i: ; preds = %entry
-  %bcmp995.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %start, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp995.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %start, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %cmp5.i.i1597.i = icmp eq i32 %bcmp995.i, 0
   br i1 %cmp5.i.i1597.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1386.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1561.i: ; preds = %entry
-  %bcmp993.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
+  %bcmp993.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %cmp5.i.i1562.i = icmp eq i32 %bcmp993.i, 0
   br i1 %cmp5.i.i1562.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1456.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1526.i: ; preds = %entry
-  %bcmp991.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %start, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
+  %bcmp991.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %start, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
   %cmp5.i.i1527.i = icmp eq i32 %bcmp991.i, 0
   br i1 %cmp5.i.i1527.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1491.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1491.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1526.i
-  %bcmp992.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %start, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
+  %bcmp992.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %start, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
   %cmp5.i.i1492.i = icmp eq i32 %bcmp992.i, 0
   br i1 %cmp5.i.i1492.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i931.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1456.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1561.i
-  %bcmp994.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %bcmp994.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %cmp5.i.i1457.i = icmp eq i32 %bcmp994.i, 0
   br i1 %cmp5.i.i1457.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i791.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1421.i: ; preds = %entry
-  %bcmp999.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
+  %bcmp999.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
   %cmp5.i.i1422.i = icmp eq i32 %bcmp999.i, 0
   br i1 %cmp5.i.i1422.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1211.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1386.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1596.i
-  %bcmp996.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %start, ptr noundef nonnull dereferenceable(8) @.str.6, i64 8)
+  %bcmp996.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %start, ptr noundef nonnull dereferenceable(8) @.str.6, i64 8)
   %cmp5.i.i1387.i = icmp eq i32 %bcmp996.i, 0
   br i1 %cmp5.i.i1387.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1036.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1351.i: ; preds = %entry
-  %bcmp997.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
+  %bcmp997.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
   %cmp5.i.i1352.i = icmp eq i32 %bcmp997.i, 0
   br i1 %cmp5.i.i1352.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1316.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1316.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1351.i
-  %bcmp998.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.8, i64 6)
+  %bcmp998.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.8, i64 6)
   %cmp5.i.i1317.i = icmp eq i32 %bcmp998.i, 0
   br i1 %cmp5.i.i1317.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i966.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1281.i: ; preds = %entry
-  %bcmp1023.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
+  %bcmp1023.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %cmp5.i.i1282.i = icmp eq i32 %bcmp1023.i, 0
   br i1 %cmp5.i.i1282.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1246.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1246.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1281.i
-  %bcmp1024.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
+  %bcmp1024.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
   %cmp5.i.i1247.i = icmp eq i32 %bcmp1024.i, 0
   br i1 %cmp5.i.i1247.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1176.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1211.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1421.i
-  %bcmp1016.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.11, i64 5)
+  %bcmp1016.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.11, i64 5)
   %cmp5.i.i1212.i = icmp eq i32 %bcmp1016.i, 0
   br i1 %cmp5.i.i1212.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1106.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1176.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1246.i
-  %bcmp1025.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.12, i64 4)
+  %bcmp1025.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.12, i64 4)
   %cmp5.i.i1177.i = icmp eq i32 %bcmp1025.i, 0
   br i1 %cmp5.i.i1177.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1141.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1141.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1176.i
-  %bcmp1026.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.13, i64 4)
+  %bcmp1026.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.13, i64 4)
   %cmp5.i.i1142.i = icmp eq i32 %bcmp1026.i, 0
   br i1 %cmp5.i.i1142.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i896.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1106.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1211.i
-  %bcmp1017.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.14, i64 5)
+  %bcmp1017.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.14, i64 5)
   %cmp5.i.i1107.i = icmp eq i32 %bcmp1017.i, 0
   br i1 %cmp5.i.i1107.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1071.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1071.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1106.i
-  %bcmp1018.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
+  %bcmp1018.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %cmp5.i.i1072.i = icmp eq i32 %bcmp1018.i, 0
   br i1 %cmp5.i.i1072.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i756.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1036.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1386.i
-  %bcmp1014.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %start, ptr noundef nonnull dereferenceable(8) @.str.16, i64 8)
+  %bcmp1014.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %start, ptr noundef nonnull dereferenceable(8) @.str.16, i64 8)
   %cmp5.i.i1037.i = icmp eq i32 %bcmp1014.i, 0
   br i1 %cmp5.i.i1037.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1001.i: ; preds = %entry
-  %bcmp1010.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.17, i64 7)
+  %bcmp1010.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.17, i64 7)
   %cmp5.i.i1002.i = icmp eq i32 %bcmp1010.i, 0
   br i1 %cmp5.i.i1002.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i861.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i966.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1316.i
-  %bcmp1005.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.18, i64 6)
+  %bcmp1005.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.18, i64 6)
   %cmp5.i.i967.i = icmp eq i32 %bcmp1005.i, 0
   br i1 %cmp5.i.i967.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i686.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i931.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1491.i
-  %bcmp1004.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %start, ptr noundef nonnull dereferenceable(2) @.str.19, i64 2)
+  %bcmp1004.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %start, ptr noundef nonnull dereferenceable(2) @.str.19, i64 2)
   %cmp5.i.i932.i = icmp eq i32 %bcmp1004.i, 0
   br i1 %cmp5.i.i932.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i896.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1141.i
-  %bcmp1027.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.20, i64 4)
+  %bcmp1027.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.20, i64 4)
   %cmp5.i.i897.i = icmp eq i32 %bcmp1027.i, 0
   br i1 %cmp5.i.i897.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i651.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i861.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1001.i
-  %bcmp1011.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.21, i64 7)
+  %bcmp1011.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.21, i64 7)
   %cmp5.i.i862.i = icmp eq i32 %bcmp1011.i, 0
   br i1 %cmp5.i.i862.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i406.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i826.i: ; preds = %entry
-  %bcmp1002.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %start, ptr noundef nonnull dereferenceable(10) @.str.22, i64 10)
+  %bcmp1002.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %start, ptr noundef nonnull dereferenceable(10) @.str.22, i64 10)
   %cmp5.i.i827.i = icmp eq i32 %bcmp1002.i, 0
   br i1 %cmp5.i.i827.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i301.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i791.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1456.i
-  %bcmp1000.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.23, i64 3)
+  %bcmp1000.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.23, i64 3)
   %cmp5.i.i792.i = icmp eq i32 %bcmp1000.i, 0
   br i1 %cmp5.i.i792.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i721.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i756.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1071.i
-  %bcmp1019.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.24, i64 5)
+  %bcmp1019.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.24, i64 5)
   %cmp5.i.i757.i = icmp eq i32 %bcmp1019.i, 0
   br i1 %cmp5.i.i757.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i616.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i721.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i791.i
-  %bcmp1001.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.25, i64 3)
+  %bcmp1001.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %start, ptr noundef nonnull dereferenceable(3) @.str.25, i64 3)
   %cmp5.i.i722.i = icmp eq i32 %bcmp1001.i, 0
   br i1 %cmp5.i.i722.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i686.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i966.i
-  %bcmp1006.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.26, i64 6)
+  %bcmp1006.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.26, i64 6)
   %cmp5.i.i687.i = icmp eq i32 %bcmp1006.i, 0
   br i1 %cmp5.i.i687.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i546.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i651.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i896.i
-  %bcmp1028.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.27, i64 4)
+  %bcmp1028.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.27, i64 4)
   %cmp5.i.i652.i = icmp eq i32 %bcmp1028.i, 0
   br i1 %cmp5.i.i652.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i581.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i616.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i756.i
-  %bcmp1020.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.28, i64 5)
+  %bcmp1020.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.28, i64 5)
   %cmp5.i.i617.i = icmp eq i32 %bcmp1020.i, 0
   br i1 %cmp5.i.i617.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i476.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i581.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i651.i
-  %bcmp1029.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.29, i64 4)
+  %bcmp1029.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.29, i64 4)
   %cmp5.i.i582.i = icmp eq i32 %bcmp1029.i, 0
   br i1 %cmp5.i.i582.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i336.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i546.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i686.i
-  %bcmp1007.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.30, i64 6)
+  %bcmp1007.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.30, i64 6)
   %cmp5.i.i547.i = icmp eq i32 %bcmp1007.i, 0
   br i1 %cmp5.i.i547.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i511.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i511.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i546.i
-  %bcmp1008.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.31, i64 6)
+  %bcmp1008.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.31, i64 6)
   %cmp5.i.i512.i = icmp eq i32 %bcmp1008.i, 0
   br i1 %cmp5.i.i512.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i441.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i476.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i616.i
-  %bcmp1021.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.32, i64 5)
+  %bcmp1021.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.32, i64 5)
   %cmp5.i.i477.i = icmp eq i32 %bcmp1021.i, 0
   br i1 %cmp5.i.i477.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i371.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i441.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i511.i
-  %bcmp1009.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.33, i64 6)
+  %bcmp1009.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.33, i64 6)
   %cmp5.i.i442.i = icmp eq i32 %bcmp1009.i, 0
   br i1 %cmp5.i.i442.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end.i.i124.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i406.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i861.i
-  %bcmp1012.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.34, i64 7)
+  %bcmp1012.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.34, i64 7)
   %cmp5.i.i407.i = icmp eq i32 %bcmp1012.i, 0
   br i1 %cmp5.i.i407.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i231.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i371.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i476.i
-  %bcmp1022.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.35, i64 5)
+  %bcmp1022.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.35, i64 5)
   %cmp5.i.i372.i = icmp eq i32 %bcmp1022.i, 0
   br i1 %cmp5.i.i372.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end.i.i.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i336.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i581.i
-  %bcmp1030.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.36, i64 4)
+  %bcmp1030.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.36, i64 4)
   %cmp5.i.i337.i = icmp eq i32 %bcmp1030.i, 0
   br i1 %cmp5.i.i337.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i301.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i826.i
-  %bcmp1003.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %start, ptr noundef nonnull dereferenceable(10) @.str.37, i64 10)
+  %bcmp1003.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %start, ptr noundef nonnull dereferenceable(10) @.str.37, i64 10)
   %cmp5.i.i302.i = icmp eq i32 %bcmp1003.i, 0
   br i1 %cmp5.i.i302.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i266.i: ; preds = %entry
-  %bcmp1015.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %start, ptr noundef nonnull dereferenceable(9) @.str.38, i64 9)
+  %bcmp1015.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %start, ptr noundef nonnull dereferenceable(9) @.str.38, i64 9)
   %cmp5.i.i267.i = icmp eq i32 %bcmp1015.i, 0
   br i1 %cmp5.i.i267.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end.i.i159.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i231.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i406.i
-  %bcmp1013.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.39, i64 7)
+  %bcmp1013.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.39, i64 7)
   %cmp5.i.i232.i = icmp eq i32 %bcmp1013.i, 0
   br i1 %cmp5.i.i232.i, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end.i.i194.i
 
 if.end.i.i194.i:                                  ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i231.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.40, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %start, ptr noundef nonnull dereferenceable(7) @.str.40, i64 7)
   %0 = icmp eq i32 %bcmp.i, 0
   br i1 %0, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 if.end.i.i159.i:                                  ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i266.i
-  %bcmp132.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %start, ptr noundef nonnull dereferenceable(9) @.str.41, i64 9)
+  %bcmp132.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %start, ptr noundef nonnull dereferenceable(9) @.str.41, i64 9)
   %1 = icmp eq i32 %bcmp132.i, 0
   br i1 %1, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 if.end.i.i124.i:                                  ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i441.i
-  %bcmp133.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.42, i64 6)
+  %bcmp133.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %start, ptr noundef nonnull dereferenceable(6) @.str.42, i64 6)
   %2 = icmp eq i32 %bcmp133.i, 0
   br i1 %2, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 
 if.end.i.i.i:                                     ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i371.i
-  %bcmp134.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.43, i64 5)
+  %bcmp134.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %start, ptr noundef nonnull dereferenceable(5) @.str.43, i64 5)
   %3 = icmp eq i32 %bcmp134.i, 0
   br i1 %3, label %_ZN6hermes6parserL17matchReservedWordEPKcj.exit, label %if.end
 

@@ -961,13 +961,13 @@ define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %12 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %13 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
   %14 = load ptr, ptr @language_scanner_globals, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 136
@@ -1157,13 +1157,13 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   %22 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %24 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %25 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
   %26 = load ptr, ptr @language_scanner_globals, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 136
@@ -1584,13 +1584,13 @@ define noundef ptr @compile_string(ptr noundef %0, ptr nocapture noundef readonl
   %24 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %26 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %27 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
   %28 = load ptr, ptr @language_scanner_globals, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 136
@@ -1716,13 +1716,13 @@ define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) loca
   %11 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %13 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %14 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
   %15 = load ptr, ptr @language_scanner_globals, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 136
@@ -1839,13 +1839,13 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   %29 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
   %31 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
   %32 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
   %33 = load ptr, ptr @language_scanner_globals, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 136

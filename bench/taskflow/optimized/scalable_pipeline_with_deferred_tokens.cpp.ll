@@ -3146,7 +3146,7 @@ if.then:                                          ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @"_ZNSt17_Function_handlerIFvRN2tf8PipeflowEEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_callable.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_callable.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN2tf8PipeflowEEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_finish, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 40
@@ -3188,7 +3188,7 @@ invoke.cont.i:                                    ; preds = %cond.true.i.i, %_ZN
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   store ptr @"_ZNSt17_Function_handlerIFvRN2tf8PipeflowEEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_callable.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_callable.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN2tf8PipeflowEEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN2tf4PipeISt8functionIFvRNS0_8PipeflowEEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit35.i, label %for.body.i.i.i.i

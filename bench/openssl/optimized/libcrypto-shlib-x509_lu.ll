@@ -760,7 +760,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %call.i, align 8
-  %call.i4 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef readonly %ctx, i32 noundef %type, ptr noundef %name, ptr noundef nonnull writeonly %call.i)
+  %call.i4 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef nonnull %call.i)
   %cmp.i5 = icmp slt i32 %call.i4, 1
   br i1 %cmp.i5, label %if.end.i.i, label %return
 

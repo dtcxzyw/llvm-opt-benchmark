@@ -61,7 +61,7 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   store i8 %spec.select, ptr %8, align 1
   %48 = getelementptr inbounds i8, ptr %8, i64 1
   %49 = getelementptr inbounds i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %48, ptr noundef nonnull readonly align 1 dereferenceable(6) %49, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %48, ptr noundef nonnull align 1 dereferenceable(6) %49, i64 6, i1 false)
   %50 = lshr i16 %27, 8
   %51 = trunc nuw i16 %50 to i8
   %52 = getelementptr inbounds i8, ptr %8, i64 7

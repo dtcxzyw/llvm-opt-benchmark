@@ -345,7 +345,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %i.0334 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %ossl_list_int.i = getelementptr inbounds %struct.int_st, ptr %elem, i64 %i.0334, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ossl_list_int.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_int.i, i8 0, i64 16, i1 false)
   %conv = trunc nuw nsw i64 %i.0334 to i32
   %arrayidx = getelementptr inbounds [20 x %struct.int_st], ptr %elem, i64 0, i64 %i.0334
   store i32 %conv, ptr %arrayidx, align 8

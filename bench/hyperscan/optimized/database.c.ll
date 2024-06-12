@@ -209,7 +209,7 @@ if.end10:                                         ; preds = %if.end6
   store i32 %conv.i9, ptr %header.sroa.11.0.db.sroa_idx, align 4
   %idx.ext.i = zext nneg i32 %conv.i9 to i64
   %add.ptr.i10 = getelementptr inbounds i8, ptr %db, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i10, ptr nonnull readonly align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i10, ptr nonnull align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
   %11 = load i32, ptr %header.sroa.11.0.db.sroa_idx, align 4
   %idx.ext.i.i = zext i32 %11 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %db, i64 %idx.ext.i.i
@@ -313,7 +313,7 @@ if.end14:                                         ; preds = %hs_check_alloc.exit
   store i32 %conv.i19, ptr %header.sroa.11.0.call9.sroa_idx, align 4
   %idx.ext.i = zext nneg i32 %conv.i19 to i64
   %add.ptr.i20 = getelementptr inbounds i8, ptr %call9, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr nonnull readonly align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr nonnull align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
   %13 = load i32, ptr %header.sroa.11.0.call9.sroa_idx, align 4
   %idx.ext.i.i = zext i32 %13 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call9, i64 %idx.ext.i.i

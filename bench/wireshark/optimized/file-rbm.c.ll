@@ -336,12 +336,12 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
 
 39:                                               ; preds = %6
   store ptr @.str.30, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.29, ptr noundef nonnull writeonly %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   br label %dissect_rbm_basic.exit
 
 40:                                               ; preds = %6
   store ptr @.str.31, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull writeonly %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   tail call fastcc void @dissect_rbm_integer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
@@ -531,12 +531,12 @@ dissect_rbm_double.exit:                          ; preds = %104, %105
 
 126:                                              ; preds = %6
   store ptr @.str.36, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull writeonly %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   br label %dissect_rbm_basic.exit
 
 127:                                              ; preds = %6
   store ptr @.str.37, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull writeonly %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   br label %dissect_rbm_basic.exit
 
 128:                                              ; preds = %6

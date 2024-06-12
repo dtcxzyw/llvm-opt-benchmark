@@ -103,8 +103,8 @@ pmix_tma_malloc.exit.i:                           ; preds = %18, %16
   %.014.i = phi i64 [ %23, %.preheader.i ], [ 0, %pmix_tma_malloc.exit.i ]
   %21 = getelementptr inbounds %struct.pmix_info, ptr %.0.i.i, i64 %.014.i
   %22 = getelementptr inbounds i8, ptr %21, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %21, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %21, i8 0, i64 516, i1 false)
   %23 = add nuw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %23, %12
   br i1 %exitcond.not.i, label %pmix_bfrops_base_tma_info_create.exit, label %.preheader.i, !llvm.loop !4
@@ -137,7 +137,7 @@ pmix_bfrops_base_tma_info_create.exit:            ; preds = %.preheader.i, %pmix
   br i1 %35, label %pmix_bfrops_base_tma_info_xfer.exit.thread, label %36
 
 36:                                               ; preds = %.lr.ph.split
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %30, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %30, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39, %36
@@ -347,8 +347,8 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   %.014 = phi i64 [ %14, %.preheader ], [ 0, %pmix_tma_malloc.exit ]
   %12 = getelementptr inbounds %struct.pmix_info, ptr %.0.i, i64 %.014
   %13 = getelementptr inbounds i8, ptr %12, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %12, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %12, i8 0, i64 516, i1 false)
   %14 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !4
@@ -3782,7 +3782,7 @@ pmix_tma_malloc.exit:                             ; preds = %118, %121
 
 166:                                              ; preds = %3
   %167 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %167, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %167, i8 0, i64 17, i1 false)
   %168 = getelementptr inbounds i8, ptr %1, i64 8
   %169 = load ptr, ptr %168, align 8
   %.not = icmp eq ptr %169, null
@@ -3942,7 +3942,7 @@ pmix_tma_malloc.exit.i.i:                         ; preds = %244, %241
 
 246:                                              ; preds = %pmix_tma_malloc.exit.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %240, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false)
   store ptr %.0.i.i.i, ptr %238, align 8
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
@@ -4087,7 +4087,7 @@ define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture n
   br i1 %.not111, label %pmix_tma_free.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(260) %14, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %14, i8 0, i64 256, i1 false)
   %16 = getelementptr inbounds i8, ptr %14, i64 256
   store i32 -1, ptr %16, align 4
   %.not.i.i = icmp eq ptr %1, null
@@ -4547,7 +4547,7 @@ pmix_tma_free.exit.i.us.us:                       ; preds = %.lr.ph.split.us.spl
   br label %pmix_bfrops_base_tma_proc_info_destruct.exit.us.us
 
 pmix_bfrops_base_tma_proc_info_destruct.exit.us.us: ; preds = %.thread.i.us.us, %pmix_tma_free.exit.i.us.us, %pmix_tma_free.exit.thread.i.us.us
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   %13 = add nuw i64 %.010.us.us, 1
   %exitcond19.not = icmp eq i64 %13, %1
   br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !27
@@ -4577,7 +4577,7 @@ pmix_tma_free.exit.i:                             ; preds = %17, %.lr.ph.split.s
   br label %pmix_bfrops_base_tma_proc_info_destruct.exit
 
 pmix_bfrops_base_tma_proc_info_destruct.exit:     ; preds = %pmix_tma_free.exit.i, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %14, i8 0, i64 296, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %14, i8 0, i64 296, i1 false)
   %23 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %23, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !27
@@ -6956,7 +6956,7 @@ pmix_tma_malloc.exit:                             ; preds = %4, %7
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %pmix_tma_malloc.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %.0.i, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.0.i, i8 0, i64 256, i1 false)
   %.not.i8 = icmp eq ptr %1, null
   br i1 %.not.i8, label %pmix_bfrops_base_tma_load_nspace.exit, label %.lr.ph.i.i
 
@@ -7017,7 +7017,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
 .preheader:                                       ; preds = %pmix_tma_malloc.exit, %.preheader
   %.014 = phi i64 [ %13, %.preheader ], [ 0, %pmix_tma_malloc.exit ]
   %11 = getelementptr inbounds %struct.pmix_proc, ptr %.0.i, i64 %.014
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(260) %11, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %11, i8 0, i64 256, i1 false)
   %12 = getelementptr inbounds i8, ptr %11, i64 256
   store i32 -1, ptr %12, align 4
   %13 = add nuw i64 %.014, 1
@@ -7828,8 +7828,8 @@ pmix_tma_malloc.exit.i:                           ; preds = %308, %305
   %.014.i = phi i64 [ %313, %.preheader.i ], [ 0, %pmix_tma_malloc.exit.i ]
   %311 = getelementptr inbounds %struct.pmix_info, ptr %.0.i.i, i64 %.014.i
   %312 = getelementptr inbounds i8, ptr %311, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %312, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %311, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %312, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %311, i8 0, i64 516, i1 false)
   %313 = add nuw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %313, %299
   br i1 %exitcond.not.i, label %317, label %.preheader.i, !llvm.loop !4
@@ -7862,7 +7862,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %308, %305
   br i1 %327, label %pmix_bfrops_base_tma_info_xfer.exit, label %328
 
 328:                                              ; preds = %.lr.ph1297
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %322, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %322, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %328, %331
@@ -7938,7 +7938,7 @@ pmix_bfrops_base_tma_info_xfer.exit:              ; preds = %.lr.ph1297, %341, %
   br i1 %357, label %pmix_bfrops_base_tma_info_xfer.exit1022, label %361
 
 361:                                              ; preds = %358
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %359, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %359, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i.i1013
 
 .lr.ph.i.i.i1013:                                 ; preds = %361, %364
@@ -8036,7 +8036,7 @@ pmix_bfrops_base_tma_load_nspace.exit1187:        ; preds = %387, %pmix_strncpy.
   store i32 %397, ptr %398, align 8
   %399 = getelementptr inbounds i8, ptr %388, i64 260
   %400 = getelementptr inbounds i8, ptr %389, i64 260
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %399, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %399, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i1171
 
 .lr.ph.i.i1171:                                   ; preds = %pmix_bfrops_base_tma_load_nspace.exit1187, %403
@@ -8117,11 +8117,11 @@ pmix_tma_malloc.exit1026:                         ; preds = %415, %418
   br i1 %.not.i, label %435, label %436
 
 435:                                              ; preds = %430
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %434, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %434, i8 0, i64 64, i1 false)
   br label %pmix_obj_construct_tma.exit
 
 436:                                              ; preds = %430
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %434, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %434, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   br label %pmix_obj_construct_tma.exit
 
 pmix_obj_construct_tma.exit:                      ; preds = %435, %436
@@ -8809,8 +8809,8 @@ pmix_bfrops_base_tma_info_create.exit1080.thread: ; preds = %pmix_tma_malloc.exi
   %.014.i1077 = phi i64 [ %757, %.preheader.i1076 ], [ 0, %pmix_tma_malloc.exit.i1074 ]
   %755 = getelementptr inbounds %struct.pmix_info, ptr %.0.i.i1075, i64 %.014.i1077
   %756 = getelementptr inbounds i8, ptr %755, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %756, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %755, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %756, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %755, i8 0, i64 516, i1 false)
   %757 = add nuw i64 %.014.i1077, 1
   %exitcond.not.i1078 = icmp eq i64 %757, %745
   br i1 %exitcond.not.i1078, label %pmix_bfrops_base_tma_info_create.exit1080, label %.preheader.i1076, !llvm.loop !4
@@ -8835,7 +8835,7 @@ pmix_bfrops_base_tma_info_create.exit1080:        ; preds = %.preheader.i1076
   br i1 %767, label %pmix_bfrops_base_tma_info_xfer.exit1091, label %768
 
 768:                                              ; preds = %.lr.ph1269
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %762, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %762, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i.i1082
 
 .lr.ph.i.i.i1082:                                 ; preds = %768, %771
@@ -9098,7 +9098,7 @@ pmix_tma_strdup.exit1108:                         ; preds = %877, %880
   %884 = getelementptr inbounds %struct.pmix_regattr_t, ptr %866, i64 %.08421262
   %885 = getelementptr inbounds i8, ptr %884, i64 8
   %886 = getelementptr inbounds i8, ptr %874, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %885, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %885, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %883, %889
@@ -9691,7 +9691,7 @@ pmix_tma_malloc.exit1149:                         ; preds = %1155, %1158
 1165:                                             ; preds = %.lr.ph1247, %pmix_bfrops_base_tma_load_nspace.exit
   %.08251246 = phi i64 [ 0, %.lr.ph1247 ], [ %1174, %pmix_bfrops_base_tma_load_nspace.exit ]
   %1166 = getelementptr inbounds [256 x i8], ptr %.0.i1148, i64 %.08251246
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %1166, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %1166, i8 0, i64 256, i1 false)
   br i1 %.not.i1150, label %pmix_bfrops_base_tma_load_nspace.exit, label %.lr.ph.i.i1151.preheader
 
 .lr.ph.i.i1151.preheader:                         ; preds = %1165
@@ -9770,7 +9770,7 @@ pmix_tma_strdup.exit.i:                           ; preds = %1193, %1190
 1195:                                             ; preds = %pmix_tma_strdup.exit.i, %1185
   %1196 = getelementptr inbounds i8, ptr %1186, i64 8
   %1197 = getelementptr inbounds i8, ptr %1187, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(260) %1196, ptr noundef nonnull readonly align 8 dereferenceable(260) %1197, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %1196, ptr noundef nonnull align 8 dereferenceable(260) %1197, i64 260, i1 false)
   %1198 = getelementptr inbounds i8, ptr %1187, i64 268
   %1199 = load i32, ptr %1198, align 4
   %1200 = getelementptr inbounds i8, ptr %1186, i64 268
@@ -9805,7 +9805,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %1195, %pmix_tma_str
   store i8 %1211, ptr %1212, align 8
   %1213 = getelementptr inbounds i8, ptr %1186, i64 288
   %1214 = getelementptr inbounds i8, ptr %1187, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1213, ptr noundef nonnull readonly align 8 dereferenceable(16) %1214, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1213, ptr noundef nonnull align 8 dereferenceable(16) %1214, i64 16, i1 false)
   %1215 = getelementptr inbounds i8, ptr %1187, i64 308
   %1216 = load i32, ptr %1215, align 4
   %1217 = getelementptr inbounds i8, ptr %1186, i64 308
@@ -10095,7 +10095,7 @@ pmix_tma_malloc.exit:                             ; preds = %4, %7
 10:                                               ; preds = %pmix_tma_malloc.exit
   store i8 0, ptr %.0.i, align 8
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load i8, ptr %1, align 8
   store i8 %12, ptr %.0.i, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 16
@@ -10171,7 +10171,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %4
   br i1 %.not.i, label %pmix_tma_free.exit, label %9
 
 9:                                                ; preds = %pmix_tma_malloc.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.0.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i8 0, i64 16, i1 false)
   %10 = tail call i32 @pmix_hwloc_copy_topology(ptr noundef nonnull %.0.i.i, ptr noundef %1) #13
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
@@ -10535,7 +10535,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %4
 
 .preheader.i.preheader:                           ; preds = %pmix_tma_malloc.exit.i
   %9 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.0.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i, i8 0, i64 32, i1 false)
   store i16 -1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %.0.i.i, i64 26
   store i16 -1, ptr %10, align 2
@@ -10736,7 +10736,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %4
 .preheader.i.preheader:                           ; preds = %pmix_tma_malloc.exit.i
   %9 = getelementptr inbounds i8, ptr %.0.i.i, i64 528
   store ptr null, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(522) %.0.i.i, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %.0.i.i, i8 0, i64 522, i1 false)
   store ptr %.0.i.i, ptr %0, align 8
   %10 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %10, null
@@ -10771,7 +10771,7 @@ pmix_tma_strdup.exit:                             ; preds = %12, %16
   %20 = phi ptr [ %.pre19, %pmix_tma_strdup.exit ], [ %.0.i.i, %.preheader.i.preheader ]
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %21, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %21, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %25
@@ -10831,7 +10831,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %7, %4
   br i1 %.not.i, label %pmix_bfrops_base_tma_data_buffer_create.exit.thread, label %9
 
 9:                                                ; preds = %pmix_tma_malloc.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %.0.i.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i, i8 0, i64 40, i1 false)
   store ptr %.0.i.i, ptr %0, align 8
   %10 = tail call i32 @PMIx_Data_copy_payload(ptr noundef nonnull %.0.i.i, ptr noundef %1) #13
   br label %pmix_bfrops_base_tma_data_buffer_create.exit.thread
@@ -10888,7 +10888,7 @@ pmix_tma_strdup.exit.i:                           ; preds = %16, %12
 18:                                               ; preds = %pmix_tma_strdup.exit.i, %9
   %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %20 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(260) %19, ptr noundef nonnull readonly align 8 dereferenceable(260) %20, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %19, ptr noundef nonnull align 8 dereferenceable(260) %20, i64 260, i1 false)
   %21 = getelementptr inbounds i8, ptr %1, i64 268
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 268
@@ -10924,7 +10924,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %18, %pmix_tma_strdu
   store i8 %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 288
   %38 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 8 dereferenceable(16) %38, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   %39 = getelementptr inbounds i8, ptr %1, i64 308
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 308
@@ -11531,7 +11531,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
 .preheader:                                       ; preds = %pmix_tma_malloc.exit, %.preheader
   %.014 = phi i64 [ %12, %.preheader ], [ 0, %pmix_tma_malloc.exit ]
   %11 = getelementptr inbounds %struct.pmix_envar_t, ptr %.0.i, i64 %.014
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %11, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %11, i8 0, i64 17, i1 false)
   %12 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %12, %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !83
@@ -11570,7 +11570,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   %11 = getelementptr inbounds %struct.pmix_regattr_t, ptr %.0.i, i64 %.014
   %12 = getelementptr inbounds i8, ptr %11, i64 528
   store ptr null, ptr %12, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(522) %11, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %11, i8 0, i64 522, i1 false)
   %13 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %13, %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !84
@@ -11746,7 +11746,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   %.014 = phi i64 [ %14, %.preheader ], [ 0, %pmix_tma_malloc.exit ]
   %11 = getelementptr inbounds %struct.pmix_device_distance, ptr %.0.i, i64 %.014
   %12 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store i16 -1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 26
   store i16 -1, ptr %13, align 2

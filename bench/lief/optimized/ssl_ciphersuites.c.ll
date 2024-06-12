@@ -311,7 +311,7 @@ define hidden i32 @mbedtls_ssl_get_ciphersuite_id(ptr noundef readonly %0) local
   %.08.i = phi ptr [ %8, %7 ], [ @ciphersuite_definitions, %1 ]
   %3 = getelementptr inbounds i8, ptr %.08.i, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %0) #7
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #7
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %mbedtls_ssl_ciphersuite_from_string.exit, label %7
 

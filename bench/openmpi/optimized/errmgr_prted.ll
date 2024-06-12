@@ -1943,7 +1943,7 @@ define internal fastcc void @killprocs() unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
@@ -1974,7 +1974,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   %27 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false)
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_proc_t_class, i64 40), align 8
   %30 = load ptr, ptr %29, align 8
   %.not6.i14 = icmp eq ptr %30, null

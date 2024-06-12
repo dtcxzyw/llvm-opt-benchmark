@@ -5600,7 +5600,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %arrayinit.element10.i = getelementptr inbounds i8, ptr %pl, i64 112
   store i32 2, ptr %arrayinit.element10.i, align 8
   %_lines.i = getelementptr inbounds i8, ptr %pl, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_lines.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_lines.i, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i12.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
           to label %invoke.cont15.i unwind label %lpad14.i
 
@@ -5610,7 +5610,7 @@ invoke.cont15.i:                                  ; preds = %invoke.cont14
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i12.i, i64 48
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %pl, i64 136
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %call5.i.i.i.i1.i.i12.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5.i.i.i.i1.i.i12.i, i8 0, i64 48, i1 false)
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %_tasks.i = getelementptr inbounds i8, ptr %pl, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_tasks.i, i8 0, i64 24, i1 false)
@@ -30996,7 +30996,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb

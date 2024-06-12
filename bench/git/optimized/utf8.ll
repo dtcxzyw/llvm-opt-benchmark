@@ -1658,12 +1658,12 @@ if.end11:                                         ; preds = %if.end, %if.else, %
   br i1 %cmp, label %is_encoding_utf8.exit.i, label %if.end22
 
 is_encoding_utf8.exit.i:                          ; preds = %if.end11
-  %call.i.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %spec.select)
+  %call.i.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %spec.select)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %fallback_encoding.exit
 
 if.end.i:                                         ; preds = %is_encoding_utf8.exit.i
-  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %spec.select, ptr noundef nonnull @.str.26) #21
+  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.26) #21
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   %.str.27.name.i = select i1 %tobool2.not.i, ptr @.str.27, ptr %spec.select
   br label %fallback_encoding.exit
@@ -1674,12 +1674,12 @@ fallback_encoding.exit:                           ; preds = %is_encoding_utf8.ex
   br i1 %tobool.not.i.i18, label %fallback_encoding.exit27, label %is_encoding_utf8.exit.i19
 
 is_encoding_utf8.exit.i19:                        ; preds = %fallback_encoding.exit
-  %call.i.i20 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %out_encoding.addr.0)
+  %call.i.i20 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %out_encoding.addr.0)
   %tobool.not.i21 = icmp eq i32 %call.i.i20, 0
   br i1 %tobool.not.i21, label %if.end.i23, label %fallback_encoding.exit27
 
 if.end.i23:                                       ; preds = %is_encoding_utf8.exit.i19
-  %call1.i24 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %out_encoding.addr.0, ptr noundef nonnull @.str.26) #21
+  %call1.i24 = tail call i32 @strcasecmp(ptr noundef nonnull %out_encoding.addr.0, ptr noundef nonnull @.str.26) #21
   %tobool2.not.i25 = icmp eq i32 %call1.i24, 0
   %.str.27.name.i26 = select i1 %tobool2.not.i25, ptr @.str.27, ptr %out_encoding.addr.0
   br label %fallback_encoding.exit27
@@ -1730,12 +1730,12 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %ent
   br i1 %or.cond4.i, label %lor.rhs, label %has_bom_prefix.exit
 
 has_bom_prefix.exit:                              ; preds = %land.lhs.true
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_be_bom, i64 2)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
   %tobool3.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool3.not.i.not, label %lor.end18, label %has_bom_prefix.exit17
 
 has_bom_prefix.exit17:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_le_bom, i64 2)
+  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
   %tobool3.not.i15.not = icmp eq i32 %bcmp.i14, 0
   br i1 %tobool3.not.i15.not, label %lor.end18, label %lor.rhs
 
@@ -1756,12 +1756,12 @@ land.rhs:                                         ; preds = %lor.lhs.false10, %l
   br i1 %or.cond4.i20, label %lor.end18, label %has_bom_prefix.exit25
 
 has_bom_prefix.exit25:                            ; preds = %land.rhs
-  %bcmp.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_be_bom, i64 4)
+  %bcmp.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
   %tobool3.not.i23.not = icmp eq i32 %bcmp.i22, 0
   br i1 %tobool3.not.i23.not, label %lor.end18, label %land.rhs.i29
 
 land.rhs.i29:                                     ; preds = %has_bom_prefix.exit25
-  %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_le_bom, i64 4)
+  %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
   %tobool3.not.i31 = icmp eq i32 %bcmp.i30, 0
   %0 = zext i1 %tobool3.not.i31 to i32
   br label %lor.end18
@@ -1785,12 +1785,12 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond4.i, label %lor.end12, label %has_bom_prefix.exit
 
 has_bom_prefix.exit:                              ; preds = %land.lhs.true
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_be_bom, i64 2)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
   %tobool3.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool3.not.i.not, label %lor.rhs, label %has_bom_prefix.exit15
 
 has_bom_prefix.exit15:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_le_bom, i64 2)
+  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
   %tobool3.not.i13.not = icmp eq i32 %bcmp.i12, 0
   br i1 %tobool3.not.i13.not, label %lor.rhs, label %lor.end12
 
@@ -1806,12 +1806,12 @@ land.rhs:                                         ; preds = %lor.rhs
   br i1 %or.cond4.i18, label %lor.end12, label %has_bom_prefix.exit23
 
 has_bom_prefix.exit23:                            ; preds = %land.rhs
-  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_be_bom, i64 4)
+  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
   %tobool3.not.i21.not = icmp eq i32 %bcmp.i20, 0
   br i1 %tobool3.not.i21.not, label %lor.end12, label %land.rhs.i27
 
 land.rhs.i27:                                     ; preds = %has_bom_prefix.exit23
-  %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_le_bom, i64 4)
+  %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
   %tobool3.not.i29 = icmp ne i32 %bcmp.i28, 0
   %0 = zext i1 %tobool3.not.i29 to i32
   br label %lor.end12
@@ -1846,7 +1846,7 @@ if.end:                                           ; preds = %cond.end.thread, %c
   br i1 %tobool.not.i, label %if.then2, label %is_encoding_utf8.exit
 
 is_encoding_utf8.exit:                            ; preds = %if.end
-  %call.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %encoding)
+  %call.i = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %encoding)
   %tobool1.not = icmp eq i32 %call.i, 0
   br i1 %tobool1.not, label %if.end9, label %if.then2
 

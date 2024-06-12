@@ -132,9 +132,9 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   %72 = getelementptr inbounds i8, ptr %25, i64 101
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %25, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(2576) %73, i8 0, i64 2576, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2576) %73, i8 0, i64 2576, i1 false)
   %74 = getelementptr inbounds i8, ptr %25, i64 2888
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(250) %74, i8 0, i64 250, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(250) %74, i8 0, i64 250, i1 false)
   %75 = getelementptr inbounds i8, ptr %25, i64 120
   store ptr %33, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %25, i64 128
@@ -397,8 +397,8 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   store i8 0, ptr %67, align 2
   store i32 0, ptr %66, align 4
   store i8 0, ptr %68, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(2576) %69, i8 0, i64 2576, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(250) %70, i8 0, i64 250, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2576) %69, i8 0, i64 2576, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(250) %70, i8 0, i64 250, i1 false)
   br label %108
 
 108:                                              ; preds = %107, %96, %93

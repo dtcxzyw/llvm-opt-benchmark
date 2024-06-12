@@ -4374,7 +4374,7 @@ for.body.i95:                                     ; preds = %for.body.i95.prehea
   br i1 %cmp.i104, label %for.body.i95, label %for.end.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %for.body.i95, %if.end105
-  invoke void @_ZN22btDeformableBodySolver11updateStateEv(ptr noundef nonnull readonly align 8 dereferenceable(609) %this)
+  invoke void @_ZN22btDeformableBodySolver11updateStateEv(ptr noundef nonnull align 8 dereferenceable(609) %this)
           to label %invoke.cont106 unwind label %lpad.loopexit
 
 invoke.cont106:                                   ; preds = %for.end.i

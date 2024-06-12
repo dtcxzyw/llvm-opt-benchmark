@@ -21,11 +21,11 @@ entry:
 
 sw.bb.i.i.i:                                      ; preds = %entry, %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call.i.i.i = call i32 @vfprintf(ptr noundef %0, ptr noundef readonly %format, ptr noundef nonnull %args) #7
+  %call.i.i.i = call i32 @vfprintf(ptr noundef %0, ptr noundef %format, ptr noundef nonnull %args) #7
   br label %invoke.cont
 
 sw.default.i.i.i:                                 ; preds = %entry
-  %call4.i.i.i = call i32 @vprintf(ptr noundef readonly %format, ptr noundef nonnull %args)
+  %call4.i.i.i = call i32 @vprintf(ptr noundef %format, ptr noundef nonnull %args)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %sw.default.i.i.i, %sw.bb.i.i.i
@@ -68,11 +68,11 @@ if.then.i:                                        ; preds = %entry, %cond.end
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i, %if.then.i
   %1 = load ptr, ptr @stderr, align 8
-  %call.i.i.i = call i32 @vfprintf(ptr noundef %1, ptr noundef readonly %format, ptr noundef nonnull %args) #7
+  %call.i.i.i = call i32 @vfprintf(ptr noundef %1, ptr noundef %format, ptr noundef nonnull %args) #7
   br label %invoke.cont2
 
 sw.default.i.i.i:                                 ; preds = %if.then.i
-  %call4.i.i.i = call i32 @vprintf(ptr noundef readonly %format, ptr noundef nonnull %args)
+  %call4.i.i.i = call i32 @vprintf(ptr noundef %format, ptr noundef nonnull %args)
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %cond.end
@@ -107,11 +107,11 @@ if.then.i:                                        ; preds = %entry
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i, %if.then.i
   %0 = load ptr, ptr @stderr, align 8
-  %call.i.i.i = call i32 @vfprintf(ptr noundef %0, ptr noundef readonly %format, ptr noundef nonnull %args) #7
+  %call.i.i.i = call i32 @vfprintf(ptr noundef %0, ptr noundef %format, ptr noundef nonnull %args) #7
   br label %invoke.cont
 
 sw.default.i.i.i:                                 ; preds = %if.then.i
-  %call4.i.i.i = call i32 @vprintf(ptr noundef readonly %format, ptr noundef nonnull %args)
+  %call4.i.i.i = call i32 @vprintf(ptr noundef %format, ptr noundef nonnull %args)
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
@@ -148,11 +148,11 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry, %entry
   %2 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 @vfprintf(ptr noundef %2, ptr noundef readonly %format, ptr noundef %args) #7
+  %call.i = tail call i32 @vfprintf(ptr noundef %2, ptr noundef %format, ptr noundef %args) #7
   br label %"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.exit"
 
 sw.default.i:                                     ; preds = %entry
-  %call4.i = tail call i32 @vprintf(ptr noundef readonly %format, ptr noundef %args)
+  %call4.i = tail call i32 @vprintf(ptr noundef %format, ptr noundef %args)
   br label %"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.exit"
 
 "_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.exit": ; preds = %sw.bb.i, %sw.default.i

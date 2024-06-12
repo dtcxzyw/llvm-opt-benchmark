@@ -1481,7 +1481,7 @@ if.end:                                           ; preds = %cond.end
   %2 = load ptr, ptr %module3, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -1767,7 +1767,7 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -1846,7 +1846,7 @@ entry:
   %0 = load ptr, ptr %module_cmd, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
@@ -1898,7 +1898,7 @@ entry:
   %0 = load ptr, ptr %module_cmd, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
@@ -2468,7 +2468,7 @@ if.end3:                                          ; preds = %cond.end
 
 if.end7:                                          ; preds = %if.end, %if.end3
   %cond1723 = phi i64 [ %call, %if.end3 ], [ 0, %if.end ]
-  %call.i = tail call ptr @strpbrk(ptr noundef readonly %name, ptr noundef nonnull @.str.3) #36
+  %call.i = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %if.end11, label %return
 
@@ -2726,7 +2726,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %call.i = tail call ptr @strpbrk(ptr noundef readonly %name, ptr noundef nonnull @.str.3) #36
+  %call.i = tail call ptr @strpbrk(ptr noundef %name, ptr noundef nonnull @.str.3) #36
   %tobool.not.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.not, label %if.end18, label %return
 
@@ -14723,7 +14723,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #36
   %cmp.not.i = icmp ne i64 %call.i, 9
   %or.cond.i = icmp ugt i32 %encver, 1023
   %or.cond10.i = or i1 %or.cond.i, %cmp.not.i
@@ -14760,7 +14760,7 @@ moduleTypeEncodeId.exit:                          ; preds = %if.end8.i
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %moduleTypeEncodeId.exit
-  %call.i50 = tail call ptr @moduleTypeLookupModuleByNameInternal(ptr noundef nonnull readonly %name, i32 noundef 0)
+  %call.i50 = tail call ptr @moduleTypeLookupModuleByNameInternal(ptr noundef nonnull %name, i32 noundef 0)
   %cmp4.not = icmp eq ptr %call.i50, null
   br i1 %cmp4.not, label %if.end6, label %return
 
@@ -16532,7 +16532,7 @@ if.end:                                           ; preds = %entry
   %module = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -16750,7 +16750,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17213,7 +17213,7 @@ if.end:                                           ; preds = %while.body
   %and = and i64 %6, -140737488355329
   store i64 %and, ptr %flags, align 8
   %7 = load ptr, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %7, ptr %module1.i, align 8
   %8 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4
@@ -17276,7 +17276,7 @@ if.then3:                                         ; preds = %if.end
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17458,7 +17458,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17735,7 +17735,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
@@ -17872,7 +17872,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 if.then:                                          ; preds = %land.lhs.true4
   %module = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load ptr, ptr %module, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %13, ptr %module1.i, align 8
   store i32 4, ptr %flags.i, align 8
@@ -17936,7 +17936,7 @@ land.lhs.true.i:                                  ; preds = %if.end.split
 if.then.i:                                        ; preds = %land.lhs.true.i
   %module.i = getelementptr inbounds i8, ptr %8, i64 8
   %27 = load ptr, ptr %module.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %4, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx.i, align 8
   store ptr %27, ptr %module1.i53, align 8
   store i32 32, ptr %flags.i54, align 8
@@ -18210,7 +18210,7 @@ cond.end.split:                                   ; preds = %entry
   %0 = load ptr, ptr %module1, align 8
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1.i, align 8
@@ -18238,7 +18238,7 @@ if.else11.i:                                      ; preds = %cond.end.split
 if.then.split:                                    ; preds = %entry
   %7 = getelementptr inbounds i8, ptr %call, i64 16
   %8 = getelementptr inbounds i8, ptr %call, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %8, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i17 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %module1.i17, align 8
@@ -18309,7 +18309,7 @@ entry:
   %0 = load ptr, ptr %module, align 8
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = getelementptr inbounds i8, ptr %call, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
   %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1.i, align 8
@@ -18521,7 +18521,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %6 = load ptr, ptr %value, align 8
   call void @listDelNode(ptr noundef nonnull %4, ptr noundef %5) #32
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %7, ptr %module1.i, align 8
   store i32 64, ptr %flags.i, align 8
@@ -18741,7 +18741,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %tobool5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %.pre, ptr %module1.i, align 8
   store i32 64, ptr %flags.i, align 8
@@ -18883,7 +18883,7 @@ if.then:                                          ; preds = %while.body
   %1 = load ptr, ptr %module, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %3, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
@@ -18973,7 +18973,7 @@ if.end:                                           ; preds = %entry
   %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %cmp.not.i.not = icmp eq i64 %call.i, 9
   br i1 %cmp.not.i.not, label %for.cond.preheader.i, label %moduleTypeEncodeId.exit
 
@@ -19085,7 +19085,7 @@ if.end:                                           ; preds = %entry
   %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %cmp.not.i.not = icmp eq i64 %call.i, 9
   br i1 %cmp.not.i.not, label %for.cond.preheader.i, label %moduleTypeEncodeId.exit
 
@@ -19433,7 +19433,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %modu
 if.then4:                                         ; preds = %if.end
   %4 = load ptr, ptr %data, align 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %5, ptr %module1.i, align 8
   store i32 64, ptr %flags.i, align 8
@@ -24432,7 +24432,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 if.then2.us:                                      ; preds = %while.body.us
   %7 = load ptr, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %7, ptr %module1.i36, align 8
   %8 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4
@@ -24508,7 +24508,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then2:                                         ; preds = %while.body
   %22 = load ptr, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %22, ptr %module1.i36, align 8
   store i32 64, ptr %flags.i37, align 8
@@ -24592,7 +24592,7 @@ if.then20:                                        ; preds = %if.else17
   br i1 %cmp.not.i, label %modulePopulateReplicationInfoStructure.exit.thread, label %cond.false34
 
 modulePopulateReplicationInfoStructure.exit.thread: ; preds = %if.then20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 24, i1 false)
   store i64 1, ptr %riv1, align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %cmp1.i = icmp eq ptr %34, null
@@ -26069,7 +26069,7 @@ if.end23:                                         ; preds = %if.then18
 if.end25:                                         ; preds = %if.end15
   %4 = getelementptr inbounds i8, ptr %ctx, i64 16
   %5 = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %5, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr null, ptr %module1.i, align 8
@@ -27947,7 +27947,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load ptr, ptr %value, align 8
   %module = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %module, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
   store ptr %4, ptr %module1.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4

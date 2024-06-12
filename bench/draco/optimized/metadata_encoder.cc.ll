@@ -283,7 +283,7 @@ define noundef zeroext i1 @_ZN5draco15MetadataEncoder22EncodeGeometryMetadataEPN
   %19 = getelementptr inbounds i8, ptr %17, i64 96
   %20 = load i32, ptr %19, align 8
   %21 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %20, ptr noundef %1)
-  %22 = tail call noundef zeroext i1 @_ZN5draco15MetadataEncoder14EncodeMetadataEPNS_13EncoderBufferEPKNS_8MetadataE(ptr noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull %17)
+  %22 = tail call noundef zeroext i1 @_ZN5draco15MetadataEncoder14EncodeMetadataEPNS_13EncoderBufferEPKNS_8MetadataE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull %17)
   br label %_ZN5draco15MetadataEncoder23EncodeAttributeMetadataEPNS_13EncoderBufferEPKNS_17AttributeMetadataE.exit
 
 _ZN5draco15MetadataEncoder23EncodeAttributeMetadataEPNS_13EncoderBufferEPKNS_17AttributeMetadataE.exit: ; preds = %.lr.ph, %18

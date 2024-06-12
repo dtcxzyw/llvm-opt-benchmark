@@ -9436,7 +9436,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
   br i1 %.not27.i, label %167, label %165
 
 165:                                              ; preds = %163
-  %166 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %153) #19
+  %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %153) #19
   %.not28.i = icmp eq i32 %166, 0
   br i1 %.not28.i, label %167, label %H5T_path_match.exit
 
@@ -12235,7 +12235,7 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   %.2114174.i = phi ptr [ %.2114.i, %206 ], [ %.2114.i, %208 ], [ null, %.thread.i ]
   %.2106.i = phi ptr [ %.0104.i270277, %206 ], [ null, %208 ], [ null, %.thread.i ]
   %215 = getelementptr inbounds i8, ptr %120, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %216 = getelementptr inbounds i8, ptr %120, i64 64
   store i8 1, ptr %216, align 8
   br label %217

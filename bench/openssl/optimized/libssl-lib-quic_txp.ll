@@ -1207,9 +1207,9 @@ if.end.i.i:                                       ; preds = %if.end, %if.end.thr
   %version.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 156
   store i32 1, ptr %version.i.i, align 4
   %dst_conn_id.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %cur_dcid.i.i, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i, ptr noundef nonnull align 1 dereferenceable(21) %cur_dcid.i.i, i64 21, i1 false)
   %src_conn_id.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id.i.i, ptr noundef nonnull readonly align 8 dereferenceable(21) %txp, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %src_conn_id.i.i, ptr noundef nonnull align 8 dereferenceable(21) %txp, i64 21, i1 false)
   %len.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 224
   store i64 16379, ptr %len.i.i, align 8
   br i1 %cmp7.not, label %if.then24.i.i, label %if.end27.i.i
@@ -1908,7 +1908,7 @@ if.end14.i.i:                                     ; preds = %if.end8.i.i
 
 determine_crypto_len.exit.i.i:                    ; preds = %if.end14.i.i
   %dec.i.i.i = add i64 %call.i.i214.i, -1
-  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %131, i64 noundef %dec.i.i.i, ptr noundef nonnull writeonly %hdr_bytes.i.i, ptr noundef nonnull writeonly %len10.i.i)
+  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %131, i64 noundef %dec.i.i.i, ptr noundef nonnull %hdr_bytes.i.i, ptr noundef nonnull %len10.i.i)
   %tobool17.not.i.i = icmp eq i32 %call8.i.i.i, 0
   br i1 %tobool17.not.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end19.i.i
 
@@ -2590,7 +2590,7 @@ determine_stream_len.exit.i.i:                    ; preds = %if.end46.i.i
   %sext.i.i.i = sub nsw i8 0, %205
   %dec.i.i.i274 = sext i8 %sext.i.i.i to i64
   %spec.select.i118.i.i = add i64 %call.i116.i.i, %dec.i.i.i274
-  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull writeonly %hdr_len_implicit.i.i, ptr noundef nonnull writeonly %payload_len_implicit.i.i)
+  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull %hdr_len_implicit.i.i, ptr noundef nonnull %payload_len_implicit.i.i)
   %tobool50.not.i.i275 = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool50.not.i.i275, label %if.end158.thread.i, label %if.end52.i.i
 
@@ -2634,7 +2634,7 @@ determine_stream_len.exit131.i.i:                 ; preds = %if.then71.i.i
   %sext.i126.i.i = sub nsw i8 0, %211
   %dec.i127.i.i = sext i8 %sext.i126.i.i to i64
   %spec.select.i128.i.i = add i64 %call.i121.i.i, %dec.i127.i.i
-  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull writeonly %hdr_len_explicit.i.i, ptr noundef nonnull writeonly %payload_len_explicit.i.i)
+  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull %hdr_len_explicit.i.i, ptr noundef nonnull %payload_len_explicit.i.i)
   %tobool77.not.i.i = icmp eq i32 %call10.i129.i.i, 0
   br i1 %tobool77.not.i.i, label %if.end158.thread.i, label %if.end79.i.i
 

@@ -132,7 +132,7 @@ lastlevel.exit:                                   ; preds = %while.body2.i, %whi
   br i1 %tobool.not, label %if.then.i.i17, label %if.then
 
 if.then:                                          ; preds = %lastlevel.exit
-  %call.i13 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %msg) #19
+  %call.i13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #19
   %cmp.not.i.i = icmp eq i64 %call.i13, 0
   br i1 %cmp.not.i.i, label %if.then.luaL_addstring.exit_crit_edge, label %if.then.i.i
 
@@ -142,7 +142,7 @@ if.then.luaL_addstring.exit_crit_edge:            ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %if.then
   %call.i.i = call fastcc ptr @prepbuffsize(ptr noundef nonnull %b, i64 noundef %call.i13, i32 noundef -1)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull readonly align 1 %msg, i64 %call.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %msg, i64 %call.i13, i1 false)
   %1 = load i64, ptr %n.i, align 8
   %add.i.i = add i64 %1, %call.i13
   store i64 %add.i.i, ptr %n.i, align 8
@@ -170,7 +170,7 @@ lor.end:                                          ; preds = %lor.rhs, %luaL_adds
 
 if.then.i.i17:                                    ; preds = %lastlevel.exit, %lor.end
   %call.i.i18 = call fastcc ptr @prepbuffsize(ptr noundef nonnull %b, i64 noundef 16, i32 noundef -1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call.i.i18, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call.i.i18, ptr noundef nonnull align 1 dereferenceable(16) @.str, i64 16, i1 false)
   %6 = load i64, ptr %n.i, align 8
   %add.i.i20 = add i64 %6, 16
   store i64 %add.i.i20, ptr %n.i, align 8
@@ -307,7 +307,7 @@ pushfuncname.exit:                                ; preds = %if.then.i, %if.then
 
 if.then.i.i43:                                    ; preds = %pushfuncname.exit
   %call.i.i44 = call fastcc ptr @prepbuffsize(ptr noundef nonnull %b, i64 noundef 20, i32 noundef -1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call.i.i44, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.5, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call.i.i44, ptr noundef nonnull align 1 dereferenceable(20) @.str.5, i64 20, i1 false)
   %30 = load i64, ptr %n.i, align 8
   %add.i.i46 = add i64 %30, 20
   store i64 %add.i.i46, ptr %n.i, align 8
@@ -362,7 +362,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %call, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr readonly align 1 %s, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %s, i64 %call, i1 false)
   %n.i = getelementptr inbounds i8, ptr %B, i64 16
   %0 = load i64, ptr %n.i, align 8
   %add.i = add i64 %0, %call
@@ -2072,20 +2072,20 @@ if.then.i:                                        ; preds = %while.body
   %sub.ptr.lhs.cast = ptrtoint ptr %call119 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call.i = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %sub.ptr.sub, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr readonly align 1 %s.addr.018, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %s.addr.018, i64 %sub.ptr.sub, i1 false)
   %0 = load i64, ptr %n.i, align 8
   %add.i = add i64 %0, %sub.ptr.sub
   store i64 %add.i, ptr %n.i, align 8
   br label %luaL_addlstring.exit
 
 luaL_addlstring.exit:                             ; preds = %while.body, %if.then.i
-  %call.i8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %r) #19
+  %call.i8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %r) #19
   %cmp.not.i.i = icmp eq i64 %call.i8, 0
   br i1 %cmp.not.i.i, label %luaL_addstring.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %luaL_addlstring.exit
   %call.i.i = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %call.i8, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr readonly align 1 %r, i64 %call.i8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %r, i64 %call.i8, i1 false)
   %1 = load i64, ptr %n.i, align 8
   %add.i.i = add i64 %1, %call.i8
   store i64 %add.i.i, ptr %n.i, align 8
@@ -2099,13 +2099,13 @@ luaL_addstring.exit:                              ; preds = %luaL_addlstring.exi
 
 while.end:                                        ; preds = %luaL_addstring.exit, %entry
   %s.addr.0.lcssa = phi ptr [ %s, %entry ], [ %add.ptr, %luaL_addstring.exit ]
-  %call.i9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s.addr.0.lcssa) #19
+  %call.i9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.addr.0.lcssa) #19
   %cmp.not.i.i10 = icmp eq i64 %call.i9, 0
   br i1 %cmp.not.i.i10, label %luaL_addstring.exit15, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %while.end
   %call.i.i12 = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %call.i9, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i12, ptr readonly align 1 %s.addr.0.lcssa, i64 %call.i9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i12, ptr align 1 %s.addr.0.lcssa, i64 %call.i9, i1 false)
   %n.i.i13 = getelementptr inbounds i8, ptr %b, i64 16
   %2 = load i64, ptr %n.i.i13, align 8
   %add.i.i14 = add i64 %2, %call.i9
@@ -2219,7 +2219,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %checkcontrol.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.61) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.61) #19
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %return.sink.split.i, label %sub_0.i
 
@@ -2396,7 +2396,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %if.end
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.61) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.61) #19
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %return.sink.split, label %sub_0.i
 
@@ -2423,7 +2423,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
   %9 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %9)
   %10 = load ptr, ptr @stderr, align 8
-  %fputs.i = tail call i32 @fputs(ptr nonnull readonly %message, ptr %10) #22
+  %fputs.i = tail call i32 @fputs(ptr nonnull %message, ptr %10) #22
   %11 = load ptr, ptr @stderr, align 8
   %call1.i = tail call i32 @fflush(ptr noundef %11)
   %12 = load ptr, ptr @stderr, align 8
@@ -2436,7 +2436,7 @@ warnfcont.exit.critedge:                          ; preds = %entry
   %15 = load ptr, ptr @stderr, align 8
   %call2.c = tail call i32 @fflush(ptr noundef %15)
   %16 = load ptr, ptr @stderr, align 8
-  %fputs.i.c = tail call i32 @fputs(ptr readonly %message, ptr %16) #22
+  %fputs.i.c = tail call i32 @fputs(ptr %message, ptr %16) #22
   br label %warnfcont.exit
 
 warnfcont.exit:                                   ; preds = %warnfcont.exit.critedge, %if.end

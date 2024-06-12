@@ -2244,7 +2244,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit.i: ; preds = %if.end4.i.i, %if.t
   %conv.i = sext i32 %retval.0.i.i43 to i64
   %mul.i = mul i64 %25, %conv.i
   %add.ptr.i44 = getelementptr inbounds i8, ptr %27, i64 %mul.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr align 1 %add.ptr.i44, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr.i44, i64 %25, i1 false)
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit.i, %_ZNK8facebook5velox9Timestamp8toMicrosEv.exit.i, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit.i, %if.then17
@@ -2577,7 +2577,7 @@ _ZN8facebook5velox3row10CompactRow12serializeMapEiPc.exit: ; preds = %sw.bb11, %
   %34 = load i64, ptr %33, align 8
   %and.i.i = and i64 %34, 1
   %tobool.i11.i = icmp ne i64 %and.i.i, 0
-  %call10.i29 = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %32, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i11.i, ptr noundef %buffer)
+  %call10.i29 = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %32, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i11.i, ptr noundef %buffer)
   %35 = load ptr, ptr %children_.i27, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 224
   %36 = load ptr, ptr %childIsFixedWidth_.i28, align 8
@@ -2586,7 +2586,7 @@ _ZN8facebook5velox3row10CompactRow12serializeMapEiPc.exit: ; preds = %sw.bb11, %
   %tobool.i16.i = icmp ne i64 %and.i15.i, 0
   %idx.ext.i = sext i32 %call10.i29 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext.i
-  %call17.i = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i.i, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i16.i, ptr noundef %add.ptr.i)
+  %call17.i = tail call noundef i32 @_ZN8facebook5velox3row10CompactRow16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i.i, i32 noundef %29, i32 noundef %31, i1 noundef zeroext %tobool.i16.i, ptr noundef %add.ptr.i)
   %add.i = add nsw i32 %call17.i, %call10.i29
   br label %return
 
@@ -3388,7 +3388,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit.i: ; preds = %if.end4.i.i, %if.t
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 %mul.i
   %conv7.i = sext i32 %size to i64
   %mul8.i = mul i64 %23, %conv7.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr8, ptr nonnull align 1 %add.ptr.i, i64 %mul8.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr8, ptr nonnull align 1 %add.ptr.i, i64 %mul8.i, i1 false)
   br label %_ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit
 
 _ZN8facebook5velox3row10CompactRow19serializeFixedWidthEiiPc.exit: ; preds = %if.end7, %_ZNK8facebook5velox13DecodedVector5indexEi.exit.i
@@ -3601,7 +3601,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit.i132: ; preds = %if.end4.i.i130,
   %61 = load i64, ptr %valueBytes_.i135, align 8
   %mul.i136 = mul i64 %61, %conv.i134
   %add.ptr.i137 = getelementptr inbounds i8, ptr %40, i64 %mul.i136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr25, ptr align 1 %add.ptr.i137, i64 %61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %add.ptr.i137, i64 %61, i1 false)
   br label %if.end26
 
 if.end26:                                         ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit.i132, %_ZNK8facebook5velox9Timestamp8toMicrosEv.exit.i, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit.i, %if.then22

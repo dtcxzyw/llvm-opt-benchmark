@@ -1315,7 +1315,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false)
   %call1 = tail call ptr @bdrv_next(ptr noundef %it)
   ret ptr %call1
 }
@@ -1367,7 +1367,7 @@ if.else9:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %blk_bs.exit, %if.else9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, i8 0, i64 24, i1 false)
   ret void
 }
 
@@ -1438,7 +1438,7 @@ blk_next.exit.i:                                  ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %blk_next.exit.i
   %2 = load ptr, ptr %cond.i.i, align 8
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #19
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #19
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.then15, label %while.cond.i, !llvm.loop !12
 

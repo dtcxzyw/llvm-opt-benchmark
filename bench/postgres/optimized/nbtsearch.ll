@@ -129,7 +129,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   %62 = sdiv i32 %61, 2
   %63 = trunc nsw i32 %62 to i16
   %64 = add i16 %.02735.i, %63
-  %65 = tail call i32 @_bt_compare(ptr noundef readonly %0, ptr noundef %2, ptr noundef %.0.i.i6163, i16 noundef zeroext %64)
+  %65 = tail call i32 @_bt_compare(ptr noundef %0, ptr noundef %2, ptr noundef %.0.i.i6163, i16 noundef zeroext %64)
   %.not33.i = icmp slt i32 %65, %57
   %66 = add i16 %64, 1
   %.129.i = select i1 %.not33.i, i16 %64, i16 %.02834.i
@@ -1805,7 +1805,7 @@ BufferGetPage.exit.i206:                          ; preds = %402, %396
   %434 = sdiv i32 %433, 2
   %435 = trunc nsw i32 %434 to i16
   %436 = add i16 %.02735.i, %435
-  %437 = call i32 @_bt_compare(ptr noundef readonly %9, ptr noundef nonnull %4, ptr noundef %.0.i.i.i207, i16 noundef zeroext %436)
+  %437 = call i32 @_bt_compare(ptr noundef %9, ptr noundef nonnull %4, ptr noundef %.0.i.i.i207, i16 noundef zeroext %436)
   %.not33.i = icmp slt i32 %437, %429
   %438 = add i16 %436, 1
   %.129.i = select i1 %.not33.i, i16 %436, i16 %.02834.i
@@ -2136,7 +2136,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %102
 BTreeTupleIsPosting.exit.thread:                  ; preds = %102, %BTreeTupleIsPosting.exit
   %109 = sext i32 %.0143.ph245 to i64
   %110 = getelementptr [1358 x %struct.BTScanPosItem], ptr %82, i64 0, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %110, ptr noundef nonnull readonly align 2 dereferenceable(6) %98, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %110, ptr noundef nonnull align 2 dereferenceable(6) %98, i64 6, i1 false)
   %111 = getelementptr inbounds i8, ptr %110, i64 6
   store i16 %.us-phi235, ptr %111, align 2
   %112 = load ptr, ptr %83, align 8
@@ -2155,7 +2155,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %102, %BTreeTupleIsP
   %121 = load i32, ptr %63, align 4
   %122 = sext i32 %121 to i64
   %123 = getelementptr i8, ptr %120, i64 %122
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %123, ptr nonnull readonly align 2 %98, i64 %116, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %123, ptr nonnull align 2 %98, i64 %116, i1 false)
   %124 = load i32, ptr %63, align 4
   %narrow.i = add nuw nsw i16 %115, 7
   %125 = and i16 %narrow.i, 16376
@@ -2179,7 +2179,7 @@ _bt_saveitem.exit:                                ; preds = %BTreeTupleIsPosting
   %135 = getelementptr i8, ptr %98, i64 %134
   %136 = sext i32 %.0143.ph245 to i64
   %137 = getelementptr [1358 x %struct.BTScanPosItem], ptr %82, i64 0, i64 %136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %137, ptr noundef nonnull readonly align 2 dereferenceable(6) %135, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %137, ptr noundef nonnull align 2 dereferenceable(6) %135, i64 6, i1 false)
   %138 = getelementptr inbounds i8, ptr %137, i64 6
   store i16 %.us-phi235, ptr %138, align 2
   %139 = load ptr, ptr %83, align 8
@@ -2203,7 +2203,7 @@ _bt_saveitem.exit:                                ; preds = %BTreeTupleIsPosting
   %151 = load i32, ptr %63, align 4
   %152 = sext i32 %151 to i64
   %153 = getelementptr i8, ptr %150, i64 %152
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %153, ptr nonnull readonly align 2 %98, i64 %146, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %153, ptr nonnull align 2 %98, i64 %146, i1 false)
   %154 = getelementptr inbounds i8, ptr %153, i64 6
   %155 = load i16, ptr %154, align 2
   %156 = and i16 %155, -8192
@@ -2238,7 +2238,7 @@ _bt_setuppostingitems.exit:                       ; preds = %129, %140
   %169 = getelementptr %struct.ItemPointerData, ptr %168, i64 %indvars.iv266
   %170 = sext i32 %.1144240 to i64
   %171 = getelementptr [1358 x %struct.BTScanPosItem], ptr %82, i64 0, i64 %170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %171, ptr noundef nonnull readonly align 2 dereferenceable(6) %169, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %171, ptr noundef nonnull align 2 dereferenceable(6) %169, i64 6, i1 false)
   %172 = getelementptr inbounds i8, ptr %171, i64 6
   store i16 %.us-phi235, ptr %172, align 2
   %173 = load ptr, ptr %83, align 8
@@ -2421,7 +2421,7 @@ BTreeTupleIsPosting.exit180.thread:               ; preds = %248, %BTreeTupleIsP
   %255 = add i32 %.4.ph224, -1
   %256 = sext i32 %255 to i64
   %257 = getelementptr [1358 x %struct.BTScanPosItem], ptr %222, i64 0, i64 %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %257, ptr noundef nonnull readonly align 2 dereferenceable(6) %244, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %257, ptr noundef nonnull align 2 dereferenceable(6) %244, i64 6, i1 false)
   %258 = getelementptr inbounds i8, ptr %257, i64 6
   store i16 %.us-phi213, ptr %258, align 2
   %259 = load ptr, ptr %223, align 8
@@ -2440,7 +2440,7 @@ BTreeTupleIsPosting.exit180.thread:               ; preds = %248, %BTreeTupleIsP
   %268 = load i32, ptr %63, align 4
   %269 = sext i32 %268 to i64
   %270 = getelementptr i8, ptr %267, i64 %269
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %270, ptr nonnull readonly align 2 %244, i64 %263, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %270, ptr nonnull align 2 %244, i64 %263, i1 false)
   %271 = load i32, ptr %63, align 4
   %narrow.i182 = add nuw nsw i16 %262, 7
   %272 = and i16 %narrow.i182, 16376
@@ -2461,7 +2461,7 @@ BTreeTupleIsPosting.exit180.thread:               ; preds = %248, %BTreeTupleIsP
   %282 = getelementptr i8, ptr %244, i64 %281
   %283 = sext i32 %276 to i64
   %284 = getelementptr [1358 x %struct.BTScanPosItem], ptr %222, i64 0, i64 %283
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %284, ptr noundef nonnull readonly align 2 dereferenceable(6) %282, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %284, ptr noundef nonnull align 2 dereferenceable(6) %282, i64 6, i1 false)
   %285 = getelementptr inbounds i8, ptr %284, i64 6
   store i16 %.us-phi213, ptr %285, align 2
   %286 = load ptr, ptr %223, align 8
@@ -2485,7 +2485,7 @@ BTreeTupleIsPosting.exit180.thread:               ; preds = %248, %BTreeTupleIsP
   %298 = load i32, ptr %63, align 4
   %299 = sext i32 %298 to i64
   %300 = getelementptr i8, ptr %297, i64 %299
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %300, ptr nonnull readonly align 2 %244, i64 %293, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %300, ptr nonnull align 2 %244, i64 %293, i1 false)
   %301 = getelementptr inbounds i8, ptr %300, i64 6
   %302 = load i16, ptr %301, align 2
   %303 = and i16 %302, -8192
@@ -2520,7 +2520,7 @@ _bt_setuppostingitems.exit190:                    ; preds = %275, %287
   %317 = getelementptr %struct.ItemPointerData, ptr %316, i64 %indvars.iv
   %318 = sext i32 %311 to i64
   %319 = getelementptr [1358 x %struct.BTScanPosItem], ptr %222, i64 0, i64 %318
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %319, ptr noundef nonnull readonly align 2 dereferenceable(6) %317, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %319, ptr noundef nonnull align 2 dereferenceable(6) %317, i64 6, i1 false)
   %320 = getelementptr inbounds i8, ptr %319, i64 6
   store i16 %.us-phi213, ptr %320, align 2
   %321 = load ptr, ptr %223, align 8

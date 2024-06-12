@@ -2752,7 +2752,7 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i6.i.i, ptr %1, align 8
   %d1.i = getelementptr inbounds i8, ptr %s, i64 1136
   %4 = load ptr, ptr %d1.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %4, ptr nonnull align 1 %add.ptr.i.i.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %add.ptr.i.i.i.i, i64 %conv.i.i, i1 false)
   %5 = load ptr, ptr %d1.i, align 8
   %cookie_len11.i = getelementptr inbounds i8, ptr %5, i64 256
   store i64 %conv.i.i, ptr %cookie_len11.i, align 8
@@ -2966,7 +2966,7 @@ if.else:                                          ; preds = %if.end
 
 PACKET_copy_bytes.exit:                           ; preds = %land.lhs.true6, %if.else
   %server_random = getelementptr inbounds i8, ptr %s, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %server_random, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %server_random, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i, i64 32, i1 false)
   %7 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i158 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %add.ptr.i.i158, ptr %pkt, align 8
@@ -3052,7 +3052,7 @@ if.end45:                                         ; preds = %if.end41
   br i1 %or.cond2, label %if.else51, label %if.then50
 
 if.then50:                                        ; preds = %if.end45
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %extpkt, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extpkt, i8 0, i64 16, i1 false)
   br label %if.end59
 
 if.else51:                                        ; preds = %if.end45
@@ -3577,7 +3577,7 @@ if.end9:                                          ; preds = %lor.lhs.false.i
   store i64 %sub.i.i6.i, ptr %0, align 8
   %d1 = getelementptr inbounds i8, ptr %s, i64 1136
   %3 = load ptr, ptr %d1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %3, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
   %4 = load ptr, ptr %d1, align 8
   %cookie_len11 = getelementptr inbounds i8, ptr %4, i64 256
   store i64 %conv.i, ptr %cookie_len11, align 8
@@ -5445,7 +5445,7 @@ if.then135:                                       ; preds = %if.end128
 
 if.end136:                                        ; preds = %if.end128
   %44 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %43, ptr align 1 %44, i64 %conv117, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %44, i64 %conv117, i1 false)
   %45 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i122 = getelementptr inbounds i8, ptr %45, i64 %conv117
   store ptr %add.ptr.i.i122, ptr %pkt, align 8
@@ -7073,7 +7073,7 @@ if.end16:                                         ; preds = %if.end7
 
 PACKET_copy_bytes.exit:                           ; preds = %if.end16
   %6 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call8, ptr align 1 %6, i64 %or7.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call8, ptr align 1 %6, i64 %or7.i.i.i, i1 false)
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %6, i64 %or7.i.i.i
   store ptr %add.ptr.i.i15, ptr %pkt, align 8
   %sub.i.i16 = sub i64 %pkt.val.i.i13, %or7.i.i.i

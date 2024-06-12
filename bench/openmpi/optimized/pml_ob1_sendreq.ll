@@ -2160,7 +2160,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %79, %69
   %126 = getelementptr inbounds i8, ptr %.059, i64 40
   store i64 %125, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %.059, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %127, ptr readonly align 1 %28, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %127, ptr align 1 %28, i64 %38, i1 false)
   %128 = getelementptr inbounds i8, ptr %43, i64 72
   store ptr @mca_pml_ob1_send_ctl_completion, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %43, i64 80

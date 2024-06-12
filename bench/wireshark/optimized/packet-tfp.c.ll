@@ -197,7 +197,7 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr nocapture no
   %scevgep.i = getelementptr i8, ptr %5, i64 %27
   %narrow.i = sub nsw i32 13, %.0.lcssa42.i
   %28 = zext i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %28, i1 false)
   br label %base58_encode.exit
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i

@@ -3448,7 +3448,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i416:   ; preds = %.body408
 
 1087:                                             ; preds = %1039
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  invoke void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioDevice) align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(448) %0)
+  invoke void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioDevice) align 8 %11, ptr noundef nonnull align 8 dereferenceable(448) %0)
           to label %.noexc419 unwind label %853
 
 .noexc419:                                        ; preds = %1087
@@ -8831,7 +8831,7 @@ _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit.thread: ; preds = %2
   br label %32
 
 _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit: ; preds = %2
-  %22 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef nonnull %19)
+  %22 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not.i3 = icmp eq ptr %22, null
   %23 = getelementptr inbounds i8, ptr %0, i64 352
@@ -9044,7 +9044,7 @@ _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit.thread: ; preds = %4
   br label %29
 
 _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit: ; preds = %4
-  %22 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef nonnull %21)
+  %22 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %29, label %23
@@ -18629,7 +18629,7 @@ _ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i33.i: ; preds = %_ZN9QtPr
   %208 = load ptr, ptr %20, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 312
   %210 = load ptr, ptr %209, align 8
-  invoke void @_ZN15RtpPlayerDialog10createPlotEb(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, i1 noundef zeroext false)
+  invoke void @_ZN15RtpPlayerDialog10createPlotEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
           to label %.noexc23 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc23:                                         ; preds = %._crit_edge
@@ -19552,7 +19552,7 @@ _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit.thread: ; preds = %1
   br label %_ZN15RtpPlayerDialog21handleGoToSetupPacketEP15QTreeWidgetItem.exit
 
 _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit: ; preds = %1
-  %19 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef nonnull %18)
+  %19 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -19960,7 +19960,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit:           ; preds = %37, %_ZN17QArrayDat
   %43 = load ptr, ptr %13, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 312
   %45 = load ptr, ptr %44, align 8
-  invoke void @_ZN15RtpPlayerDialog10createPlotEb(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, i1 noundef zeroext false)
+  invoke void @_ZN15RtpPlayerDialog10createPlotEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
           to label %.noexc6 unwind label %.loopexit.split-lp
 
 .noexc6:                                          ; preds = %42
@@ -21345,7 +21345,7 @@ _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit.thread: ; preds = %1
   br label %38
 
 _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit: ; preds = %1
-  %18 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef nonnull %17)
+  %18 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %38, label %19
@@ -21601,7 +21601,7 @@ _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit.thread: ; preds = %2
   br label %19
 
 _ZN15RtpPlayerDialog16findItemByCoordsE6QPoint.exit: ; preds = %2
-  %18 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 dereferenceable(448) %1, ptr noundef nonnull %17)
+  %18 = call noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %20
@@ -23704,7 +23704,7 @@ define void @_ZN15RtpPlayerDialog42on_outputDeviceComboBox_currentTextChangedERK
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %2, %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioDevice) align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(448) %0)
+  call void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioDevice) align 8 %3, ptr noundef nonnull align 8 dereferenceable(448) %0)
   %16 = invoke noundef i32 @_ZNK12QAudioDevice19maximumChannelCountEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZN15RtpPlayerDialog17isStereoAvailableEv.exit unwind label %17
 

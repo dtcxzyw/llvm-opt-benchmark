@@ -2353,7 +2353,7 @@ define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef 
   %.val = load i64, ptr %21, align 8
   %22 = tail call fastcc ptr @get_loaded_features_index(ptr noundef %0)
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
-  %24 = tail call i64 @rb_st_hash(ptr noundef readonly %1, i64 noundef %23, i64 noundef 4272357534) #21
+  %24 = tail call i64 @rb_st_hash(ptr noundef %1, i64 noundef %23, i64 noundef 4272357534) #21
   %25 = call i32 @rb_st_lookup(ptr noundef %22, i64 noundef %24, ptr noundef nonnull %8) #6
   %.not128 = icmp eq i32 %25, 0
   br i1 %.not128, label %.loopexit, label %26
@@ -2594,7 +2594,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %127, %120
   br i1 %.not.i149, label %ruby_nonempty_memcpy.exit, label %128
 
 128:                                              ; preds = %rbimpl_size_mul_or_raise.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.sroa.2.0.i, ptr readonly align 1 %1, i64 %.0113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr align 1 %1, i64 %.0113, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %128
@@ -3485,7 +3485,7 @@ thread-pre-split:                                 ; preds = %18, %3
   %43 = xor i64 %42, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %44 = add i64 %43, %28
-  %45 = call i64 @rb_st_hash(ptr noundef nonnull readonly %.042.pn.us70, i64 noundef %44, i64 noundef 4272357534) #21
+  %45 = call i64 @rb_st_hash(ptr noundef nonnull %.042.pn.us70, i64 noundef %44, i64 noundef 4272357534) #21
   %.val.i.us = load ptr, ptr %29, align 8
   store ptr %0, ptr %7, align 8
   store i64 %2, ptr %30, align 8
@@ -3513,7 +3513,7 @@ thread-pre-split:                                 ; preds = %18, %3
   %50 = xor i64 %49, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %51 = add i64 %50, %28
-  %52 = call i64 @rb_st_hash(ptr noundef nonnull readonly %.042.pn, i64 noundef %51, i64 noundef 4272357534) #21
+  %52 = call i64 @rb_st_hash(ptr noundef nonnull %.042.pn, i64 noundef %51, i64 noundef 4272357534) #21
   %.val.i = load ptr, ptr %29, align 8
   store ptr %0, ptr %7, align 8
   store i64 %2, ptr %30, align 8
@@ -3522,7 +3522,7 @@ thread-pre-split:                                 ; preds = %18, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %54 = add i64 %50, %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %55 = call i64 @rb_st_hash(ptr noundef nonnull readonly %.042.pn, i64 noundef %54, i64 noundef 4272357534) #21
+  %55 = call i64 @rb_st_hash(ptr noundef nonnull %.042.pn, i64 noundef %54, i64 noundef 4272357534) #21
   %.val.i51 = load ptr, ptr %29, align 8
   store ptr %0, ptr %6, align 8
   store i64 %2, ptr %34, align 8
@@ -3540,7 +3540,7 @@ thread-pre-split:                                 ; preds = %18, %3
   unreachable
 
 features_index_add_single.exit57:                 ; preds = %.split68.us
-  %57 = call i64 @rb_st_hash(ptr noundef nonnull readonly %9, i64 noundef %13, i64 noundef 4272357534) #21
+  %57 = call i64 @rb_st_hash(ptr noundef nonnull %9, i64 noundef %13, i64 noundef 4272357534) #21
   %.val.i55 = load ptr, ptr %29, align 8
   store ptr %0, ptr %5, align 8
   %58 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3556,7 +3556,7 @@ features_index_add_single.exit61:                 ; preds = %features_index_add_
   %62 = ptrtoint ptr %9 to i64
   %63 = sub i64 %33, %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %64 = call i64 @rb_st_hash(ptr noundef nonnull readonly %9, i64 noundef %63, i64 noundef 4272357534) #21
+  %64 = call i64 @rb_st_hash(ptr noundef nonnull %9, i64 noundef %63, i64 noundef 4272357534) #21
   %.val.i59 = load ptr, ptr %29, align 8
   store ptr %0, ptr %4, align 8
   %65 = getelementptr inbounds i8, ptr %4, i64 8

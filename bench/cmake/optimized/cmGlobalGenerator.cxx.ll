@@ -23803,7 +23803,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %.noexc43 unwind label %49
 
 .noexc43:                                         ; preds = %.noexc42
-  %98 = invoke noundef zeroext i1 @_ZNK17cmGlobalGenerator10IsExcludedERK15cmStateSnapshotS2_(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %98 = invoke noundef zeroext i1 @_ZNK17cmGlobalGenerator10IsExcludedERK15cmStateSnapshotS2_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %_ZNK17cmGlobalGenerator10IsExcludedEP16cmLocalGeneratorS1_.exit unwind label %49
 
 _ZNK17cmGlobalGenerator10IsExcludedEP16cmLocalGeneratorS1_.exit: ; preds = %.noexc43
@@ -30828,7 +30828,7 @@ define dso_local void @_ZN17cmGlobalGenerator13GetTargetSetsER17cmTargetDependSe
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZNK16cmLocalGenerator16GetStateSnapshotEv(ptr dead_on_unwind nonnull writable sret(%class.cmStateSnapshot) align 8 %6, ptr noundef nonnull align 8 dereferenceable(824) %3)
   call void @_ZNK16cmLocalGenerator16GetStateSnapshotEv(ptr dead_on_unwind nonnull writable sret(%class.cmStateSnapshot) align 8 %7, ptr noundef nonnull align 8 dereferenceable(824) %22)
-  %23 = call noundef zeroext i1 @_ZNK17cmGlobalGenerator10IsExcludedERK15cmStateSnapshotS2_(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %23 = call noundef zeroext i1 @_ZNK17cmGlobalGenerator10IsExcludedERK15cmStateSnapshotS2_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br i1 %23, label %.loopexit, label %24

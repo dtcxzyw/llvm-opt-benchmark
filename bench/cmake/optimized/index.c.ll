@@ -13,7 +13,7 @@ define dso_local ptr @lzma_index_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %index_tree_append.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -1012,7 +1012,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not.i, label %index_init_plain.exit.thread, label %4
 
 4:                                                ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 32
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 512, ptr %6, align 8
@@ -1061,7 +1061,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %35 = getelementptr inbounds i8, ptr %30, i64 48
   store i64 %29, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %30, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
   %37 = getelementptr inbounds i8, ptr %30, i64 88
   %38 = getelementptr inbounds i8, ptr %30, i64 104
   %39 = getelementptr inbounds i8, ptr %30, i64 160
@@ -1072,7 +1072,7 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %43 = getelementptr inbounds i8, ptr %30, i64 96
   store i64 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %.02242, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
   %45 = getelementptr inbounds i8, ptr %.02242, i64 160
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %39, align 8
@@ -1284,7 +1284,7 @@ define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly %0, 
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 264
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   ret void
 }
 

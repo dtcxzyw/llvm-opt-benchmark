@@ -1347,7 +1347,7 @@ define dso_local void @standard_ExecutorEnd(ptr nocapture noundef %0) local_unna
   %21 = getelementptr inbounds i8, ptr %3, i64 168
   %22 = load ptr, ptr %21, align 8
   tail call void @ExecResetTupleTable(ptr noundef %22, i1 noundef zeroext false) #10
-  tail call void @ExecCloseResultRelations(ptr noundef readonly %3)
+  tail call void @ExecCloseResultRelations(ptr noundef %3)
   %23 = getelementptr inbounds i8, ptr %3, i64 32
   %24 = load i32, ptr %23, align 8
   %.not8.i.i = icmp eq i32 %24, 0

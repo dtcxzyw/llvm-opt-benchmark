@@ -1027,7 +1027,7 @@ define dso_local range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef %0, ptr nou
 
 onig_strcpy.exit:                                 ; preds = %21
   %24 = getelementptr i8, ptr %12, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %24, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %6, i1 false)
   %25 = getelementptr i8, ptr %24, i64 %6
   store i8 0, ptr %25, align 1
   br label %50
@@ -1048,7 +1048,7 @@ onig_strcpy.exit:                                 ; preds = %21
   br i1 %34, label %35, label %strcat_capa_from_static.exit
 
 35:                                               ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %31, ptr align 1 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %12, i64 %15, i1 false)
   %36 = getelementptr i8, ptr %31, i64 %15
   store i8 0, ptr %36, align 1
   br label %strcat_capa_from_static.exit
@@ -1074,7 +1074,7 @@ onig_strcpy.exit:                                 ; preds = %21
 strcat_capa_from_static.exit:                     ; preds = %43, %35, %33
   %.sink50 = phi ptr [ %31, %33 ], [ %31, %35 ], [ %.0.i, %43 ]
   %45 = getelementptr i8, ptr %.sink50, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %45, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %1, i64 %6, i1 false)
   %46 = getelementptr i8, ptr %45, i64 %6
   store i8 0, ptr %46, align 1
   store ptr %.sink50, ptr %11, align 8
@@ -1084,7 +1084,7 @@ strcat_capa_from_static.exit:                     ; preds = %43, %35, %33
 
 onig_strcpy.exit47:                               ; preds = %8
   %48 = getelementptr i8, ptr %12, i64 %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %48, ptr align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %1, i64 %6, i1 false)
   %49 = getelementptr i8, ptr %48, i64 %6
   store i8 0, ptr %49, align 1
   br label %50
@@ -1483,9 +1483,9 @@ names_clear.exit:                                 ; preds = %5, %9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = getelementptr inbounds i8, ptr %4, i64 56
   %13 = getelementptr inbounds i8, ptr %4, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %13, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, i8 0, i64 96, i1 false)
   %14 = getelementptr inbounds i8, ptr %3, i64 56
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %4, align 8
@@ -5742,7 +5742,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr nocapture
   br i1 %.not.i.i, label %UNKNOWN_ESC_WARN.exit.i, label %184
 
 184:                                              ; preds = %180
-  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.5, i32 noundef %24)
+  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i32 noundef %24)
   br label %UNKNOWN_ESC_WARN.exit.i
 
 UNKNOWN_ESC_WARN.exit.i:                          ; preds = %184, %180, %175, %171, %._crit_edge101
@@ -7096,7 +7096,7 @@ parse_enclose.exit.thread:                        ; preds = %345, %357, %378, %3
 599:                                              ; preds = %594
   store i32 1, ptr %597, align 8
   %600 = getelementptr inbounds i8, ptr %597, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %600, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %600, i8 0, i64 44, i1 false)
   %601 = load ptr, ptr %567, align 8
   %602 = getelementptr inbounds i8, ptr %601, i64 20
   %603 = load i32, ptr %602, align 4
@@ -7335,7 +7335,7 @@ node_new_cclass.exit.thread.i:                    ; preds = %propname2ctype.exit
 708:                                              ; preds = %propname2ctype.exit.i
   store i32 1, ptr %706, align 8
   %709 = getelementptr inbounds i8, ptr %706, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %709, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %709, i8 0, i64 44, i1 false)
   store ptr %706, ptr %.0182.sroa.gep273.i, align 8
   %710 = load ptr, ptr %665, align 8
   %711 = getelementptr inbounds i8, ptr %710, i64 80
@@ -7529,7 +7529,7 @@ node_new_cclass.exit269.thread.i:                 ; preds = %799
 802:                                              ; preds = %799
   store i32 1, ptr %800, align 8
   %803 = getelementptr inbounds i8, ptr %800, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %803, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %803, i8 0, i64 44, i1 false)
   store ptr %800, ptr %742, align 16
   %804 = load ptr, ptr %665, align 8
   %805 = getelementptr inbounds i8, ptr %804, i64 20
@@ -8018,7 +8018,7 @@ onig_strcpy.exit.i.i:                             ; preds = %1017
   br i1 %1030, label %1031, label %strcat_capa_from_static.exit.i.i
 
 1031:                                             ; preds = %1029
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1027, ptr align 1 %1008, i64 %1011, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1027, ptr align 1 %1008, i64 %1011, i1 false)
   %1032 = getelementptr i8, ptr %1027, i64 %1011
   store i8 0, ptr %1032, align 1
   br label %strcat_capa_from_static.exit.i.i
@@ -8260,7 +8260,7 @@ node_new_cclass.exit.thread:                      ; preds = %1134
 1137:                                             ; preds = %1134
   store i32 1, ptr %1135, align 8
   %1138 = getelementptr inbounds i8, ptr %1135, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %1138, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %1138, i8 0, i64 44, i1 false)
   store ptr %1135, ptr %0, align 8
   %1139 = load i32, ptr %1122, align 8
   %1140 = load i32, ptr %5, align 8
@@ -8368,7 +8368,7 @@ node_new_cclass.exit.thread.i347:                 ; preds = %1185
 1188:                                             ; preds = %1185
   store i32 1, ptr %1186, align 8
   %1189 = getelementptr inbounds i8, ptr %1186, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %1189, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %1189, i8 0, i64 44, i1 false)
   store ptr %1186, ptr %0, align 8
   %1190 = tail call fastcc i32 @add_ctype_to_cc(ptr noundef nonnull %1186, i32 noundef %1180, i32 noundef 0, i32 noundef 0, ptr noundef %5)
   %.not.i344 = icmp eq i32 %1190, 0
@@ -8688,7 +8688,7 @@ node_new_anychar.exit352.thread:                  ; preds = %1261
 
 .lr.ph58.preheader.i:                             ; preds = %1323
   store ptr %1325, ptr %1295, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1325, ptr nonnull readonly align 4 %1283, i64 %1324, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1325, ptr nonnull align 4 %1283, i64 %1324, i1 false)
   br label %node_new_backref.exit.thread421
 
 node_new_backref.exit.thread:                     ; preds = %1327, %1282
@@ -8702,7 +8702,7 @@ node_new_backref.exit.thread421:                  ; preds = %.lr.ph58.preheader.
 node_new_backref.exit:                            ; preds = %.loopexit55.i
   %1328 = getelementptr inbounds i8, ptr %1290, i64 12
   %1329 = shl nuw nsw i64 %wide.trip.count.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1328, ptr nonnull readonly align 4 %1283, i64 %1329, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1328, ptr nonnull align 4 %1283, i64 %1329, i1 false)
   store ptr %1290, ptr %0, align 8
   br label %parse_char_property.exit.thread410
 
@@ -9117,7 +9117,7 @@ popular_quantifier_num.exit70.i:                  ; preds = %1489, %1486, %1481,
 1508:                                             ; preds = %1506
   %1509 = getelementptr [6 x ptr], ptr @PopularQStr, i64 0, i64 %1502
   %1510 = load ptr, ptr %1509, align 8
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.23, ptr noundef %1510)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.23, ptr noundef %1510)
   br label %.thread86.i
 
 1511:                                             ; preds = %1501
@@ -9133,7 +9133,7 @@ popular_quantifier_num.exit70.i:                  ; preds = %1489, %1486, %1481,
   %1518 = zext i32 %1505 to i64
   %1519 = getelementptr [7 x ptr], ptr @ReduceQStr, i64 0, i64 %1518
   %1520 = load ptr, ptr %1519, align 8
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.24, ptr noundef %1515, ptr noundef %1517, ptr noundef %1520)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.24, ptr noundef %1515, ptr noundef %1517, ptr noundef %1520)
   br label %.thread86.i
 
 1521:                                             ; preds = %popular_quantifier_num.exit70.i
@@ -9275,7 +9275,7 @@ define internal fastcc i32 @add_ctype_to_cc(ptr noundef %0, i32 noundef %1, i32 
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %17, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %17, i8 0, i64 44, i1 false)
   %18 = load i32, ptr %7, align 4
   %19 = load ptr, ptr %6, align 8
   %20 = call fastcc i32 @add_ctype_to_cc_by_range(ptr noundef nonnull %8, i32 noundef %2, ptr noundef nonnull %4, i32 noundef %18, ptr noundef %19)
@@ -9293,7 +9293,7 @@ define internal fastcc i32 @add_ctype_to_cc(ptr noundef %0, i32 noundef %1, i32 
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %27, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %27, i8 0, i64 44, i1 false)
   %28 = load ptr, ptr %10, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 20
   %30 = load i32, ptr %29, align 4
@@ -10011,7 +10011,7 @@ code_exist_check.exit:                            ; preds = %66
   br i1 %or.cond.not.i, label %84, label %CC_ESC_WARN.exit
 
 84:                                               ; preds = %79
-  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3)
   br label %CC_ESC_WARN.exit
 
 CC_ESC_WARN.exit:                                 ; preds = %code_exist_check.exit, %79, %84
@@ -10032,7 +10032,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread413
 87:                                               ; preds = %.thread413
   store i32 1, ptr %85, align 8
   %88 = getelementptr inbounds i8, ptr %85, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %88, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %88, i8 0, i64 44, i1 false)
   store ptr %85, ptr %0, align 8
   %89 = load i32, ptr %5, align 8
   %90 = and i32 %89, 1
@@ -10051,7 +10051,7 @@ node_new_cclass.exit389.thread:                   ; preds = %91
 node_new_cclass.exit389:                          ; preds = %91
   store i32 1, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %92, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %94, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %94, i8 0, i64 44, i1 false)
   store ptr %92, ptr %1, align 8
   br label %95
 
@@ -10517,7 +10517,7 @@ parse_posix_bracket.exit.thread421.thread:        ; preds = %267, %265, %276, %2
   br i1 %or.cond.not.i392, label %319, label %CC_ESC_WARN.exit393
 
 319:                                              ; preds = %314
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19)
   br label %CC_ESC_WARN.exit393
 
 CC_ESC_WARN.exit393:                              ; preds = %parse_posix_bracket.exit.thread421.thread, %314, %319
@@ -10804,7 +10804,7 @@ fetch_char_property_to_ctype.exit.thread:         ; preds = %388, %415, %394, %4
   br i1 %or.cond.not.i400, label %454, label %CC_ESC_WARN.exit401
 
 454:                                              ; preds = %449
-  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20)
+  call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20)
   br label %CC_ESC_WARN.exit401
 
 455:                                              ; preds = %429
@@ -10923,7 +10923,7 @@ bbuf_free.exit404:                                ; preds = %500, %bbuf_free.exi
   %.1288 = phi ptr [ %.0287.ph, %bbuf_free.exit ], [ %9, %500 ]
   %.1285 = phi ptr [ %.0284.ph, %bbuf_free.exit ], [ %.0287.ph, %500 ]
   %501 = getelementptr inbounds i8, ptr %.1288, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %501, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %501, i8 0, i64 44, i1 false)
   br label %.thread446
 
 502:                                              ; preds = %500, %495, %498
@@ -10932,9 +10932,9 @@ bbuf_free.exit404:                                ; preds = %500, %bbuf_free.exi
   %.2280.ph = phi ptr [ %.1279.ph, %498 ], [ %.1279.ph, %495 ], [ %10, %500 ]
   %.1276.ph = phi ptr [ %.0275.ph, %498 ], [ %.0275.ph, %495 ], [ %.1279.ph, %500 ]
   %503 = getelementptr inbounds i8, ptr %.1288.ph, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %503, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %503, i8 0, i64 44, i1 false)
   %504 = getelementptr inbounds i8, ptr %.2280.ph, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %504, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %504, i8 0, i64 44, i1 false)
   br label %.thread446
 
 505:                                              ; preds = %189
@@ -12283,7 +12283,7 @@ node_new_cclass.exit.thread.i:                    ; preds = %4
 7:                                                ; preds = %4
   store i32 1, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %8, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %8, i8 0, i64 44, i1 false)
   store ptr %5, ptr %0, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %10 = getelementptr i8, ptr %2, i64 %9
@@ -12366,7 +12366,7 @@ node_new_cclass.exit.thread:                      ; preds = %3
 6:                                                ; preds = %3
   store i32 1, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(44) %7, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %7, i8 0, i64 44, i1 false)
   store ptr %4, ptr %0, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %9 = getelementptr i8, ptr %2, i64 %8

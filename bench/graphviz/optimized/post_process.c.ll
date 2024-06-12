@@ -2916,7 +2916,7 @@ define void @post_process_smoothing(i32 noundef %0, ptr noundef %1, ptr nocaptur
 11:                                               ; preds = %8
   %12 = icmp ne i32 %7, 6
   %13 = tail call ptr @TriangleSmoother_new(ptr noundef nonnull %1, i32 noundef %0, ptr noundef %3, i1 noundef zeroext %12)
-  %14 = tail call double @StressMajorizationSmoother_smooth(ptr noundef readonly %13, i32 noundef %0, ptr noundef %3, i32 noundef 50)
+  %14 = tail call double @StressMajorizationSmoother_smooth(ptr noundef %13, i32 noundef %0, ptr noundef %3, i32 noundef 50)
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %TriangleSmoother_delete.exit, label %15
 

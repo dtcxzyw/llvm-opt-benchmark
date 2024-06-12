@@ -52,7 +52,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
   store i32 -1, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 -1, ptr %19, align 8
-  %20 = tail call noalias ptr @strdup(ptr noundef readonly %1) #11
+  %20 = tail call noalias ptr @strdup(ptr noundef %1) #11
   %21 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr %20, ptr %21, align 8
   store ptr %15, ptr %7, align 8
@@ -358,7 +358,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapt
 
 .preheader49.i:                                   ; preds = %13, %.preheader49.i.backedge
   %16 = load i32, ptr %7, align 4
-  %17 = tail call i64 @write(i32 noundef %16, ptr noundef readonly %.043, i64 noundef %.01742) #11
+  %17 = tail call i64 @write(i32 noundef %16, ptr noundef %.043, i64 noundef %.01742) #11
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %19, label %.critedge.i
 

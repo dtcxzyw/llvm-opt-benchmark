@@ -429,7 +429,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i10, %14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV19EnabledProtocolItem, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %8, ptr %27, align 8
@@ -2862,7 +2862,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i10, %_ZN7
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV19EnabledProtocolItem, i64 16), ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %9, ptr %28, align 8

@@ -9041,7 +9041,7 @@ if.end12:                                         ; preds = %if.end, %sw.epilog
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
   br label %return
 
 if.end.i:                                         ; preds = %if.end12
@@ -9102,7 +9102,7 @@ _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.
   br label %return
 
 if.end19.i:                                       ; preds = %sw.epilog.i, %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
   br label %return
 
 return:                                           ; preds = %if.end19.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i, %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
@@ -10032,8 +10032,8 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEC2EP
   store i32 0, ptr %mode_.i.i.i.i, align 8
   %next_in_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 256
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_120BrotliEncoderContextE, i64 16), ptr %ctx_.i.i, align 8
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 320
@@ -12689,8 +12689,8 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEC2EP
   store i32 0, ptr %mode_.i.i.i.i, align 8
   %next_in_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 256
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %call22, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %next_in_.i.i.i.i, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alloc_.i.i.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %init_done_.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_120BrotliDecoderContextE, i64 16), ptr %ctx_.i.i, align 8
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 320

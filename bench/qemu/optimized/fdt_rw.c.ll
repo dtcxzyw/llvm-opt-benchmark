@@ -905,7 +905,7 @@ if.then9:                                         ; preds = %if.end4
   br i1 %tobool.not.i.not, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then9
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
   %33 = trunc i64 %call.i to i32
   %conv.neg.i = xor i32 %33, -1
   %34 = load i8, ptr %size_dt_strings.i, align 1
@@ -1573,7 +1573,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %or10.i.i = or disjoint i64 %or7.i.i, %conv9.i.i
   %add.ptr3.i = getelementptr i8, ptr %fdt, i64 %or10.i.i
   %conv.i107 = sext i32 %mul to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr3.i, i64 %conv.i107, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr3.i, i64 %conv.i107, i1 false)
   %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 16
   store i32 671088640, ptr %off_mem_rsvmap.i.i, align 4
   %idx.ext4.i = sext i32 %add37 to i64
@@ -1598,7 +1598,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %or10.i34.i = or disjoint i64 %or7.i31.i, %conv9.i33.i
   %add.ptr8.i = getelementptr i8, ptr %fdt, i64 %or10.i34.i
   %conv9.i108 = sext i32 %14 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr5.i, ptr readonly align 1 %add.ptr8.i, i64 %conv9.i108, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr5.i, ptr align 1 %add.ptr8.i, i64 %conv9.i108, i1 false)
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %add37)
   %off_dt_struct.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 8
   store i32 %rev.i.i.i, ptr %off_dt_struct.i.i, align 4
@@ -1627,7 +1627,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %or10.i48.i = or disjoint i64 %or7.i45.i, %conv9.i47.i
   %add.ptr14.i = getelementptr i8, ptr %fdt, i64 %or10.i48.i
   %conv15.i = sext i32 %or10.i93 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr11.i, ptr readonly align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
   %rev.i.i49.i = call noundef i32 @llvm.bswap.i32(i32 %add39)
   %off_dt_strings.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 12
   store i32 %rev.i.i49.i, ptr %off_dt_strings.i.i, align 4
@@ -1933,7 +1933,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i.i33 = or disjoint i64 %or7.i.i30, %conv9.i.i32
   %add.ptr3.i = getelementptr i8, ptr %fdt, i64 %or10.i.i33
   %conv.i34 = sext i32 %mul to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %add.ptr3.i, i64 %conv.i34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr3.i, i64 %conv.i34, i1 false)
   store i32 671088640, ptr %off_mem_rsvmap.i, align 4
   %idx.ext4.i = sext i32 %add.i to i64
   %add.ptr5.i = getelementptr i8, ptr %fdt, i64 %idx.ext4.i
@@ -1957,7 +1957,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i34.i = or disjoint i64 %or7.i31.i, %conv9.i33.i
   %add.ptr8.i = getelementptr i8, ptr %fdt, i64 %or10.i34.i
   %conv9.i35 = sext i32 %or10.i to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr5.i, ptr readonly align 1 %add.ptr8.i, i64 %conv9.i35, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr5.i, ptr align 1 %add.ptr8.i, i64 %conv9.i35, i1 false)
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add.i)
   store i32 %rev.i.i.i, ptr %off_dt_struct.i, align 4
   %rev.i.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %or10.i)
@@ -1984,7 +1984,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i48.i = or disjoint i64 %or7.i45.i, %conv9.i47.i
   %add.ptr14.i = getelementptr i8, ptr %fdt, i64 %or10.i48.i
   %conv15.i = sext i32 %or10.i20 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr11.i, ptr readonly align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
   %rev.i.i49.i = tail call noundef i32 @llvm.bswap.i32(i32 %add1.i)
   store i32 %rev.i.i49.i, ptr %off_dt_strings.i, align 4
   %28 = load i8, ptr %size_dt_strings, align 1

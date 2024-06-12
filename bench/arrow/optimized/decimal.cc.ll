@@ -1491,7 +1491,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.2.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull readonly align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
   %cmp34.not69 = icmp eq i64 %num_segments.0, 0
@@ -1562,7 +1562,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.sub.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i38, %sub.ptr.rhs.cast.i.i39
   %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i40
   %add.ptr.i2.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i2.i41, ptr nonnull readonly align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i41, ptr nonnull align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !24
@@ -1649,7 +1649,7 @@ if.then.i:                                        ; preds = %if.end
           to label %invoke.cont2.i unwind label %lpad.i5
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false), !noalias !25
   %call4.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1286NegateEv(ptr noundef nonnull align 8 dereferenceable(16) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i5
 
@@ -1862,7 +1862,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !28
   %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef nonnull %dec.i), !noalias !28
   br i1 %call3.i, label %if.end5.i, label %if.then4.i
 
@@ -2428,7 +2428,7 @@ if.end:                                           ; preds = %entry
   %idx.ext.i = zext nneg i32 %.sroa.speculated27 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i, ptr nonnull readonly align 1 %bytes, i64 %idx.ext.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i, ptr nonnull align 1 %bytes, i64 %idx.ext.i, i1 false)
   %17 = load i64, ptr %result.i, align 8
   %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
@@ -2456,7 +2456,7 @@ if.end14:                                         ; preds = %if.end, %if.else
   %idx.ext.i20 = sext i32 %sub17 to i64
   %idx.neg.i21 = sub nsw i64 0, %idx.ext.i20
   %add.ptr1.i22 = getelementptr inbounds i8, ptr %add.ptr.i19, i64 %idx.neg.i21
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i22, ptr nonnull readonly align 1 %add.ptr, i64 %idx.ext.i20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i22, ptr nonnull align 1 %add.ptr, i64 %idx.ext.i20, i1 false)
   %20 = load i64, ptr %result.i18, align 8
   %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i18)
@@ -2545,7 +2545,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %decimal, i64 16, i1 false), !noalias !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %abs.i, ptr noundef nonnull align 8 dereferenceable(16) %decimal, i64 16, i1 false), !noalias !68
   %call4.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1286NegateEv(ptr noundef nonnull align 8 dereferenceable(16) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
@@ -3013,7 +3013,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.2.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull readonly align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
   %cmp34.not76 = icmp eq i64 %num_segments.0, 0
@@ -3084,7 +3084,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %sub.ptr.sub.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i38, %sub.ptr.rhs.cast.i.i39
   %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i40
   %add.ptr.i2.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i2.i41, ptr nonnull readonly align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i41, ptr nonnull align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !83
@@ -3161,7 +3161,7 @@ if.then.i:                                        ; preds = %if.end
           to label %invoke.cont2.i unwind label %lpad.i5
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
   %call4.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull align 8 dereferenceable(32) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i5
 
@@ -3180,7 +3180,7 @@ lpad.i5:                                          ; preds = %if.else.invoke.i, %
   br label %common.resume
 
 if.else.i:                                        ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false), !noalias !84
   br label %if.else.invoke.i
 
 if.else.invoke.i:                                 ; preds = %if.else.i, %invoke.cont3.i
@@ -3231,7 +3231,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !87
   %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef nonnull %dec.i), !noalias !87
   br i1 %call3.i, label %if.end5.i, label %if.then4.i
 
@@ -3821,7 +3821,7 @@ if.then16:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i14)
   store i64 0, ptr %result.i14, align 8
   %add.ptr1.i16 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 %idx.neg22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i16, ptr nonnull readonly align 1 %add.ptr23, i64 %idx.ext21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i16, ptr nonnull align 1 %add.ptr23, i64 %idx.ext21, i1 false)
   %19 = load i64, ptr %result.i14, align 8
   %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i14)
@@ -4445,7 +4445,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %abs.i, ptr noundef nonnull align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
   %call4.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull align 8 dereferenceable(32) %abs.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
@@ -4464,7 +4464,7 @@ lpad.i:                                           ; preds = %if.else.invoke.i, %
   br label %common.resume
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(32) %decimal, i64 32, i1 false), !noalias !133
   br label %if.else.invoke.i
 
 if.else.invoke.i:                                 ; preds = %if.else.i, %invoke.cont3.i

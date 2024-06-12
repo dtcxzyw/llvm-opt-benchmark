@@ -2954,7 +2954,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %194 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
-  %195 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %139, ptr noundef readonly %191, ptr noundef readonly %192, i32 noundef %163, ptr noundef readonly %193, ptr noundef readonly %194, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %195 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %139, ptr noundef %191, ptr noundef %192, i32 noundef %163, ptr noundef %193, ptr noundef %194, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %196 = icmp slt i32 %195, 0
   br i1 %196, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %197
 
@@ -3853,7 +3853,7 @@ define noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr nocapture 
   %175 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %176 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %61, ptr noundef readonly %172, ptr noundef readonly %173, i32 noundef %138, ptr noundef readonly %174, ptr noundef readonly %175, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %176 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %61, ptr noundef %172, ptr noundef %173, i32 noundef %138, ptr noundef %174, ptr noundef %175, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %178
 
@@ -4840,7 +4840,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr %79, ptr %63, align 8
   store i32 %82, ptr %64, align 4
-  %83 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef %81, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
+  %83 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef %81, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
   %84 = load i32, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %85 = add nsw i32 %84, %.049
@@ -5094,7 +5094,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr %90, ptr %73, align 8
   store i32 %93, ptr %74, align 4
-  %94 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef %92, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
+  %94 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef %92, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
   %95 = load i32, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %96 = add nsw i32 %95, %.050
@@ -9072,7 +9072,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %291 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  %292 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull readnone align 8 poison, i32 noundef %116, ptr noundef readonly %288, ptr noundef readonly %289, i32 noundef %231, ptr noundef readonly %290, ptr noundef readonly %291, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %292 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %116, ptr noundef %288, ptr noundef %289, i32 noundef %231, ptr noundef %290, ptr noundef %291, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %293 = icmp slt i32 %292, 0
   br i1 %293, label %_ZNK14dtNavMeshQuery15getEdgeMidPointEjPK6dtPolyPK10dtMeshTilejS2_S5_Pf.exit, label %294
 

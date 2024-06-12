@@ -1484,7 +1484,7 @@ entry:
   %0 = load i16, ptr %num_queues, align 8
   %conv = zext i16 %0 to i64
   %mul = mul nuw nsw i64 %conv, 16448
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %filename, i32 noundef 66, i32 noundef 384) #19
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 66, i32 noundef 384) #19
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then.sink.split, label %if.end.i
 
@@ -1647,12 +1647,12 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
   %cmp.i = icmp ugt i64 %call.i, 255
   br i1 %cmp.i, label %if.then, label %vduse_name_is_invalid.exit
 
 vduse_name_is_invalid.exit:                       ; preds = %lor.lhs.false
-  %call1.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
+  %call1.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
   %tobool.i = icmp ne ptr %call1.i, null
   %tobool2 = icmp eq ptr %ops, null
   %or.cond.not = or i1 %tobool2, %tobool.i
@@ -1810,12 +1810,12 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
   %cmp.i = icmp ugt i64 %call.i, 255
   br i1 %cmp.i, label %if.then, label %vduse_name_is_invalid.exit
 
 vduse_name_is_invalid.exit:                       ; preds = %lor.lhs.false
-  %call1.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
+  %call1.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
   %tobool.i.not = icmp eq ptr %call1.i, null
   br i1 %tobool.i.not, label %lor.lhs.false1, label %if.then
 
@@ -1897,12 +1897,12 @@ if.then34:                                        ; preds = %if.end31
   br label %err_dev
 
 if.end36:                                         ; preds = %if.end31
-  %call.i41 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
+  %call.i41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
   %cmp.i42 = icmp ugt i64 %call.i41, 255
   br i1 %cmp.i42, label %if.else, label %vduse_name_is_invalid.exit46
 
 vduse_name_is_invalid.exit46:                     ; preds = %if.end36
-  %call1.i44 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
+  %call1.i44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
   %tobool.i45.not = icmp eq ptr %call1.i44, null
   br i1 %tobool.i45.not, label %if.end39, label %if.else
 

@@ -4141,10 +4141,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %160, %162, %164, %1
   %265 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %228, i64 %264
   %266 = sext i32 %246 to i64
   %267 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %230, i64 %266
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %267, ptr noundef nonnull readonly align 4 dereferenceable(16) %265, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %267, ptr noundef nonnull align 4 dereferenceable(16) %265, i64 16, i1 false)
   %268 = getelementptr inbounds i8, ptr %265, i64 16
   %269 = getelementptr inbounds i8, ptr %267, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %269, ptr noundef nonnull readonly align 4 dereferenceable(16) %268, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %269, ptr noundef nonnull align 4 dereferenceable(16) %268, i64 16, i1 false)
   br label %270
 
 270:                                              ; preds = %262, %._crit_edge.i
@@ -4300,7 +4300,7 @@ _ZN5NbnxmL20print_bbsizes_simpleEP8_IO_FILERKNS_4GridE.exit: ; preds = %._crit_e
   %355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %290, ptr noundef nonnull @.str.12, i32 noundef %289, double noundef %354) #19
   %356 = load ptr, ptr @debug, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %357 = load i32, ptr %76, align 8
   %358 = icmp sgt i32 %357, 0
   br i1 %358, label %.preheader53.lr.ph.i, label %._crit_edge59.i

@@ -2425,7 +2425,7 @@ define void @Int_ManPrepareInter(ptr nocapture noundef readonly %0) local_unname
   %18 = getelementptr inbounds i32, ptr %.val41, i64 %17
   %19 = zext nneg i32 %.val42 to i64
   %20 = shl nuw nsw i64 %19, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %18, i8 -1, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %18, i8 -1, i64 %20, i1 false)
   br label %Int_ManTruthFill.exit
 
 21:                                               ; preds = %11
@@ -2441,7 +2441,7 @@ define void @Int_ManPrepareInter(ptr nocapture noundef readonly %0) local_unname
   %26 = getelementptr inbounds i32, ptr %.val38, i64 %25
   %27 = zext nneg i32 %.val42 to i64
   %28 = shl nuw nsw i64 %27, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %26, i8 0, i64 %28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %26, i8 0, i64 %28, i1 false)
   %.pre = load i32, ptr %8, align 4
   br label %Int_ManTruthClear.exit
 

@@ -5420,7 +5420,7 @@ return:                                           ; preds = %if.then21, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define ptr @_ZNK4toml2v34node7at_pathERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p) local_unnamed_addr #4 align 2 {
 entry:
-  %call.i = tail call ptr @_ZN4toml2v37at_pathERNS0_4nodeERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %p) #39
+  %call.i = tail call ptr @_ZN4toml2v37at_pathERNS0_4nodeERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %p) #39
   ret ptr %call.i
 }
 
@@ -5441,7 +5441,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define ptr @_ZNK4toml2v34nodeixERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p) local_unnamed_addr #4 align 2 {
 entry:
-  %call.i = tail call ptr @_ZN4toml2v37at_pathERNS0_4nodeERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %p) #39
+  %call.i = tail call ptr @_ZN4toml2v37at_pathERNS0_4nodeERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %p) #39
   ret ptr %call.i
 }
 
@@ -5485,8 +5485,8 @@ if.end10:                                         ; preds = %lor.lhs.false
 sw.bb.i.i:                                        ; preds = %if.end10
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable5, i64 216
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef ptr %3(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
-  %call.i1.i.i.i = tail call noundef zeroext i1 @_ZN4toml2v35table5equalERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(89) %lhs, ptr noundef nonnull align 8 dereferenceable(89) %call.i.i.i.i) #40
+  %call.i.i.i.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
+  %call.i1.i.i.i = tail call noundef zeroext i1 @_ZN4toml2v35table5equalERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(89) %lhs, ptr noundef nonnull align 8 dereferenceable(89) %call.i.i.i.i) #40
   br label %return
 
 sw.bb3.i.i:                                       ; preds = %if.end10
@@ -5528,7 +5528,7 @@ sw.bb9.i.i:                                       ; preds = %if.end10
   %n.val.i.i = load i64, ptr %10, align 8
   %vfn.i.i37.i.i = getelementptr inbounds i8, ptr %vtable5, i64 240
   %11 = load ptr, ptr %vfn.i.i37.i.i, align 8
-  %call.i.i38.i.i = tail call noundef ptr %11(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %call.i.i38.i.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
   %val_.i.i39.i.i = getelementptr inbounds i8, ptr %call.i.i38.i.i, i64 40
   %12 = load i64, ptr %val_.i.i39.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %12, %n.val.i.i
@@ -5539,7 +5539,7 @@ sw.bb12.i.i:                                      ; preds = %if.end10
   %n.val22.i.i = load i64, ptr %13, align 8
   %vfn.i.i41.i.i = getelementptr inbounds i8, ptr %vtable5, i64 248
   %14 = load ptr, ptr %vfn.i.i41.i.i, align 8
-  %call.i.i42.i.i = tail call noundef ptr %14(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %call.i.i42.i.i = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
   %val_.i.i43.i.i = getelementptr inbounds i8, ptr %call.i.i42.i.i, i64 40
   %15 = load double, ptr %val_.i.i43.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %n.val22.i.i, 9218868437227405312
@@ -5568,7 +5568,7 @@ sw.bb15.i.i:                                      ; preds = %if.end10
   %n.val24.i.i = load i8, ptr %19, align 8
   %vfn.i.i45.i.i = getelementptr inbounds i8, ptr %vtable5, i64 256
   %20 = load ptr, ptr %vfn.i.i45.i.i, align 8
-  %call.i.i46.i.i = tail call noundef ptr %20(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %call.i.i46.i.i = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
   %val_.i.i47.i.i = getelementptr inbounds i8, ptr %call.i.i46.i.i, i64 40
   %21 = load i8, ptr %val_.i.i47.i.i, align 8
   %22 = xor i8 %21, %n.val24.i.i
@@ -5579,7 +5579,7 @@ sw.bb15.i.i:                                      ; preds = %if.end10
 sw.bb18.i.i:                                      ; preds = %if.end10
   %vfn.i.i50.i.i = getelementptr inbounds i8, ptr %vtable5, i64 264
   %24 = load ptr, ptr %vfn.i.i50.i.i, align 8
-  %call.i.i51.i.i = tail call noundef ptr %24(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %call.i.i51.i.i = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
   %val_.i.i52.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 40
   %val_.i.i.i53.i.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %25 = load i16, ptr %val_.i.i.i53.i.i, align 2
@@ -5606,7 +5606,7 @@ land.rhs.i.i.i.i55.i.i:                           ; preds = %land.lhs.true.i.i.i
 sw.bb21.i.i:                                      ; preds = %if.end10
   %vfn.i.i57.i.i = getelementptr inbounds i8, ptr %vtable5, i64 272
   %31 = load ptr, ptr %vfn.i.i57.i.i, align 8
-  %call.i.i58.i.i = tail call noundef ptr %31(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %call.i.i58.i.i = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
   %val_.i.i59.i.i = getelementptr inbounds i8, ptr %call.i.i58.i.i, i64 40
   %val_.i.i.i60.i.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %32 = load i8, ptr %val_.i.i.i60.i.i, align 4
@@ -5641,7 +5641,7 @@ land.rhs.i.i.i.i64.i.i:                           ; preds = %land.lhs.true7.i.i.
 sw.bb24.i.i:                                      ; preds = %if.end10
   %vfn.i.i66.i.i = getelementptr inbounds i8, ptr %vtable5, i64 280
   %40 = load ptr, ptr %vfn.i.i66.i.i, align 8
-  %call.i.i67.i.i = tail call noundef ptr %40(ptr noundef nonnull readonly align 8 dereferenceable(40) %rhs) #40
+  %call.i.i67.i.i = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(40) %rhs) #40
   %val_.i.i68.i.i = getelementptr inbounds i8, ptr %call.i.i67.i.i, i64 40
   %val_.i.i.i69.i.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %41 = load i16, ptr %val_.i.i.i69.i.i, align 2
@@ -7436,7 +7436,7 @@ terminate.lpad:                                   ; preds = %entry
 define void @_ZN4toml2v35arrayC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
 entry:
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35arrayE, i64 16), ptr %this, align 8
   %elems_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %elems_, i8 0, i64 24, i1 false)
@@ -7625,7 +7625,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 define void @_ZN4toml2v35arrayC2EPKNS0_4impl15array_init_elemES5_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %b, ptr noundef readnone %e) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35arrayE, i64 16), ptr %this, align 8
   %elems_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %elems_, i8 0, i64 24, i1 false)
@@ -7737,7 +7737,7 @@ define void @_ZN4toml2v35arrayC2ERKS1_(ptr noundef nonnull align 8 dereferenceab
 entry:
   %ref.tmp.i.i = alloca %class.anon.108, align 2
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35arrayE, i64 16), ptr %this, align 8
   %elems_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %elems_, i8 0, i64 24, i1 false)
@@ -7933,7 +7933,7 @@ entry:
   %source_2.i = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %source_.i, ptr noundef nonnull align 8 dereferenceable(16) %source_2.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source_.i, ptr noundef nonnull align 8 dereferenceable(16) %source_2.i, i64 16, i1 false)
   %path.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %path3.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %0 = load <2 x ptr>, ptr %path3.i.i.i.i, align 8, !noalias !85
@@ -10183,7 +10183,7 @@ return:                                           ; preds = %for.body, %"_ZN4tom
 define void @_ZN4toml2v35tableC2Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35tableE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %0, align 8
@@ -10327,7 +10327,7 @@ entry:
 define void @_ZN4toml2v35tableC2EPKNS0_4impl15table_init_pairES5_(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef %b, ptr noundef readnone %e) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35tableE, i64 16), ptr %this, align 8
   %map_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = getelementptr inbounds i8, ptr %this, i64 48
@@ -10469,7 +10469,7 @@ entry:
   %ref.tmp.i.i = alloca %class.anon.121, align 2
   %ref.tmp14 = alloca %"class.std::unique_ptr", align 8
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35tableE, i64 16), ptr %this, align 8
   %map_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = getelementptr inbounds i8, ptr %this, i64 48
@@ -10569,7 +10569,7 @@ entry:
   %source_2.i = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %source_.i, ptr noundef nonnull align 8 dereferenceable(16) %source_2.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source_.i, ptr noundef nonnull align 8 dereferenceable(16) %source_2.i, i64 16, i1 false)
   %path.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %path3.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %0 = load <2 x ptr>, ptr %path3.i.i.i.i, align 8, !noalias !146
@@ -13424,7 +13424,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit: ; pre
   %sub = add i32 %70, -48
   %conv = zext i32 %sub to i64
   %source_.i.i = getelementptr inbounds i8, ptr %call123, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call123, align 8
   %val_.i = getelementptr inbounds i8, ptr %call123, i64 40
   store i64 %conv, ptr %val_.i, align 8
@@ -13548,7 +13548,7 @@ invoke.cont177:                                   ; preds = %if.then176
 
 invoke.cont181:                                   ; preds = %invoke.cont177
   %source_.i.i51 = getelementptr inbounds i8, ptr %call178, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i51, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i51, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call178, align 8
   %val_.i52 = getelementptr inbounds i8, ptr %call178, i64 40
   store double %call182, ptr %val_.i52, align 8
@@ -13587,7 +13587,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit70: ; p
   %83 = sub nsw i64 0, %conv195
   %mul = select i1 %cmp197, i64 %83, i64 %conv195
   %source_.i.i63 = getelementptr inbounds i8, ptr %call191, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i63, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i63, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call191, align 8
   %val_.i64 = getelementptr inbounds i8, ptr %call191, i64 40
   store i64 %mul, ptr %val_.i64, align 8
@@ -13620,7 +13620,7 @@ invoke.cont207:                                   ; preds = %if.then206
 
 invoke.cont211:                                   ; preds = %invoke.cont207
   %source_.i.i71 = getelementptr inbounds i8, ptr %call208, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i71, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i71, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call208, align 8
   %val_.i72 = getelementptr inbounds i8, ptr %call208, i64 40
   store double %call212, ptr %val_.i72, align 8
@@ -13653,7 +13653,7 @@ invoke.cont217:                                   ; preds = %if.then216
 
 invoke.cont221:                                   ; preds = %invoke.cont217
   %source_.i.i80 = getelementptr inbounds i8, ptr %call218, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i80, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i80, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call218, align 8
   %val_.i81 = getelementptr inbounds i8, ptr %call218, i64 40
   store double %call222, ptr %val_.i81, align 8
@@ -13670,7 +13670,7 @@ lpad220:                                          ; preds = %invoke.cont217
 
 if.end228:                                        ; preds = %if.end163
   %source_.i.i38 = getelementptr inbounds i8, ptr %call165, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i38, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i38, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call165, align 8
   %val_.i39 = getelementptr inbounds i8, ptr %call165, i64 40
   store i64 %i.0, ptr %val_.i39, align 8
@@ -13753,7 +13753,7 @@ invoke.cont233:                                   ; preds = %sw.bb
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit96: ; preds = %invoke.cont233
   %source_.i.i89 = getelementptr inbounds i8, ptr %call234, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i89, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i89, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call234, align 8
   %val_.i90 = getelementptr inbounds i8, ptr %call234, i64 40
   store i64 %call238, ptr %val_.i90, align 8
@@ -13778,7 +13778,7 @@ invoke.cont243:                                   ; preds = %sw.bb242
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit105: ; preds = %invoke.cont243
   %source_.i.i98 = getelementptr inbounds i8, ptr %call244, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i98, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i98, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call244, align 8
   %val_.i99 = getelementptr inbounds i8, ptr %call244, i64 40
   store i64 %call248, ptr %val_.i99, align 8
@@ -13824,7 +13824,7 @@ invoke.cont271:                                   ; preds = %if.end270
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit114: ; preds = %invoke.cont271
   %source_.i.i107 = getelementptr inbounds i8, ptr %call272, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i107, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i107, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call272, align 8
   %val_.i108 = getelementptr inbounds i8, ptr %call272, i64 40
   store i64 %call276, ptr %val_.i108, align 8
@@ -13849,7 +13849,7 @@ invoke.cont278:                                   ; preds = %sw.bb277
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit122: ; preds = %invoke.cont278
   %source_.i.i115 = getelementptr inbounds i8, ptr %call279, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i115, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i115, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call279, align 8
   %val_.i116 = getelementptr inbounds i8, ptr %call279, i64 40
   store i64 %call283, ptr %val_.i116, align 8
@@ -13874,7 +13874,7 @@ invoke.cont309:                                   ; preds = %sw.bb308
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit131: ; preds = %invoke.cont309
   %source_.i.i124 = getelementptr inbounds i8, ptr %call310, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i124, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i124, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call310, align 8
   %val_.i125 = getelementptr inbounds i8, ptr %call310, i64 40
   store double %call314, ptr %val_.i125, align 8
@@ -13899,7 +13899,7 @@ invoke.cont327:                                   ; preds = %sw.bb326
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit139: ; preds = %invoke.cont327
   %source_.i.i132 = getelementptr inbounds i8, ptr %call328, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i132, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i132, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call328, align 8
   %val_.i133 = getelementptr inbounds i8, ptr %call328, i64 40
   store double %call332, ptr %val_.i133, align 8
@@ -13924,7 +13924,7 @@ invoke.cont337:                                   ; preds = %sw.bb336
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit147: ; preds = %invoke.cont337
   %source_.i.i140 = getelementptr inbounds i8, ptr %call338, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i140, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i140, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i64 16), ptr %call338, align 8
   %val_.i141 = getelementptr inbounds i8, ptr %call338, i64 40
   store i64 %call342, ptr %val_.i141, align 8
@@ -13949,7 +13949,7 @@ invoke.cont345:                                   ; preds = %sw.bb344
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit155: ; preds = %invoke.cont345
   %source_.i.i148 = getelementptr inbounds i8, ptr %call346, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i148, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i148, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i64 16), ptr %call346, align 8
   %val_.i149 = getelementptr inbounds i8, ptr %call346, i64 40
   store i32 %call350, ptr %val_.i149, align 8
@@ -13976,7 +13976,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EE5resetEPS2_.exit163: ; 
   %102 = extractvalue { i64, i64 } %call368, 0
   %103 = extractvalue { i64, i64 } %call368, 1
   %source_.i.i156 = getelementptr inbounds i8, ptr %call364, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i156, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i156, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i64 16), ptr %call364, align 8
   %val_.i157 = getelementptr inbounds i8, ptr %call364, i64 40
   store i64 %102, ptr %val_.i157, align 8
@@ -14961,7 +14961,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body, %_ZNKSt4l
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %28 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i, 1
-  %call.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %28, ptr noundef readonly %add.ptr.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #39
+  %call.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %28, ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #39
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIvEclIRKN4toml2v33keyERKSt17basic_string_viewIcSt11char_traitsIcEEEEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSD_OSE_.exit.i.i.i.i.i
 
@@ -15399,7 +15399,7 @@ while.body.i.i.i.i.i149:                          ; preds = %if.end173, %_ZNKSt4
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i156: ; preds = %while.body.i.i.i.i.i149
   %88 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i153, 1
-  %call.i.i.i.i.i.i.i.i.i.i157 = call i32 @memcmp(ptr noundef %88, ptr noundef readonly %add.ptr.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i154) #39
+  %call.i.i.i.i.i.i.i.i.i.i157 = call i32 @memcmp(ptr noundef %88, ptr noundef %add.ptr.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i154) #39
   %cmp.i.i.i.i.i.i.i.i.i158 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i157, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i158, label %if.then.i.i.i.i.i.i.i.i.i169, label %_ZNKSt4lessIvEclIRKN4toml2v33keyERKSt17basic_string_viewIcSt11char_traitsIcEEEEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSD_OSE_.exit.i.i.i.i.i159
 
@@ -15878,7 +15878,7 @@ entry:
   %ref.tmp = alloca %"class.toml::v3::impl::impl_ex::parser", align 8
   store ptr %reader, ptr %ref.tmp, align 8
   %history_.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(3080) %history_.ptr.i.i, i8 0, i64 3080, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3080) %history_.ptr.i.i, i8 0, i64 3080, i1 false)
   %root.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3088
   call void @_ZN4toml2v35tableC1Ev(ptr noundef nonnull align 8 dereferenceable(89) %root.i) #39
   %prev_pos.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3184
@@ -18455,10 +18455,10 @@ if.then:                                          ; preds = %entry
   %tobool.i.not = icmp eq i64 %and.i.i, 0
   %cond = select i1 %tobool.i.not, i8 34, i8 39
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %cond)
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 2 dereferenceable(4) %val_.i)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 2 dereferenceable(4) %val_.i)
   %call.i4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 84)
   %time.i.i = getelementptr inbounds i8, ptr %val, i64 44
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 4 dereferenceable(8) %time.i.i)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %time.i.i)
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %val, i64 54
   %2 = load i8, ptr %_M_engaged.i.i.i.i, align 2
   %tobool.i.i.i.i = trunc i8 %2 to i1
@@ -18466,7 +18466,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then
   %offset.i.i = getelementptr inbounds i8, ptr %val, i64 52
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_11time_offsetE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 2 dereferenceable(2) %offset.i.i)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_11time_offsetE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 2 dereferenceable(2) %offset.i.i)
   br label %_ZN4toml2v34impl25print_to_stream_bookendedINS0_6stdopt9date_timeEcEEvRSoRKT_RKT0_.exit
 
 _ZN4toml2v34impl25print_to_stream_bookendedINS0_6stdopt9date_timeEcEEvRSoRKT_RKT0_.exit: ; preds = %if.then, %if.then.i.i
@@ -18474,10 +18474,10 @@ _ZN4toml2v34impl25print_to_stream_bookendedINS0_6stdopt9date_timeEcEEvRSoRKT_RKT
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 2 dereferenceable(4) %val_.i)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 2 dereferenceable(4) %val_.i)
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 84)
   %time.i = getelementptr inbounds i8, ptr %val, i64 44
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 4 dereferenceable(8) %time.i)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %time.i)
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %val, i64 54
   %3 = load i8, ptr %_M_engaged.i.i.i, align 2
   %tobool.i.i.i = trunc i8 %3 to i1
@@ -18485,7 +18485,7 @@ if.else:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.else
   %offset.i = getelementptr inbounds i8, ptr %val, i64 52
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_11time_offsetE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 2 dereferenceable(2) %offset.i)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_11time_offsetE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 2 dereferenceable(2) %offset.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.else, %_ZN4toml2v34impl25print_to_stream_bookendedINS0_6stdopt9date_timeEcEEvRSoRKT_RKT0_.exit
@@ -18558,12 +18558,12 @@ if.then.i:                                        ; preds = %sw.bb5
   %tobool.i.not.i = icmp eq i64 %and.i.i.i, 0
   %cond.i = select i1 %tobool.i.not.i, i8 34, i8 39
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef signext %cond.i)
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull readonly align 2 dereferenceable(4) %val_.i.i9)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 2 dereferenceable(4) %val_.i.i9)
   %call.i4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef signext %cond.i)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit
 
 if.else.i:                                        ; preds = %sw.bb5
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull readonly align 2 dereferenceable(4) %val_.i.i9)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 2 dereferenceable(4) %val_.i.i9)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit
 
 _ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit: ; preds = %if.then.i, %if.else.i
@@ -18586,12 +18586,12 @@ if.then.i15:                                      ; preds = %sw.bb6
   %tobool.i.not.i17 = icmp eq i64 %and.i.i.i16, 0
   %cond.i18 = select i1 %tobool.i.not.i17, i8 34, i8 39
   %call.i.i.i19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext %cond.i18)
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull readonly align 4 dereferenceable(8) %val_.i.i14)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %val_.i.i14)
   %call.i4.i.i20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext %cond.i18)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit
 
 if.else.i22:                                      ; preds = %sw.bb6
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull readonly align 4 dereferenceable(8) %val_.i.i14)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %val_.i.i14)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit
 
 _ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit: ; preds = %if.then.i15, %if.else.i22
@@ -18990,7 +18990,7 @@ land.lhs.true:                                    ; preds = %_ZNK4toml2v34impl14
 land.lhs.true7:                                   ; preds = %_ZNK4toml2v34impl14table_iteratorILb1EE9get_proxyEv.exit
   %vfn.i = getelementptr inbounds i8, ptr %vtable, i64 224
   %4 = load ptr, ptr %vfn.i, align 8
-  %call.i42 = tail call noundef ptr %4(ptr noundef nonnull readonly align 8 dereferenceable(40) %1) #40
+  %call.i42 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(40) %1) #40
   %tobool.not.i = icmp eq ptr %call.i42, null
   br i1 %tobool.not.i, label %if.end, label %lor.lhs.false.i
 
@@ -19180,7 +19180,7 @@ if.else55:                                        ; preds = %sw.bb51
 sw.bb58:                                          ; preds = %_ZNK4toml2v34impl14table_iteratorILb1EE9get_proxyEv.exit84
   %vfn.i86 = getelementptr inbounds i8, ptr %vtable47, i64 224
   %28 = load ptr, ptr %vfn.i86, align 8
-  %call.i87 = tail call noundef ptr %28(ptr noundef nonnull readonly align 8 dereferenceable(40) %25) #40
+  %call.i87 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(40) %25) #40
   %tobool.not.i88 = icmp eq ptr %call.i87, null
   br i1 %tobool.not.i88, label %if.else63, label %lor.lhs.false.i89
 
@@ -19456,7 +19456,7 @@ _ZNK4toml2v34impl14table_iteratorILb1EE9get_proxyEv.exit164: ; preds = %_ZNK4tom
   %vtable.i165 = load ptr, ptr %60, align 8
   %vfn.i166 = getelementptr inbounds i8, ptr %vtable.i165, i64 224
   %61 = load ptr, ptr %vfn.i166, align 8
-  %call.i = tail call noundef ptr %61(ptr noundef nonnull readonly align 8 dereferenceable(40) %60) #40
+  %call.i = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(40) %60) #40
   %tobool.not.i167 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i167, label %for.inc134, label %lor.lhs.false.i168
 
@@ -21921,11 +21921,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -21938,7 +21938,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -21959,7 +21959,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i5 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i5, ptr %write_pos.i, align 8
@@ -21981,7 +21981,7 @@ if.end.i.i9:                                      ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %spec.select.i.i13 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i12, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr readonly align 1 %reason3.val2, i64 %spec.select.i.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %reason3.val2, i64 %spec.select.i.i13, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i13
   store ptr %add.ptr.i.i14, ptr %write_pos.i, align 8
@@ -22074,7 +22074,7 @@ _ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %retval.sroa.0.0.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr readonly align 1 %retval.sroa.4.0.i.i, i64 %spec.select.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %retval.sroa.4.0.i.i, i64 %spec.select.i.i, i1 false)
   br label %if.end19.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -22109,7 +22109,7 @@ _ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS
   %sub.ptr.rhs.cast.i19.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i20.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i19.i
   %spec.select.i21.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i20.i, i64 %add.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull readonly align 1 %buf.i, i64 %spec.select.i21.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %buf.i, i64 %spec.select.i21.i, i1 false)
   br label %if.end19.sink.split.i
 
 if.end19.sink.split.i:                            ; preds = %_ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit23.i, %_ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit.i
@@ -22488,7 +22488,7 @@ sw.bb9:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %sw.bb9
   %source_.i.i = getelementptr inbounds i8, ptr %call10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call10, align 8
   %val_.i = getelementptr inbounds i8, ptr %call10, i64 40
   store double %call11, ptr %val_.i, align 8
@@ -22530,7 +22530,7 @@ if.then:                                          ; preds = %entry, %entry, %ent
 invoke.cont27:                                    ; preds = %if.then
   %frombool = zext i1 %call28 to i8
   %source_.i.i6 = getelementptr inbounds i8, ptr %call24, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i6, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIbEE, i64 16), ptr %call24, align 8
   %val_.i7 = getelementptr inbounds i8, ptr %call24, i64 40
   store i8 %frombool, ptr %val_.i7, align 8
@@ -22552,7 +22552,7 @@ if.then32:                                        ; preds = %entry, %entry, %ent
 
 invoke.cont36:                                    ; preds = %if.then32
   %source_.i.i9 = getelementptr inbounds i8, ptr %call33, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i9, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call33, align 8
   %val_.i10 = getelementptr inbounds i8, ptr %call33, i64 40
   store double %call37, ptr %val_.i10, align 8
@@ -27754,11 +27754,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -27771,7 +27771,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -27792,7 +27792,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i4, ptr %write_pos.i, align 8
@@ -27821,11 +27821,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -27838,7 +27838,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -27859,7 +27859,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val2, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val2, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i5 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i5, ptr %write_pos.i, align 8
@@ -27881,7 +27881,7 @@ if.end.i.i9:                                      ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %spec.select.i.i13 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i12, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr readonly align 1 %reason3.val1, i64 %spec.select.i.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %reason3.val1, i64 %spec.select.i.i13, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i13
   store ptr %add.ptr.i.i14, ptr %write_pos.i, align 8
@@ -28569,7 +28569,7 @@ entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %source_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %val_ = getelementptr inbounds i8, ptr %this, i64 40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -30298,11 +30298,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -30315,7 +30315,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -30336,7 +30336,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val5, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val5, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i8 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i8, ptr %write_pos.i, align 8
@@ -30357,7 +30357,7 @@ if.end.i.i12:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
   %spec.select.i.i16 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i15, i64 %reason1.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %reason1.val4, i64 %spec.select.i.i16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %reason1.val4, i64 %spec.select.i.i16, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i17 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i16
   store ptr %add.ptr.i.i17, ptr %write_pos.i, align 8
@@ -30378,7 +30378,7 @@ if.end.i.i22:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
   %spec.select.i.i26 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i25, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %reason3.val3, i64 %spec.select.i.i26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %reason3.val3, i64 %spec.select.i.i26, i1 false)
   %14 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %14, i64 %spec.select.i.i26
   store ptr %add.ptr.i.i27, ptr %write_pos.i, align 8
@@ -30399,7 +30399,7 @@ if.end.i.i32:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
   %spec.select.i.i36 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i35, i64 %reason5.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr readonly align 1 %reason5.val2, i64 %spec.select.i.i36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %reason5.val2, i64 %spec.select.i.i36, i1 false)
   %18 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i37 = getelementptr inbounds i8, ptr %18, i64 %spec.select.i.i36
   store ptr %add.ptr.i.i37, ptr %write_pos.i, align 8
@@ -30420,7 +30420,7 @@ if.end.i.i42:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i44 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i43, %sub.ptr.rhs.cast.i.i44
   %spec.select.i.i46 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i45, i64 %reason7.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %reason7.val1, i64 %spec.select.i.i46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %reason7.val1, i64 %spec.select.i.i46, i1 false)
   %22 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i47 = getelementptr inbounds i8, ptr %22, i64 %spec.select.i.i46
   store ptr %add.ptr.i.i47, ptr %write_pos.i, align 8
@@ -31639,11 +31639,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -31656,7 +31656,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -31677,7 +31677,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val4, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val4, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i7, ptr %write_pos.i, align 8
@@ -31698,7 +31698,7 @@ if.end.i.i11:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i13 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i14 = sub i64 %sub.ptr.lhs.cast.i.i12, %sub.ptr.rhs.cast.i.i13
   %spec.select.i.i15 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i14, i64 %reason1.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %reason1.val3, i64 %spec.select.i.i15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %reason1.val3, i64 %spec.select.i.i15, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i16 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i15
   store ptr %add.ptr.i.i16, ptr %write_pos.i, align 8
@@ -31719,7 +31719,7 @@ if.end.i.i21:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i23 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i22, %sub.ptr.rhs.cast.i.i23
   %spec.select.i.i25 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i24, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %reason3.val2, i64 %spec.select.i.i25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %reason3.val2, i64 %spec.select.i.i25, i1 false)
   %14 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i26 = getelementptr inbounds i8, ptr %14, i64 %spec.select.i.i25
   store ptr %add.ptr.i.i26, ptr %write_pos.i, align 8
@@ -31740,7 +31740,7 @@ if.end.i.i31:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i33 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i32, %sub.ptr.rhs.cast.i.i33
   %spec.select.i.i35 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i34, i64 %reason5.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr readonly align 1 %reason5.val1, i64 %spec.select.i.i35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %reason5.val1, i64 %spec.select.i.i35, i1 false)
   %18 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i36 = getelementptr inbounds i8, ptr %18, i64 %spec.select.i.i35
   store ptr %add.ptr.i.i36, ptr %write_pos.i, align 8
@@ -31793,11 +31793,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -31810,7 +31810,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -31831,7 +31831,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val3, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val3, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i6, ptr %write_pos.i, align 8
@@ -31853,7 +31853,7 @@ if.end.i.i10:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i12 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i11, %sub.ptr.rhs.cast.i.i12
   %spec.select.i.i14 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i13, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr readonly align 1 %reason3.val2, i64 %spec.select.i.i14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %reason3.val2, i64 %spec.select.i.i14, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i14
   store ptr %add.ptr.i.i15, ptr %write_pos.i, align 8
@@ -31874,7 +31874,7 @@ if.end.i.i20:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   %spec.select.i.i24 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i23, i64 %reason5.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %reason5.val1, i64 %spec.select.i.i24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %reason5.val1, i64 %spec.select.i.i24, i1 false)
   %14 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %14, i64 %spec.select.i.i24
   store ptr %add.ptr.i.i25, ptr %write_pos.i, align 8
@@ -31919,11 +31919,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -31936,7 +31936,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -31957,7 +31957,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i4, ptr %write_pos.i, align 8
@@ -32115,11 +32115,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -32132,7 +32132,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -32153,7 +32153,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i4, ptr %write_pos.i, align 8
@@ -32579,11 +32579,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -32596,7 +32596,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -32617,7 +32617,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val2, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val2, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i5 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i5, ptr %write_pos.i, align 8
@@ -32639,7 +32639,7 @@ if.end.i.i9:                                      ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %spec.select.i.i13 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i12, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr readonly align 1 %reason3.val1, i64 %spec.select.i.i13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %reason3.val1, i64 %spec.select.i.i13, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i13
   store ptr %add.ptr.i.i14, ptr %write_pos.i, align 8
@@ -33074,11 +33074,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -33091,7 +33091,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -33112,7 +33112,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val1, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i4, ptr %write_pos.i, align 8
@@ -34644,11 +34644,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -34661,7 +34661,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -34682,7 +34682,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val3, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val3, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i6, ptr %write_pos.i, align 8
@@ -34703,7 +34703,7 @@ if.end.i.i10:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i12 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i11, %sub.ptr.rhs.cast.i.i12
   %spec.select.i.i14 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i13, i64 %reason1.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %reason1.val2, i64 %spec.select.i.i14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %reason1.val2, i64 %spec.select.i.i14, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i14
   store ptr %add.ptr.i.i15, ptr %write_pos.i, align 8
@@ -34724,7 +34724,7 @@ if.end.i.i20:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   %spec.select.i.i24 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i23, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %reason3.val1, i64 %spec.select.i.i24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %reason3.val1, i64 %spec.select.i.i24, i1 false)
   %14 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %14, i64 %spec.select.i.i24
   store ptr %add.ptr.i.i25, ptr %write_pos.i, align 8
@@ -36174,7 +36174,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body, %_ZNKSt4l
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %40 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i, 1
-  %call.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %40, ptr noundef readonly %add.ptr.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #39
+  %call.i.i.i.i.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %40, ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #39
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIvEclIRKN4toml2v33keyERKSt17basic_string_viewIcSt11char_traitsIcEEEEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSD_OSE_.exit.i.i.i.i.i
 
@@ -36669,7 +36669,7 @@ while.body.i.i.i.i.i201:                          ; preds = %for.end, %_ZNKSt4le
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i208: ; preds = %while.body.i.i.i.i.i201
   %114 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i205, 1
-  %call.i.i.i.i.i.i.i.i.i.i209 = call i32 @memcmp(ptr noundef %114, ptr noundef readonly %add.ptr.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i206) #39
+  %call.i.i.i.i.i.i.i.i.i.i209 = call i32 @memcmp(ptr noundef %114, ptr noundef %add.ptr.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i206) #39
   %cmp.i.i.i.i.i.i.i.i.i210 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i209, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i210, label %if.then.i.i.i.i.i.i.i.i.i221, label %_ZNKSt4lessIvEclIRKN4toml2v33keyERKSt17basic_string_viewIcSt11char_traitsIcEEEEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSD_OSE_.exit.i.i.i.i.i211
 
@@ -37659,11 +37659,11 @@ entry:
   %max_write_pos.i = getelementptr inbounds i8, ptr %builder, i64 520
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 511
   store ptr %add.ptr.i, ptr %max_write_pos.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull readonly align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %builder, ptr noundef nonnull align 1 dereferenceable(20) @.str.64, i64 20, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %builder, i64 20
   store ptr %add.ptr.i.i, ptr %write_pos.i, align 8
   %spec.select.i9.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 491)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr readonly align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i, ptr align 1 %agg.tmp.sroa.2.0.copyload, i64 %spec.select.i9.i, i1 false)
   %0 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.i9.i
   store ptr %add.ptr.i10.i, ptr %write_pos.i, align 8
@@ -37676,7 +37676,7 @@ if.end.i13.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %add.ptr.i10.i to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %spec.select.i17.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i16.i, i64 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull readonly align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr nonnull align 1 @.str.53, i64 %spec.select.i17.i, i1 false)
   %2 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.i17.i
   store ptr %add.ptr.i18.i, ptr %write_pos.i, align 8
@@ -37697,7 +37697,7 @@ if.end.i.i:                                       ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i, i64 %reason.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %reason.val6, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %reason.val6, i64 %spec.select.i.i, i1 false)
   %6 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i9 = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i
   store ptr %add.ptr.i.i9, ptr %write_pos.i, align 8
@@ -37718,7 +37718,7 @@ if.end.i.i13:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i15 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i16 = sub i64 %sub.ptr.lhs.cast.i.i14, %sub.ptr.rhs.cast.i.i15
   %spec.select.i.i17 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i16, i64 %reason1.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %reason1.val5, i64 %spec.select.i.i17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %reason1.val5, i64 %spec.select.i.i17, i1 false)
   %10 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %10, i64 %spec.select.i.i17
   store ptr %add.ptr.i.i18, ptr %write_pos.i, align 8
@@ -37739,7 +37739,7 @@ if.end.i.i23:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %spec.select.i.i27 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i26, i64 %reason3.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %reason3.val4, i64 %spec.select.i.i27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %reason3.val4, i64 %spec.select.i.i27, i1 false)
   %14 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %14, i64 %spec.select.i.i27
   store ptr %add.ptr.i.i28, ptr %write_pos.i, align 8
@@ -37760,7 +37760,7 @@ if.end.i.i33:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
   %spec.select.i.i37 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i36, i64 %reason5.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr readonly align 1 %reason5.val3, i64 %spec.select.i.i37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %reason5.val3, i64 %spec.select.i.i37, i1 false)
   %18 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i38 = getelementptr inbounds i8, ptr %18, i64 %spec.select.i.i37
   store ptr %add.ptr.i.i38, ptr %write_pos.i, align 8
@@ -37781,7 +37781,7 @@ if.end.i.i43:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i45 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i44, %sub.ptr.rhs.cast.i.i45
   %spec.select.i.i47 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i46, i64 %reason7.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %reason7.val2, i64 %spec.select.i.i47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %reason7.val2, i64 %spec.select.i.i47, i1 false)
   %22 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i48 = getelementptr inbounds i8, ptr %22, i64 %spec.select.i.i47
   store ptr %add.ptr.i.i48, ptr %write_pos.i, align 8
@@ -37802,7 +37802,7 @@ if.end.i.i53:                                     ; preds = %_ZN12_GLOBAL__N_113
   %sub.ptr.rhs.cast.i.i55 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i56 = sub i64 %sub.ptr.lhs.cast.i.i54, %sub.ptr.rhs.cast.i.i55
   %spec.select.i.i57 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i56, i64 %reason9.val)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %reason9.val1, i64 %spec.select.i.i57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %reason9.val1, i64 %spec.select.i.i57, i1 false)
   %26 = load ptr, ptr %write_pos.i, align 8
   %add.ptr.i.i58 = getelementptr inbounds i8, ptr %26, i64 %spec.select.i.i57
   store ptr %add.ptr.i.i58, ptr %write_pos.i, align 8
@@ -42073,7 +42073,7 @@ sw.bb6:                                           ; preds = %entry
   %3 = load i16, ptr %visitor, align 2
   %call.i.i20 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #44
   %source_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call.i.i20, align 8
   %val_.i.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 40
   %val_2.i.i.i = getelementptr inbounds i8, ptr %n, i64 40
@@ -42100,7 +42100,7 @@ sw.bb9:                                           ; preds = %entry
   %7 = load i16, ptr %visitor, align 2
   %call.i.i21 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #44
   %source_.i.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i21, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i22, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i22, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call.i.i21, align 8
   %val_.i.i.i23 = getelementptr inbounds i8, ptr %call.i.i21, i64 40
   %val_2.i.i.i24 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42118,7 +42118,7 @@ sw.bb12:                                          ; preds = %entry
   %10 = load i16, ptr %visitor, align 2
   %call.i.i29 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #44
   %source_.i.i.i.i30 = getelementptr inbounds i8, ptr %call.i.i29, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i30, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i30, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call.i.i29, align 8
   %val_.i.i.i31 = getelementptr inbounds i8, ptr %call.i.i29, i64 40
   %val_2.i.i.i32 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42136,7 +42136,7 @@ sw.bb15:                                          ; preds = %entry
   %13 = load i16, ptr %visitor, align 2
   %call.i.i37 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #44
   %source_.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i37, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i38, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i38, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIbEE, i64 16), ptr %call.i.i37, align 8
   %val_.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i37, i64 40
   %val_2.i.i.i40 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42155,7 +42155,7 @@ sw.bb18:                                          ; preds = %entry
   %16 = load i16, ptr %visitor, align 2
   %call.i.i45 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #44
   %source_.i.i.i.i46 = getelementptr inbounds i8, ptr %call.i.i45, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i46, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i46, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i64 16), ptr %call.i.i45, align 8
   %val_.i.i.i47 = getelementptr inbounds i8, ptr %call.i.i45, i64 40
   %val_2.i.i.i48 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42173,7 +42173,7 @@ sw.bb21:                                          ; preds = %entry
   %19 = load i16, ptr %visitor, align 2
   %call.i.i53 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #44
   %source_.i.i.i.i54 = getelementptr inbounds i8, ptr %call.i.i53, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i54, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i54, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i64 16), ptr %call.i.i53, align 8
   %val_.i.i.i55 = getelementptr inbounds i8, ptr %call.i.i53, i64 40
   %val_2.i.i.i56 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42191,7 +42191,7 @@ sw.bb24:                                          ; preds = %entry
   %22 = load i16, ptr %visitor, align 2
   %call.i.i61 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #44
   %source_.i.i.i.i62 = getelementptr inbounds i8, ptr %call.i.i61, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i62, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i62, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i64 16), ptr %call.i.i61, align 8
   %val_.i.i.i63 = getelementptr inbounds i8, ptr %call.i.i61, i64 40
   %val_2.i.i.i64 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42872,7 +42872,7 @@ sw.bb6:                                           ; preds = %entry
   %3 = load i16, ptr %visitor, align 2
   %call.i.i20 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #44
   %source_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call.i.i20, align 8
   %val_.i.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 40
   %val_2.i.i.i = getelementptr inbounds i8, ptr %n, i64 40
@@ -42899,7 +42899,7 @@ sw.bb9:                                           ; preds = %entry
   %7 = load i16, ptr %visitor, align 2
   %call.i.i21 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #44
   %source_.i.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i21, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i22, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i22, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIlEE, i64 16), ptr %call.i.i21, align 8
   %val_.i.i.i23 = getelementptr inbounds i8, ptr %call.i.i21, i64 40
   %val_2.i.i.i24 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42917,7 +42917,7 @@ sw.bb12:                                          ; preds = %entry
   %10 = load i16, ptr %visitor, align 2
   %call.i.i29 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #44
   %source_.i.i.i.i30 = getelementptr inbounds i8, ptr %call.i.i29, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i30, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i30, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIdEE, i64 16), ptr %call.i.i29, align 8
   %val_.i.i.i31 = getelementptr inbounds i8, ptr %call.i.i29, i64 40
   %val_2.i.i.i32 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42935,7 +42935,7 @@ sw.bb15:                                          ; preds = %entry
   %13 = load i16, ptr %visitor, align 2
   %call.i.i37 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #44
   %source_.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i37, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i38, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i38, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueIbEE, i64 16), ptr %call.i.i37, align 8
   %val_.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i37, i64 40
   %val_2.i.i.i40 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42954,7 +42954,7 @@ sw.bb18:                                          ; preds = %entry
   %16 = load i16, ptr %visitor, align 2
   %call.i.i45 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #44
   %source_.i.i.i.i46 = getelementptr inbounds i8, ptr %call.i.i45, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i46, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i46, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i64 16), ptr %call.i.i45, align 8
   %val_.i.i.i47 = getelementptr inbounds i8, ptr %call.i.i45, i64 40
   %val_2.i.i.i48 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42972,7 +42972,7 @@ sw.bb21:                                          ; preds = %entry
   %19 = load i16, ptr %visitor, align 2
   %call.i.i53 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #44
   %source_.i.i.i.i54 = getelementptr inbounds i8, ptr %call.i.i53, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i54, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i54, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i64 16), ptr %call.i.i53, align 8
   %val_.i.i.i55 = getelementptr inbounds i8, ptr %call.i.i53, i64 40
   %val_2.i.i.i56 = getelementptr inbounds i8, ptr %n, i64 40
@@ -42990,7 +42990,7 @@ sw.bb24:                                          ; preds = %entry
   %22 = load i16, ptr %visitor, align 2
   %call.i.i61 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #44
   %source_.i.i.i.i62 = getelementptr inbounds i8, ptr %call.i.i61, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %source_.i.i.i.i62, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %source_.i.i.i.i62, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i64 16), ptr %call.i.i61, align 8
   %val_.i.i.i63 = getelementptr inbounds i8, ptr %call.i.i61, i64 40
   %val_2.i.i.i64 = getelementptr inbounds i8, ptr %n, i64 40
@@ -43350,7 +43350,7 @@ lor.rhs:                                          ; preds = %if.then
   %_M_str.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_str.i.i.i, align 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 32 %raw_bytes.i, ptr align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %raw_bytes.i, ptr align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
   store i64 %.sroa.speculated.i.i, ptr %position_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(800) %codepoints_, i8 0, i64 800, i1 false)
   %decoder_15.i = getelementptr inbounds i8, ptr %this, i64 40

@@ -111,7 +111,7 @@ if.then13.i:                                      ; preds = %if.then
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx14.i = getelementptr inbounds [64 x i8], ptr %m_buffer.i, i64 0, i64 %idxprom.i
   %conv.i = zext nneg i32 %sub.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %data, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %conv.i, i1 false)
   tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull %m_buffer.i)
   %add1718.i = xor i32 %and.i, 127
   %cmp1819.i = icmp ult i32 %add1718.i, %conv
@@ -121,7 +121,7 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %i.020.i = phi i32 [ %add23.i, %for.body.i ], [ %sub.i, %if.then13.i ]
   %idxprom21.i = zext i32 %i.020.i to i64
   %arrayidx22.i = getelementptr inbounds i8, ptr %data, i64 %idxprom21.i
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull readonly %arrayidx22.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
   %add17.i = add i32 %i.020.i, 127
   %cmp18.i = icmp ult i32 %add17.i, %conv
@@ -144,7 +144,7 @@ if.then27.i:                                      ; preds = %if.end24.i
   %idxprom31.i = zext i32 %i.1.i to i64
   %arrayidx32.i = getelementptr inbounds i8, ptr %data, i64 %idxprom31.i
   %conv34.i = zext i32 %sub25.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx30.i, ptr nonnull readonly align 1 %arrayidx32.i, i64 %conv34.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx30.i, ptr nonnull align 1 %arrayidx32.i, i64 %conv34.i, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then27.i, %if.end24.i, %cond.end
@@ -255,7 +255,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %2 = load ptr, ptr %this, align 8
   %m_digest.i = getelementptr inbounds i8, ptr %2, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(20) %h, ptr noundef nonnull readonly align 8 dereferenceable(20) %m_digest.i, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %h, ptr noundef nonnull align 8 dereferenceable(20) %m_digest.i, i64 20, i1 false)
   ret void
 }
 
@@ -430,7 +430,7 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   %2 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %tszOut.i)
-  %call.i = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr noundef nonnull readonly align 8 dereferenceable(200) %2, ptr noundef nonnull %tszOut.i, i32 noundef 2)
+  %call.i = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %tszOut.i, i32 noundef 2)
   br i1 %call.i, label %if.then.i, label %nrvo.skipdtor
 
 if.then.i:                                        ; preds = %if.end
@@ -2235,7 +2235,7 @@ if.then13.i:                                      ; preds = %if.then12
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx14.i = getelementptr inbounds [64 x i8], ptr %m_buffer.i, i64 0, i64 %idxprom.i
   %conv.i = zext nneg i32 %sub.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %call5, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx14.i, ptr noundef nonnull align 1 dereferenceable(1) %call5, i64 %conv.i, i1 false)
   tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer.i)
   %add1718.i = xor i32 %and.i, 127
   %cmp1819.i = icmp ult i32 %add1718.i, %conv
@@ -2245,7 +2245,7 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %i.020.i = phi i32 [ %add23.i, %for.body.i ], [ %sub.i, %if.then13.i ]
   %idxprom21.i = zext i32 %i.020.i to i64
   %arrayidx22.i = getelementptr inbounds i8, ptr %call5, i64 %idxprom21.i
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull readonly %arrayidx22.i)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
   %add17.i = add i32 %i.020.i, 127
   %cmp18.i = icmp ult i32 %add17.i, %conv
@@ -2267,7 +2267,7 @@ if.then27.i:                                      ; preds = %if.end24.i
   %idxprom31.i = zext i32 %i.1.i to i64
   %arrayidx32.i = getelementptr inbounds i8, ptr %call5, i64 %idxprom31.i
   %conv34.i = zext i32 %sub25.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx30.i, ptr nonnull readonly align 1 %arrayidx32.i, i64 %conv34.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx30.i, ptr nonnull align 1 %arrayidx32.i, i64 %conv34.i, i1 false)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then27.i, %if.end24.i

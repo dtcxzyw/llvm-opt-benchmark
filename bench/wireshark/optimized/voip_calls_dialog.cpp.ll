@@ -2704,7 +2704,7 @@ define noundef zeroext i1 @_ZN15VoipCallsDialog11eventFilterEP7QObjectP6QEvent(p
   br i1 %18, label %19, label %39
 
 19:                                               ; preds = %16
-  tail call void @_ZN15VoipCallsDialog15invertSelectionEv(ptr noundef nonnull readonly align 8 dereferenceable(480) %0)
+  tail call void @_ZN15VoipCallsDialog15invertSelectionEv(ptr noundef nonnull align 8 dereferenceable(480) %0)
   br label %39
 
 20:                                               ; preds = %13

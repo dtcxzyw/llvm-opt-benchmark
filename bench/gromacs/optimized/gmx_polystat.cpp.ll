@@ -1293,7 +1293,7 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit426:      ; preds = %374
   %indvars.iv700 = phi i64 [ %indvars.iv.next701, %.preheader557 ], [ 0, %393 ]
   %396 = getelementptr inbounds ptr, ptr %368, i64 %indvars.iv700
   %397 = load ptr, ptr %396, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %397, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %397, i8 0, i64 24, i1 false)
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
   %exitcond703.not = icmp eq i64 %indvars.iv.next701, 3
   br i1 %exitcond703.not, label %398, label %.preheader557, !llvm.loop !12
@@ -1304,7 +1304,7 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit426:      ; preds = %374
   br i1 %400, label %401, label %402
 
 401:                                              ; preds = %398
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   br label %402
 
 402:                                              ; preds = %401, %398
@@ -1424,7 +1424,7 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit426:      ; preds = %374
   br i1 %exitcond.not.i, label %_ZL13calc_int_distPdPA3_fii.exit, label %.preheader.i, !llvm.loop !15
 
 _ZL13calc_int_distPdPA3_fii.exit:                 ; preds = %._crit_edge.i, %437, %.lr.ph623
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   br label %466
 
 .preheader550:                                    ; preds = %466
@@ -1441,7 +1441,7 @@ _ZL13calc_int_distPdPA3_fii.exit:                 ; preds = %._crit_edge.i, %437
   %indvars.iv709 = phi i64 [ 0, %_ZL13calc_int_distPdPA3_fii.exit ], [ %indvars.iv.next710, %466 ]
   %467 = getelementptr inbounds ptr, ptr %367, i64 %indvars.iv709
   %468 = load ptr, ptr %467, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %468, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %468, i8 0, i64 24, i1 false)
   %indvars.iv.next710 = add nuw nsw i64 %indvars.iv709, 1
   %exitcond712.not = icmp eq i64 %indvars.iv.next710, 3
   br i1 %exitcond712.not, label %.preheader550, label %466, !llvm.loop !16

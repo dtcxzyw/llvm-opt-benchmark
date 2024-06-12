@@ -458,7 +458,7 @@ define internal i64 @console_conmode_get(i64 noundef %0) #0 {
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %13, ptr noundef nonnull readonly align 4 dereferenceable(60) %2, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %13, ptr noundef nonnull align 4 dereferenceable(60) %2, i64 60, i1 false)
   ret i64 %10
 }
 
@@ -1679,7 +1679,7 @@ set_rawmode.exit:                                 ; preds = %3, %24, %27
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %35, ptr noundef nonnull readonly align 8 dereferenceable(60) %4, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %35, ptr noundef nonnull align 8 dereferenceable(60) %4, i64 60, i1 false)
   ret i64 %32
 }
 

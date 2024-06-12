@@ -429,7 +429,7 @@ entry:
   %1 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
@@ -483,7 +483,7 @@ entry:
   %1 = load ptr, ptr %finalize_data_, align 8
   %finalize_hint_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %finalize_hint_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
   %prev_.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %prev_.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
@@ -543,7 +543,7 @@ entry:
   %1 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %2 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -729,7 +729,7 @@ entry:
   %2 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %prev_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
@@ -793,7 +793,7 @@ entry:
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -1321,7 +1321,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit:  ; preds = %entry, %if.end.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %prev_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -1396,7 +1396,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i: ; preds = %if.end.i.i, %entry
   %4 = load ptr, ptr %finalize_data_.i.i.i, align 8
   %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %5 = load ptr, ptr %finalize_hint_.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %prev_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
@@ -11066,7 +11066,7 @@ do.end127:                                        ; preds = %_ZNO2v85MaybeIbE8Fr
 
 if.then130:                                       ; preds = %do.end127
   %finalize_callback_.i = getelementptr inbounds i8, ptr %call91, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   br label %if.end134
 
 delete.notnull:                                   ; preds = %do.end127

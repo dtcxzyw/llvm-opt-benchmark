@@ -4385,7 +4385,7 @@ if.then14.i.i:                                    ; preds = %land.lhs.true.i.i
 _ZN4node4i18n12_GLOBAL__N_116CopySourceBufferEPNS_16MaybeStackBufferIDsLm1024EEEPKcmm.exit: ; preds = %do.end6.i.i, %land.lhs.true.i.i, %if.then14.i.i
   %1 = phi ptr [ %.pre.i, %if.then14.i.i ], [ %call10.i.i, %land.lhs.true.i.i ], [ %buf_st_.i, %do.end6.i.i ]
   store i64 %div11, ptr %sourcebuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr readonly align 1 %source, i64 %source_length, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %source, i64 %source_length, i1 false)
   %2 = load ptr, ptr %buf_.i14, align 8
   %3 = load i64, ptr %capacity_.i12, align 8
   %conv = trunc i64 %3 to i32
@@ -4639,7 +4639,7 @@ if.then14.i.i:                                    ; preds = %land.lhs.true.i.i
 _ZN4node4i18n12_GLOBAL__N_116CopySourceBufferEPNS_16MaybeStackBufferIDsLm1024EEEPKcmm.exit: ; preds = %do.end6.i.i, %if.then8.i.i, %land.lhs.true.i.i, %if.then14.i.i
   %5 = phi ptr [ %.pre.i, %if.then14.i.i ], [ %call10.i.i, %land.lhs.true.i.i ], [ %call10.i.i, %if.then8.i.i ], [ %2, %do.end6.i.i ]
   store i64 %div7, ptr %sourcebuf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr readonly align 1 %source, i64 %source_length, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %source, i64 %source_length, i1 false)
   store i64 0, ptr %destbuf, align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %destbuf, i64 8
   %buf_st_.i.i = getelementptr inbounds i8, ptr %destbuf, i64 24

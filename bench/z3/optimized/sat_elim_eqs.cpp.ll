@@ -1582,13 +1582,13 @@ if.end:                                           ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %if.end, %_ZN7svectorIN3sat7literalEjEC2EjRKS1_.exit.thread, %_ZN7svectorIN3sat7literalEjEC2EjRKS1_.exit, %invoke.cont4
-  invoke void @_ZN3sat8elim_eqs19cleanup_bin_watchesERK7svectorINS_7literalEjE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %roots)
+  invoke void @_ZN3sat8elim_eqs19cleanup_bin_watchesERK7svectorINS_7literalEjE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %roots)
           to label %.noexc13 unwind label %lpad3.loopexit.split-lp
 
 .noexc13:                                         ; preds = %for.end
   %19 = load ptr, ptr %m_solver, align 8
   %m_clauses.i = getelementptr inbounds i8, ptr %19, i64 3376
-  invoke void @_ZN3sat8elim_eqs15cleanup_clausesERK7svectorINS_7literalEjER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %m_clauses.i)
+  invoke void @_ZN3sat8elim_eqs15cleanup_clausesERK7svectorINS_7literalEjER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %m_clauses.i)
           to label %.noexc14 unwind label %lpad3.loopexit.split-lp
 
 .noexc14:                                         ; preds = %.noexc13
@@ -1600,7 +1600,7 @@ for.end:                                          ; preds = %if.end, %_ZN7svecto
 
 if.end.i:                                         ; preds = %.noexc14
   %m_learned.i = getelementptr inbounds i8, ptr %20, i64 3384
-  invoke void @_ZN3sat8elim_eqs15cleanup_clausesERK7svectorINS_7literalEjER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %m_learned.i)
+  invoke void @_ZN3sat8elim_eqs15cleanup_clausesERK7svectorINS_7literalEjER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %m_learned.i)
           to label %.noexc15 unwind label %lpad3.loopexit.split-lp
 
 .noexc15:                                         ; preds = %if.end.i
@@ -1611,7 +1611,7 @@ if.end.i:                                         ; preds = %.noexc14
   br i1 %tobool.i5.i, label %invoke.cont22, label %if.end7.i
 
 if.end7.i:                                        ; preds = %.noexc15
-  invoke void @_ZN3sat8elim_eqs9save_elimERK7svectorINS_7literalEjERKS1_IjjE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %roots, ptr noundef nonnull readonly align 8 dereferenceable(8) %to_elim)
+  invoke void @_ZN3sat8elim_eqs9save_elimERK7svectorINS_7literalEjERKS1_IjjE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %to_elim)
           to label %.noexc16 unwind label %lpad3.loopexit.split-lp
 
 .noexc16:                                         ; preds = %if.end7.i

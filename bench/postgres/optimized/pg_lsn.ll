@@ -83,7 +83,7 @@ define dso_local i64 @pg_lsn_in(ptr nocapture noundef readonly %0) local_unnamed
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i64 @strspn(ptr noundef readonly %4, ptr noundef nonnull @.str) #11
+  %5 = tail call i64 @strspn(ptr noundef %4, ptr noundef nonnull @.str) #11
   %6 = trunc i64 %5 to i32
   %7 = add i32 %6, -9
   %or.cond.i = icmp ult i32 %7, -8
@@ -98,7 +98,7 @@ define dso_local i64 @pg_lsn_in(ptr nocapture noundef readonly %0) local_unnamed
 
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %10, i64 1
-  %14 = tail call i64 @strspn(ptr noundef readonly %13, ptr noundef nonnull @.str) #11
+  %14 = tail call i64 @strspn(ptr noundef %13, ptr noundef nonnull @.str) #11
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, -9
   %or.cond3.i = icmp ult i32 %16, -8
@@ -126,8 +126,8 @@ define dso_local i64 @pg_lsn_in(ptr nocapture noundef readonly %0) local_unnamed
   br label %36
 
 30:                                               ; preds = %17
-  %31 = tail call i64 @strtoul(ptr nocapture noundef nonnull readonly %4, ptr noundef null, i32 noundef 16) #12
-  %32 = tail call i64 @strtoul(ptr nocapture noundef readonly %13, ptr noundef null, i32 noundef 16) #12
+  %31 = tail call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 16) #12
+  %32 = tail call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 16) #12
   %33 = shl i64 %31, 32
   %34 = and i64 %32, 4294967295
   %35 = or disjoint i64 %34, %33

@@ -353,7 +353,7 @@ declare void @g_free(ptr noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 -1, -9223372036854775808) i64 @load_image_targphys(ptr noundef %filename, i64 noundef %addr, i64 noundef %max_sz) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %filename, i32 noundef 0) #23
+  %call.i.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #23
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %load_image_targphys_as.exit, label %get_image_size.exit.i
 
@@ -385,7 +385,7 @@ load_image_targphys_as.exit:                      ; preds = %entry, %get_image_s
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 -1, -9223372036854775808) i64 @load_image_targphys_as(ptr noundef %filename, i64 noundef %addr, i64 noundef %max_sz, ptr noundef %as) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %filename, i32 noundef 0) #23
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #23
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %return, label %get_image_size.exit
 
@@ -704,7 +704,7 @@ memory_access_is_direct.exit:                     ; preds = %lor.rhs.i
   br i1 %tobool1.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %filename, i32 noundef 0) #23
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #23
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %return, label %get_image_size.exit
 

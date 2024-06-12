@@ -10891,7 +10891,7 @@ method_name_by_decl.exit135:                      ; preds = %176, %181
 196:                                              ; preds = %192, %192
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %197 = call fastcc zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull readonly %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2)
+  %197 = call fastcc zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2)
   br i1 %197, label %198, label %sema_analyse_operator_element_at.exit.i.thread
 
 198:                                              ; preds = %196
@@ -10923,7 +10923,7 @@ sema_analyse_operator_element_at.exit.i:          ; preds = %198
 209:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %210 = call fastcc zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull readonly %2, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+  %210 = call fastcc zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   br i1 %210, label %211, label %sema_analyse_operator_len.exit.i.thread
 
 211:                                              ; preds = %209
@@ -10969,7 +10969,7 @@ sema_analyse_operator_len.exit.i:                 ; preds = %221
 sema_check_operator_method_validity.exit:         ; preds = %192
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %228 = call fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull readonly %2, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 3)
+  %228 = call fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %228, label %229, label %unit_add_base_extension_method.exit

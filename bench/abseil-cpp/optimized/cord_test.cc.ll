@@ -100196,7 +100196,7 @@ invoke.cont101:                                   ; preds = %if.then.i161, %invo
           to label %invoke.cont104 unwind label %lpad26.body.thread232
 
 invoke.cont104:                                   ; preds = %invoke.cont101
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %test_cases, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %test_cases, i8 0, i64 24, i1 false)
   %call5.i.i.i.i5.i170 = invoke noalias noundef nonnull dereferenceable(864) ptr @_Znwm(i64 noundef 864) #33
           to label %call5.i.i.i.i5.i.noexc unwind label %lpad107
 
@@ -120128,7 +120128,7 @@ delete.notnull:                                   ; preds = %entry
   %base.i = getelementptr inbounds i8, ptr %rep, i64 16
   %0 = load ptr, ptr %base.i, align 8
   %1 = load i64, ptr %rep, align 8
-  invoke fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0vEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE"(ptr noundef nonnull readonly align 8 dereferenceable(8) %add.ptr.i, i64 %1, ptr %0)
+  invoke fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0vEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE"(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 %1, ptr %0)
           to label %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %delete.notnull

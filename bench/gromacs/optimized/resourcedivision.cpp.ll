@@ -155,7 +155,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %24, %24, %24, %24
 36:                                               ; preds = %32, %9
   store i8 0, ptr %16, align 8
   %37 = getelementptr inbounds i8, ptr %16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds i8, ptr %5, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 6

@@ -272,7 +272,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %bn_from_mont_fixed_top.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call.i, ptr noundef readonly %mont)
+  %call3.i = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call.i, ptr noundef %mont)
   br label %bn_from_mont_fixed_top.exit
 
 bn_from_mont_fixed_top.exit:                      ; preds = %entry, %land.lhs.true.i, %if.then.i

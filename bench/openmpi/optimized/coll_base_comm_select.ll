@@ -328,7 +328,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %95, 
 .lr.ph.i117.i:                                    ; preds = %.preheader.i.i, %110
   %113 = phi ptr [ %112, %110 ], [ %109, %.preheader.i.i ]
   %.0510.i.i = phi ptr [ %111, %110 ], [ %.092.i, %.preheader.i.i ]
-  %114 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %113) #12
+  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %113) #12
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %component_in_argv.exit.i, label %110
 

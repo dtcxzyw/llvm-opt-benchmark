@@ -184,7 +184,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_dump_fp(ptr noundef %fp, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull readonly @write_fp, ptr noundef %fp, ptr noundef readonly %s, i32 noundef %len, i32 noundef 0)
+  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_fp, ptr noundef %fp, ptr noundef %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -206,7 +206,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_dump(ptr noundef %bp, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull readonly @write_bio, ptr noundef %bp, ptr noundef readonly %s, i32 noundef %len, i32 noundef 0)
+  %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_bio, ptr noundef %bp, ptr noundef %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call.i
 }
 

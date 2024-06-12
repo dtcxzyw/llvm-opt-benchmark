@@ -678,7 +678,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = load ptr, ptr %vb, align 8
   %call5.i = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.08.i) #7
   %3 = load ptr, ptr %call5.i, align 8
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %username) #8
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %username) #8
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %find_user.exit, label %for.cond.i
 
@@ -713,7 +713,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = load ptr, ptr %vb, align 8
   %call5.i = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.08.i) #7
   %3 = load ptr, ptr %call5.i, align 8
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %username) #8
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %username) #8
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %if.then2, label %for.cond.i
 

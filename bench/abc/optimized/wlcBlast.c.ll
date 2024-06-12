@@ -1356,7 +1356,7 @@ define i32 @Wlc_BlastLessSigned(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %15, label %Wlc_BlastLess.exit, label %16
 
 16:                                               ; preds = %4
-  call void @Wlc_BlastLess_rec(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call void @Wlc_BlastLess_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %17 = load i32, ptr %5, align 4
   br label %Wlc_BlastLess.exit
 
@@ -3434,7 +3434,7 @@ Vec_IntAlloc.exit139:                             ; preds = %Vec_IntAlloc.exit13
   %75 = getelementptr i8, ptr %74, i64 -4
   %76 = load i32, ptr %75, align 4
   %77 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %72, i32 noundef %76) #21
-  %78 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %9, ptr noundef readonly %1, i32 noundef %2)
+  %78 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %2)
   %79 = icmp sgt i32 %2, 0
   br i1 %79, label %.lr.ph.preheader.i, label %Wlc_BlastMinus.exit
 
@@ -3458,7 +3458,7 @@ Vec_IntAlloc.exit139:                             ; preds = %Vec_IntAlloc.exit13
   br i1 %exitcond.not.i, label %Wlc_BlastMinus.exit, label %.lr.ph.i, !llvm.loop !42
 
 Wlc_BlastMinus.exit:                              ; preds = %.lr.ph.i, %Vec_IntAlloc.exit139
-  %87 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %18, ptr noundef readonly %3, i32 noundef %4)
+  %87 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %18, ptr noundef %3, i32 noundef %4)
   %88 = icmp sgt i32 %4, 0
   br i1 %88, label %.lr.ph.preheader.i140, label %Wlc_BlastMinus.exit147
 
@@ -3486,21 +3486,21 @@ Wlc_BlastMinus.exit147:                           ; preds = %.lr.ph.i142, %Wlc_B
   br i1 %.not.i148, label %97, label %96
 
 96:                                               ; preds = %Wlc_BlastMinus.exit147
-  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %28)
+  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %28)
   %.val109 = load ptr, ptr %26, align 8
-  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %.val109, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %37)
+  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.val109, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %37)
   %.val108 = load ptr, ptr %17, align 8
-  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef readonly %.val108, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %45)
-  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef readonly %.val108, i32 noundef %2, ptr noundef readonly %.val109, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %53)
+  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef %.val108, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %45)
+  tail call void @Wlc_BlastDividerNR(ptr noundef %0, ptr noundef %.val108, i32 noundef %2, ptr noundef %.val109, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %53)
   br label %Wlc_BlastDividerTop.exit154
 
 97:                                               ; preds = %Wlc_BlastMinus.exit147
-  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i32 poison, i32 noundef %5, ptr noundef nonnull %28)
+  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 poison, i32 noundef %5, ptr noundef nonnull %28)
   %.val109176 = load ptr, ptr %26, align 8
-  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %.val109176, i32 poison, i32 noundef %5, ptr noundef nonnull %37)
+  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.val109176, i32 poison, i32 noundef %5, ptr noundef nonnull %37)
   %.val108180 = load ptr, ptr %17, align 8
-  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef readonly %.val108180, i32 noundef %2, ptr noundef readonly %3, i32 poison, i32 noundef %5, ptr noundef nonnull %45)
-  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef readonly %.val108180, i32 noundef %2, ptr noundef readonly %.val109176, i32 poison, i32 noundef %5, ptr noundef nonnull %53)
+  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef %.val108180, i32 noundef %2, ptr noundef %3, i32 poison, i32 noundef %5, ptr noundef nonnull %45)
+  tail call void @Wlc_BlastDivider(ptr noundef %0, ptr noundef %.val108180, i32 noundef %2, ptr noundef %.val109176, i32 poison, i32 noundef %5, ptr noundef nonnull %53)
   br label %Wlc_BlastDividerTop.exit154
 
 Wlc_BlastDividerTop.exit154:                      ; preds = %96, %97
@@ -3511,7 +3511,7 @@ Wlc_BlastDividerTop.exit154:                      ; preds = %96, %97
 
 ._crit_edge.thread:                               ; preds = %Wlc_BlastDividerTop.exit154
   %.val105205 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %99 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %61, ptr noundef readonly %.val105205, i32 noundef %2)
+  %99 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %61, ptr noundef %.val105205, i32 noundef %2)
   br label %._crit_edge192
 
 .lr.ph:                                           ; preds = %Wlc_BlastDividerTop.exit154
@@ -3607,7 +3607,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit
   %143 = getelementptr i8, ptr %6, i64 8
   %.val105 = load ptr, ptr %143, align 8
-  %144 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %61, ptr noundef readonly %.val105, i32 noundef %2)
+  %144 = tail call ptr @Wlc_VecCopy(ptr noundef nonnull %61, ptr noundef %.val105, i32 noundef %2)
   br i1 %79, label %.lr.ph.preheader.i155, label %._crit_edge192
 
 .lr.ph.preheader.i155:                            ; preds = %._crit_edge
@@ -10922,10 +10922,10 @@ Vec_IntGrow.exit:                                 ; preds = %Wlc_NtkPrepareBits.
   br i1 %.not.i2859, label %Abc_UtilStrsav.exit, label %102
 
 102:                                              ; preds = %Vec_IntGrow.exit
-  %103 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %101) #23
+  %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #23
   %104 = add i64 %103, 1
   %105 = tail call noalias ptr @malloc(i64 noundef %104) #20
-  %106 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull readonly dereferenceable(1) %101) #21
+  %106 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %101) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntGrow.exit, %102
@@ -13390,10 +13390,10 @@ Vec_IntPush.exit3030:                             ; preds = %.Vec_IntGrow.exit10
   %1280 = tail call i32 @If_LibBoxNum(ptr noundef %.12121) #21
   %1281 = add nsw i32 %1280, 1
   %1282 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %1279, i32 noundef %1281) #21
-  %1283 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #23
+  %1283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %1284 = add i64 %1283, 1
   %1285 = tail call noalias ptr @malloc(i64 noundef %1284) #20
-  %1286 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1285, ptr noundef nonnull readonly dereferenceable(1) %9) #21
+  %1286 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1285, ptr noundef nonnull dereferenceable(1) %9) #21
   %1287 = tail call i32 @If_LibBoxNum(ptr noundef %.12121) #21
   %1288 = add nsw i32 %1287, 1
   %1289 = tail call ptr @If_BoxStart(ptr noundef %1285, i32 noundef %1288, i32 noundef %581, i32 noundef %442, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
@@ -17727,7 +17727,7 @@ Wlc_ObjIsSignedFanin01.exit3660:                  ; preds = %Wlc_ObjFanin0.exit.
   br i1 %3088, label %Wlc_BlastLessSigned.exit, label %3089
 
 3089:                                             ; preds = %3079
-  call void @Wlc_BlastLess_rec(ptr noundef nonnull %100, ptr noundef nonnull readonly %.02230, ptr noundef nonnull readonly %.02231, i32 noundef %3080, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call void @Wlc_BlastLess_rec(ptr noundef nonnull %100, ptr noundef nonnull %.02230, ptr noundef nonnull %.02231, i32 noundef %3080, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %3090 = load i32, ptr %5, align 4
   br label %Wlc_BlastLessSigned.exit
 
@@ -17741,7 +17741,7 @@ Wlc_BlastLessSigned.exit:                         ; preds = %3079, %3089
 3092:                                             ; preds = %Wlc_ObjIsSignedFanin01.exit3660
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @Wlc_BlastLess_rec(ptr noundef nonnull %100, ptr noundef readonly %.02230, ptr noundef readonly %.02231, i32 noundef %3047, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call void @Wlc_BlastLess_rec(ptr noundef nonnull %100, ptr noundef %.02230, ptr noundef %.02231, i32 noundef %3047, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %3093 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -19787,10 +19787,10 @@ Gia_ManAppendCo.exit3878:                         ; preds = %Vec_IntPush.exit.i3
   %4073 = tail call i32 @If_LibBoxNum(ptr noundef %.12121) #21
   %4074 = add nsw i32 %4073, 1
   %4075 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull @.str.13, i32 noundef %4074) #21
-  %4076 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #23
+  %4076 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #23
   %4077 = add i64 %4076, 1
   %4078 = tail call noalias ptr @malloc(i64 noundef %4077) #20
-  %4079 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4078, ptr noundef nonnull readonly dereferenceable(1) %10) #21
+  %4079 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4078, ptr noundef nonnull dereferenceable(1) %10) #21
   %4080 = tail call i32 @If_LibBoxNum(ptr noundef %.12121) #21
   %4081 = add nsw i32 %4080, 1
   %4082 = tail call ptr @If_BoxStart(ptr noundef %4078, i32 noundef %4081, i32 noundef %3528, i32 noundef %3526, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
@@ -21212,10 +21212,10 @@ Vec_PtrAlloc.exit:                                ; preds = %.cont4218.thread, %
   %4717 = add i32 %.p4559, %4713
   %4718 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %4708, i32 noundef %4717) #21
   %4719 = load ptr, ptr %4696, align 8
-  %4720 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #23
+  %4720 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #23
   %4721 = add i64 %4720, 1
   %4722 = tail call noalias ptr @malloc(i64 noundef %4721) #20
-  %4723 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4722, ptr noundef nonnull readonly dereferenceable(1) %11) #21
+  %4723 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4722, ptr noundef nonnull dereferenceable(1) %11) #21
   %4724 = getelementptr inbounds i8, ptr %4719, i64 4
   %4725 = load i32, ptr %4724, align 4
   %4726 = load i32, ptr %4719, align 8
@@ -21327,10 +21327,10 @@ Vec_PtrPush.exit3973:                             ; preds = %.Vec_PtrGrow.exit11
   %4767 = trunc nuw nsw i64 %indvars.iv5392 to i32
   %4768 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull @.str.22, i32 noundef %4767) #21
   %4769 = load ptr, ptr %4696, align 8
-  %4770 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #23
+  %4770 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #23
   %4771 = add i64 %4770, 1
   %4772 = tail call noalias ptr @malloc(i64 noundef %4771) #20
-  %4773 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4772, ptr noundef nonnull readonly dereferenceable(1) %12) #21
+  %4773 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4772, ptr noundef nonnull dereferenceable(1) %12) #21
   %4774 = getelementptr inbounds i8, ptr %4769, i64 4
   %4775 = load i32, ptr %4774, align 4
   %4776 = load i32, ptr %4769, align 8
@@ -21545,10 +21545,10 @@ Vec_PtrPush.exit3988:                             ; preds = %.Vec_PtrGrow.exit11
   %4861 = add i32 %.p4556, %4857
   %4862 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %4852, i32 noundef %4861) #21
   %4863 = load ptr, ptr %4696, align 8
-  %4864 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #23
+  %4864 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #23
   %4865 = add i64 %4864, 1
   %4866 = tail call noalias ptr @malloc(i64 noundef %4865) #20
-  %4867 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4866, ptr noundef nonnull readonly dereferenceable(1) %13) #21
+  %4867 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4866, ptr noundef nonnull dereferenceable(1) %13) #21
   %4868 = getelementptr inbounds i8, ptr %4863, i64 4
   %4869 = load i32, ptr %4868, align 4
   %4870 = load i32, ptr %4863, align 8
@@ -21666,10 +21666,10 @@ Vec_PtrPush.exit3996:                             ; preds = %.Vec_PtrGrow.exit11
   %4919 = add i32 %.p4553, %4915
   %4920 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef %4910, i32 noundef %4919) #21
   %4921 = load ptr, ptr %4696, align 8
-  %4922 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #23
+  %4922 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #23
   %4923 = add i64 %4922, 1
   %4924 = tail call noalias ptr @malloc(i64 noundef %4923) #20
-  %4925 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4924, ptr noundef nonnull readonly dereferenceable(1) %14) #21
+  %4925 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4924, ptr noundef nonnull dereferenceable(1) %14) #21
   %4926 = getelementptr inbounds i8, ptr %4921, i64 4
   %4927 = load i32, ptr %4926, align 4
   %4928 = load i32, ptr %4921, align 8
@@ -21774,10 +21774,10 @@ Vec_PtrPush.exit4004:                             ; preds = %.Vec_PtrGrow.exit11
   %4974 = add i32 %.p4551, %4970
   %4975 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %4965, i32 noundef %4974) #21
   %4976 = load ptr, ptr %4696, align 8
-  %4977 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #23
+  %4977 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #23
   %4978 = add i64 %4977, 1
   %4979 = tail call noalias ptr @malloc(i64 noundef %4978) #20
-  %4980 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4979, ptr noundef nonnull readonly dereferenceable(1) %15) #21
+  %4980 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4979, ptr noundef nonnull dereferenceable(1) %15) #21
   %4981 = getelementptr inbounds i8, ptr %4976, i64 4
   %4982 = load i32, ptr %4981, align 4
   %4983 = load i32, ptr %4976, align 8
@@ -21877,7 +21877,7 @@ Vec_PtrPush.exit4012:                             ; preds = %.Vec_PtrGrow.exit11
   %5022 = xor i32 %5021, -1
   %5023 = add i32 %.val2661, %5022
   %5024 = tail call noalias dereferenceable_or_null(17) ptr @malloc(i64 noundef 17) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %5024, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.25, i64 17, i1 false) #21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %5024, ptr noundef nonnull align 1 dereferenceable(17) @.str.25, i64 17, i1 false) #21
   %5025 = getelementptr i8, ptr %5019, i64 8
   %.val2854 = load ptr, ptr %5025, align 8
   %5026 = sext i32 %5023 to i64
@@ -21912,10 +21912,10 @@ Vec_PtrPush.exit4012:                             ; preds = %.Vec_PtrGrow.exit11
   %5041 = load ptr, ptr %5040, align 8
   %5042 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %5036, ptr noundef %5041) #21
   %5043 = load ptr, ptr %4696, align 8
-  %5044 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #23
+  %5044 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #23
   %5045 = add i64 %5044, 1
   %5046 = tail call noalias ptr @malloc(i64 noundef %5045) #20
-  %5047 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5046, ptr noundef nonnull readonly dereferenceable(1) %16) #21
+  %5047 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5046, ptr noundef nonnull dereferenceable(1) %16) #21
   %5048 = getelementptr i8, ptr %5043, i64 8
   %.val2855 = load ptr, ptr %5048, align 8
   %5049 = getelementptr ptr, ptr %.val2855, i64 %indvars.iv5413
@@ -21935,7 +21935,7 @@ Vec_PtrPush.exit4012:                             ; preds = %.Vec_PtrGrow.exit11
 5054:                                             ; preds = %.critedge53
   %5055 = load ptr, ptr %4696, align 8
   %5056 = tail call noalias dereferenceable_or_null(15) ptr @malloc(i64 noundef 15) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %5056, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.27, i64 15, i1 false) #21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %5056, ptr noundef nonnull align 1 dereferenceable(15) @.str.27, i64 15, i1 false) #21
   %5057 = getelementptr inbounds i8, ptr %5055, i64 4
   %5058 = load i32, ptr %5057, align 4
   %5059 = load i32, ptr %5055, align 8
@@ -22051,10 +22051,10 @@ Vec_PtrPush.exit4020:                             ; preds = %.Vec_PtrGrow.exit11
   %5106 = add i32 %.p, %5102
   %5107 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5097, i32 noundef %5106) #21
   %5108 = load ptr, ptr %4696, align 8
-  %5109 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #23
+  %5109 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #23
   %5110 = add i64 %5109, 1
   %5111 = tail call noalias ptr @malloc(i64 noundef %5110) #20
-  %5112 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5111, ptr noundef nonnull readonly dereferenceable(1) %17) #21
+  %5112 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5111, ptr noundef nonnull dereferenceable(1) %17) #21
   %5113 = getelementptr inbounds i8, ptr %5108, i64 4
   %5114 = load i32, ptr %5113, align 4
   %5115 = load i32, ptr %5108, align 8
@@ -22242,10 +22242,10 @@ Wlc_ObjFaninId.exit4034:                          ; preds = %5176, %Wlc_ObjHasAr
   %5197 = add i32 %.p4549, %5192
   %5198 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5183, i32 noundef %5197) #21
   %5199 = load ptr, ptr %5159, align 8
-  %5200 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #23
+  %5200 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #23
   %5201 = add i64 %5200, 1
   %5202 = tail call noalias ptr @malloc(i64 noundef %5201) #20
-  %5203 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5202, ptr noundef nonnull readonly dereferenceable(1) %18) #21
+  %5203 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5202, ptr noundef nonnull dereferenceable(1) %18) #21
   %5204 = getelementptr inbounds i8, ptr %5199, i64 4
   %5205 = load i32, ptr %5204, align 4
   %5206 = load i32, ptr %5199, align 8
@@ -22350,10 +22350,10 @@ Vec_PtrPush.exit4042:                             ; preds = %.Vec_PtrGrow.exit11
   %5252 = add i32 %.p4548, %5248
   %5253 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %5243, i32 noundef %5252) #21
   %5254 = load ptr, ptr %5159, align 8
-  %5255 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #23
+  %5255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #23
   %5256 = add i64 %5255, 1
   %5257 = tail call noalias ptr @malloc(i64 noundef %5256) #20
-  %5258 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5257, ptr noundef nonnull readonly dereferenceable(1) %19) #21
+  %5258 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5257, ptr noundef nonnull dereferenceable(1) %19) #21
   %5259 = getelementptr inbounds i8, ptr %5254, i64 4
   %5260 = load i32, ptr %5259, align 4
   %5261 = load i32, ptr %5254, align 8
@@ -22516,10 +22516,10 @@ Wlc_ObjFaninId.exit4052:                          ; preds = %5307, %Wlc_ObjHasAr
   %5328 = add i32 %.p4534, %5323
   %5329 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5314, i32 noundef %5328) #21
   %5330 = load ptr, ptr %5159, align 8
-  %5331 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %20) #23
+  %5331 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #23
   %5332 = add i64 %5331, 1
   %5333 = tail call noalias ptr @malloc(i64 noundef %5332) #20
-  %5334 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5333, ptr noundef nonnull readonly dereferenceable(1) %20) #21
+  %5334 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5333, ptr noundef nonnull dereferenceable(1) %20) #21
   %5335 = getelementptr inbounds i8, ptr %5330, i64 4
   %5336 = load i32, ptr %5335, align 4
   %5337 = load i32, ptr %5330, align 8
@@ -22659,10 +22659,10 @@ Vec_PtrPush.exit4060:                             ; preds = %.Vec_PtrGrow.exit11
   %5394 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %5393) #21
   %5395 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %5385, ptr noundef %5394) #21
   %5396 = load ptr, ptr %5159, align 8
-  %5397 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #23
+  %5397 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #23
   %5398 = add i64 %5397, 1
   %5399 = tail call noalias ptr @malloc(i64 noundef %5398) #20
-  %5400 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5399, ptr noundef nonnull readonly dereferenceable(1) %21) #21
+  %5400 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5399, ptr noundef nonnull dereferenceable(1) %21) #21
   %5401 = getelementptr inbounds i8, ptr %5396, i64 4
   %5402 = load i32, ptr %5401, align 4
   %5403 = load i32, ptr %5396, align 8
@@ -22762,10 +22762,10 @@ Vec_PtrPush.exit4068:                             ; preds = %.Vec_PtrGrow.exit11
   %5445 = add i32 %.p4544, %5441
   %5446 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5385, i32 noundef %5445) #21
   %5447 = load ptr, ptr %5159, align 8
-  %5448 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #23
+  %5448 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #23
   %5449 = add i64 %5448, 1
   %5450 = tail call noalias ptr @malloc(i64 noundef %5449) #20
-  %5451 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5450, ptr noundef nonnull readonly dereferenceable(1) %22) #21
+  %5451 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5450, ptr noundef nonnull dereferenceable(1) %22) #21
   %5452 = getelementptr inbounds i8, ptr %5447, i64 4
   %5453 = load i32, ptr %5452, align 4
   %5454 = load i32, ptr %5447, align 8
@@ -22839,10 +22839,10 @@ Vec_PtrPush.exit4076:                             ; preds = %.Vec_PtrGrow.exit11
   %5486 = add i32 %.p4545, %5483
   %5487 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5439, i32 noundef %5486) #21
   %5488 = load ptr, ptr %5159, align 8
-  %5489 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #23
+  %5489 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #23
   %5490 = add i64 %5489, 1
   %5491 = tail call noalias ptr @malloc(i64 noundef %5490) #20
-  %5492 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5491, ptr noundef nonnull readonly dereferenceable(1) %22) #21
+  %5492 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5491, ptr noundef nonnull dereferenceable(1) %22) #21
   %5493 = getelementptr inbounds i8, ptr %5488, i64 4
   %5494 = load i32, ptr %5493, align 4
   %5495 = load i32, ptr %5488, align 8
@@ -22923,10 +22923,10 @@ Vec_PtrPush.exit4084:                             ; preds = %.Vec_PtrGrow.exit11
   %5529 = add i32 %.p4542, %5525
   %5530 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5385, i32 noundef %5529) #21
   %5531 = load ptr, ptr %5159, align 8
-  %5532 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #23
+  %5532 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #23
   %5533 = add i64 %5532, 1
   %5534 = tail call noalias ptr @malloc(i64 noundef %5533) #20
-  %5535 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5534, ptr noundef nonnull readonly dereferenceable(1) %23) #21
+  %5535 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5534, ptr noundef nonnull dereferenceable(1) %23) #21
   %5536 = getelementptr inbounds i8, ptr %5531, i64 4
   %5537 = load i32, ptr %5536, align 4
   %5538 = load i32, ptr %5531, align 8
@@ -23046,10 +23046,10 @@ Vec_PtrPush.exit4092:                             ; preds = %.Vec_PtrGrow.exit11
   %5588 = add i32 %.p4536, %5584
   %5589 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %5579, i32 noundef %5588) #21
   %5590 = load ptr, ptr %5159, align 8
-  %5591 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #23
+  %5591 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #23
   %5592 = add i64 %5591, 1
   %5593 = tail call noalias ptr @malloc(i64 noundef %5592) #20
-  %5594 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5593, ptr noundef nonnull readonly dereferenceable(1) %24) #21
+  %5594 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5593, ptr noundef nonnull dereferenceable(1) %24) #21
   %5595 = getelementptr inbounds i8, ptr %5590, i64 4
   %5596 = load i32, ptr %5595, align 4
   %5597 = load i32, ptr %5590, align 8
@@ -23147,7 +23147,7 @@ Vec_IntFreeP.exit4105:                            ; preds = %.critedge77, %5632
 5634:                                             ; preds = %5633
   %5635 = load ptr, ptr %5159, align 8
   %5636 = tail call noalias dereferenceable_or_null(18) ptr @malloc(i64 noundef 18) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %5636, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.31, i64 18, i1 false) #21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %5636, ptr noundef nonnull align 1 dereferenceable(18) @.str.31, i64 18, i1 false) #21
   %5637 = getelementptr inbounds i8, ptr %5635, i64 4
   %5638 = load i32, ptr %5637, align 4
   %5639 = load i32, ptr %5635, align 8
@@ -23270,10 +23270,10 @@ Vec_PtrPush.exit4112:                             ; preds = %.Vec_PtrGrow.exit11
   %5691 = add i32 %.p4540, %5687
   %5692 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %5682, i32 noundef %5691) #21
   %5693 = load ptr, ptr %5159, align 8
-  %5694 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %25) #23
+  %5694 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #23
   %5695 = add i64 %5694, 1
   %5696 = tail call noalias ptr @malloc(i64 noundef %5695) #20
-  %5697 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5696, ptr noundef nonnull readonly dereferenceable(1) %25) #21
+  %5697 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5696, ptr noundef nonnull dereferenceable(1) %25) #21
   %5698 = getelementptr inbounds i8, ptr %5693, i64 4
   %5699 = load i32, ptr %5698, align 4
   %5700 = load i32, ptr %5693, align 8
@@ -23382,10 +23382,10 @@ Vec_PtrPush.exit4120:                             ; preds = %.Vec_PtrGrow.exit11
   %5746 = add i32 %.p4538, %5742
   %5747 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %5737, i32 noundef %5746) #21
   %5748 = load ptr, ptr %5159, align 8
-  %5749 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #23
+  %5749 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #23
   %5750 = add i64 %5749, 1
   %5751 = tail call noalias ptr @malloc(i64 noundef %5750) #20
-  %5752 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5751, ptr noundef nonnull readonly dereferenceable(1) %26) #21
+  %5752 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5751, ptr noundef nonnull dereferenceable(1) %26) #21
   %5753 = getelementptr inbounds i8, ptr %5748, i64 4
   %5754 = load i32, ptr %5753, align 4
   %5755 = load i32, ptr %5748, align 8
@@ -24343,7 +24343,7 @@ define ptr @Wlc_BlastArray(ptr nocapture noundef readonly %0) local_unnamed_addr
   store ptr %25, ptr %26, align 8
   %27 = tail call ptr @Gia_ManStart(i32 noundef 10000) #21
   %28 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %28, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.35, i64 6, i1 false) #21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %28, ptr noundef nonnull align 1 dereferenceable(6) @.str.35, i64 6, i1 false) #21
   store ptr %28, ptr %27, align 8
   tail call void @Gia_ManHashAlloc(ptr noundef nonnull %27) #21
   %29 = icmp sgt i32 %4, 7
@@ -25328,10 +25328,10 @@ Vec_PtrAlloc.exit129:                             ; preds = %Vec_PtrAlloc.exit, 
   %74 = add i32 %.p153, %70
   %75 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %65, i32 noundef %74) #21
   %76 = load ptr, ptr %5, align 8
-  %77 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #23
+  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #23
   %78 = add i64 %77, 1
   %79 = tail call noalias ptr @malloc(i64 noundef %78) #20
-  %80 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) %3) #21
+  %80 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %3) #21
   %81 = getelementptr inbounds i8, ptr %76, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %76, align 8
@@ -25447,10 +25447,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %131 = add i32 %.p, %127
   %132 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %122, i32 noundef %131) #21
   %133 = load ptr, ptr %15, align 8
-  %134 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #23
+  %134 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
   %135 = add i64 %134, 1
   %136 = tail call noalias ptr @malloc(i64 noundef %135) #20
-  %137 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(1) %4) #21
+  %137 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(1) %4) #21
   %138 = getelementptr inbounds i8, ptr %133, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = load i32, ptr %133, align 8

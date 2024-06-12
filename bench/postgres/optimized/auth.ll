@@ -448,7 +448,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
 
 190:                                              ; preds = %176
   %191 = load ptr, ptr %178, align 8
-  call fastcc void @set_authn_id(ptr noundef nonnull readonly %0, ptr noundef %191)
+  call fastcc void @set_authn_id(ptr noundef nonnull %0, ptr noundef %191)
   %192 = load ptr, ptr %42, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 336
   %194 = load ptr, ptr %193, align 8
@@ -479,9 +479,9 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   %200 = getelementptr inbounds i8, ptr %0, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull readonly align 8 dereferenceable(136) %200, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull align 8 dereferenceable(136) %200, i64 136, i1 false)
   %201 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull readonly align 8 dereferenceable(136) %201, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(136) %201, i64 136, i1 false)
   store ptr null, ptr %31, align 8
   store ptr null, ptr %32, align 8
   %202 = getelementptr inbounds i8, ptr %21, i64 128
@@ -709,7 +709,7 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
   br i1 %.030.shrunk48.i, label %314, label %ident_inet.exit
 
 314:                                              ; preds = %313
-  call fastcc void @set_authn_id(ptr noundef readonly %0, ptr noundef nonnull %23)
+  call fastcc void @set_authn_id(ptr noundef %0, ptr noundef nonnull %23)
   %315 = load ptr, ptr %42, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 336
   %317 = load ptr, ptr %316, align 8
@@ -917,7 +917,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
 
 398:                                              ; preds = %394
   %399 = load ptr, ptr %391, align 8
-  call fastcc void @set_authn_id(ptr noundef nonnull readonly %0, ptr noundef %399)
+  call fastcc void @set_authn_id(ptr noundef nonnull %0, ptr noundef %399)
   br label %CheckPWChallengeAuth.exit
 
 400:                                              ; preds = %60
@@ -1229,7 +1229,7 @@ radius_add_attribute.exit.i.i:                    ; preds = %529, %527, %525
   %552 = getelementptr inbounds i8, ptr %548, i64 2
   %sext.i.i = shl i64 %536, 32
   %553 = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %552, ptr readonly align 1 %495, i64 %553, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %552, ptr align 1 %495, i64 %553, i1 false)
   %554 = zext i8 %550 to i16
   %555 = load i16, ptr %469, align 2
   %556 = add i16 %555, %554
@@ -1265,7 +1265,7 @@ radius_add_attribute.exit168.i.i:                 ; preds = %546, %544, %542
   %573 = getelementptr inbounds i8, ptr %569, i64 2
   %sext171.i.i = shl i64 %557, 32
   %574 = ashr exact i64 %sext171.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %573, ptr nonnull readonly align 1 %spec.store.select6.i.i, i64 %574, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %573, ptr nonnull align 1 %spec.store.select6.i.i, i64 %574, i1 false)
   %575 = zext i8 %571 to i16
   %576 = load i16, ptr %469, align 2
   %577 = add i16 %576, %575
@@ -1273,15 +1273,15 @@ radius_add_attribute.exit168.i.i:                 ; preds = %546, %544, %542
   br label %radius_add_attribute.exit169.i.i
 
 radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
-  %578 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %432) #19
+  %578 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %432) #19
   %579 = trunc i64 %578 to i32
   %580 = add i32 %579, 15
   %581 = and i32 %580, -16
-  %582 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
+  %582 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
   %583 = add i64 %582, 16
   %584 = call ptr @palloc(i64 noundef %583) #16
-  %585 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr readonly align 1 %486, i64 %585, i1 false)
+  %585 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr align 1 %486, i64 %585, i1 false)
   %586 = icmp sgt i32 %581, 0
   br i1 %586, label %.lr.ph178.preheader.i.i, label %._crit_edge.i.i
 
@@ -1300,17 +1300,17 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph178.preheader.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
   %.0148177.i.i = phi ptr [ %470, %.lr.ph178.preheader.i.i ], [ %591, %.loopexit.i.i ]
   store ptr null, ptr %13, align 8
-  %589 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
+  %589 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
   %590 = getelementptr i8, ptr %584, i64 %589
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %590, ptr noundef nonnull align 1 dereferenceable(16) %.0148177.i.i, i64 16, i1 false)
   %591 = getelementptr i8, ptr %5, i64 %indvars.iv.i.i
-  %592 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
+  %592 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
   %593 = add i64 %592, 16
   %594 = call zeroext i1 @pg_md5_binary(ptr noundef %584, i64 noundef %593, ptr noundef %591, ptr noundef nonnull %13) #16
   br i1 %594, label %.lr.ph.i.i, label %596
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph178.i.i
-  %595 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %432) #19
+  %595 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %432) #19
   br label %604
 
 596:                                              ; preds = %.lr.ph178.i.i
@@ -1376,7 +1376,7 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
   store i8 %625, ptr %626, align 1
   %627 = getelementptr inbounds i8, ptr %623, i64 2
   %628 = sext i32 %581 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %627, ptr nonnull readonly align 16 %5, i64 %628, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %627, ptr nonnull align 16 %5, i64 %628, i1 false)
   %629 = zext i8 %625 to i16
   %630 = load i16, ptr %469, align 2
   %631 = add i16 %630, %629
@@ -1664,7 +1664,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
 
 785:                                              ; preds = %774
   %786 = and i64 %733, 2147483647
-  %787 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
+  %787 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
   %788 = add i64 %787, %786
   %789 = call ptr @palloc(i64 noundef %788) #16
   %790 = load i32, ptr %4, align 4
@@ -1683,9 +1683,9 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
 
 796:                                              ; preds = %792, %785
   %797 = getelementptr i8, ptr %789, i64 %786
-  %798 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %797, ptr readonly align 1 %486, i64 %798, i1 false)
-  %799 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
+  %798 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %797, ptr align 1 %486, i64 %798, i1 false)
+  %799 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
   %800 = add i64 %799, %786
   %801 = call zeroext i1 @pg_md5_binary(ptr noundef nonnull %789, i64 noundef %800, ptr noundef nonnull %5, ptr noundef nonnull %16) #16
   br i1 %801, label %808, label %802
@@ -1754,7 +1754,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %823 = load ptr, ptr %466, align 8
-  call fastcc void @set_authn_id(ptr noundef readonly %0, ptr noundef %823)
+  call fastcc void @set_authn_id(ptr noundef %0, ptr noundef %823)
   call void @pfree(ptr noundef nonnull %432) #16
   br label %CheckPWChallengeAuth.exit
 

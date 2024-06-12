@@ -121,7 +121,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %r.06.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.04.i, %entry ]
   %name1.i = getelementptr inbounds i8, ptr %r.06.i, i64 3152
   %0 = load ptr, ptr %name1.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #12
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
@@ -174,7 +174,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %r.06.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.04.i, %entry ]
   %name1.i = getelementptr inbounds i8, ptr %r.06.i, i64 3152
   %0 = load ptr, ptr %name1.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #12
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
@@ -653,7 +653,7 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call zeroext i16 @desc_tlv_size(ptr noundef nonnull %call2) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(48) %tlvs, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %tlvs, i8 0, i64 48, i1 false)
   %cmp.i12.i = icmp ugt i16 %call8, 7
   br i1 %cmp.i12.i, label %land.lhs.true.i.i.preheader, label %out
 
@@ -1015,7 +1015,7 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %.pre, %if.then ], [ %call1, %entry ]
   %2 = phi ptr [ %call5, %if.then ], [ %0, %entry ]
   %call.i81 = tail call ptr @world_name(ptr noundef %1) #13
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %call.i81) #12
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %call.i81) #12
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %rocker_world_type_by_name.exit, label %rocker_world_type_by_name.exit.thread
 
@@ -1089,7 +1089,7 @@ for.body.i:                                       ; preds = %if.end24, %for.inc.
   %r.06.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.04.i, %if.end24 ]
   %name1.i = getelementptr inbounds i8, ptr %r.06.i, i64 3152
   %10 = load ptr, ptr %name1.i, align 16
-  %call.i83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %9) #12
+  %call.i83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %9) #12
   %cmp.i = icmp eq i32 %call.i83, 0
   br i1 %cmp.i, label %if.then28, label %for.inc.i
 
@@ -1543,7 +1543,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call zeroext i16 @desc_tlv_size(ptr noundef %info) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %tlvs, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tlvs, i8 0, i64 24, i1 false)
   %cmp.i12.i = icmp ugt i16 %call1, 7
   br i1 %cmp.i12.i, label %land.lhs.true.i.i.preheader, label %return
 
@@ -1624,7 +1624,7 @@ sw.bb13:                                          ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %macaddr.i)
   %4 = getelementptr i8, ptr %.pre69, i64 4
   %tlv.val.i.i = load i16, ptr %4, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(72) %tlvs.i, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %tlvs.i, i8 0, i64 72, i1 false)
   %cmp.i12.i.i.i = icmp ugt i16 %tlv.val.i.i, 15
   br i1 %cmp.i12.i.i.i, label %land.lhs.true.i.i.preheader.i.i, label %cmd_get_port_settings.exit
 
@@ -1981,7 +1981,7 @@ sw.bb15:                                          ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %macaddr.i18)
   %22 = getelementptr i8, ptr %.pre69, i64 4
   %tlv.val.i.i19 = load i16, ptr %22, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(72) %tlvs.i16, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %tlvs.i16, i8 0, i64 72, i1 false)
   %cmp.i12.i.i.i20 = icmp ugt i16 %tlv.val.i.i19, 15
   br i1 %cmp.i12.i.i.i20, label %land.lhs.true.i.i.preheader.i.i22, label %cmd_set_port_settings.exit
 
@@ -2139,7 +2139,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call zeroext i16 @desc_tlv_size(ptr noundef %info) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(48) %tlvs, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %tlvs, i8 0, i64 48, i1 false)
   %cmp.i12.i = icmp ugt i16 %call2, 7
   br i1 %cmp.i12.i, label %land.lhs.true.i.i.preheader, label %return
 
@@ -2312,7 +2312,7 @@ for.body:                                         ; preds = %land.lhs.true.i
   br i1 %cmp.not, label %if.end88, label %err_bad_attr
 
 if.end88:                                         ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %tlvs, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tlvs, i8 0, i64 24, i1 false)
   %cmp.i12.i.i = icmp ugt i16 %17, 15
   br i1 %cmp.i12.i.i, label %land.lhs.true.i.i.preheader.i, label %err_bad_attr
 

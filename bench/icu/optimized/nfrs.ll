@@ -1238,7 +1238,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i = sitofp i64 %number to double
-  %call.i = tail call noundef ptr @_ZNK6icu_759NFRuleSet23findFractionRuleSetRuleEd(ptr noundef nonnull readonly align 8 dereferenceable(163) %this, double noundef %conv.i)
+  %call.i = tail call noundef ptr @_ZNK6icu_759NFRuleSet23findFractionRuleSetRuleEd(ptr noundef nonnull align 8 dereferenceable(163) %this, double noundef %conv.i)
   br label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
 
 if.end.i:                                         ; preds = %if.end

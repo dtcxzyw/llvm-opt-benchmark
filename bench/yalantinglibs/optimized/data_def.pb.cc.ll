@@ -321,7 +321,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN6mygame23_Vec3_default_instance_E, i64 8), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr @_ZN6mygame23_Vec3_default_instance_E, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6mygame23_Vec3_default_instance_E, i64 16), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6mygame23_Vec3_default_instance_E, i64 16), i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame23_Vec3_default_instance_E)
   ret void
 }
@@ -365,7 +365,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN6mygame6personC2Ev.exit:                       ; preds = %entry, %if.then.i.i.i.i
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN6mygame25_person_default_instance_E, i64 16), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6mygame25_person_default_instance_E, i64 24), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN6mygame25_person_default_instance_E, i64 24), i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame25_person_default_instance_E)
   ret void
 }
@@ -402,7 +402,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN6mygame25_rect32_default_instance_E, i64 8), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr @_ZN6mygame25_rect32_default_instance_E, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN6mygame25_rect32_default_instance_E, i64 16), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN6mygame25_rect32_default_instance_E, i64 16), i8 0, i64 20, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame25_rect32_default_instance_E)
   ret void
 }
@@ -2876,7 +2876,7 @@ call.i.i.i4.i.noexc:                              ; preds = %if.then.i15.i.i.i
 invoke.cont46:                                    ; preds = %invoke.cont43, %call.i.i.i4.i.noexc
   %x_.i = getelementptr inbounds i8, ptr %call44, i64 16
   %x_3.i = getelementptr inbounds i8, ptr %23, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %x_.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, ptr noundef nonnull align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
   br label %invoke.cont50
 
 lpad45:                                           ; preds = %call.i.i.i4.i.noexc, %if.then.i15.i.i.i
@@ -3731,7 +3731,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   store ptr %retval.i.0.i.i, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
   br label %_ZN6mygame7Monster21_internal_mutable_posEv.exit
 
@@ -5654,7 +5654,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   store ptr %retval.i.0.i.i33, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
   %.pre = load ptr, ptr %pos_.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_mutable_posEv.exit
@@ -12359,7 +12359,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame4Vec3EEEPT_PS1_.exit: ;
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.sink8, align 8
   %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8
 }
 
@@ -12632,7 +12632,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6rect32EEEPT_PS1_.exit:
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.sink8, align 8
   %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8
 }
 
@@ -12780,7 +12780,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit:
   %name_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
   %id_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %id_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink11
 }
 
@@ -12864,7 +12864,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i.i
 }
 
@@ -12898,7 +12898,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.sink8.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8.i.i
 }
 
@@ -13084,7 +13084,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.i.i
 }
 
@@ -13118,7 +13118,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.sink8.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8.i.i
 }
 
@@ -13210,7 +13210,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_.
   %name_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i.i, align 8
   %id_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %id_.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i
 }
 
@@ -13658,7 +13658,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototy
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %rep_, align 8
   %elements18 = getelementptr inbounds i8, ptr %10, i64 8
   %current_size_19 = getelementptr inbounds i8, ptr %this, i64 8
@@ -13751,7 +13751,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromProto
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   %10 = load ptr, ptr %rep_, align 8
   %elements18 = getelementptr inbounds i8, ptr %10, i64 8
   %current_size_19 = getelementptr inbounds i8, ptr %this, i64 8
@@ -14054,7 +14054,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.i.i.i.us, align 8
   %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
@@ -14081,7 +14081,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call2.i8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
   store ptr %call2.i8.i.i.i, ptr %arrayidx15.i, align 8
@@ -14344,7 +14344,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.i.i.i.us, align 8
   %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(40) %10)
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
@@ -14371,7 +14371,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call2.i8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %11)
   %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
   store ptr %call2.i8.i.i.i, ptr %arrayidx15.i, align 8

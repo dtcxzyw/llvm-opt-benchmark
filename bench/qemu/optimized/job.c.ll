@@ -594,7 +594,7 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %job_id, ptr noundef nonnull dereferenceable(1) %2) #19
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %job_id, ptr noundef nonnull dereferenceable(1) %2) #19
   %tobool4.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool4.not.i, label %if.then9, label %for.inc.i
 

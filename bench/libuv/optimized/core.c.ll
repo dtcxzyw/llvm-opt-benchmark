@@ -1016,7 +1016,7 @@ uv__close_nocheckstdio.exit:                      ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @uv__open_file(ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %path, i32 noundef 524288) #23
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %path, i32 noundef 524288) #23
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then.i, label %uv__open_cloexec.exit
 
@@ -1839,7 +1839,7 @@ declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) lo
 ; Function Attrs: nounwind uwtable
 define hidden i32 @uv__slurp(ptr nocapture noundef readonly %filename, ptr nocapture noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %filename, i32 noundef 524288) #23
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 524288) #23
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then.i, label %uv__open_cloexec.exit
 
@@ -1955,7 +1955,7 @@ lor.lhs.false4.i:                                 ; preds = %entry
   br i1 %cmp5.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false4.i
-  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #23
+  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.1) #23
   %cmp6.i = icmp eq ptr %call.i, null
   br i1 %cmp6.i, label %if.end, label %if.end8.i
 
@@ -1966,7 +1966,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp10.not.i, label %if.end12.i, label %return.sink.split.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %buffer, ptr noundef nonnull align 1 dereferenceable(1) %call.i, i64 %add13.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %buffer, ptr noundef nonnull align 1 dereferenceable(1) %call.i, i64 %add13.i, i1 false)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end12.i, %if.end8.i

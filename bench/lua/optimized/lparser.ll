@@ -280,7 +280,7 @@ open_func.exit.i:                                 ; preds = %land.rhs.i.i.i, %co
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %checklimit.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %open_func.exit.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %funcstate, i32 noundef 255, ptr noundef nonnull @.str) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %funcstate, i32 noundef 255, ptr noundef nonnull @.str) #12
   unreachable
 
 checklimit.exit.i.i:                              ; preds = %open_func.exit.i
@@ -1265,7 +1265,7 @@ sw.bb.i:                                          ; preds = %str_checkname.exit3
   br i1 %cmp.i.i.i329, label %if.then.i.i.i357, label %new_localvar.exit.i330
 
 if.then.i.i.i357:                                 ; preds = %sw.bb.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %107, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %107, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit.i330:                           ; preds = %sw.bb.i
@@ -1296,7 +1296,7 @@ new_localvar.exit.i330:                           ; preds = %sw.bb.i
   br i1 %cmp.i.i25.i, label %if.then.i.i35.i, label %new_localvar.exit36.i
 
 if.then.i.i35.i:                                  ; preds = %new_localvar.exit.i330
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %114, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %114, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit36.i:                            ; preds = %new_localvar.exit.i330
@@ -1327,7 +1327,7 @@ new_localvar.exit36.i:                            ; preds = %new_localvar.exit.i
   br i1 %cmp.i.i43.i, label %if.then.i.i53.i, label %new_localvar.exit54.i
 
 if.then.i.i53.i:                                  ; preds = %new_localvar.exit36.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %121, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %121, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit54.i:                            ; preds = %new_localvar.exit36.i
@@ -1357,7 +1357,7 @@ new_localvar.exit54.i:                            ; preds = %new_localvar.exit36
   br i1 %cmp.i.i61.i, label %if.then.i.i71.i, label %new_localvar.exit72.i
 
 if.then.i.i71.i:                                  ; preds = %new_localvar.exit54.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %128, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %128, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit72.i:                            ; preds = %new_localvar.exit54.i
@@ -1450,7 +1450,7 @@ sw.bb2.i:                                         ; preds = %str_checkname.exit3
   br i1 %cmp.i.i.i289, label %if.then.i.i.i319, label %new_localvar.exit.i
 
 if.then.i.i.i319:                                 ; preds = %sw.bb2.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %144, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %144, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit.i:                              ; preds = %sw.bb2.i
@@ -1481,7 +1481,7 @@ new_localvar.exit.i:                              ; preds = %sw.bb2.i
   br i1 %cmp.i.i28.i, label %if.then.i.i38.i, label %new_localvar.exit39.i
 
 if.then.i.i38.i:                                  ; preds = %new_localvar.exit.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %151, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %151, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit39.i:                            ; preds = %new_localvar.exit.i
@@ -1512,7 +1512,7 @@ new_localvar.exit39.i:                            ; preds = %new_localvar.exit.i
   br i1 %cmp.i.i46.i, label %if.then.i.i56.i, label %new_localvar.exit57.i
 
 if.then.i.i56.i:                                  ; preds = %new_localvar.exit39.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %158, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %158, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit57.i:                            ; preds = %new_localvar.exit39.i
@@ -1543,7 +1543,7 @@ new_localvar.exit57.i:                            ; preds = %new_localvar.exit39
   br i1 %cmp.i.i64.i, label %if.then.i.i74.i, label %new_localvar.exit75.i
 
 if.then.i.i74.i:                                  ; preds = %new_localvar.exit57.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %165, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %165, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit75.i:                            ; preds = %new_localvar.exit57.i
@@ -1573,7 +1573,7 @@ new_localvar.exit75.i:                            ; preds = %new_localvar.exit57
   br i1 %cmp.i.i82.i, label %if.then.i.i92.i, label %new_localvar.exit93.i
 
 if.then.i.i92.i:                                  ; preds = %new_localvar.exit75.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %172, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %172, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit93.i:                            ; preds = %new_localvar.exit75.i
@@ -1621,7 +1621,7 @@ str_checkname.exit.i305:                          ; preds = %while.body.i302
   br i1 %cmp.i.i101.i, label %if.then.i.i111.i, label %new_localvar.exit112.i
 
 if.then.i.i111.i:                                 ; preds = %str_checkname.exit.i305
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %182, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %182, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit112.i:                           ; preds = %str_checkname.exit.i305
@@ -2138,7 +2138,7 @@ str_checkname.exit514:                            ; preds = %if.then
   br i1 %cmp.i.i503, label %if.then.i.i509, label %new_localvar.exit
 
 if.then.i.i509:                                   ; preds = %str_checkname.exit514
-  tail call fastcc void @errorlimit(ptr noundef nonnull readonly %257, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  tail call fastcc void @errorlimit(ptr noundef nonnull %257, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit:                                ; preds = %str_checkname.exit514
@@ -2222,7 +2222,7 @@ str_checkname.exit600:                            ; preds = %str_checkname.exit6
   br i1 %cmp.i.i584, label %if.then.i.i594, label %new_localvar.exit595
 
 if.then.i.i594:                                   ; preds = %str_checkname.exit600
-  tail call fastcc void @errorlimit(ptr noundef nonnull readonly %277, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  tail call fastcc void @errorlimit(ptr noundef nonnull %277, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit595:                             ; preds = %str_checkname.exit600
@@ -3960,7 +3960,7 @@ if.then:                                          ; preds = %checknext.exit
   br i1 %cmp.i.i, label %if.then.i.i27, label %new_localvar.exit
 
 if.then.i.i27:                                    ; preds = %if.then
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %37, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %37, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 new_localvar.exit:                                ; preds = %if.then
@@ -4020,7 +4020,7 @@ str_checkname.exit.i:                             ; preds = %do.body.i
   br i1 %cmp.i.i.i, label %if.then.i.i16.i, label %land.rhs.i
 
 if.then.i.i16.i:                                  ; preds = %str_checkname.exit.i
-  call fastcc void @errorlimit(ptr noundef nonnull readonly %49, i32 noundef 200, ptr noundef nonnull @.str.9) #12
+  call fastcc void @errorlimit(ptr noundef nonnull %49, i32 noundef 200, ptr noundef nonnull @.str.9) #12
   unreachable
 
 sw.default.i:                                     ; preds = %do.body.i
@@ -4892,7 +4892,7 @@ if.then15:                                        ; preds = %if.then9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %checklimit.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then15
-  tail call fastcc void @errorlimit(ptr noundef nonnull readonly %fs, i32 noundef 255, ptr noundef nonnull @.str) #12
+  tail call fastcc void @errorlimit(ptr noundef nonnull %fs, i32 noundef 255, ptr noundef nonnull @.str) #12
   unreachable
 
 checklimit.exit.i.i:                              ; preds = %if.then15

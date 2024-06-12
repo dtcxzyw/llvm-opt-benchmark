@@ -88,12 +88,12 @@ define i64 @zend_atol(ptr nocapture noundef readonly %0, i64 noundef %1) local_u
   br i1 %.not.i, label %4, label %.thread.i
 
 .thread.i:                                        ; preds = %2
-  %3 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
+  %3 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
   br label %7
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #28
-  %6 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %6 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
   %.not11.i = icmp eq i64 %5, 0
   br i1 %.not11.i, label %zend_atol_internal.exit, label %7
 
@@ -137,12 +137,12 @@ define i32 @zend_atoi(ptr nocapture noundef readonly %0, i64 noundef %1) local_u
   br i1 %.not.i, label %4, label %.thread.i
 
 .thread.i:                                        ; preds = %2
-  %3 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
+  %3 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
   br label %7
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #28
-  %6 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %6 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
   %.not11.i = icmp eq i64 %5, 0
   br i1 %.not11.i, label %zend_atol_internal.exit, label %7
 
@@ -7219,7 +7219,7 @@ define i32 @string_compare_function_ex(ptr nocapture noundef readonly %0, ptr no
   %54 = getelementptr inbounds i8, ptr %.046, i64 24
   %55 = getelementptr inbounds i8, ptr %.045, i64 24
   %56 = tail call i64 @llvm.umin.i64(i64 %21, i64 %23)
-  %57 = tail call i32 @memcmp(ptr noundef nonnull readonly %55, ptr noundef nonnull readonly %54, i64 noundef %56) #28
+  %57 = tail call i32 @memcmp(ptr noundef nonnull %55, ptr noundef nonnull %54, i64 noundef %56) #28
   %.not.i53 = icmp eq i32 %57, 0
   br i1 %.not.i53, label %58, label %zend_binary_strcasecmp.exit
 
@@ -7382,7 +7382,7 @@ define i32 @string_compare_function(ptr nocapture noundef readonly %0, ptr nocap
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %10, i64 24
   %21 = tail call i64 @llvm.umin.i64(i64 %16, i64 %18)
-  %22 = tail call i32 @memcmp(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %19, i64 noundef %21) #28
+  %22 = tail call i32 @memcmp(ptr noundef nonnull %20, ptr noundef nonnull %19, i64 noundef %21) #28
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %zend_binary_strcmp.exit
 
@@ -7426,7 +7426,7 @@ define i32 @string_compare_function(ptr nocapture noundef readonly %0, ptr nocap
   %41 = getelementptr inbounds i8, ptr %.051, i64 24
   %42 = getelementptr inbounds i8, ptr %.068, i64 24
   %43 = tail call i64 @llvm.umin.i64(i64 %36, i64 %38)
-  %44 = tail call i32 @memcmp(ptr noundef nonnull readonly %42, ptr noundef nonnull readonly %41, i64 noundef %43) #28
+  %44 = tail call i32 @memcmp(ptr noundef nonnull %42, ptr noundef nonnull %41, i64 noundef %43) #28
   %.not.i61 = icmp eq i32 %44, 0
   br i1 %.not.i61, label %45, label %zend_binary_strcmp.exit63
 
@@ -8306,7 +8306,7 @@ define i32 @zendi_smart_strcmp(ptr noundef %0, ptr noundef %1) local_unnamed_add
 73:                                               ; preds = %.thread
   %74 = getelementptr inbounds i8, ptr %1, i64 24
   %75 = call i64 @llvm.umin.i64(i64 %69, i64 %71)
-  %76 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %74, i64 noundef %75) #28
+  %76 = call i32 @memcmp(ptr noundef nonnull %9, ptr noundef nonnull %74, i64 noundef %75) #28
   %.not.i = icmp eq i32 %76, 0
   br i1 %.not.i, label %77, label %zend_binary_strcmp.exit
 
@@ -8454,7 +8454,7 @@ zend_long_to_str.exit:                            ; preds = %27, %.loopexit.i
 68:                                               ; preds = %zend_long_to_str.exit
   %69 = getelementptr inbounds i8, ptr %.083.i, i64 24
   %70 = call i64 @llvm.umin.i64(i64 %65, i64 %66)
-  %71 = call i32 @memcmp(ptr noundef nonnull readonly %69, ptr noundef nonnull readonly %6, i64 noundef %70) #28
+  %71 = call i32 @memcmp(ptr noundef nonnull %69, ptr noundef nonnull %6, i64 noundef %70) #28
   %.not.i45 = icmp eq i32 %71, 0
   br i1 %.not.i45, label %72, label %zend_binary_strcmp.exit
 
@@ -8575,7 +8575,7 @@ define internal fastcc range(i32 -1, 2) i32 @compare_double_to_string(double nou
 
 44:                                               ; preds = %.thread
   %45 = call i64 @llvm.umin.i64(i64 %41, i64 %42)
-  %46 = call i32 @memcmp(ptr noundef nonnull readonly %37, ptr noundef nonnull readonly %6, i64 noundef %45) #28
+  %46 = call i32 @memcmp(ptr noundef nonnull %37, ptr noundef nonnull %6, i64 noundef %45) #28
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %47, label %zend_binary_strcmp.exit
 
@@ -11044,7 +11044,7 @@ define i32 @zend_binary_zval_strcmp(ptr nocapture noundef readonly %0, ptr nocap
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = getelementptr inbounds i8, ptr %3, i64 24
   %13 = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
-  %14 = tail call i32 @memcmp(ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %11, i64 noundef %13) #28
+  %14 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef %13) #28
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %zend_binary_strcmp.exit
 
@@ -11077,7 +11077,7 @@ define i32 @zend_binary_zval_strncmp(ptr nocapture noundef readonly %0, ptr noca
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   %15 = tail call i64 @llvm.umin.i64(i64 %6, i64 %9)
   %..i = tail call i64 @llvm.umin.i64(i64 %15, i64 %10)
-  %16 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %13, i64 noundef %..i) #28
+  %16 = tail call i32 @memcmp(ptr noundef nonnull %14, ptr noundef nonnull %13, i64 noundef %..i) #28
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %zend_binary_strncmp.exit
 

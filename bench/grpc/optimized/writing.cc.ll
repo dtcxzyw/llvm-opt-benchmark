@@ -1504,7 +1504,7 @@ if.end54.i:                                       ; preds = %if.end34.i, %if.the
   %inc.i.i115 = add nsw i32 %201, 1
   store i32 %inc.i.i115, ptr %trailing_metadata_writes_.i.i, align 8
   call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %write_context.val.i)
-  call fastcc void @_ZN12_GLOBAL__N_118StreamWriteContext13SentLastFrameEv(ptr noundef nonnull readonly align 8 dereferenceable(38) %stream_ctx)
+  call fastcc void @_ZN12_GLOBAL__N_118StreamWriteContext13SentLastFrameEv(ptr noundef nonnull align 8 dereferenceable(38) %stream_ctx)
   store i8 1, ptr %early_results_scheduled.i.i, align 2
   %send_trailing_metadata_finished.i = getelementptr inbounds i8, ptr %51, i64 184
   store i64 0, ptr %agg.tmp60.i, align 8, !alias.scope !28
@@ -2010,7 +2010,7 @@ ehcleanup17.i.i.i.i.i.i.i.i:                      ; preds = %ehcleanup.i.i.i.i29
 
 sw.bb3.i.i.i.i:                                   ; preds = %_ZL23NextAllowedPingIntervalP21grpc_chttp2_transport.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i144, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i144, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i32.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp9.i.i.i.i33.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i.i.i.i34.i.i.i.i)
@@ -5486,7 +5486,7 @@ if.then.i.i.i39:                                  ; preds = %_ZN9grpc_core5Slice
 
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i39, %_ZN9grpc_core5SliceD2Ev.exit37
   %ref.tmp.sroa.0.0.copyload.i = phi ptr [ %27, %_ZN9grpc_core5SliceD2Ev.exit37 ], [ %ref.tmp.sroa.0.0.copyload.pre.i, %if.then.i.i.i39 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %data.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %data.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.sroa.4.i)
   %__tmp.i.i.i.sroa.0.0.copyload.i = load ptr, ptr %this, align 8
   %__tmp.i.i.i.sroa.4.0.copy.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6241,7 +6241,7 @@ if.then.i.i.i39:                                  ; preds = %_ZN9grpc_core5Slice
 
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i39, %_ZN9grpc_core5SliceD2Ev.exit37
   %ref.tmp.sroa.0.0.copyload.i = phi ptr [ %27, %_ZN9grpc_core5SliceD2Ev.exit37 ], [ %ref.tmp.sroa.0.0.copyload.pre.i, %if.then.i.i.i39 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %data.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %data.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.sroa.4.i)
   %__tmp.i.i.i.sroa.0.0.copyload.i = load ptr, ptr %this, align 8
   %__tmp.i.i.i.sroa.4.0.copy.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -354,7 +354,7 @@ if.end.i.i:                                       ; preds = %if.end.i75
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end13.i.i
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0146, i32 noundef %12)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0146, i32 noundef %12)
   unreachable
 
 if.end13.i.i:                                     ; preds = %if.end.i.i

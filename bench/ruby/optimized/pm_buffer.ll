@@ -234,7 +234,7 @@ define hidden void @pm_buffer_append_string(ptr nocapture noundef %0, ptr nocapt
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8
   %24 = getelementptr i8, ptr %23, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %2, i1 false)
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %17, %22
@@ -291,7 +291,7 @@ define hidden void @pm_buffer_append_bytes(ptr nocapture noundef %0, ptr nocaptu
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8
   %24 = getelementptr i8, ptr %23, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %2, i1 false)
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %17, %22
@@ -1397,7 +1397,7 @@ define hidden void @pm_buffer_concat(ptr nocapture noundef %0, ptr nocapture nou
   %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %20 ]
   store i64 %8, ptr %0, align 8
   %27 = getelementptr i8, ptr %26, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %6, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %6, i64 %3, i1 false)
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %25, %20, %2

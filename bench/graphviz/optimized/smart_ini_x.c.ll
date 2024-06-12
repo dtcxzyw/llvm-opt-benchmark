@@ -231,7 +231,7 @@ gv_calloc.exit.i:                                 ; preds = %108, %._crit_edge.t
 .lr.ph.preheader.i36.i:                           ; preds = %gv_calloc.exit.i
   %111 = zext nneg i32 %1 to i64
   %112 = shl nuw nsw i64 %111, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr readonly align 8 %2, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %110, ptr align 8 %2, i64 %112, i1 false)
   br label %.lr.ph.i37.i
 
 .lr.ph.i37.i:                                     ; preds = %.lr.ph.i37.i, %.lr.ph.preheader.i36.i

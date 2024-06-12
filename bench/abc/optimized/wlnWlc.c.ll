@@ -168,10 +168,10 @@ Vec_IntAlloc.exit:                                ; preds = %1, %13
   br i1 %.not, label %38, label %32
 
 32:                                               ; preds = %Vec_IntAlloc.exit
-  %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #14
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #14
   %34 = add i64 %33, 1
   %35 = tail call noalias noundef ptr @malloc(i64 noundef %34) #12
-  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %31) #13
+  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %31) #13
   %37 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %35, ptr %37, align 8
   br label %38
@@ -525,7 +525,7 @@ Wln_NtkCleanNameId.exit:                          ; preds = %79, %Vec_IntGrow.ex
   %207 = ashr exact i64 %sext.i, 32
   %scevgep.i = getelementptr i8, ptr %204, i64 %207
   %208 = and i64 %.0219.lcssa.in, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %201, i64 %208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 1 dereferenceable(1) %201, i64 %208, i1 false)
   %209 = add i64 %.0219.lcssa.in, %206
   %sext484 = shl i64 %209, 32
   %210 = ashr exact i64 %sext484, 32

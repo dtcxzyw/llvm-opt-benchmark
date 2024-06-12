@@ -1281,7 +1281,7 @@ define internal fastcc ptr @uv__unknown_err_code(i32 noundef %err) unnamed_addr 
 entry:
   %buf = alloca [32 x i8], align 16
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.84, i32 noundef %err) #24
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %buf) #23
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #23
   %add.i = add i64 %call.i, 1
   %cmp.not.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not.i.i, label %uv__strdup.exit, label %uv__malloc.exit.i
@@ -1293,7 +1293,7 @@ uv__malloc.exit.i:                                ; preds = %entry
   br i1 %cmp.i, label %uv__strdup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %uv__malloc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 16 %buf, i64 %add.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 16 %buf, i64 %add.i, i1 false)
   br label %uv__strdup.exit
 
 uv__strdup.exit:                                  ; preds = %entry, %uv__malloc.exit.i, %if.end.i

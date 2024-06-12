@@ -1747,7 +1747,7 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
   %59 = getelementptr inbounds i8, ptr %1, i64 16
   %60 = getelementptr inbounds i8, ptr %3, i64 16
   %61 = zext nneg i32 %55 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %59, ptr nonnull readonly %60, i64 %61)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %59, ptr nonnull %60, i64 %61)
   %62 = icmp eq i32 %bcmp.i, 0
   br label %jvp_array_equal.exit
 
@@ -1842,7 +1842,7 @@ jvp_object_length.exit:                           ; preds = %66, %63
 jvp_string_equal.exit.i.i:                        ; preds = %100
   %106 = getelementptr inbounds i8, ptr %102, i64 16
   %107 = zext nneg i32 %103 to i64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %94, ptr nonnull readonly %106, i64 %107)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %94, ptr nonnull %106, i64 %107)
   %.not20.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not20.i.i, label %109, label %jvp_string_equal.exit.thread.i.i
 
@@ -1933,7 +1933,7 @@ define { i64, ptr } @jv_string_sized(ptr noundef %0, i32 noundef %1) local_unnam
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %10, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr nonnull align 1 %0, i64 %8, i1 false)
   br label %jvp_string_new.exit
 
 jvp_string_new.exit:                              ; preds = %7, %14
@@ -2267,7 +2267,7 @@ jv_copy.exit65:                                   ; preds = %jv_copy.exit, %17
   %41 = zext nneg i32 %35 to i64
   %42 = getelementptr inbounds i8, ptr %40, i64 %41
   %43 = zext i32 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %5, i64 %43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %5, i64 %43, i1 false)
   %44 = add i32 %35, %33
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds [0 x i8], ptr %40, i64 0, i64 %45
@@ -2294,7 +2294,7 @@ jv_copy.exit65:                                   ; preds = %jv_copy.exit, %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr nonnull align 4 %57, i64 %58, i1 false)
   %59 = getelementptr inbounds i8, ptr %56, i64 %58
   %60 = zext i32 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %5, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %5, i64 %60, i1 false)
   %61 = zext i32 %49 to i64
   %62 = getelementptr inbounds [0 x i8], ptr %56, i64 0, i64 %61
   store i8 0, ptr %62, align 1
@@ -2428,7 +2428,7 @@ define { i64, ptr } @jv_string_append_codepoint(i64 %0, ptr %1, i32 noundef %2) 
   %13 = zext nneg i32 %7 to i64
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = zext i32 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %4, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %4, i64 %15, i1 false)
   %16 = add i32 %7, %5
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %17
@@ -2455,7 +2455,7 @@ define { i64, ptr } @jv_string_append_codepoint(i64 %0, ptr %1, i32 noundef %2) 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr nonnull align 4 %29, i64 %30, i1 false)
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
   %32 = zext i32 %5 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 1 %4, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %4, i64 %32, i1 false)
   %33 = zext i32 %21 to i64
   %34 = getelementptr inbounds [0 x i8], ptr %28, i64 0, i64 %33
   store i8 0, ptr %34, align 1
@@ -2685,7 +2685,7 @@ jv_number_value.exit:                             ; preds = %._crit_edge.i, %37,
   %58 = zext nneg i32 %52 to i64
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   %60 = zext i32 %50 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %3, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %3, i64 %60, i1 false)
   %61 = add i32 %52, %50
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds [0 x i8], ptr %57, i64 0, i64 %62
@@ -2712,7 +2712,7 @@ jv_number_value.exit:                             ; preds = %._crit_edge.i, %37,
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %73, ptr nonnull align 4 %74, i64 %75, i1 false)
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
   %77 = zext i32 %50 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull readonly align 1 %3, i64 %77, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull align 1 %3, i64 %77, i1 false)
   %78 = zext i32 %66 to i64
   %79 = getelementptr inbounds [0 x i8], ptr %73, i64 0, i64 %78
   store i8 0, ptr %79, align 1
@@ -3024,7 +3024,7 @@ define { i64, ptr } @jv_string_concat(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
   %15 = zext nneg i32 %9 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   %17 = zext nneg i32 %7 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %5, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %5, i64 %17, i1 false)
   %18 = add nuw i32 %9, %7
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds [0 x i8], ptr %14, i64 0, i64 %19
@@ -3051,7 +3051,7 @@ define { i64, ptr } @jv_string_concat(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr nonnull align 4 %31, i64 %32, i1 false)
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
   %34 = zext nneg i32 %7 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %5, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %5, i64 %34, i1 false)
   %35 = zext i32 %23 to i64
   %36 = getelementptr inbounds [0 x i8], ptr %30, i64 0, i64 %35
   store i8 0, ptr %36, align 1
@@ -3103,7 +3103,7 @@ define { i64, ptr } @jv_string_append_buf(i64 %0, ptr %1, ptr noundef %2, i32 no
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
   %19 = zext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr readonly align 1 %2, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %2, i64 %19, i1 false)
   %20 = add i32 %11, %3
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 %21
@@ -3130,7 +3130,7 @@ define { i64, ptr } @jv_string_append_buf(i64 %0, ptr %1, ptr noundef %2, i32 no
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 4 %33, i64 %34, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
   %36 = zext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr readonly align 1 %2, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %2, i64 %36, i1 false)
   %37 = zext i32 %25 to i64
   %38 = getelementptr inbounds [0 x i8], ptr %32, i64 0, i64 %37
   store i8 0, ptr %38, align 1
@@ -3215,7 +3215,7 @@ jvp_string_copy_replace_bad.exit:                 ; preds = %57, %42
   %79 = zext nneg i32 %73 to i64
   %80 = getelementptr inbounds i8, ptr %78, i64 %79
   %81 = and i64 %65, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull readonly align 1 %51, i64 %81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %51, i64 %81, i1 false)
   %82 = add nuw i32 %73, %71
   %83 = zext i32 %82 to i64
   %84 = getelementptr inbounds [0 x i8], ptr %78, i64 0, i64 %83
@@ -3242,7 +3242,7 @@ jvp_string_copy_replace_bad.exit:                 ; preds = %57, %42
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %94, ptr nonnull align 4 %95, i64 %96, i1 false)
   %97 = getelementptr inbounds i8, ptr %94, i64 %96
   %98 = and i64 %65, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull readonly align 1 %51, i64 %98, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull align 1 %51, i64 %98, i1 false)
   %99 = zext i32 %87 to i64
   %100 = getelementptr inbounds [0 x i8], ptr %94, i64 0, i64 %99
   store i8 0, ptr %100, align 1
@@ -3413,7 +3413,7 @@ define { i64, ptr } @jv_object_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed
 jvp_string_equal.exit.i.i:                        ; preds = %23
   %29 = getelementptr inbounds i8, ptr %25, i64 16
   %30 = zext nneg i32 %26 to i64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %29, i64 %30)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr nonnull %29, i64 %30)
   %.not20.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not20.i.i, label %32, label %jvp_string_equal.exit.thread.i.i
 
@@ -3493,7 +3493,7 @@ define range(i32 0, 2) i32 @jv_object_has(i64 %0, ptr %1, i64 %2, ptr %3) local_
 jvp_string_equal.exit.i.i:                        ; preds = %23
   %29 = getelementptr inbounds i8, ptr %25, i64 16
   %30 = zext nneg i32 %26 to i64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %29, i64 %30)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr nonnull %29, i64 %30)
   %.not20.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not20.i.i, label %jvp_object_read.exit, label %jvp_string_equal.exit.thread.i.i
 
@@ -3558,7 +3558,7 @@ define { i64, ptr } @jv_object_set(i64 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %
 jvp_string_equal.exit.i.i:                        ; preds = %28
   %34 = getelementptr inbounds i8, ptr %30, i64 16
   %35 = zext nneg i32 %31 to i64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %22, ptr nonnull readonly %34, i64 %35)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %22, ptr nonnull %34, i64 %35)
   %.not20.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not20.i.i, label %jvp_object_find_slot.exit.i, label %jvp_string_equal.exit.thread.i.i
 
@@ -3817,7 +3817,7 @@ define { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
 jvp_string_equal.exit.i:                          ; preds = %26
   %32 = getelementptr inbounds i8, ptr %28, i64 16
   %33 = zext nneg i32 %29 to i64
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %21, ptr nonnull readonly %32, i64 %33)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %21, ptr nonnull %32, i64 %33)
   %.not32.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not32.i, label %34, label %jvp_string_equal.exit.thread.i
 
@@ -4347,7 +4347,7 @@ jvp_string_hash.exit:                             ; preds = %47, %93
 
 jvp_string_equal.exit.i.i.i:                      ; preds = %118
   %123 = getelementptr inbounds i8, ptr %120, i64 16
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %112, ptr nonnull readonly %123, i64 %114)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %112, ptr nonnull %123, i64 %114)
   %.not20.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not20.i.i.i, label %125, label %jvp_string_equal.exit.thread.i.i.i
 
@@ -4692,7 +4692,7 @@ jvp_string_hash.exit:                             ; preds = %48, %94
 
 jvp_string_equal.exit.i.i.i:                      ; preds = %119
   %124 = getelementptr inbounds i8, ptr %121, i64 16
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %113, ptr nonnull readonly %124, i64 %115)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %113, ptr nonnull %124, i64 %115)
   %.not20.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not20.i.i.i, label %126, label %jvp_string_equal.exit.thread.i.i.i
 

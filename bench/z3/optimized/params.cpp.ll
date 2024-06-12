@@ -7012,7 +7012,7 @@ cond.false:                                       ; preds = %entry
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %cond.false
-  %call.i = tail call ptr @_ZNK6params7get_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef %k, ptr noundef nonnull readonly align 8 dereferenceable(8) %_default)
+  %call.i = tail call ptr @_ZNK6params7get_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %_default)
   br label %cond.end
 
 cond.false.i:                                     ; preds = %cond.false
@@ -7117,7 +7117,7 @@ if.end9:                                          ; preds = %for.inc, %for.inc.u
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end9
-  %call.i = call ptr @_ZNK6params7get_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef %k, ptr noundef nonnull readonly align 8 dereferenceable(8) %_default)
+  %call.i = call ptr @_ZNK6params7get_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %_default)
   br label %return
 
 cond.false.i:                                     ; preds = %if.end9

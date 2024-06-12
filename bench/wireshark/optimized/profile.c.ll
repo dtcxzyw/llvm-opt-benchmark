@@ -113,7 +113,7 @@ define hidden noalias ptr @apply_profile_changes() local_unnamed_addr #0 {
   %8 = tail call ptr @g_strchug(ptr noundef %7) #5
   %9 = tail call ptr @g_strchomp(ptr noundef %8) #5
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %10, i32 noundef 47) #6
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 47) #6
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %profile_name_is_valid.exit.thread, label %12
 

@@ -1571,7 +1571,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef %pValue)
+  %call.i.i = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef %pValue)
   br label %ucptrie_getRange_75.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1579,7 +1579,7 @@ if.end.i.i:                                       ; preds = %entry
   %spec.store.select.i.i = select i1 %cmp1.i.i, ptr %value.i.i, ptr %pValue
   %cmp4.i.i = icmp eq i32 %option, 2
   %cond.i.i = select i1 %cmp4.i.i, i32 57343, i32 56319
-  %call5.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select.i.i)
+  %call5.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select.i.i)
   %cmp6.i.i = icmp slt i32 %call5.i.i, 55295
   %cmp7.i.i = icmp slt i32 %cond.i.i, %start
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp6.i.i
@@ -1605,7 +1605,7 @@ if.end17.i.i:                                     ; preds = %if.else.i.i
 
 if.end21.i.i:                                     ; preds = %if.end17.i.i, %if.then11.i.i
   %add.i.i = add nuw nsw i32 %cond.i.i, 1
-  %call22.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %add.i.i, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %value2.i.i)
+  %call22.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %map, i32 noundef %add.i.i, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %value2.i.i)
   %1 = load i32, ptr %value2.i.i, align 4
   %cmp23.i.i = icmp eq i32 %1, %surrogateValue
   %call22.cond.i.i = select i1 %cmp23.i.i, i32 %call22.i.i, i32 %cond.i.i

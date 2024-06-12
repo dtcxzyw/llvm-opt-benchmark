@@ -625,7 +625,7 @@ check_constraints.exit:                           ; preds = %4, %11, %14, %._cri
   %108 = getelementptr i8, ptr %107, i64 -8
   %109 = load i32, ptr %108, align 4
   %110 = add nsw i32 %86, -1
-  %111 = tail call fastcc ptr @build_level_topology(ptr noundef %84, ptr noundef %1, i32 noundef %109, i32 noundef %110, ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef %3)
+  %111 = tail call fastcc ptr @build_level_topology(ptr noundef %84, ptr noundef %1, i32 noundef %109, i32 noundef %110, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3)
   %112 = load i32, ptr @verbose_level, align 4
   %113 = icmp sgt i32 %112, 4
   br i1 %113, label %114, label %bottom_up_build_tree_from_topology.exit
@@ -954,7 +954,7 @@ tm_complete_obj_weight.exit.thread:               ; preds = %._crit_edge.i94
   br i1 %121, label %.lr.ph.i.i, label %clone_tree.exit.i, !llvm.loop !18
 
 122:                                              ; preds = %.lr.ph.i107
-  tail call fastcc void @create_dumb_tree(ptr noundef %95, i32 noundef %3, ptr noundef readonly %4)
+  tail call fastcc void @create_dumb_tree(ptr noundef %95, i32 noundef %3, ptr noundef %4)
   %123 = getelementptr inbounds i8, ptr %95, i64 48
   %124 = trunc nuw nsw i64 %indvars.iv.i108 to i32
   store i32 %124, ptr %123, align 8
@@ -1306,7 +1306,7 @@ choose.exit.i:                                    ; preds = %.lr.ph.i155.i, %bui
 
 273:                                              ; preds = %268, %262
   %274 = phi i32 [ %272, %268 ], [ 10, %262 ]
-  call fastcc void @fast_group(ptr noundef readonly %.057.i.i, ptr noundef %.1168181, ptr noundef %263, i32 noundef -1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %17, ptr noundef %259, ptr noundef nonnull %16, i32 noundef %274)
+  call fastcc void @fast_group(ptr noundef %.057.i.i, ptr noundef %.1168181, ptr noundef %263, i32 noundef -1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %17, ptr noundef %259, ptr noundef nonnull %16, i32 noundef %274)
   %275 = load double, ptr %17, align 8
   %276 = fadd double %.045.i.i, %275
   %277 = getelementptr inbounds i8, ptr %263, i64 40
@@ -1918,7 +1918,7 @@ independent_groups.exit.us.i.i.i:                 ; preds = %528
   %542 = load double, ptr %541, align 8
   %543 = fadd double %516, %542
   %544 = add nuw nsw i32 %.02634.i.i.i, 1
-  %545 = call fastcc i32 @recurs_select_independent_groups(ptr noundef readonly %423, i32 noundef %544, i32 noundef %425, i32 noundef %2, i32 noundef 2, i32 noundef %138, double noundef %543, ptr noundef nonnull %19, ptr noundef nonnull %476, ptr noundef writeonly %421)
+  %545 = call fastcc i32 @recurs_select_independent_groups(ptr noundef %423, i32 noundef %544, i32 noundef %425, i32 noundef %2, i32 noundef 2, i32 noundef %138, double noundef %543, ptr noundef nonnull %19, ptr noundef nonnull %476, ptr noundef %421)
   br label %test_independent_groups.exit.i.i
 
 test_independent_groups.exit.i.i:                 ; preds = %independent_groups.exit.us.i.i.i, %.loopexit.i.i.i, %.preheader.i.i.i
@@ -3361,7 +3361,7 @@ eval_grouping.exit:                               ; preds = %._crit_edge.us.i, %
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i36
   %42 = shl nuw nsw i64 %wide.trip.count.i37, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr readonly align 8 %5, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %5, i64 %42, i1 false)
   br label %add_to_list.exit
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i36, %53
@@ -4531,7 +4531,7 @@ define internal fastcc ptr @generate_work_units(ptr noundef %0, i32 noundef %1, 
   %13 = zext nneg i32 %4 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr nonnull readonly align 4 %3, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr nonnull align 4 %3, i64 %14, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
   store i32 %4, ptr %0, align 8

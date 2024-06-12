@@ -1396,7 +1396,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %445, %451, %449, %4
   %indvars.iv.i205 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i206, %.lr.ph.i204 ]
   %454 = load ptr, ptr @_ZZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILEE7inertia, align 8
   %455 = getelementptr inbounds %"class.gmx::BasicVector", ptr %454, i64 %indvars.iv.i205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %455, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %455, i8 0, i64 24, i1 false)
   %456 = load ptr, ptr @_ZZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILEE2tm, align 8
   %457 = getelementptr inbounds double, ptr %456, i64 %indvars.iv.i205
   store double 0.000000e+00, ptr %457, align 8

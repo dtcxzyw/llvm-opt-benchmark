@@ -1359,7 +1359,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 1
   %31 = add nuw nsw i64 %30, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(1) %scevgep.i, i8 0, i64 %31, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep.i, i8 0, i64 %31, i1 false)
   br label %_ZN7Imf_3_212_GLOBAL__N_120reverseLutFromBitmapEPKhPt.exit
 
 for.body.i:                                       ; preds = %for.inc.i, %invoke.cont75

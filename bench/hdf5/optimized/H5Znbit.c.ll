@@ -447,7 +447,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 .lr.ph45.i:                                       ; preds = %.preheader.i, %.lr.ph45.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph45.i ], [ 0, %.preheader.i ]
   %63 = mul nuw i64 %indvars.iv56.i, %34
-  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc47, i64 noundef %63, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc47, i64 noundef %63, ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %31
   br i1 %exitcond60.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph45.i
@@ -460,7 +460,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 .lr.ph43.i:                                       ; preds = %64, %72
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %72 ], [ 0, %64 ]
   %65 = mul nuw i64 %indvars.iv51.i, %34
-  %66 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc47, i64 noundef %65, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
+  %66 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc47, i64 noundef %65, ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %14)
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %72
 
@@ -484,7 +484,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 .lr.ph.i:                                         ; preds = %73, %81
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %73 ]
   %74 = mul nuw i64 %indvars.iv.i, %34
-  %75 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc47, i64 noundef %74, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
+  %75 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc47, i64 noundef %74, ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %14)
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %81
 
@@ -562,7 +562,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
 102:                                              ; preds = %102, %.lr.ph37.i
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next49.i, %102 ]
   %103 = mul nuw i64 %indvars.iv48.i, %101
-  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly %94, i64 noundef %103, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef %94, i64 noundef %103, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
   br i1 %exitcond52.not.i, label %H5Z__nbit_compress.exit, label %102
@@ -582,7 +582,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
 .lr.ph35.i:                                       ; preds = %.lr.ph35.i, %.lr.ph35.preheader.i
   %indvars.iv43.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next44.i, %.lr.ph35.i ]
   %108 = mul nuw i64 %indvars.iv43.i, %107
-  call fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly %94, i64 noundef %108, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
+  call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %94, i64 noundef %108, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %10)
   store i32 4, ptr %10, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count46.i
@@ -603,7 +603,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
   %113 = mul nuw i64 %indvars.iv.i33, %112
-  call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef readonly %94, i64 noundef %113, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
+  call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %94, i64 noundef %113, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %10)
   store i32 4, ptr %10, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i

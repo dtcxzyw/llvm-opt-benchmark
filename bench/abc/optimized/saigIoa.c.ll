@@ -641,19 +641,19 @@ define noundef ptr @Saig_ManReadBlif(ptr noundef readonly %0) local_unnamed_addr
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge
   %11 = tail call ptr @Aig_ManStart(i32 noundef 10000) #13
-  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Saig_ManReadToken.Buffer) #14
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Saig_ManReadToken.Buffer) #14
   %13 = add i64 %12, 1
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #15
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) @Saig_ManReadToken.Buffer) #13
+  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @Saig_ManReadToken.Buffer) #13
   store ptr %14, ptr %11, align 8
   %.not.i212 = icmp eq ptr %0, null
   br i1 %.not.i212, label %Abc_UtilStrsav.exit213, label %16
 
 16:                                               ; preds = %Abc_UtilStrsav.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #15
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %0) #13
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #13
   br label %Abc_UtilStrsav.exit213
 
 Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit, %16
@@ -913,7 +913,7 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
 .sink.split.i:                                    ; preds = %98, %97, %.thread
   %.sink7.i = phi i64 [ 2, %98 ], [ 2, %97 ], [ 1, %.thread ]
   %99 = getelementptr inbounds i8, ptr %Saig_ManReadToken.Buffer..i228, i64 %.sink7.i
-  %100 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %99) #14
+  %100 = tail call i32 @atoi(ptr nocapture noundef nonnull %99) #14
   br label %Saig_ManReadNumber.exit
 
 Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.split.i

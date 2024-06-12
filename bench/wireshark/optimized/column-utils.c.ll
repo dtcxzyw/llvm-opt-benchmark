@@ -1273,11 +1273,11 @@ define void @col_append_ports(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1
   br i1 %.not8.i, label %._crit_edge.i, label %11
 
 11:                                               ; preds = %9
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %10, i32 noundef %.pre.i) #16
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %10, i32 noundef %.pre.i) #16
   br label %col_snprint_port.exit
 
 ._crit_edge.i:                                    ; preds = %9, %5
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %.pre.i) #16
+  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %.pre.i) #16
   br label %col_snprint_port.exit
 
 col_snprint_port.exit:                            ; preds = %11, %._crit_edge.i
@@ -1292,11 +1292,11 @@ col_snprint_port.exit:                            ; preds = %11, %._crit_edge.i
   br i1 %.not8.i7, label %._crit_edge.i8, label %17
 
 17:                                               ; preds = %15
-  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %16, i32 noundef %.pre.i6) #16
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.18, ptr noundef nonnull %16, i32 noundef %.pre.i6) #16
   br label %col_snprint_port.exit9
 
 ._crit_edge.i8:                                   ; preds = %15, %col_snprint_port.exit
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %.pre.i6) #16
+  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %.pre.i6) #16
   br label %col_snprint_port.exit9
 
 col_snprint_port.exit9:                           ; preds = %17, %._crit_edge.i8
@@ -3863,7 +3863,7 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr nocapture noundef readon
   br label %col_set_fmt_time.exit
 
 48:                                               ; preds = %25
-  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 49:                                               ; preds = %25
@@ -3893,15 +3893,15 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr nocapture noundef readon
   br label %col_set_fmt_time.exit
 
 70:                                               ; preds = %25
-  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 71:                                               ; preds = %25
-  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 72:                                               ; preds = %25
-  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 73:                                               ; preds = %25
@@ -3992,7 +3992,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 129:                                              ; preds = %25
-  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 130:                                              ; preds = %25
@@ -4051,7 +4051,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 172:                                              ; preds = %24
-  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_abs_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 173:                                              ; preds = %24
@@ -4080,15 +4080,15 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 193:                                              ; preds = %24
-  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_rel_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 194:                                              ; preds = %24
-  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 195:                                              ; preds = %24
-  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_delta_time_dis(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 196:                                              ; preds = %24
@@ -4117,7 +4117,7 @@ col_set_epoch_time.exit.i.i:                      ; preds = %91, %set_epoch_time
   br label %col_set_fmt_time.exit
 
 216:                                              ; preds = %24
-  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %2)
+  tail call fastcc void @col_set_utc_ymd_time(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
 217:                                              ; preds = %24

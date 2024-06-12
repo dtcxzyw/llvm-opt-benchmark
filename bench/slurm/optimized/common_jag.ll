@@ -891,18 +891,18 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
 
 .lr.ph.i192:                                      ; preds = %.preheader.i, %_get_freq.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %371 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.53) #20
+  %371 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.53) #20
   %.not.i.i = icmp eq ptr %371, null
   br i1 %.not.i.i, label %372, label %374
 
 372:                                              ; preds = %.lr.ph.i192
-  %373 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.54) #20
+  %373 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.54) #20
   %.not8.i.i = icmp eq ptr %373, null
   br i1 %.not8.i.i, label %_get_freq.exit.i, label %374
 
 374:                                              ; preds = %372, %.lr.ph.i192
   %.0.i.i = phi double [ 1.000000e+00, %.lr.ph.i192 ], [ 1.000000e+03, %372 ]
-  %375 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 58) #20
+  %375 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #20
   %.not9.i.i = icmp eq ptr %375, null
   br i1 %.not9.i.i, label %_get_freq.exit.i, label %376
 
@@ -964,7 +964,7 @@ _get_sys_interface_freq_line.exit:                ; preds = %368, %.sink.split.i
   br i1 %.not.i193, label %393, label %395
 
 393:                                              ; preds = %_get_sys_interface_freq_line.exit
-  %394 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %15, ptr noundef nonnull @.str.57, ptr noundef nonnull %9) #17
+  %394 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.57, ptr noundef nonnull %9) #17
   %.pre.i = load i32, ptr %9, align 4
   br label %395
 

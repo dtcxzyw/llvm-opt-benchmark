@@ -27,7 +27,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 trace_event_is_pattern.exit:                      ; preds = %entry
-  %call.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %name, i32 noundef 42) #8
+  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 42) #8
   %cmp1.i.not = icmp eq ptr %call.i, null
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %iter.i)
   br i1 %cmp1.i.not, label %if.then.i, label %if.else.i14
@@ -130,7 +130,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 trace_event_is_pattern.exit:                      ; preds = %entry
-  %call.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %name, i32 noundef 42) #8
+  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 42) #8
   %cmp1.i.not = icmp eq ptr %call.i, null
   %0 = and i1 %has_ignore_unavailable, %ignore_unavailable
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %iter.i)

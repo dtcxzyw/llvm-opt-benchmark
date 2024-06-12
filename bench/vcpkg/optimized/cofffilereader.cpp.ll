@@ -2914,7 +2914,7 @@ _ZN5vcpkg3msg12format_errorIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpN
 97:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %29), !noalias !175
   %98 = getelementptr inbounds i8, ptr %30, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %29, ptr noundef nonnull readonly align 1 dereferenceable(10) %98, i64 10, i1 false), !noalias !175
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %29, ptr noundef nonnull align 1 dereferenceable(10) %98, i64 10, i1 false), !noalias !175
   %99 = getelementptr inbounds i8, ptr %29, i64 10
   store i8 0, ptr %99, align 1, !noalias !175
   %100 = call i64 @strtoull(ptr nocapture noundef nonnull %29, ptr noundef null, i32 noundef 10) #24
@@ -3393,7 +3393,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i25: ; preds = %249
 254:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %19), !noalias !182
   %255 = getelementptr inbounds i8, ptr %20, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %19, ptr noundef nonnull readonly align 1 dereferenceable(10) %255, i64 10, i1 false), !noalias !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %19, ptr noundef nonnull align 1 dereferenceable(10) %255, i64 10, i1 false), !noalias !182
   %256 = getelementptr inbounds i8, ptr %19, i64 10
   store i8 0, ptr %256, align 1, !noalias !182
   %257 = call i64 @strtoull(ptr nocapture noundef nonnull %19, ptr noundef null, i32 noundef 10) #24

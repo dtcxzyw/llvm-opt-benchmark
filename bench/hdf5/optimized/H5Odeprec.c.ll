@@ -385,7 +385,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef %0, p
   %7 = alloca %struct.H5VL_optional_args_t, align 8
   %8 = alloca %union.H5VL_native_object_optional_args_t, align 8
   %9 = alloca %struct.H5O_native_info_t, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %2, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %2, i8 0, i64 160, i1 false)
   %10 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1459,7 +1459,7 @@ define internal i32 @H5O__iterate1_adapter(i64 noundef %0, ptr noundef %1, ptr n
   %7 = alloca %union.H5VL_native_object_optional_args_t, align 8
   %8 = alloca %struct.H5VL_loc_params_t, align 8
   %9 = alloca %struct.H5O_native_info_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %5, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %5, i8 0, i64 160, i1 false)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8

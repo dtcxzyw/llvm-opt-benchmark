@@ -4149,7 +4149,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %312 = getelementptr inbounds i8, ptr %311, i64 4
   store i16 0, ptr %312, align 4
   %313 = getelementptr inbounds i8, ptr %311, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(65540) %313, i8 0, i64 65540, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(65540) %313, i8 0, i64 65540, i1 false)
   store i32 0, ptr %39, align 4
   store i32 0, ptr %40, align 4
   store i32 0, ptr %41, align 4
@@ -7659,7 +7659,7 @@ proto_item_set_generated.exit155.i:               ; preds = %2987, %2984, %proto
   %.0148.i = phi i32 [ %2923, %3001 ], [ %3000, %2998 ], [ %2923, %2994 ]
   store i32 0, ptr %311, align 4
   store i16 0, ptr %312, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(65540) %313, i8 0, i64 65540, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(65540) %313, i8 0, i64 65540, i1 false)
   br label %3046
 
 3006:                                             ; preds = %2944
@@ -8128,7 +8128,7 @@ lbm_stream_istream_add.exit:                      ; preds = %lbm_stream_istream_
   %3184 = load i32, ptr %58, align 8
   %3185 = load i32, ptr %59, align 4
   %3186 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3182, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3182, i8 0, i64 24, i1 false)
   store i32 %3184, ptr %3182, align 8
   %3187 = icmp eq i32 %3185, 0
   br i1 %3187, label %copy_address_wmem.exit.i, label %3188
@@ -8153,7 +8153,7 @@ copy_address_wmem.exit.i:                         ; preds = %3188, %3180
   %3198 = load i32, ptr %64, align 8
   %3199 = load i32, ptr %65, align 4
   %3200 = load ptr, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3197, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3197, i8 0, i64 24, i1 false)
   store i32 %3198, ptr %3197, align 8
   %3201 = icmp ne i32 %3199, 0
   call void @llvm.assume(i1 %3201)
@@ -8476,7 +8476,7 @@ copy_address_wmem.exit29.i:                       ; preds = %lbm_stream_dstream_
   store i32 %.sroa.31020.1.lcssa, ptr %3329, align 8
   %3330 = call ptr @wmem_file_scope() #9
   %3331 = getelementptr inbounds i8, ptr %3329, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3331, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3331, i8 0, i64 24, i1 false)
   store i32 2, ptr %3331, align 8
   %3332 = call noalias ptr @wmem_memdup(ptr noundef %3330, ptr noundef %.sroa.17.1.lcssa, i64 noundef 4) #9
   %3333 = getelementptr inbounds i8, ptr %3329, i64 24
@@ -8491,7 +8491,7 @@ copy_address_wmem.exit29.i:                       ; preds = %lbm_stream_dstream_
   store i32 %.sroa.261046.1.lcssa, ptr %3337, align 8
   %3338 = call ptr @wmem_file_scope() #9
   %3339 = getelementptr inbounds i8, ptr %3329, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3339, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3339, i8 0, i64 24, i1 false)
   store i32 2, ptr %3339, align 8
   %3340 = call noalias ptr @wmem_memdup(ptr noundef %3338, ptr noundef %.sroa.40.1.lcssa, i64 noundef 4) #9
   %3341 = getelementptr inbounds i8, ptr %3329, i64 56
@@ -8644,7 +8644,7 @@ lbm_stream_dstream_add.exit:                      ; preds = %lbm_stream_dstream_
   %3392 = load i32, ptr %58, align 8
   %3393 = load i32, ptr %59, align 4
   %3394 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3390, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3390, i8 0, i64 24, i1 false)
   store i32 %3392, ptr %3390, align 8
   %3395 = icmp eq i32 %3393, 0
   br i1 %3395, label %copy_address_wmem.exit.i916, label %3396
@@ -8669,7 +8669,7 @@ copy_address_wmem.exit.i916:                      ; preds = %3396, %3388
   %3406 = load i32, ptr %64, align 8
   %3407 = load i32, ptr %65, align 4
   %3408 = load ptr, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3405, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3405, i8 0, i64 24, i1 false)
   store i32 %3406, ptr %3405, align 8
   %3409 = icmp ne i32 %3407, 0
   call void @llvm.assume(i1 %3409)
@@ -9009,7 +9009,7 @@ copy_address_wmem.exit.i933:                      ; preds = %3538
   %3546 = load i32, ptr %64, align 8
   %3547 = load i32, ptr %65, align 4
   %3548 = load ptr, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3545, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3545, i8 0, i64 24, i1 false)
   store i32 %3546, ptr %3545, align 8
   %3549 = icmp ne i32 %3547, 0
   call void @llvm.assume(i1 %3549)
@@ -9682,7 +9682,7 @@ dissect_msg_properties.exit:                      ; preds = %3864, %3817, %3810,
   br label %3883
 
 3882:                                             ; preds = %3870
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3879, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3879, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
   br label %3883
 
 3883:                                             ; preds = %3882, %3880
@@ -9699,7 +9699,7 @@ dissect_msg_properties.exit:                      ; preds = %3864, %3817, %3810,
   br label %lbmc_dup_stream_info.exit
 
 3890:                                             ; preds = %3883
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3887, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3887, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit
 
 lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
@@ -9980,7 +9980,7 @@ lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
   br label %4007
 
 4006:                                             ; preds = %3994
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4003, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4003, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi989, i64 40, i1 false)
   br label %4007
 
 4007:                                             ; preds = %4006, %4004
@@ -9997,7 +9997,7 @@ lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
   br label %lbmc_dup_stream_info.exit964
 
 4014:                                             ; preds = %4007
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4011, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4011, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi995, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit964
 
 lbmc_dup_stream_info.exit964:                     ; preds = %4012, %4014
@@ -10627,7 +10627,7 @@ cmp_address.exit.thread.thread77:                 ; preds = %43, %cmp_address.ex
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds i8, ptr %1, i64 216
   %63 = load ptr, ptr %62, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   store i32 %59, ptr %57, align 8
   %64 = icmp eq i32 %61, 0
   br i1 %64, label %copy_address.exit, label %65
@@ -10651,7 +10651,7 @@ copy_address.exit:                                ; preds = %.critedge, %65
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds i8, ptr %1, i64 240
   %77 = load ptr, ptr %76, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   store i32 %73, ptr %71, align 8
   %78 = icmp eq i32 %75, 0
   br i1 %78, label %copy_address.exit69, label %79

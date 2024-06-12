@@ -129,7 +129,7 @@ sub_1.i:                                          ; preds = %15
   br label %180
 
 26:                                               ; preds = %.tail.i
-  %27 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #13
+  %27 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16) #13
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   store i8 0, ptr %28, align 16
   %29 = getelementptr inbounds i8, ptr %0, i64 16
@@ -218,7 +218,7 @@ thread-pre-split.thread.i:                        ; preds = %35, %26
   br i1 %55, label %56, label %98
 
 56:                                               ; preds = %54
-  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull readonly %13)
+  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %13)
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
   call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #13
   %57 = getelementptr inbounds i8, ptr %13, i64 48
@@ -437,13 +437,13 @@ ar_atol10.exit189.i:                              ; preds = %119, %116, %114, %.
 132:                                              ; preds = %129, %ar_atol10.exit189.i
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.16) #13
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
-  call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull readonly %13)
+  call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %13)
   br label %180
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds i8, ptr %127, i64 %.127.i177.i
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %134) #13
-  call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull readonly %13)
+  call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %13)
   br label %180
 
 135:                                              ; preds = %98
@@ -452,7 +452,7 @@ ar_atol10.exit189.i:                              ; preds = %119, %116, %114, %.
   br i1 %136, label %137, label %178
 
 137:                                              ; preds = %135
-  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull readonly %13)
+  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %13)
   %138 = getelementptr inbounds i8, ptr %13, i64 3
   %scevgep.i190.i = getelementptr i8, ptr %13, i64 16
   br label %139
@@ -576,7 +576,7 @@ ar_atol10.exit215.thread.i:                       ; preds = %150, %148, %ar_atol
   %.not157.i = icmp eq i64 %lhsv155.i, 13286731735978799
   %or.cond163.i = select i1 %.not154.i, i1 true, i1 %.not157.i
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
-  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull readonly %13)
+  call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %13)
   br i1 %or.cond163.i, label %179, label %180
 
 179:                                              ; preds = %178

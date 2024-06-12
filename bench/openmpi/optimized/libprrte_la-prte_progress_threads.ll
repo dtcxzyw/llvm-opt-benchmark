@@ -50,7 +50,7 @@ define ptr @prte_progress_thread_init(ptr noundef readonly %0) local_unnamed_add
 6:                                                ; preds = %5, %2
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @tracking, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @tracking, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @tracking, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @tracking, i64 56), i8 0, i64 64, i1 false)
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %8 = load ptr, ptr %7, align 8
   %.not6.i = icmp eq ptr %8, null
@@ -282,7 +282,7 @@ pmix_obj_run_destructors.exit95:                  ; preds = %.lr.ph.i92, %84
   %105 = getelementptr inbounds i8, ptr %27, i64 360
   store i32 1, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %27, i64 368
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %106, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %106, i8 0, i64 64, i1 false)
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 40), align 8
   %108 = load ptr, ptr %107, align 8
   %.not6.i97 = icmp eq ptr %108, null

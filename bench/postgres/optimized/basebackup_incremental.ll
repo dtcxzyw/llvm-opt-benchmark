@@ -1197,7 +1197,7 @@ define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef 
   %.01214.i.i = phi i32 [ %41, %39 ], [ %27, %20 ]
   %35 = getelementptr %struct.backup_file_entry, ptr %29, i64 %34, i32 1
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %1) #13
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %backup_file_lookup.exit, label %39
 
@@ -1249,7 +1249,7 @@ GetIncrementalFilePath.exit:                      ; preds = %49, %51
   %.01214.i.i67 = phi i32 [ %72, %70 ], [ %58, %GetIncrementalFilePath.exit ]
   %66 = getelementptr %struct.backup_file_entry, ptr %60, i64 %65, i32 1
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #13
+  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %.0.i) #13
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %backup_file_lookup.exit, label %70
 

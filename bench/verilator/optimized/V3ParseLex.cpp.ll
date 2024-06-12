@@ -19493,7 +19493,7 @@ define dso_local void @_ZN11V3LexerBaseC2EPSiPSo(ptr noundef nonnull align 8 der
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 608
   %18 = getelementptr inbounds i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 712
@@ -19503,8 +19503,8 @@ define dso_local void @_ZN11V3LexerBaseC2EPSiPSo(ptr noundef nonnull align 8 der
   %22 = getelementptr inbounds i8, ptr %0, i64 632
   %23 = getelementptr inbounds i8, ptr %0, i64 672
   store ptr null, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
   ret void
 
 24:                                               ; preds = %.invoke, %14
@@ -19568,7 +19568,7 @@ define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 der
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 608
   %19 = getelementptr inbounds i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 712
@@ -19578,8 +19578,8 @@ define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 der
   %23 = getelementptr inbounds i8, ptr %0, i64 632
   %24 = getelementptr inbounds i8, ptr %0, i64 672
   store ptr null, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
   ret void
 
 25:                                               ; preds = %15, %3
@@ -20960,7 +20960,7 @@ define linkonce_odr dso_local void @_ZN7V3LexerC2Ev(ptr noundef nonnull align 8 
 _ZN11V3LexerBaseC2EPSiPSo.exit:                   ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 608
   %18 = getelementptr inbounds i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 712
@@ -20970,8 +20970,8 @@ _ZN11V3LexerBaseC2EPSiPSo.exit:                   ; preds = %13
   %22 = getelementptr inbounds i8, ptr %0, i64 632
   %23 = getelementptr inbounds i8, ptr %0, i64 672
   store ptr null, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV7V3Lexer, i64 16), ptr %0, align 8
   ret void
 }

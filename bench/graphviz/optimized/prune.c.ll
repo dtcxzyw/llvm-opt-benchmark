@@ -84,13 +84,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 23:                                               ; preds = %16
   store i8 0, ptr %18, align 1
-  %24 = tail call noalias ptr @strdup(ptr noundef readonly %17) #15
+  %24 = tail call noalias ptr @strdup(ptr noundef %17) #15
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %gv_strdup.exit.i
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #14
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #14
   %29 = add i64 %28, 1
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.12, i64 noundef %29) #16
   tail call fastcc void @graphviz_exit(i32 noundef 1) #17
@@ -98,13 +98,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 gv_strdup.exit.i:                                 ; preds = %23
   %31 = getelementptr inbounds i8, ptr %18, i64 1
-  %32 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %31) #15
+  %32 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #15
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %gv_strdup.exit7.i
 
 34:                                               ; preds = %gv_strdup.exit.i
   %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #14
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #14
   %37 = add i64 %36, 1
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.12, i64 noundef %37) #16
   tail call fastcc void @graphviz_exit(i32 noundef 1) #17
@@ -158,13 +158,13 @@ addattr.exit:                                     ; preds = %gv_strdup.exit7.i, 
 
 61:                                               ; preds = %14
   %62 = load ptr, ptr @optarg, align 8
-  %63 = tail call noalias ptr @strdup(ptr noundef readonly %62) #15
+  %63 = tail call noalias ptr @strdup(ptr noundef %62) #15
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %gv_strdup.exit.i80
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #14
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #14
   %68 = add i64 %67, 1
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.12, i64 noundef %68) #16
   tail call fastcc void @graphviz_exit(i32 noundef 1) #17

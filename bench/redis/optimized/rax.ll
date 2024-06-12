@@ -3024,7 +3024,7 @@ if.end28.i:                                       ; preds = %if.end26.i, %if.end
   %20 = phi ptr [ %.pre192, %if.end26.i ], [ %.pre193, %if.end.i73 ]
   %21 = phi i64 [ %.pre.i78, %if.end26.i ], [ %18, %if.end.i73 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 1 %data, i64 %conv45, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %data, i64 %conv45, i1 false)
   %22 = load i64, ptr %key_len, align 8
   %add32.i = add i64 %22, %conv45
   store i64 %add32.i, ptr %key_len, align 8
@@ -3453,7 +3453,7 @@ if.end28.i:                                       ; preds = %if.end26.i, %if.the
   %6 = phi ptr [ %.pre, %if.end26.i ], [ %.pre67, %if.then ]
   %7 = phi i64 [ %.pre.i, %if.end26.i ], [ %4, %if.then ]
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %7
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 1 %data12, i64 %idx.ext, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %data12, i64 %idx.ext, i1 false)
   br label %if.end22
 
 raxIteratorAddChars.exit:                         ; preds = %if.then2.i
@@ -4530,7 +4530,7 @@ if.end28.i:                                       ; preds = %if.end26.i, %if.end
   %17 = phi ptr [ %.pre, %if.end26.i ], [ %.pre98, %if.end.i37 ]
   %18 = phi i64 [ %.pre.i, %if.end26.i ], [ %15, %if.end.i37 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 %18
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 1 %data51, i64 %conv45, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %data51, i64 %conv45, i1 false)
   br label %if.end57.sink.split
 
 raxIteratorAddChars.exit:                         ; preds = %if.then2.i

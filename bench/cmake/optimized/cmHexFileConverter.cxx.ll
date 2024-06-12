@@ -51,7 +51,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18cmHexFileConverter17Determine
   %.016 = phi i32 [ 2, %11 ], [ 1, %8 ]
   %.015 = phi i32 [ 10, %11 ], [ 11, %8 ]
   %.014 = phi i32 [ 526, %11 ], [ 523, %8 ]
-  %13 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #9
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = trunc i64 %13 to i32
   %15 = add i64 %13, 4294967295
   %16 = and i64 %15, 4294967295
@@ -159,7 +159,7 @@ define dso_local noundef zeroext i1 @_ZN18cmHexFileConverter10TryConvertERKNSt7_
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %25 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #9
+  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %26 = trunc i64 %25 to i32
   %27 = add i64 %25, 4294967295
   %28 = and i64 %27, 4294967295
@@ -291,7 +291,7 @@ _ZL9OutputBinP8_IO_FILEPKcjj.exit.i.us:           ; preds = %._crit_edge.loopexi
   br label %115
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %73 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #9
+  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %74 = trunc i64 %73 to i32
   %75 = add i64 %73, 4294967295
   %76 = and i64 %75, 4294967295

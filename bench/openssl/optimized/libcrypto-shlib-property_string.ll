@@ -192,7 +192,7 @@ if.end16:                                         ; preds = %if.then9
   br i1 %cmp23, label %land.lhs.true24, label %if.end52.thread
 
 land.lhs.true24:                                  ; preds = %if.end16
-  %call.i29 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s) #7
+  %call.i29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #7
   %add.i = add i64 %call.i29, 16
   %call1.i = call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef nonnull @.str, i32 noundef 128) #6
   %cmp.not.i = icmp eq ptr %call1.i, null
@@ -201,7 +201,7 @@ land.lhs.true24:                                  ; preds = %if.end16
 if.then.i:                                        ; preds = %land.lhs.true24
   %body.i = getelementptr inbounds i8, ptr %call1.i, i64 12
   %add2.i = add i64 %call.i29, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %body.i, ptr readonly align 1 %s, i64 %add2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %body.i, ptr align 1 %s, i64 %add2.i, i1 false)
   store ptr %body.i, ptr %call1.i, align 8
   %3 = load i32, ptr %cond21, align 4
   %inc.i = add nsw i32 %3, 1

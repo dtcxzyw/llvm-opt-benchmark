@@ -3324,7 +3324,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %div.i = ashr exact i64 %value, 30
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3335,7 +3335,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then9.i:                                       ; preds = %if.else.i
   %div11.i = ashr exact i64 %value, 20
-  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
+  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -3346,11 +3346,11 @@ if.else13.i:                                      ; preds = %if.else.i
 
 if.then20.i:                                      ; preds = %if.else13.i
   %div22.i = ashr exact i64 %value, 10
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else24.i:                                      ; preds = %if.else13.i
-  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %value) #24
+  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %value) #24
   br label %rewriteConfigFormatMemory.exit
 
 rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then9.i, %if.then20.i, %if.else24.i
@@ -3958,7 +3958,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 
 if.then.i:                                        ; preds = %lor.end
   %div.i = ashr exact i64 %0, 30
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else.i:                                        ; preds = %lor.end
@@ -3969,7 +3969,7 @@ if.else.i:                                        ; preds = %lor.end
 
 if.then9.i:                                       ; preds = %if.else.i
   %div11.i = ashr exact i64 %0, 20
-  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
+  %call12.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -3980,11 +3980,11 @@ if.else13.i:                                      ; preds = %if.else.i
 
 if.then20.i:                                      ; preds = %if.else13.i
   %div22.i = ashr exact i64 %0, 10
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i) #24
   br label %rewriteConfigFormatMemory.exit
 
 if.else24.i:                                      ; preds = %if.else13.i
-  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %0) #24
+  %call25.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %hard, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %0) #24
   br label %rewriteConfigFormatMemory.exit
 
 rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then9.i, %if.then20.i, %if.else24.i
@@ -3998,7 +3998,7 @@ rewriteConfigFormatMemory.exit:                   ; preds = %if.then.i, %if.then
 
 if.then.i32:                                      ; preds = %rewriteConfigFormatMemory.exit
   %div.i33 = ashr exact i64 %10, 30
-  %call.i34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i33) #24
+  %call.i34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.99, i64 noundef %div.i33) #24
   br label %rewriteConfigFormatMemory.exit35
 
 if.else.i17:                                      ; preds = %rewriteConfigFormatMemory.exit
@@ -4009,7 +4009,7 @@ if.else.i17:                                      ; preds = %rewriteConfigFormat
 
 if.then9.i29:                                     ; preds = %if.else.i17
   %div11.i30 = ashr exact i64 %10, 20
-  %call12.i31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i30) #24
+  %call12.i31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.100, i64 noundef %div11.i30) #24
   br label %rewriteConfigFormatMemory.exit35
 
 if.else13.i20:                                    ; preds = %if.else.i17
@@ -4020,11 +4020,11 @@ if.else13.i20:                                    ; preds = %if.else.i17
 
 if.then20.i26:                                    ; preds = %if.else13.i20
   %div22.i27 = ashr exact i64 %10, 10
-  %call23.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i27) #24
+  %call23.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.101, i64 noundef %div22.i27) #24
   br label %rewriteConfigFormatMemory.exit35
 
 if.else24.i23:                                    ; preds = %if.else13.i20
-  %call25.i24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %10) #24
+  %call25.i24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %soft, i64 noundef 64, ptr noundef nonnull @.str.102, i64 noundef %10) #24
   br label %rewriteConfigFormatMemory.exit35
 
 rewriteConfigFormatMemory.exit35:                 ; preds = %if.then.i32, %if.then9.i29, %if.then20.i26, %if.else24.i23
@@ -5141,12 +5141,12 @@ entry:
 define internal i32 @boolConfigSet(ptr nocapture noundef readonly %config, ptr nocapture noundef readonly %argv, i32 %argc, ptr noundef %err) #2 {
 entry:
   %0 = load ptr, ptr %argv, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.36) #23
+  %call.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.36) #23
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %yesnotoi.exit
 
 yesnotoi.exit:                                    ; preds = %entry
-  %call1.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.25) #23
+  %call1.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.25) #23
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i.not, label %if.end, label %if.then
 
@@ -8528,7 +8528,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %3 = phi ptr [ %.pre, %if.then ], [ %1, %for.body ]
   %call.i = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %config.017, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %config.017, i64 128, i1 false)
   %4 = load ptr, ptr @configs, align 8
   %call6.i = tail call ptr @sdsnew(ptr noundef %3) #24
   %call7.i = tail call i32 @dictAdd(ptr noundef %4, ptr noundef %call6.i, ptr noundef nonnull %call.i) #24
@@ -8548,7 +8548,7 @@ cond.end:                                         ; preds = %if.end
 
 if.then10:                                        ; preds = %cond.end
   %call.i11 = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i11, ptr noundef nonnull readonly align 8 dereferenceable(128) %config.017, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i11, ptr noundef nonnull align 8 dereferenceable(128) %config.017, i64 128, i1 false)
   %flags.i = getelementptr inbounds i8, ptr %call.i11, i64 16
   %6 = load i32, ptr %flags.i, align 8
   %7 = or i32 %6, 128

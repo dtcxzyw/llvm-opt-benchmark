@@ -963,7 +963,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
 
 88:                                               ; preds = %85
   %89 = load i32, ptr %11, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull readonly @LL_base, ptr noundef nonnull readonly @LL_bits, i32 noundef %86, ptr noundef nonnull %54, i64 poison, i32 poison)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %13, i32 noundef %89, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %86, ptr noundef nonnull %54, i64 poison, i32 poison)
   %.pre.pre = load i32, ptr %50, align 4
   %.pre112.pre = load i32, ptr %52, align 4
   br label %.loopexit.sink.split.i
@@ -1072,7 +1072,7 @@ ZSTD_buildSeqTable.exit.thread:                   ; preds = %55, %56, %70, %80, 
 
 130:                                              ; preds = %127
   %131 = load i32, ptr %8, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %95, ptr noundef nonnull %10, i32 noundef %131, ptr noundef nonnull readonly @OF_base, ptr noundef nonnull readonly @OF_bits, i32 noundef %128, ptr noundef nonnull %54, i64 poison, i32 poison)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %95, ptr noundef nonnull %10, i32 noundef %131, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %128, ptr noundef nonnull %54, i64 poison, i32 poison)
   %.pre113.pre = load i32, ptr %50, align 4
   %.pre114.pre = load i32, ptr %52, align 4
   br label %.loopexit.sink.split.i85
@@ -1176,7 +1176,7 @@ ZSTD_buildSeqTable.exit93.thread:                 ; preds = %97, %98, %112, %122
 
 170:                                              ; preds = %167
   %171 = load i32, ptr %5, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %135, ptr noundef nonnull %7, i32 noundef %171, ptr noundef nonnull readonly @ML_base, ptr noundef nonnull readonly @ML_bits, i32 noundef %168, ptr noundef nonnull %54, i64 poison, i32 poison)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %135, ptr noundef nonnull %7, i32 noundef %171, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %168, ptr noundef nonnull %54, i64 poison, i32 poison)
   br label %.loopexit.sink.split.i95
 
 .loopexit.sink.split.i95:                         ; preds = %170, %141, %.loopexit110
@@ -2864,12 +2864,12 @@ ZSTD_safecopyDstBeforeSrc.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %.not.i2374.i, label %857, label %856
 
 856:                                              ; preds = %852
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %798, ptr readonly align 1 %854, i64 %.sroa.4.0.copyload.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %798, ptr align 1 %854, i64 %.sroa.4.0.copyload.i, i1 false)
   br label %ZSTD_execSequenceEndSplitLitBuffer.exit.i
 
 857:                                              ; preds = %852
   %diff.neg.i.i = sub i64 0, %.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %798, ptr readonly align 1 %854, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %798, ptr align 1 %854, i64 %diff.neg.i.i, i1 false)
   %858 = getelementptr inbounds i8, ptr %798, i64 %diff.neg.i.i
   %859 = add i64 %.neg.i.i, %.sroa.4.0.copyload.i
   br label %860
@@ -3785,12 +3785,12 @@ ZSTD_safecopyDstBeforeSrc.exit.i2404.i:           ; preds = %.lr.ph.i.i2401.i, %
   br i1 %.not.i2409.i, label %1285, label %1284
 
 1284:                                             ; preds = %1280
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1226, ptr readonly align 1 %1282, i64 %.sroa.42438.0.copyload.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1226, ptr align 1 %1282, i64 %.sroa.42438.0.copyload.i, i1 false)
   br label %ZSTD_execSequenceEndSplitLitBuffer.exit2422.i
 
 1285:                                             ; preds = %1280
   %diff.neg.i2410.i = sub i64 0, %.neg.i2408.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1226, ptr readonly align 1 %1282, i64 %diff.neg.i2410.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1226, ptr align 1 %1282, i64 %diff.neg.i2410.i, i1 false)
   %1286 = getelementptr inbounds i8, ptr %1226, i64 %diff.neg.i2410.i
   %1287 = add i64 %.neg.i2408.i, %.sroa.42438.0.copyload.i
   br label %1288
@@ -5060,12 +5060,12 @@ ZSTD_safecopyDstBeforeSrc.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %.not.i1937.i, label %447, label %446
 
 446:                                              ; preds = %442
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %389, ptr readonly align 1 %444, i64 %.sroa.10.12057.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %389, ptr align 1 %444, i64 %.sroa.10.12057.i, i1 false)
   br label %ZSTD_execSequenceEndSplitLitBuffer.exit.i
 
 447:                                              ; preds = %442
   %diff.neg.i.i = sub i64 0, %.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %389, ptr readonly align 1 %444, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %389, ptr align 1 %444, i64 %diff.neg.i.i, i1 false)
   %448 = getelementptr inbounds i8, ptr %389, i64 %diff.neg.i.i
   %449 = add i64 %.neg.i.i, %.sroa.10.12057.i
   br label %450

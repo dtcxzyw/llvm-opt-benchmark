@@ -141,7 +141,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
   br label %305
 
 20:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(512) %2, ptr noundef nonnull align 1 dereferenceable(512) %18, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %2, ptr noundef nonnull align 1 dereferenceable(512) %18, i64 512, i1 false)
   %21 = load i32, ptr %2, align 4
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
   store i32 %22, ptr %2, align 4

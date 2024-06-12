@@ -1274,7 +1274,7 @@ host_signal_write.exit.i27:                       ; preds = %land.rhs.i.i, %sw.b
   br i1 %call3.i, label %if.end.i29, label %if.then.i
 
 if.then.i:                                        ; preds = %host_signal_write.exit.i27
-  call fastcc void @die_from_signal(ptr noundef nonnull readonly %info) #18
+  call fastcc void @die_from_signal(ptr noundef nonnull %info) #18
   unreachable
 
 if.end.i29:                                       ; preds = %host_signal_write.exit.i27

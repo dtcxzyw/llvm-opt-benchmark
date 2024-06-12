@@ -913,7 +913,7 @@ uniname2ctype_hash.exit.i.i:                      ; preds = %78, %37
 112:                                              ; preds = %107
   %113 = getelementptr inbounds i8, ptr %4, i64 1
   %114 = getelementptr i8, ptr %109, i64 1
-  %115 = call i32 @strncmp(ptr noundef nonnull readonly %113, ptr noundef %114, i64 noundef %36) #7
+  %115 = call i32 @strncmp(ptr noundef nonnull %113, ptr noundef %114, i64 noundef %36) #7
   %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %116, label %uniname2ctype.exit.thread
 

@@ -21164,7 +21164,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777,
 .preheader115.us134.preheader.i.i.i:              ; preds = %.lr.ph132.split.i.i.i
   %822 = shl i64 %4, 3
   %823 = mul i64 %822, %780
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %7, i8 -1, i64 %823, i1 false), !alias.scope !614, !noalias !631
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 -1, i64 %823, i1 false), !alias.scope !614, !noalias !631
   br label %.preheader115.us134.i.i.i
 
 .preheader115.us134.i.i.i:                        ; preds = %._crit_edge130.us138.i.i.i, %.preheader115.us134.preheader.i.i.i

@@ -14116,7 +14116,7 @@ if.then.i469:                                     ; preds = %for.cond96
           to label %.noexc473 unwind label %lpad105
 
 .noexc473:                                        ; preds = %if.then.i469
-  invoke void @_ZN4cvc58internal6theory8Rewriter27processTrustRewriteResponseENS1_8TheoryIdERKNS1_20TrustRewriteResponseEbPNS0_19TConvProofGeneratorE(ptr nonnull sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %response, ptr nonnull readonly align 8 poison, i32 noundef %bf.cast.i467, ptr noundef nonnull align 8 dereferenceable(32) %tresponse.i, i1 noundef zeroext true, ptr noundef nonnull %tcpg)
+  invoke void @_ZN4cvc58internal6theory8Rewriter27processTrustRewriteResponseENS1_8TheoryIdERKNS1_20TrustRewriteResponseEbPNS0_19TConvProofGeneratorE(ptr nonnull sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %response, ptr nonnull align 8 poison, i32 noundef %bf.cast.i467, ptr noundef nonnull align 8 dereferenceable(32) %tresponse.i, i1 noundef zeroext true, ptr noundef nonnull %tcpg)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %.noexc473
@@ -15261,7 +15261,7 @@ if.then.i1047:                                    ; preds = %for.cond324
           to label %.noexc1066 unwind label %lpad335
 
 .noexc1066:                                       ; preds = %if.then.i1047
-  invoke void @_ZN4cvc58internal6theory8Rewriter27processTrustRewriteResponseENS1_8TheoryIdERKNS1_20TrustRewriteResponseEbPNS0_19TConvProofGeneratorE(ptr nonnull sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %response329, ptr nonnull readonly align 8 poison, i32 noundef %bf.cast.i1039, ptr noundef nonnull align 8 dereferenceable(32) %tresponse.i1040, i1 noundef zeroext false, ptr noundef nonnull %tcpg)
+  invoke void @_ZN4cvc58internal6theory8Rewriter27processTrustRewriteResponseENS1_8TheoryIdERKNS1_20TrustRewriteResponseEbPNS0_19TConvProofGeneratorE(ptr nonnull sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %response329, ptr nonnull align 8 poison, i32 noundef %bf.cast.i1039, ptr noundef nonnull align 8 dereferenceable(32) %tresponse.i1040, i1 noundef zeroext false, ptr noundef nonnull %tcpg)
           to label %invoke.cont3.i1051 unwind label %lpad2.i1050
 
 invoke.cont3.i1051:                               ; preds = %.noexc1066

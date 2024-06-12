@@ -10660,7 +10660,7 @@ invoke.cont7:
   %prot_info_idx_.i = getelementptr inbounds i8, ptr %inserter, i64 88
   %rebuilding_trx_.i = getelementptr inbounds i8, ptr %inserter, i64 160
   %seq_per_batch_.i = getelementptr inbounds i8, ptr %inserter, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %rebuilding_trx_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rebuilding_trx_.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %prot_info_.i, i8 0, i64 24, i1 false)
   store i8 %frombool2.i, ptr %seq_per_batch_.i, align 16
   %write_after_commit_.i = getelementptr inbounds i8, ptr %inserter, i64 177
@@ -11010,7 +11010,7 @@ invoke.cont:
   %prot_info_idx_.i = getelementptr inbounds i8, ptr %inserter, i64 88
   %rebuilding_trx_.i = getelementptr inbounds i8, ptr %inserter, i64 160
   %seq_per_batch_.i = getelementptr inbounds i8, ptr %inserter, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %rebuilding_trx_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rebuilding_trx_.i, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %inserter, i64 96
   store i64 0, ptr %0, align 16
   store i8 %frombool2.i, ptr %seq_per_batch_.i, align 16
@@ -11026,7 +11026,7 @@ invoke.cont:
   store i8 0, ptr %unprepared_batch_.i, align 1
   %duplicate_detector_.i = getelementptr inbounds i8, ptr %inserter, i64 192
   %hint_per_batch_.i = getelementptr inbounds i8, ptr %inserter, i64 257
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(65) %duplicate_detector_.i, i8 0, i64 65, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %duplicate_detector_.i, i8 0, i64 65, i1 false)
   store i8 %frombool4.i, ptr %hint_per_batch_.i, align 1
   %hint_created_.i = getelementptr inbounds i8, ptr %inserter, i64 258
   store i8 0, ptr %hint_created_.i, align 2
@@ -11197,7 +11197,7 @@ entry:
   store ptr %has_valid_writes, ptr %has_valid_writes_.i, align 16
   %rebuilding_trx_.i = getelementptr inbounds i8, ptr %inserter, i64 160
   %seq_per_batch_.i = getelementptr inbounds i8, ptr %inserter, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %rebuilding_trx_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rebuilding_trx_.i, i8 0, i64 16, i1 false)
   store i8 %frombool2.i, ptr %seq_per_batch_.i, align 16
   %write_after_commit_.i = getelementptr inbounds i8, ptr %inserter, i64 177
   %lnot.i = xor i1 %seq_per_batch, true
@@ -16349,7 +16349,7 @@ if.then9:                                         ; preds = %if.then8
   %log_number_ref_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %6, ptr %log_number_ref_, align 8
   %prot_info_.i = getelementptr inbounds i8, ptr %this, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %prot_info_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %prot_info_.i, i8 0, i64 16, i1 false)
   %batch_ = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load ptr, ptr %batch_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -16681,7 +16681,7 @@ invoke.cont18:                                    ; preds = %if.then.i.i, %_ZN7r
 
 if.then20:                                        ; preds = %invoke.cont18
   %prot_info_.i = getelementptr inbounds i8, ptr %this, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %prot_info_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %prot_info_.i, i8 0, i64 16, i1 false)
   %23 = load ptr, ptr %batch_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -21439,7 +21439,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !215
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !215
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !215
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -21484,7 +21484,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !221
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !221
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -21526,7 +21526,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !227
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !227
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !227
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -21568,7 +21568,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !233
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !233
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !233
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -21613,7 +21613,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !239
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !239
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -21658,7 +21658,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !245
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !245
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !245
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -21703,7 +21703,7 @@ if.then.i:                                        ; preds = %entry
 _ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !251
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !251
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !251
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }

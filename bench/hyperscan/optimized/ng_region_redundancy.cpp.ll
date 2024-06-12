@@ -266,7 +266,7 @@ call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %if.then.i.i
   %_M_storage.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i11.i, i64 32
   store i32 %12, ptr %_M_storage.i.i.i.i.i7.i.i, align 8
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i11.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
   br i1 %cmp.i17.i.i, label %if.then.i.i.i9.i, label %if.else12.i.i.i.i
 
 if.then.i.i.i9.i:                                 ; preds = %call5.i.i.i.i.i.i.i.noexc.i
@@ -938,7 +938,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %second.i.i.i76 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i75, i64 24
   %94 = load i32, ptr %second.i.i.i76, align 4
   %props.i.i77 = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i48, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i77, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i48, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i77, i64 32, i1 false)
   %reports5.i = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i.i.i.i.i.i.i)

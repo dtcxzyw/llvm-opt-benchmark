@@ -2152,7 +2152,7 @@ H5O__alloc_find_best_nonnull.exit.i:              ; preds = %630, %._crit_edge.i
 
 637:                                              ; preds = %H5O__alloc_find_best_nonnull.exit.i, %H5O__alloc_find_best_null.exit.i
   %.027.i = phi i64 [ %450, %H5O__alloc_find_best_null.exit.i ], [ %636, %H5O__alloc_find_best_nonnull.exit.i ]
-  %638 = call i32 @H5O__alloc_chunk(ptr noundef %0, ptr noundef %1, i64 noundef %.027.i, i64 noundef %.026.i, ptr noundef nonnull %6, ptr noundef nonnull writeonly %7)
+  %638 = call i32 @H5O__alloc_chunk(ptr noundef %0, ptr noundef %1, i64 noundef %.027.i, i64 noundef %.026.i, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %639 = icmp slt i32 %638, 0
   br i1 %639, label %640, label %H5O__alloc_new_chunk.exit
 

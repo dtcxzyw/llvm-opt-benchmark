@@ -30,7 +30,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
   %5 = alloca [3 x i8], align 1
   %6 = alloca %struct._e_guid_t, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
-  %7 = tail call i64 @strnlen(ptr noundef nonnull readonly dereferenceable(1) %1, i64 noundef 36) #10
+  %7 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 36) #10
   %.not.i = icmp eq i64 %7, 36
   br i1 %.not.i, label %.preheader.i, label %.loopexit
 
@@ -69,16 +69,16 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
   br i1 %exitcond.not.i, label %26, label %9, !llvm.loop !4
 
 26:                                               ; preds = %24
-  %27 = tail call i64 @strtoul(ptr nocapture noundef nonnull readonly %1, ptr noundef null, i32 noundef 16) #9
+  %27 = tail call i64 @strtoul(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 16) #9
   %28 = trunc i64 %27 to i32
   store i32 %28, ptr %6, align 4
   %29 = getelementptr i8, ptr %1, i64 9
-  %30 = tail call i64 @strtoul(ptr nocapture noundef readonly %29, ptr noundef null, i32 noundef 16) #9
+  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 16) #9
   %31 = trunc i64 %30 to i16
   %32 = getelementptr inbounds i8, ptr %6, i64 4
   store i16 %31, ptr %32, align 4
   %33 = getelementptr i8, ptr %1, i64 14
-  %34 = tail call i64 @strtoul(ptr nocapture noundef readonly %33, ptr noundef null, i32 noundef 16) #9
+  %34 = tail call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 16) #9
   %35 = trunc i64 %34 to i16
   %36 = getelementptr inbounds i8, ptr %6, i64 6
   store i16 %35, ptr %36, align 2

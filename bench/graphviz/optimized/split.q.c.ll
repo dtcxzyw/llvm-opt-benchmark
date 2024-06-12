@@ -28,7 +28,7 @@ define void @SplitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 1544
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 1568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1576

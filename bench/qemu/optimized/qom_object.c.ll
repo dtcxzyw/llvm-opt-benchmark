@@ -170,7 +170,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc ptr @type_new(ptr noundef nonnull readonly %info)
+  %call.i = tail call fastcc ptr @type_new(ptr noundef nonnull %info)
   %.b2.i.i = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i, label %if.else.i.i, label %if.end.i.i
 
@@ -211,7 +211,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = tail call fastcc ptr @type_new(ptr noundef nonnull readonly %info)
+  %call.i.i = tail call fastcc ptr @type_new(ptr noundef nonnull %info)
   %.b2.i.i.i = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
@@ -259,7 +259,7 @@ if.else.i.i:                                      ; preds = %for.body
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body
-  %call.i.i.i = tail call fastcc ptr @type_new(ptr noundef nonnull readonly %arrayidx)
+  %call.i.i.i = tail call fastcc ptr @type_new(ptr noundef nonnull %arrayidx)
   %.b2.i.i.i.i = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
@@ -704,7 +704,7 @@ object_ref.exit:                                  ; preds = %if.end.i
   %properties.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load ptr, ptr %properties.i.i, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i, ptr noundef %6) #19
-  %call.i.i = call ptr @object_class_get_parent(ptr noundef readonly %5)
+  %call.i.i = call ptr @object_class_get_parent(ptr noundef %5)
   store ptr %call.i.i, ptr %iter.i, align 8
   br label %while.cond.i
 
@@ -4572,7 +4572,7 @@ entry:
   %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %type) #19
   %tobool4.not.i = icmp eq ptr %check, null
   %cond.i = select i1 %tobool4.not.i, ptr null, ptr @object_set_link_property
-  %call.i.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %call3.i, ptr noundef nonnull @object_get_link_property, ptr noundef %cond.i, ptr noundef nonnull @object_release_link_property, ptr noundef nonnull %call.i, ptr noundef nonnull @error_abort)
+  %call.i.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef %call3.i, ptr noundef nonnull @object_get_link_property, ptr noundef %cond.i, ptr noundef nonnull @object_release_link_property, ptr noundef nonnull %call.i, ptr noundef nonnull @error_abort)
   %resolve.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr @object_resolve_link_property, ptr %resolve.i, align 8
   tail call void @g_free(ptr noundef %call3.i) #19
@@ -4590,7 +4590,7 @@ entry:
   %flags2 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %or, ptr %flags2, align 8
   %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %type) #19
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %oc, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %oc, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
@@ -4929,7 +4929,7 @@ entry:
   %flags2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 2, ptr %flags2.i, align 8
   %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %2) #19
-  %call.i.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %call3.i, ptr noundef nonnull @object_get_link_property, ptr noundef null, ptr noundef nonnull @object_release_link_property, ptr noundef nonnull %call.i, ptr noundef nonnull @error_abort)
+  %call.i.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef %call3.i, ptr noundef nonnull @object_get_link_property, ptr noundef null, ptr noundef nonnull @object_release_link_property, ptr noundef nonnull %call.i, ptr noundef nonnull @error_abort)
   %resolve.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr @object_resolve_link_property, ptr %resolve.i, align 8
   tail call void @g_free(ptr noundef %call3.i) #19
@@ -5475,7 +5475,7 @@ entry:
   %cond = select i1 %tobool.not, ptr null, ptr @property_get_str
   %tobool3.not = icmp eq ptr %set, null
   %cond4 = select i1 %tobool3.not, ptr null, ptr @property_set_str
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.26, ptr noundef %cond, ptr noundef %cond4, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.26, ptr noundef %cond, ptr noundef %cond4, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
   ret ptr %call.i
 }
 
@@ -5540,7 +5540,7 @@ entry:
   store ptr %get, ptr %call, align 8
   %set2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %set, ptr %set2, align 8
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
@@ -5582,7 +5582,7 @@ entry:
   %cond = select i1 %tobool.not, ptr null, ptr @property_get_bool
   %tobool3.not = icmp eq ptr %set, null
   %cond4 = select i1 %tobool3.not, ptr null, ptr @property_set_bool
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.42, ptr noundef %cond, ptr noundef %cond4, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.42, ptr noundef %cond, ptr noundef %cond4, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
   ret ptr %call.i
 }
 
@@ -5638,7 +5638,7 @@ entry:
   store ptr %get, ptr %call, align 8
   %set2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %set, ptr %set2, align 8
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
@@ -5682,7 +5682,7 @@ entry:
   %cond = select i1 %tobool.not, ptr null, ptr @property_get_enum
   %tobool4.not = icmp eq ptr %set, null
   %cond5 = select i1 %tobool4.not, ptr null, ptr @property_set_enum
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %typename, ptr noundef %cond, ptr noundef %cond5, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef %typename, ptr noundef %cond, ptr noundef %cond5, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
   ret ptr %call.i
 }
 
@@ -5744,7 +5744,7 @@ entry:
   store ptr %get, ptr %get2, align 8
   %set3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %set, ptr %set3, align 8
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
@@ -5782,7 +5782,7 @@ entry:
   store ptr %get, ptr %call, align 8
   %tobool.not = icmp eq ptr %get, null
   %cond = select i1 %tobool.not, ptr null, ptr @property_get_tm
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.43, ptr noundef %cond, ptr noundef null, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.43, ptr noundef %cond, ptr noundef null, ptr noundef nonnull @property_release_data, ptr noundef nonnull %call, ptr noundef nonnull @error_abort)
   ret ptr %call.i
 }
 
@@ -5852,7 +5852,7 @@ define dso_local noundef ptr @object_class_property_add_tm(ptr nocapture noundef
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #22
   store ptr %get, ptr %call, align 8
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
@@ -5894,11 +5894,11 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint8_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i4 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint8_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.split, %if.then3.split
@@ -5940,7 +5940,7 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint8_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
@@ -6014,11 +6014,11 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint16_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i4 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint16_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.split, %if.then3.split
@@ -6060,7 +6060,7 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint16_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
@@ -6134,11 +6134,11 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint32_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i4 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint32_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.split, %if.then3.split
@@ -6180,7 +6180,7 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint32_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
@@ -6254,11 +6254,11 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint64_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  %call.i4 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint64_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.split, %if.then3.split
@@ -6300,7 +6300,7 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint64_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
+  %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
@@ -6410,7 +6410,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %call7 = tail call noalias ptr @g_strdup(ptr noundef %target_name) #19
   %target_name8 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call7, ptr %target_name8, align 8
-  %call.i16 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %storemerge, ptr noundef nonnull @property_get_alias, ptr noundef nonnull @property_set_alias, ptr noundef nonnull @property_release_alias, ptr noundef nonnull %call5, ptr noundef nonnull @error_abort)
+  %call.i16 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef %storemerge, ptr noundef nonnull @property_get_alias, ptr noundef nonnull @property_set_alias, ptr noundef nonnull @property_release_alias, ptr noundef nonnull %call5, ptr noundef nonnull @error_abort)
   %resolve = getelementptr inbounds i8, ptr %call.i16, i64 40
   store ptr @property_resolve_alias, ptr %resolve, align 8
   %defval = getelementptr inbounds i8, ptr %retval.0.i6.i, i64 72
@@ -6591,7 +6591,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @register_types() #0 {
 entry:
-  %call.i = tail call fastcc ptr @type_new(ptr noundef nonnull readonly @register_types.interface_info)
+  %call.i = tail call fastcc ptr @type_new(ptr noundef nonnull @register_types.interface_info)
   %.b2.i.i = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i, label %if.else.i.i, label %if.end.i.i
 
@@ -6614,7 +6614,7 @@ type_register_internal.exit:                      ; preds = %if.end.i.i, %if.the
   %2 = load ptr, ptr %call.i, align 8
   %call1.i.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %call.i) #19
   store ptr %call.i, ptr @type_interface, align 8
-  %call.i1 = tail call fastcc ptr @type_new(ptr noundef nonnull readonly @register_types.object_info)
+  %call.i1 = tail call fastcc ptr @type_new(ptr noundef nonnull @register_types.object_info)
   %.b2.i.i2 = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i2, label %if.else.i.i8, label %if.end.i.i3
 

@@ -7252,7 +7252,7 @@ if.end118:                                        ; preds = %for.end111, %if.end
   %27 = phi i64 [ %.pre18.i73, %if.end11.i72 ], [ %17, %for.end111 ]
   %28 = phi ptr [ %call.i70, %if.end11.i72 ], [ %23, %for.end111 ]
   %add.ptr.i58 = getelementptr inbounds i8, ptr %28, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i58, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i58, ptr noundef nonnull align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
   store i64 %add.i51, ptr %out_buf, align 8
   %29 = load i64, ptr %pLen_out, align 8
   %add122 = add i64 %29, 4
@@ -9115,7 +9115,7 @@ if.then10:                                        ; preds = %land.lhs.true7
   %pZip.val = load i32, ptr %3, align 8
   %m_sorted_central_dir_offsets.i = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %m_sorted_central_dir_offsets.i, align 8
-  %call.i97 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pName) #33
+  %call.i97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pName) #33
   %conv.i = trunc i64 %call.i97 to i32
   %cmp.not9.i = icmp slt i32 %pZip.val, 1
   br i1 %cmp.not9.i, label %return, label %while.body.lr.ph.i
@@ -10373,7 +10373,7 @@ if.then10:                                        ; preds = %if.end4
   store i64 %0, ptr %t.i, align 8
   %modtime.i = getelementptr inbounds i8, ptr %t.i, i64 8
   store i64 %0, ptr %modtime.i, align 8
-  %call.i = call i32 @utime(ptr noundef readonly %pDst_filename, ptr noundef nonnull %t.i) #30
+  %call.i = call i32 @utime(ptr noundef %pDst_filename, ptr noundef nonnull %t.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
   br label %return
 
@@ -10405,7 +10405,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %mz_zip_reader_extract_to_file.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call1.i = call noalias ptr @fopen(ptr noundef readonly %pDst_filename, ptr noundef nonnull @.str.16)
+  %call1.i = call noalias ptr @fopen(ptr noundef %pDst_filename, ptr noundef nonnull @.str.16)
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit, label %if.end4.i
 
@@ -10424,7 +10424,7 @@ if.then10.i:                                      ; preds = %if.end4.i
   store i64 %0, ptr %t.i.i, align 8
   %modtime.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
   store i64 %0, ptr %modtime.i.i, align 8
-  %call.i.i = call i32 @utime(ptr noundef readonly %pDst_filename, ptr noundef nonnull %t.i.i) #30
+  %call.i.i = call i32 @utime(ptr noundef %pDst_filename, ptr noundef nonnull %t.i.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   br label %mz_zip_reader_extract_to_file.exit
 
@@ -12076,7 +12076,7 @@ lor.lhs.false29:                                  ; preds = %if.end25
 
 if.end40:                                         ; preds = %lor.lhs.false29
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_stat.i)
-  %call.i = call i32 @stat(ptr noundef readonly %pSrc_filename, ptr noundef nonnull %file_stat.i) #30
+  %call.i = call i32 @stat(ptr noundef %pSrc_filename, ptr noundef nonnull %file_stat.i) #30
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end44, label %mz_zip_get_file_modified_time.exit.thread
 
@@ -14786,7 +14786,7 @@ if.end9:                                          ; preds = %lor.lhs.false.i.i, 
   br i1 %tobool.not.i11, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.end9
-  %call1.i = call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.16)
+  %call1.i = call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.16)
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end4.i
 
@@ -14809,7 +14809,7 @@ if.end13:                                         ; preds = %if.end4.i
   store i64 %12, ptr %t.i.i, align 8
   %modtime.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
   store i64 %12, ptr %modtime.i.i, align 8
-  %call.i.i = call i32 @utime(ptr noundef readonly %filename, ptr noundef nonnull %t.i.i) #30
+  %call.i.i = call i32 @utime(ptr noundef %filename, ptr noundef nonnull %t.i.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
   %call14 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %info)
@@ -14944,7 +14944,7 @@ for.body10.us.i.i:                                ; preds = %for.cond7.preheader
   %indvars.iv56.i.i = phi i64 [ 0, %for.cond7.preheader.us.i.i ], [ %indvars.iv.next57.i.i, %for.inc.us.i.i ]
   %arrayidx.us.i.i = getelementptr inbounds ptr, ptr %entries, i64 %indvars.iv56.i.i
   %2 = load ptr, ptr %arrayidx.us.i.i, align 8
-  %call.i.us.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #33
+  %call.i.us.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
   %sext.i.us.i.i = shl i64 %call.i.us.i.i, 32
   %conv1.i.us.i.i = ashr exact i64 %sext.i.us.i.i, 32
   %add.i.i.us.i.i = add nsw i64 %conv1.i.us.i.i, 1
@@ -14981,7 +14981,7 @@ zip_strrpl.exit.i.us.i.i:                         ; preds = %if.end7.i.i.us.i.i,
   br i1 %tobool.not.i.us.i.i, label %for.inc.us.i.i, label %zip_name_match.exit.us.i.i
 
 zip_name_match.exit.us.i.i:                       ; preds = %zip_strrpl.exit.i.us.i.i
-  %call3.i.us.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %call.i.i.us.i.i) #33
+  %call3.i.us.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %call.i.i.us.i.i) #33
   %cmp.i.not.us.i.i = icmp eq i32 %call3.i.us.i.i, 0
   call void @free(ptr noundef nonnull %call.i.i.us.i.i) #30
   br i1 %cmp.i.not.us.i.i, label %if.end23.us.i.i, label %for.inc.us.i.i
@@ -15857,7 +15857,7 @@ if.then71:                                        ; preds = %if.else, %lor.lhs.f
   br i1 %tobool.not.i30, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.then71
-  %call1.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.16)
+  %call1.i = call noalias ptr @fopen(ptr noundef nonnull %path, ptr noundef nonnull @.str.16)
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end4.i
 
@@ -15878,7 +15878,7 @@ mz_zip_reader_extract_to_file.exit:               ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
   store i64 %44, ptr %t.i.i, align 8
   store i64 %44, ptr %modtime.i.i, align 8
-  %call.i.i = call i32 @utime(ptr noundef nonnull readonly %path, ptr noundef nonnull %t.i.i) #30
+  %call.i.i = call i32 @utime(ptr noundef nonnull %path, ptr noundef nonnull %t.i.i) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
   br label %if.end77

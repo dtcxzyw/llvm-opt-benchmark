@@ -954,7 +954,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx62.i = getelementptr %struct.iovec, ptr %call, i64 %idxprom.i
   %arrayidx64.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx64.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx64.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
@@ -990,7 +990,7 @@ entry:
   %call = tail call ptr @world_private(ptr noundef %world) #18
   %0 = getelementptr i8, ptr %cmd_info_tlv, i64 4
   %tlv.val.i = load i16, ptr %0, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(496) %tlvs, i8 0, i64 496, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(496) %tlvs, i8 0, i64 496, i1 false)
   %cmp.i12.i.i = icmp ugt i16 %tlv.val.i, 15
   br i1 %cmp.i12.i.i, label %land.lhs.true.i.i.preheader.i, label %rocker_tlv_parse_nested.exit
 
@@ -1082,7 +1082,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   store i64 %div.i.i.i, ptr %refresh_time.i.i.i, align 8
   %install_time.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 280
   store i64 %div.i.i.i, ptr %install_time.i.i.i, align 8
-  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef nonnull readonly %tlvs)
+  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef nonnull %tlvs)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
@@ -1106,7 +1106,7 @@ sw.bb3.i:                                         ; preds = %if.end.i
   br i1 %tobool.not.i13.i, label %return, label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %sw.bb3.i
-  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef nonnull readonly %tlvs)
+  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef nonnull %tlvs)
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.end.i
@@ -1265,7 +1265,7 @@ sw.bb.i24:                                        ; preds = %if.end.i9
 if.end.i.i28:                                     ; preds = %sw.bb.i24
   %call.i11.i.i = call noalias noundef dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #21
   store i32 %.val.i10, ptr %call.i11.i.i, align 8
-  %call2.i.i29 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i11.i.i, ptr noundef nonnull readonly %tlvs)
+  %call2.i.i29 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i11.i.i, ptr noundef nonnull %tlvs)
   %tobool3.not.i.i30 = icmp eq i32 %call2.i.i29, 0
   br i1 %tobool3.not.i.i30, label %if.end5.i.i31, label %err_cmd_add.i.i
 
@@ -1289,7 +1289,7 @@ sw.bb3.i19:                                       ; preds = %if.end.i9
   br i1 %tobool.not.i13.i21, label %return, label %if.end.i14.i22
 
 if.end.i14.i22:                                   ; preds = %sw.bb3.i19
-  %call1.i.i23 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull readonly %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i.i12.i20, ptr noundef nonnull readonly %tlvs)
+  %call1.i.i23 = call fastcc i32 @of_dpa_cmd_group_do(ptr noundef nonnull %call, i32 noundef %.val.i10, ptr noundef nonnull %call.i.i12.i20, ptr noundef nonnull %tlvs)
   br label %return
 
 sw.bb5.i11:                                       ; preds = %if.end.i9
@@ -2115,22 +2115,22 @@ if.end.i28:                                       ; preds = %sw.bb21
   %ethhdr.i.i29 = getelementptr inbounds i8, ptr %fc, i64 64
   %34 = load ptr, ptr %ethhdr.i.i29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %ethhdr_rewrite.i.i, ptr noundef nonnull align 2 dereferenceable(14) %34, i64 14, i1 false)
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %src_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %src_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool4.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i28
   %h_source.i.i = getelementptr inbounds i8, ptr %fc, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %src_mac.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i.i, ptr noundef nonnull align 1 dereferenceable(6) %src_mac.i, i64 6, i1 false)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.end.i28
-  %bcmp19.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %dst_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp19.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %dst_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool10.not.i.i = icmp eq i32 %bcmp19.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end14.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %dst_mac.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i.i, ptr noundef nonnull align 1 dereferenceable(6) %dst_mac.i, i64 6, i1 false)
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then11.i.i, %if.end.i.i
@@ -2292,22 +2292,22 @@ if.end:                                           ; preds = %entry
   %ethhdr.i = getelementptr inbounds i8, ptr %fc, i64 64
   %5 = load ptr, ptr %ethhdr.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %ethhdr_rewrite.i, ptr noundef nonnull align 2 dereferenceable(14) %5, i64 14, i1 false)
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %src_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %src_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool4.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool4.not.i, label %if.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end
   %h_source.i = getelementptr inbounds i8, ptr %fc, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %src_mac, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i, ptr noundef nonnull align 1 dereferenceable(6) %src_mac, i64 6, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.end
-  %bcmp19.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %dst_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
+  %bcmp19.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %dst_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool10.not.i = icmp eq i32 %bcmp19.i, 0
   br i1 %tobool10.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %dst_mac, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i, ptr noundef nonnull align 1 dereferenceable(6) %dst_mac, i64 6, i1 false)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end.i
@@ -3804,7 +3804,7 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i12
 if.then10.i:                                      ; preds = %if.end7.i
   %src_mac.i = getelementptr inbounds i8, ptr %group, i64 12
   %add.ptr.i.i = getelementptr i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %src_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %src_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i, i64 6, i1 false)
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then10.i, %if.end7.i
@@ -3816,7 +3816,7 @@ if.end13.i:                                       ; preds = %if.then10.i, %if.en
 if.then16.i:                                      ; preds = %if.end13.i
   %dst_mac.i = getelementptr inbounds i8, ptr %group, i64 18
   %add.ptr.i19.i = getelementptr i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %dst_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i19.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dst_mac.i, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i19.i, i64 6, i1 false)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then16.i, %if.end13.i
@@ -3875,7 +3875,7 @@ if.end.i20:                                       ; preds = %lor.lhs.false.i17
   %add.i.i.i = shl nuw nsw i32 %conv12.i, 3
   %26 = add nuw nsw i32 %add.i.i.i, 8
   %mul.i.i.i = zext nneg i32 %26 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %call6.i, i8 0, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call6.i, i8 0, i64 %mul.i.i.i, i1 false)
   %cmp.i12.i.i.i = icmp ugt i16 %tlv.val.i.i, 15
   br i1 %cmp.i12.i.i.i, label %land.lhs.true.i.i.preheader.i.i, label %rocker_tlv_parse_nested.exit.i
 
@@ -4007,7 +4007,7 @@ if.end.i28:                                       ; preds = %sw.bb6
 if.then4.i:                                       ; preds = %if.end.i28
   %src_mac.i30 = getelementptr inbounds i8, ptr %group, i64 12
   %add.ptr.i.i31 = getelementptr i8, ptr %46, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %src_mac.i30, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i31, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %src_mac.i30, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i.i31, i64 6, i1 false)
   br label %if.end7.i32
 
 if.end7.i32:                                      ; preds = %if.then4.i, %if.end.i28
@@ -4019,7 +4019,7 @@ if.end7.i32:                                      ; preds = %if.then4.i, %if.end
 if.then10.i35:                                    ; preds = %if.end7.i32
   %dst_mac.i36 = getelementptr inbounds i8, ptr %group, i64 18
   %add.ptr.i20.i = getelementptr i8, ptr %47, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %dst_mac.i36, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i20.i, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dst_mac.i36, ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i20.i, i64 6, i1 false)
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then10.i35, %if.end7.i32

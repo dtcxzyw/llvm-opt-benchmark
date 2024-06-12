@@ -382,7 +382,7 @@ define i32 @MPL_listen(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_add
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = load i32, ptr @_use_loopback, align 4
   %.not = icmp eq i32 %4, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %5 = load i32, ptr @af_type, align 4
   br i1 %.not, label %9, label %6
 
@@ -395,7 +395,7 @@ define i32 @MPL_listen(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_add
 7:                                                ; preds = %6
   store i16 10, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_loopback, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_loopback, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread16
 
 9:                                                ; preds = %2
@@ -407,7 +407,7 @@ define i32 @MPL_listen(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_add
 10:                                               ; preds = %9
   store i16 10, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread16
 
 MPL_get_sockaddr_direct.exit.thread16.sink.split: ; preds = %9, %6
@@ -449,7 +449,7 @@ define i32 @MPL_listen_anyport(i32 noundef %0, ptr nocapture noundef writeonly %
   %4 = alloca i32, align 4
   %5 = load i32, ptr @_use_loopback, align 4
   %.not = icmp eq i32 %5, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %6 = load i32, ptr @af_type, align 4
   br i1 %.not, label %10, label %7
 
@@ -462,7 +462,7 @@ define i32 @MPL_listen_anyport(i32 noundef %0, ptr nocapture noundef writeonly %
 8:                                                ; preds = %7
   store i16 10, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_loopback, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_loopback, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread22
 
 10:                                               ; preds = %2
@@ -474,7 +474,7 @@ define i32 @MPL_listen_anyport(i32 noundef %0, ptr nocapture noundef writeonly %
 11:                                               ; preds = %10
   store i16 10, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread22
 
 MPL_get_sockaddr_direct.exit.thread22.sink.split: ; preds = %10, %7

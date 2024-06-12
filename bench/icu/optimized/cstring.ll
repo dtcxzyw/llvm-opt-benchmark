@@ -366,14 +366,14 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %src) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #12
   %add.i = add i64 %call.i, 1
   %call1.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %add.i) #13
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end4, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr readonly align 1 %src, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr align 1 %src, i64 %add.i, i1 false)
   br label %if.end4
 
 if.else:                                          ; preds = %entry

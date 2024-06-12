@@ -1784,7 +1784,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not608, label %452, label %.loopexit
 
 452:                                              ; preds = %443
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 2, ptr %7, align 8
   %453 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 4, ptr %453, align 4
@@ -1820,7 +1820,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not607, label %475, label %.loopexit
 
 475:                                              ; preds = %465
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 2, ptr %7, align 8
   %476 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 4, ptr %476, align 4

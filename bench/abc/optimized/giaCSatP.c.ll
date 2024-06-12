@@ -296,7 +296,7 @@ Vec_IntGrow.exit.i:                               ; preds = %52, %Vec_IntAlloc.e
 Vec_IntFill.exit:                                 ; preds = %57, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
   store i32 %.val, ptr %33, align 4
   %60 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(184) %60, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %60, i8 0, i64 176, i1 false)
   store i32 1000, ptr %2, align 8
   %61 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 100, ptr %61, align 4
@@ -310,7 +310,7 @@ Vec_IntFill.exit:                                 ; preds = %57, %Vec_IntAlloc.e
   store i32 0, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 84
   %67 = getelementptr inbounds i8, ptr %2, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(60) %66, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %66, i8 0, i64 60, i1 false)
   store i32 100, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %2, i64 172
   store i32 100, ptr %68, align 4

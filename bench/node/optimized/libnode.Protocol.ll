@@ -3311,7 +3311,7 @@ entry:
   store i32 7, ptr %m_type.i.i.i, align 8, !noalias !59
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 16), ptr %call.i, align 8, !noalias !59
   %m_data.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !59
   %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -8481,7 +8481,7 @@ entry:
   %out_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %out, ptr %out_.i, align 8
   %envelopes_.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %envelopes_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_.i, i8 0, i64 24, i1 false)
   %status_.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %status, ptr %status_.i, align 8
   store i32 0, ptr %status, align 8
@@ -8501,7 +8501,7 @@ entry:
   %out_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %out, ptr %out_.i, align 8
   %envelopes_.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %envelopes_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_.i, i8 0, i64 24, i1 false)
   %status_.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %status, ptr %status_.i, align 8
   store i32 0, ptr %status, align 8
@@ -10005,7 +10005,7 @@ entry:
   %out_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %cbor, ptr %out_.i.i.i, align 8, !noalias !178
   %envelopes_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !178
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !178
   %status_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %retval.i, ptr %status_.i.i.i, align 8, !noalias !178
   store i32 0, ptr %retval.i, align 8, !noalias !178
@@ -10073,7 +10073,7 @@ entry:
   %out_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %cbor, ptr %out_.i.i.i, align 8, !noalias !181
   %envelopes_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !181
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !181
   %status_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %retval.i, ptr %status_.i.i.i, align 8, !noalias !181
   store i32 0, ptr %retval.i, align 8, !noalias !181
@@ -10142,7 +10142,7 @@ entry:
   %out_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %cbor, ptr %out_.i.i.i, align 8, !noalias !184
   %envelopes_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !184
   %status_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %retval.i, ptr %status_.i.i.i, align 8, !noalias !184
   store i32 0, ptr %retval.i, align 8, !noalias !184
@@ -10210,7 +10210,7 @@ entry:
   %out_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %cbor, ptr %out_.i.i.i, align 8, !noalias !187
   %envelopes_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !187
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_.i.i.i, i8 0, i64 24, i1 false), !noalias !187
   %status_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %retval.i, ptr %status_.i.i.i, align 8, !noalias !187
   store i32 0, ptr %retval.i, align 8, !noalias !187
@@ -10649,7 +10649,7 @@ _ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit147: ; preds = %if.en
   store i32 7, ptr %m_type.i.i.i144, align 8, !noalias !214
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 16), ptr %call.i143, align 8, !noalias !214
   %m_data.i.i = getelementptr inbounds i8, ptr %call.i143, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !214
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !214
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call.i143, i64 24
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call.i143, i64 32
   br label %while.cond.i
@@ -14190,7 +14190,7 @@ sw.bb35:                                          ; preds = %if.end
   store i32 7, ptr %m_type.i.i.i101, align 8, !noalias !280
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 16), ptr %call.i100, align 8, !noalias !280
   %m_data.i.i = getelementptr inbounds i8, ptr %call.i100, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !280
   %24 = load ptr, ptr %tokenEnd, align 8
   %call36 = call fastcc noundef i32 @_ZN4node9inspector8protocol12_GLOBAL__N_110parseTokenItEENS2_5TokenEPKT_S7_PS7_S8_(ptr noundef %24, ptr noundef %end, ptr noundef nonnull %tokenStart, ptr noundef nonnull %tokenEnd)
   %cmp37.not245 = icmp eq i32 %call36, 3
@@ -15402,7 +15402,7 @@ sw.bb35:                                          ; preds = %if.end
   store i32 7, ptr %m_type.i.i.i98, align 8, !noalias !318
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 16), ptr %call.i97, align 8, !noalias !318
   %m_data.i.i = getelementptr inbounds i8, ptr %call.i97, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !318
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !318
   %9 = load ptr, ptr %tokenEnd, align 8
   %call36 = call fastcc noundef i32 @_ZN4node9inspector8protocol12_GLOBAL__N_110parseTokenIhEENS2_5TokenEPKT_S7_PS7_S8_(ptr noundef %9, ptr noundef %end, ptr noundef nonnull %tokenStart, ptr noundef nonnull %tokenEnd)
   %cmp37.not225 = icmp eq i32 %call36, 3
@@ -18703,7 +18703,7 @@ if.then14.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then14.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr21.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt5dequeIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -18716,7 +18716,7 @@ if.then.i.i.i.i.i22.i.i.i.i:                      ; preds = %if.else.i.i.i.i
   %.pre.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i.i
   %add.ptr29.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 %add.i.i4.i.i
   %add.ptr.i.i.i.i.i23.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i.i, i64 %.pre.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i.i.i23.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i, i1 false)
   br label %_ZNSt5dequeIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 if.else31.i.i.i.i:                                ; preds = %if.then.i.i.i
@@ -18751,7 +18751,7 @@ _ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15
 if.then.i.i.i.i.i28.i.i.i.i:                      ; preds = %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i = ptrtoint ptr %add.ptr55.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i26.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr42.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i26.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr42.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i26.i.i.i.i, i1 false)
   br label %_ZSt4copyIPPN4node9inspector8protocol4json12_GLOBAL__N_15StateES7_ET0_T_S9_S8_.exit30.i.i.i.i
 
 _ZSt4copyIPPN4node9inspector8protocol4json12_GLOBAL__N_15StateES7_ET0_T_S9_S8_.exit30.i.i.i.i: ; preds = %if.then.i.i.i.i.i28.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE15_M_allocate_mapEm.exit.i.i.i.i

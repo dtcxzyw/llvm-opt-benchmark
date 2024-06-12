@@ -55,7 +55,7 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %29, %.outer.split.i
   %26 = load i32, ptr %2, align 4
-  %27 = call i64 @write(i32 noundef %26, ptr noundef nonnull readonly %24, i64 noundef %23) #8
+  %27 = call i64 @write(i32 noundef %26, ptr noundef nonnull %24, i64 noundef %23) #8
   %28 = icmp slt i64 %27, 0
   br i1 %28, label %29, label %.outer.i
 

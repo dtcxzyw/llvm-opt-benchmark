@@ -1720,7 +1720,7 @@ do.end18:                                         ; preds = %entry
   store ptr %this, ptr %msg_.i, align 8
   %seen_shared_array_buffers_.i = getelementptr inbounds i8, ptr %delegate, i64 40
   %first_cloned_object_index_.i = getelementptr inbounds i8, ptr %delegate, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %seen_shared_array_buffers_.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %seen_shared_array_buffers_.i, i8 0, i64 48, i1 false)
   store i64 -1, ptr %first_cloned_object_index_.i, align 8
   %2 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v815ValueSerializerC1EPNS_7IsolateEPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %2, ptr noundef nonnull %delegate) #26

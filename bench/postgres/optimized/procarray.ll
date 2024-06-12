@@ -1921,7 +1921,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %111 = load ptr, ptr @TransactionIdIsInProgress.xids, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %112 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly %111, ptr noundef nonnull %2, i32 noundef %0)
+  %112 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef %111, ptr noundef nonnull %2, i32 noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %113
 

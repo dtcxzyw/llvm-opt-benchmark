@@ -711,18 +711,18 @@ hex_to_knx_key.exit.thread:                       ; preds = %11
 
 .thread.i:                                        ; preds = %18
   store i64 16, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
   br label %hex_to_knx_key.exit
 
 20:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 16 %13, ptr nonnull align 1 %14, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %13, ptr nonnull align 1 %14, i64 %17, i1 false)
   %.not11.i = icmp eq i64 %17, 16
   br i1 %.not11.i, label %hex_to_knx_key.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %20
   %scevgep.i = getelementptr i8, ptr %13, i64 %17
   %21 = sub nuw nsw i64 16, %17
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep.i, i8 0, i64 %21, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %21, i1 false)
   store i64 16, ptr %1, align 8
   br label %hex_to_knx_key.exit
 
@@ -1937,7 +1937,7 @@ define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, 
   %70 = getelementptr i8, ptr %61, i64 3
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.318, i32 noundef %63, i32 noundef %66, i32 noundef %69, i32 noundef %72) #9
+  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 80, ptr noundef nonnull @.str.318, i32 noundef %63, i32 noundef %66, i32 noundef %69, i32 noundef %72) #9
   %74 = load i32, ptr @hf_knxip_ip_address, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %74, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #9
   %76 = icmp eq i8 %44, 2
@@ -2499,7 +2499,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   %167 = and i32 %166, 15
   %168 = and i32 %164, 255
   %169 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 32, ptr noundef nonnull @.str.355, i32 noundef %165, i32 noundef %167, i32 noundef %168) #9
-  %170 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %31, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %24) #9
+  %170 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %24) #9
   %171 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %162, ptr noundef %0, i32 noundef %159, i32 noundef 2, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %171, ptr noundef nonnull @.str.322, ptr noundef nonnull %24) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
@@ -2722,7 +2722,7 @@ dissect_dib_suppsvc.exit.i:                       ; preds = %261, %259
   %280 = getelementptr i8, ptr %271, i64 3
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
-  %283 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %22, i64 noundef 32, ptr noundef nonnull @.str.318, i32 noundef %273, i32 noundef %276, i32 noundef %279, i32 noundef %282) #9
+  %283 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 32, ptr noundef nonnull @.str.318, i32 noundef %273, i32 noundef %276, i32 noundef %279, i32 noundef %282) #9
   %284 = load i32, ptr @hf_knxip_ip_address, align 4
   %285 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %284, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #9
   %286 = add i32 %47, 6
@@ -2801,7 +2801,7 @@ dissect_dib_ipconfig.exit.i:                      ; preds = %301, %297, %293, %2
   %321 = getelementptr i8, ptr %312, i64 3
   %322 = load i8, ptr %321, align 1
   %323 = zext i8 %322 to i32
-  %324 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %21, i64 noundef 32, ptr noundef nonnull @.str.318, i32 noundef %314, i32 noundef %317, i32 noundef %320, i32 noundef %323) #9
+  %324 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 32, ptr noundef nonnull @.str.318, i32 noundef %314, i32 noundef %317, i32 noundef %320, i32 noundef %323) #9
   %325 = load i32, ptr @hf_knxip_ip_address, align 4
   %326 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %325, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #9
   %327 = add i32 %47, 6
@@ -2890,7 +2890,7 @@ dissect_dib_curconfig.exit.i:                     ; preds = %347, %343, %339, %3
   %368 = and i32 %367, 15
   %369 = and i32 %365, 255
   %370 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 32, ptr noundef nonnull @.str.355, i32 noundef %366, i32 noundef %368, i32 noundef %369) #9
-  %371 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %18, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %17) #9
+  %371 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %17) #9
   %372 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %363, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %372, ptr noundef nonnull @.str.322, ptr noundef nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
@@ -2912,7 +2912,7 @@ dissect_dib_curconfig.exit.i:                     ; preds = %347, %343, %339, %3
   %381 = and i32 %380, 15
   %382 = and i32 %378, 255
   %383 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 32, ptr noundef nonnull @.str.355, i32 noundef %379, i32 noundef %381, i32 noundef %382) #9
-  %384 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %19, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %16) #9
+  %384 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %16) #9
   %385 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %376, ptr noundef %0, i32 noundef %.033.i180.i, i32 noundef 2, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %385, ptr noundef nonnull @.str.322, ptr noundef nonnull %16) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
@@ -3043,7 +3043,7 @@ dissect_dib_secured_service_families.exit.i:      ; preds = %414, %394
   %447 = and i32 %446, 15
   %448 = and i32 %444, 255
   %449 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 32, ptr noundef nonnull @.str.355, i32 noundef %445, i32 noundef %447, i32 noundef %448) #9
-  %450 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %14) #9
+  %450 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.233, ptr noundef nonnull %14) #9
   %451 = call ptr @proto_tree_add_item(ptr noundef %441, i32 noundef %442, ptr noundef %0, i32 noundef %.055.i.i, i32 noundef 2, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %451, ptr noundef nonnull @.str.322, ptr noundef nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)

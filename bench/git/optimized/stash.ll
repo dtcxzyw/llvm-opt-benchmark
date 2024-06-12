@@ -600,7 +600,7 @@ entry:
   %flags = getelementptr inbounds i8, ptr %options, i64 40
   store i32 2, ptr %flags, align 8
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_drop_usage, i32 noundef 0) #14
-  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef readonly %argv)
+  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef %argv)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end.i
 
@@ -684,7 +684,7 @@ entry:
   %ll_callback10 = getelementptr inbounds i8, ptr %options, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback10, i8 0, i64 112, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_pop_usage, i32 noundef 0) #14
-  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef readonly %argv)
+  %call.i = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %call, ptr noundef %argv)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end.i
 
@@ -2039,11 +2039,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %b_tree, ptr noundef nonnull readonly dereferenceable(32) %i_tree, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %b_tree, ptr noundef nonnull dereferenceable(32) %i_tree, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %b_tree, ptr noundef nonnull readonly dereferenceable(20) %i_tree, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %b_tree, ptr noundef nonnull dereferenceable(20) %i_tree, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -2076,11 +2076,11 @@ if.end.i23:                                       ; preds = %if.else.i20, %if.th
   br i1 %cmp.i.i26, label %if.then.i.i32, label %if.end.i.i27
 
 if.then.i.i32:                                    ; preds = %if.end.i23
-  %bcmp3.i.i33 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %c_tree, ptr noundef nonnull readonly dereferenceable(32) %i_tree, i64 32)
+  %bcmp3.i.i33 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %c_tree, ptr noundef nonnull dereferenceable(32) %i_tree, i64 32)
   br label %oideq.exit36
 
 if.end.i.i27:                                     ; preds = %if.end.i23
-  %bcmp.i.i28 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %c_tree, ptr noundef nonnull readonly dereferenceable(20) %i_tree, i64 20)
+  %bcmp.i.i28 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %c_tree, ptr noundef nonnull dereferenceable(20) %i_tree, i64 20)
   br label %oideq.exit36
 
 oideq.exit36:                                     ; preds = %if.then.i.i32, %if.end.i.i27
@@ -2195,11 +2195,11 @@ if.end.i60:                                       ; preds = %if.else.i57, %if.th
   br i1 %cmp.i.i63, label %if.then.i.i69, label %if.end.i.i64
 
 if.then.i.i69:                                    ; preds = %if.end.i60
-  %bcmp3.i.i70 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %b_tree47, ptr noundef nonnull readonly dereferenceable(32) %c_tree, i64 32)
+  %bcmp3.i.i70 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %b_tree47, ptr noundef nonnull dereferenceable(32) %c_tree, i64 32)
   br label %oideq.exit73
 
 if.end.i.i64:                                     ; preds = %if.end.i60
-  %bcmp.i.i65 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %b_tree47, ptr noundef nonnull readonly dereferenceable(20) %c_tree, i64 20)
+  %bcmp.i.i65 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %b_tree47, ptr noundef nonnull dereferenceable(20) %c_tree, i64 20)
   br label %oideq.exit73
 
 oideq.exit73:                                     ; preds = %if.then.i.i69, %if.end.i.i64
@@ -3858,7 +3858,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %path = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %path, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %call.i = call i32 @lstat64(ptr noundef readonly %4, ptr noundef nonnull %st.i) #14
+  %call.i = call i32 @lstat64(ptr noundef %4, ptr noundef nonnull %st.i) #14
   %tobool.not.i = icmp ne i32 %call.i, 0
   %5 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %5, 61440
@@ -4427,11 +4427,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %call, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %call, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %call, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %call, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i

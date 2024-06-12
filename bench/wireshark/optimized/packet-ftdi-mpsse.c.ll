@@ -483,9 +483,9 @@ define internal i32 @dissect_ftdi_mpsse(ptr noundef %0, ptr noundef %1, ptr noun
 48:                                               ; preds = %.lr.ph158, %dissect_command.exit
   %.072155 = phi i32 [ 0, %.lr.ph158 ], [ %335, %dissect_command.exit ]
   %49 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.072155) #6
-  %50 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
+  %50 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
   %51 = add i32 %.072155, 1
-  %52 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
+  %52 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
   %.not39.i.i = icmp eq ptr %52, null
   br i1 %.not39.i.i, label %estimated_command_parameters_length.exit.i, label %53
 
@@ -547,7 +547,7 @@ is_data_shifting_command_returning_response.exit.i.i: ; preds = %73
   br i1 %or.cond.i.i, label %83, label %estimated_command_parameters_length.exit.i
 
 83:                                               ; preds = %is_data_shifting_command_returning_response.exit.i.i
-  call fastcc void @record_command_data(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i32 noundef %.0.i.i, i32 noundef 1)
+  call fastcc void @record_command_data(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull %3, i8 noundef zeroext %49, i32 noundef %.0.i.i, i32 noundef 1)
   br label %estimated_command_parameters_length.exit.i
 
 84:                                               ; preds = %53
@@ -594,7 +594,7 @@ estimated_command_parameters_length.exit.i:       ; preds = %switch.lookup, %83,
   %102 = select i1 %101, ptr @dissect_command_code.data_shifting_cmd_bits, ptr @dissect_command_code.non_data_shifting_cmd_bits
   %103 = zext i8 %49 to i64
   call void @proto_tree_add_bitmask_list_value(ptr noundef %100, ptr noundef %0, i32 noundef %.072155, i32 noundef 1, ptr noundef nonnull %102, i64 noundef %103) #6
-  %104 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
+  %104 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
   %.not80.i = icmp eq ptr %104, null
   br i1 %.not80.i, label %332, label %105
 
@@ -670,7 +670,7 @@ is_data_shifting_command_returning_response.exit.i75.i: ; preds = %137, %126, %1
   %144 = trunc nuw i32 %.0.i76.i to i16
   %145 = add i16 %144, 1
   %146 = select i1 %111, i16 %145, i16 1
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
   br label %dissect_data_shifting_command_parameters.exit.i
 
 dissect_data_shifting_command_parameters.exit.i:  ; preds = %143, %is_data_shifting_command_returning_response.exit.i75.i
@@ -686,7 +686,7 @@ dissect_data_shifting_command_parameters.exit.i:  ; preds = %143, %is_data_shift
   br i1 %.not.i.i, label %151, label %153
 
 151:                                              ; preds = %150
-  %152 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull readonly %3)
+  %152 = call fastcc ptr @get_command_string(i8 noundef zeroext %49, ptr noundef nonnull %3)
   %.not62.i.i = icmp eq ptr %152, null
   br i1 %.not62.i.i, label %153, label %154
 
@@ -788,7 +788,7 @@ get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %1
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 176:                                              ; preds = %154, %154
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 177:                                              ; preds = %154, %154, %154, %154
@@ -824,7 +824,7 @@ get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %1
   br label %dissect_cpumode_parameters.exit.i.i
 
 188:                                              ; preds = %183
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
   br label %dissect_cpumode_parameters.exit.i.i
 
 dissect_cpumode_parameters.exit.i.i:              ; preds = %188, %.thread.i.i.i, %183
@@ -1128,7 +1128,7 @@ dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_
   br label %333
 
 332:                                              ; preds = %90
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 2)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext 2)
   br label %333
 
 333:                                              ; preds = %332, %330, %dissect_data_shifting_command_parameters.exit.i
@@ -1453,7 +1453,7 @@ proto_item_set_generated.exit79.i:                ; preds = %462, %459, %448
 
 484:                                              ; preds = %481, %473
   %485 = load i8, ptr %386, align 4
-  %486 = call fastcc ptr @get_command_string(i8 noundef zeroext %485, ptr noundef nonnull readonly %.2143)
+  %486 = call fastcc ptr @get_command_string(i8 noundef zeroext %485, ptr noundef nonnull %.2143)
   %.not58.i.i = icmp eq ptr %486, null
   br i1 %.not58.i.i, label %547, label %487
 
@@ -1482,7 +1482,7 @@ proto_item_set_generated.exit79.i:                ; preds = %462, %459, %448
   br i1 %.not.i.i.i91, label %501, label %503
 
 501:                                              ; preds = %499
-  %502 = call fastcc ptr @get_command_string(i8 noundef zeroext %488, ptr noundef nonnull readonly %.2143)
+  %502 = call fastcc ptr @get_command_string(i8 noundef zeroext %488, ptr noundef nonnull %.2143)
   %.not4.i.i.i = icmp eq ptr %502, null
   br i1 %.not4.i.i.i, label %503, label %504
 

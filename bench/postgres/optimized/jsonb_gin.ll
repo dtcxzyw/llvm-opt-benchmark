@@ -1563,12 +1563,12 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %38
 
 27:                                               ; preds = %23, %18
-  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
+  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext true)
   %29 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8
-  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
+  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext false)
   %32 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -1585,7 +1585,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 38:                                               ; preds = %26, %22, %23, %23
   %.ph = phi i1 [ true, %23 ], [ true, %23 ], [ false, %22 ], [ false, %26 ]
-  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %.ph)
+  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext %.ph)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -1593,7 +1593,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %46
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
+  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext false)
   %44 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8

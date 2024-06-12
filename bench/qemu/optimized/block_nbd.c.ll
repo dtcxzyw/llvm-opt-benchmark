@@ -4163,7 +4163,7 @@ if.end.i.preheader:                               ; preds = %do.body
 
 if.end.i:                                         ; preds = %if.end.i.preheader, %nbd_reply_chunk_iter_receive.exit
   %tobool3.i = phi i1 [ false, %if.end.i.preheader ], [ true, %nbd_reply_chunk_iter_receive.exit ]
-  %call.i = call i32 @nbd_co_do_receive_one_chunk(ptr noundef %0, i64 noundef %5, i1 noundef zeroext %tobool3.i, ptr noundef nonnull writeonly %request_ret.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %local_err.i)
+  %call.i = call i32 @nbd_co_do_receive_one_chunk(ptr noundef %0, i64 noundef %5, i1 noundef zeroext %tobool3.i, ptr noundef nonnull %request_ret.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %local_err.i)
   %cmp.i23 = icmp slt i32 %call.i, 0
   br i1 %cmp.i23, label %if.then.i, label %if.else.i24
 

@@ -531,7 +531,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_try_variants(ptr nocapture n
   %14 = getelementptr i32, ptr %1, i64 %.02939
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %11, align 4
-  %16 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
+  %16 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %.preheader.i, label %libpcap_try.exit
 
@@ -549,7 +549,7 @@ libpcap_try.exit.thread:                          ; preds = %17
 
 .preheader.i:                                     ; preds = %13, %17
   %.016.i = phi i32 [ %18, %17 ], [ 1, %13 ]
-  %22 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
+  %22 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   %.not15.i = icmp eq i32 %22, 0
   br i1 %.not15.i, label %17, label %libpcap_try.exit
 

@@ -1087,7 +1087,7 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %20
   %31 = getelementptr inbounds i8, ptr %15, i64 632
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %15, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %33 = load i8, ptr %4, align 8
   %34 = icmp ugt i8 %33, 1
   br i1 %34, label %am_rdma_alloc_operation.exit.thread, label %35
@@ -1108,10 +1108,10 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %20
   %42 = getelementptr inbounds i8, ptr %15, i64 368
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load i64, ptr %43, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 1 %41, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %41, i64 %44, i1 false)
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = getelementptr inbounds i8, ptr %15, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull readonly align 1 %45, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %45, i64 %44, i1 false)
   br label %am_rdma_alloc_operation.exit.thread
 
 am_rdma_alloc_operation.exit.thread:              ; preds = %opal_obj_new.exit.thread27.i, %35, %37, %40
@@ -1278,7 +1278,7 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %22
   %33 = getelementptr inbounds i8, ptr %17, i64 632
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %17, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %35 = load i8, ptr %6, align 8
   %36 = icmp ugt i8 %35, 1
   br i1 %36, label %am_rdma_alloc_operation.exit.thread, label %37
@@ -1299,10 +1299,10 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %22
   %44 = getelementptr inbounds i8, ptr %17, i64 368
   %45 = getelementptr inbounds i8, ptr %0, i64 80
   %46 = load i64, ptr %45, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull readonly align 1 %43, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 1 %43, i64 %46, i1 false)
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
   %48 = getelementptr inbounds i8, ptr %17, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull readonly align 1 %47, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 1 %47, i64 %46, i1 false)
   br label %am_rdma_alloc_operation.exit.thread
 
 am_rdma_alloc_operation.exit.thread:              ; preds = %opal_obj_new.exit.thread27.i, %37, %39, %42
@@ -1831,7 +1831,7 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %15
   %26 = getelementptr inbounds i8, ptr %10, i64 632
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %10, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %28 = load i8, ptr %4, align 8
   %29 = icmp ugt i8 %28, 1
   br i1 %29, label %am_rdma_alloc_operation.exit.thread, label %30
@@ -1853,10 +1853,10 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %15
   %38 = getelementptr inbounds i8, ptr %10, i64 368
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   %40 = load i64, ptr %39, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull readonly align 1 %37, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 1 %37, i64 %40, i1 false)
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %10, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 1 %41, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %41, i64 %40, i1 false)
   br label %am_rdma_alloc_operation.exit.thread
 
 am_rdma_alloc_operation.exit:                     ; preds = %14

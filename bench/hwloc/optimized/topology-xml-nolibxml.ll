@@ -331,7 +331,7 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
   %47 = load ptr, ptr %31, align 8
   %48 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %47, ptr %48, align 8
-  %49 = tail call i64 @strspn(ptr noundef readonly %.0, ptr noundef nonnull @.str.18) #23
+  %49 = tail call i64 @strspn(ptr noundef %.0, ptr noundef nonnull @.str.18) #23
   %50 = getelementptr inbounds i8, ptr %.0, i64 %49
   %51 = load i8, ptr %50, align 1
   %.not40.i = icmp eq i8 %51, 60
@@ -865,7 +865,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nocap
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.18) #23
+  %7 = tail call i64 @strspn(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #23
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = tail call i64 @strspn(ptr noundef nonnull %8, ptr noundef nonnull @.str.10) #23
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
@@ -1039,7 +1039,7 @@ sub_2101:                                         ; preds = %sub_1100
   %83 = getelementptr i8, ptr %19, i64 %.080
   store i8 0, ptr %19, align 1
   %84 = getelementptr i8, ptr %83, i64 1
-  %85 = tail call i64 @strspn(ptr noundef readonly %84, ptr noundef nonnull @.str.18) #23
+  %85 = tail call i64 @strspn(ptr noundef %84, ptr noundef nonnull @.str.18) #23
   %86 = getelementptr inbounds i8, ptr %84, i64 %85
   store ptr %86, ptr %4, align 8
   br label %.loopexit
@@ -1065,7 +1065,7 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
   br i1 %.not, label %12, label %38
 
 12:                                               ; preds = %3
-  %13 = tail call i64 @strspn(ptr noundef readonly %6, ptr noundef nonnull @.str.18) #23
+  %13 = tail call i64 @strspn(ptr noundef %6, ptr noundef nonnull @.str.18) #23
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   %15 = load i8, ptr %14, align 1
   %.not40 = icmp eq i8 %15, 60
@@ -1139,7 +1139,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nocap
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = tail call i64 @strspn(ptr noundef readonly %6, ptr noundef nonnull @.str.18) #23
+  %7 = tail call i64 @strspn(ptr noundef %6, ptr noundef nonnull @.str.18) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 %7
   %9 = load i8, ptr %8, align 1
   %.not15 = icmp eq i8 %9, 60
@@ -1532,8 +1532,8 @@ hwloc__nolibxml_export_update_buffer.exit39:      ; preds = %hwloc__nolibxml_exp
 ; Function Attrs: nounwind uwtable
 define internal void @hwloc__nolibxml_export_new_prop(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
-  %6 = tail call i64 @strcspn(ptr noundef readonly %2, ptr noundef nonnull @.str.31) #23
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
+  %6 = tail call i64 @strcspn(ptr noundef %2, ptr noundef nonnull @.str.31) #23
   %7 = icmp eq i64 %6, %5
   br i1 %7, label %hwloc__nolibxml_export_escape_string.exit, label %8
 
@@ -1541,7 +1541,7 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr nocapture noundef %0, 
   %9 = mul i64 %5, 6
   %10 = or disjoint i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr readonly align 1 %2, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %2, i64 %6, i1 false)
   %12 = getelementptr inbounds i8, ptr %2, i64 %6
   %13 = getelementptr inbounds i8, ptr %11, i64 %6
   br label %14

@@ -3919,7 +3919,7 @@ invoke.cont388:                                   ; preds = %.noexc759
 if.then.i.i.i:                                    ; preds = %invoke.cont388
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp391, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp391, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp391, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp391, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_0EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_0EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %parse_func_.i762 = getelementptr inbounds i8, ptr %ref.tmp384, i64 8
@@ -4930,7 +4930,7 @@ invoke.cont609:                                   ; preds = %.noexc1102
   %arrayinit.element610 = getelementptr inbounds i8, ptr %ref.tmp, i64 13392
   %_M_manager.i.i1106 = getelementptr inbounds i8, ptr %ref.tmp616, i64 16
   %_M_invoker.i1107 = getelementptr inbounds i8, ptr %ref.tmp616, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp616, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp616, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_1EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i1107, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_1EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i1106, align 8
   invoke void @_ZN7rocksdb14OptionTypeInfo6StructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt13unordered_mapIS6_S0_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIS7_S0_EEEiNS_22OptionVerificationTypeENS_15OptionTypeFlagsERKSt8functionIFNS_6StatusERKNS_13ConfigOptionsES8_S8_PvEE(ptr nonnull sret(%"class.rocksdb::OptionTypeInfo") align 8 %ref.tmp611, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL16kOptNameCompOptsB5cxx11E, ptr noundef nonnull @_ZN7rocksdbL29compression_options_type_infoB5cxx11E, i32 noundef 368, i32 noundef 0, i32 noundef 257, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp616)
@@ -5050,7 +5050,7 @@ invoke.cont621:                                   ; preds = %if.then.i29.i.i, %_
   %arrayinit.element622 = getelementptr inbounds i8, ptr %ref.tmp, i64 13608
   %_M_manager.i.i1119 = getelementptr inbounds i8, ptr %ref.tmp628, i64 16
   %_M_invoker.i1120 = getelementptr inbounds i8, ptr %ref.tmp628, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp628, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp628, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_2EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i1120, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_2EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i1119, align 8
   invoke void @_ZN7rocksdb14OptionTypeInfo6StructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt13unordered_mapIS6_S0_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIS7_S0_EEEiNS_22OptionVerificationTypeENS_15OptionTypeFlagsERKSt8functionIFNS_6StatusERKNS_13ConfigOptionsES8_S8_PvEE(ptr nonnull sret(%"class.rocksdb::OptionTypeInfo") align 8 %ref.tmp623, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdbL18kOptNameBMCompOptsB5cxx11E, ptr noundef nonnull @_ZN7rocksdbL29compression_options_type_infoB5cxx11E, i32 noundef 424, i32 noundef 0, i32 noundef 257, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp628)
@@ -9691,7 +9691,7 @@ if.then.i.i.i366:                                 ; preds = %invoke.cont168
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %info.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp172, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp172, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp172, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp172, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_ENS0_3$_3EE9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_ENS0_3$_3EE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %serialize_func_.i364 = getelementptr inbounds i8, ptr %ref.tmp170, i64 40
@@ -9779,7 +9779,7 @@ lpad.i381:                                        ; preds = %.noexc384
 if.then.i.i394:                                   ; preds = %.noexc384
   %_M_manager.i.i387 = getelementptr inbounds i8, ptr %ref.tmp188, i64 16
   %_M_invoker.i388 = getelementptr inbounds i8, ptr %ref.tmp188, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp188, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_4EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i388, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_4EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i387, align 8
   store i32 104, ptr %ref.tmp187, align 8
@@ -9855,7 +9855,7 @@ if.then.i.i430:                                   ; preds = %invoke.cont.i798
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i792)
   %_M_manager.i.i423 = getelementptr inbounds i8, ptr %ref.tmp200, i64 16
   %_M_invoker.i424 = getelementptr inbounds i8, ptr %ref.tmp200, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp200, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_5EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i424, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_5EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i423, align 8
   store i32 104, ptr %ref.tmp199, align 8
@@ -9941,7 +9941,7 @@ lpad.i465:                                        ; preds = %.noexc468
 if.then.i.i479:                                   ; preds = %.noexc468
   %_M_manager.i.i472 = getelementptr inbounds i8, ptr %ref.tmp230, i64 16
   %_M_invoker.i473 = getelementptr inbounds i8, ptr %ref.tmp230, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp230, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp230, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_6EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i473, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_6EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i472, align 8
   store i32 120, ptr %ref.tmp224, align 8
@@ -9996,7 +9996,7 @@ lpad.i502:                                        ; preds = %.noexc505
 if.then.i.i516:                                   ; preds = %.noexc505
   %_M_manager.i.i509 = getelementptr inbounds i8, ptr %ref.tmp247, i64 16
   %_M_invoker.i510 = getelementptr inbounds i8, ptr %ref.tmp247, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp247, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp247, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_7EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i510, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_7EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i509, align 8
   store i32 120, ptr %ref.tmp241, align 8
@@ -10340,7 +10340,7 @@ if.then.i.i638:                                   ; preds = %invoke.cont.i818
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i812)
   %_M_manager.i.i631 = getelementptr inbounds i8, ptr %ref.tmp316, i64 16
   %_M_invoker.i632 = getelementptr inbounds i8, ptr %ref.tmp316, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp316, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp316, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_8EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker.i632, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_8EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i631, align 8
   store i32 264, ptr %ref.tmp310, align 8
@@ -28663,7 +28663,7 @@ if.else4.i.i.i:                                   ; preds = %if.else.i.i.i
 "_ZSt10__invoke_rIN7rocksdb6StatusERNS0_3$_3EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %if.then.i.i.i, %if.then2.i.i.i, %if.else4.i.i.i
   %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i.i.i, align 8, !alias.scope !218
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !218
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !218
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !216
   ret void
 }

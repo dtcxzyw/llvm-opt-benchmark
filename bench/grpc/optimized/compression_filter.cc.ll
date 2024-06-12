@@ -4217,7 +4217,7 @@ entry:
   store i64 %3, ptr %6, align 8, !noalias !41
   store ptr null, ptr %2, align 8, !noalias !41
   %7 = load i32, ptr %0, align 4, !noalias !41
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull writeonly sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4637,7 +4637,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %decompress_args_.i, align 4, !noalias !90
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !90
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -6117,7 +6117,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %0, align 4, !noalias !144
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !144
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -6637,7 +6637,7 @@ entry:
   store ptr null, ptr %2, align 8, !noalias !190
   %compression_algorithm_.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %compression_algorithm_.i, align 4, !noalias !190
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull writeonly sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -7983,7 +7983,7 @@ entry:
   store i64 %3, ptr %6, align 8, !noalias !245
   store ptr null, ptr %2, align 8, !noalias !245
   %7 = load i32, ptr %0, align 4, !noalias !245
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -8368,7 +8368,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %decompress_args_.i, align 4, !noalias !294
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !294
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -9937,7 +9937,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %0, align 4, !noalias !352
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !352
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -10386,7 +10386,7 @@ entry:
   store ptr null, ptr %2, align 8, !noalias !398
   %compression_algorithm_.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %compression_algorithm_.i, align 4, !noalias !398
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry

@@ -941,14 +941,14 @@ if.then35.i.i:                                    ; preds = %create_or_update_na
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_name.buf, i64 24, i1 false)
   %77 = load ptr, ptr %55, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %77) #19
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #19
   %cmp.i.i.i66.i.i = icmp ult i64 %call.i.i.i.i, 2
   br i1 %cmp.i.i.i66.i.i, label %strip_suffix.exit.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then35.i.i
   %sub.i.i.i.i.i = add i64 %call.i.i.i.i, -2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 %sub.i.i.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %tobool.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %spec.select.i.i.i = select i1 %tobool.not.i.i.i.i.i, i64 %sub.i.i.i.i.i, i64 %call.i.i.i.i
   br label %strip_suffix.exit.i.i.i
@@ -1603,7 +1603,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   %30 = phi ptr [ %.pre.i, %do.body.do.end_crit_edge.i ], [ %call18.i, %st_mult.exit.i ]
   %idxprom.i = sext i32 %29 to i64
   %arrayidx.i = getelementptr inbounds %struct.tip_table_entry, ptr %30, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %arrayidx.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   %31 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
@@ -1904,7 +1904,7 @@ strbuf_setlen.exit:                               ; preds = %if.else, %if.then4.
 lor.lhs.false.i.i:                                ; preds = %strbuf_setlen.exit
   %sub.i.i = add i64 %16, -2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %add.ptr.i.i, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %add.ptr.i.i, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
 
@@ -1975,11 +1975,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %a_, ptr noundef nonnull readonly dereferenceable(32) %b_, i64 noundef 32) #19
+  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %a_, ptr noundef nonnull dereferenceable(32) %b_, i64 noundef 32) #19
   br label %oidcmp.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %a_, ptr noundef nonnull readonly dereferenceable(20) %b_, i64 noundef 20) #19
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %a_, ptr noundef nonnull dereferenceable(20) %b_, i64 noundef 20) #19
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i.i, %if.end.i.i

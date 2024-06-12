@@ -529,10 +529,10 @@ define noalias noundef ptr @If_DsdManAlloc(i32 noundef %0, i32 noundef %1) local
   %3 = alloca [100 x i8], align 16
   %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %0) #38
   %5 = tail call noalias dereferenceable_or_null(728) ptr @calloc(i64 noundef 1, i64 noundef 728) #41
-  %6 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #42
+  %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #42
   %7 = add i64 %6, 1
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #40
-  %9 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %3) #38
+  %9 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %3) #38
   store ptr %8, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %0, ptr %10, align 8
@@ -2341,7 +2341,7 @@ Vec_IntPush.exit204:                              ; preds = %.Vec_IntGrow.exit10
   %321 = and i32 %320, 1
   %322 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.18, i32 noundef %321) #38
   %323 = shl nsw i32 %299, 1
-  call void @If_DsdManPrint_rec(ptr noundef %15, ptr noundef nonnull readonly %0, i32 noundef %323, ptr noundef null, ptr noundef nonnull %8)
+  call void @If_DsdManPrint_rec(ptr noundef %15, ptr noundef nonnull %0, i32 noundef %323, ptr noundef null, ptr noundef nonnull %8)
   %fputc.i = tail call i32 @fputc(i32 10, ptr %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
@@ -2710,7 +2710,7 @@ define void @If_DsdManDumpAll(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 .lr.ph.preheader.i.i:                             ; preds = %26
   %29 = zext nneg i32 %27 to i64
   %30 = shl nuw nsw i64 %29, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %25, i8 0, i64 %30, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %30, i1 false)
   br label %If_DsdManComputeTruthPtr.exit
 
 31:                                               ; preds = %22
@@ -4648,7 +4648,7 @@ define i32 @If_DsdManCheckXY(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 .lr.ph.preheader.i.i:                             ; preds = %26
   %30 = zext nneg i32 %28 to i64
   %31 = shl nuw nsw i64 %30, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %25, i8 0, i64 %31, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %31, i1 false)
   br label %If_DsdManComputeTruthPtr.exit
 
 32:                                               ; preds = %12
@@ -4660,7 +4660,7 @@ define i32 @If_DsdManCheckXY(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 .lr.ph.preheader.i21.i:                           ; preds = %32
   %36 = zext nneg i32 %34 to i64
   %37 = shl nuw nsw i64 %36, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %25, i8 -1, i64 %37, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 -1, i64 %37, i1 false)
   br label %If_DsdManComputeTruthPtr.exit
 
 38:                                               ; preds = %12
@@ -5721,7 +5721,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -5740,7 +5740,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !68
 
@@ -5890,7 +5890,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -5910,7 +5910,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !68
 
@@ -6093,7 +6093,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
   %273 = load ptr, ptr %186, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val = load i32, ptr %274, align 4
@@ -6415,10 +6415,10 @@ define noalias noundef ptr @If_DsdManLoad(ptr noundef %0) local_unnamed_addr #5 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #42
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #42
   %22 = add i64 %21, 1
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #40
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %0) #38
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #38
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %19, %20
@@ -8263,7 +8263,7 @@ define void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %1, ptr nound
 .lr.ph.preheader.i99:                             ; preds = %55
   %59 = zext nneg i32 %57 to i64
   %60 = shl nuw nsw i64 %59, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 -1, i64 %60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 -1, i64 %60, i1 false)
   br label %Abc_TtConst1.exit
 
 61:                                               ; preds = %5
@@ -8275,7 +8275,7 @@ define void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %1, ptr nound
 .lr.ph.preheader.i100:                            ; preds = %61
   %65 = zext nneg i32 %63 to i64
   %66 = shl nuw nsw i64 %65, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 0, i64 %66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %66, i1 false)
   br label %Abc_TtConst1.exit
 
 Abc_TtConst1.exit:                                ; preds = %.lr.ph.preheader.i100, %61, %.lr.ph.preheader.i99, %55
@@ -8552,7 +8552,7 @@ define void @If_DsdManComputeTruthPtr(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.preheader.i:                               ; preds = %6
   %10 = zext nneg i32 %8 to i64
   %11 = shl nuw nsw i64 %10, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %3, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %11, i1 false)
   br label %Abc_TtConst0.exit
 
 12:                                               ; preds = %4
@@ -8564,7 +8564,7 @@ define void @If_DsdManComputeTruthPtr(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.preheader.i21:                             ; preds = %12
   %16 = zext nneg i32 %14 to i64
   %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %3, i8 -1, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 -1, i64 %17, i1 false)
   br label %Abc_TtConst0.exit
 
 18:                                               ; preds = %4
@@ -9093,7 +9093,7 @@ If_DsdManPushInv.exit:                            ; preds = %53, %.thread, %55
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv45.i
   %81 = load i32, ptr %80, align 4
-  %82 = tail call i32 @If_DsdObjCompare(ptr noundef readonly %0, ptr noundef nonnull readonly %73, i32 noundef %79, i32 noundef %81)
+  %82 = tail call i32 @If_DsdObjCompare(ptr noundef %0, ptr noundef nonnull %73, i32 noundef %79, i32 noundef %81)
   %83 = icmp eq i32 %82, 1
   %84 = trunc nuw nsw i64 %indvars.iv45.i to i32
   %spec.select.i = select i1 %83, i32 %84, i32 %.03638.i
@@ -10339,7 +10339,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %76, %74
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds ptr, ptr %.val.i135.pre, i64 %93
   %95 = load ptr, ptr %94, align 8
-  %96 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %95, ptr noundef nonnull %17)
+  %96 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %95, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   %97 = getelementptr inbounds [12 x i32], ptr %19, i64 0, i64 %indvars.iv216
   %98 = load i32, ptr %97, align 4
@@ -10353,7 +10353,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %76, %74
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds ptr, ptr %.val.i136, i64 %103
   %105 = load ptr, ptr %104, align 8
-  %106 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %105, ptr noundef nonnull %16)
+  %106 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %107 = or i32 %106, %96
   %108 = and i32 %107, %2
@@ -10538,7 +10538,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %159, %157
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds ptr, ptr %.val.i147.pre, i64 %176
   %178 = load ptr, ptr %177, align 8
-  %179 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %178, ptr noundef nonnull %15)
+  %179 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %178, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %180 = load i32, ptr %144, align 4
   %181 = add nsw i32 %180, %1
@@ -10550,7 +10550,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %159, %157
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds ptr, ptr %.val.i148, i64 %184
   %186 = load ptr, ptr %185, align 8
-  %187 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %186, ptr noundef nonnull %14)
+  %187 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %186, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %188 = or i32 %187, %179
   %189 = getelementptr inbounds [12 x i32], ptr %19, i64 0, i64 %indvars.iv241
@@ -10565,7 +10565,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %159, %157
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds ptr, ptr %.val.i149, i64 %195
   %197 = load ptr, ptr %196, align 8
-  %198 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %197, ptr noundef nonnull %13)
+  %198 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %197, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %199 = or i32 %188, %198
   %200 = and i32 %199, %2
@@ -10795,7 +10795,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds ptr, ptr %.val.i160.pre, i64 %281
   %283 = load ptr, ptr %282, align 8
-  %284 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %283, ptr noundef nonnull %12)
+  %284 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %283, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %285 = load i32, ptr %239, align 4
   %286 = add nsw i32 %285, %1
@@ -10807,7 +10807,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %289 = sext i32 %288 to i64
   %290 = getelementptr inbounds ptr, ptr %.val.i161, i64 %289
   %291 = load ptr, ptr %290, align 8
-  %292 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %291, ptr noundef nonnull %11)
+  %292 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %291, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %293 = or i32 %292, %284
   %294 = load i32, ptr %249, align 4
@@ -10820,7 +10820,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds ptr, ptr %.val.i162, i64 %298
   %300 = load ptr, ptr %299, align 8
-  %301 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %300, ptr noundef nonnull %10)
+  %301 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %300, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %302 = or i32 %293, %301
   %303 = getelementptr inbounds [12 x i32], ptr %19, i64 0, i64 %indvars.iv281
@@ -10835,7 +10835,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %309 = sext i32 %308 to i64
   %310 = getelementptr inbounds ptr, ptr %.val.i163, i64 %309
   %311 = load ptr, ptr %310, align 8
-  %312 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %311, ptr noundef nonnull %9)
+  %312 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %311, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %313 = or i32 %302, %312
   %314 = and i32 %313, %2
@@ -10970,7 +10970,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %If_DsdManComputeFir
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %.val.i43.pre, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %63, ptr noundef nonnull %12)
+  %64 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %63, ptr noundef nonnull %12)
   %65 = shl i32 %64, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %66 = add nsw i32 %56, %1
@@ -10983,7 +10983,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %If_DsdManComputeFir
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds ptr, ptr %.val.i44, i64 %70
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %72, ptr noundef nonnull %11)
+  %73 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %74 = or i32 %65, %73
   %75 = or i32 %74, %64
@@ -11048,7 +11048,7 @@ If_DsdManComputeFirst.exit54:                     ; preds = %If_DsdManComputeFir
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds ptr, ptr %.val.i55.pre, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %103, ptr noundef nonnull %10)
+  %104 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %103, ptr noundef nonnull %10)
   %105 = shl i32 %104, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %106 = getelementptr inbounds i8, ptr %14, i64 8
@@ -11063,7 +11063,7 @@ If_DsdManComputeFirst.exit54:                     ; preds = %If_DsdManComputeFir
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds ptr, ptr %.val.i56, i64 %112
   %114 = load ptr, ptr %113, align 8
-  %115 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %114, ptr noundef nonnull %9)
+  %115 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %114, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %116 = or i32 %105, %115
   %117 = or i32 %116, %104
@@ -11376,7 +11376,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %113, %._crit_edge.t
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds ptr, ptr %.val.i89, i64 %136
   %138 = load ptr, ptr %137, align 8
-  %139 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %138, ptr noundef nonnull %10)
+  %139 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %138, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %140 = or i32 %139, %.06898
   br label %155
@@ -11394,7 +11394,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %113, %._crit_edge.t
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds ptr, ptr %.val.i90, i64 %148
   %150 = load ptr, ptr %149, align 8
-  %151 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %150, ptr noundef nonnull %9)
+  %151 = call i32 @If_DsdSign_rec(ptr noundef %0, ptr noundef %150, ptr noundef nonnull %9)
   %152 = shl i32 %151, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %153 = or i32 %.06898, %152
@@ -11484,7 +11484,7 @@ define i32 @If_DsdManCheckXY_int(ptr nocapture noundef readonly %0, i32 noundef 
   %41 = and i32 %40, 1
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.18, i32 noundef %41) #38
   %43 = and i32 %1, -2
-  call void @If_DsdManPrint_rec(ptr noundef %20, ptr noundef nonnull readonly %0, i32 noundef %43, ptr noundef null, ptr noundef nonnull %9)
+  call void @If_DsdManPrint_rec(ptr noundef %20, ptr noundef nonnull %0, i32 noundef %43, ptr noundef null, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %44 = getelementptr i8, ptr %15, i64 4
   %.val170183 = load i32, ptr %44, align 4
@@ -11506,7 +11506,7 @@ define i32 @If_DsdManCheckXY_int(ptr nocapture noundef readonly %0, i32 noundef 
   store i32 0, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %53, i64 4
   store i32 0, ptr %55, align 4
-  call void @If_DsdManCollect_rec(ptr noundef nonnull readonly %0, i32 noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef nonnull %8)
+  call void @If_DsdManCollect_rec(ptr noundef nonnull %0, i32 noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %56 = load ptr, ptr %50, align 8
   %57 = getelementptr i8, ptr %56, i64 4
@@ -11592,7 +11592,7 @@ define i32 @If_DsdManCheckXY_int(ptr nocapture noundef readonly %0, i32 noundef 
   %105 = and i32 %104, 1
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.18, i32 noundef %105) #38
   %107 = shl nsw i32 %83, 1
-  call void @If_DsdManPrint_rec(ptr noundef %82, ptr noundef nonnull readonly %0, i32 noundef %107, ptr noundef null, ptr noundef nonnull %7)
+  call void @If_DsdManPrint_rec(ptr noundef %82, ptr noundef nonnull %0, i32 noundef %107, ptr noundef null, ptr noundef nonnull %7)
   %fputc.i = tail call i32 @fputc(i32 10, ptr %82)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %.critedge129
@@ -12048,7 +12048,7 @@ Abc_TtEqual.exit:                                 ; preds = %.lr.ph.i
   %75 = and i32 %74, 1
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.18, i32 noundef %75) #38
   %77 = and i32 %41, -2
-  call void @If_DsdManPrint_rec(ptr noundef %51, ptr noundef readonly %0, i32 noundef %77, ptr noundef %3, ptr noundef nonnull %6)
+  call void @If_DsdManPrint_rec(ptr noundef %51, ptr noundef %0, i32 noundef %77, ptr noundef %3, ptr noundef nonnull %6)
   %fputc.i = call i32 @fputc(i32 10, ptr %51)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %putchar27 = call i32 @putchar(i32 10)
@@ -13867,7 +13867,7 @@ Extra_ProgressBarUpdate.exit.us:                  ; preds = %40, %36
 .lr.ph.preheader.i.i.us:                          ; preds = %69
   %72 = zext nneg i32 %70 to i64
   %73 = shl nuw nsw i64 %72, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %54, i8 0, i64 %73, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %73, i1 false)
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph18.i.i.us, %.lr.ph.preheader.i.i.us, %69, %.preheader.i.i.us, %62
@@ -14081,10 +14081,10 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %30
 
 30:                                               ; preds = %29
-  %31 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #42
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %32 = add i64 %31, 1
   %33 = call noalias ptr @malloc(i64 noundef %32) #40
-  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %1) #38
+  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %1) #38
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %29, %30
@@ -14273,7 +14273,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %118, %114, %107
 .lr.ph.preheader.i.i:                             ; preds = %126
   %129 = zext nneg i32 %127 to i64
   %130 = shl nuw nsw i64 %129, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %124, i8 0, i64 %130, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %124, i8 0, i64 %130, i1 false)
   br label %If_DsdManComputeTruthPtr.exit
 
 131:                                              ; preds = %Extra_ProgressBarUpdate.exit
@@ -14564,10 +14564,10 @@ Abc_Clock.exit:                                   ; preds = %6, %16
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %43
 
 43:                                               ; preds = %42
-  %44 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #42
+  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %45 = add i64 %44, 1
   %46 = call noalias ptr @malloc(i64 noundef %45) #40
-  %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %1) #38
+  %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %1) #38
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %42, %43
@@ -14910,7 +14910,7 @@ Abc_Clock.exit182.us:                             ; preds = %.split.us, %177
 .lr.ph.preheader.i.i.us:                          ; preds = %197
   %200 = zext nneg i32 %198 to i64
   %201 = shl nuw nsw i64 %200, 3
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %181, i8 0, i64 %201, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %181, i8 0, i64 %201, i1 false)
   br label %If_DsdManComputeTruthPtr.exit.us
 
 If_DsdManComputeTruthPtr.exit.us:                 ; preds = %.lr.ph18.i.i.us, %.lr.ph.preheader.i.i.us, %197, %.preheader.i.i.us, %189
@@ -15332,7 +15332,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %74, %70, %63
 .lr.ph.preheader.i.i:                             ; preds = %84
   %87 = zext nneg i32 %85 to i64
   %88 = shl nuw nsw i64 %87, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %82, i8 0, i64 %88, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 %88, i1 false)
   br label %If_DsdManComputeTruthPtr.exit
 
 89:                                               ; preds = %79

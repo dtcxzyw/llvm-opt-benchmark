@@ -20,7 +20,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %rbuf = getelementptr inbounds i8, ptr %call, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %rbuf, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rbuf, i8 0, i64 32, i1 false)
   %call3 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef 0)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then4, label %if.end5

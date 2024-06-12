@@ -2481,12 +2481,12 @@ IsXLogFileName.exit.preheader:                    ; preds = %14
 .lr.ph:                                           ; preds = %IsXLogFileName.exit.preheader, %IsXLogFileName.exit.backedge
   %17 = phi ptr [ %24, %IsXLogFileName.exit.backedge ], [ %16, %IsXLogFileName.exit.preheader ]
   %18 = getelementptr inbounds i8, ptr %17, i64 19
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #16
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #16
   %20 = icmp eq i64 %19, 24
   br i1 %20, label %21, label %IsXLogFileName.exit.backedge
 
 21:                                               ; preds = %.lr.ph
-  %22 = tail call i64 @strspn(ptr noundef nonnull readonly %18, ptr noundef nonnull @.str.105) #16
+  %22 = tail call i64 @strspn(ptr noundef nonnull %18, ptr noundef nonnull @.str.105) #16
   %23 = icmp eq i64 %22, 24
   br i1 %23, label %25, label %IsXLogFileName.exit.backedge
 

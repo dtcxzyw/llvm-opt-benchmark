@@ -2834,7 +2834,7 @@ if.end20.i:                                       ; preds = %do.end.i
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_server.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf, i64 %conv.i, i1 false)
   %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 16568
   %5 = load <2 x i32>, ptr %write_bytes.i, align 8
   %6 = insertelement <2 x i32> poison, i32 %sz, i64 0
@@ -2962,7 +2962,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_client.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr nonnull align 1 %arrayidx.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 1 %arrayidx.i, i64 %conv.i, i1 false)
   %6 = load i32, ptr %read_idx.i, align 4
   %add.i = add nsw i32 %6, %sz
   store i32 %add.i, ptr %read_idx.i, align 4
@@ -3157,7 +3157,7 @@ if.end18.i:                                       ; preds = %do.end.i
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_client.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf, i64 %conv.i, i1 false)
   %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 33168
   %6 = load <2 x i32>, ptr %write_bytes.i, align 8
   %7 = insertelement <2 x i32> poison, i32 %sz, i64 0
@@ -3283,7 +3283,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_server.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr nonnull align 1 %arrayidx.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 1 %arrayidx.i, i64 %conv.i, i1 false)
   %6 = load i32, ptr %read_idx.i, align 4
   %add.i = add nsw i32 %6, %sz
   store i32 %add.i, ptr %read_idx.i, align 4

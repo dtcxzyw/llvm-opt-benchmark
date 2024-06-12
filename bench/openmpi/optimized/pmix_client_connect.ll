@@ -1265,7 +1265,7 @@ define internal void @wait_cbfunc(ptr nocapture readnone %0, ptr nocapture readn
 115:                                              ; preds = %114, %111
   store ptr @pmix_buffer_t_class, ptr %100, align 8
   store i32 1, ptr %101, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %102, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %102, i8 0, i64 64, i1 false)
   %116 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %117 = load ptr, ptr %116, align 8
   %.not6.i = icmp eq ptr %117, null

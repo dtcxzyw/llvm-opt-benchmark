@@ -806,7 +806,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %50 = zext i32 %.024.i to i64
   %51 = tail call ptr @palloc0(i64 noundef %50) #9
   %52 = zext i32 %.0.i25 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull readonly align 2 %14, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull align 2 %14, i64 %52, i1 false)
   %53 = getelementptr inbounds i8, ptr %51, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, -8192
@@ -830,14 +830,14 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %67 = getelementptr i8, ptr %51, i64 %52
   %68 = zext nneg i32 %29 to i64
   %69 = mul nuw nsw i64 %68, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %67, ptr readonly align 2 %27, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %67, ptr align 2 %27, i64 %69, i1 false)
   %.pre = load i16, ptr %53, align 2
   br label %_bt_form_posting.exit
 
 70:                                               ; preds = %44
   %71 = and i16 %57, -8193
   store i16 %71, ptr %53, align 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %51, ptr noundef nonnull readonly align 2 dereferenceable(6) %27, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %51, ptr noundef nonnull align 2 dereferenceable(6) %27, i64 6, i1 false)
   br label %_bt_form_posting.exit
 
 _bt_form_posting.exit:                            ; preds = %58, %70
@@ -1610,7 +1610,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
 44:                                               ; preds = %18
   %45 = and i16 %31, -8193
   store i16 %45, ptr %27, align 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %25, ptr noundef nonnull readonly align 2 dereferenceable(6) %1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %25, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   br label %46
 
 46:                                               ; preds = %44, %32
@@ -1776,7 +1776,7 @@ define dso_local noundef ptr @_bt_swap_posting(ptr nocapture noundef %0, ptr nou
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %25, 6
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %22, ptr align 1 %21, i64 %26, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %21, ptr noundef nonnull readonly align 2 dereferenceable(6) %0, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
   %27 = getelementptr inbounds i8, ptr %1, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8192
@@ -1806,7 +1806,7 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %12
 
 BTreeTupleGetMaxHeapTID.exit:                     ; preds = %12, %BTreeTupleIsPosting.exit.i, %32
   %.0.i = phi ptr [ %42, %32 ], [ %1, %BTreeTupleIsPosting.exit.i ], [ %1, %12 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %0, ptr noundef nonnull readonly align 2 dereferenceable(6) %.0.i, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef nonnull align 2 dereferenceable(6) %.0.i, i64 6, i1 false)
   ret ptr %13
 }
 

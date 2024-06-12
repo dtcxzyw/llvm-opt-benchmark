@@ -237,7 +237,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
 
 10:                                               ; preds = %7
   %11 = load i16, ptr %.05360, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(22) %9, ptr noundef nonnull align 1 dereferenceable(22) @.str.4, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %9, ptr noundef nonnull align 1 dereferenceable(22) @.str.4, i64 22, i1 false)
   %12 = zext i16 %11 to i32
   %13 = and i32 %12, 4
   %.not.i = icmp eq i32 %13, 0
@@ -509,7 +509,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
 
 66:                                               ; preds = %56
   %67 = load i16, ptr %34, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(22) %63, ptr noundef nonnull align 1 dereferenceable(22) @.str.4, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %63, ptr noundef nonnull align 1 dereferenceable(22) @.str.4, i64 22, i1 false)
   %68 = zext i16 %67 to i32
   %69 = and i32 %68, 4
   %.not.i = icmp eq i32 %69, 0

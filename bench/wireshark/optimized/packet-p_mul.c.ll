@@ -1261,7 +1261,7 @@ proto_item_set_generated.exit634:                 ; preds = %388, %391, %394
 420:                                              ; preds = %417
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %421 = call fastcc ptr @register_p_mul_id(ptr noundef %1, ptr noundef nonnull readonly %7, i32 noundef 0, i8 noundef zeroext %13, i32 noundef %.4, i16 noundef zeroext %.1578, i32 noundef %.6572)
+  %421 = call fastcc ptr @register_p_mul_id(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 0, i8 noundef zeroext %13, i32 noundef %.4, i16 noundef zeroext %.1578, i32 noundef %.6572)
   %.not.i635 = icmp eq ptr %421, null
   br i1 %.not.i635, label %add_seq_analysis.exit, label %422
 
@@ -1996,7 +1996,7 @@ proto_item_set_generated.exit:                    ; preds = %16, %20, %23
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i32 %32, ptr %31, align 8
   %37 = icmp eq i32 %34, 0
   br i1 %37, label %lookup_seq_val.exit, label %38
@@ -2479,7 +2479,7 @@ define internal fastcc ptr @register_p_mul_id(ptr noundef %0, ptr nocapture noun
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i32 %32, ptr %31, align 8
   %37 = icmp eq i32 %34, 0
   br i1 %37, label %copy_address_wmem.exit, label %38
@@ -2611,7 +2611,7 @@ copy_address_wmem.exit:                           ; preds = %28, %38
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   store i32 %98, ptr %97, align 8
   %103 = icmp eq i32 %100, 0
   br i1 %103, label %copy_address_wmem.exit161, label %104

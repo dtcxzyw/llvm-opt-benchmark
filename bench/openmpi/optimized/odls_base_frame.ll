@@ -347,7 +347,7 @@ define internal i32 @prte_odls_base_open(i32 noundef %0) #0 {
 7:                                                ; preds = %6, %1
   store ptr @pmix_mutex_t_class, ptr getelementptr inbounds (i8, ptr @prte_odls_globals, i64 376), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prte_odls_globals, i64 384), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_odls_globals, i64 392), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_odls_globals, i64 392), i8 0, i64 64, i1 false)
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
@@ -431,7 +431,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %19, %2
 38:                                               ; preds = %37, %34
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @prte_odls_globals, i64 48), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prte_odls_globals, i64 56), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_odls_globals, i64 64), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @prte_odls_globals, i64 64), i8 0, i64 64, i1 false)
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %40 = load ptr, ptr %39, align 8
   %.not6.i33 = icmp eq ptr %40, null

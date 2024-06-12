@@ -331,7 +331,7 @@ while.body.us.i.i:                                ; preds = %while.body.lr.ph.i.
   %l.031.us.i.i = phi ptr [ %44, %if.end21.us.i.i ], [ %cond51.i.i, %while.body.lr.ph.i.i ]
   %prev.030.us.i.i = phi ptr [ %l.031.us.i.i, %if.end21.us.i.i ], [ null, %while.body.lr.ph.i.i ]
   %oid2.us.i.i = getelementptr inbounds i8, ptr %l.031.us.i.i, i64 8
-  %call.i.i.us.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i.i, i64 noundef 32) #14
+  %call.i.i.us.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i.i, ptr noundef nonnull dereferenceable(32) %oid.i.i, i64 noundef 32) #14
   %cmp3.us.i.i = icmp sgt i32 %call.i.i.us.i.i, 0
   br i1 %cmp3.us.i.i, label %llist_sorted_remove.exit.i, label %if.end.us.i.i
 
@@ -348,7 +348,7 @@ while.body.i9.i:                                  ; preds = %while.body.lr.ph.i.
   %l.031.i.i = phi ptr [ %50, %if.end21.i.i ], [ %cond51.i.i, %while.body.lr.ph.i.i ]
   %prev.030.i.i = phi ptr [ %l.031.i.i, %if.end21.i.i ], [ null, %while.body.lr.ph.i.i ]
   %oid2.i.i = getelementptr inbounds i8, ptr %l.031.i.i, i64 8
-  %call1.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i.i, i64 noundef 20) #14
+  %call1.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i.i, ptr noundef nonnull dereferenceable(20) %oid.i.i, i64 noundef 20) #14
   %cmp3.i.i = icmp sgt i32 %call1.i.i.i.i, 0
   br i1 %cmp3.i.i, label %llist_sorted_remove.exit.i, label %if.end.i.i
 
@@ -490,7 +490,7 @@ while.body.us.i.i87:                              ; preds = %while.body.lr.ph.i.
   %l.031.us.i.i88 = phi ptr [ %63, %if.end21.us.i.i95 ], [ %cond51.i.i54, %while.body.lr.ph.i.i53 ]
   %prev.030.us.i.i89 = phi ptr [ %l.031.us.i.i88, %if.end21.us.i.i95 ], [ null, %while.body.lr.ph.i.i53 ]
   %oid2.us.i.i90 = getelementptr inbounds i8, ptr %l.031.us.i.i88, i64 8
-  %call.i.i.us.i.i91 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i.i90, ptr noundef nonnull readonly dereferenceable(32) %oid.i.i48, i64 noundef 32) #14
+  %call.i.i.us.i.i91 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i.i90, ptr noundef nonnull dereferenceable(32) %oid.i.i48, i64 noundef 32) #14
   %cmp3.us.i.i92 = icmp sgt i32 %call.i.i.us.i.i91, 0
   br i1 %cmp3.us.i.i92, label %llist_sorted_remove.exit.i65, label %if.end.us.i.i93
 
@@ -507,7 +507,7 @@ while.body.i5.i:                                  ; preds = %while.body.lr.ph.i.
   %l.031.i.i57 = phi ptr [ %69, %if.end21.i.i64 ], [ %cond51.i.i54, %while.body.lr.ph.i.i53 ]
   %prev.030.i.i58 = phi ptr [ %l.031.i.i57, %if.end21.i.i64 ], [ null, %while.body.lr.ph.i.i53 ]
   %oid2.i.i59 = getelementptr inbounds i8, ptr %l.031.i.i57, i64 8
-  %call1.i.i.i.i60 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i.i59, ptr noundef nonnull readonly dereferenceable(20) %oid.i.i48, i64 noundef 20) #14
+  %call1.i.i.i.i60 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i.i59, ptr noundef nonnull dereferenceable(20) %oid.i.i48, i64 noundef 20) #14
   %cmp3.i.i61 = icmp sgt i32 %call1.i.i.i.i60, 0
   br i1 %cmp3.i.i61, label %llist_sorted_remove.exit.i65, label %if.end.i.i62
 
@@ -663,7 +663,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   %l.031.us.i = phi ptr [ %79, %if.end21.us.i ], [ %cond51.i, %while.body.lr.ph.i ]
   %prev.030.us.i = phi ptr [ %l.031.us.i, %if.end21.us.i ], [ null, %while.body.lr.ph.i ]
   %oid2.us.i = getelementptr inbounds i8, ptr %l.031.us.i, i64 8
-  %call.i.i.us.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i110, i64 noundef 32) #14
+  %call.i.i.us.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i, ptr noundef nonnull dereferenceable(32) %oid.i110, i64 noundef 32) #14
   %cmp3.us.i = icmp sgt i32 %call.i.i.us.i, 0
   br i1 %cmp3.us.i, label %llist_sorted_remove.exit, label %if.end.us.i
 
@@ -680,7 +680,7 @@ while.body.i287:                                  ; preds = %while.body.lr.ph.i,
   %l.031.i = phi ptr [ %85, %if.end21.i ], [ %cond51.i, %while.body.lr.ph.i ]
   %prev.030.i = phi ptr [ %l.031.i, %if.end21.i ], [ null, %while.body.lr.ph.i ]
   %oid2.i = getelementptr inbounds i8, ptr %l.031.i, i64 8
-  %call1.i.i.i288 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i110, i64 noundef 20) #14
+  %call1.i.i.i288 = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i, ptr noundef nonnull dereferenceable(20) %oid.i110, i64 noundef 20) #14
   %cmp3.i = icmp sgt i32 %call1.i.i.i288, 0
   br i1 %cmp3.i, label %llist_sorted_remove.exit, label %if.end.i
 
@@ -1051,12 +1051,12 @@ while.body.i.i122:                                ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i124, label %hashcmp.exit.i.i, label %hashcmp.exit.i.thread.i
 
 hashcmp.exit.i.i:                                 ; preds = %while.body.i.i122
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %add.ptr46.i.i, ptr noundef nonnull readonly dereferenceable(32) %add.ptr47.i.i, i64 noundef 32) #14
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %add.ptr46.i.i, ptr noundef nonnull dereferenceable(32) %add.ptr47.i.i, i64 noundef 32) #14
   %cmp49.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp49.i.i, label %redo_from_start.i18.us.preheader.i, label %if.end60.i.i
 
 hashcmp.exit.i.thread.i:                          ; preds = %while.body.i.i122
-  %call1.i.i.i.i125 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %add.ptr46.i.i, ptr noundef nonnull readonly dereferenceable(20) %add.ptr47.i.i, i64 noundef 20) #14
+  %call1.i.i.i.i125 = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %add.ptr46.i.i, ptr noundef nonnull dereferenceable(20) %add.ptr47.i.i, i64 noundef 20) #14
   %cmp49.i192.i = icmp eq i32 %call1.i.i.i.i125, 0
   br i1 %cmp49.i192.i, label %redo_from_start.i18.preheader.i, label %if.end60.i.i
 
@@ -1086,7 +1086,7 @@ while.body.us.i52.us.i:                           ; preds = %while.body.us.i52.u
   %l.031.us.i53.us.i = phi ptr [ %128, %if.end21.us.i60.us.i ], [ %l.031.us.i53.us.i.ph, %while.body.us.i52.us.i.preheader ]
   %prev.030.us.i54.us.i = phi ptr [ %l.031.us.i53.us.i, %if.end21.us.i60.us.i ], [ null, %while.body.us.i52.us.i.preheader ]
   %oid2.us.i55.us.i = getelementptr inbounds i8, ptr %l.031.us.i53.us.i, i64 8
-  %call.i.i.us.i56.us.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i55.us.i, ptr noundef nonnull readonly dereferenceable(32) %add.ptr46.i.i, i64 noundef 32) #14
+  %call.i.i.us.i56.us.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i55.us.i, ptr noundef nonnull dereferenceable(32) %add.ptr46.i.i, i64 noundef 32) #14
   %cmp3.us.i57.us.i = icmp sgt i32 %call.i.i.us.i56.us.i, 0
   br i1 %cmp3.us.i57.us.i, label %llist_sorted_remove.exit64.i, label %if.end.us.i58.us.i
 
@@ -1127,7 +1127,7 @@ while.body.i25.i:                                 ; preds = %while.body.i25.i.pr
   %l.031.i26.i = phi ptr [ %138, %if.end21.i33.i ], [ %l.031.i26.i.ph, %while.body.i25.i.preheader ]
   %prev.030.i27.i = phi ptr [ %l.031.i26.i, %if.end21.i33.i ], [ null, %while.body.i25.i.preheader ]
   %oid2.i28.i = getelementptr inbounds i8, ptr %l.031.i26.i, i64 8
-  %call1.i.i.i29.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i28.i, ptr noundef nonnull readonly dereferenceable(20) %add.ptr46.i.i, i64 noundef 20) #14
+  %call1.i.i.i29.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i28.i, ptr noundef nonnull dereferenceable(20) %add.ptr46.i.i, i64 noundef 20) #14
   %cmp3.i30.i = icmp sgt i32 %call1.i.i.i29.i, 0
   br i1 %cmp3.i30.i, label %llist_sorted_remove.exit64.i, label %if.end.i31.i
 
@@ -1214,7 +1214,7 @@ while.body.us.i.i153:                             ; preds = %while.body.lr.ph.i.
   %l.031.us.i.i154 = phi ptr [ %144, %if.end21.us.i.i161 ], [ %cond51.i.i129, %while.body.lr.ph.i.i128 ]
   %prev.030.us.i.i155 = phi ptr [ %l.031.us.i.i154, %if.end21.us.i.i161 ], [ null, %while.body.lr.ph.i.i128 ]
   %oid2.us.i.i156 = getelementptr inbounds i8, ptr %l.031.us.i.i154, i64 8
-  %call.i.i.us.i.i157 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i.i156, ptr noundef nonnull readonly dereferenceable(32) %add.ptr46.i.i, i64 noundef 32) #14
+  %call.i.i.us.i.i157 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i.i156, ptr noundef nonnull dereferenceable(32) %add.ptr46.i.i, i64 noundef 32) #14
   %cmp3.us.i.i158 = icmp sgt i32 %call.i.i.us.i.i157, 0
   br i1 %cmp3.us.i.i158, label %llist_sorted_remove.exit.i136, label %if.end.us.i.i159
 
@@ -1231,7 +1231,7 @@ while.body.i11.i:                                 ; preds = %while.body.lr.ph.i.
   %l.031.i.i130 = phi ptr [ %150, %if.end21.i.i135 ], [ %cond51.i.i129, %while.body.lr.ph.i.i128 ]
   %prev.030.i.i131 = phi ptr [ %l.031.i.i130, %if.end21.i.i135 ], [ null, %while.body.lr.ph.i.i128 ]
   %oid2.i.i132 = getelementptr inbounds i8, ptr %l.031.i.i130, i64 8
-  %call1.i.i.i12.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i.i132, ptr noundef nonnull readonly dereferenceable(20) %add.ptr46.i.i, i64 noundef 20) #14
+  %call1.i.i.i12.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i.i132, ptr noundef nonnull dereferenceable(20) %add.ptr46.i.i, i64 noundef 20) #14
   %cmp3.i.i133 = icmp sgt i32 %call1.i.i.i12.i, 0
   br i1 %cmp3.i.i133, label %llist_sorted_remove.exit.i136, label %if.end.i13.i
 
@@ -1337,7 +1337,7 @@ while.body.i170:                                  ; preds = %cmp_local_packs.exi
   %157 = load i64, ptr %size.i172, align 8
   %tobool1.not.i173 = icmp eq i64 %157, 0
   %call.i20.i = call noundef ptr @xmalloc(i64 noundef 40) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i20.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %pl.0190.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i20.i, ptr noundef nonnull align 8 dereferenceable(40) %pl.0190.i, i64 40, i1 false)
   %non_unique.0189.unique.0188.i = select i1 %tobool1.not.i173, ptr %non_unique.0189.i, ptr %unique.0188.i
   %unique.0188.call.i20.i = select i1 %tobool1.not.i173, ptr %unique.0188.i, ptr %call.i20.i
   %call.i20.non_unique.0189.i = select i1 %tobool1.not.i173, ptr %call.i20.i, ptr %non_unique.0189.i
@@ -1399,7 +1399,7 @@ while.body.us.i.i224:                             ; preds = %while.body.lr.ph.i.
   %l.031.us.i.i225 = phi ptr [ %164, %if.end21.us.i.i232 ], [ %cond51.i.i190, %while.body.lr.ph.i.i189 ]
   %prev.030.us.i.i226 = phi ptr [ %l.031.us.i.i225, %if.end21.us.i.i232 ], [ null, %while.body.lr.ph.i.i189 ]
   %oid2.us.i.i227 = getelementptr inbounds i8, ptr %l.031.us.i.i225, i64 8
-  %call.i.i.us.i.i228 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i.i227, ptr noundef nonnull readonly dereferenceable(32) %oid.i.i185, i64 noundef 32) #14
+  %call.i.i.us.i.i228 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i.i227, ptr noundef nonnull dereferenceable(32) %oid.i.i185, i64 noundef 32) #14
   %cmp3.us.i.i229 = icmp sgt i32 %call.i.i.us.i.i228, 0
   br i1 %cmp3.us.i.i229, label %llist_sorted_remove.exit.i200, label %if.end.us.i.i230
 
@@ -1416,7 +1416,7 @@ while.body.i55.i:                                 ; preds = %while.body.lr.ph.i.
   %l.031.i.i193 = phi ptr [ %170, %if.end21.i.i199 ], [ %cond51.i.i190, %while.body.lr.ph.i.i189 ]
   %prev.030.i.i194 = phi ptr [ %l.031.i.i193, %if.end21.i.i199 ], [ null, %while.body.lr.ph.i.i189 ]
   %oid2.i.i195 = getelementptr inbounds i8, ptr %l.031.i.i193, i64 8
-  %call1.i.i.i.i196 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i.i195, ptr noundef nonnull readonly dereferenceable(20) %oid.i.i185, i64 noundef 20) #14
+  %call1.i.i.i.i196 = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i.i195, ptr noundef nonnull dereferenceable(20) %oid.i.i185, i64 noundef 20) #14
   %cmp3.i.i197 = icmp sgt i32 %call1.i.i.i.i196, 0
   br i1 %cmp3.i.i197, label %llist_sorted_remove.exit.i200, label %if.end.i56.i
 
@@ -1565,7 +1565,7 @@ while.body.us.i93.i:                              ; preds = %while.body.lr.ph.i6
   %l.031.us.i94.i = phi ptr [ %181, %if.end21.us.i101.i ], [ %cond51.i63.i, %while.body.lr.ph.i62.i ]
   %prev.030.us.i95.i = phi ptr [ %l.031.us.i94.i, %if.end21.us.i101.i ], [ null, %while.body.lr.ph.i62.i ]
   %oid2.us.i96.i = getelementptr inbounds i8, ptr %l.031.us.i94.i, i64 8
-  %call.i.i.us.i97.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i96.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i37.i, i64 noundef 32) #14
+  %call.i.i.us.i97.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i96.i, ptr noundef nonnull dereferenceable(32) %oid.i37.i, i64 noundef 32) #14
   %cmp3.us.i98.i = icmp sgt i32 %call.i.i.us.i97.i, 0
   br i1 %cmp3.us.i98.i, label %llist_sorted_remove.exit105.i, label %if.end.us.i99.i
 
@@ -1582,7 +1582,7 @@ while.body.i66.i:                                 ; preds = %while.body.lr.ph.i6
   %l.031.i67.i = phi ptr [ %187, %if.end21.i74.i ], [ %cond51.i63.i, %while.body.lr.ph.i62.i ]
   %prev.030.i68.i = phi ptr [ %l.031.i67.i, %if.end21.i74.i ], [ null, %while.body.lr.ph.i62.i ]
   %oid2.i69.i = getelementptr inbounds i8, ptr %l.031.i67.i, i64 8
-  %call1.i.i.i70.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i69.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i37.i, i64 noundef 20) #14
+  %call1.i.i.i70.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i69.i, ptr noundef nonnull dereferenceable(20) %oid.i37.i, i64 noundef 20) #14
   %cmp3.i71.i = icmp sgt i32 %call1.i.i.i70.i, 0
   br i1 %cmp3.i71.i, label %llist_sorted_remove.exit105.i, label %if.end.i72.i
 
@@ -1728,7 +1728,7 @@ sort_pack_list.exit.i:                            ; preds = %for.end12.i.i, %pac
 
 if.end26.i:                                       ; preds = %sort_pack_list.exit.i
   %call.i43.i = call noundef ptr @xmalloc(i64 noundef 40) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i43.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %non_unique.3.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i43.i, ptr noundef nonnull align 8 dereferenceable(40) %non_unique.3.i, i64 40, i1 false)
   store ptr %min.0, ptr %call.i43.i, align 8
   %pl.3211.i = load ptr, ptr %non_unique.3.i, align 8
   %tobool29.not212.i = icmp eq ptr %pl.3211.i, null
@@ -1784,7 +1784,7 @@ while.body.us.i141.i:                             ; preds = %while.body.lr.ph.i1
   %l.031.us.i142.i = phi ptr [ %203, %if.end21.us.i149.i ], [ %cond51.i111.i, %while.body.lr.ph.i110.i ]
   %prev.030.us.i143.i = phi ptr [ %l.031.us.i142.i, %if.end21.us.i149.i ], [ null, %while.body.lr.ph.i110.i ]
   %oid2.us.i144.i = getelementptr inbounds i8, ptr %l.031.us.i142.i, i64 8
-  %call.i.i.us.i145.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us.i144.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i49.i, i64 noundef 32) #14
+  %call.i.i.us.i145.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us.i144.i, ptr noundef nonnull dereferenceable(32) %oid.i49.i, i64 noundef 32) #14
   %cmp3.us.i146.i = icmp sgt i32 %call.i.i.us.i145.i, 0
   br i1 %cmp3.us.i146.i, label %llist_sorted_remove.exit153.i, label %if.end.us.i147.i
 
@@ -1801,7 +1801,7 @@ while.body.i114.i:                                ; preds = %while.body.lr.ph.i1
   %l.031.i115.i = phi ptr [ %209, %if.end21.i122.i ], [ %cond51.i111.i, %while.body.lr.ph.i110.i ]
   %prev.030.i116.i = phi ptr [ %l.031.i115.i, %if.end21.i122.i ], [ null, %while.body.lr.ph.i110.i ]
   %oid2.i117.i = getelementptr inbounds i8, ptr %l.031.i115.i, i64 8
-  %call1.i.i.i118.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2.i117.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i49.i, i64 noundef 20) #14
+  %call1.i.i.i118.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2.i117.i, ptr noundef nonnull dereferenceable(20) %oid.i49.i, i64 noundef 20) #14
   %cmp3.i119.i = icmp sgt i32 %call1.i.i.i118.i, 0
   br i1 %cmp3.i119.i, label %llist_sorted_remove.exit153.i, label %if.end.i120.i
 
@@ -1991,7 +1991,7 @@ land.rhs.us.us.i.us.us.i:                         ; preds = %if.end.us.us.i.us.u
 while.body.us.us.i.us.us.i:                       ; preds = %land.rhs.us.us.i.us.us.i
   %add.ptr31.us.us.i.us.us.i = getelementptr inbounds i8, ptr %add.ptr.i.us.i, i64 %p1_off.026.us.us.i.us.us.i
   %add.ptr32.us.us.i.us.us.i = getelementptr inbounds i8, ptr %add.ptr9.i.us26.us.i, i64 %p2_off.025.us.us.i.us.us.i
-  %call.i.i.us.us.i.us.us.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %add.ptr31.us.us.i.us.us.i, ptr noundef nonnull readonly dereferenceable(32) %add.ptr32.us.us.i.us.us.i, i64 noundef 32) #14
+  %call.i.i.us.us.i.us.us.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %add.ptr31.us.us.i.us.us.i, ptr noundef nonnull dereferenceable(32) %add.ptr32.us.us.i.us.us.i, i64 noundef 32) #14
   %cmp33.us.us.i.us.us.i = icmp eq i32 %call.i.i.us.us.i.us.us.i, 0
   br i1 %cmp33.us.us.i.us.us.i, label %if.then.split.us.us.i.us.us.i, label %if.end.us.us.i.us.us.i
 
@@ -2083,7 +2083,7 @@ land.rhs.i.i254:                                  ; preds = %if.end.i.i260, %lan
 while.body.i.i258:                                ; preds = %land.rhs.i.i254
   %add.ptr31.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i250, i64 %p1_off.026.i.i
   %add.ptr32.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i, i64 %p2_off.025.i.i
-  %call1.i.i.i.i259 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %add.ptr31.i.i, ptr noundef nonnull readonly dereferenceable(20) %add.ptr32.i.i, i64 noundef 20) #14
+  %call1.i.i.i.i259 = call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %add.ptr31.i.i, ptr noundef nonnull dereferenceable(20) %add.ptr32.i.i, i64 noundef 20) #14
   %cmp33.i.i = icmp eq i32 %call1.i.i.i.i259, 0
   br i1 %cmp33.i.i, label %if.then.split.i.i, label %if.end.i.i260
 
@@ -2297,11 +2297,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2, ptr noundef nonnull readonly dereferenceable(32) %oid, i64 noundef 32) #14
+  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2, ptr noundef nonnull dereferenceable(32) %oid, i64 noundef 32) #14
   br label %oidcmp.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2, ptr noundef nonnull readonly dereferenceable(20) %oid, i64 noundef 20) #14
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2, ptr noundef nonnull dereferenceable(20) %oid, i64 noundef 20) #14
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
@@ -2346,7 +2346,7 @@ llist_item_get.exit.i:                            ; preds = %llist_item_get.exit
   %8 = load ptr, ptr %hash_algo.i.i, align 8
   %rawsz.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i64, ptr %rawsz.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid1.i, ptr readonly align 1 %oid, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid1.i, ptr align 1 %oid, i64 %9, i1 false)
   %10 = load ptr, ptr %hash_algo.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -2432,7 +2432,7 @@ llist_item_get.exit.i.i:                          ; preds = %for.body.i.i.i, %if
   %20 = load ptr, ptr %hash_algo.i.i.i, align 8
   %rawsz.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i64, ptr %rawsz.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid1.i.i, ptr readonly align 1 %oid, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid1.i.i, ptr align 1 %oid, i64 %21, i1 false)
   %22 = load ptr, ptr %hash_algo.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -2633,7 +2633,7 @@ llist_item_get.exit.i.i:                          ; preds = %for.body.i.i.i, %if
   %10 = load ptr, ptr %hash_algo.i.i.i, align 8
   %rawsz.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %rawsz.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %oid1.i.i, ptr nonnull readonly align 1 %add.ptr14, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid1.i.i, ptr nonnull align 1 %add.ptr14, i64 %11, i1 false)
   %12 = load ptr, ptr %hash_algo.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -2750,7 +2750,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %l.031.us = phi ptr [ %4, %if.end21.us ], [ %cond51, %while.body.lr.ph ]
   %prev.030.us = phi ptr [ %l.031.us, %if.end21.us ], [ null, %while.body.lr.ph ]
   %oid2.us = getelementptr inbounds i8, ptr %l.031.us, i64 8
-  %call.i.i.us = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %oid2.us, ptr noundef nonnull readonly dereferenceable(32) %oid, i64 noundef 32) #14
+  %call.i.i.us = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %oid2.us, ptr noundef nonnull dereferenceable(32) %oid, i64 noundef 32) #14
   %cmp3.us = icmp sgt i32 %call.i.i.us, 0
   br i1 %cmp3.us, label %return, label %if.end.us
 
@@ -2767,7 +2767,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %l.031 = phi ptr [ %10, %if.end21 ], [ %cond51, %while.body.lr.ph ]
   %prev.030 = phi ptr [ %l.031, %if.end21 ], [ null, %while.body.lr.ph ]
   %oid2 = getelementptr inbounds i8, ptr %l.031, i64 8
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %oid2, ptr noundef nonnull readonly dereferenceable(20) %oid, i64 noundef 20) #14
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %oid2, ptr noundef nonnull dereferenceable(20) %oid, i64 noundef 20) #14
   %cmp3 = icmp sgt i32 %call1.i.i, 0
   br i1 %cmp3, label %return, label %if.end
 

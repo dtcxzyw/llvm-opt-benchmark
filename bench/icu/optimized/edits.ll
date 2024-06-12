@@ -641,7 +641,7 @@ if.then3:                                         ; preds = %_ZN6icu_755Edits12r
   store ptr %stackArray, ptr %src, align 8
   store i32 100, ptr %capacity, align 8
   %length.i = getelementptr inbounds i8, ptr %src, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %length.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %length.i, i8 0, i64 16, i1 false)
   br label %return
 
 if.end8:                                          ; preds = %_ZN6icu_755Edits12releaseArrayEv.exit
@@ -823,7 +823,7 @@ if.then3.i:                                       ; preds = %_ZN6icu_755Edits12r
   %stackArray.i = getelementptr inbounds i8, ptr %src, i64 28
   store ptr %stackArray.i, ptr %src, align 8
   store i32 100, ptr %capacity.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %length, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %length, i8 0, i64 16, i1 false)
   br label %_ZN6icu_755Edits9moveArrayERS0_.exit
 
 if.end8.i:                                        ; preds = %_ZN6icu_755Edits12releaseArrayEv.exit.i
@@ -2254,7 +2254,7 @@ if.end23:                                         ; preds = %if.end21, %if.end13
   br i1 %cmp25.not, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(10) %dir, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %dir, i8 0, i64 10, i1 false)
   br label %return
 
 if.end28:                                         ; preds = %if.end23
@@ -2337,7 +2337,7 @@ _ZN6icu_755Edits8Iterator17updateNextIndexesEv.exit37: ; preds = %while.end
   br i1 %cmp36.lcssa, label %if.end56, label %if.then54
 
 if.then54:                                        ; preds = %_ZN6icu_755Edits8Iterator17updateNextIndexesEv.exit37
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(10) %dir, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %dir, i8 0, i64 10, i1 false)
   br label %return
 
 if.end56:                                         ; preds = %_ZN6icu_755Edits8Iterator17updateNextIndexesEv.exit37
@@ -2731,7 +2731,7 @@ if.end25:                                         ; preds = %if.end13.if.end25_c
   br i1 %cmp27, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %if.end25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(10) %dir, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %dir, i8 0, i64 10, i1 false)
   br label %return
 
 if.end30:                                         ; preds = %if.end25

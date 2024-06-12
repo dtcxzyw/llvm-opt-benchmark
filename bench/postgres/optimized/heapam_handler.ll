@@ -272,7 +272,7 @@ define internal void @heapam_tuple_insert(ptr noundef %0, ptr noundef %1, i32 no
   call void @heap_insert(ptr noundef %0, ptr noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef %4) #11
   %12 = getelementptr inbounds i8, ptr %7, i64 4
   %13 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %13, ptr noundef nonnull readonly align 2 dereferenceable(6) %12, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %13, ptr noundef nonnull align 2 dereferenceable(6) %12, i64 6, i1 false)
   %14 = load i8, ptr %6, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
@@ -311,7 +311,7 @@ define internal void @heapam_tuple_insert_speculative(ptr noundef %0, ptr nounde
   call void @heap_insert(ptr noundef %0, ptr noundef %8, i32 noundef %2, i32 noundef %21, ptr noundef %4) #11
   %22 = getelementptr inbounds i8, ptr %8, i64 4
   %23 = getelementptr inbounds i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %23, ptr noundef nonnull readonly align 2 dereferenceable(6) %22, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 2 dereferenceable(6) %22, i64 6, i1 false)
   %24 = load i8, ptr %7, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %27
@@ -375,7 +375,7 @@ define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr nou
   %17 = call i32 @heap_update(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %3, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #11
   %18 = getelementptr inbounds i8, ptr %12, i64 4
   %19 = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %19, ptr noundef nonnull readonly align 2 dereferenceable(6) %18, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %19, ptr noundef nonnull align 2 dereferenceable(6) %18, i64 6, i1 false)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %21, label %20
 

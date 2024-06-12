@@ -2061,7 +2061,7 @@ entry:
   %appendable.i = alloca %"class.icu_75::UnicodeStringAppendable", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %appendable.i)
-  call void @_ZNK6icu_7513ListFormatter20formatStringsToValueEPKNS_13UnicodeStringEiR10UErrorCode(ptr nonnull sret(%"class.icu_75::FormattedList") align 8 %result.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %items, i32 noundef %nItems, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  call void @_ZNK6icu_7513ListFormatter20formatStringsToValueEPKNS_13UnicodeStringEiR10UErrorCode(ptr nonnull sret(%"class.icu_75::FormattedList") align 8 %result.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %items, i32 noundef %nItems, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 16), ptr %appendable.i, align 8
   %str.i.i = getelementptr inbounds i8, ptr %appendable.i, i64 8
   store ptr %appendTo, ptr %str.i.i, align 8

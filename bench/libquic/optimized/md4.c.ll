@@ -10,7 +10,7 @@ define hidden noundef ptr @MD4(ptr nocapture noundef readonly %data, i64 noundef
 entry:
   %ctx = alloca %struct.md4_state_st, align 16
   %0 = getelementptr inbounds i8, ptr %ctx, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(92) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(92) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %MD4_Update.exit, label %if.end37.i

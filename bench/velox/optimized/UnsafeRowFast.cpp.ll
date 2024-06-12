@@ -1748,7 +1748,7 @@ _ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit.i: ; preds = %if.end6.i.i.
 
 if.then8.i:                                       ; preds = %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit.i, %if.then8.i.i.i, %if.then4.i.i.i, %for.body.i
   %27 = trunc nsw i64 %17 to i32
-  %call10.i = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast20variableWidthRowSizeEi(ptr noundef nonnull readonly align 8 dereferenceable(224) %10, i32 noundef %27)
+  %call10.i = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast20variableWidthRowSizeEi(ptr noundef nonnull align 8 dereferenceable(224) %10, i32 noundef %27)
   %add.i.i.i = add i32 %call10.i, 7
   %28 = srem i32 %add.i.i.i, 8
   %mul.i.i.i = add i32 %add.i.i.i, %rowSize.016.i
@@ -2364,7 +2364,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit.i: ; preds = %if.end4.i.i, %if.t
   %46 = load i64, ptr %valueBytes_.i, align 8
   %mul.i = mul i64 %46, %conv.i
   %add.ptr.i35 = getelementptr inbounds i8, ptr %25, i64 %mul.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr15, ptr align 1 %add.ptr.i35, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr15, ptr align 1 %add.ptr.i35, i64 %46, i1 false)
   br label %for.inc
 
 if.else:                                          ; preds = %if.end
@@ -2785,7 +2785,7 @@ _ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit: ; preds = %sw.bb14
   %and.i.i = and i64 %40, 1
   %tobool.i16.i = icmp ne i64 %and.i.i, 0
   %add.ptr.i46 = getelementptr inbounds i8, ptr %buffer, i64 8
-  %call10.i47 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %38, i32 noundef %35, i32 noundef %37, i1 noundef zeroext %tobool.i16.i, ptr noundef nonnull %add.ptr.i46)
+  %call10.i47 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %38, i32 noundef %35, i32 noundef %37, i1 noundef zeroext %tobool.i16.i, ptr noundef nonnull %add.ptr.i46)
   %add.i = add nsw i32 %call10.i47, 8
   %41 = load ptr, ptr %children_.i44, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %41, i64 224
@@ -2795,7 +2795,7 @@ _ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit: ; preds = %sw.bb14
   %tobool.i21.i = icmp ne i64 %and.i20.i, 0
   %idx.ext17.i = sext i32 %add.i to i64
   %add.ptr18.i = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext17.i
-  %call19.i = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i.i, i32 noundef %35, i32 noundef %37, i1 noundef zeroext %tobool.i21.i, ptr noundef %add.ptr18.i)
+  %call19.i = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i.i, i32 noundef %35, i32 noundef %37, i1 noundef zeroext %tobool.i21.i, ptr noundef %add.ptr18.i)
   %add20.i = add nsw i32 %call19.i, %add.i
   %conv.i48 = sext i32 %call10.i47 to i64
   store i64 %conv.i48, ptr %buffer, align 8
@@ -3196,7 +3196,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit.i: ; preds = %if.end4.i.i, %if.t
   %mul.i = mul i64 %24, %conv.i56
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %mul.i
   %mul8.i = mul i64 %24, %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr13, ptr nonnull align 1 %add.ptr.i, i64 %mul8.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13, ptr nonnull align 1 %add.ptr.i, i64 %mul8.i, i1 false)
   br label %return
 
 if.end15:                                         ; preds = %entry
@@ -3401,7 +3401,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit.i109.us: ; preds = %if.then3.i.i
   %61 = load i64, ptr %valueBytes_.i, align 8
   %mul.i113.us = mul i64 %61, %conv.i111.us
   %add.ptr.i114.us = getelementptr inbounds i8, ptr %40, i64 %mul.i113.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr32.us, ptr align 1 %add.ptr.i114.us, i64 %61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr32.us, ptr align 1 %add.ptr.i114.us, i64 %61, i1 false)
   br label %for.inc45.us
 
 for.inc45.us:                                     ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit.i109.us, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit.i.us, %_ZNK8facebook5velox9Timestamp8toMicrosEv.exit.i.us, %if.then22.us

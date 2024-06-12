@@ -143,7 +143,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
 .lr.ph.i:                                         ; preds = %25, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %25 ]
   %31 = phi ptr [ %30, %28 ], [ %27, %25 ]
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(1) %.sroa.014.0..sroa.014.0..cast) #12
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.sroa.014.0..sroa.014.0..cast) #12
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %28
 
@@ -167,7 +167,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
 .lr.ph52.i:                                       ; preds = %._crit_edge.i, %38
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %38 ], [ 0, %._crit_edge.i ]
   %41 = phi ptr [ %40, %38 ], [ %37, %._crit_edge.i ]
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %.sroa.014.0..sroa.014.0..cast) #12
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %.sroa.014.0..sroa.014.0..cast) #12
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %38
 
@@ -258,7 +258,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %38, %._crit_edg
 .lr.ph.i165:                                      ; preds = %70, %73
   %indvars.iv.i166 = phi i64 [ %indvars.iv.next.i167, %73 ], [ 0, %70 ]
   %76 = phi ptr [ %75, %73 ], [ %72, %70 ]
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull readonly dereferenceable(1) %.sroa.012.0..sroa.012.0..cast) #12
+  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) %.sroa.012.0..sroa.012.0..cast) #12
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %73
 
@@ -282,7 +282,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %38, %._crit_edg
 .lr.ph52.i171:                                    ; preds = %._crit_edge.i169, %83
   %indvars.iv58.i172 = phi i64 [ %indvars.iv.next59.i173, %83 ], [ 0, %._crit_edge.i169 ]
   %86 = phi ptr [ %85, %83 ], [ %82, %._crit_edge.i169 ]
-  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull readonly dereferenceable(1) %.sroa.012.0..sroa.012.0..cast) #12
+  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %.sroa.012.0..sroa.012.0..cast) #12
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %83
 
@@ -386,7 +386,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread: ; preds = %83, %._crit_
 .lr.ph.i179:                                      ; preds = %120, %123
   %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i181, %123 ], [ 0, %120 ]
   %126 = phi ptr [ %125, %123 ], [ %122, %120 ]
-  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull readonly dereferenceable(1) %.sroa.010.0..sroa.010.0..cast) #12
+  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(1) %.sroa.010.0..sroa.010.0..cast) #12
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %123
 
@@ -410,7 +410,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit177.thread: ; preds = %83, %._crit_
 .lr.ph52.i185:                                    ; preds = %._crit_edge.i183, %133
   %indvars.iv58.i186 = phi i64 [ %indvars.iv.next59.i187, %133 ], [ 0, %._crit_edge.i183 ]
   %136 = phi ptr [ %135, %133 ], [ %132, %._crit_edge.i183 ]
-  %137 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(1) %.sroa.010.0..sroa.010.0..cast) #12
+  %137 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(1) %.sroa.010.0..sroa.010.0..cast) #12
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %139, label %133
 
@@ -480,7 +480,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %133, %._crit
 .lr.ph.i193:                                      ; preds = %157, %160
   %indvars.iv.i194 = phi i64 [ %indvars.iv.next.i195, %160 ], [ 0, %157 ]
   %163 = phi ptr [ %162, %160 ], [ %159, %157 ]
-  %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(1) %.sroa.08.0..sroa.08.0..cast) #12
+  %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) %.sroa.08.0..sroa.08.0..cast) #12
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %160
 
@@ -504,7 +504,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %133, %._crit
 .lr.ph52.i199:                                    ; preds = %._crit_edge.i197, %170
   %indvars.iv58.i200 = phi i64 [ %indvars.iv.next59.i201, %170 ], [ 0, %._crit_edge.i197 ]
   %173 = phi ptr [ %172, %170 ], [ %169, %._crit_edge.i197 ]
-  %174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(1) %.sroa.08.0..sroa.08.0..cast) #12
+  %174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) %.sroa.08.0..sroa.08.0..cast) #12
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %170
 

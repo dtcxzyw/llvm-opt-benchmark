@@ -1717,15 +1717,15 @@ invoke.cont131:                                   ; preds = %if.end16
   %134 = load i32, ptr %m_num_decls.i, align 4
   %135 = load ptr, ptr %this, align 8
   store ptr %135, ptr %subst, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_subst.i218, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_subst.i218, i8 0, i64 16, i1 false)
   store i32 1, ptr %m_timestamp.i.i219, align 8
   store ptr null, ptr %m_vars.i, align 8
   %136 = ptrtoint ptr %135 to i64
   store i64 %136, ptr %m_refs.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %m_nodes.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_nodes.i.i.i, i8 0, i64 32, i1 false)
   store i32 1, ptr %m_timestamp.i4.i, align 8
   store i64 %136, ptr %m_new_exprs.i220, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_nodes.i.i5.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i5.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %m_timestamp.i6.i, align 8
   store i32 0, ptr %m_state.i221, align 8
   store ptr null, ptr %er, align 8

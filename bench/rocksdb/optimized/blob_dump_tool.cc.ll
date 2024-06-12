@@ -2016,7 +2016,7 @@ if.then:                                          ; preds = %entry
   %1 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 20, i64 1, ptr %0), !noalias !9
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !12
   br label %return
 
 invoke.cont:                                      ; preds = %entry
@@ -2152,7 +2152,7 @@ if.then9:                                         ; preds = %invoke.cont7
   %21 = call i64 @fwrite(ptr nonnull @.str.32, i64 20, i64 1, ptr %20), !noalias !15
   %state_.i.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i11, align 8, !alias.scope !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !18
   br label %cleanup
 
 if.end11:                                         ; preds = %invoke.cont7

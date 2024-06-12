@@ -610,7 +610,7 @@ define internal fastcc ptr @class_superclasses_including_self(i64 noundef %0) un
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %2, i64 80
   %16 = load ptr, ptr %15, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %13, ptr readonly align 1 %16, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %16, i64 %11, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %14, %8
@@ -1799,7 +1799,7 @@ declare ptr @rb_id_table_create(i64 noundef) local_unnamed_addr #1
 define internal noundef i32 @clone_const_i(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = inttoptr i64 %1 to ptr
   %5 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(24) %5, ptr noundef nonnull readonly align 1 dereferenceable(24) %4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(24) %4, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 7
@@ -6174,7 +6174,7 @@ define dso_local range(i32 0, -2147483648) i32 @rb_scan_args_kw(i32 noundef %0, 
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %struct.rb_scan_args_t, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 16, i1 false)
   store i32 %0, ptr %6, align 4
   %8 = load i8, ptr %3, align 1
   %9 = sext i8 %8 to i32

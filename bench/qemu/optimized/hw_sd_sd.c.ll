@@ -2428,7 +2428,7 @@ if.else.i:                                        ; preds = %if.end45
   %sub.i = add nsw i64 %conv46, 63
   %24 = lshr i64 %sub.i, 3
   %mul.i = and i64 %24, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %22, i8 0, i64 %mul.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %mul.i, i1 false)
   br label %bitmap_zero.exit
 
 bitmap_zero.exit:                                 ; preds = %if.then.i, %if.else.i
@@ -3775,7 +3775,7 @@ sd_set_csd.exit:                                  ; preds = %for.inc14.i.i49
   %card_status.i = getelementptr inbounds i8, ptr %call.i, i64 212
   store i32 256, ptr %card_status.i, align 4
   %sd_status.i = getelementptr inbounds i8, ptr %call.i, i64 216
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %sd_status.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sd_status.i, i8 0, i64 64, i1 false)
   %wp_group_bmap = getelementptr inbounds i8, ptr %call.i, i64 312
   %35 = load ptr, ptr %wp_group_bmap, align 8
   call void @g_free(ptr noundef %35) #17

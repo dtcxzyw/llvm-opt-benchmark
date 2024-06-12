@@ -6300,7 +6300,7 @@ if.else.thread:                                   ; preds = %if.end.i.i2
   %idx.ext.i.i.i = zext nneg i32 %18 to i64
   %add.ptr.i.i.i = getelementptr inbounds float, ptr %19, i64 %idx.ext.i.i.i
   %conv.i.i.i.i3 = zext i32 %mul.i.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i.i3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i.i3, i1 false)
   store i32 %add.i.i.i5.i, ptr %length.i.i.i, align 4
   %20 = load ptr, ptr %varStore, align 8
   %varStore106 = getelementptr inbounds i8, ptr %20, i64 2

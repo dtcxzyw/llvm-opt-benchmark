@@ -82,7 +82,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_120InitArenaIfNecessaryEv.exit: ;
   %ptrmap_.i = getelementptr inbounds i8, ptr %call, i64 128
   store ptr %call, ptr %ptrmap_.i, align 8
   %table_2.i.i = getelementptr inbounds i8, ptr %call, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32684) %table_2.i.i, i8 -1, i64 32684, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32684) %table_2.i.i, i8 -1, i64 32684, i1 false)
   %deltaf_.i = getelementptr inbounds i8, ptr %call, i64 32824
   %space_.i.i9.i = getelementptr inbounds i8, ptr %call, i64 32832
   store ptr %space_.i.i9.i, ptr %deltaf_.i, align 8
@@ -1056,7 +1056,7 @@ _ZSt8__copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0
   %24 = load ptr, ptr %16, align 8
   %idx.ext.i.i.i.i = zext i32 %23 to i64
   %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %call.i.i, ptr readonly align 8 %24, i64 %add.ptr.idx.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %call.i.i, ptr align 8 %24, i64 %add.ptr.idx.i.i.i.i, i1 false)
   br label %_ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i
 
 _ZSt6copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_.exit.i.i: ; preds = %_ZSt8__copy_nIPPN4absl24synchronization_internal12_GLOBAL__N_14NodeEjS5_ET1_T_T0_S6_St26random_access_iterator_tag.exit.i.i.i, %while.end.i.i
@@ -3289,7 +3289,7 @@ if.then.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %0, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef %delta.0.val, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i, ptr nonnull readonly %nodes)
+  tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef %delta.0.val, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i, ptr nonnull %nodes)
   %cmp.i.i.i = icmp ugt i32 %delta.40.val, 16
   %scevgep.i.i.i = getelementptr i8, ptr %delta.0.val, i64 4
   br i1 %cmp.i.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i

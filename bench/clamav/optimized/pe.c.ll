@@ -1649,7 +1649,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr %40, align 8
-  %133 = call fastcc i32 @cli_hashsect(ptr noundef %132, ptr noundef nonnull readonly %87, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %133 = call fastcc i32 @cli_hashsect(ptr noundef %132, ptr noundef nonnull %87, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %134 = load i8, ptr @cli_debug_flag, align 1
   %.not.i2812 = icmp eq i8 %134, 0
   br i1 %.not.i2812, label %.preheader3254, label %135
@@ -1943,7 +1943,7 @@ scan_pe_mdb.exit._crit_edge:                      ; preds = %scan_pe_mdb.exit
   br i1 %.not.i2816, label %304, label %303
 
 303:                                              ; preds = %298
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %7, ptr nonnull align 1 %302, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %302, i64 %spec.select.i, i1 false)
   br label %fmap_readn.exit
 
 304:                                              ; preds = %296, %298
@@ -7507,7 +7507,7 @@ get_pe_property.exit:                             ; preds = %19, %24, %29
   br i1 %.not.i825, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %6, ptr nonnull align 1 %41, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %6, ptr nonnull align 1 %41, i64 %spec.select.i, i1 false)
   %.not726 = icmp ugt i64 %38, 1
   br i1 %.not726, label %42, label %fmap_readn.exit.thread
 
@@ -7545,7 +7545,7 @@ fmap_readn.exit.thread:                           ; preds = %37, %31, %fmap_read
   br i1 %.not.i828, label %fmap_readn.exit829.thread, label %fmap_readn.exit829
 
 fmap_readn.exit829:                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %45, ptr nonnull align 1 %54, i64 %spec.select.i827, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %54, i64 %spec.select.i827, i1 false)
   %.not727 = icmp ugt i64 %52, 3
   br i1 %.not727, label %55, label %fmap_readn.exit829.thread
 
@@ -7590,7 +7590,7 @@ fmap_readn.exit829.thread:                        ; preds = %51, %44, %fmap_read
   br i1 %.not.i832, label %fmap_readn.exit833.thread, label %fmap_readn.exit833
 
 fmap_readn.exit833:                               ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %63, ptr nonnull align 1 %71, i64 %spec.select.i831, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %71, i64 %spec.select.i831, i1 false)
   %.not730 = icmp ugt i64 %69, 23
   br i1 %.not730, label %72, label %fmap_readn.exit833.thread
 
@@ -7942,7 +7942,7 @@ fmap_readn.exit833.thread:                        ; preds = %68, %62, %fmap_read
   br i1 %.not.i836, label %fmap_readn.exit837.thread, label %fmap_readn.exit837
 
 fmap_readn.exit837:                               ; preds = %197
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %195, ptr nonnull align 1 %200, i64 %spec.select.i835, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull align 1 %200, i64 %spec.select.i835, i1 false)
   %.not734 = icmp ugt i64 %198, 95
   br i1 %.not734, label %201, label %fmap_readn.exit837.thread
 
@@ -7985,7 +7985,7 @@ fmap_readn.exit837.thread:                        ; preds = %197, %189, %fmap_re
   br i1 %.not.i840, label %fmap_readn.exit841.thread, label %fmap_readn.exit841
 
 fmap_readn.exit841:                               ; preds = %214
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %212, ptr nonnull align 1 %217, i64 %spec.select.i839, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr nonnull align 1 %217, i64 %spec.select.i839, i1 false)
   %.not735 = icmp ugt i64 %215, 15
   br i1 %.not735, label %218, label %fmap_readn.exit841.thread
 
@@ -10559,7 +10559,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not.i, label %.thread.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %73
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %3, ptr nonnull align 1 %77, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %77, i64 %spec.select.i, i1 false)
   %.not164 = icmp ugt i64 %74, 7
   br i1 %.not164, label %78, label %.thread.thread
 
@@ -11542,7 +11542,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
   br i1 %.not.i263.i, label %hash_impfns.exit, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %191
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %.sroa.01.i, ptr nonnull align 1 %196, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.01.i, ptr nonnull align 1 %196, i64 %spec.select.i.i, i1 false)
   %197 = icmp ugt i64 %194, 3
   %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i = load i32, ptr %.sroa.01.i, align 4
   %198 = icmp ne i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i, 0
@@ -11824,7 +11824,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   br i1 %.not.i282.i, label %hash_impfns.exit, label %fmap_readn.exit283.i
 
 fmap_readn.exit283.i:                             ; preds = %313
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %.sroa.0.i, ptr nonnull align 1 %318, i64 %spec.select.i281.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull align 1 %318, i64 %spec.select.i281.i, i1 false)
   %319 = icmp ugt i64 %316, 7
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load i64, ptr %.sroa.0.i, align 8
   %320 = icmp ne i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, 0

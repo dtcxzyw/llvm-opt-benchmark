@@ -1307,7 +1307,7 @@ entry:
   %0 = ptrtoint ptr %m to i64
   store i64 %0, ptr %m_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_nodes.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call
 }
 
@@ -1335,7 +1335,7 @@ entry:
   %0 = ptrtoint ptr %m to i64
   store i64 %0, ptr %m_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %call1, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_nodes.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i, i8 0, i64 16, i1 false)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV19ctx_simplify_tactic, i64 16), ptr %call, align 8

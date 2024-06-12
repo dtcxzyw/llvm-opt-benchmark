@@ -2395,7 +2395,7 @@ html_tag_contents_done.exit:                      ; preds = %808, %807, %799, %7
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %822 ]
   %824 = getelementptr inbounds ptr, ptr %821, i64 %indvars.iv.i
   %825 = load ptr, ptr %824, align 8
-  %826 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %825, ptr noundef nonnull readonly dereferenceable(9) @.str.22) #16
+  %826 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %825, ptr noundef nonnull dereferenceable(9) @.str.22) #16
   %827 = icmp eq i32 %826, 0
   br i1 %827, label %html_tag_arg_value.exit, label %822
 
@@ -2500,7 +2500,7 @@ html_tag_arg_value.exit:                          ; preds = %823
   %indvars.iv.i1507 = phi i64 [ 0, %.lr.ph.i1505 ], [ %indvars.iv.next.i1508, %862 ]
   %864 = getelementptr inbounds ptr, ptr %861, i64 %indvars.iv.i1507
   %865 = load ptr, ptr %864, align 8
-  %866 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %865, ptr noundef nonnull readonly dereferenceable(9) @.str.22) #16
+  %866 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %865, ptr noundef nonnull dereferenceable(9) @.str.22) #16
   %867 = icmp eq i32 %866, 0
   br i1 %867, label %html_tag_arg_value.exit1510, label %862
 
@@ -2555,7 +2555,7 @@ html_tag_arg_value.exit1510:                      ; preds = %863
   %indvars.iv.i1514 = phi i64 [ 0, %.lr.ph.i1512 ], [ %indvars.iv.next.i1515, %886 ]
   %888 = getelementptr inbounds ptr, ptr %885, i64 %indvars.iv.i1514
   %889 = load ptr, ptr %888, align 8
-  %890 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %889, ptr noundef nonnull readonly dereferenceable(5) @.str.31) #16
+  %890 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %889, ptr noundef nonnull dereferenceable(5) @.str.31) #16
   %891 = icmp eq i32 %890, 0
   br i1 %891, label %html_tag_arg_value.exit1517, label %886
 
@@ -2882,7 +2882,7 @@ html_tag_arg_value.exit1517:                      ; preds = %887
   %indvars.iv.i1521 = phi i64 [ 0, %.lr.ph.i1519 ], [ %indvars.iv.next.i1522, %1033 ]
   %1035 = getelementptr inbounds ptr, ptr %1032, i64 %indvars.iv.i1521
   %1036 = load ptr, ptr %1035, align 8
-  %1037 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1036, ptr noundef nonnull readonly dereferenceable(5) @.str.31) #16
+  %1037 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1036, ptr noundef nonnull dereferenceable(5) @.str.31) #16
   %1038 = icmp eq i32 %1037, 0
   br i1 %1038, label %html_tag_arg_value.exit1524, label %1033
 

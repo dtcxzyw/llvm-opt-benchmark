@@ -600,7 +600,7 @@ define range(i32 -1, 1) i32 @H5Tget_member_value(i64 noundef %0, i32 noundef %1,
   %58 = load i64, ptr %57, align 8
   %59 = mul i64 %58, %56
   %60 = getelementptr inbounds i8, ptr %55, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr align 1 %60, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %60, i64 %58, i1 false)
   %61 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #8
   br label %63
 
@@ -772,7 +772,7 @@ define range(i32 -1, 1) i32 @H5Tenum_nameof(i64 noundef %0, ptr noundef readonly
   %88 = zext nneg i32 %87 to i64
   %89 = mul i64 %84, %88
   %90 = getelementptr inbounds i8, ptr %82, i64 %89
-  %91 = tail call i32 @memcmp(ptr noundef nonnull readonly %1, ptr noundef %90, i64 noundef %84) #9
+  %91 = tail call i32 @memcmp(ptr noundef nonnull %1, ptr noundef %90, i64 noundef %84) #9
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %96, label %93
 
@@ -993,7 +993,7 @@ define range(i32 -1, 1) i32 @H5Tenum_valueof(i64 noundef %0, ptr noundef readonl
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds ptr, ptr %79, i64 %83
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %85) #9
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %85) #9
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %91, label %88
 
@@ -1029,7 +1029,7 @@ define range(i32 -1, 1) i32 @H5Tenum_valueof(i64 noundef %0, ptr noundef readonl
   %102 = load i64, ptr %101, align 8
   %103 = mul i64 %102, %83
   %104 = getelementptr inbounds i8, ptr %100, i64 %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr align 1 %104, i64 %102, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %104, i64 %102, i1 false)
   %105 = tail call i32 @H5T_close_real(ptr noundef nonnull %61) #8
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %115

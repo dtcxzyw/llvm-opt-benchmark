@@ -447,7 +447,7 @@ define dso_local void @_ZN3net29CreateNestedSpdyFramerDecoderEPNS_10SpdyFramerE(
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #11
   %visitor_.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %visitor_.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %visitor_.i.i, i8 0, i64 17, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i64 16), ptr %call, align 8
   %framer_.i = getelementptr inbounds i8, ptr %call, i64 32
   invoke void @_ZN3net10SpdyFramerC1ENS_16SpdyMajorVersionEPFSt10unique_ptrINS_24SpdyFramerDecoderAdapterESt14default_deleteIS3_EEPS0_E(ptr noundef nonnull align 8 dereferenceable(259) %framer_.i, i32 noundef 2, ptr noundef null)

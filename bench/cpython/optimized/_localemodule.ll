@@ -343,7 +343,7 @@ if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @localeconv() #6
   %int_curr_symbol.i.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %0 = load ptr, ptr %int_curr_symbol.i.i, align 8
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #7
+  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %cmp.i48.i.i = icmp eq i64 %call.i.i.i, 1
   br i1 %cmp.i48.i.i, label %locale_is_ascii.exit.i.i, label %if.then.i.i
 
@@ -355,7 +355,7 @@ locale_is_ascii.exit.i.i:                         ; preds = %if.end.i
 lor.lhs.false.i.i:                                ; preds = %locale_is_ascii.exit.i.i
   %currency_symbol.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %2 = load ptr, ptr %currency_symbol.i.i, align 8
-  %call.i49.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %call.i49.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %cmp.i50.i.i = icmp eq i64 %call.i49.i.i, 1
   br i1 %cmp.i50.i.i, label %locale_is_ascii.exit54.i.i, label %if.then.i.i
 
@@ -367,7 +367,7 @@ locale_is_ascii.exit54.i.i:                       ; preds = %lor.lhs.false.i.i
 lor.lhs.false3.i.i:                               ; preds = %locale_is_ascii.exit54.i.i
   %mon_decimal_point.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %4 = load ptr, ptr %mon_decimal_point.i.i, align 8
-  %call.i55.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #7
+  %call.i55.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %cmp.i56.i.i = icmp eq i64 %call.i55.i.i, 1
   br i1 %cmp.i56.i.i, label %locale_is_ascii.exit60.i.i, label %if.then.i.i
 
@@ -379,7 +379,7 @@ locale_is_ascii.exit60.i.i:                       ; preds = %lor.lhs.false3.i.i
 lor.rhs.i.i:                                      ; preds = %locale_is_ascii.exit60.i.i
   %mon_thousands_sep.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %6 = load ptr, ptr %mon_thousands_sep.i.i, align 8
-  %call.i61.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #7
+  %call.i61.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %cmp.i62.i.i = icmp eq i64 %call.i61.i.i, 1
   br i1 %cmp.i62.i.i, label %locale_is_ascii.exit66.i.i, label %if.then.i.i
 

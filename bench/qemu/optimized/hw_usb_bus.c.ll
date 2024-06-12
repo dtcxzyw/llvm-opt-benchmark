@@ -541,7 +541,7 @@ entry:
   store i32 %speedmask, ptr %speedmask4.i, align 8
   %add.i = add i32 %index, 1
   %path7.i.i = getelementptr inbounds i8, ptr %port, i64 16
-  %call9.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %path7.i.i, i64 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %add.i) #12
+  %call9.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path7.i.i, i64 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %add.i) #12
   %hubcount10.i.i = getelementptr inbounds i8, ptr %port, i64 12
   store i32 0, ptr %hubcount10.i.i, align 4
   %next = getelementptr inbounds i8, ptr %port, i64 56
@@ -614,7 +614,7 @@ for.body10:                                       ; preds = %for.cond8.preheader
   store i32 %speedmask, ptr %speedmask4.i, align 8
   %add.i = add nuw i32 %i.021, 1
   %path7.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %call9.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %path7.i.i, i64 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %add.i) #12
+  %call9.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path7.i.i, i64 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %add.i) #12
   %hubcount10.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %hubcount10.i.i, align 4
   %exitcond.not = icmp eq i32 %add.i, %portcount
@@ -1006,7 +1006,7 @@ if.then.i:                                        ; preds = %for.body.i
   %cond.i = select i1 %tobool3.not.i, ptr @.str.24, ptr @.str.44
   %name.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %5 = load ptr, ptr %name.i, align 8
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull @.str.43, ptr noundef nonnull %cond.i, ptr noundef %5) #12
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull @.str.43, ptr noundef nonnull %cond.i, ptr noundef %5) #12
   %add.i = add i32 %call.i, %pos.011.i
   br label %for.inc.i
 
@@ -1046,7 +1046,7 @@ if.then.i17:                                      ; preds = %for.body.i11
   %cond.i22 = select i1 %tobool3.not.i21, ptr @.str.24, ptr @.str.44
   %name.i23 = getelementptr inbounds i8, ptr %arrayidx.i14, i64 8
   %8 = load ptr, ptr %name.i23, align 8
-  %call.i24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %add.ptr.i19, i64 noundef %sub.i20, ptr noundef nonnull @.str.43, ptr noundef nonnull %cond.i22, ptr noundef %8) #12
+  %call.i24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr.i19, i64 noundef %sub.i20, ptr noundef nonnull @.str.43, ptr noundef nonnull %cond.i22, ptr noundef %8) #12
   %add.i25 = add i32 %call.i24, %pos.011.i13
   br label %for.inc.i26
 

@@ -733,7 +733,7 @@ define dso_local void @ReplicationSlotAcquire(ptr noundef %0, i1 noundef zeroext
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %11, i64 24
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #16
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %16) #16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %SearchNamedReplicationSlot.exit, label %19
 

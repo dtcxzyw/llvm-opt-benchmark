@@ -1748,7 +1748,7 @@ invoke.cont311:                                   ; preds = %do.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileE, i64 16), ptr %call309, align 8
   %lut1D.i = getelementptr inbounds i8, ptr %call309, i64 8
   %domain_max.i = getelementptr inbounds i8, ptr %call309, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(44) %lut1D.i, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %lut1D.i, i8 0, i64 44, i1 false)
   %arrayinit.element4.i = getelementptr inbounds i8, ptr %call309, i64 56
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %domain_max.i, align 4
   %arrayinit.element5.i = getelementptr inbounds i8, ptr %call309, i64 60

@@ -4553,7 +4553,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.p
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !37
 
 for.end.i:                                        ; preds = %.noexc, %_ZNK7datalog8rule_set13get_num_rulesEv.exit.i, %invoke.cont19
-  invoke void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull readonly align 8 dereferenceable(248) %other)
+  invoke void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(248) %other)
           to label %invoke.cont23 unwind label %lpad22.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %for.end.i
@@ -7182,7 +7182,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZN7datalog8rule_set9add_rulesERKS0_.exit, label %for.body.i, !llvm.loop !37
 
 _ZN7datalog8rule_set9add_rulesERKS0_.exit:        ; preds = %for.body.i, %if.then, %_ZNK7datalog8rule_set13get_num_rulesEv.exit.i
-  tail call void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull readonly align 8 dereferenceable(248) %src)
+  tail call void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(248) %src)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN7datalog8rule_set9add_rulesERKS0_.exit, %entry

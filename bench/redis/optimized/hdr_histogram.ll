@@ -1330,7 +1330,7 @@ entry:
   %count.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_iterated_from.i.i, i8 0, i64 24, i1 false)
   store ptr @recorded_iter_next, ptr %_next_fp.i.i, align 8
   %call.i6 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #21
@@ -1448,8 +1448,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   store i64 0, ptr %specifics, align 8
   store ptr @recorded_iter_next, ptr %_next_fp.i, align 8
@@ -1479,7 +1479,7 @@ entry:
   %count.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_iterated_from.i.i, i8 0, i64 24, i1 false)
   store ptr @recorded_iter_next, ptr %_next_fp.i.i, align 8
   %call.i3 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #21
@@ -1776,8 +1776,8 @@ for.end:                                          ; preds = %for.body, %if.end
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %call.i25 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   %cmp1526 = icmp ne i64 %length, 0
@@ -1879,8 +1879,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %call.i6 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i6, label %while.body.lr.ph, label %while.end
@@ -2078,8 +2078,8 @@ hdr_mean.exit:                                    ; preds = %entry, %while.end.l
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %call.i36 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i36, label %while.body.lr.ph, label %while.end
@@ -2285,8 +2285,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   store i8 0, ptr %specifics, align 8
   %ticks_per_half_distance3 = getelementptr inbounds i8, ptr %iter, i64 92
@@ -2493,8 +2493,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds i8, ptr %iter, i64 96
@@ -2655,8 +2655,8 @@ entry:
   %count.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i = getelementptr inbounds i8, ptr %iter, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds i8, ptr %iter, i64 96
@@ -2811,15 +2811,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %0, ptr noundef nonnull @.str.6) #21
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %0, ptr noundef nonnull @.str.6) #21
   br label %format_line_string.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
+  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
   br label %format_line_string.exit
 
 sw.default.i:                                     ; preds = %entry
-  %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
+  %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
   br label %format_line_string.exit
 
 format_line_string.exit:                          ; preds = %sw.bb.i, %sw.bb1.i, %sw.default.i
@@ -2835,12 +2835,12 @@ format_line_string.exit:                          ; preds = %sw.bb.i, %sw.bb1.i,
   %count.i.i = getelementptr inbounds i8, ptr %iter, i64 24
   %value_iterated_from.i.i = getelementptr inbounds i8, ptr %iter, i64 72
   %_next_fp.i.i = getelementptr inbounds i8, ptr %iter, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   %ticks_per_half_distance3.i = getelementptr inbounds i8, ptr %iter, i64 92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %value_iterated_from.i.i, i8 0, i64 17, i1 false)
   store i32 %ticks_per_half_distance, ptr %ticks_per_half_distance3.i, align 4
   %percentile_to_iterate_to.i = getelementptr inbounds i8, ptr %iter, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %percentile_to_iterate_to.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %percentile_to_iterate_to.i, i8 0, i64 16, i1 false)
   store ptr @percentile_iter_next, ptr %_next_fp.i.i, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stream, ptr noundef nonnull %.str.9..str.10.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #21
   %cmp = icmp slt i32 %call1, 0

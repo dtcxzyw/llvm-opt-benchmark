@@ -103,8 +103,8 @@ for.body.preheader:                               ; preds = %has_small_order.exi
   call void @_sodium_fe25519_frombytes(ptr noundef nonnull %x1, ptr noundef %p) #6
   store i64 1, ptr %x2, align 16
   %arrayidx1.i = getelementptr inbounds i8, ptr %x2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %z2, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %z2, i8 0, i64 40, i1 false)
   %x3.sroa.0.0.copyload = load i64, ptr %x1, align 16
   %x3.sroa.10.0.x1.sroa_idx = getelementptr inbounds i8, ptr %x1, i64 8
   %x3.sroa.10.0.copyload = load i64, ptr %x3.sroa.10.0.x1.sroa_idx, align 8
@@ -116,7 +116,7 @@ for.body.preheader:                               ; preds = %has_small_order.exi
   %x3.sroa.37.0.copyload = load i64, ptr %x3.sroa.37.0.x1.sroa_idx, align 16
   store i64 1, ptr %z3, align 16
   %arrayidx1.i15 = getelementptr inbounds i8, ptr %z3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i15, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i15, i8 0, i64 32, i1 false)
   %arrayidx2.i = getelementptr inbounds i8, ptr %x2, i64 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %x2, i64 24
   %arrayidx4.i = getelementptr inbounds i8, ptr %x2, i64 32
@@ -884,7 +884,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %tempZ.i, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %tempZ.i, ptr noundef nonnull %tempZ.i) #6
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %pk, ptr noundef nonnull %tempX.i, ptr noundef nonnull %tempZ.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %pk, ptr noundef nonnull %tempX.i, ptr noundef nonnull %tempZ.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempX.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempZ.i)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %q, ptr noundef nonnull %pk) #6

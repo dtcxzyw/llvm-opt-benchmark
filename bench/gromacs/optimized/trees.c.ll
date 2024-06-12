@@ -75,7 +75,7 @@ init_block.exit:                                  ; preds = %.preheader.i
   %18 = getelementptr inbounds i8, ptr %0, i64 5896
   %19 = getelementptr inbounds i8, ptr %0, i64 5884
   store i32 0, ptr %19, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %18, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %18, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -1200,7 +1200,7 @@ init_block.exit:                                  ; preds = %422
   %425 = getelementptr inbounds i8, ptr %0, i64 5896
   %426 = getelementptr inbounds i8, ptr %0, i64 5884
   store i32 0, ptr %426, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %425, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %425, i8 0, i64 20, i1 false)
   %.not90 = icmp eq i32 %3, 0
   br i1 %.not90, label %456, label %427
 

@@ -1654,7 +1654,7 @@ sw.bb22.us:                                       ; preds = %if.end.us
   br i1 %cmp24.us, label %if.then25, label %if.end26.us
 
 if.end26.us:                                      ; preds = %sw.bb22.us
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
   %cmp.i10.not.us = icmp eq ptr %3, null
   %number.i.us = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i10.not.us, label %sw.default, label %if.end.us
@@ -1747,7 +1747,7 @@ sw.bb23.us:                                       ; preds = %if.end.us
   br i1 %cmp25.us, label %if.then26, label %if.end27.us
 
 if.end27.us:                                      ; preds = %sw.bb23.us
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
   %cmp.i9.not.us = icmp eq ptr %3, null
   %number.i.us = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i9.not.us, label %sw.default, label %if.end.us
@@ -1853,7 +1853,7 @@ sw.bb4.us:                                        ; preds = %if.end.us
   br i1 %cmp.us, label %if.then6, label %if.end7.us
 
 if.end7.us:                                       ; preds = %sw.bb4.us
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
   %cmp.i4.not.us = icmp eq ptr %3, null
   %number.i.us = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i4.not.us, label %sw.default, label %if.end.us
@@ -2829,7 +2829,7 @@ sw.bb4.us.i:                                      ; preds = %if.end.us.i
   br i1 %cmp.us.i, label %if.then6.i, label %if.end7.us.i
 
 if.end7.us.i:                                     ; preds = %sw.bb4.us.i
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
   %cmp.i4.not.us.i = icmp eq ptr %3, null
   %number.i.us.i = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i4.not.us.i, label %sw.default.i, label %if.end.us.i
@@ -2883,7 +2883,7 @@ sw.bb22.us.i:                                     ; preds = %if.end.us.i
   br i1 %cmp24.us.i, label %if.then25.i, label %if.end26.us.i
 
 if.end26.us.i:                                    ; preds = %sw.bb22.us.i
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
   %cmp.i10.not.us.i = icmp eq ptr %3, null
   %number.i.us.i = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i10.not.us.i, label %sw.default.i, label %if.end.us.i

@@ -44,7 +44,7 @@ opal_argv_count.exit.i:                           ; preds = %.lr.ph.i.i, %.prehe
 17:                                               ; preds = %6, %opal_argv_count.exit.i
   %18 = phi ptr [ %15, %opal_argv_count.exit.i ], [ %calloc.i, %6 ]
   %.0.i = phi i32 [ %.07.i.i, %opal_argv_count.exit.i ], [ 0, %6 ]
-  %19 = tail call noalias ptr @strdup(ptr noundef readonly %2) #13
+  %19 = tail call noalias ptr @strdup(ptr noundef %2) #13
   %20 = sext i32 %.0.i to i64
   %21 = getelementptr inbounds ptr, ptr %18, i64 %20
   store ptr %19, ptr %21, align 8
@@ -265,7 +265,7 @@ define range(i32 -2, 1) i32 @opal_argv_append_unique_nosize(ptr nocapture nounde
   br i1 %8, label %opal_argv_append_nosize.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call noalias ptr @strdup(ptr noundef readonly %1) #13
+  %10 = tail call noalias ptr @strdup(ptr noundef %1) #13
   store ptr %10, ptr %calloc.i, align 8
   %11 = icmp eq ptr %10, null
   %spec.select = select i1 %11, i32 -2, i32 0
@@ -319,7 +319,7 @@ opal_argv_count.exit.i25:                         ; preds = %.lr.ph.i.i21, %.pre
   br i1 %30, label %opal_argv_append_nosize.exit, label %31
 
 31:                                               ; preds = %opal_argv_count.exit.i25
-  %32 = tail call noalias ptr @strdup(ptr noundef readonly %1) #13
+  %32 = tail call noalias ptr @strdup(ptr noundef %1) #13
   %33 = sext i32 %.07.i.i26 to i64
   %34 = getelementptr inbounds ptr, ptr %29, i64 %33
   store ptr %32, ptr %34, align 8
@@ -446,7 +446,7 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %.pre
 24:                                               ; preds = %opal_argv_count.exit.i.i, %13
   %.1 = phi ptr [ %calloc.i.i, %13 ], [ %22, %opal_argv_count.exit.i.i ]
   %.0.i.i = phi i32 [ 0, %13 ], [ %.07.i.i.i, %opal_argv_count.exit.i.i ]
-  %25 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #13
+  %25 = call noalias ptr @strdup(ptr noundef nonnull %4) #13
   %26 = sext i32 %.0.i.i to i64
   %27 = getelementptr inbounds ptr, ptr %.1, i64 %26
   store ptr %25, ptr %27, align 8
@@ -496,7 +496,7 @@ opal_argv_count.exit.i.i50:                       ; preds = %.lr.ph.i.i.i46, %.p
 43:                                               ; preds = %opal_argv_count.exit.i.i50, %32
   %.3 = phi ptr [ %calloc.i.i62, %32 ], [ %41, %opal_argv_count.exit.i.i50 ]
   %.0.i.i52 = phi i32 [ 0, %32 ], [ %.07.i.i.i51, %opal_argv_count.exit.i.i50 ]
-  %44 = call noalias ptr @strdup(ptr noundef nonnull readonly %.033133194) #13
+  %44 = call noalias ptr @strdup(ptr noundef nonnull %.033133194) #13
   %45 = sext i32 %.0.i.i52 to i64
   %46 = getelementptr inbounds ptr, ptr %.3, i64 %45
   store ptr %44, ptr %46, align 8
@@ -556,7 +556,7 @@ opal_argv_count.exit.i.i70:                       ; preds = %.lr.ph.i.i.i66, %.p
 69:                                               ; preds = %opal_argv_count.exit.i.i70, %58
   %.5 = phi ptr [ %calloc.i.i82, %58 ], [ %67, %opal_argv_count.exit.i.i70 ]
   %.0.i.i72 = phi i32 [ 0, %58 ], [ %.07.i.i.i71, %opal_argv_count.exit.i.i70 ]
-  %70 = call noalias ptr @strdup(ptr noundef nonnull readonly %53) #13
+  %70 = call noalias ptr @strdup(ptr noundef nonnull %53) #13
   %71 = sext i32 %.0.i.i72 to i64
   %72 = getelementptr inbounds ptr, ptr %.5, i64 %71
   store ptr %70, ptr %72, align 8
@@ -611,7 +611,7 @@ opal_argv_count.exit.i.i90:                       ; preds = %.lr.ph.i.i.i86, %.p
 90:                                               ; preds = %opal_argv_count.exit.i.i90, %79
   %.7 = phi ptr [ %calloc.i.i102, %79 ], [ %88, %opal_argv_count.exit.i.i90 ]
   %.0.i.i92 = phi i32 [ 0, %79 ], [ %.07.i.i.i91, %opal_argv_count.exit.i.i90 ]
-  %91 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #13
+  %91 = call noalias ptr @strdup(ptr noundef nonnull %4) #13
   %92 = sext i32 %.0.i.i92 to i64
   %93 = getelementptr inbounds ptr, ptr %.7, i64 %92
   store ptr %91, ptr %93, align 8
@@ -896,7 +896,7 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %.pre
   br i1 %15, label %opal_argv_free.exit, label %16
 
 16:                                               ; preds = %opal_argv_count.exit.i.i
-  %17 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %7) #13
+  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %7) #13
   %18 = sext i32 %.07.i.i.i to i64
   %19 = getelementptr inbounds ptr, ptr %14, i64 %18
   store ptr %17, ptr %19, align 8
@@ -1148,7 +1148,7 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %.pre
 36:                                               ; preds = %opal_argv_count.exit.i.i, %25
   %37 = phi ptr [ %34, %opal_argv_count.exit.i.i ], [ %calloc.i.i, %25 ]
   %.0.i.i = phi i32 [ %.07.i.i.i, %opal_argv_count.exit.i.i ], [ 0, %25 ]
-  %38 = tail call noalias ptr @strdup(ptr noundef readonly %23) #13
+  %38 = tail call noalias ptr @strdup(ptr noundef %23) #13
   %39 = sext i32 %.0.i.i to i64
   %40 = getelementptr inbounds ptr, ptr %37, i64 %39
   store ptr %38, ptr %40, align 8
@@ -1295,7 +1295,7 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal
   br i1 %23, label %opal_argv_append.exit, label %24
 
 24:                                               ; preds = %opal_argv_count.exit.i.i
-  %25 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %2) #13
+  %25 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #13
   %26 = sext i32 %.07.i.i.i to i64
   %27 = getelementptr inbounds ptr, ptr %22, i64 %26
   store ptr %25, ptr %27, align 8

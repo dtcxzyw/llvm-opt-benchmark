@@ -2259,7 +2259,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %1, i64 3
-  %68 = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %2, ptr noundef writeonly %3)
+  %68 = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 69:                                               ; preds = %61
@@ -2300,7 +2300,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 
 81:                                               ; preds = %17
   %82 = getelementptr inbounds i8, ptr %1, i64 2
-  %83 = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %2, ptr noundef writeonly %3)
+  %83 = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 84:                                               ; preds = %17
@@ -2733,7 +2733,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 .loopexit:                                        ; preds = %.lr.ph243.i, %.lr.ph243.i, %267, %257, %247
   %.sink = phi i64 [ 3, %247 ], [ 4, %257 ], [ 5, %267 ], [ 2, %.lr.ph243.i ], [ 2, %.lr.ph243.i ]
   %277 = getelementptr inbounds i8, ptr %.1.pn241.i, i64 %.sink
-  %278 = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %0, ptr noundef nonnull %277, ptr noundef nonnull %2, ptr noundef writeonly %3)
+  %278 = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %0, ptr noundef nonnull %277, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 .loopexit.i:                                      ; preds = %198, %.lr.ph243.i
@@ -7425,7 +7425,7 @@ unicode_byte_type.exit135.i:                      ; preds = %71
 
 78:                                               ; preds = %unicode_byte_type.exit135.i
   %79 = getelementptr inbounds i8, ptr %1, i64 6
-  %80 = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull readonly %0, ptr noundef nonnull %79, ptr noundef %.099, ptr noundef writeonly %3)
+  %80 = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
 81:                                               ; preds = %unicode_byte_type.exit135.i
@@ -7472,7 +7472,7 @@ unicode_byte_type.exit135.thread.i:               ; preds = %unicode_byte_type.e
 
 96:                                               ; preds = %unicode_byte_type.exit.i
   %97 = getelementptr inbounds i8, ptr %1, i64 4
-  %98 = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull readonly %0, ptr noundef nonnull %97, ptr noundef %.099, ptr noundef writeonly %3)
+  %98 = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %97, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
 99:                                               ; preds = %unicode_byte_type.exit.i
@@ -7866,7 +7866,7 @@ unicode_byte_type.exit142.thread156.i:            ; preds = %unicode_byte_type.e
 
 .loopexit.i:                                      ; preds = %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.thread156.i
   %252 = getelementptr inbounds i8, ptr %.1243.i, i64 2
-  %253 = tail call fastcc i32 @little2_scanAtts(ptr noundef nonnull readonly %0, ptr noundef nonnull %252, ptr noundef %.099, ptr noundef writeonly %3)
+  %253 = tail call fastcc i32 @little2_scanAtts(ptr noundef nonnull %0, ptr noundef nonnull %252, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
 254:                                              ; preds = %unicode_byte_type.exit142.i
@@ -12937,7 +12937,7 @@ unicode_byte_type.exit135.i:                      ; preds = %73
 
 80:                                               ; preds = %unicode_byte_type.exit135.i
   %81 = getelementptr inbounds i8, ptr %1, i64 6
-  %82 = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull readonly %0, ptr noundef nonnull %81, ptr noundef %.099, ptr noundef writeonly %3)
+  %82 = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
 83:                                               ; preds = %unicode_byte_type.exit135.i
@@ -12984,7 +12984,7 @@ unicode_byte_type.exit135.thread.i:               ; preds = %unicode_byte_type.e
 
 98:                                               ; preds = %unicode_byte_type.exit.i
   %99 = getelementptr inbounds i8, ptr %1, i64 4
-  %100 = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull readonly %0, ptr noundef nonnull %99, ptr noundef %.099, ptr noundef writeonly %3)
+  %100 = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %99, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
 101:                                              ; preds = %unicode_byte_type.exit.i
@@ -13386,7 +13386,7 @@ unicode_byte_type.exit142.thread156.i:            ; preds = %unicode_byte_type.e
 
 .loopexit.i:                                      ; preds = %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.thread156.i
   %258 = getelementptr inbounds i8, ptr %.1243.i, i64 2
-  %259 = tail call fastcc i32 @big2_scanAtts(ptr noundef nonnull readonly %0, ptr noundef nonnull %258, ptr noundef %.099, ptr noundef writeonly %3)
+  %259 = tail call fastcc i32 @big2_scanAtts(ptr noundef nonnull %0, ptr noundef nonnull %258, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
 260:                                              ; preds = %unicode_byte_type.exit142.i

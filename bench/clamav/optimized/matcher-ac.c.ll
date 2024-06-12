@@ -3003,7 +3003,7 @@ define i32 @cli_ac_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %125, label %ac_findmatch.exit.thread, label %ac_findmatch.exit
 
 ac_findmatch.exit:                                ; preds = %121
-  %126 = call fastcc i32 @ac_forward_match_branch(ptr noundef readonly %0, i32 noundef %55, i32 noundef %67, i32 noundef %113, i32 noundef %1, ptr noundef nonnull readonly %58, i32 noundef %66, i16 noundef zeroext %115, ptr noundef nonnull writeonly %13, ptr noundef nonnull writeonly %14)
+  %126 = call fastcc i32 @ac_forward_match_branch(ptr noundef %0, i32 noundef %55, i32 noundef %67, i32 noundef %113, i32 noundef %1, ptr noundef nonnull %58, i32 noundef %66, i16 noundef zeroext %115, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i.not = icmp eq i32 %126, 0
   br i1 %.not.i.not, label %ac_findmatch.exit.thread, label %.preheader598
 
@@ -5385,7 +5385,7 @@ define internal fastcc i32 @ac_special_altstr(ptr noundef %0, i8 noundef zeroext
   br label %119
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #21
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %.not94.i = icmp eq i64 %8, 0
   br i1 %.not94.i, label %ac_analyze_expr.exit, label %.lr.ph.i
 
@@ -7375,7 +7375,7 @@ define internal i32 @qcompare_fstr(ptr nocapture noundef readonly %0, ptr nocapt
 define internal fastcc i32 @ac_special_altexpand(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #21
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %.not94.i = icmp eq i64 %11, 0
   br i1 %.not94.i, label %ac_analyze_expr.exit, label %.lr.ph.i
 

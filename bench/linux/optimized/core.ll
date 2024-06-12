@@ -4456,7 +4456,7 @@ define internal i32 @intel_pmu_snapshot_arch_branch_stack(ptr nocapture noundef 
   %14 = getelementptr inbounds i8, ptr %11, i64 2472
   %15 = zext i32 %13 to i64
   %16 = mul nuw nsw i64 %15, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %0, ptr align 8 %14, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %14, i64 %16, i1 false)
   call void @intel_pmu_pebs_enable_all() #22
   call fastcc void @__intel_pmu_enable_all(i1 noundef zeroext false)
   %17 = and i64 %4, 512
@@ -4527,7 +4527,7 @@ define internal i32 @intel_pmu_snapshot_branch_stack(ptr nocapture noundef write
   %25 = getelementptr inbounds i8, ptr %22, i64 2472
   %26 = zext i32 %24 to i64
   %27 = mul nuw nsw i64 %26, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %0, ptr align 8 %25, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %25, i64 %27, i1 false)
   call void @intel_pmu_pebs_enable_all() #22
   call fastcc void @__intel_pmu_enable_all(i1 noundef zeroext false)
   %28 = and i64 %4, 512

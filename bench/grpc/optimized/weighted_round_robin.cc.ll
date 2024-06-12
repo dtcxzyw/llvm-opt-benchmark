@@ -4203,7 +4203,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   br i1 %cmp6.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i.i.i
 
 _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, ptr noundef nonnull readonly %call3.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i) #34
+  %call10.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call.val.i.i.i.i.i.i, ptr noundef nonnull %call3.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i) #34
   %cmp11.i.i.i.i.i.i.i.i = icmp slt i32 %call10.i.i.i.i.i.i.i.i, 0
   br i1 %cmp11.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i.i.i
 
@@ -4254,7 +4254,7 @@ if.then.i9.i.i.i.i.i.i.i:                         ; preds = %if.end12.i.i.i.i.i.
 
 _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit16.i.i.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i.i.i
   %conv.i13.i.i.i.i.i.i.i = zext i32 %6 to i64
-  %call10.i14.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call15.val.i.i.i.i.i.i.i, ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, i64 noundef %conv.i13.i.i.i.i.i.i.i) #34
+  %call10.i14.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call15.val.i.i.i.i.i.i.i, ptr noundef nonnull %call.val.i.i.i.i.i.i, i64 noundef %conv.i13.i.i.i.i.i.i.i) #34
   %cmp11.i15.i.i.i.i.i.i.i = icmp slt i32 %call10.i14.i.i.i.i.i.i.i, 0
   br i1 %cmp11.i15.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS0_19LoadBalancingPolicy10UpdateArgsEE3$_0JRKNS0_17EndpointAddressesEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
@@ -4279,7 +4279,7 @@ if.then.i.i11.i.i.i.i.i.i:                        ; preds = %lor.rhs.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i.i
   %conv.i.i13.i.i.i.i.i.i = zext i32 %8 to i64
-  %call10.i.i14.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, ptr noundef nonnull readonly %call4.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i13.i.i.i.i.i.i) #34
+  %call10.i.i14.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call.val.i.i.i.i.i.i, ptr noundef nonnull %call4.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i13.i.i.i.i.i.i) #34
   %cmp11.i.i15.i.i.i.i.i.i = icmp slt i32 %call10.i.i14.i.i.i.i.i.i, 0
   br label %lor.end.i.i.i.i.i.i.i
 
@@ -5235,7 +5235,7 @@ if.end24.i.i.i.i:                                 ; preds = %invoke.cont23.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %18 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 64
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
@@ -5275,12 +5275,12 @@ cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %cond.i12.i.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i.i8.i.i.i.i, %cond.true.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ManualConstructor", ptr %cond.i12.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i, i8 0, i64 64, i1 false)
   %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i.i.i.i, ptr align 8 %this.val10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i.i.i.i, ptr align 8 %this.val10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i
 
 _ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i
@@ -10660,7 +10660,7 @@ if.then23.i.i.i.i.i:                              ; preds = %invoke.cont21.i.i.i
   %32 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i18.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %invoke.cont26.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 
@@ -12917,7 +12917,7 @@ if.end12.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
   %call15.val.i.i.i.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i, align 8
   %3 = getelementptr i8, ptr %__j.sroa.0.0.i.i.i.i.i.i.i, i64 40
   %call15.val4.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call16.i.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK25EndpointAddressesLessThanclERKNS_17EndpointAddressesES7_(ptr %call15.val.i.i.i.i.i.i.i, ptr %call15.val4.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %args)
+  %call16.i.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK25EndpointAddressesLessThanclERKNS_17EndpointAddressesES7_(ptr %call15.val.i.i.i.i.i.i.i, ptr %call15.val4.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args)
   br i1 %call16.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS0_19LoadBalancingPolicy10UpdateArgsEE3$_0JRKNS0_17EndpointAddressesEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end12.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -18552,7 +18552,7 @@ if.then23.i.i.i.i.i:                              ; preds = %invoke.cont21.i.i.i
   %32 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i18.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %invoke.cont26.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 

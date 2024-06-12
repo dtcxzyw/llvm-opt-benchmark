@@ -471,7 +471,7 @@ dissect_sock_diag_inet_request.exit.i:            ; preds = %120, %.lr.ph.i.i.i5
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #4
   %128 = add i32 %21, 8
   %129 = zext i8 %108 to i32
-  %130 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef %17, i32 noundef %128, i32 noundef %129)
+  %130 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %128, i32 noundef %129)
   br label %dissect_sock_diag_by_family.exit
 
 131:                                              ; preds = %107

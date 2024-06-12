@@ -1326,7 +1326,7 @@ zend_ini_init_string.exit444:                     ; preds = %419, %423
   br label %zend_ini_get_constant.exit
 
 511:                                              ; preds = %436, %430
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %.2347, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.2347, i64 16, i1 false)
   br label %zend_ini_get_constant.exit
 
 zend_ini_get_constant.exit:                       ; preds = %502, %509, %510, %511
@@ -2263,7 +2263,7 @@ yy_syntax_error_arguments.exit.thread8:           ; preds = %27, %.loopexit.i.i.
   br label %.preheader.split.us.i
 
 yytnamerr.exit:                                   ; preds = %.preheader.split.us.i, %.preheader.split.us.i, %53, %.lr.ph
-  %58 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #19
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #19
   %.not47 = icmp slt i64 %58, 0
   br i1 %.not47, label %yy_syntax_error_arguments.exit.thread10, label %yytnamerr.exit.thread
 
@@ -2349,7 +2349,7 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
   br label %yytnamerr.exit58
 
 .loopexit.thread.i:                               ; preds = %82, %.preheader.split.i, %.preheader.split.i, %70
-  %89 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull readonly %77) #17
+  %89 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull %77) #17
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %.036 to i64
   %92 = sub i64 %90, %91

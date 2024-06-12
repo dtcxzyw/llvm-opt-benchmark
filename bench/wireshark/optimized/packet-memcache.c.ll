@@ -937,12 +937,12 @@ sub_2.i:                                          ; preds = %sub_1130.i
   br i1 %38, label %64, label %sub_0133.i
 
 39:                                               ; preds = %._crit_edge.i
-  %40 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.170, i64 noundef 4) #9
+  %40 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.170, i64 noundef 4) #9
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %64, label %.thread.i.thread62
 
 42:                                               ; preds = %._crit_edge.i
-  %43 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.171, i64 noundef 5) #9
+  %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.171, i64 noundef 5) #9
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %.thread.i.thread64
 
@@ -951,32 +951,32 @@ sub_2.i:                                          ; preds = %sub_1130.i
   br label %64
 
 46:                                               ; preds = %._crit_edge.i
-  %47 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.172, i64 noundef 6) #9
+  %47 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.172, i64 noundef 6) #9
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %64, label %49
 
 49:                                               ; preds = %46
-  %50 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.173, i64 noundef 6) #9
+  %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.173, i64 noundef 6) #9
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %64, label %.thread.i.thread66
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.174, i64 noundef 7) #9
+  %53 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.174, i64 noundef 7) #9
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %64, label %55
 
 55:                                               ; preds = %52
-  %56 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.175, i64 noundef 7) #9
+  %56 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.175, i64 noundef 7) #9
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %64, label %.thread.i.thread68
 
 58:                                               ; preds = %._crit_edge.i
-  %59 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.176, i64 noundef 9) #9
+  %59 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.176, i64 noundef 9) #9
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %64, label %.thread.i.thread70
 
 61:                                               ; preds = %._crit_edge.i
-  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(11) @.str.177, i64 noundef 10) #9
+  %62 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(11) @.str.177, i64 noundef 10) #9
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.thread.i.thread
 
@@ -1048,57 +1048,57 @@ sub_1149.i:                                       ; preds = %sub_0133.i
   br i1 %87, label %thread-pre-split, label %.thread.i.thread
 
 .thread.i.thread62:                               ; preds = %39
-  %88 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.182, i64 noundef 4) #9
+  %88 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.182, i64 noundef 4) #9
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %thread-pre-split, label %90
 
 90:                                               ; preds = %.thread.i.thread62
-  %91 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.183, i64 noundef 4) #9
+  %91 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.183, i64 noundef 4) #9
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %thread-pre-split, label %93
 
 93:                                               ; preds = %90
-  %94 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.184, i64 noundef 4) #9
+  %94 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.184, i64 noundef 4) #9
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %thread-pre-split, label %96
 
 96:                                               ; preds = %93
-  %97 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.185, i64 noundef 4) #9
+  %97 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.185, i64 noundef 4) #9
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %thread-pre-split, label %.thread.i.thread
 
 .thread.i.thread64:                               ; preds = %42
-  %99 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.186, i64 noundef 5) #9
+  %99 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.186, i64 noundef 5) #9
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %thread-pre-split, label %.thread.i.thread
 
 .thread.i.thread66:                               ; preds = %49
-  %101 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #9
+  %101 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #9
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %thread-pre-split, label %103
 
 103:                                              ; preds = %.thread.i.thread66
-  %104 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.188, i64 noundef 6) #9
+  %104 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.188, i64 noundef 6) #9
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %thread-pre-split, label %.thread.i.thread
 
 .thread.i.thread68:                               ; preds = %55
-  %106 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.189, i64 noundef 7) #9
+  %106 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.189, i64 noundef 7) #9
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %thread-pre-split, label %108
 
 108:                                              ; preds = %.thread.i.thread68
-  %109 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.190, i64 noundef 7) #9
+  %109 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.190, i64 noundef 7) #9
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %thread-pre-split, label %111
 
 111:                                              ; preds = %108
-  %112 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.191, i64 noundef 7) #9
+  %112 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.191, i64 noundef 7) #9
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %thread-pre-split, label %.thread.i.thread
 
 .thread.i.thread70:                               ; preds = %58
-  %114 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.192, i64 noundef 9) #9
+  %114 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.192, i64 noundef 9) #9
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %thread-pre-split, label %.thread.i.thread
 

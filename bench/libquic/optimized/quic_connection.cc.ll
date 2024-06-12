@@ -10116,7 +10116,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  %call.i = tail call noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull readonly align 8 dereferenceable(3372) %0, i8 noundef signext %retransmittable)
+  %call.i = tail call noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull align 8 dereferenceable(3372) %0, i8 noundef signext %retransmittable)
   br label %_ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE.exit
 
 _ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE.exit: ; preds = %entry, %if.end.i

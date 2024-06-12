@@ -1811,7 +1811,7 @@ _ZNSt6vectorIN5arrow12_GLOBAL__N_16BitmapESaIS2_EE17_S_check_init_lenEmRKS3_.exi
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.thread.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_16BitmapESaIS2_EEC2EmRKS3_.exit.i.i
 
 invoke.cont.thread.i:                             ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_16BitmapESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp8, i8 0, i64 24, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8, i8 0, i64 24, i1 false), !alias.scope !22
   br label %_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BitmapsEm.exit
 
 _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_16BitmapESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_16BitmapESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
@@ -2000,7 +2000,7 @@ _ZNSt6vectorIN5arrow12_GLOBAL__N_16BitmapESaIS2_EE17_S_check_init_lenEmRKS3_.exi
   br i1 %cmp.not.i.i.i.i.i.i145, label %invoke.cont.thread.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_16BitmapESaIS2_EEC2EmRKS3_.exit.i.i.i
 
 invoke.cont.thread.i.i:                           ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_16BitmapESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false), !alias.scope !36, !noalias !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false), !alias.scope !36, !noalias !42
   br label %_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BitmapsEm.exit.i
 
 _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_16BitmapESaIS2_EEC2EmRKS3_.exit.i.i.i: ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_16BitmapESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
@@ -2228,8 +2228,8 @@ sw.bb64.i:                                        ; preds = %do.body22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp28.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %child_data.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp44.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %value_ranges.i, i8 0, i64 24, i1 false), !noalias !43
-  call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp.i151, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 8), !noalias !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i, i8 0, i64 24, i1 false), !noalias !43
+  call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp.i151, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 8), !noalias !43
   %32 = load ptr, ptr %ref.tmp.i151, align 8, !noalias !43
   %cmp.i.i.i152 = icmp eq ptr %32, null
   br i1 %cmp.i.i.i152, label %do.body9.i, label %cond.false.i.i
@@ -2324,7 +2324,7 @@ lpad13.i:                                         ; preds = %_ZN5arrow6StatusD2E
   br label %ehcleanup62.i
 
 _ZN5arrow6StatusD2Ev.exit54.i:                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEmRKSt6vectorINS0_5RangeESaIS3_EE(ptr noalias nonnull align 8 %ref.tmp28.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEmRKSt6vectorINS0_5RangeESaIS3_EE(ptr noalias nonnull align 8 %ref.tmp28.i, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i)
           to label %invoke.cont32.i unwind label %lpad13.i
 
 invoke.cont32.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit54.i
@@ -2769,7 +2769,7 @@ sw.bb66.i:                                        ; preds = %do.body22
   %105 = load ptr, ptr %out_, align 8, !noalias !67
   %child_data.i167 = getelementptr inbounds i8, ptr %105, i64 64
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %child_data.i167, i64 noundef 1), !noalias !67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %value_ranges.i163, i8 0, i64 24, i1 false), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i163, i8 0, i64 24, i1 false), !noalias !67
   %106 = load ptr, ptr %this, align 8, !noalias !67
   %_M_finish.i.i168 = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load ptr, ptr %_M_finish.i.i168, align 8, !noalias !67
@@ -2972,7 +2972,7 @@ _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i
 for.body.i.i.i.i.i.i276:                          ; preds = %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i276
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i276 ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i277, %for.body.i.i.i.i.i.i276 ], [ %this.val.i.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !70
   %incdec.ptr.i.i.i.i.i.i277 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i40.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i277, %123
@@ -3116,7 +3116,7 @@ ehcleanup.i179:                                   ; preds = %lpad15.body.i, %lpa
   br label %ehcleanup202.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEmRKSt6vectorINS0_5RangeESaIS3_EE(ptr noalias nonnull align 8 %ref.tmp31.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i163)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEmRKSt6vectorINS0_5RangeESaIS3_EE(ptr noalias nonnull align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i163)
           to label %invoke.cont35.i unwind label %lpad.i172
 
 invoke.cont35.i:                                  ; preds = %for.end.i
@@ -3423,7 +3423,7 @@ if.end9.i.i.i.i:                                  ; preds = %if.end8.sink.split.
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i: ; preds = %if.end9.i.i.i.i, %invoke.cont76.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp85.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 2, i32 noundef 4)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp85.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 2, i32 noundef 4)
           to label %invoke.cont89.i unwind label %lpad50.i
 
 invoke.cont89.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i
@@ -3532,7 +3532,7 @@ lpad112.i:                                        ; preds = %invoke.cont107.i
   br label %ehcleanup194.i
 
 _ZN5arrow6StatusD2Ev.exit241.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit203.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp135.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 4)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp135.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 4)
           to label %invoke.cont139.i unwind label %lpad106.i
 
 invoke.cont139.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit241.i
@@ -3898,7 +3898,7 @@ sw.bb68.i:                                        ; preds = %do.body22
   %255 = load ptr, ptr %out_, align 8, !noalias !115
   %child_data.i290 = getelementptr inbounds i8, ptr %255, i64 64
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %child_data.i290, i64 noundef 1), !noalias !115
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %value_ranges.i280, i8 0, i64 24, i1 false), !noalias !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i280, i8 0, i64 24, i1 false), !noalias !115
   %256 = load ptr, ptr %this, align 8, !noalias !115
   %_M_finish.i.i291 = getelementptr inbounds i8, ptr %256, i64 8
   %257 = load ptr, ptr %_M_finish.i.i291, align 8, !noalias !115
@@ -4101,7 +4101,7 @@ _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i
 for.body.i.i.i.i.i.i674:                          ; preds = %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i.i669, %for.body.i.i.i.i.i.i674
   %__cur.03.i.i.i.i.i.i675 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i678, %for.body.i.i.i.i.i.i674 ], [ %cond.i12.i.i.i670, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i.i669 ]
   %__first.addr.02.i.i.i.i.i.i676 = phi ptr [ %incdec.ptr.i.i.i.i.i.i677, %for.body.i.i.i.i.i.i674 ], [ %this.val.i.i.i654, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_M_allocateEm.exit.i.i.i669 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i675, ptr noundef nonnull readonly align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i676, i64 16, i1 false), !alias.scope !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i675, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i676, i64 16, i1 false), !alias.scope !118
   %incdec.ptr.i.i.i.i.i.i677 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i676, i64 16
   %incdec.ptr1.i.i.i.i.i.i678 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i675, i64 16
   %cmp.not.i.i.i.i.i40.i679 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i677, %273
@@ -4245,7 +4245,7 @@ ehcleanup.i323:                                   ; preds = %lpad15.body.i331, %
   br label %ehcleanup201.i
 
 for.end.i384:                                     ; preds = %for.cond.i381, %if.end.i.i296
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEmRKSt6vectorINS0_5RangeESaIS3_EE(ptr noalias nonnull align 8 %ref.tmp30.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i280)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEmRKSt6vectorINS0_5RangeESaIS3_EE(ptr noalias nonnull align 8 %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value_ranges.i280)
           to label %invoke.cont34.i unwind label %lpad.i300
 
 invoke.cont34.i:                                  ; preds = %for.end.i384
@@ -4552,7 +4552,7 @@ if.end9.i.i.i.i497:                               ; preds = %if.end8.sink.split.
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i498
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i498: ; preds = %if.end9.i.i.i.i497, %invoke.cont75.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp84.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 2, i32 noundef 8)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp84.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 2, i32 noundef 8)
           to label %invoke.cont88.i unwind label %lpad49.i
 
 invoke.cont88.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i498
@@ -4661,7 +4661,7 @@ lpad111.i:                                        ; preds = %invoke.cont106.i
   br label %ehcleanup193.i
 
 _ZN5arrow6StatusD2Ev.exit241.i571:                ; preds = %_ZN5arrow6StatusD2Ev.exit203.i527
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp134.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 8)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp134.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 8)
           to label %invoke.cont138.i unwind label %lpad105.i
 
 invoke.cont138.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit241.i571
@@ -5618,7 +5618,7 @@ for.cond.i885:                                    ; preds = %cleanup35.i
 
 invoke.cont.i832:                                 ; preds = %for.cond.i885, %invoke.cont.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i885 ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEm(ptr noalias nonnull align 8 %ref.tmp.i819, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %indvars.iv.i), !noalias !182
+  call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl9ChildDataEm(ptr noalias nonnull align 8 %ref.tmp.i819, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %indvars.iv.i), !noalias !182
   %497 = load ptr, ptr %ref.tmp.i819, align 8, !noalias !182
   %cmp.i.i.i833 = icmp eq ptr %497, null
   br i1 %cmp.i.i.i833, label %do.body9.i852, label %cond.false.i.i834
@@ -6096,7 +6096,7 @@ for.end.i915:                                     ; preds = %for.end.loopexit.i,
 
 call10.i.noexc.i:                                 ; preds = %for.end.i915
   %div.i.i = sdiv i32 %call10.i19.i, 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp19.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef %div.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef %div.i.i)
           to label %invoke.cont22.i unwind label %lpad.loopexit.split-lp.i916
 
 invoke.cont22.i:                                  ; preds = %call10.i.noexc.i
@@ -12002,7 +12002,7 @@ invoke.cont:
   %0 = load ptr, ptr %vfn9.i, align 8, !noalias !345
   %call10.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %fixed), !noalias !345
   %div.i = sdiv i32 %call10.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef %div.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef %div.i)
   %1 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %invoke.cont7, label %cond.false.i
@@ -12224,7 +12224,7 @@ entry:
   %ref.tmp28 = alloca %"class.arrow::Result.93", align 8
   %value_buffers = alloca %"class.std::vector.28", align 16
   %ref.tmp44 = alloca %"class.arrow::Result.48", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %value_ranges, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_ranges, i8 0, i64 24, i1 false)
   call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 4)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -13206,7 +13206,7 @@ for.body21.i:                                     ; preds = %for.cond17.preheade
 
 cond.false24.i:                                   ; preds = %for.body21.i
   %arrayidx.i22.i = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %cond.i.i, i64 %i.5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx.i22.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i22.i, i8 0, i64 16, i1 false)
   br label %for.inc26.i
 
 for.inc26.i:                                      ; preds = %for.body21.i, %cond.false24.i
@@ -13514,7 +13514,7 @@ entry:
   %ref.tmp28 = alloca %"class.arrow::Result.93", align 8
   %value_buffers = alloca %"class.std::vector.28", align 16
   %ref.tmp44 = alloca %"class.arrow::Result.48", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %value_ranges, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_ranges, i8 0, i64 24, i1 false)
   call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 8)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -13969,7 +13969,7 @@ entry:
   %ref.tmp28 = alloca %"class.arrow::Result.130", align 8
   %child_data = alloca %"class.std::vector.2", align 16
   %ref.tmp45 = alloca %"class.arrow::(anonymous namespace)::ConcatenateImpl", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %value_ranges, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_ranges, i8 0, i64 24, i1 false)
   call fastcc void @_ZN5arrow12_GLOBAL__N_115ConcatenateImpl7BuffersEmi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i32 noundef 4)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -17398,7 +17398,7 @@ do.body17:                                        ; preds = %do.body17.preheader
   br i1 %cmp.i34, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %add.ptr.i32, i8 0, i64 16, i1 false), !noalias !520
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i32, i8 0, i64 16, i1 false), !noalias !520
   br label %_ZN5arrow6StatusD2Ev.exit.thread
 
 if.end.i:                                         ; preds = %do.body17
@@ -17949,7 +17949,7 @@ try.cont.i:                                       ; preds = %for.body.i.i.i24.i
 for.body.i.i.i34.i:                               ; preds = %try.cont.i, %for.body.i.i.i34.i
   %__cur.03.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i34.i ], [ %call5.i.i.i.i, %try.cont.i ]
   %__first.addr.02.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i35.i, %for.body.i.i.i34.i ], [ %this.val, %try.cont.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__cur.03.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__first.addr.02.i.i.i.i, i64 16, i1 false), !alias.scope !539
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i, i64 16, i1 false), !alias.scope !539
   %incdec.ptr.i.i.i35.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 16
   %cmp.not.i.i.i36.i = icmp eq ptr %incdec.ptr.i.i.i35.i, %this.val4
@@ -18746,7 +18746,7 @@ do.body16:                                        ; preds = %do.body16.preheader
   br i1 %cmp.i34, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %add.ptr.i32, i8 0, i64 16, i1 false), !noalias !553
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i32, i8 0, i64 16, i1 false), !noalias !553
   br label %_ZN5arrow6StatusD2Ev.exit.thread
 
 if.end.i:                                         ; preds = %do.body16

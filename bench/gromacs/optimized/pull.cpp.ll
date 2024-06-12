@@ -2037,12 +2037,12 @@ _ZL37check_external_potential_registrationPK6pull_t.exit: ; preds = %43, %9, %22
   %87 = trunc i8 %86 to i1
   %..i.i.i.i = select i1 %87, double 0x3F91DF46A2529D39, double 1.000000e+00
   %88 = fmul double %81, %..i.i.i.i
-  %89 = tail call fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd(ptr noundef nonnull readonly align 8 dereferenceable(176) %.sroa.024.044, double noundef %88)
+  %89 = tail call fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.024.044, double noundef %88)
   store double %89, ptr %72, align 8
   br label %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i
 
 _ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i: ; preds = %76, %71
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %.sroa.024.044, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %5)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull %.sroa.024.044, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %5)
   %90 = getelementptr inbounds i8, ptr %.sroa.024.044, i64 376
   %91 = load double, ptr %90, align 8
   %92 = load double, ptr %72, align 8
@@ -2626,7 +2626,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br i1 %exitcond137.not.i, label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit, label %157, !llvm.loop !21
 
 170:                                              ; preds = %114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false), !alias.scope !17
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 171:                                              ; preds = %95
@@ -2681,7 +2681,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br i1 %exitcond.not.i, label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit, label %200, !llvm.loop !22
 
 209:                                              ; preds = %171
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !17
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 210:                                              ; preds = %95
@@ -2779,7 +2779,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 289:                                              ; preds = %210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false), !alias.scope !17
   br label %_ZL21calculateVectorForcesRK17pull_coord_work_t.exit
 
 290:                                              ; preds = %290, %.preheader.i
@@ -3745,7 +3745,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   br i1 %.not281.i, label %144, label %190
 
 144:                                              ; preds = %.lr.ph488.i
-  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull readonly align 8 dereferenceable(340) %0, ptr noundef nonnull %142, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %6)
+  tail call fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_work_tRK5t_pbcd(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull %142, ptr noundef nonnull align 4 dereferenceable(384) %3, double noundef %6)
   %145 = getelementptr inbounds i8, ptr %142, i64 192
   %146 = load ptr, ptr @debug, align 8
   %.not282.i = icmp eq ptr %146, null

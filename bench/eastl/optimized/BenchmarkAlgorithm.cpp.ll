@@ -6543,7 +6543,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i66: ; preds = %if.then.i.i.
 _ZN5eastl4copyIPjS1_EET0_T_S3_S2_.exit.i:         ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i66, %if.then2.i.i.i74
   %.sink.i.i.i71 = phi i64 [ %7, %if.then2.i.i.i74 ], [ %add.i.i.i.i69, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i66 ]
   store i64 %.sink.i.i.i71, ptr %stopwatch2, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40000) %call.i.i.i.i.i47, ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i41, i64 40000, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i47, ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i41, i64 40000, i1 false)
   invoke void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
           to label %invoke.cont33 unwind label %lpad28.loopexit
 
@@ -6672,7 +6672,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i106: ; preds = %if.then.i.i
 _ZN5eastl13copy_backwardIPjS1_EET0_T_S3_S2_.exit.i: ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i106, %if.then2.i.i.i116
   %.sink.i.i.i111 = phi i64 [ %22, %if.then2.i.i.i116 ], [ %add.i.i.i.i109, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i106 ]
   store i64 %.sink.i.i.i111, ptr %stopwatch2, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(40000) %call.i.i.i.i.i47, ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i41, i64 40000, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i47, ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i41, i64 40000, i1 false)
   invoke void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
           to label %invoke.cont58 unwind label %lpad28.loopexit
 
@@ -11320,7 +11320,7 @@ if.then24.i.i.i:                                  ; preds = %if.then22.i.i.i
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then24.i.i.i
   %add.ptr.i31.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.0.i.i.i, i64 32
   %gepdiff.i.i.i = add nsw i64 %add.ptr.i32.idx.i.i.i, -32
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %__p.sroa.0.0.i.i.i, ptr nonnull align 1 %add.ptr.i31.i.i.i, i64 %gepdiff.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %__p.sroa.0.0.i.i.i, ptr nonnull align 1 %add.ptr.i31.i.i.i, i64 %gepdiff.i.i.i, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then24.i.i.i
@@ -11379,7 +11379,7 @@ if.then.i.i.i.i.i46.i.i.i:                        ; preds = %if.then64.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i44.i.i.i, 5
   %.pre.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i47.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SizedPOD", ptr %add.ptr.i37.i.i.i, i64 %.pre.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i.i.i.i.i47.i.i.i, ptr nonnull align 1 %__p.sroa.0.0.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i44.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i47.i.i.i, ptr nonnull align 1 %__p.sroa.0.0.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i44.i.i.i, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i46.i.i.i, %if.then64.i.i.i

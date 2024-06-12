@@ -1219,7 +1219,7 @@ Vec_IntRemove.exit.preheader:                     ; preds = %91, %._crit_edge.i,
   br label %Vec_IntRemove.exit
 
 Vec_IntRemove.exit:                               ; preds = %Vec_IntRemove.exit.preheader, %Vec_IntRemove.exit
-  %108 = tail call i32 @Acb_ObjSuppMin_int(ptr noundef readonly %0, i32 noundef %1)
+  %108 = tail call i32 @Acb_ObjSuppMin_int(ptr noundef %0, i32 noundef %1)
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %Acb_ObjSuppMin.exit, label %Vec_IntRemove.exit, !llvm.loop !11
 
@@ -1331,7 +1331,7 @@ define void @Acb_ObjRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
 Acb_ObjRemoveDupFanins_int.exit:                  ; preds = %16
   %20 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %21 = trunc nuw nsw i64 %indvars.iv26.i to i32
-  tail call void @Acb_ObjRemoveDup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %20, i32 noundef %21)
+  tail call void @Acb_ObjRemoveDup(ptr noundef %0, i32 noundef %1, i32 noundef %20, i32 noundef %21)
   %.val.i = load ptr, ptr %3, align 8
   %.val19.i = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds i32, ptr %.val.i, i64 %5

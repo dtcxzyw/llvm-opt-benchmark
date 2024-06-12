@@ -2379,7 +2379,7 @@ define hidden i32 @ssl_get_cipher_blocksize(ptr nocapture noundef readonly %0) l
   %8 = sext i32 %7 to i64
   %9 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %10) #26
+  %11 = tail call i32 @gcry_cipher_map_name(ptr noundef %10) #26
   %12 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %11) #23
   %13 = trunc i64 %12 to i32
   br label %14
@@ -2738,7 +2738,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_restore_master_key(ptr nocapture
 ssl_data_set.exit:                                ; preds = %19
   %28 = load i32, ptr %21, align 8
   %29 = zext i32 %28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull readonly align 1 %26, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %26, i64 %29, i1 false)
   br label %38
 
 30:                                               ; preds = %15
@@ -2756,7 +2756,7 @@ ssl_data_set.exit30:                              ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 432
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %34 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull readonly align 1 %31, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %31, i64 %37, i1 false)
   br label %38
 
 38:                                               ; preds = %ssl_data_set.exit30, %ssl_data_set.exit
@@ -3094,7 +3094,7 @@ define hidden range(i32 -1, 1) i32 @ssl_generate_keyring_material(ptr noundef %0
   %66 = call ptr @gcry_md_read(ptr noundef %.val7.i, i32 noundef 1) #23
   %67 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
   %68 = zext i32 %67 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %60, ptr align 1 %66, i64 %68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %66, i64 %68, i1 false)
   %.val8.i = load ptr, ptr %2, align 8
   call void @gcry_md_close(ptr noundef %.val8.i) #23
   %69 = call i32 @gcry_md_open(ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0) #23
@@ -3108,7 +3108,7 @@ define hidden range(i32 -1, 1) i32 @ssl_generate_keyring_material(ptr noundef %0
   %74 = call ptr @gcry_md_read(ptr noundef %.val10.i, i32 noundef 2) #23
   %75 = call i32 @gcry_md_get_algo_dlen(i32 noundef 2) #23
   %76 = zext i32 %75 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %73, ptr align 1 %74, i64 %76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %74, i64 %76, i1 false)
   %.val11.i = load ptr, ptr %3, align 8
   call void @gcry_md_close(ptr noundef %.val11.i) #23
   br label %tls_handshake_hash.exit
@@ -3218,7 +3218,7 @@ tls_handshake_hash.exit:                          ; preds = %59, %61
   %129 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %128
   %130 = load ptr, ptr %129, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.529, ptr noundef nonnull @__func__.ssl_generate_keyring_material, ptr noundef %130)
-  %131 = call i32 @gcry_cipher_map_name(ptr noundef readonly %130) #26
+  %131 = call i32 @gcry_cipher_map_name(ptr noundef %130) #26
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %134
 
@@ -3425,7 +3425,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   %215 = call ptr @gcry_md_read(ptr noundef %.val222, i32 noundef 1) #23
   %216 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
   %217 = zext i32 %216 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %7, ptr align 1 %215, i64 %217, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %215, i64 %217, i1 false)
   %.val224 = load ptr, ptr %16, align 8
   call void @gcry_md_close(ptr noundef %.val224) #23
   %218 = call i32 @gcry_md_open(ptr noundef nonnull %16, i32 noundef 1, i32 noundef 0) #23
@@ -3446,7 +3446,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   %225 = call ptr @gcry_md_read(ptr noundef %.val223, i32 noundef 1) #23
   %226 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
   %227 = zext i32 %226 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %8, ptr align 1 %225, i64 %227, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %225, i64 %227, i1 false)
   %.val225 = load ptr, ptr %16, align 8
   call void @gcry_md_close(ptr noundef %.val225) #23
   br label %235
@@ -3649,7 +3649,7 @@ ssl_md_init.exit:                                 ; preds = %3, %7
   %18 = load ptr, ptr %4, align 8
   %19 = call ptr @gcry_md_read(ptr noundef %18, i32 noundef %16) #23
   %20 = sext i32 %17 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr align 1 %19, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %19, i64 %20, i1 false)
   %.val5 = load ptr, ptr %4, align 8
   call void @gcry_md_close(ptr noundef %.val5) #23
   %21 = zext i32 %17 to i64
@@ -3733,12 +3733,12 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
   %.val53.i = load ptr, ptr %14, align 8
   %34 = sext i32 %33 to i64
   call void @gcry_md_write(ptr noundef %.val53.i, ptr noundef %32, i64 noundef %34) #23
-  %35 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(17) @.str.543) #26
+  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(17) @.str.543) #26
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %38, label %36
 
 36:                                               ; preds = %._crit_edge.i
-  %37 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(17) @.str.546) #26
+  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(17) @.str.546) #26
   %.not43.i = icmp eq i32 %37, 0
   br i1 %.not43.i, label %38, label %47
 
@@ -3782,7 +3782,7 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
   %56 = call ptr @gcry_md_read(ptr noundef %.val55.i, i32 noundef 2) #23
   %57 = call i32 @gcry_md_get_algo_dlen(i32 noundef 2) #23
   %58 = zext i32 %57 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %15, ptr align 1 %56, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %56, i64 %58, i1 false)
   %.val57.i = load ptr, ptr %14, align 8
   call void @gcry_md_reset(ptr noundef %.val57.i) #23
   %59 = load i32, ptr %22, align 8
@@ -3798,7 +3798,7 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
   %63 = call ptr @gcry_md_read(ptr noundef %.val47.i, i32 noundef 1) #23
   %64 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
   %65 = zext i32 %64 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %16, ptr align 1 %63, i64 %65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr align 1 %63, i64 %65, i1 false)
   %.val58.i = load ptr, ptr %13, align 8
   call void @gcry_md_reset(ptr noundef %.val58.i) #23
   %66 = load ptr, ptr %5, align 8
@@ -3831,7 +3831,7 @@ ssl3_prf.exit:                                    ; preds = %55, %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %76 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #26
+  %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
   %.not.i32 = icmp eq ptr %4, null
   br i1 %.not.i32, label %81, label %77
 
@@ -3894,7 +3894,7 @@ ssl3_prf.exit:                                    ; preds = %55, %19
   %106 = trunc i64 %99 to i32
   %107 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %106, ptr %107, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr readonly align 1 %2, i64 %76, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %2, i64 %76, i1 false)
   %108 = getelementptr i8, ptr %100, i64 %76
   %109 = load ptr, ptr %3, align 8
   %110 = load i32, ptr %95, align 8
@@ -3954,14 +3954,14 @@ ssl3_prf.exit:                                    ; preds = %55, %19
   %137 = getelementptr i8, ptr %133, i64 %136
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %129, ptr align 1 %137, i64 %124, i1 false)
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1193, i32 noundef %123, i32 noundef %106)
-  %138 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.338) #26
+  %138 = tail call i32 @gcry_md_map_name(ptr noundef nonnull @.str.338) #26
   %139 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef nonnull %8, i32 noundef %138, ptr noundef nonnull %10, i32 noundef %6)
   %.not57.i = icmp eq i32 %139, 0
   br i1 %.not57.i, label %140, label %155
 
 140:                                              ; preds = %131
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1194)
-  %141 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.339) #26
+  %141 = tail call i32 @gcry_md_map_name(ptr noundef nonnull @.str.339) #26
   %142 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef %141, ptr noundef nonnull %9, i32 noundef %6)
   %.not58.i = icmp eq i32 %142, 0
   br i1 %.not58.i, label %.preheader.i, label %155
@@ -4093,12 +4093,12 @@ define internal fastcc void @ssl3_generate_export_iv(ptr nocapture noundef reado
   %16 = call ptr @gcry_md_read(ptr noundef %.val8, i32 noundef 1) #23
   %17 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
   %18 = zext i32 %17 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr align 1 %16, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %16, i64 %18, i1 false)
   %.val9 = load ptr, ptr %5, align 8
   call void @gcry_md_close(ptr noundef %.val9) #23
   %19 = load ptr, ptr %2, align 8
   %20 = zext i32 %3 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull readonly align 16 %6, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull align 16 %6, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %3, ptr %21, align 8
   %22 = load ptr, ptr %2, align 8
@@ -4240,7 +4240,7 @@ ssl_data_set.exit:                                ; preds = %16
   %23 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %22, i32 1
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %3, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %3, i64 %25, i1 false)
   br label %.sink.split
 
 26:                                               ; preds = %7
@@ -4269,7 +4269,7 @@ ssl_data_set.exit:                                ; preds = %16
 
 ssl_data_set.exit48:                              ; preds = %30
   %34 = zext nneg i32 %6 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 1 %5, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %5, i64 %34, i1 false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ssl_data_set.exit, %ssl_data_set.exit48
@@ -4440,7 +4440,7 @@ define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0,
   %25 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.529, ptr noundef nonnull @__func__.tls13_generate_keys, ptr noundef %26)
-  %27 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %26) #26
+  %27 = tail call i32 @gcry_cipher_map_name(ptr noundef %26) #26
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %30
 
@@ -4455,7 +4455,7 @@ define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0,
   %33 = sext i32 %32 to i64
   %34 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 16
-  %36 = tail call i32 @gcry_md_map_name(ptr noundef readonly %35) #26
+  %36 = tail call i32 @gcry_md_map_name(ptr noundef %35) #26
   %.not62 = icmp eq i32 %36, 0
   br i1 %.not62, label %37, label %38
 
@@ -4473,7 +4473,7 @@ define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0,
   %or.cond.i = icmp ult i8 %43, 19
   %.str.1214..str.1215.i = select i1 %or.cond.i, ptr @.str.1214, ptr @.str.1215
   %44 = trunc i64 %39 to i16
-  %45 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef readonly %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.564, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %44, ptr noundef nonnull %4)
+  %45 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.564, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %44, ptr noundef nonnull %4)
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %46, label %47
 
@@ -4482,7 +4482,7 @@ define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0,
   br label %83
 
 47:                                               ; preds = %38
-  %48 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef readonly %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.566, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext 12, ptr noundef nonnull %5)
+  %48 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.566, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext 12, ptr noundef nonnull %5)
   %.not64 = icmp eq i32 %48, 0
   br i1 %.not64, label %49, label %50
 
@@ -4883,7 +4883,7 @@ switch.lookup:                                    ; preds = %switch.edge.i
   store i8 %197, ptr %198, align 1
   %199 = getelementptr i8, ptr %167, i64 11
   %200 = zext i8 %8 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr readonly align 1 %7, i64 %200, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr align 1 %7, i64 %200, i1 false)
   %201 = getelementptr i8, ptr %167, i64 %200
   %202 = getelementptr i8, ptr %201, i64 11
   store i8 %8, ptr %202, align 1
@@ -4951,7 +4951,7 @@ switch.lookup:                                    ; preds = %switch.edge.i
   store i8 %246, ptr %224, align 1
   %247 = getelementptr i8, ptr %212, i64 21
   %248 = zext i8 %8 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %247, ptr readonly align 1 %7, i64 %248, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %247, ptr align 1 %7, i64 %248, i1 false)
   %249 = getelementptr i8, ptr %247, i64 %248
   %250 = lshr i32 %.0178204.i, 8
   %251 = trunc i32 %250 to i8
@@ -5200,7 +5200,7 @@ ssl_get_cipher_blocksize.exit:                    ; preds = %367, %367, %367, %3
   %371 = sext i32 %370 to i64
   %372 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %371
   %373 = load ptr, ptr %372, align 8
-  %374 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %373) #26
+  %374 = tail call i32 @gcry_cipher_map_name(ptr noundef %373) #26
   %375 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %374) #23
   %376 = trunc i64 %375 to i32
   %377 = icmp ugt i32 %376, %16
@@ -5614,7 +5614,7 @@ define internal fastcc range(i32 -1, 1) i32 @ssl3_check_mac(ptr nocapture nounde
   %13 = sext i32 %12 to i64
   %14 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 16
-  %16 = tail call i32 @gcry_md_map_name(ptr noundef readonly %15) #26
+  %16 = tail call i32 @gcry_md_map_name(ptr noundef %15) #26
   %17 = call i32 @gcry_md_open(ptr noundef nonnull %6, i32 noundef %16, i32 noundef 0) #23
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %20, label %ssl_md_init.exit
@@ -5692,7 +5692,7 @@ ssl_md_init.exit:                                 ; preds = %5
   %58 = load ptr, ptr %6, align 8
   %59 = call ptr @gcry_md_read(ptr noundef %58, i32 noundef %56) #23
   %60 = sext i32 %57 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %8, ptr align 1 %59, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %59, i64 %60, i1 false)
   %.val30 = load ptr, ptr %6, align 8
   call void @gcry_md_reset(ptr noundef %.val30) #23
   %61 = load ptr, ptr %23, align 8
@@ -5711,7 +5711,7 @@ ssl_md_init.exit:                                 ; preds = %5
   %67 = load ptr, ptr %6, align 8
   %68 = call ptr @gcry_md_read(ptr noundef %67, i32 noundef %65) #23
   %69 = sext i32 %66 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %8, ptr align 1 %68, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %68, i64 %69, i1 false)
   %.val28 = load ptr, ptr %6, align 8
   call void @gcry_md_close(ptr noundef %.val28) #23
   %70 = zext i32 %66 to i64
@@ -5736,7 +5736,7 @@ define internal fastcc range(i32 -1, 1) i32 @tls_check_mac(ptr nocapture noundef
   %12 = sext i32 %11 to i64
   %13 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 16
-  %15 = tail call i32 @gcry_md_map_name(ptr noundef readonly %14) #26
+  %15 = tail call i32 @gcry_md_map_name(ptr noundef %14) #26
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1240, ptr noundef %14, i32 noundef %15)
   %16 = call i32 @gcry_md_open(ptr noundef nonnull %7, i32 noundef %15, i32 noundef 2) #23
   %.not.i = icmp eq i32 %16, 0
@@ -5833,7 +5833,7 @@ ssl_hmac_final.exit:                              ; preds = %28
   %60 = load ptr, ptr %7, align 8
   %61 = call ptr @gcry_md_read(ptr noundef %60, i32 noundef %57) #23
   %62 = zext nneg i32 %58 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %8, ptr align 1 %61, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %61, i64 %62, i1 false)
   %.val26 = load ptr, ptr %7, align 8
   call void @gcry_md_close(ptr noundef %.val26) #23
   call void @ssl_print_data(ptr noundef nonnull @.str.1241, ptr noundef nonnull %8, i64 noundef %62)
@@ -5863,7 +5863,7 @@ define internal fastcc range(i32 -1, 1) i32 @dtls_check_mac(ptr nocapture nounde
   %19 = sext i32 %18 to i64
   %20 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 16
-  %22 = tail call i32 @gcry_md_map_name(ptr noundef readonly %21) #26
+  %22 = tail call i32 @gcry_md_map_name(ptr noundef %21) #26
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1242, ptr noundef %21, i32 noundef %22)
   %23 = call i32 @gcry_md_open(ptr noundef nonnull %9, i32 noundef %22, i32 noundef 2) #23
   %.not.i = icmp eq i32 %23, 0
@@ -6039,7 +6039,7 @@ ssl_hmac_final.exit:                              ; preds = %99
   %105 = load ptr, ptr %9, align 8
   %106 = call ptr @gcry_md_read(ptr noundef %105, i32 noundef %102) #23
   %107 = zext nneg i32 %103 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %10, ptr align 1 %106, i64 %107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %106, i64 %107, i1 false)
   %.val60 = load ptr, ptr %9, align 8
   call void @gcry_md_close(ptr noundef %.val60) #23
   call void @ssl_print_data(ptr noundef nonnull @.str.1241, ptr noundef nonnull %10, i64 noundef %107)
@@ -6397,7 +6397,7 @@ define hidden void @ssl_set_server(ptr nocapture noundef writeonly %0, ptr nocap
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %7, ptr %6, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %copy_address_wmem.exit, label %13
@@ -7169,7 +7169,7 @@ define internal fastcc void @ssl_save_master_key(ptr noundef %0, ptr noundef %1,
 ssl_data_clone.exit:                              ; preds = %14
   %23 = load i32, ptr %5, align 8
   %24 = zext i32 %23 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull readonly align 1 %21, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %21, i64 %24, i1 false)
   %25 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 %23, ptr %25, align 8
   %26 = tail call ptr @wmem_file_scope() #23
@@ -7190,7 +7190,7 @@ ssl_data_clone.exit:                              ; preds = %14
 ssl_data_clone.exit13:                            ; preds = %ssl_data_clone.exit
   %34 = load i32, ptr %10, align 8
   %35 = zext i32 %34 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull readonly align 1 %32, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %32, i64 %35, i1 false)
   %36 = getelementptr inbounds i8, ptr %30, i64 8
   store i32 %34, ptr %36, align 8
   %37 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef nonnull %19, ptr noundef nonnull %30) #23
@@ -7362,7 +7362,7 @@ define hidden void @tls13_change_key(ptr noundef %0, ptr nocapture noundef reado
 ssl_data_set.exit:                                ; preds = %18
   %25 = load i32, ptr %19, align 8
   %26 = zext i32 %25 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull readonly align 1 %23, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %23, i64 %26, i1 false)
   br label %.sink.split
 
 27:                                               ; preds = %12
@@ -7416,13 +7416,13 @@ define hidden void @tls13_key_update(ptr nocapture noundef %0, i32 noundef %1) l
   %20 = sext i32 %19 to i64
   %21 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 16
-  %23 = tail call i32 @gcry_md_map_name(ptr noundef readonly %22) #26
+  %23 = tail call i32 @gcry_md_map_name(ptr noundef %22) #26
   %24 = add i8 %10, -1
   %or.cond4 = icmp ult i8 %24, 19
   %spec.store.select = select i1 %or.cond4, ptr @.str.654, ptr @.str.653
   %.str.1214..str.1215.i = select i1 %or.cond4, ptr @.str.1214, ptr @.str.1215
   %25 = trunc i32 %14 to i16
-  %26 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %23, ptr noundef nonnull readonly %8, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull %spec.store.select, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %25, ptr noundef nonnull %3)
+  %26 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %23, ptr noundef nonnull %8, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull %spec.store.select, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %25, ptr noundef nonnull %3)
   %.not37 = icmp eq i32 %26, 0
   br i1 %.not37, label %27, label %28
 
@@ -7442,7 +7442,7 @@ define hidden void @tls13_key_update(ptr nocapture noundef %0, i32 noundef %1) l
 ssl_data_set.exit:                                ; preds = %28
   %31 = load ptr, ptr %8, align 8
   %32 = zext i32 %14 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull readonly align 1 %29, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %29, i64 %32, i1 false)
   store i32 %14, ptr %13, align 8
   %33 = tail call i32 @tls13_generate_keys(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %1)
   %.not38 = icmp eq i32 %33, 0
@@ -7455,7 +7455,7 @@ ssl_data_set.exit41:                              ; preds = %ssl_data_set.exit
   %37 = load ptr, ptr %35, align 8
   %38 = tail call noalias ptr @wmem_realloc(ptr noundef %36, ptr noundef %37, i64 noundef %32) #23
   store ptr %38, ptr %35, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull readonly align 1 %29, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %29, i64 %32, i1 false)
   %39 = getelementptr inbounds i8, ptr %34, i64 144
   store i32 %14, ptr %39, align 8
   br label %40
@@ -14423,7 +14423,7 @@ ssl_hmac_final.exit:                              ; preds = %ssl_hmac_setkey.exi
   %35 = load ptr, ptr %8, align 8
   %36 = call ptr @gcry_md_read(ptr noundef %35, i32 noundef %32) #23
   %37 = zext nneg i32 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %6, ptr align 1 %36, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %36, i64 %37, i1 false)
   %.val35 = load ptr, ptr %8, align 8
   call void @gcry_md_reset(ptr noundef %.val35) #23
   %38 = load ptr, ptr %0, align 8
@@ -14462,7 +14462,7 @@ ssl_hmac_final.exit45:                            ; preds = %ssl_hmac_setkey.exi
   %52 = load ptr, ptr %8, align 8
   %53 = call ptr @gcry_md_read(ptr noundef %52, i32 noundef %49) #23
   %54 = zext nneg i32 %50 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %7, ptr align 1 %53, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %53, i64 %54, i1 false)
   %.val36 = load ptr, ptr %8, align 8
   call void @gcry_md_reset(ptr noundef %.val36) #23
   %55 = call i32 @llvm.umin.i32(i32 %.02856, i32 %50)

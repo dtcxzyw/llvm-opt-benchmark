@@ -280,7 +280,7 @@ define range(i32 -1, 1) i32 @H5Soffset_simple(i64 noundef %0, ptr noundef readon
   br i1 %.not.i, label %46, label %45
 
 45:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 8 %1, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 8 %1, i64 %44, i1 false)
   br label %48
 
 46:                                               ; preds = %41

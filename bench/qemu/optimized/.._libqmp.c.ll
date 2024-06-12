@@ -329,7 +329,7 @@ do.end.i:                                         ; preds = %if.else.i13, %if.th
   store i32 1, ptr %cond.sroa.sel20.i, align 4
   %control.sroa.gep21.i = getelementptr inbounds i8, ptr %control.i, i64 16
   %cond.sroa.sel22.i = select i1 %cmp6.i, ptr %control.sroa.gep21.i, ptr inttoptr (i64 16 to ptr)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %cond.sroa.sel22.i, ptr nonnull readonly align 4 %fds, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %cond.sroa.sel22.i, ptr nonnull align 4 %fds, i64 %mul.i, i1 false)
   br label %do.body12.i
 
 do.body12.i:                                      ; preds = %land.rhs.i, %do.end.i

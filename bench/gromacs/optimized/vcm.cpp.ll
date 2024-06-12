@@ -1241,7 +1241,7 @@ define void @_Z12calc_vcm_grpRK9t_mdatomsN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEE
   %52 = getelementptr inbounds i8, ptr %51, i64 192
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds [3 x [3 x float]], ptr %53, i64 %indvars.iv32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %54, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %54, i8 0, i64 36, i1 false)
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %36, %.lr.ph29.split.us
@@ -1435,7 +1435,7 @@ define void @_Z12calc_vcm_grpRK9t_mdatomsN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEE
   %199 = getelementptr inbounds i8, ptr %198, i64 192
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds [3 x [3 x float]], ptr %200, i64 %indvars.iv
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %201, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %201, i8 0, i64 36, i1 false)
   br label %202
 
 202:                                              ; preds = %183, %.lr.ph29.split
@@ -1915,7 +1915,7 @@ define void @_Z22process_and_stopcm_grpP8_IO_FILEP5t_vcmRK9t_mdatomsN3gmx8ArrayR
   br i1 %exitcond173.not.i, label %120, label %112, !llvm.loop !27
 
 120:                                              ; preds = %112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %14, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %14, i8 0, i64 36, i1 false)
   %121 = load ptr, ptr %52, align 8
   %122 = getelementptr inbounds %"class.gmx::BasicVector", ptr %121, i64 %indvars.iv174.i
   %123 = getelementptr inbounds i8, ptr %122, i64 4

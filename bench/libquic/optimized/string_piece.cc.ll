@@ -639,7 +639,7 @@ entry:
   %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %pos
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr align 1 %add.ptr.i.i, i64 %.sroa.speculated.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %add.ptr.i.i, i64 %.sroa.speculated.i.i, i1 false)
   ret i64 %.sroa.speculated.i.i
 }
 
@@ -2638,7 +2638,7 @@ entry:
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %pos
   %mul.i.i = shl i64 %.sroa.speculated.i.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %buf, ptr align 2 %add.ptr.i.i, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %buf, ptr align 2 %add.ptr.i.i, i64 %mul.i.i, i1 false)
   ret i64 %.sroa.speculated.i.i
 }
 

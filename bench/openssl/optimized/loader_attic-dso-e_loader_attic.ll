@@ -104,7 +104,7 @@ skip_cbs:                                         ; preds = %entry, %if.end
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_cbs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(13) @.str) #11
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(13) @.str) #11
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %bind_helper.exit
 
@@ -1008,7 +1008,7 @@ land.lhs.true15:                                  ; preds = %file_name_check.exi
   br i1 %cmp.not.i.i, label %ossl_ends_with_dirsep.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true15
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %20) #11
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #11
   %22 = getelementptr i8, ptr %20, i64 %call.i.i
   %add.ptr.i.i = getelementptr i8, ptr %22, i64 -1
   %.pre.i.i = load i8, ptr %add.ptr.i.i, align 1
@@ -2838,7 +2838,7 @@ if.end.i:                                         ; preds = %if.then
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -10
-  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull readonly dereferenceable(11) @.str.40) #11
+  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull dereferenceable(11) @.str.40) #11
   %cmp11.not.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.not.i, label %check_suffix.exit, label %return
 
@@ -3045,7 +3045,7 @@ if.end.i:                                         ; preds = %if.else
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -11
-  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull readonly dereferenceable(12) @.str.32) #11
+  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull dereferenceable(12) @.str.32) #11
   %cmp11.not.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.not.i, label %check_suffix.exit, label %return
 

@@ -221,29 +221,29 @@ declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_un
 define internal i32 @ready_file_comparator(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #20
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
   %7 = icmp eq i64 %6, 16
   br i1 %7, label %8, label %IsTLHistoryFileName.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strspn(ptr noundef readonly %4, ptr noundef nonnull @.str.21) #20
+  %9 = tail call i64 @strspn(ptr noundef %4, ptr noundef nonnull @.str.21) #20
   %10 = icmp eq i64 %9, 8
   br i1 %10, label %11, label %IsTLHistoryFileName.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %4, i64 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.22) #20
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.22) #20
   %14 = icmp eq i32 %13, 0
   br label %IsTLHistoryFileName.exit
 
 IsTLHistoryFileName.exit:                         ; preds = %3, %8, %11
   %15 = phi i1 [ false, %8 ], [ false, %3 ], [ %14, %11 ]
-  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
   %17 = icmp eq i64 %16, 16
   br i1 %17, label %18, label %IsTLHistoryFileName.exit9.thr_comm
 
 18:                                               ; preds = %IsTLHistoryFileName.exit
-  %19 = tail call i64 @strspn(ptr noundef readonly %5, ptr noundef nonnull @.str.21) #20
+  %19 = tail call i64 @strspn(ptr noundef %5, ptr noundef nonnull @.str.21) #20
   %20 = icmp eq i64 %19, 8
   br i1 %20, label %IsTLHistoryFileName.exit9, label %IsTLHistoryFileName.exit9.thr_comm
 
@@ -252,7 +252,7 @@ IsTLHistoryFileName.exit9.thr_comm:               ; preds = %IsTLHistoryFileName
 
 IsTLHistoryFileName.exit9:                        ; preds = %18
   %21 = getelementptr i8, ptr %5, i64 8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.22) #20
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.22) #20
   %23 = icmp eq i32 %22, 0
   %24 = xor i1 %15, %23
   br i1 %24, label %25, label %27

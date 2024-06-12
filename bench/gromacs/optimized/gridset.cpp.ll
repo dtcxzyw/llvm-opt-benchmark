@@ -202,7 +202,7 @@ _ZNSt12_Vector_baseIN5Nbnxm8GridWorkESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = 
   store ptr %.sink.i, ptr %35, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 116
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %36, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %36, i8 0, i64 36, i1 false)
   invoke void @_ZN3gmx19changePinningPolicyISt6vectorIiNS_9AllocatorIiNS_20HostAllocationPolicyEEEEEEvPT_NS_13PinningPolicyE(ptr noundef nonnull %13, i32 noundef %8)
           to label %37 unwind label %.loopexit.split-lp
 

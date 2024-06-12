@@ -2245,7 +2245,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %or.cond.i, label %if.then7.i, label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
 
 if.then7.i:                                       ; preds = %while.end.i
-  %call.i = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src, ptr noundef nonnull %src.addr.0.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %errorCode)
+  %call.i = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src, ptr noundef nonnull %src.addr.0.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
 
 _ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit: ; preds = %while.end.i, %if.then7.i
@@ -6256,7 +6256,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %or.cond.i, label %if.then7.i, label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
 
 if.then7.i:                                       ; preds = %while.end.i
-  %call.i = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src, ptr noundef nonnull %src.addr.0.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %errorCode)
+  %call.i = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src, ptr noundef nonnull %src.addr.0.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
 
 _ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit: ; preds = %while.end.i, %if.then7.i
@@ -9380,7 +9380,7 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
   br i1 %tobool.not.i.i, label %invoke.cont288.thread, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then3.i.i, %if.else.i.i
-  %call7.i.i361 = invoke noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %c.0.i)
+  %call7.i.i361 = invoke noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %c.0.i)
           to label %invoke.cont288 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 invoke.cont288.thread:                            ; preds = %land.lhs.true287, %do.end.i356, %if.then3.i.i
@@ -10357,7 +10357,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %or.cond.i, label %if.then7.i, label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
 
 if.then7.i:                                       ; preds = %while.end.i
-  %call.i = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src, ptr noundef nonnull %src.addr.0.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %errorCode)
+  %call.i = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src, ptr noundef nonnull %src.addr.0.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit
 
 _ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit: ; preds = %while.end.i, %if.then7.i

@@ -432,7 +432,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @null_oid() #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr noundef nonnull readonly align 4 dereferenceable(32) %call, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %call, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -591,7 +591,7 @@ if.then.i.i:                                      ; preds = %if.then.i25
 
 st_mult.exit.i:                                   ; preds = %if.then.i25
   %mul.i.i = mul nuw i64 %n.0.lcssa.i, 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call5, ptr readonly align 1 %a, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5, ptr align 1 %a, i64 %mul.i.i, i1 false)
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %st_mult.exit, %st_mult.exit.i
@@ -610,7 +610,7 @@ if.then.i.i31:                                    ; preds = %if.then.i27
 
 st_mult.exit.i29:                                 ; preds = %if.then.i27
   %mul.i.i30 = mul nuw i64 %add, 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr readonly align 1 %b, i64 %mul.i.i30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %b, i64 %mul.i.i30, i1 false)
   br label %copy_array.exit32
 
 copy_array.exit32:                                ; preds = %copy_array.exit, %st_mult.exit.i29

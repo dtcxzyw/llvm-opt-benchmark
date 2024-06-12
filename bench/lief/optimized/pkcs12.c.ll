@@ -105,7 +105,7 @@ pkcs12_parse_pbe_params.exit.i:                   ; preds = %41, %38
   %59 = load ptr, ptr %58, align 8
   %60 = load i64, ptr %39, align 8
   %61 = load i32, ptr %10, align 4
-  %62 = call i32 @mbedtls_pkcs12_derivation(ptr noundef nonnull writeonly %13, i64 noundef %26, ptr noundef nonnull %12, i64 noundef %57, ptr noundef %59, i64 noundef %60, i32 noundef %3, i32 noundef 1, i32 noundef %61)
+  %62 = call i32 @mbedtls_pkcs12_derivation(ptr noundef nonnull %13, i64 noundef %26, ptr noundef nonnull %12, i64 noundef %57, ptr noundef %59, i64 noundef %60, i32 noundef %3, i32 noundef 1, i32 noundef %61)
   %.not29.i = icmp eq i32 %62, 0
   br i1 %.not29.i, label %63, label %pkcs12_pbe_derive_key_iv.exit.thread
 
@@ -123,7 +123,7 @@ pkcs12_pbe_derive_key_iv.exit.thread38:           ; preds = %63
   %66 = load ptr, ptr %58, align 8
   %67 = load i64, ptr %39, align 8
   %68 = load i32, ptr %10, align 4
-  %69 = call i32 @mbedtls_pkcs12_derivation(ptr noundef nonnull writeonly %14, i64 noundef %29, ptr noundef nonnull %12, i64 noundef %57, ptr noundef %66, i64 noundef %67, i32 noundef %3, i32 noundef 2, i32 noundef %68)
+  %69 = call i32 @mbedtls_pkcs12_derivation(ptr noundef nonnull %14, i64 noundef %29, ptr noundef nonnull %12, i64 noundef %57, ptr noundef %66, i64 noundef %67, i32 noundef %3, i32 noundef 2, i32 noundef %68)
   br label %pkcs12_pbe_derive_key_iv.exit
 
 pkcs12_pbe_derive_key_iv.exit.thread:             ; preds = %22, %._crit_edge.i, %47, %31
@@ -266,7 +266,7 @@ define hidden i32 @mbedtls_pkcs12_derivation(ptr nocapture noundef writeonly %0,
   %.018.i = phi ptr [ %40, %.preheader.i ], [ %11, %34 ]
   %.0.i = phi i64 [ %41, %.preheader.i ], [ %., %34 ]
   %39 = call i64 @llvm.umin.i64(i64 %.0.i, i64 %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i, ptr nonnull readonly align 1 %4, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i, ptr nonnull align 1 %4, i64 %39, i1 false)
   %40 = getelementptr inbounds i8, ptr %.018.i, i64 %39
   %41 = sub i64 %.0.i, %39
   %.old2.not.i = icmp eq i64 %41, 0
@@ -279,7 +279,7 @@ pkcs12_fill_buffer.exit:                          ; preds = %.preheader.i, %34
   %.018.i118 = phi ptr [ %43, %.preheader.i117 ], [ %12, %pkcs12_fill_buffer.exit ]
   %.0.i119 = phi i64 [ %44, %.preheader.i117 ], [ %., %pkcs12_fill_buffer.exit ]
   %42 = call i64 @llvm.umin.i64(i64 %.0.i119, i64 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i118, ptr nonnull readonly align 1 %2, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i118, ptr nonnull align 1 %2, i64 %42, i1 false)
   %43 = getelementptr inbounds i8, ptr %.018.i118, i64 %42
   %44 = sub i64 %.0.i119, %42
   %.old2.not.i120 = icmp eq i64 %44, 0
@@ -354,7 +354,7 @@ pkcs12_fill_buffer.exit121:                       ; preds = %.preheader.i117, %p
   %.018.i124 = phi ptr [ %66, %.preheader.i123 ], [ %13, %64 ]
   %.0.i125 = phi i64 [ %67, %.preheader.i123 ], [ %., %64 ]
   %65 = call i64 @llvm.umin.i64(i64 %.0.i125, i64 %36)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i124, ptr nonnull readonly align 16 %14, i64 %65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i124, ptr nonnull align 16 %14, i64 %65, i1 false)
   %66 = getelementptr inbounds i8, ptr %.018.i124, i64 %65
   %67 = sub i64 %.0.i125, %65
   %.old2.not.i126 = icmp eq i64 %67, 0

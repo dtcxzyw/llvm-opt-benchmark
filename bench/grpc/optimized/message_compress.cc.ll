@@ -37,7 +37,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 _ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit: ; preds = %entry, %sw.bb2.i
   %.sink = phi i32 [ 1, %sw.bb2.i ], [ 0, %entry ]
-  %call.i = tail call fastcc noundef i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr noundef readonly %input, ptr noundef %output, i32 noundef %.sink)
+  %call.i = tail call fastcc noundef i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr noundef %input, ptr noundef %output, i32 noundef %.sink)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.then, label %return
 

@@ -53,7 +53,7 @@ define range(i32 -1, 1) i32 @faccessat(i32 noundef %0, ptr noundef %1, i32 nound
 
 12:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
-  %13 = call i32 @stat(ptr noundef nonnull readonly %6, ptr noundef nonnull %5)
+  %13 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %access.exit
 

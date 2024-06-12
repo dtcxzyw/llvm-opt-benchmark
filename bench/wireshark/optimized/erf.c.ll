@@ -1553,7 +1553,7 @@ populate_capture_host_info.exit.i:                ; preds = %289, %287
   %576 = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %577 = load i8, ptr %576, align 8
   %578 = trunc nuw nsw i32 %485 to i8
-  %579 = call fastcc i32 @erf_populate_interface(ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef %575, i8 noundef zeroext %577, i8 noundef zeroext %578, ptr noundef writeonly %3, ptr noundef writeonly %4)
+  %579 = call fastcc i32 @erf_populate_interface(ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef %575, i8 noundef zeroext %577, i8 noundef zeroext %578, ptr noundef %3, ptr noundef %4)
   %580 = icmp eq i32 %579, -1
   br i1 %580, label %populate_interface_info.exit.i, label %581
 

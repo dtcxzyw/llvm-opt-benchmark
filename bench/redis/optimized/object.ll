@@ -337,7 +337,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %tobool.not.i, label %if.else17.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull readonly align 1 %ptr, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull align 1 %ptr, i64 %len, i1 false)
   %arrayidx16.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i, i64 0, i64 %len
   store i8 0, ptr %arrayidx16.i, align 1
   br label %return
@@ -421,7 +421,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %tobool.not.i, label %if.else17.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull readonly align 1 %ptr, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull align 1 %ptr, i64 %len, i1 false)
   %arrayidx16.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i, i64 0, i64 %len
   store i8 0, ptr %arrayidx16.i, align 1
   br label %return
@@ -510,7 +510,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end14
 
 if.else.i.i:                                      ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull readonly align 16 %buf, i64 %conv, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull align 16 %buf, i64 %conv, i1 false)
   %arrayidx16.i.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i.i, i64 0, i64 %conv
   store i8 0, ptr %arrayidx16.i.i, align 1
   br label %if.end14
@@ -641,7 +641,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %createStringObjectFromLongLongWithOptions.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i.i, ptr nonnull readonly align 16 %buf.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i.i, ptr nonnull align 16 %buf.i, i64 %conv.i, i1 false)
   %arrayidx16.i.i.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i.i.i, i64 0, i64 %conv.i
   store i8 0, ptr %arrayidx16.i.i.i, align 1
   br label %createStringObjectFromLongLongWithOptions.exit
@@ -699,7 +699,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %createStringObject.exit
 
 if.else.i.i:                                      ; preds = %if.then.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull readonly align 16 %buf, i64 %conv, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull align 16 %buf, i64 %conv, i1 false)
   %arrayidx16.i.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i.i, i64 0, i64 %conv
   store i8 0, ptr %arrayidx16.i.i, align 1
   br label %createStringObject.exit
@@ -867,7 +867,7 @@ if.then.i:                                        ; preds = %sdslen.exit27
   br label %return
 
 if.then13.i:                                      ; preds = %sdslen.exit27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull readonly align 1 %6, i64 %retval.0.i14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull align 1 %6, i64 %retval.0.i14, i1 false)
   %arrayidx16.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i, i64 0, i64 %retval.0.i14
   store i8 0, ptr %arrayidx16.i, align 1
   br label %return
@@ -2530,7 +2530,7 @@ sdslen.exit46:                                    ; preds = %if.end62, %sw.bb.i4
   br i1 %cmp.i49, label %createEmbeddedStringObject.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %sdslen.exit46
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull readonly align 1 %0, i64 %retval.0.i33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i, ptr nonnull align 1 %0, i64 %retval.0.i33, i1 false)
   br label %createEmbeddedStringObject.exit
 
 createEmbeddedStringObject.exit:                  ; preds = %sdslen.exit46, %if.then13.i
@@ -2635,7 +2635,7 @@ if.then.i.i:                                      ; preds = %if.then.i9
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then.i9
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull readonly align 16 %buf, i64 %call15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr5.i.i, ptr nonnull align 16 %buf, i64 %call15, i1 false)
   %arrayidx16.i.i = getelementptr inbounds [0 x i8], ptr %add.ptr5.i.i, i64 0, i64 %call15
   store i8 0, ptr %arrayidx16.i.i, align 1
   br label %return

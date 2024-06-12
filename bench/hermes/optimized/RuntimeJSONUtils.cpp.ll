@@ -423,7 +423,7 @@ entry:
   %parser = alloca %"class.hermes::vm::(anonymous namespace)::RuntimeJSONParser", align 8
   store ptr %runtime, ptr %parser, align 8
   %lexer_.i = getelementptr inbounds i8, ptr %parser, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lexer_.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lexer_.i, ptr noundef nonnull align 8 dereferenceable(40) %stream, i64 40, i1 false)
   %storage_.i.i.i = getelementptr inbounds i8, ptr %parser, i64 48
   %storage_3.i.i.i = getelementptr inbounds i8, ptr %stream, i64 40
   %0 = load <2 x ptr>, ptr %storage_3.i.i.i, align 8

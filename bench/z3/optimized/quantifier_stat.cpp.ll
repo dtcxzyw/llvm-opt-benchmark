@@ -213,7 +213,7 @@ entry:
   %m_case_split_factor.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %m_case_split_factor.i, align 4
   %m_num_nested_quantifiers.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %m_num_nested_quantifiers.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %m_num_nested_quantifiers.i, i8 0, i64 32, i1 false)
   %m_todo = getelementptr inbounds i8, ptr %this, i64 40
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8

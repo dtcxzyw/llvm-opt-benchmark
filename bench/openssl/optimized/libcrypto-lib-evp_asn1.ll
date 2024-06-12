@@ -172,7 +172,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 %max_len)
   %call8.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   %conv9.i = sext i32 %call.max_len.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
   br label %asn1_type_get_int_oct.exit
 
 asn1_type_get_int_oct.exit:                       ; preds = %if.end.i, %if.then7.i
@@ -260,7 +260,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 %max_len)
   %call8.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   %conv9.i = sext i32 %call.max_len.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
   br label %asn1_type_get_int_oct.exit
 
 asn1_type_get_int_oct.exit:                       ; preds = %if.end.i, %if.then7.i

@@ -682,10 +682,10 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
   store ptr %0, ptr %22, align 8
   store ptr %2, ptr %23, align 8
   store ptr %5, ptr %24, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %29, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(264) %30, i8 0, i64 264, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(360) %33, i8 0, i64 360, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %30, i8 0, i64 264, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %33, i8 0, i64 360, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %25, i8 0, i64 29, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %26, i8 0, i64 52, i1 false)
   store i8 1, ptr %34, align 8
@@ -1113,7 +1113,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112PortGroupDefD2Ev(ptr noundef non
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %3, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i) #21
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 120
   %.not.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
@@ -1141,7 +1141,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit: ; preds
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %12, %.lr.ph.i.i.i.i2 ], [ %9, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i3) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i3) #21
   %12 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 120
   %.not.i.i.i.i4 = icmp eq ptr %12, %11
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i5, label %.lr.ph.i.i.i.i2, !llvm.loop !12
@@ -1225,7 +1225,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_tra
 
 .lr.ph.i.i.i.i26:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit, %.lr.ph.i.i.i.i26
   %.05.i.i.i.i27 = phi ptr [ %30, %.lr.ph.i.i.i.i26 ], [ %27, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %.05.i.i.i.i27) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %.05.i.i.i.i27) #21
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i27, i64 128
   %.not.i.i.i.i28 = icmp eq ptr %30, %29
   br i1 %.not.i.i.i.i28, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i26, !llvm.loop !15
@@ -1253,7 +1253,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEESaIS3_EED2Ev.exit: ; pre
 
 .lr.ph.i.i.i.i33:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i33
   %.05.i.i.i.i34 = phi ptr [ %36, %.lr.ph.i.i.i.i33 ], [ %33, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i34) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i34) #21
   %36 = getelementptr inbounds i8, ptr %.05.i.i.i.i34, i64 120
   %.not.i.i.i.i35 = icmp eq ptr %36, %35
   br i1 %.not.i.i.i.i35, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i33, !llvm.loop !16
@@ -1281,7 +1281,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaI
 
 .lr.ph.i.i.i.i40:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i40
   %.05.i.i.i.i41 = phi ptr [ %42, %.lr.ph.i.i.i.i40 ], [ %39, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i41) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i41) #21
   %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i41, i64 120
   %.not.i.i.i.i42 = icmp eq ptr %42, %41
   br i1 %.not.i.i.i.i42, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i43, label %.lr.ph.i.i.i.i40, !llvm.loop !16
@@ -1309,7 +1309,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaI
 
 .lr.ph.i.i.i.i50:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EED2Ev.exit48, %.lr.ph.i.i.i.i50
   %.05.i.i.i.i51 = phi ptr [ %48, %.lr.ph.i.i.i.i50 ], [ %45, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EED2Ev.exit48 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i51) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i51) #21
   %48 = getelementptr inbounds i8, ptr %.05.i.i.i.i51, i64 120
   %.not.i.i.i.i52 = icmp eq ptr %48, %47
   br i1 %.not.i.i.i.i52, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i50, !llvm.loop !17
@@ -1337,7 +1337,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EE
 
 .lr.ph.i.i.i.i57:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i57
   %.05.i.i.i.i58 = phi ptr [ %54, %.lr.ph.i.i.i.i57 ], [ %51, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i58) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i58) #21
   %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i58, i64 120
   %.not.i.i.i.i59 = icmp eq ptr %54, %53
   br i1 %.not.i.i.i.i59, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i60, label %.lr.ph.i.i.i.i57, !llvm.loop !12
@@ -1365,7 +1365,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit65: ; pre
 
 .lr.ph.i.i.i.i67:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit65, %.lr.ph.i.i.i.i67
   %.05.i.i.i.i68 = phi ptr [ %60, %.lr.ph.i.i.i.i67 ], [ %57, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit65 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i68) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i68) #21
   %60 = getelementptr inbounds i8, ptr %.05.i.i.i.i68, i64 168
   %.not.i.i.i.i69 = icmp eq ptr %60, %59
   br i1 %.not.i.i.i.i69, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i67, !llvm.loop !18
@@ -1393,7 +1393,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EED2Ev.exit:
 
 .lr.ph.i.i.i.i74:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i74
   %.05.i.i.i.i75 = phi ptr [ %66, %.lr.ph.i.i.i.i74 ], [ %63, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i75) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i75) #21
   %66 = getelementptr inbounds i8, ptr %.05.i.i.i.i75, i64 120
   %.not.i.i.i.i76 = icmp eq ptr %66, %65
   br i1 %.not.i.i.i.i76, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i77, label %.lr.ph.i.i.i.i74, !llvm.loop !12
@@ -1421,7 +1421,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit82: ; pre
 
 .lr.ph.i.i.i.i84:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit82, %.lr.ph.i.i.i.i84
   %.05.i.i.i.i85 = phi ptr [ %72, %.lr.ph.i.i.i.i84 ], [ %69, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit82 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i85) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i85) #21
   %72 = getelementptr inbounds i8, ptr %.05.i.i.i.i85, i64 120
   %.not.i.i.i.i86 = icmp eq ptr %72, %71
   br i1 %.not.i.i.i.i86, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i87, label %.lr.ph.i.i.i.i84, !llvm.loop !12
@@ -1477,7 +1477,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEESaIS3_EED2Ev.exit: ; pr
 
 .lr.ph.i.i.i.i101:                                ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i101
   %.05.i.i.i.i102 = phi ptr [ %84, %.lr.ph.i.i.i.i101 ], [ %81, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i102) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i102) #21
   %84 = getelementptr inbounds i8, ptr %.05.i.i.i.i102, i64 120
   %.not.i.i.i.i103 = icmp eq ptr %84, %83
   br i1 %.not.i.i.i.i103, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i104, label %.lr.ph.i.i.i.i101, !llvm.loop !12
@@ -1578,7 +1578,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_tra
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %12, %.lr.ph.i.i.i.i2 ], [ %9, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i3) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i3) #21
   %12 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 120
   %.not.i.i.i.i4 = icmp eq ptr %12, %11
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !20
@@ -1606,7 +1606,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEES
 
 .lr.ph.i.i.i.i9:                                  ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i9
   %.05.i.i.i.i10 = phi ptr [ %18, %.lr.ph.i.i.i.i9 ], [ %15, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEESaIS5_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i10) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i10) #21
   %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i10, i64 120
   %.not.i.i.i.i11 = icmp eq ptr %18, %17
   br i1 %.not.i.i.i.i11, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i9, !llvm.loop !21
@@ -1634,7 +1634,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_
 
 .lr.ph.i.i.i.i16:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EED2Ev.exit, %.lr.ph.i.i.i.i16
   %.05.i.i.i.i17 = phi ptr [ %24, %.lr.ph.i.i.i.i16 ], [ %21, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i17) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i17) #21
   %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i17, i64 120
   %.not.i.i.i.i18 = icmp eq ptr %24, %23
   br i1 %.not.i.i.i.i18, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i16, !llvm.loop !22
@@ -1662,7 +1662,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_
 
 .lr.ph.i.i.i.i23:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EED2Ev.exit, %.lr.ph.i.i.i.i23
   %.05.i.i.i.i24 = phi ptr [ %30, %.lr.ph.i.i.i.i23 ], [ %27, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i24) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i24) #21
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i24, i64 120
   %.not.i.i.i.i25 = icmp eq ptr %30, %29
   br i1 %.not.i.i.i.i25, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i26, label %.lr.ph.i.i.i.i23, !llvm.loop !22
@@ -1718,7 +1718,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_11ResourceDefEEESaIS3_EED2Ev.exit: 
 
 .lr.ph.i.i.i.i40:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_11ResourceDefEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i40
   %.05.i.i.i.i41 = phi ptr [ %42, %.lr.ph.i.i.i.i40 ], [ %39, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_11ResourceDefEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(144) %.05.i.i.i.i41) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %.05.i.i.i.i41) #21
   %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i41, i64 144
   %.not.i.i.i.i42 = icmp eq ptr %42, %41
   br i1 %.not.i.i.i.i42, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i40, !llvm.loop !24
@@ -1746,7 +1746,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEESaIS3_EED2Ev.exit: ; p
 
 .lr.ph.i.i.i.i47:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i47
   %.05.i.i.i.i48 = phi ptr [ %48, %.lr.ph.i.i.i.i47 ], [ %45, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i48) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i48) #21
   %48 = getelementptr inbounds i8, ptr %.05.i.i.i.i48, i64 120
   %.not.i.i.i.i49 = icmp eq ptr %48, %47
   br i1 %.not.i.i.i.i49, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i50, label %.lr.ph.i.i.i.i47, !llvm.loop !21
@@ -1802,7 +1802,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEESaIS3_EED2Ev.exit:
 
 .lr.ph.i.i.i.i64:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i64
   %.05.i.i.i.i65 = phi ptr [ %60, %.lr.ph.i.i.i.i64 ], [ %57, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i65) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i65) #21
   %60 = getelementptr inbounds i8, ptr %.05.i.i.i.i65, i64 120
   %.not.i.i.i.i66 = icmp eq ptr %60, %59
   br i1 %.not.i.i.i.i66, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i64, !llvm.loop !12
@@ -1830,7 +1830,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit: ; preds
 
 .lr.ph.i.i.i.i71:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit, %.lr.ph.i.i.i.i71
   %.05.i.i.i.i72 = phi ptr [ %66, %.lr.ph.i.i.i.i71 ], [ %63, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i72) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i72) #21
   %66 = getelementptr inbounds i8, ptr %.05.i.i.i.i72, i64 120
   %.not.i.i.i.i73 = icmp eq ptr %66, %65
   br i1 %.not.i.i.i.i73, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i74, label %.lr.ph.i.i.i.i71, !llvm.loop !12
@@ -3533,7 +3533,7 @@ _ZN5Yosys5RTLIL8IdStringaSERKS1_.exit.i:          ; preds = %87, %_ZN5Yosys5RTLI
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc13, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i.i.i.i ], [ %99, %.noexc13 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i) #21
   %106 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i = icmp eq ptr %106, %101
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !12
@@ -3564,7 +3564,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit.i: ; 
 
 .lr.ph.i.i.i.i.i.i16.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit.i, %.lr.ph.i.i.i.i.i.i16.i
   %.05.i.i.i.i.i.i17.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i.i16.i ], [ %110, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i17.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i17.i) #21
   %117 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i17.i, i64 120
   %.not.i.i.i.i.i.i18.i = icmp eq ptr %117, %112
   br i1 %.not.i.i.i.i.i.i18.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i19.i, label %.lr.ph.i.i.i.i.i.i16.i, !llvm.loop !12
@@ -3626,7 +3626,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEESaIS3_EEaSEOS5_.ex
 
 .lr.ph.i.i.i.i.i.i28.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEESaIS3_EEaSEOS5_.exit.i, %.lr.ph.i.i.i.i.i.i28.i
   %.05.i.i.i.i.i.i29.i = phi ptr [ %139, %.lr.ph.i.i.i.i.i.i28.i ], [ %132, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEESaIS3_EEaSEOS5_.exit.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i29.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i29.i) #21
   %139 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i29.i, i64 120
   %.not.i.i.i.i.i.i30.i = icmp eq ptr %139, %134
   br i1 %.not.i.i.i.i.i.i30.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEES2_EvT_S4_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i28.i, !llvm.loop !21
@@ -3657,7 +3657,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EEaSEOS4_.exit.i: ; preds = %1
 
 .lr.ph.i.i.i.i.i.i33.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EEaSEOS4_.exit.i, %.lr.ph.i.i.i.i.i.i33.i
   %.05.i.i.i.i.i.i34.i = phi ptr [ %150, %.lr.ph.i.i.i.i.i.i33.i ], [ %143, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EEaSEOS4_.exit.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(144) %.05.i.i.i.i.i.i34.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %.05.i.i.i.i.i.i34.i) #21
   %150 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i34.i, i64 144
   %.not.i.i.i.i.i.i35.i = icmp eq ptr %150, %145
   br i1 %.not.i.i.i.i.i.i35.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i33.i, !llvm.loop !24
@@ -3719,7 +3719,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_11ResourceDefEEESaIS3_EEaSEOS5_.exi
 
 .lr.ph.i.i.i.i.i.i43.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_11ResourceDefEEESaIS3_EEaSEOS5_.exit.i, %.lr.ph.i.i.i.i.i.i43.i
   %.05.i.i.i.i.i.i44.i = phi ptr [ %172, %.lr.ph.i.i.i.i.i.i43.i ], [ %165, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_11ResourceDefEEESaIS3_EEaSEOS5_.exit.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i44.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i44.i) #21
   %172 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i44.i, i64 120
   %.not.i.i.i.i.i.i45.i = icmp eq ptr %172, %167
   br i1 %.not.i.i.i.i.i.i45.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i43.i, !llvm.loop !22
@@ -3750,7 +3750,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EEaSEOS4_.exit.i: ; preds = %1
 
 .lr.ph.i.i.i.i.i.i48.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EEaSEOS4_.exit.i, %.lr.ph.i.i.i.i.i.i48.i
   %.05.i.i.i.i.i.i49.i = phi ptr [ %183, %.lr.ph.i.i.i.i.i.i48.i ], [ %176, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EEaSEOS4_.exit.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i49.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i49.i) #21
   %183 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i49.i, i64 120
   %.not.i.i.i.i.i.i50.i = icmp eq ptr %183, %178
   br i1 %.not.i.i.i.i.i.i50.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i51.i, label %.lr.ph.i.i.i.i.i.i48.i, !llvm.loop !22
@@ -3781,7 +3781,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EEaSEOS4_.exit53.i: ; preds = 
 
 .lr.ph.i.i.i.i.i.i55.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EEaSEOS4_.exit53.i, %.lr.ph.i.i.i.i.i.i55.i
   %.05.i.i.i.i.i.i56.i = phi ptr [ %194, %.lr.ph.i.i.i.i.i.i55.i ], [ %187, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIdEESaIS2_EEaSEOS4_.exit53.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i56.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i56.i) #21
   %194 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i56.i, i64 120
   %.not.i.i.i.i.i.i57.i = icmp eq ptr %194, %189
   br i1 %.not.i.i.i.i.i.i57.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEES2_EvT_S4_RSaIT0_E.exit.i.i.i58.i, label %.lr.ph.i.i.i.i.i.i55.i, !llvm.loop !21
@@ -3812,7 +3812,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EEaSEOS4_.exit60.i: ; preds = 
 
 .lr.ph.i.i.i.i.i.i62.i:                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EEaSEOS4_.exit60.i, %.lr.ph.i.i.i.i.i.i62.i
   %.05.i.i.i.i.i.i63.i = phi ptr [ %205, %.lr.ph.i.i.i.i.i.i62.i ], [ %198, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIiEESaIS2_EEaSEOS4_.exit60.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i63.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i63.i) #21
   %205 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i63.i, i64 120
   %.not.i.i.i.i.i.i64.i = icmp eq ptr %205, %200
   br i1 %.not.i.i.i.i.i.i64.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i62.i, !llvm.loop !20
@@ -12833,7 +12833,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5Empty
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i) #21
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !12
@@ -15244,7 +15244,7 @@ _ZN12_GLOBAL__N_16Parser11exit_optionEv.exit:     ; preds = %87, %93
   br i1 %115, label %116, label %140
 
 116:                                              ; preds = %113
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %117 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_16Parser7get_intEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %118 unwind label %125
 
@@ -15332,7 +15332,7 @@ _ZN12_GLOBAL__N_19WidthsDefD2Ev.exit54:           ; preds = %138, %136, %125
   br i1 %142, label %143, label %232
 
 143:                                              ; preds = %140
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %144 = getelementptr inbounds i8, ptr %11, i64 8
   %145 = getelementptr inbounds i8, ptr %11, i64 16
   br label %146
@@ -16421,7 +16421,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110CapabilityINS0_5Empty
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %112, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %116, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %87, %112 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i.i.i) #21
   %116 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %116, %.016.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEEEvT_S5_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !12
@@ -16448,7 +16448,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEEEvT_S5_.exit.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %109, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %109 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %123 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %123, %34
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.loopexit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
@@ -16469,7 +16469,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.
 _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit51.i.i.i: ; preds = %117
   %125 = extractvalue { ptr, i32 } %118, 0
   %126 = call ptr @__cxa_begin_catch(ptr %125) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %88) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %88) #21
   %.not.i52.i.i.i = icmp eq ptr %87, null
   br i1 %.not.i52.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EE13_M_deallocateEPS3_m.exit53.i.i.i, label %129
 
@@ -16967,7 +16967,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIiEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.body.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %136, %.lr.ph.i.i.i.i.i.i.i.i ], [ %89, %.body.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i) #21
   %136 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %136, %.023.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEEEvT_S4_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !21
@@ -16994,7 +16994,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEEEvT_S4_.exit.i.i.i.i.i.i: ; preds 
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIiEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %143, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIiEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %143, %35
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEES2_EvT_S4_RSaIT0_E.exit.i.i.i.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !21
@@ -17015,7 +17015,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIiEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; p
 .body.i11:                                        ; preds = %137
   %147 = extractvalue { ptr, i32 } %138, 0
   %148 = call ptr @__cxa_begin_catch(ptr %147) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %90) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIiED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %90) #21
   call void @_ZdlPv(ptr noundef nonnull %89) #22
   invoke void @__cxa_rethrow() #23
           to label %154 unwind label %149
@@ -17218,7 +17218,7 @@ _ZN12_GLOBAL__N_19WidthsDefC2ERKS0_.exit:         ; preds = %10, %19
           to label %29 unwind label %247
 
 29:                                               ; preds = %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i, label %.noexc15.thread, label %33
 
 .noexc15.thread:                                  ; preds = %29
@@ -17493,7 +17493,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEESaIS3_EE12_M_check_le
   %159 = ptrtoint ptr %157 to i64
   %160 = sub i64 %158, %159
   %161 = ashr exact i64 %160, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.028.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.028.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %156, %157
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc13.i.i.i.i.i.i, label %162
 
@@ -17625,7 +17625,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEEJRKS3_EEvPT_DpOT0_
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.body.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %202, %.lr.ph.i.i.i.i.i.i.i.i ], [ %125, %.body.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(144) %.05.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %.05.i.i.i.i.i.i.i.i) #21
   %202 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 144
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %202, %.028.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEEEvT_S5_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !24
@@ -17652,7 +17652,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEEEvT_S5_.exit.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %209, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(144) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %.05.i.i.i.i.i.i) #21
   %209 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 144
   %.not.i.i.i.i.i.i17 = icmp eq ptr %209, %65
   br i1 %.not.i.i.i.i.i.i17, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEES3_EvT_S5_RSaIT0_E.exit.i.i.i.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !24
@@ -17673,7 +17673,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_9WidthsDefEEES3_EvT_S5_RSaIT0_E.e
 .body.i16:                                        ; preds = %203
   %213 = extractvalue { ptr, i32 } %204, 0
   %214 = call ptr @__cxa_begin_catch(ptr %213) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(144) %126) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_9WidthsDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %126) #21
   call void @_ZdlPv(ptr noundef nonnull %125) #22
   invoke void @__cxa_rethrow() #23
           to label %220 unwind label %215
@@ -18838,7 +18838,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.body.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %136, %.lr.ph.i.i.i.i.i.i.i.i ], [ %89, %.body.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i) #21
   %136 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %136, %.023.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEEEvT_S4_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !22
@@ -18865,7 +18865,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEEEvT_S4_.exit.i.i.i.i.i.i: ; preds 
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %143, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %143, %35
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !22
@@ -18886,7 +18886,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; p
 .body.i11:                                        ; preds = %137
   %147 = extractvalue { ptr, i32 } %138, 0
   %148 = call ptr @__cxa_begin_catch(ptr %147) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %90) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIdED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %90) #21
   call void @_ZdlPv(ptr noundef nonnull %89) #22
   invoke void @__cxa_rethrow() #23
           to label %154 unwind label %149
@@ -19374,7 +19374,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKind
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.body.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %136, %.lr.ph.i.i.i.i.i.i.i.i ], [ %89, %.body.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i) #21
   %136 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %136, %.023.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEEEvT_S7_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !20
@@ -19401,7 +19401,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEE
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %143, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %143, %35
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
@@ -19422,7 +19422,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEE
 .body.i11:                                        ; preds = %137
   %147 = extractvalue { ptr, i32 } %138, 0
   %148 = call ptr @__cxa_begin_catch(ptr %147) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %90) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary14MemoryInitKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %90) #21
   call void @_ZdlPv(ptr noundef nonnull %89) #22
   invoke void @__cxa_rethrow() #23
           to label %154 unwind label %149
@@ -20137,7 +20137,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 
 .lr.ph.i.i.i.i.i.i19:                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit, %.lr.ph.i.i.i.i.i.i19
   %.05.i.i.i.i.i.i20 = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i19 ], [ %22, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i20) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i20) #21
   %31 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i20, i64 120
   %.not.i.i.i.i.i.i21 = icmp eq ptr %31, %24
   br i1 %.not.i.i.i.i.i.i21, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i19, !llvm.loop !12
@@ -20205,7 +20205,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEESaIS3_EEaSEOS5_.exit: ;
 
 .lr.ph.i.i.i.i.i.i29:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEESaIS3_EEaSEOS5_.exit, %.lr.ph.i.i.i.i.i.i29
   %.05.i.i.i.i.i.i30 = phi ptr [ %57, %.lr.ph.i.i.i.i.i.i29 ], [ %48, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEESaIS3_EEaSEOS5_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i30) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i30) #21
   %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i30, i64 120
   %.not.i.i.i.i.i.i31 = icmp eq ptr %57, %50
   br i1 %.not.i.i.i.i.i.i31, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i32, label %.lr.ph.i.i.i.i.i.i29, !llvm.loop !12
@@ -20239,7 +20239,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit34: ; 
 
 .lr.ph.i.i.i.i.i.i36:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit34, %.lr.ph.i.i.i.i.i.i36
   %.05.i.i.i.i.i.i37 = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i36 ], [ %61, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit34 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i37) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i37) #21
   %70 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i37, i64 120
   %.not.i.i.i.i.i.i38 = icmp eq ptr %70, %63
   br i1 %.not.i.i.i.i.i.i38, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i39, label %.lr.ph.i.i.i.i.i.i36, !llvm.loop !12
@@ -20273,7 +20273,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit41: ; 
 
 .lr.ph.i.i.i.i.i.i43:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit41, %.lr.ph.i.i.i.i.i.i43
   %.05.i.i.i.i.i.i44 = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i43 ], [ %74, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit41 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i.i.i44) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i.i.i44) #21
   %83 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i44, i64 168
   %.not.i.i.i.i.i.i45 = icmp eq ptr %83, %76
   br i1 %.not.i.i.i.i.i.i45, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i43, !llvm.loop !18
@@ -20307,7 +20307,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EEaSEOS5_.ex
 
 .lr.ph.i.i.i.i.i.i48:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EEaSEOS5_.exit, %.lr.ph.i.i.i.i.i.i48
   %.05.i.i.i.i.i.i49 = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i48 ], [ %87, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EEaSEOS5_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i49) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i49) #21
   %96 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i49, i64 120
   %.not.i.i.i.i.i.i50 = icmp eq ptr %96, %89
   br i1 %.not.i.i.i.i.i.i50, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i51, label %.lr.ph.i.i.i.i.i.i48, !llvm.loop !12
@@ -20341,7 +20341,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit53: ; 
 
 .lr.ph.i.i.i.i.i.i55:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit53, %.lr.ph.i.i.i.i.i.i55
   %.05.i.i.i.i.i.i56 = phi ptr [ %109, %.lr.ph.i.i.i.i.i.i55 ], [ %100, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit53 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i56) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i56) #21
   %109 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i56, i64 120
   %.not.i.i.i.i.i.i57 = icmp eq ptr %109, %102
   br i1 %.not.i.i.i.i.i.i57, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !17
@@ -20375,7 +20375,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EE
 
 .lr.ph.i.i.i.i.i.i60:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EEaSEOS7_.exit, %.lr.ph.i.i.i.i.i.i60
   %.05.i.i.i.i.i.i61 = phi ptr [ %122, %.lr.ph.i.i.i.i.i.i60 ], [ %113, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EEaSEOS7_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i61) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i61) #21
   %122 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i61, i64 120
   %.not.i.i.i.i.i.i62 = icmp eq ptr %122, %115
   br i1 %.not.i.i.i.i.i.i62, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i60, !llvm.loop !16
@@ -20409,7 +20409,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaI
 
 .lr.ph.i.i.i.i.i.i65:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EEaSEOS7_.exit, %.lr.ph.i.i.i.i.i.i65
   %.05.i.i.i.i.i.i66 = phi ptr [ %135, %.lr.ph.i.i.i.i.i.i65 ], [ %126, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EEaSEOS7_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i66) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i66) #21
   %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i66, i64 120
   %.not.i.i.i.i.i.i67 = icmp eq ptr %135, %128
   br i1 %.not.i.i.i.i.i.i67, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.i68, label %.lr.ph.i.i.i.i.i.i65, !llvm.loop !16
@@ -20443,7 +20443,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaI
 
 .lr.ph.i.i.i.i.i.i72:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EEaSEOS7_.exit70, %.lr.ph.i.i.i.i.i.i72
   %.05.i.i.i.i.i.i73 = phi ptr [ %148, %.lr.ph.i.i.i.i.i.i72 ], [ %139, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EEaSEOS7_.exit70 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %.05.i.i.i.i.i.i73) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %.05.i.i.i.i.i.i73) #21
   %148 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i73, i64 128
   %.not.i.i.i.i.i.i74 = icmp eq ptr %148, %141
   br i1 %.not.i.i.i.i.i.i74, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i72, !llvm.loop !15
@@ -20545,7 +20545,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_13RawWrTransDefEEESaIS3_EEaSEOS5_.e
 
 .lr.ph.i.i.i.i.i.i87:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_13RawWrTransDefEEESaIS3_EEaSEOS5_.exit, %.lr.ph.i.i.i.i.i.i87
   %.05.i.i.i.i.i.i88 = phi ptr [ %187, %.lr.ph.i.i.i.i.i.i87 ], [ %178, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_13RawWrTransDefEEESaIS3_EEaSEOS5_.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i88) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i88) #21
   %187 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i88, i64 120
   %.not.i.i.i.i.i.i89 = icmp eq ptr %187, %180
   br i1 %.not.i.i.i.i.i.i89, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i90, label %.lr.ph.i.i.i.i.i.i87, !llvm.loop !12
@@ -20579,7 +20579,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit92: ; 
 
 .lr.ph.i.i.i.i.i.i94:                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit92, %.lr.ph.i.i.i.i.i.i94
   %.05.i.i.i.i.i.i95 = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i94 ], [ %191, %_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEaSEOS5_.exit92 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i95) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i95) #21
   %200 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i95, i64 120
   %.not.i.i.i.i.i.i96 = icmp eq ptr %200, %193
   br i1 %.not.i.i.i.i.i.i96, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEES3_EvT_S5_RSaIT0_E.exit.i.i.i97, label %.lr.ph.i.i.i.i.i.i94, !llvm.loop !12
@@ -21168,7 +21168,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4
   %23 = ptrtoint ptr %.val10.i to i64
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %.not.i.i.i.i47 = icmp eq ptr %.val11.i, %.val10.i
   br i1 %.not.i.i.i.i47, label %.noexc48, label %26
 
@@ -21280,7 +21280,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEEEvT_S5_.exit.i.i.i.i.
   %58 = ptrtoint ptr %.val10.i49 to i64
   %59 = sub i64 %57, %58
   %60 = sdiv exact i64 %59, 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %.not.i.i.i.i51 = icmp eq ptr %.val11.i50, %.val10.i49
   br i1 %.not.i.i.i.i51, label %.noexc69, label %61
 
@@ -21334,7 +21334,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEEE8a
 
 .lr.ph.i.i.i.i.i.i.i59:                           ; preds = %71, %.lr.ph.i.i.i.i.i.i.i59
   %.05.i.i.i.i.i.i.i60 = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i59 ], [ %64, %71 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i.i.i.i60) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i.i.i.i60) #21
   %75 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i60, i64 168
   %.not.i.i.i.i.i.i.i61 = icmp eq ptr %75, %.014.i.i.i.i.i56
   br i1 %.not.i.i.i.i.i.i.i61, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEEvT_S5_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i59, !llvm.loop !18
@@ -21386,7 +21386,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEEvT_S5_.exit.i.i
   %90 = ptrtoint ptr %.val10.i72 to i64
   %91 = sub i64 %89, %90
   %92 = sdiv exact i64 %91, 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
   %.not.i.i.i.i74 = icmp eq ptr %.val11.i73, %.val10.i72
   br i1 %.not.i.i.i.i74, label %.noexc92, label %93
 
@@ -21440,7 +21440,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrK
 
 .lr.ph.i.i.i.i.i.i.i82:                           ; preds = %103, %.lr.ph.i.i.i.i.i.i.i82
   %.05.i.i.i.i.i.i.i83 = phi ptr [ %107, %.lr.ph.i.i.i.i.i.i.i82 ], [ %96, %103 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i83) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i83) #21
   %107 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i83, i64 120
   %.not.i.i.i.i.i.i.i84 = icmp eq ptr %107, %.014.i.i.i.i.i79
   br i1 %.not.i.i.i.i.i.i.i84, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEEEvT_S7_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i82, !llvm.loop !17
@@ -21498,7 +21498,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEEEvT_S7
   %125 = ptrtoint ptr %.val10.i95 to i64
   %126 = sub i64 %124, %125
   %127 = ashr exact i64 %126, 7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
   %.not.i.i.i.i97 = icmp eq ptr %.val11.i96, %.val10.i95
   br i1 %.not.i.i.i.i97, label %.noexc115, label %128
 
@@ -21552,7 +21552,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEEE8allocat
 
 .lr.ph.i.i.i.i.i.i.i105:                          ; preds = %138, %.lr.ph.i.i.i.i.i.i.i105
   %.05.i.i.i.i.i.i.i106 = phi ptr [ %142, %.lr.ph.i.i.i.i.i.i.i105 ], [ %131, %138 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %.05.i.i.i.i.i.i.i106) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %.05.i.i.i.i.i.i.i106) #21
   %142 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i106, i64 128
   %.not.i.i.i.i.i.i.i107 = icmp eq ptr %142, %.014.i.i.i.i.i102
   br i1 %.not.i.i.i.i.i.i.i107, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEEvT_S5_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i105, !llvm.loop !15
@@ -21598,7 +21598,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEEvT_S5_.exit.i.i.i.i.i
   %154 = ptrtoint ptr %.val10.i118 to i64
   %155 = sub i64 %153, %154
   %156 = sdiv exact i64 %155, 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   %.not.i.i.i.i120 = icmp eq ptr %.val11.i119, %.val10.i118
   br i1 %.not.i.i.i.i120, label %.noexc138, label %157
 
@@ -21698,7 +21698,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINSt7__cxx1112basic_stringIcSt11char_t
   %183 = ptrtoint ptr %.val10.i141 to i64
   %184 = sub i64 %182, %183
   %185 = sdiv exact i64 %184, 160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %179, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, i8 0, i64 24, i1 false)
   %.not.i.i.i.i143 = icmp eq ptr %.val11.i142, %.val10.i141
   br i1 %.not.i.i.i.i143, label %.noexc161, label %186
 
@@ -27451,7 +27451,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_12Port
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i) #21
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 168
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !18
@@ -27629,7 +27629,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10M
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i) #21
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !17
@@ -27762,7 +27762,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10M
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i) #21
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
@@ -27895,7 +27895,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_7SrstD
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %.05.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %.05.i.i.i) #21
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 128
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
@@ -29241,7 +29241,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 
 430:                                              ; preds = %427
   %431 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %431, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %431, i8 0, i64 48, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_16Parser10peek_tokenB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %432 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -30596,7 +30596,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16Parser7add_capINS_12PortWidthDefE
           to label %17 unwind label %202
 
 17:                                               ; preds = %14
-  invoke fastcc void @_ZN12_GLOBAL__N_112PortWidthDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %5)
+  invoke fastcc void @_ZN12_GLOBAL__N_112PortWidthDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5)
           to label %.noexc unwind label %204
 
 .noexc:                                           ; preds = %17
@@ -30864,7 +30864,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110CapabilityINS0_12Port
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %149, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %153, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %110, %149 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i.i.i.i.i.i.i) #21
   %153 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %153, %.016.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEEvT_S5_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !18
@@ -30891,7 +30891,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEEvT_S5_.exit.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %146, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %160, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %146 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.05.i.i.i.i.i.i) #21
   %160 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i = icmp eq ptr %160, %37
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEES3_EvT_S5_RSaIT0_E.exit.i.i.loopexit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
@@ -30912,7 +30912,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEES3_EvT_S5_RSaIT0
 _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEES3_EvT_S5_RSaIT0_E.exit51.i.i.i: ; preds = %154
   %162 = extractvalue { ptr, i32 } %155, 0
   %163 = call ptr @__cxa_begin_catch(ptr %162) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %111) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %111) #21
   %.not.i52.i.i.i = icmp eq ptr %110, null
   br i1 %.not.i52.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEESaIS3_EE13_M_deallocateEPS3_m.exit53.i.i.i, label %166
 
@@ -31463,7 +31463,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110CapabilityIN5Yosys10M
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %115, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %119, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %89, %115 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i.i.i) #21
   %119 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %119, %.016.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEEEvT_S7_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !17
@@ -31490,7 +31490,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEEEvT_S7
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %112, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %112 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %126 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %126, %35
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
@@ -31511,7 +31511,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEES5_EvT
 _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEES5_EvT_S7_RSaIT0_E.exit51.i.i.i: ; preds = %120
   %128 = extractvalue { ptr, i32 } %121, 0
   %129 = call ptr @__cxa_begin_catch(ptr %128) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %90) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %90) #21
   %.not.i52.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i52.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEESaIS5_EE13_M_deallocateEPS5_m.exit53.i.i.i, label %132
 
@@ -31906,7 +31906,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110CapabilityIN5Yosys10M
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %115, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %119, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %89, %115 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i.i.i.i.i) #21
   %119 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %119, %.016.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEEEvT_S7_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
@@ -31933,7 +31933,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEEE
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %112, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %112 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %126 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %126, %35
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
@@ -31954,7 +31954,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES
 _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEES5_EvT_S7_RSaIT0_E.exit51.i.i.i: ; preds = %120
   %128 = extractvalue { ptr, i32 } %121, 0
   %129 = call ptr @__cxa_begin_catch(ptr %128) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %90) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %90) #21
   %.not.i52.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i52.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EE13_M_deallocateEPS5_m.exit53.i.i.i, label %132
 
@@ -32349,7 +32349,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110CapabilityINS0_7SrstD
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %114, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %89, %114 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %.05.i.i.i.i.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %.05.i.i.i.i.i.i.i.i.i.i) #21
   %118 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %118, %.016.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEEvT_S5_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !15
@@ -32376,7 +32376,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEEvT_S5_.exit.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %111, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %125, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %111 ]
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %.05.i.i.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %.05.i.i.i.i.i.i) #21
   %125 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i.i = icmp eq ptr %125, %36
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEES3_EvT_S5_RSaIT0_E.exit.i.i.loopexit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
@@ -32397,7 +32397,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEES3_EvT_S5_RSaIT0_E.exi
 _ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEES3_EvT_S5_RSaIT0_E.exit51.i.i.i: ; preds = %119
   %127 = extractvalue { ptr, i32 } %120, 0
   %128 = call ptr @__cxa_begin_catch(ptr %127) #21
-  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(128) %90) #21
+  call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %90) #21
   %.not.i52.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i52.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEESaIS3_EE13_M_deallocateEPS3_m.exit53.i.i.i, label %131
 
@@ -33846,7 +33846,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5Empty
   %5 = ptrtoint ptr %.val10 to i64
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq ptr %.val11, %.val10
   br i1 %.not.i.i.i, label %11, label %8
 
@@ -33897,7 +33897,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEEEE8allocateE
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %19, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %12, %19 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityINS_5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %23, %.014.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityINS0_5EmptyEEEEvT_S5_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
@@ -33949,7 +33949,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10M
   %5 = ptrtoint ptr %.val10 to i64
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq ptr %.val11, %.val10
   br i1 %.not.i.i.i, label %11, label %8
 
@@ -34000,7 +34000,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12Rese
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %19, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %12, %19 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
+  tail call fastcc void @_ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i.i.i) #21
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i = icmp eq ptr %23, %.014.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
@@ -41129,7 +41129,7 @@ _ZN12_GLOBAL__N_16Parser15find_single_capINS_12PortWidthDefEEEPKT_RKSt6vectorINS
   %1522 = getelementptr inbounds i8, ptr %.1.i242, i64 8
   %.val.i = load ptr, ptr %121, align 8
   %.val17.i = load ptr, ptr %123, align 8
-  %1523 = invoke fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr %.val.i, ptr %.val17.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %1522)
+  %1523 = invoke fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr %.val.i, ptr %.val17.i, ptr noundef nonnull align 8 dereferenceable(24) %1522)
           to label %.noexc360 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc360:                                        ; preds = %1519
@@ -41146,7 +41146,7 @@ _ZN12_GLOBAL__N_16Parser15find_single_capINS_12PortWidthDefEEEPKT_RKSt6vectorINS
   %1527 = getelementptr inbounds i8, ptr %.1.i242, i64 32
   %.val18.i = load ptr, ptr %121, align 8
   %.val19.i = load ptr, ptr %123, align 8
-  %1528 = invoke fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr %.val18.i, ptr %.val19.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %1527)
+  %1528 = invoke fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr %.val18.i, ptr %.val19.i, ptr noundef nonnull align 8 dereferenceable(24) %1527)
           to label %.noexc361 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc361:                                        ; preds = %1526

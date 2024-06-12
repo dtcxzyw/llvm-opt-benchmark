@@ -232,7 +232,7 @@ define internal fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %1) unnam
 
 16:                                               ; preds = %Vec_IntPush.exit.i, %.lr.ph.i
   %.018.i = phi ptr [ %.016.i, %.lr.ph.i ], [ %.0.i, %Vec_IntPush.exit.i ]
-  %17 = tail call fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %.018.i, ptr noundef %13)
+  %17 = tail call fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.018.i, ptr noundef %13)
   %18 = load i32, ptr %14, align 4
   %19 = load i32, ptr %11, align 8
   %20 = icmp eq i32 %18, %19

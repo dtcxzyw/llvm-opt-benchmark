@@ -850,7 +850,7 @@ declare void @mbedtls_pem_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_dhm_parse_dhmfile(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.6)
+  %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.6)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %load_file.exit.thread, label %5
 
@@ -908,7 +908,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mbedtls_dhm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.mbedtls_dhm_context, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(240) %2, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %2, i8 0, i64 240, i1 false)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %3, label %.thread
 

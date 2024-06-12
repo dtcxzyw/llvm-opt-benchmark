@@ -116,7 +116,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #13
+  %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %path, i32 noundef 47) #13
   %tobool6.not = icmp eq ptr %call.i, null
   br i1 %tobool6.not, label %if.then7, label %if.end9
 

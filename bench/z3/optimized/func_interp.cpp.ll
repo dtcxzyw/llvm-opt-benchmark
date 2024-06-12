@@ -652,10 +652,10 @@ entry:
   store i32 %1, ptr %m_arity.i, align 8
   %m_entries.i = getelementptr inbounds i8, ptr %call, i64 16
   %m_args_are_values.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_args_are_values.i, align 8
   %m_interp.i = getelementptr inbounds i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
   %m_entries = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_entries, align 8
   %cmp.i.i = icmp eq ptr %2, null
@@ -4596,10 +4596,10 @@ entry:
   store i32 %1, ptr %m_arity.i, align 8
   %m_entries.i = getelementptr inbounds i8, ptr %call, i64 16
   %m_args_are_values.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_args_are_values.i, align 8
   %m_interp.i = getelementptr inbounds i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
   %m_entries = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_entries, align 8
   %cmp.i.i = icmp eq ptr %2, null

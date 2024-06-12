@@ -664,7 +664,7 @@ if.then21:                                        ; preds = %if.end19
   %master_key_length.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %master_key_length.i, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key.i, i64 noundef %3) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %digest_cmd_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %digest_cmd_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %arrayidx3.i = getelementptr inbounds i8, ptr %digest_cmd_params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %arrayidx3.i) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)

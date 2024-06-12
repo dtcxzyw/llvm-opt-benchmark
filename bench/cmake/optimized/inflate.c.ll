@@ -3438,7 +3438,7 @@ default.unreachable2862:                          ; preds = %488
   %1144 = zext i32 %1142 to i64
   %1145 = sub nsw i64 0, %1144
   %1146 = getelementptr inbounds i8, ptr %1115, i64 %1145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1131, ptr noundef nonnull readonly align 1 dereferenceable(1) %1146, i64 %1144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1131, ptr noundef nonnull align 1 dereferenceable(1) %1146, i64 %1144, i1 false)
   %1147 = getelementptr inbounds i8, ptr %1117, i64 68
   store i32 0, ptr %1147, align 4
   %1148 = load i32, ptr %1132, align 4
@@ -3457,7 +3457,7 @@ default.unreachable2862:                          ; preds = %488
   %1157 = sub nsw i64 0, %1156
   %1158 = getelementptr inbounds i8, ptr %1115, i64 %1157
   %1159 = zext i32 %spec.select.i1264 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1155, ptr readonly align 1 %1158, i64 %1159, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1158, i64 %1159, i1 false)
   %.not57.not.i = icmp ult i32 %1153, %1116
   br i1 %.not57.not.i, label %1160, label %1168
 
@@ -3467,7 +3467,7 @@ default.unreachable2862:                          ; preds = %488
   %1163 = zext i32 %1161 to i64
   %1164 = sub nsw i64 0, %1163
   %1165 = getelementptr inbounds i8, ptr %1115, i64 %1164
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1162, ptr readonly align 1 %1165, i64 %1163, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1162, ptr align 1 %1165, i64 %1163, i1 false)
   store i32 %1161, ptr %1151, align 4
   %1166 = load i32, ptr %1132, align 4
   %1167 = getelementptr inbounds i8, ptr %1117, i64 64
@@ -3837,7 +3837,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %62 = zext i32 %60 to i64
   %63 = sub nsw i64 0, %62
   %64 = getelementptr inbounds i8, ptr %35, i64 %63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull readonly align 1 dereferenceable(1) %64, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %64, i64 %62, i1 false)
   %65 = getelementptr inbounds i8, ptr %33, i64 68
   store i32 0, ptr %65, align 4
   %66 = load i32, ptr %50, align 4
@@ -3853,7 +3853,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %72 = zext i32 %70 to i64
   %73 = getelementptr inbounds i8, ptr %49, i64 %72
   %74 = zext i32 %spec.select.i22 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %1, i64 %74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %1, i64 %74, i1 false)
   %.not57.not.i = icmp ult i32 %71, %2
   br i1 %.not57.not.i, label %75, label %83
 
@@ -3863,7 +3863,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %78 = zext i32 %76 to i64
   %79 = sub nsw i64 0, %78
   %80 = getelementptr inbounds i8, ptr %35, i64 %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull readonly align 1 %80, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %80, i64 %78, i1 false)
   store i32 %76, ptr %69, align 4
   %81 = load i32, ptr %50, align 4
   %82 = getelementptr inbounds i8, ptr %33, i64 64

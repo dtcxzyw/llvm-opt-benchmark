@@ -3250,7 +3250,7 @@ define noundef i64 @_ZN7Archive8SearchRREv(ptr noundef nonnull align 8 dereferen
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @wcscmp(ptr noundef nonnull %35, ptr noundef nonnull readonly @.str) #20
+  %48 = tail call i32 @wcscmp(ptr noundef nonnull %35, ptr noundef nonnull @.str) #20
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %50
 

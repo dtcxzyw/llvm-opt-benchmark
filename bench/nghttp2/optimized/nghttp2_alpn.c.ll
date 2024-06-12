@@ -16,7 +16,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %i.012.i = phi i32 [ %add12.i, %for.inc.i ], [ 0, %entry ]
   %idxprom.i = zext i32 %i.012.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 %idxprom.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(3) @.str, i64 3)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %arrayidx.i, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %cmp1.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp1.i, label %return.sink.split, label %for.inc.i
 
@@ -37,7 +37,7 @@ for.body.i7:                                      ; preds = %if.end, %for.inc.i1
   %i.012.i8 = phi i32 [ %add12.i16, %for.inc.i13 ], [ 0, %if.end ]
   %idxprom.i9 = zext i32 %i.012.i8 to i64
   %arrayidx.i10 = getelementptr inbounds i8, ptr %in, i64 %idxprom.i9
-  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %arrayidx.i10, ptr noundef nonnull readonly dereferenceable(9) @.str.1, i64 9)
+  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %arrayidx.i10, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
   %cmp1.i12 = icmp eq i32 %bcmp.i11, 0
   br i1 %cmp1.i12, label %return.sink.split, label %for.inc.i13
 
@@ -77,7 +77,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %i.012.i = phi i32 [ %add12.i, %for.inc.i ], [ 0, %entry ]
   %idxprom.i = zext i32 %i.012.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 %idxprom.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(3) @.str, i64 3)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %arrayidx.i, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %cmp1.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp1.i, label %return.sink.split, label %for.inc.i
 
@@ -98,7 +98,7 @@ for.body.i7:                                      ; preds = %if.end, %for.inc.i1
   %i.012.i8 = phi i32 [ %add12.i16, %for.inc.i13 ], [ 0, %if.end ]
   %idxprom.i9 = zext i32 %i.012.i8 to i64
   %arrayidx.i10 = getelementptr inbounds i8, ptr %in, i64 %idxprom.i9
-  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %arrayidx.i10, ptr noundef nonnull readonly dereferenceable(9) @.str.1, i64 9)
+  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %arrayidx.i10, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
   %cmp1.i12 = icmp eq i32 %bcmp.i11, 0
   br i1 %cmp1.i12, label %return.sink.split, label %for.inc.i13
 

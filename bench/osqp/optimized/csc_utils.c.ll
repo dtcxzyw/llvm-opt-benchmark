@@ -333,7 +333,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
   %37 = load ptr, ptr %36, align 8
   %38 = shl i64 %4, 3
   %39 = add i64 %38, 8
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %37, i8 0, i64 %39, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %37, i8 0, i64 %39, i1 false)
   br label %.sink.split
 
 40:                                               ; preds = %32
@@ -854,7 +854,7 @@ define void @csc_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph24.preheader:                               ; preds = %2
   %12 = shl nuw i64 %4, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %1, i8 0, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %12, i1 false)
   %.pre = load i64, ptr %6, align 8
   br label %.lr.ph24
 

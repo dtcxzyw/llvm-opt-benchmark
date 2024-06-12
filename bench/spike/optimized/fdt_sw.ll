@@ -41,7 +41,7 @@ define range(i32 -18, 1) i32 @fdt_create(ptr nocapture noundef writeonly %0, i32
 
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %0, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %5, i1 false)
   store i32 302117423, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %6, align 4
@@ -901,7 +901,7 @@ fdt_find_add_string_.exit:                        ; preds = %104, %99, %63
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = or disjoint i32 %128, %131
-  %133 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
+  %133 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %134 = trunc i64 %133 to i32
   %.neg.i = xor i32 %134, -1
   %135 = add i32 %132, %.neg.i

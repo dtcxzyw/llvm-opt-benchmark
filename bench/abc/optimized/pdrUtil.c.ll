@@ -928,7 +928,7 @@ Vec_StrPushBuffer.exit:                           ; preds = %42, %48, %58
   %63 = sext i32 %60 to i64
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   %65 = sext i32 %.2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr readonly align 1 %7, i64 %65, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %7, i64 %65, i1 false)
   %66 = load i32, ptr %43, align 4
   %67 = add nsw i32 %66, %.2
   store i32 %67, ptr %43, align 4

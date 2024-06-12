@@ -10430,7 +10430,7 @@ _ZN3mbp10term_graph6mk_appEP4expr.exit.thread:    ; preds = %for.body.i.i.i.i.i,
 _ZN3mbp10term_graph6mk_appEP4expr.exit:           ; preds = %_ZN3mbp10term_graph8get_termEP4expr.exit.i
   %m_repr.i.i = getelementptr inbounds i8, ptr %29, i64 24
   %32 = load ptr, ptr %m_repr.i.i, align 8, !noalias !50
-  call void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull writeonly sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %32)
+  call void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %32)
   %.pre = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i66
@@ -10692,7 +10692,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i94: ; preds = %for.body.i.i.i.i
 if.else.i120:                                     ; preds = %_ZN3mbp10term_graph8get_termEP4expr.exit.i116
   %m_repr.i.i121 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = load ptr, ptr %m_repr.i.i121, align 8, !noalias !53
-  call void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull writeonly sret(%class.obj_ref) align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %73)
+  call void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %73)
   %.pre452 = load ptr, ptr %ref.tmp48, align 8
   br label %invoke.cont54
 
@@ -10786,7 +10786,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i138: ; preds = %for.body.i.i.i.
 if.else.i164:                                     ; preds = %_ZN3mbp10term_graph8get_termEP4expr.exit.i160
   %m_repr.i.i165 = getelementptr inbounds i8, ptr %85, i64 24
   %88 = load ptr, ptr %m_repr.i.i165, align 8, !noalias !56
-  invoke void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull writeonly sret(%class.obj_ref) align 8 %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %88)
+  invoke void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %88)
           to label %if.else.i164.invoke.cont56_crit_edge unwind label %lpad50
 
 if.else.i164.invoke.cont56_crit_edge:             ; preds = %if.else.i164
@@ -11932,7 +11932,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %for.body.i.i.i.i.i
 if.else.i:                                        ; preds = %_ZN3mbp10term_graph8get_termEP4expr.exit.i
   %m_repr.i.i = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %m_repr.i.i, align 8, !noalias !66
-  invoke void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull writeonly sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %34)
+  invoke void @_ZN3mbp10term_graph6mk_appERNS_4termE(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %34)
           to label %if.else.i.invoke.cont17_crit_edge unwind label %lpad16
 
 if.else.i.invoke.cont17_crit_edge:                ; preds = %if.else.i
@@ -18915,7 +18915,7 @@ if.then172:                                       ; preds = %for.inc169, %if.the
   store ptr %spec.select619688.lcssa, ptr %q, align 8
   store ptr %167, ptr %b.i235, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %q, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %q, i64 16, i1 false)
   invoke fastcc void @_ZN14core_hashtableI18default_hash_entryIZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEE6pair_tEZNS2_5dcertES4_SA_ENSB_4hashEZNS2_5dcertES4_SA_ENSB_2eqEE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %diseqs, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i)
           to label %invoke.cont173 unwind label %lpad125.loopexit.split-lp
 
@@ -19936,7 +19936,7 @@ land.lhs.true:                                    ; preds = %if.then9
 if.then14:                                        ; preds = %land.lhs.true
   %25 = getelementptr i8, ptr %curr.080, i64 4
   %m_data.i.le = getelementptr inbounds i8, ptr %curr.080, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_data.i.le, ptr noundef nonnull readonly align 8 dereferenceable(16) %e, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i.le, ptr noundef nonnull align 8 dereferenceable(16) %e, i64 16, i1 false)
   store i32 2, ptr %25, align 4
   br label %return
 
@@ -19952,7 +19952,7 @@ if.then18:                                        ; preds = %if.then17
 if.end21:                                         ; preds = %if.then17, %if.then18
   %new_entry.0 = phi ptr [ %del_entry.081, %if.then18 ], [ %curr.080, %if.then17 ]
   %m_data.i47 = getelementptr inbounds i8, ptr %new_entry.0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_data.i47, ptr noundef nonnull readonly align 8 dereferenceable(16) %e, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i47, ptr noundef nonnull align 8 dereferenceable(16) %e, i64 16, i1 false)
   %m_state.i48 = getelementptr inbounds i8, ptr %new_entry.0, i64 4
   store i32 2, ptr %m_state.i48, align 4
   store i32 %xor32.i.i.i, ptr %new_entry.0, align 8
@@ -19995,7 +19995,7 @@ land.lhs.true34:                                  ; preds = %if.then31
 if.then37:                                        ; preds = %land.lhs.true34
   %30 = getelementptr i8, ptr %curr.184, i64 4
   %m_data.i50.le = getelementptr inbounds i8, ptr %curr.184, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_data.i50.le, ptr noundef nonnull readonly align 8 dereferenceable(16) %e, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i50.le, ptr noundef nonnull align 8 dereferenceable(16) %e, i64 16, i1 false)
   store i32 2, ptr %30, align 4
   br label %return
 
@@ -20011,7 +20011,7 @@ if.then44:                                        ; preds = %if.then41
 if.end48:                                         ; preds = %if.then41, %if.then44
   %new_entry42.0 = phi ptr [ %del_entry.285, %if.then44 ], [ %curr.184, %if.then41 ]
   %m_data.i56 = getelementptr inbounds i8, ptr %new_entry42.0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_data.i56, ptr noundef nonnull readonly align 8 dereferenceable(16) %e, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i56, ptr noundef nonnull align 8 dereferenceable(16) %e, i64 16, i1 false)
   %m_state.i57 = getelementptr inbounds i8, ptr %new_entry42.0, i64 4
   store i32 2, ptr %m_state.i57, align 4
   store i32 %xor32.i.i.i, ptr %new_entry42.0, align 8

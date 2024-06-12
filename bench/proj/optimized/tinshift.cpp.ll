@@ -7309,7 +7309,7 @@ _ZN12_GLOBAL__N_112tinshiftDataD2Ev.exit.i64:     ; preds = %_ZNKSt14default_del
   store i64 %105, ptr %102, align 8
   store ptr null, ptr %4, align 8
   %106 = getelementptr inbounds i8, ptr %102, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %106, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %106, i8 0, i64 40, i1 false)
   %107 = load ptr, ptr %98, align 8
   store ptr %102, ptr %98, align 8
   %.not.i.i = icmp eq ptr %107, null

@@ -25648,7 +25648,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5arrow11SimpleTableC2ESt10shared_ptrINS_6SchemaEERKSt6vectorIS1_INS_5ArrayEESaIS6_EEl(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %schema, ptr noundef nonnull align 8 dereferenceable(24) %columns, i64 noundef %num_rows) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schema_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %schema_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %schema_.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11SimpleTableE, i64 16), ptr %this, align 8
   %columns_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_, i8 0, i64 24, i1 false)

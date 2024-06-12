@@ -16177,7 +16177,7 @@ invoke.cont50.thread:                             ; preds = %_ZN11ast_manager7in
   br label %land.lhs.true52
 
 if.end.i216:                                      ; preds = %land.lhs.true.i.i221, %_ZNK8seq_util3rex8is_to_reEPK4expr.exit.i.i, %land.rhs.i.i.i.i217, %invoke.cont
-  %call4.i226 = invoke noundef zeroext i1 @_ZN12seq_rewriter23lift_str_from_to_re_iteEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef nonnull readonly %a, ptr noundef nonnull align 8 dereferenceable(16) %a_str)
+  %call4.i226 = invoke noundef zeroext i1 @_ZN12seq_rewriter23lift_str_from_to_re_iteEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(16) %a_str)
           to label %invoke.cont50 unwind label %lpad49.loopexit.split-lp
 
 invoke.cont50:                                    ; preds = %if.end.i216
@@ -34286,7 +34286,7 @@ invoke.cont.thread:                               ; preds = %_ZN11ast_manager7in
 
 if.end.i74:                                       ; preds = %land.rhs.i.i.i.i75, %if.end12, %land.lhs.true.i.i79, %_ZNK8seq_util3rex8is_to_reEPK4expr.exit.i.i
   %m_manager.i403 = phi ptr [ %m_manager.i401428, %land.lhs.true.i.i79 ], [ %m_manager.i401428, %_ZNK8seq_util3rex8is_to_reEPK4expr.exit.i.i ], [ %m_manager.i405, %land.rhs.i.i.i.i75 ], [ %m_manager.i, %if.end12 ]
-  %call4.i84 = invoke noundef zeroext i1 @_ZN12seq_rewriter23lift_str_from_to_re_iteEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef nonnull readonly %b, ptr noundef nonnull align 8 dereferenceable(16) %b_s)
+  %call4.i84 = invoke noundef zeroext i1 @_ZN12seq_rewriter23lift_str_from_to_re_iteEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(16) %b_s)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i74

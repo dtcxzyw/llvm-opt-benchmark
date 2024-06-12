@@ -2095,7 +2095,7 @@ define internal fastcc void @dissect_q931_pdu(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i8 -1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 20
   store i32 -1, ptr %13, align 4

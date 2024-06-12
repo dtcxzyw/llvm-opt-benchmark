@@ -2289,7 +2289,7 @@ define internal fastcc range(i32 0, 2) i32 @add_attribute(ptr nocapture noundef 
   br label %46
 
 46:                                               ; preds = %44, %41
-  %47 = tail call i64 @strtoul(ptr nocapture noundef readonly %2, ptr noundef null, i32 noundef 10) #28
+  %47 = tail call i64 @strtoul(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #28
   %48 = load ptr, ptr %42, align 8
   %.sroa.0.0.insert.ext.i = and i64 %47, 255
   %49 = inttoptr i64 %.sroa.0.0.insert.ext.i to ptr

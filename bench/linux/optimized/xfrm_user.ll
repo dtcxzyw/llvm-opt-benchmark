@@ -2601,7 +2601,7 @@ copy_to_user_encap.exit.thread:                   ; preds = %189
   store i16 %198, ptr %199, align 4
   %200 = getelementptr i8, ptr %190, i64 12
   %201 = getelementptr inbounds i8, ptr %187, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %200, ptr noundef readonly align 4 dereferenceable(16) %201, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %200, ptr noundef align 4 dereferenceable(16) %201, i64 16, i1 false)
   br label %202
 
 202:                                              ; preds = %copy_to_user_encap.exit.thread, %185

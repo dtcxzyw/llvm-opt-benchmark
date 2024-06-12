@@ -1349,13 +1349,13 @@ define noundef i32 @_Z12gmx_tune_pmeiPPc(i32 noundef %0, ptr noundef %1) local_u
   %296 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %297 = load ptr, ptr %296, align 8
   %298 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0380655) #25
-  %299 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %297) #25
+  %299 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %297) #25
   %300 = add i64 %299, %298
   %301 = shl i64 %300, 32
   %sext.i = add i64 %301, 4294967296
   %302 = ashr exact i64 %sext.i, 32
   %303 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef nonnull %.0380655, i64 noundef %302, i64 noundef 1)
-  %304 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %303, ptr noundef nonnull readonly dereferenceable(1) %297) #23
+  %304 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %303, ptr noundef nonnull dereferenceable(1) %297) #23
   %305 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %303) #25
   %306 = shl i64 %305, 32
   %sext.i101 = add i64 %306, 8589934592
@@ -1479,7 +1479,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %339, %_ZN26PartialD
   %350 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i.i
   %351 = getelementptr inbounds i8, ptr %350, i64 8
   %352 = load ptr, ptr %351, align 8
-  %353 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.98, ptr noundef nonnull dereferenceable(1) %352) #25
+  %353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.98, ptr noundef nonnull dereferenceable(1) %352) #25
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %355, label %359
 
@@ -1500,7 +1500,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %339, %_ZN26PartialD
   %360 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i43.i
   %361 = getelementptr inbounds i8, ptr %360, i64 8
   %362 = load ptr, ptr %361, align 8
-  %363 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.96, ptr noundef nonnull dereferenceable(1) %362) #25
+  %363 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.96, ptr noundef nonnull dereferenceable(1) %362) #25
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %365, label %369
 
@@ -1545,7 +1545,7 @@ _ZL6setoptPKciP8t_filenm.exit46.i:                ; preds = %369, %_ZNSt10filesy
   %378 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i50.i
   %379 = getelementptr inbounds i8, ptr %378, i64 8
   %380 = load ptr, ptr %379, align 8
-  %381 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.77, ptr noundef nonnull dereferenceable(1) %380) #25
+  %381 = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.77, ptr noundef nonnull dereferenceable(1) %380) #25
   %382 = icmp eq i32 %381, 0
   br i1 %382, label %383, label %387
 
@@ -1576,7 +1576,7 @@ _ZL6setoptPKciP8t_filenm.exit53.i:                ; preds = %387, %_ZL6setoptPKc
   %388 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i57.i
   %389 = getelementptr inbounds i8, ptr %388, i64 8
   %390 = load ptr, ptr %389, align 8
-  %391 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.88, ptr noundef nonnull dereferenceable(1) %390) #25
+  %391 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.88, ptr noundef nonnull dereferenceable(1) %390) #25
   %392 = icmp eq i32 %391, 0
   br i1 %392, label %393, label %397
 
@@ -1597,7 +1597,7 @@ _ZL6setoptPKciP8t_filenm.exit53.i:                ; preds = %387, %_ZL6setoptPKc
   %398 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i64.i
   %399 = getelementptr inbounds i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
-  %401 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.90, ptr noundef nonnull dereferenceable(1) %400) #25
+  %401 = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.90, ptr noundef nonnull dereferenceable(1) %400) #25
   %402 = icmp eq i32 %401, 0
   br i1 %402, label %403, label %407
 
@@ -1624,7 +1624,7 @@ _ZL6setoptPKciP8t_filenm.exit67.i:                ; preds = %407
   %408 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i71.i
   %409 = getelementptr inbounds i8, ptr %408, i64 8
   %410 = load ptr, ptr %409, align 8
-  %411 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.108, ptr noundef nonnull dereferenceable(1) %410) #25
+  %411 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.108, ptr noundef nonnull dereferenceable(1) %410) #25
   %412 = icmp eq i32 %411, 0
   br i1 %412, label %413, label %417
 
@@ -1648,7 +1648,7 @@ _ZL6setoptPKciP8t_filenm.exit74.i:                ; preds = %417, %_ZL6setoptPKc
   %418 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i78.i
   %419 = getelementptr inbounds i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8
-  %421 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.110, ptr noundef nonnull dereferenceable(1) %420) #25
+  %421 = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.110, ptr noundef nonnull dereferenceable(1) %420) #25
   %422 = icmp eq i32 %421, 0
   br i1 %422, label %423, label %427
 
@@ -1744,7 +1744,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %453 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i.i104
   %454 = getelementptr inbounds i8, ptr %453, i64 8
   %455 = load ptr, ptr %454, align 8
-  %456 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %455) #25
+  %456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %455) #25
   %457 = icmp eq i32 %456, 0
   br i1 %457, label %458, label %462
 
@@ -1778,7 +1778,7 @@ _ZL6setoptPKciP8t_filenm.exit.i:                  ; preds = %462, %.tail.i
   %466 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i31.i
   %467 = getelementptr inbounds i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8
-  %469 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %468) #25
+  %469 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %468) #25
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %475
 
@@ -1843,13 +1843,13 @@ _ZL20couple_files_optionsiP8t_filenm.exit:        ; preds = %_ZL6setoptPKciP8t_f
 498:                                              ; preds = %486
   %499 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) @.str.261, i32 noundef %493) #23
   %500 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %495) #25
-  %501 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %116) #25
+  %501 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #25
   %502 = add i64 %501, %500
   %503 = shl i64 %502, 32
   %sext.i.i = add i64 %503, 4294967296
   %504 = ashr exact i64 %sext.i.i, 32
   %505 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef nonnull %495, i64 noundef %504, i64 noundef 1)
-  %506 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %505, ptr noundef nonnull readonly dereferenceable(1) %116) #23
+  %506 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %505, ptr noundef nonnull dereferenceable(1) %116) #23
   br label %507
 
 507:                                              ; preds = %498, %486
@@ -1860,13 +1860,13 @@ _ZL20couple_files_optionsiP8t_filenm.exit:        ; preds = %_ZL6setoptPKciP8t_f
 508:                                              ; preds = %507
   %509 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) @.str.262, ptr noundef nonnull %494) #23
   %510 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %496) #25
-  %511 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %116) #25
+  %511 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #25
   %512 = add i64 %511, %510
   %513 = shl i64 %512, 32
   %sext.i49.i = add i64 %513, 4294967296
   %514 = ashr exact i64 %sext.i49.i, 32
   %515 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef nonnull %496, i64 noundef %514, i64 noundef 1)
-  %516 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %515, ptr noundef nonnull readonly dereferenceable(1) %116) #23
+  %516 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %515, ptr noundef nonnull dereferenceable(1) %116) #23
   br label %517
 
 517:                                              ; preds = %508, %507
@@ -1981,19 +1981,19 @@ sub_1.i113:                                       ; preds = %sub_0.i111.sub_1.i1
 
 558:                                              ; preds = %555, %.tail.i112
   %559 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1378) #25
-  %560 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %116) #25
+  %560 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #25
   %561 = add i64 %560, %559
   %562 = shl i64 %561, 32
   %sext.i53.i = add i64 %562, 4294967296
   %563 = ashr exact i64 %sext.i53.i, 32
   %564 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef %.1378, i64 noundef %563, i64 noundef 1)
-  %565 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %564, ptr noundef nonnull readonly dereferenceable(1) %116) #23
+  %565 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %564, ptr noundef nonnull dereferenceable(1) %116) #23
   br label %_ZL13is_bench_filePcbbb.exit.thread.i
 
 _ZL13is_bench_filePcbbb.exit.thread.i:            ; preds = %558, %_ZL13is_bench_filePcbbb.exit.i, %546, %.tail.i.i
   %.2379 = phi ptr [ %564, %558 ], [ %.1378, %_ZL13is_bench_filePcbbb.exit.i ], [ %.1378, %546 ], [ %.1378, %.tail.i.i ]
   %566 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull %537, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
-  %567 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %537, ptr noundef nonnull dereferenceable(6) @.str.110, i64 noundef 5) #25
+  %567 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %537, ptr noundef nonnull dereferenceable(6) @.str.110, i64 noundef 5) #25
   %568 = icmp eq i32 %567, 0
   br i1 %568, label %_ZL14is_launch_filePcb.exit.i, label %sub_0.i.i
 
@@ -2011,12 +2011,12 @@ sub_0.i.i:                                        ; preds = %_ZL13is_bench_fileP
   ]
 
 572:                                              ; preds = %.tail.i56.i
-  %573 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %537, ptr noundef nonnull dereferenceable(5) @.str.62, i64 noundef 4) #25
+  %573 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %537, ptr noundef nonnull dereferenceable(5) @.str.62, i64 noundef 4) #25
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %_ZL14is_launch_filePcb.exit.thread.i, label %sub_113.i.i
 
 .thread.i.i:                                      ; preds = %sub_0.i.i
-  %575 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %537, ptr noundef nonnull dereferenceable(5) @.str.62, i64 noundef 4) #25
+  %575 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %537, ptr noundef nonnull dereferenceable(5) @.str.62, i64 noundef 4) #25
   %576 = icmp eq i32 %575, 0
   br i1 %576, label %_ZL14is_launch_filePcb.exit.thread.i, label %.tail11.i.i
 
@@ -2034,13 +2034,13 @@ _ZL14is_launch_filePcb.exit.i:                    ; preds = %_ZL13is_bench_fileP
 
 579:                                              ; preds = %_ZL14is_launch_filePcb.exit.i, %.tail11.i.i
   %580 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #25
-  %581 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %116) #25
+  %581 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #25
   %582 = add i64 %581, %580
   %583 = shl i64 %582, 32
   %sext.i57.i = add i64 %583, 4294967296
   %584 = ashr exact i64 %sext.i57.i, 32
   %585 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef %.4, i64 noundef %584, i64 noundef 1)
-  %586 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %585, ptr noundef nonnull readonly dereferenceable(1) %116) #23
+  %586 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %585, ptr noundef nonnull dereferenceable(1) %116) #23
   br label %_ZL14is_launch_filePcb.exit.thread.i
 
 _ZL14is_launch_filePcb.exit.thread.i:             ; preds = %579, %_ZL14is_launch_filePcb.exit.i, %.tail11.i.i, %.thread.i.i, %572, %.tail.i56.i, %.tail.i56.i
@@ -2051,21 +2051,21 @@ _ZL14is_launch_filePcb.exit.thread.i:             ; preds = %579, %_ZL14is_launc
 
 _ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.exit: ; preds = %_ZL14is_launch_filePcb.exit.thread.i
   %587 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2379) #25
-  %588 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0380.lcssa) #25
+  %588 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0380.lcssa) #25
   %589 = add i64 %588, %587
   %590 = shl i64 %589, 32
   %sext.i58.i = add i64 %590, 4294967296
   %591 = ashr exact i64 %sext.i58.i, 32
   %592 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef %.2379, i64 noundef %591, i64 noundef 1)
-  %593 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %592, ptr noundef nonnull readonly dereferenceable(1) %.0380.lcssa) #23
+  %593 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %592, ptr noundef nonnull dereferenceable(1) %.0380.lcssa) #23
   %594 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #25
-  %595 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0380.lcssa) #25
+  %595 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0380.lcssa) #25
   %596 = add i64 %595, %594
   %597 = shl i64 %596, 32
   %sext.i59.i = add i64 %597, 4294967296
   %598 = ashr exact i64 %sext.i59.i, 32
   %599 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.205, i32 noundef 1952, ptr noundef %.5, i64 noundef %598, i64 noundef 1)
-  %600 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %599, ptr noundef nonnull readonly dereferenceable(1) %.0380.lcssa) #23
+  %600 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %599, ptr noundef nonnull dereferenceable(1) %.0380.lcssa) #23
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %116)
   %601 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.69, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
   br i1 %601, label %602, label %619
@@ -2851,7 +2851,7 @@ _ZL17get_program_pathsbPPcS0_.exit:               ; preds = %908, %914
 _ZNSt10filesystem7__cxx114pathD2Ev.exit.i126:     ; preds = %950, %947
   store ptr null, ptr %948, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #23
-  %951 = call noundef i32 @system(ptr noundef readonly %.0.i)
+  %951 = call noundef i32 @system(ptr noundef %.0.i)
   call void @_ZNSt10filesystem7__cxx114pathC2IA14_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 1 dereferenceable(14) %92, i8 noundef zeroext 2)
   %952 = invoke noundef zeroext i1 @_Z10gmx_fexistRKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %94)
           to label %953 unwind label %961
@@ -4129,12 +4129,12 @@ _ZL19make_benchmark_tprsPKcPPcllffbPKiP13PmeTuneInputsP8_IO_FILE.exit: ; preds =
   br i1 %1585, label %1586, label %1650
 
 1586:                                             ; preds = %1584
-  %1587 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1553, ptr noundef nonnull dereferenceable(4) @.str.154) #25
+  %1587 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1553, ptr noundef nonnull dereferenceable(4) @.str.154) #25
   %.not.i.i163 = icmp eq i32 %1587, 0
   br i1 %.not.i.i163, label %1593, label %1588
 
 1588:                                             ; preds = %1586
-  %1589 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1553, ptr noundef nonnull dereferenceable(7) @.str.155) #25
+  %1589 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1553, ptr noundef nonnull dereferenceable(7) @.str.155) #25
   %.not49.i.i = icmp eq i32 %1589, 0
   br i1 %.not49.i.i, label %1593, label %1590
 
@@ -4535,7 +4535,7 @@ _ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit167.us.i:  ; preds = %1754
   %1762 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1758, ptr noundef nonnull dereferenceable(1) @.str.394, ptr noundef %1755) #23
   %1763 = load ptr, ptr @stdout, align 8
   %1764 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1763, ptr noundef nonnull @.str.395, ptr noundef %1758) #23
-  %1765 = invoke noundef i32 @system(ptr noundef readonly %1758)
+  %1765 = invoke noundef i32 @system(ptr noundef %1758)
           to label %.noexc170.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
 .noexc170.us.i:                                   ; preds = %.noexc169.us.i
@@ -5178,7 +5178,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.us.i:     ; preds = %1963, %1961
   %1968 = load ptr, ptr @stdout, align 8
   %1969 = load ptr, ptr %1737, align 8
   %1970 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1968, ptr noundef nonnull @.str.370, ptr noundef %1969) #23
-  %1971 = invoke noundef i32 @system(ptr noundef readonly %1578)
+  %1971 = invoke noundef i32 @system(ptr noundef %1578)
           to label %_ZL15gmx_system_callPc.exit.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
 _ZL15gmx_system_callPc.exit.us.i:                 ; preds = %1966
@@ -7166,7 +7166,7 @@ _ZL24make_gpu_id_command_lineB5cxx11PKc.exit.i189: ; preds = %2704, %2703
   %2719 = call i64 @fwrite(ptr nonnull @.str.309, i64 62, i64 1, ptr %2718)
   %2720 = load ptr, ptr @stdout, align 8
   %2721 = call i32 @fflush(ptr noundef %2720)
-  %2722 = invoke noundef i32 @system(ptr noundef readonly %2702)
+  %2722 = invoke noundef i32 @system(ptr noundef %2702)
           to label %_ZL17launch_simulationbP8_IO_FILEbPcS1_S1_S1_PKciS3_.exit unwind label %2723
 
 2723:                                             ; preds = %2715

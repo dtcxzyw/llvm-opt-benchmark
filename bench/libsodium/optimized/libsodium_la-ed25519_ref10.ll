@@ -1727,7 +1727,7 @@ entry:
   %Z = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z, align 8
   %arrayidx1.i = getelementptr i8, ptr %h, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %conv.i = zext nneg i64 %and.i to i128
   %conv2.i = zext nneg i64 %and2.i to i128
   %conv4.i = zext nneg i64 %and6.i to i128
@@ -2173,7 +2173,7 @@ entry:
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %negx, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i172)
-  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i172, ptr noundef nonnull readonly %h)
+  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i172, ptr noundef nonnull %h)
   %31 = load i8, ptr %s.i172, align 16
   %32 = and i8 %31, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i172)
@@ -3670,7 +3670,7 @@ entry:
   %Z = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z, align 8
   %arrayidx1.i = getelementptr i8, ptr %h, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %conv.i = zext nneg i64 %and.i to i128
   %conv2.i = zext nneg i64 %and2.i to i128
   %conv4.i = zext nneg i64 %and6.i to i128
@@ -4258,7 +4258,7 @@ if.end:                                           ; preds = %if.then
 
 if.end67:                                         ; preds = %if.end, %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i329)
-  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i329, ptr noundef nonnull readonly %h)
+  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i329, ptr noundef nonnull %h)
   %42 = load i8, ptr %s.i329, align 16
   %43 = and i8 %42, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i329)
@@ -4345,13 +4345,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_p2_to_p3(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %r, ptr noundef nonnull readonly align 8 dereferenceable(40) %p, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
   %Y = getelementptr inbounds i8, ptr %r, i64 40
   %Y4 = getelementptr inbounds i8, ptr %p, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y4, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y, ptr noundef nonnull align 8 dereferenceable(40) %Y4, i64 40, i1 false)
   %Z = getelementptr inbounds i8, ptr %r, i64 80
   %Z7 = getelementptr inbounds i8, ptr %p, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z, ptr noundef nonnull align 8 dereferenceable(40) %Z7, i64 40, i1 false)
   %T = getelementptr inbounds i8, ptr %r, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef %p, ptr noundef nonnull %Y4)
   ret void
@@ -4783,36 +4783,36 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
   %Z.i = getelementptr inbounds i8, ptr %Ai, i64 80
   %Z9.i = getelementptr inbounds i8, ptr %A, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
   %T2d.i = getelementptr inbounds i8, ptr %Ai, i64 120
   %T.i = getelementptr inbounds i8, ptr %A, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i, ptr noundef nonnull readonly %T.i, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %A, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %A, i64 40, i1 false)
   %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %t, ptr noundef nonnull %q.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   %T.i71 = getelementptr inbounds i8, ptr %t, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %A2, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %A2, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   %Y.i72 = getelementptr inbounds i8, ptr %A2, i64 40
   %Y5.i = getelementptr inbounds i8, ptr %t, i64 40
   %Z.i73 = getelementptr inbounds i8, ptr %t, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i72, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i72, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   %Z8.i = getelementptr inbounds i8, ptr %A2, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   %T14.i = getelementptr inbounds i8, ptr %A2, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %Ai)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   %Y.i75 = getelementptr inbounds i8, ptr %u, i64 40
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   %Z8.i78 = getelementptr inbounds i8, ptr %u, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   %T14.i79 = getelementptr inbounds i8, ptr %u, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx3 = getelementptr inbounds i8, ptr %Ai, i64 160
   %28 = load i64, ptr %Y.i75, align 8
   %29 = load i64, ptr %u, align 8
@@ -4883,14 +4883,14 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i128 = getelementptr inbounds i8, ptr %Ai, i64 232
   store i64 %sub30.i.i124, ptr %arrayidx35.i.i128, align 8
   %Z.i129 = getelementptr inbounds i8, ptr %Ai, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i129, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i129, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i131 = getelementptr inbounds i8, ptr %Ai, i64 280
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i131, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i131, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx3)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx5 = getelementptr inbounds i8, ptr %Ai, i64 320
   %38 = load i64, ptr %Y.i75, align 8
   %39 = load i64, ptr %u, align 8
@@ -4953,14 +4953,14 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i187 = getelementptr inbounds i8, ptr %Ai, i64 392
   store i64 %sub30.i.i183, ptr %arrayidx35.i.i187, align 8
   %Z.i188 = getelementptr inbounds i8, ptr %Ai, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i188, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i188, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i190 = getelementptr inbounds i8, ptr %Ai, i64 440
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i190, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i190, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx5)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx7 = getelementptr inbounds i8, ptr %Ai, i64 480
   %48 = load i64, ptr %Y.i75, align 8
   %49 = load i64, ptr %u, align 8
@@ -5023,14 +5023,14 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i246 = getelementptr inbounds i8, ptr %Ai, i64 552
   store i64 %sub30.i.i242, ptr %arrayidx35.i.i246, align 8
   %Z.i247 = getelementptr inbounds i8, ptr %Ai, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i247, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i247, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i249 = getelementptr inbounds i8, ptr %Ai, i64 600
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i249, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i249, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx7)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx9 = getelementptr inbounds i8, ptr %Ai, i64 640
   %58 = load i64, ptr %Y.i75, align 8
   %59 = load i64, ptr %u, align 8
@@ -5093,14 +5093,14 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i305 = getelementptr inbounds i8, ptr %Ai, i64 712
   store i64 %sub30.i.i301, ptr %arrayidx35.i.i305, align 8
   %Z.i306 = getelementptr inbounds i8, ptr %Ai, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i306, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i306, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i308 = getelementptr inbounds i8, ptr %Ai, i64 760
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i308, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i308, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx9)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx11 = getelementptr inbounds i8, ptr %Ai, i64 800
   %68 = load i64, ptr %Y.i75, align 8
   %69 = load i64, ptr %u, align 8
@@ -5163,14 +5163,14 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i364 = getelementptr inbounds i8, ptr %Ai, i64 872
   store i64 %sub30.i.i360, ptr %arrayidx35.i.i364, align 8
   %Z.i365 = getelementptr inbounds i8, ptr %Ai, i64 880
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i365, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i365, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i367 = getelementptr inbounds i8, ptr %Ai, i64 920
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i367, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i367, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx11)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx13 = getelementptr inbounds i8, ptr %Ai, i64 960
   %78 = load i64, ptr %Y.i75, align 8
   %79 = load i64, ptr %u, align 8
@@ -5233,14 +5233,14 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i423 = getelementptr inbounds i8, ptr %Ai, i64 1032
   store i64 %sub30.i.i419, ptr %arrayidx35.i.i423, align 8
   %Z.i424 = getelementptr inbounds i8, ptr %Ai, i64 1040
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i424, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i424, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i426 = getelementptr inbounds i8, ptr %Ai, i64 1080
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i426, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i426, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx13)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %arrayidx15 = getelementptr inbounds i8, ptr %Ai, i64 1120
   %88 = load i64, ptr %Y.i75, align 8
   %89 = load i64, ptr %u, align 8
@@ -5303,18 +5303,18 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %arrayidx35.i.i482 = getelementptr inbounds i8, ptr %Ai, i64 1192
   store i64 %sub30.i.i478, ptr %arrayidx35.i.i482, align 8
   %Z.i483 = getelementptr inbounds i8, ptr %Ai, i64 1200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i483, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i483, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
   %T2d.i485 = getelementptr inbounds i8, ptr %Ai, i64 1240
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i485, ptr noundef nonnull readonly %T14.i79, ptr noundef nonnull @ed25519_d2)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %r, i8 0, i64 40, i1 false)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i485, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r, i8 0, i64 40, i1 false)
   %Y.i487 = getelementptr inbounds i8, ptr %r, i64 40
   store i64 1, ptr %Y.i487, align 8
   %arrayidx1.i.i = getelementptr i8, ptr %r, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
   %Z.i488 = getelementptr inbounds i8, ptr %r, i64 80
   store i64 1, ptr %Z.i488, align 8
   %arrayidx1.i3.i = getelementptr i8, ptr %r, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i3.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i3.i, i8 0, i64 32, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %slide_vartime.exit70, %for.inc
@@ -5373,10 +5373,10 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   br i1 %cmp28, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %for.body24
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %102 = lshr i8 %101, 1
   %idxprom34 = zext nneg i8 %102 to i64
   %arrayidx35 = getelementptr [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 %idxprom34
@@ -5388,10 +5388,10 @@ if.else:                                          ; preds = %for.body24
   br i1 %cmp39, label %if.then41, label %if.end49
 
 if.then41:                                        ; preds = %if.else
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %.nonneg619 = sub i8 0, %101
   %103 = lshr i8 %.nonneg619, 1
   %idxprom46 = zext nneg i8 %103 to i64
@@ -5448,12 +5448,12 @@ if.then41:                                        ; preds = %if.else
   store i64 %sub27.i.i538, ptr %arrayidx34.i.i543, align 8
   store i64 %sub30.i.i540, ptr %arrayidx35.i.i544, align 8
   %YminusX.i546 = getelementptr inbounds i8, ptr %arrayidx47, i64 40
-  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull readonly %YminusX.i546)
-  call fastcc void @fe25519_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef readonly %arrayidx47)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull %YminusX.i546)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef %arrayidx47)
   %T2d.i548 = getelementptr inbounds i8, ptr %arrayidx47, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull readonly %T2d.i548, ptr noundef nonnull readonly %T14.i79)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull %T2d.i548, ptr noundef nonnull %T14.i79)
   %Z27.i = getelementptr inbounds i8, ptr %arrayidx47, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull %t, ptr noundef nonnull readonly %Z8.i78, ptr noundef nonnull readonly %Z27.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %t, ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z27.i)
   %114 = load i64, ptr %t, align 8
   %add.i31.i = shl i64 %114, 1
   %115 = load i64, ptr %arrayidx15.i.i515, align 8
@@ -5570,10 +5570,10 @@ if.end49:                                         ; preds = %if.else, %if.then41
   br i1 %cmp53, label %if.then55, label %if.else62
 
 if.then55:                                        ; preds = %if.end49
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %135 = lshr i8 %134, 1
   %idxprom60 = zext nneg i8 %135 to i64
   %arrayidx61 = getelementptr [8 x %struct.ge25519_precomp], ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 0, i64 %idxprom60
@@ -5585,10 +5585,10 @@ if.else62:                                        ; preds = %if.end49
   br i1 %cmp66, label %if.then68, label %if.end77
 
 if.then68:                                        ; preds = %if.else62
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i78, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i79, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %.nonneg = sub i8 0, %134
   %136 = lshr i8 %.nonneg, 1
   %idxprom74 = zext nneg i8 %136 to i64
@@ -5645,10 +5645,10 @@ if.then68:                                        ; preds = %if.else62
   store i64 %sub27.i.i599, ptr %arrayidx34.i.i543, align 8
   store i64 %sub30.i.i601, ptr %arrayidx35.i.i544, align 8
   %yminusx.i = getelementptr inbounds i8, ptr %arrayidx75, i64 40
-  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull readonly %yminusx.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef readonly %arrayidx75)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull %yminusx.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef %arrayidx75)
   %xy2d.i = getelementptr inbounds i8, ptr %arrayidx75, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull readonly %xy2d.i, ptr noundef nonnull readonly %T14.i79)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull %xy2d.i, ptr noundef nonnull %T14.i79)
   %147 = load i64, ptr %Z8.i78, align 8
   %add.i28.i = shl i64 %147, 1
   %148 = load i64, ptr %arrayidx2.i29.i, align 8
@@ -5759,9 +5759,9 @@ if.then68:                                        ; preds = %if.else62
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else62, %if.then68, %if.then55
-  call fastcc void @fe25519_mul(ptr noundef writeonly %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i71)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i487, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i73)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i488, ptr noundef nonnull readonly %Z.i73, ptr noundef nonnull readonly %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i487, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i488, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp22 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp22, label %for.body24, label %for.end80, !llvm.loop !26
@@ -6724,28 +6724,28 @@ entry:
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
   %Z.i = getelementptr inbounds i8, ptr %pi, i64 80
   %Z9.i = getelementptr inbounds i8, ptr %p, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
   %T2d.i = getelementptr inbounds i8, ptr %pi, i64 120
   %T.i = getelementptr inbounds i8, ptr %p, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i, ptr noundef nonnull readonly %T.i, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %p, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
   %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %t2, ptr noundef nonnull %q.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t2, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   %T.i27 = getelementptr inbounds i8, ptr %t2, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p2, ptr noundef nonnull readonly %t2, ptr noundef nonnull readonly %T.i27)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %t2, ptr noundef nonnull %T.i27)
   %Y.i28 = getelementptr inbounds i8, ptr %p2, i64 40
   %Y5.i = getelementptr inbounds i8, ptr %t2, i64 40
   %Z.i29 = getelementptr inbounds i8, ptr %t2, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i28, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i29)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i28, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i29)
   %Z8.i = getelementptr inbounds i8, ptr %p2, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i, ptr noundef nonnull readonly %Z.i29, ptr noundef nonnull readonly %T.i27)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i29, ptr noundef nonnull %T.i27)
   %T14.i = getelementptr inbounds i8, ptr %p2, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %t2, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %t2, ptr noundef nonnull %Y5.i)
   %arrayidx1 = getelementptr inbounds i8, ptr %pi, i64 160
   %10 = load i64, ptr %Y.i28, align 8
   %11 = load i64, ptr %p2, align 8
@@ -6816,20 +6816,20 @@ entry:
   %arrayidx35.i.i78 = getelementptr inbounds i8, ptr %pi, i64 232
   store i64 %sub30.i.i74, ptr %arrayidx35.i.i78, align 8
   %Z.i79 = getelementptr inbounds i8, ptr %pi, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i79, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i79, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
   %T2d.i81 = getelementptr inbounds i8, ptr %pi, i64 280
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i81, ptr noundef nonnull readonly %T14.i, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i81, ptr noundef nonnull %T14.i, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t3, ptr noundef nonnull %p, ptr noundef nonnull %arrayidx1)
   %T.i83 = getelementptr inbounds i8, ptr %t3, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p3, ptr noundef nonnull readonly %t3, ptr noundef nonnull readonly %T.i83)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p3, ptr noundef nonnull %t3, ptr noundef nonnull %T.i83)
   %Y.i84 = getelementptr inbounds i8, ptr %p3, i64 40
   %Y5.i85 = getelementptr inbounds i8, ptr %t3, i64 40
   %Z.i86 = getelementptr inbounds i8, ptr %t3, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i84, ptr noundef nonnull readonly %Y5.i85, ptr noundef nonnull readonly %Z.i86)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i84, ptr noundef nonnull %Y5.i85, ptr noundef nonnull %Z.i86)
   %Z8.i87 = getelementptr inbounds i8, ptr %p3, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i87, ptr noundef nonnull readonly %Z.i86, ptr noundef nonnull readonly %T.i83)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i87, ptr noundef nonnull %Z.i86, ptr noundef nonnull %T.i83)
   %T14.i88 = getelementptr inbounds i8, ptr %p3, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i88, ptr noundef nonnull readonly %t3, ptr noundef nonnull readonly %Y5.i85)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i88, ptr noundef nonnull %t3, ptr noundef nonnull %Y5.i85)
   %arrayidx3 = getelementptr inbounds i8, ptr %pi, i64 320
   %20 = load i64, ptr %Y.i84, align 8
   %21 = load i64, ptr %p3, align 8
@@ -6900,27 +6900,27 @@ entry:
   %arrayidx35.i.i137 = getelementptr inbounds i8, ptr %pi, i64 392
   store i64 %sub30.i.i133, ptr %arrayidx35.i.i137, align 8
   %Z.i138 = getelementptr inbounds i8, ptr %pi, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i138, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i138, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
   %T2d.i140 = getelementptr inbounds i8, ptr %pi, i64 440
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i140, ptr noundef nonnull readonly %T14.i88, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i140, ptr noundef nonnull %T14.i88, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i142)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i142, ptr noundef nonnull readonly align 8 dereferenceable(40) %p2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i142, ptr noundef nonnull align 8 dereferenceable(40) %p2, i64 40, i1 false)
   %Y.i.i143 = getelementptr inbounds i8, ptr %q.i142, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i143, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i28, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i143, ptr noundef nonnull align 8 dereferenceable(40) %Y.i28, i64 40, i1 false)
   %Z.i.i145 = getelementptr inbounds i8, ptr %q.i142, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i145, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %t4, ptr noundef nonnull %q.i142)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i145, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t4, ptr noundef nonnull %q.i142)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i142)
   %T.i147 = getelementptr inbounds i8, ptr %t4, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p4, ptr noundef nonnull readonly %t4, ptr noundef nonnull readonly %T.i147)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p4, ptr noundef nonnull %t4, ptr noundef nonnull %T.i147)
   %Y.i148 = getelementptr inbounds i8, ptr %p4, i64 40
   %Y5.i149 = getelementptr inbounds i8, ptr %t4, i64 40
   %Z.i150 = getelementptr inbounds i8, ptr %t4, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i148, ptr noundef nonnull readonly %Y5.i149, ptr noundef nonnull readonly %Z.i150)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i148, ptr noundef nonnull %Y5.i149, ptr noundef nonnull %Z.i150)
   %Z8.i151 = getelementptr inbounds i8, ptr %p4, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i151, ptr noundef nonnull readonly %Z.i150, ptr noundef nonnull readonly %T.i147)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i151, ptr noundef nonnull %Z.i150, ptr noundef nonnull %T.i147)
   %T14.i152 = getelementptr inbounds i8, ptr %p4, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i152, ptr noundef nonnull readonly %t4, ptr noundef nonnull readonly %Y5.i149)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i152, ptr noundef nonnull %t4, ptr noundef nonnull %Y5.i149)
   %arrayidx4 = getelementptr inbounds i8, ptr %pi, i64 480
   %30 = load i64, ptr %Y.i148, align 8
   %31 = load i64, ptr %p4, align 8
@@ -6991,20 +6991,20 @@ entry:
   %arrayidx35.i.i201 = getelementptr inbounds i8, ptr %pi, i64 552
   store i64 %sub30.i.i197, ptr %arrayidx35.i.i201, align 8
   %Z.i202 = getelementptr inbounds i8, ptr %pi, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i202, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i202, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
   %T2d.i204 = getelementptr inbounds i8, ptr %pi, i64 600
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i204, ptr noundef nonnull readonly %T14.i152, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i204, ptr noundef nonnull %T14.i152, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t5, ptr noundef nonnull %p, ptr noundef nonnull %arrayidx4)
   %T.i206 = getelementptr inbounds i8, ptr %t5, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p5, ptr noundef nonnull readonly %t5, ptr noundef nonnull readonly %T.i206)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p5, ptr noundef nonnull %t5, ptr noundef nonnull %T.i206)
   %Y.i207 = getelementptr inbounds i8, ptr %p5, i64 40
   %Y5.i208 = getelementptr inbounds i8, ptr %t5, i64 40
   %Z.i209 = getelementptr inbounds i8, ptr %t5, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i207, ptr noundef nonnull readonly %Y5.i208, ptr noundef nonnull readonly %Z.i209)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i207, ptr noundef nonnull %Y5.i208, ptr noundef nonnull %Z.i209)
   %Z8.i210 = getelementptr inbounds i8, ptr %p5, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i210, ptr noundef nonnull readonly %Z.i209, ptr noundef nonnull readonly %T.i206)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i210, ptr noundef nonnull %Z.i209, ptr noundef nonnull %T.i206)
   %T14.i211 = getelementptr inbounds i8, ptr %p5, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i211, ptr noundef nonnull readonly %t5, ptr noundef nonnull readonly %Y5.i208)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i211, ptr noundef nonnull %t5, ptr noundef nonnull %Y5.i208)
   %arrayidx6 = getelementptr inbounds i8, ptr %pi, i64 640
   %40 = load i64, ptr %Y.i207, align 8
   %41 = load i64, ptr %p5, align 8
@@ -7075,27 +7075,27 @@ entry:
   %arrayidx35.i.i260 = getelementptr inbounds i8, ptr %pi, i64 712
   store i64 %sub30.i.i256, ptr %arrayidx35.i.i260, align 8
   %Z.i261 = getelementptr inbounds i8, ptr %pi, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i261, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i210, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i261, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i210, i64 40, i1 false)
   %T2d.i263 = getelementptr inbounds i8, ptr %pi, i64 760
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i263, ptr noundef nonnull readonly %T14.i211, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i263, ptr noundef nonnull %T14.i211, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i265)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i265, ptr noundef nonnull readonly align 8 dereferenceable(40) %p3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i265, ptr noundef nonnull align 8 dereferenceable(40) %p3, i64 40, i1 false)
   %Y.i.i266 = getelementptr inbounds i8, ptr %q.i265, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i266, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i84, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i266, ptr noundef nonnull align 8 dereferenceable(40) %Y.i84, i64 40, i1 false)
   %Z.i.i268 = getelementptr inbounds i8, ptr %q.i265, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i268, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %t6, ptr noundef nonnull %q.i265)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i268, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t6, ptr noundef nonnull %q.i265)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i265)
   %T.i270 = getelementptr inbounds i8, ptr %t6, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p6, ptr noundef nonnull readonly %t6, ptr noundef nonnull readonly %T.i270)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p6, ptr noundef nonnull %t6, ptr noundef nonnull %T.i270)
   %Y.i271 = getelementptr inbounds i8, ptr %p6, i64 40
   %Y5.i272 = getelementptr inbounds i8, ptr %t6, i64 40
   %Z.i273 = getelementptr inbounds i8, ptr %t6, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i271, ptr noundef nonnull readonly %Y5.i272, ptr noundef nonnull readonly %Z.i273)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i271, ptr noundef nonnull %Y5.i272, ptr noundef nonnull %Z.i273)
   %Z8.i274 = getelementptr inbounds i8, ptr %p6, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i274, ptr noundef nonnull readonly %Z.i273, ptr noundef nonnull readonly %T.i270)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i274, ptr noundef nonnull %Z.i273, ptr noundef nonnull %T.i270)
   %T14.i275 = getelementptr inbounds i8, ptr %p6, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i275, ptr noundef nonnull readonly %t6, ptr noundef nonnull readonly %Y5.i272)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i275, ptr noundef nonnull %t6, ptr noundef nonnull %Y5.i272)
   %arrayidx7 = getelementptr inbounds i8, ptr %pi, i64 800
   %50 = load i64, ptr %Y.i271, align 8
   %51 = load i64, ptr %p6, align 8
@@ -7166,20 +7166,20 @@ entry:
   %arrayidx35.i.i324 = getelementptr inbounds i8, ptr %pi, i64 872
   store i64 %sub30.i.i320, ptr %arrayidx35.i.i324, align 8
   %Z.i325 = getelementptr inbounds i8, ptr %pi, i64 880
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i325, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i274, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i325, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i274, i64 40, i1 false)
   %T2d.i327 = getelementptr inbounds i8, ptr %pi, i64 920
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i327, ptr noundef nonnull readonly %T14.i275, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i327, ptr noundef nonnull %T14.i275, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t7, ptr noundef nonnull %p, ptr noundef nonnull %arrayidx7)
   %T.i329 = getelementptr inbounds i8, ptr %t7, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p7, ptr noundef nonnull readonly %t7, ptr noundef nonnull readonly %T.i329)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p7, ptr noundef nonnull %t7, ptr noundef nonnull %T.i329)
   %Y.i330 = getelementptr inbounds i8, ptr %p7, i64 40
   %Y5.i331 = getelementptr inbounds i8, ptr %t7, i64 40
   %Z.i332 = getelementptr inbounds i8, ptr %t7, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i330, ptr noundef nonnull readonly %Y5.i331, ptr noundef nonnull readonly %Z.i332)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i330, ptr noundef nonnull %Y5.i331, ptr noundef nonnull %Z.i332)
   %Z8.i333 = getelementptr inbounds i8, ptr %p7, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i333, ptr noundef nonnull readonly %Z.i332, ptr noundef nonnull readonly %T.i329)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i333, ptr noundef nonnull %Z.i332, ptr noundef nonnull %T.i329)
   %T14.i334 = getelementptr inbounds i8, ptr %p7, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i334, ptr noundef nonnull readonly %t7, ptr noundef nonnull readonly %Y5.i331)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i334, ptr noundef nonnull %t7, ptr noundef nonnull %Y5.i331)
   %arrayidx9 = getelementptr inbounds i8, ptr %pi, i64 960
   %60 = load i64, ptr %Y.i330, align 8
   %61 = load i64, ptr %p7, align 8
@@ -7250,27 +7250,27 @@ entry:
   %arrayidx35.i.i383 = getelementptr inbounds i8, ptr %pi, i64 1032
   store i64 %sub30.i.i379, ptr %arrayidx35.i.i383, align 8
   %Z.i384 = getelementptr inbounds i8, ptr %pi, i64 1040
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i384, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i333, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i384, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i333, i64 40, i1 false)
   %T2d.i386 = getelementptr inbounds i8, ptr %pi, i64 1080
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i386, ptr noundef nonnull readonly %T14.i334, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i386, ptr noundef nonnull %T14.i334, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i388)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i388, ptr noundef nonnull readonly align 8 dereferenceable(40) %p4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i388, ptr noundef nonnull align 8 dereferenceable(40) %p4, i64 40, i1 false)
   %Y.i.i389 = getelementptr inbounds i8, ptr %q.i388, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i389, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i148, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i389, ptr noundef nonnull align 8 dereferenceable(40) %Y.i148, i64 40, i1 false)
   %Z.i.i391 = getelementptr inbounds i8, ptr %q.i388, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i391, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %t8, ptr noundef nonnull %q.i388)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i391, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t8, ptr noundef nonnull %q.i388)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i388)
   %T.i393 = getelementptr inbounds i8, ptr %t8, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p8, ptr noundef nonnull readonly %t8, ptr noundef nonnull readonly %T.i393)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p8, ptr noundef nonnull %t8, ptr noundef nonnull %T.i393)
   %Y.i394 = getelementptr inbounds i8, ptr %p8, i64 40
   %Y5.i395 = getelementptr inbounds i8, ptr %t8, i64 40
   %Z.i396 = getelementptr inbounds i8, ptr %t8, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i394, ptr noundef nonnull readonly %Y5.i395, ptr noundef nonnull readonly %Z.i396)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i394, ptr noundef nonnull %Y5.i395, ptr noundef nonnull %Z.i396)
   %Z8.i397 = getelementptr inbounds i8, ptr %p8, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i397, ptr noundef nonnull readonly %Z.i396, ptr noundef nonnull readonly %T.i393)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i397, ptr noundef nonnull %Z.i396, ptr noundef nonnull %T.i393)
   %T14.i398 = getelementptr inbounds i8, ptr %p8, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i398, ptr noundef nonnull readonly %t8, ptr noundef nonnull readonly %Y5.i395)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i398, ptr noundef nonnull %t8, ptr noundef nonnull %Y5.i395)
   %arrayidx10 = getelementptr inbounds i8, ptr %pi, i64 1120
   %70 = load i64, ptr %Y.i394, align 8
   %71 = load i64, ptr %p8, align 8
@@ -7341,9 +7341,9 @@ entry:
   %arrayidx35.i.i447 = getelementptr inbounds i8, ptr %pi, i64 1192
   store i64 %sub30.i.i443, ptr %arrayidx35.i.i447, align 8
   %Z.i448 = getelementptr inbounds i8, ptr %pi, i64 1200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %Z.i448, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i397, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i448, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i397, i64 40, i1 false)
   %T2d.i450 = getelementptr inbounds i8, ptr %pi, i64 1240
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i450, ptr noundef nonnull readonly %T14.i398, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i450, ptr noundef nonnull %T14.i398, ptr noundef nonnull @ed25519_d2)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -7382,15 +7382,15 @@ for.end51:                                        ; preds = %for.body28
   %87 = load i8, ptr %arrayidx53, align 1
   %add55 = add i8 %87, %86
   store i8 %add55, ptr %arrayidx53, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %h, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %h, i8 0, i64 40, i1 false)
   %Y.i452 = getelementptr inbounds i8, ptr %h, i64 40
   store i64 1, ptr %Y.i452, align 8
   %arrayidx1.i.i = getelementptr i8, ptr %h, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
   %Z.i453 = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z.i453, align 8
   %arrayidx1.i4.i = getelementptr i8, ptr %h, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %arrayidx1.i4.i, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i4.i, i8 0, i64 72, i1 false)
   %T.i454 = getelementptr inbounds i8, ptr %r, i64 120
   %Y.i455 = getelementptr inbounds i8, ptr %s, i64 40
   %Y5.i456 = getelementptr inbounds i8, ptr %r, i64 40
@@ -7405,26 +7405,26 @@ for.body60:                                       ; preds = %for.end51, %for.bod
   %88 = load i8, ptr %arrayidx62, align 1
   call fastcc void @ge25519_cmov8_cached(ptr noundef nonnull %t, ptr noundef nonnull %pi, i8 noundef signext %88)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i455, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i458, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i455, ptr noundef nonnull %Y5.i456, ptr noundef nonnull %Z.i457)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i458, ptr noundef nonnull %Z.i457, ptr noundef nonnull %T.i454)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i455, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i458, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i455, ptr noundef nonnull %Y5.i456, ptr noundef nonnull %Z.i457)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i458, ptr noundef nonnull %Z.i457, ptr noundef nonnull %T.i454)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i455, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i458, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i455, ptr noundef nonnull %Y5.i456, ptr noundef nonnull %Z.i457)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i458, ptr noundef nonnull %Z.i457, ptr noundef nonnull %T.i454)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i455, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i458, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i455, ptr noundef nonnull %Y5.i456, ptr noundef nonnull %Z.i457)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i458, ptr noundef nonnull %Z.i457, ptr noundef nonnull %T.i454)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef writeonly %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i452, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i453, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i479, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i456)
+  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i452, ptr noundef nonnull %Y5.i456, ptr noundef nonnull %Z.i457)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i453, ptr noundef nonnull %Z.i457, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i479, ptr noundef nonnull %r, ptr noundef nonnull %Y5.i456)
   %indvars.iv.next497 = add nsw i64 %indvars.iv496, -1
   %cmp58.not = icmp eq i64 %indvars.iv.next497, 0
   br i1 %cmp58.not, label %for.end64, label %for.body60, !llvm.loop !29
@@ -7433,10 +7433,10 @@ for.end64:                                        ; preds = %for.body60
   %89 = load i8, ptr %e, align 16
   call fastcc void @ge25519_cmov8_cached(ptr noundef nonnull %t, ptr noundef nonnull %pi, i8 noundef signext %89)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef writeonly %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i452, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i453, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i479, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i456)
+  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i452, ptr noundef nonnull %Y5.i456, ptr noundef nonnull %Z.i457)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i453, ptr noundef nonnull %Z.i457, ptr noundef nonnull %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i479, ptr noundef nonnull %r, ptr noundef nonnull %Y5.i456)
   ret void
 }
 
@@ -7450,15 +7450,15 @@ entry:
   %sub3 = sub i8 %b, %mul
   store i64 1, ptr %t, align 8
   %arrayidx1.i.i = getelementptr i8, ptr %t, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
   %YminusX.i = getelementptr inbounds i8, ptr %t, i64 40
   store i64 1, ptr %YminusX.i, align 8
   %arrayidx1.i4.i = getelementptr i8, ptr %t, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i4.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i4.i, i8 0, i64 32, i1 false)
   %Z.i = getelementptr inbounds i8, ptr %t, i64 80
   store i64 1, ptr %Z.i, align 8
   %arrayidx1.i5.i = getelementptr i8, ptr %t, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %arrayidx1.i5.i, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i5.i, i8 0, i64 72, i1 false)
   %xor3.i = xor i8 %sub3, 1
   %conv3.i = zext i8 %xor3.i to i32
   %sub.i = add nsw i32 %conv3.i, -1
@@ -7555,11 +7555,11 @@ entry:
   %31 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i114, i32 %shr.i108) #10, !srcloc !13
   %T2d12.i116 = getelementptr i8, ptr %cached, i64 1240
   %32 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i116, i32 %shr.i108) #10, !srcloc !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %minust, ptr noundef nonnull readonly align 8 dereferenceable(40) %YminusX.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %minust, ptr noundef nonnull align 8 dereferenceable(40) %YminusX.i, i64 40, i1 false)
   %YminusX21 = getelementptr inbounds i8, ptr %minust, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %YminusX21, ptr noundef nonnull readonly align 8 dereferenceable(40) %t, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %YminusX21, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
   %Z = getelementptr inbounds i8, ptr %minust, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z, ptr noundef nonnull align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
   %T2d = getelementptr inbounds i8, ptr %minust, i64 120
   %33 = load i64, ptr %T2d.i, align 8
   %arrayidx1.i.i117 = getelementptr i8, ptr %t, i64 128
@@ -7654,15 +7654,15 @@ for.end40:                                        ; preds = %for.body17
   %7 = load i8, ptr %arrayidx42, align 1
   %add44 = add i8 %7, %6
   store i8 %add44, ptr %arrayidx42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %h, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %h, i8 0, i64 40, i1 false)
   %Y.i = getelementptr inbounds i8, ptr %h, i64 40
   store i64 1, ptr %Y.i, align 8
   %arrayidx1.i.i = getelementptr i8, ptr %h, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
   %Z.i = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z.i, align 8
   %arrayidx1.i4.i = getelementptr i8, ptr %h, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %arrayidx1.i4.i, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i4.i, i8 0, i64 72, i1 false)
   %T.i = getelementptr inbounds i8, ptr %r, i64 120
   %Y5.i = getelementptr inbounds i8, ptr %r, i64 40
   %Z.i31 = getelementptr inbounds i8, ptr %r, i64 80
@@ -7677,41 +7677,41 @@ for.body49:                                       ; preds = %for.end40, %for.bod
   %10 = trunc nuw nsw i64 %8 to i32
   call fastcc void @ge25519_cmov8_base(ptr noundef nonnull %t, i32 noundef %10, i8 noundef signext %9)
   call fastcc void @ge25519_add_precomp(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef writeonly %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %r, ptr noundef nonnull %Y5.i)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 2
   %cmp47 = icmp ult i64 %indvars.iv70, 62
   br i1 %cmp47, label %for.body49, label %for.end54, !llvm.loop !32
 
 for.end54:                                        ; preds = %for.body49
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %h, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %h, i64 40, i1 false)
   %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %r, ptr noundef nonnull %q.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
   %Y.i33 = getelementptr inbounds i8, ptr %s, i64 40
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i33, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i33, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
   %Z8.i36 = getelementptr inbounds i8, ptr %s, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i36, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i36, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i33, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i36, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i33, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i36, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i33, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i36, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i33, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i36, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef writeonly %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %r, ptr noundef nonnull %Y5.i)
   br label %for.body58
 
 for.body58:                                       ; preds = %for.end54, %for.body58
@@ -7722,10 +7722,10 @@ for.body58:                                       ; preds = %for.end54, %for.bod
   %13 = trunc nuw nsw i64 %11 to i32
   call fastcc void @ge25519_cmov8_base(ptr noundef nonnull %t, i32 noundef %13, i8 noundef signext %12)
   call fastcc void @ge25519_add_precomp(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef writeonly %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %r, ptr noundef nonnull %Y5.i)
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 2
   %cmp56 = icmp ult i64 %indvars.iv74, 62
   br i1 %cmp56, label %for.body58, label %for.end64, !llvm.loop !33
@@ -7747,11 +7747,11 @@ entry:
   %sub3.i = sub i8 %b, %mul.i
   store i64 1, ptr %t, align 8
   %arrayidx1.i.i.i = getelementptr i8, ptr %t, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i.i, i8 0, i64 32, i1 false)
   %yminusx.i.i = getelementptr inbounds i8, ptr %t, i64 40
   store i64 1, ptr %yminusx.i.i, align 8
   %arrayidx1.i3.i.i = getelementptr i8, ptr %t, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %arrayidx1.i3.i.i, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i3.i.i, i8 0, i64 72, i1 false)
   %xor3.i.i = xor i8 %sub3.i, 1
   %conv3.i.i = zext i8 %xor3.i.i to i32
   %sub.i.i = add nsw i32 %conv3.i.i, -1
@@ -7832,9 +7832,9 @@ entry:
   %23 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i98.i, i32 %shr.i94.i) #10, !srcloc !13
   %xy2d8.i100.i = getelementptr i8, ptr %arrayidx, i64 920
   %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i100.i, i32 %shr.i94.i) #10, !srcloc !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %minust.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %yminusx.i.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %minust.i, ptr noundef nonnull align 8 dereferenceable(40) %yminusx.i.i, i64 40, i1 false)
   %yminusx21.i = getelementptr inbounds i8, ptr %minust.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %yminusx21.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %t, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %yminusx21.i, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
   %xy2d.i = getelementptr inbounds i8, ptr %minust.i, i64 80
   %25 = load i64, ptr %xy2d.i.i, align 8
   %arrayidx1.i.i101.i = getelementptr i8, ptr %t, i64 88
@@ -7959,21 +7959,21 @@ entry:
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
   %Z.i = getelementptr inbounds i8, ptr %q_cached, i64 80
   %Z9.i = getelementptr inbounds i8, ptr %q, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
   %T2d.i = getelementptr inbounds i8, ptr %q_cached, i64 120
   %T.i = getelementptr inbounds i8, ptr %q, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T2d.i, ptr noundef nonnull readonly %T.i, ptr noundef nonnull @ed25519_d2)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %p1p1, ptr noundef %p, ptr noundef nonnull %q_cached)
   %T.i1 = getelementptr inbounds i8, ptr %p1p1, i64 120
-  call fastcc void @fe25519_mul(ptr noundef writeonly %r, ptr noundef nonnull readonly %p1p1, ptr noundef nonnull readonly %T.i1)
+  call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef nonnull %p1p1, ptr noundef nonnull %T.i1)
   %Y.i2 = getelementptr inbounds i8, ptr %r, i64 40
   %Y5.i = getelementptr inbounds i8, ptr %p1p1, i64 40
   %Z.i3 = getelementptr inbounds i8, ptr %p1p1, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i2, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i3)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i2, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i3)
   %Z8.i = getelementptr inbounds i8, ptr %r, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i, ptr noundef nonnull readonly %Z.i3, ptr noundef nonnull readonly %T.i1)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i3, ptr noundef nonnull %T.i1)
   %T14.i = getelementptr inbounds i8, ptr %r, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %p1p1, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %p1p1, ptr noundef nonnull %Y5.i)
   ret void
 }
 
@@ -8022,10 +8022,10 @@ entry:
   store i64 %sub30.i.i.i, ptr %arrayidx35.i.i.i, align 8
   %Y.i = getelementptr inbounds i8, ptr %q_neg, i64 40
   %Y4.i = getelementptr inbounds i8, ptr %q, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y4.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i, i64 40, i1 false)
   %Z.i = getelementptr inbounds i8, ptr %q_neg, i64 80
   %Z7.i = getelementptr inbounds i8, ptr %q, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i, i64 40, i1 false)
   %T.i = getelementptr inbounds i8, ptr %q_neg, i64 120
   %T10.i = getelementptr inbounds i8, ptr %q, i64 120
   %5 = load i64, ptr %T10.i, align 8
@@ -8638,93 +8638,93 @@ entry:
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %_11110101.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %p, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
   %Y.i.i.i.i = getelementptr inbounds i8, ptr %q.i.i.i, i64 40
   %Y4.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y4.i.i.i.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i.i.i.i, i64 40, i1 false)
   %Z.i.i.i.i = getelementptr inbounds i8, ptr %q.i.i.i, i64 80
   %Z7.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i.i.i.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %p1p1.i.i, ptr noundef nonnull %q.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i.i.i.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %q.i.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i.i)
   %T.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %_10.i, ptr noundef nonnull readonly %p1p1.i.i, ptr noundef nonnull readonly %T.i.i.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %_10.i, ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %T.i.i.i)
   %Y.i.i.i = getelementptr inbounds i8, ptr %_10.i, i64 40
   %Y5.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 40
   %Z.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i.i.i, ptr noundef nonnull readonly %Y5.i.i.i, ptr noundef nonnull readonly %Z.i.i.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i.i, ptr noundef nonnull %Y5.i.i.i, ptr noundef nonnull %Z.i.i.i)
   %Z8.i.i.i = getelementptr inbounds i8, ptr %_10.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i.i.i, ptr noundef nonnull readonly %Z.i.i.i, ptr noundef nonnull readonly %T.i.i.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i.i, ptr noundef nonnull %Z.i.i.i, ptr noundef nonnull %T.i.i.i)
   %T14.i.i.i = getelementptr inbounds i8, ptr %_10.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i.i.i, ptr noundef nonnull readonly %p1p1.i.i, ptr noundef nonnull readonly %Y5.i.i.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i.i, ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %Y5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i.i)
-  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11.i, ptr noundef readonly %p, ptr noundef nonnull %_10.i)
-  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_100.i, ptr noundef readonly %p, ptr noundef nonnull %_11.i)
+  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11.i, ptr noundef %p, ptr noundef nonnull %_10.i)
+  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_100.i, ptr noundef %p, ptr noundef nonnull %_11.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_110.i, ptr noundef nonnull %_10.i, ptr noundef nonnull %_100.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1000.i, ptr noundef nonnull %_10.i, ptr noundef nonnull %_110.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1011.i, ptr noundef nonnull %_11.i, ptr noundef nonnull %_1000.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i20.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i19.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i.i19.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %_1000.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i19.i, ptr noundef nonnull align 8 dereferenceable(40) %_1000.i, i64 40, i1 false)
   %Y.i.i.i21.i = getelementptr inbounds i8, ptr %q.i.i19.i, i64 40
   %Y4.i.i.i22.i = getelementptr inbounds i8, ptr %_1000.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i.i21.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y4.i.i.i22.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i.i.i22.i, i64 40, i1 false)
   %Z.i.i.i23.i = getelementptr inbounds i8, ptr %q.i.i19.i, i64 80
   %Z7.i.i.i24.i = getelementptr inbounds i8, ptr %_1000.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i.i23.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i.i.i24.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %p1p1.i20.i, ptr noundef nonnull %q.i.i19.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i23.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i.i.i24.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %q.i.i19.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i19.i)
   %T.i.i25.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %_10000.i, ptr noundef nonnull readonly %p1p1.i20.i, ptr noundef nonnull readonly %T.i.i25.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %_10000.i, ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %T.i.i25.i)
   %Y.i.i26.i = getelementptr inbounds i8, ptr %_10000.i, i64 40
   %Y5.i.i27.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 40
   %Z.i.i28.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i.i26.i, ptr noundef nonnull readonly %Y5.i.i27.i, ptr noundef nonnull readonly %Z.i.i28.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i26.i, ptr noundef nonnull %Y5.i.i27.i, ptr noundef nonnull %Z.i.i28.i)
   %Z8.i.i29.i = getelementptr inbounds i8, ptr %_10000.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i.i29.i, ptr noundef nonnull readonly %Z.i.i28.i, ptr noundef nonnull readonly %T.i.i25.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i29.i, ptr noundef nonnull %Z.i.i28.i, ptr noundef nonnull %T.i.i25.i)
   %T14.i.i30.i = getelementptr inbounds i8, ptr %_10000.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i.i30.i, ptr noundef nonnull readonly %p1p1.i20.i, ptr noundef nonnull readonly %Y5.i.i27.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i30.i, ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %Y5.i.i27.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i20.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i32.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i31.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i.i31.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %_10000.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i31.i, ptr noundef nonnull align 8 dereferenceable(40) %_10000.i, i64 40, i1 false)
   %Y.i.i.i33.i = getelementptr inbounds i8, ptr %q.i.i31.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i.i33.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i.i26.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i33.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i26.i, i64 40, i1 false)
   %Z.i.i.i35.i = getelementptr inbounds i8, ptr %q.i.i31.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i.i35.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i.i29.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %p1p1.i32.i, ptr noundef nonnull %q.i.i31.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i35.i, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i.i29.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %q.i.i31.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i31.i)
   %T.i.i37.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %_100000.i, ptr noundef nonnull readonly %p1p1.i32.i, ptr noundef nonnull readonly %T.i.i37.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %_100000.i, ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %T.i.i37.i)
   %Y.i.i38.i = getelementptr inbounds i8, ptr %_100000.i, i64 40
   %Y5.i.i39.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 40
   %Z.i.i40.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i.i38.i, ptr noundef nonnull readonly %Y5.i.i39.i, ptr noundef nonnull readonly %Z.i.i40.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i38.i, ptr noundef nonnull %Y5.i.i39.i, ptr noundef nonnull %Z.i.i40.i)
   %Z8.i.i41.i = getelementptr inbounds i8, ptr %_100000.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i.i41.i, ptr noundef nonnull readonly %Z.i.i40.i, ptr noundef nonnull readonly %T.i.i37.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i41.i, ptr noundef nonnull %Z.i.i40.i, ptr noundef nonnull %T.i.i37.i)
   %T14.i.i42.i = getelementptr inbounds i8, ptr %_100000.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i.i42.i, ptr noundef nonnull readonly %p1p1.i32.i, ptr noundef nonnull readonly %Y5.i.i39.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i42.i, ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %Y5.i.i39.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i32.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_100110.i, ptr noundef nonnull %_110.i, ptr noundef nonnull %_100000.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i44.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i43.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i.i43.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %_100000.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i43.i, ptr noundef nonnull align 8 dereferenceable(40) %_100000.i, i64 40, i1 false)
   %Y.i.i.i45.i = getelementptr inbounds i8, ptr %q.i.i43.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i.i45.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y.i.i38.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i45.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i38.i, i64 40, i1 false)
   %Z.i.i.i47.i = getelementptr inbounds i8, ptr %q.i.i43.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i.i47.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z8.i.i41.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %p1p1.i44.i, ptr noundef nonnull %q.i.i43.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i47.i, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i.i41.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %q.i.i43.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i43.i)
   %T.i.i49.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %_1000000.i, ptr noundef nonnull readonly %p1p1.i44.i, ptr noundef nonnull readonly %T.i.i49.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %_1000000.i, ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %T.i.i49.i)
   %Y.i.i50.i = getelementptr inbounds i8, ptr %_1000000.i, i64 40
   %Y5.i.i51.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 40
   %Z.i.i52.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i.i50.i, ptr noundef nonnull readonly %Y5.i.i51.i, ptr noundef nonnull readonly %Z.i.i52.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i50.i, ptr noundef nonnull %Y5.i.i51.i, ptr noundef nonnull %Z.i.i52.i)
   %Z8.i.i53.i = getelementptr inbounds i8, ptr %_1000000.i, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i.i53.i, ptr noundef nonnull readonly %Z.i.i52.i, ptr noundef nonnull readonly %T.i.i49.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i53.i, ptr noundef nonnull %Z.i.i52.i, ptr noundef nonnull %T.i.i49.i)
   %T14.i.i54.i = getelementptr inbounds i8, ptr %_1000000.i, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i.i54.i, ptr noundef nonnull readonly %p1p1.i44.i, ptr noundef nonnull readonly %Y5.i.i51.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i54.i, ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %Y5.i.i51.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i44.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1010000.i, ptr noundef nonnull %_10000.i, ptr noundef nonnull %_1000000.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1010011.i, ptr noundef nonnull %_11.i, ptr noundef nonnull %_1010000.i)
@@ -11633,17 +11633,17 @@ entry:
   %_11100111 = alloca [32 x i8], align 16
   %_11101011 = alloca [32 x i8], align 16
   %_11110101 = alloca [32 x i8], align 16
-  call void @_sodium_sc25519_mul(ptr noundef nonnull writeonly %_10, ptr noundef readonly %s, ptr noundef readonly %s)
+  call void @_sodium_sc25519_mul(ptr noundef nonnull %_10, ptr noundef %s, ptr noundef %s)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_11, ptr noundef %s, ptr noundef nonnull %_10)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_100, ptr noundef %s, ptr noundef nonnull %_11)
-  call void @_sodium_sc25519_mul(ptr noundef nonnull writeonly %_1000, ptr noundef nonnull readonly %_100, ptr noundef nonnull readonly %_100)
+  call void @_sodium_sc25519_mul(ptr noundef nonnull %_1000, ptr noundef nonnull %_100, ptr noundef nonnull %_100)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_1010, ptr noundef nonnull %_10, ptr noundef nonnull %_1000)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_1011, ptr noundef %s, ptr noundef nonnull %_1010)
-  call void @_sodium_sc25519_mul(ptr noundef nonnull writeonly %_10000, ptr noundef nonnull readonly %_1000, ptr noundef nonnull readonly %_1000)
-  call void @_sodium_sc25519_mul(ptr noundef nonnull writeonly %_10110, ptr noundef nonnull readonly %_1011, ptr noundef nonnull readonly %_1011)
+  call void @_sodium_sc25519_mul(ptr noundef nonnull %_10000, ptr noundef nonnull %_1000, ptr noundef nonnull %_1000)
+  call void @_sodium_sc25519_mul(ptr noundef nonnull %_10110, ptr noundef nonnull %_1011, ptr noundef nonnull %_1011)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_100000, ptr noundef nonnull %_1010, ptr noundef nonnull %_10110)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_100110, ptr noundef nonnull %_10000, ptr noundef nonnull %_10110)
-  call void @_sodium_sc25519_mul(ptr noundef nonnull writeonly %_1000000, ptr noundef nonnull readonly %_100000, ptr noundef nonnull readonly %_100000)
+  call void @_sodium_sc25519_mul(ptr noundef nonnull %_1000000, ptr noundef nonnull %_100000, ptr noundef nonnull %_100000)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_1010000, ptr noundef nonnull %_10000, ptr noundef nonnull %_1000000)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_1010011, ptr noundef nonnull %_11, ptr noundef nonnull %_1010000)
   call void @_sodium_sc25519_mul(ptr noundef nonnull %_1100011, ptr noundef nonnull %_10000, ptr noundef nonnull %_1010011)
@@ -11661,157 +11661,157 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %entry ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i = add nuw nsw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 126
   br i1 %exitcond.not.i, label %sc25519_sqmul.exit, label %for.body.i, !llvm.loop !35
 
 sc25519_sqmul.exit:                               ; preds = %for.body.i
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_1010011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_1010011)
   br label %for.body.i20
 
 for.body.i20:                                     ; preds = %for.body.i20, %sc25519_sqmul.exit
   %i.06.i21 = phi i32 [ %inc.i22, %for.body.i20 ], [ 0, %sc25519_sqmul.exit ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i22 = add nuw nsw i32 %i.06.i21, 1
   %exitcond.not.i23 = icmp eq i32 %inc.i22, 9
   br i1 %exitcond.not.i23, label %sc25519_sqmul.exit24, label %for.body.i20, !llvm.loop !35
 
 sc25519_sqmul.exit24:                             ; preds = %for.body.i20
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_10)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_10)
   call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_11110101)
   br label %for.body.i25
 
 for.body.i25:                                     ; preds = %for.body.i25, %sc25519_sqmul.exit24
   %i.06.i26 = phi i32 [ %inc.i27, %for.body.i25 ], [ 0, %sc25519_sqmul.exit24 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i27 = add nuw nsw i32 %i.06.i26, 1
   %exitcond.not.i28 = icmp eq i32 %inc.i27, 7
   br i1 %exitcond.not.i28, label %sc25519_sqmul.exit29, label %for.body.i25, !llvm.loop !35
 
 sc25519_sqmul.exit29:                             ; preds = %for.body.i25
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_1100111)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_1100111)
   br label %for.body.i30
 
 for.body.i30:                                     ; preds = %for.body.i30, %sc25519_sqmul.exit29
   %i.06.i31 = phi i32 [ %inc.i32, %for.body.i30 ], [ 0, %sc25519_sqmul.exit29 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i32 = add nuw nsw i32 %i.06.i31, 1
   %exitcond.not.i33 = icmp eq i32 %inc.i32, 9
   br i1 %exitcond.not.i33, label %sc25519_sqmul.exit34, label %for.body.i30, !llvm.loop !35
 
 sc25519_sqmul.exit34:                             ; preds = %for.body.i30
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_11110101)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_11110101)
   br label %for.body.i35
 
 for.body.i35:                                     ; preds = %for.body.i35, %sc25519_sqmul.exit34
   %i.06.i36 = phi i32 [ %inc.i37, %for.body.i35 ], [ 0, %sc25519_sqmul.exit34 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i37 = add nuw nsw i32 %i.06.i36, 1
   %exitcond.not.i38 = icmp eq i32 %inc.i37, 11
   br i1 %exitcond.not.i38, label %sc25519_sqmul.exit39, label %for.body.i35, !llvm.loop !35
 
 sc25519_sqmul.exit39:                             ; preds = %for.body.i35
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_10111101)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_10111101)
   br label %for.body.i40
 
 for.body.i40:                                     ; preds = %for.body.i40, %sc25519_sqmul.exit39
   %i.06.i41 = phi i32 [ %inc.i42, %for.body.i40 ], [ 0, %sc25519_sqmul.exit39 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i42 = add nuw nsw i32 %i.06.i41, 1
   %exitcond.not.i43 = icmp eq i32 %inc.i42, 8
   br i1 %exitcond.not.i43, label %sc25519_sqmul.exit44, label %for.body.i40, !llvm.loop !35
 
 sc25519_sqmul.exit44:                             ; preds = %for.body.i40
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_11100111)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_11100111)
   br label %for.body.i45
 
 for.body.i45:                                     ; preds = %for.body.i45, %sc25519_sqmul.exit44
   %i.06.i46 = phi i32 [ %inc.i47, %for.body.i45 ], [ 0, %sc25519_sqmul.exit44 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i47 = add nuw nsw i32 %i.06.i46, 1
   %exitcond.not.i48 = icmp eq i32 %inc.i47, 9
   br i1 %exitcond.not.i48, label %sc25519_sqmul.exit49, label %for.body.i45, !llvm.loop !35
 
 sc25519_sqmul.exit49:                             ; preds = %for.body.i45
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_1101011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_1101011)
   br label %for.body.i50
 
 for.body.i50:                                     ; preds = %for.body.i50, %sc25519_sqmul.exit49
   %i.06.i51 = phi i32 [ %inc.i52, %for.body.i50 ], [ 0, %sc25519_sqmul.exit49 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i52 = add nuw nsw i32 %i.06.i51, 1
   %exitcond.not.i53 = icmp eq i32 %inc.i52, 6
   br i1 %exitcond.not.i53, label %sc25519_sqmul.exit54, label %for.body.i50, !llvm.loop !35
 
 sc25519_sqmul.exit54:                             ; preds = %for.body.i50
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_1011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_1011)
   br label %for.body.i55
 
 for.body.i55:                                     ; preds = %for.body.i55, %sc25519_sqmul.exit54
   %i.06.i56 = phi i32 [ %inc.i57, %for.body.i55 ], [ 0, %sc25519_sqmul.exit54 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i57 = add nuw nsw i32 %i.06.i56, 1
   %exitcond.not.i58 = icmp eq i32 %inc.i57, 14
   br i1 %exitcond.not.i58, label %sc25519_sqmul.exit59, label %for.body.i55, !llvm.loop !35
 
 sc25519_sqmul.exit59:                             ; preds = %for.body.i55
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_10010011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_10010011)
   br label %for.body.i60
 
 for.body.i60:                                     ; preds = %for.body.i60, %sc25519_sqmul.exit59
   %i.06.i61 = phi i32 [ %inc.i62, %for.body.i60 ], [ 0, %sc25519_sqmul.exit59 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i62 = add nuw nsw i32 %i.06.i61, 1
   %exitcond.not.i63 = icmp eq i32 %inc.i62, 10
   br i1 %exitcond.not.i63, label %sc25519_sqmul.exit64, label %for.body.i60, !llvm.loop !35
 
 sc25519_sqmul.exit64:                             ; preds = %for.body.i60
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_1100011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_1100011)
   br label %for.body.i65
 
 for.body.i65:                                     ; preds = %for.body.i65, %sc25519_sqmul.exit64
   %i.06.i66 = phi i32 [ %inc.i67, %for.body.i65 ], [ 0, %sc25519_sqmul.exit64 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i67 = add nuw nsw i32 %i.06.i66, 1
   %exitcond.not.i68 = icmp eq i32 %inc.i67, 9
   br i1 %exitcond.not.i68, label %sc25519_sqmul.exit69, label %for.body.i65, !llvm.loop !35
 
 sc25519_sqmul.exit69:                             ; preds = %for.body.i65
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_10010111)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_10010111)
   br label %for.body.i70
 
 for.body.i70:                                     ; preds = %for.body.i70, %sc25519_sqmul.exit69
   %i.06.i71 = phi i32 [ %inc.i72, %for.body.i70 ], [ 0, %sc25519_sqmul.exit69 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i72 = add nuw nsw i32 %i.06.i71, 1
   %exitcond.not.i73 = icmp eq i32 %inc.i72, 10
   br i1 %exitcond.not.i73, label %sc25519_sqmul.exit74, label %for.body.i70, !llvm.loop !35
 
 sc25519_sqmul.exit74:                             ; preds = %for.body.i70
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_11110101)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_11110101)
   br label %for.body.i75
 
 for.body.i75:                                     ; preds = %for.body.i75, %sc25519_sqmul.exit74
   %i.06.i76 = phi i32 [ %inc.i77, %for.body.i75 ], [ 0, %sc25519_sqmul.exit74 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i77 = add nuw nsw i32 %i.06.i76, 1
   %exitcond.not.i78 = icmp eq i32 %inc.i77, 8
   br i1 %exitcond.not.i78, label %sc25519_sqmul.exit79, label %for.body.i75, !llvm.loop !35
 
 sc25519_sqmul.exit79:                             ; preds = %for.body.i75
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_11010011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_11010011)
   br label %for.body.i80
 
 for.body.i80:                                     ; preds = %for.body.i80, %sc25519_sqmul.exit79
   %i.06.i81 = phi i32 [ %inc.i82, %for.body.i80 ], [ 0, %sc25519_sqmul.exit79 ]
-  tail call void @_sodium_sc25519_mul(ptr noundef writeonly %recip, ptr noundef readonly %recip, ptr noundef readonly %recip)
+  tail call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef %recip)
   %inc.i82 = add nuw nsw i32 %i.06.i81, 1
   %exitcond.not.i83 = icmp eq i32 %inc.i82, 8
   br i1 %exitcond.not.i83, label %sc25519_sqmul.exit84, label %for.body.i80, !llvm.loop !35
 
 sc25519_sqmul.exit84:                             ; preds = %for.body.i80
-  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull readonly %_11101011)
+  call void @_sodium_sc25519_mul(ptr noundef %recip, ptr noundef %recip, ptr noundef nonnull %_11101011)
   ret void
 }
 
@@ -12502,33 +12502,33 @@ entry:
   %p1 = alloca %struct.ge25519_p1p1, align 8
   %p2 = alloca %struct.ge25519_p2, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %q.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %p3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %p3, i64 40, i1 false)
   %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
   %Y4.i.i = getelementptr inbounds i8, ptr %p3, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y4.i.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   %Z7.i.i = getelementptr inbounds i8, ptr %p3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i.i, i64 40, i1 false)
-  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly %p1, ptr noundef nonnull %q.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i.i, i64 40, i1 false)
+  call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   %T.i = getelementptr inbounds i8, ptr %p1, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p2, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %p1, ptr noundef nonnull %T.i)
   %Y.i = getelementptr inbounds i8, ptr %p2, i64 40
   %Y5.i = getelementptr inbounds i8, ptr %p1, i64 40
   %Z.i = getelementptr inbounds i8, ptr %p1, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i)
   %Z8.i = getelementptr inbounds i8, ptr %p2, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i, ptr noundef nonnull readonly %Z.i, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1, ptr noundef nonnull %p2)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p2, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z8.i, ptr noundef nonnull readonly %Z.i, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %p1, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1, ptr noundef nonnull %p2)
-  call fastcc void @fe25519_mul(ptr noundef writeonly %p3, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y4.i.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z7.i.i, ptr noundef nonnull readonly %Z.i, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef %p3, ptr noundef nonnull %p1, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y4.i.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z7.i.i, ptr noundef nonnull %Z.i, ptr noundef nonnull %T.i)
   %T14.i = getelementptr inbounds i8, ptr %p3, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %p1, ptr noundef nonnull %Y5.i)
   ret void
 }
 
@@ -12673,7 +12673,7 @@ entry:
   %Z = getelementptr inbounds i8, ptr %p3, i64 80
   store i64 1, ptr %Z, align 8
   %arrayidx1.i = getelementptr inbounds i8, ptr %p3, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %T = getelementptr inbounds i8, ptr %p3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %p3, ptr noundef nonnull %Y)
   call void @_sodium_ge25519_clear_cofactor(ptr noundef nonnull %p3)
@@ -13008,8 +13008,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %u.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %v.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull %_10.i, ptr noundef nonnull readonly %gx1, ptr noundef nonnull readonly %gx1)
-  call fastcc void @fe25519_mul(ptr noundef nonnull %_11.i, ptr noundef nonnull readonly %gx1, ptr noundef nonnull %_10.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %_10.i, ptr noundef nonnull %gx1, ptr noundef nonnull %gx1)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %_11.i, ptr noundef nonnull %gx1, ptr noundef nonnull %_10.i)
   %23 = load i64, ptr %_11.i, align 16
   %conv.i.i = zext i64 %23 to i128
   %arrayidx1.i.i124 = getelementptr inbounds i8, ptr %_11.i, i64 8
@@ -13421,14 +13421,14 @@ entry:
   store <2 x i64> %40, ptr %arrayidx75.i153.i, align 8
   call fastcc void @fe25519_mul(ptr noundef nonnull %t.i, ptr noundef nonnull %_1111.i, ptr noundef nonnull %_11110000.i)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 2, ptr noundef nonnull %_11.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %u.i, ptr noundef nonnull readonly align 16 dereferenceable(40) %t.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %u.i, ptr noundef nonnull align 16 dereferenceable(40) %t.i, i64 40, i1 false)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 10, ptr noundef nonnull %u.i)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 10, ptr noundef nonnull %u.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %v.i, ptr noundef nonnull readonly align 16 dereferenceable(40) %t.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %v.i, ptr noundef nonnull align 16 dereferenceable(40) %t.i, i64 40, i1 false)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 30, ptr noundef nonnull %v.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %v.i, ptr noundef nonnull readonly align 16 dereferenceable(40) %t.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %v.i, ptr noundef nonnull align 16 dereferenceable(40) %t.i, i64 40, i1 false)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 60, ptr noundef nonnull %v.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %v.i, ptr noundef nonnull readonly align 16 dereferenceable(40) %t.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %v.i, ptr noundef nonnull align 16 dereferenceable(40) %t.i, i64 40, i1 false)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 120, ptr noundef nonnull %v.i)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 10, ptr noundef nonnull %u.i)
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 3, ptr noundef nonnull %_11.i)
@@ -13591,7 +13591,7 @@ entry:
   %arrayidx35.i.i158 = getelementptr inbounds i8, ptr %negx, i64 32
   store i64 %sub30.i.i154, ptr %arrayidx35.i.i158, align 16
   %48 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x, ptr nonnull %negx, i32 %and.i129) #10, !srcloc !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %x2, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %x2, i8 0, i64 40, i1 false)
   %49 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x2, ptr nonnull @ed25519_A, i32 %and.i129) #10, !srcloc !13
   %50 = load i64, ptr %x2, align 16
   %51 = load i64, ptr %arrayidx73.i, align 8
@@ -13711,7 +13711,7 @@ entry:
   store i64 %and70.i.i233, ptr %arrayidx73.i.i235, align 8
   store i64 %add71.i.i234, ptr %arrayidx74.i.i236, align 16
   store <2 x i64> %63, ptr %arrayidx75.i.i237, align 8
-  call fastcc void @fe25519_mul(ptr noundef nonnull %x3.i, ptr noundef nonnull readonly %x, ptr noundef nonnull %x2.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %x3.i, ptr noundef nonnull %x, ptr noundef nonnull %x2.i)
   %conv1.i.i = zext nneg i64 %and67.i.i230 to i128
   %mul.i7.i = mul nuw nsw i128 %conv1.i.i, 486662
   %conv4.i9.i = zext nneg i64 %and70.i.i233 to i128
@@ -13774,8 +13774,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p_root.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %m_root.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %e.i.i.i)
-  call fastcc void @fe25519_pow22523(ptr noundef nonnull %e.i.i.i, ptr noundef nonnull readonly %y)
-  call fastcc void @fe25519_mul(ptr noundef nonnull %p_root.i.i.i, ptr noundef nonnull %e.i.i.i, ptr noundef nonnull readonly %y)
+  call fastcc void @fe25519_pow22523(ptr noundef nonnull %e.i.i.i, ptr noundef nonnull %y)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p_root.i.i.i, ptr noundef nonnull %e.i.i.i, ptr noundef nonnull %y)
   call fastcc void @fe25519_mul(ptr noundef nonnull %m_root.i.i.i, ptr noundef nonnull %p_root.i.i.i, ptr noundef nonnull @fe25519_sqrtm1)
   %69 = load i64, ptr %m_root.i.i.i, align 16
   %conv.i.i.i.i = zext i64 %69 to i128
@@ -13874,7 +13874,7 @@ entry:
   %sub27.i.i.i.i = sub i64 %reass.sub35.i.i.i.i, %and13.i.i.i.i
   %add29.i.i.i.i = add i64 %add13.i31.i, 4503599627370494
   %sub30.i.i.i.i = sub i64 %add29.i.i.i.i, %and16.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %y, ptr noundef nonnull readonly align 16 dereferenceable(40) %p_root.i.i.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %y, ptr noundef nonnull align 16 dereferenceable(40) %p_root.i.i.i, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i.i.i)
   %conv.i.i.i.i.i = zext i64 %sub.i.i.i.i to i128
   %conv3.i.i.i.i.i = zext i64 %sub21.i.i.i.i to i128
@@ -14196,7 +14196,7 @@ entry:
   %x_plus_one_y_inv = alloca [5 x i64], align 16
   store i64 1, ptr %one, align 16
   %arrayidx1.i = getelementptr inbounds i8, ptr %one, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %0 = load i64, ptr %x, align 8
   %add.i = add i64 %0, 1
   %arrayidx2.i = getelementptr i8, ptr %x, i64 8
@@ -14362,9 +14362,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fl.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %gl.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %fe_g.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %fl.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %h, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %fl.i, ptr noundef nonnull align 1 dereferenceable(32) %h, i64 32, i1 false)
   %add.ptr.i = getelementptr i8, ptr %h, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %gl.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %gl.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
   %fl.i.31.fl.i.31.fl.i.31.fl.31.fl.31.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %fl.i, i64 31
   %fl.i.31.fl.i.31.fl.i.31.fl.31.fl.31..i = load i8, ptr %fl.i.31.fl.i.31.fl.i.31.fl.31.fl.31.arrayidx.sroa_idx, align 1
   %0 = and i8 %fl.i.31.fl.i.31.fl.i.31.fl.31.fl.31..i, 127
@@ -14644,7 +14644,7 @@ fe25519_reduce64.exit:                            ; preds = %for.body.i
   %Z = getelementptr inbounds i8, ptr %p3, i64 80
   store i64 1, ptr %Z, align 8
   %arrayidx1.i = getelementptr inbounds i8, ptr %p3, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %T = getelementptr inbounds i8, ptr %p3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %p3, ptr noundef nonnull %Y)
   call void @_sodium_ge25519_clear_cofactor(ptr noundef nonnull %p3)
@@ -15025,7 +15025,7 @@ if.end:                                           ; preds = %ristretto255_is_can
   call fastcc void @fe25519_mul(ptr noundef nonnull %v_u2u2, ptr noundef nonnull %v, ptr noundef nonnull %u2u2)
   store i64 1, ptr %one, align 16
   %arrayidx1.i233 = getelementptr inbounds i8, ptr %one, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i233, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i233, i8 0, i64 32, i1 false)
   %call29 = call fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %one, ptr noundef nonnull %v_u2u2)
   call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %u2)
   %Y = getelementptr inbounds i8, ptr %h, i64 40
@@ -15052,7 +15052,7 @@ if.end:                                           ; preds = %ristretto255_is_can
   store i64 %add10.i243, ptr %arrayidx8.i241, align 8
   store i64 %add13.i246, ptr %arrayidx11.i244, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
-  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i.i, ptr noundef nonnull readonly %h)
+  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i.i, ptr noundef nonnull %h)
   %29 = load i8, ptr %s.i.i, align 16
   %30 = and i8 %29, 1
   %and.i.i251 = zext nneg i8 %30 to i32
@@ -15094,19 +15094,19 @@ if.end:                                           ; preds = %ristretto255_is_can
   %Z = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z, align 8
   %arrayidx1.i253 = getelementptr i8, ptr %h, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i253, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i253, i8 0, i64 32, i1 false)
   %T = getelementptr inbounds i8, ptr %h, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %h, ptr noundef nonnull %Y)
   %sub = sub i32 1, %call29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
-  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i, ptr noundef nonnull readonly %T)
+  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i, ptr noundef nonnull %T)
   %32 = load i8, ptr %s.i, align 16
   %33 = and i8 %32, 1
   %and.i254 = zext nneg i8 %33 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
   %or = or i32 %sub, %and.i254
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i255)
-  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i255, ptr noundef nonnull readonly %Y)
+  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i255, ptr noundef nonnull %Y)
   %call.i = call i32 @sodium_is_zero(ptr noundef nonnull %s.i255, i64 noundef 32) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i255)
   %or74 = or i32 %or, %call.i
@@ -15739,7 +15739,7 @@ entry:
   %or = or i32 %call.i205, %call.i203
   %57 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x, ptr nonnull %x_sqrtm1, i32 %or) #10, !srcloc !13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
-  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i.i, ptr noundef nonnull readonly %x)
+  call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i.i, ptr noundef nonnull %x)
   %58 = load i8, ptr %s.i.i, align 16
   %59 = and i8 %58, 1
   %and.i.i = zext nneg i8 %59 to i32
@@ -15967,7 +15967,7 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %u1_u2u2, ptr noundef nonnull %u1, ptr noundef nonnull %u1_u2u2)
   store i64 1, ptr %one, align 16
   %arrayidx1.i24 = getelementptr inbounds i8, ptr %one, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i24, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i24, i8 0, i64 32, i1 false)
   %call = call fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %one, ptr noundef nonnull %u1_u2u2)
   call fastcc void @fe25519_mul(ptr noundef nonnull %den1, ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %u1)
   call fastcc void @fe25519_mul(ptr noundef nonnull %den2, ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %u2)
@@ -16038,9 +16038,9 @@ entry:
   %add106.i.i = add nuw nsw i128 %shr99.i.i, %24
   %s.i.sroa.0.0.extract.trunc = trunc i128 %add106.i.i to i32
   %and.i25 = and i32 %s.i.sroa.0.0.extract.trunc, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %x_, ptr noundef nonnull readonly align 8 dereferenceable(40) %h, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %y_, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %den_inv, ptr noundef nonnull readonly align 16 dereferenceable(40) %den2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %x_, ptr noundef nonnull align 8 dereferenceable(40) %h, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %y_, ptr noundef nonnull align 8 dereferenceable(40) %Y, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %den_inv, ptr noundef nonnull align 16 dereferenceable(40) %den2, i64 40, i1 false)
   %25 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x_, ptr nonnull %iy, i32 %and.i25) #10, !srcloc !13
   %26 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %y_, ptr nonnull %ix, i32 %and.i25) #10, !srcloc !13
   %27 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %den_inv, ptr nonnull %eden, i32 %and.i25) #10, !srcloc !13
@@ -16860,13 +16860,13 @@ define internal fastcc void @ge25519_p3_dbladd(ptr nocapture noundef %r, i32 nou
 entry:
   %p2 = alloca %struct.ge25519_p2, align 8
   %p1p1 = alloca %struct.ge25519_p1p1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %p2, ptr noundef nonnull readonly align 8 dereferenceable(40) %r, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p2, ptr noundef nonnull align 8 dereferenceable(40) %r, i64 40, i1 false)
   %Y.i = getelementptr inbounds i8, ptr %p2, i64 40
   %Y4.i = getelementptr inbounds i8, ptr %r, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Y.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Y4.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i, i64 40, i1 false)
   %Z.i = getelementptr inbounds i8, ptr %p2, i64 80
   %Z7.i = getelementptr inbounds i8, ptr %r, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %Z.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i, i64 40, i1 false)
   %cmp12 = icmp sgt i32 %n, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
@@ -16879,22 +16879,22 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1, ptr noundef nonnull %p2)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %p2, ptr noundef nonnull readonly %p1p1, ptr noundef nonnull readonly %T.i)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i6)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z.i, ptr noundef nonnull readonly %Z.i6, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %p1p1, ptr noundef nonnull %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i6)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull %Z.i6, ptr noundef nonnull %T.i)
   %inc = add nuw nsw i32 %i.013, 1
   %exitcond.not = icmp eq i32 %inc, %n
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
 
 for.end:                                          ; preds = %for.body, %entry
   %T.i7 = getelementptr inbounds i8, ptr %p1p1, i64 120
-  call fastcc void @fe25519_mul(ptr noundef writeonly %r, ptr noundef nonnull readonly %p1p1, ptr noundef nonnull readonly %T.i7)
+  call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef nonnull %p1p1, ptr noundef nonnull %T.i7)
   %Y5.i9 = getelementptr inbounds i8, ptr %p1p1, i64 40
   %Z.i10 = getelementptr inbounds i8, ptr %p1p1, i64 80
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Y4.i, ptr noundef nonnull readonly %Y5.i9, ptr noundef nonnull readonly %Z.i10)
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %Z7.i, ptr noundef nonnull readonly %Z.i10, ptr noundef nonnull readonly %T.i7)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Y4.i, ptr noundef nonnull %Y5.i9, ptr noundef nonnull %Z.i10)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %Z7.i, ptr noundef nonnull %Z.i10, ptr noundef nonnull %T.i7)
   %T14.i = getelementptr inbounds i8, ptr %r, i64 120
-  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %T14.i, ptr noundef nonnull readonly %p1p1, ptr noundef nonnull readonly %Y5.i9)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %p1p1, ptr noundef nonnull %Y5.i9)
   tail call void @_sodium_ge25519_p3_add(ptr noundef %r, ptr noundef %r, ptr noundef %q)
   ret void
 }

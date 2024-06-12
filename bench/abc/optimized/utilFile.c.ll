@@ -124,14 +124,14 @@ define noalias noundef ptr @nsprintf(ptr nocapture noundef readonly %0, ...) loc
 vnsprintf.exit:                                   ; preds = %1, %5
   %7 = phi ptr [ %6, %5 ], [ %4, %1 ]
   call void @llvm.va_copy.p0(ptr nonnull %2, ptr nonnull %3)
-  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef readonly %0, ptr noundef nonnull %3) #13
+  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %3) #13
   %9 = add i32 %8, 1
   %10 = zext i32 %9 to i64
   %11 = call noalias ptr @malloc(i64 noundef %10) #12
   %12 = zext i32 %8 to i64
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   store i8 -1, ptr %13, align 1
-  %14 = call i32 @vsprintf(ptr noundef %11, ptr noundef readonly %0, ptr noundef nonnull %2) #13
+  %14 = call i32 @vsprintf(ptr noundef %11, ptr noundef %0, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret ptr %11

@@ -159,7 +159,7 @@ define internal range(i32 -1, 65) i32 @archive_read_format_cab_bid(ptr noundef %
   ]
 
 31:                                               ; preds = %.lr.ph
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %.02133, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.02133, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
   %32 = icmp eq i32 %bcmp.i, 0
   br i1 %32, label %find_cab_magic.exit, label %37
 
@@ -323,7 +323,7 @@ cab_skip_sfx.exit.thread.i:                       ; preds = %._crit_edge32.i.i
   ]
 
 45:                                               ; preds = %.lr.ph.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %.02130.i.i, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.02130.i.i, ptr noundef nonnull dereferenceable(8) @.str.3, i64 8)
   %46 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %46, label %61, label %51
 

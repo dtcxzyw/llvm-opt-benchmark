@@ -680,10 +680,10 @@ define noalias noundef ptr @Mio_PinDup(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %8, label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #32
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #32
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #31
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %3) #30
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %3) #30
   br label %8
 
 8:                                                ; preds = %1, %Abc_UtilStrsav.exit
@@ -1455,7 +1455,7 @@ define void @Exp_PrintVerilog(ptr nocapture noundef %0, i32 noundef %1, ptr noca
   %28 = sdiv i32 %10, 2
   %29 = sub nsw i32 %28, %1
   %30 = and i32 %10, 1
-  tail call void @Exp_PrintNodeVerilog(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, ptr noundef readonly %3, i32 noundef %29, i32 noundef %30) #34
+  tail call void @Exp_PrintNodeVerilog(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %29, i32 noundef %30) #34
   br label %Exp_PrintLitVerilog.exit
 
 Exp_PrintLitVerilog.exit:                         ; preds = %11, %13, %18, %27
@@ -5290,7 +5290,7 @@ Abc_SclFindLimit.exit:                            ; preds = %.preheader
   %.032 = phi i8 [ 0, %.lr.ph ], [ %32, %31 ]
   %.02131 = phi ptr [ %22, %.lr.ph ], [ %33, %31 ]
   %27 = load ptr, ptr %.02131, align 8
-  %28 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull %.02034, i64 noundef %25) #32
+  %28 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull %.02034, i64 noundef %25) #32
   %.not.i.not = icmp eq i32 %28, 0
   br i1 %.not.i.not, label %29, label %31
 
@@ -5361,10 +5361,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 13:                                               ; preds = %10, %12
   %14 = add nuw nsw i32 %.03759, 1
   %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %9, i32 noundef %14) #30
-  %16 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
+  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %17 = add i64 %16, 1
   %18 = call noalias ptr @malloc(i64 noundef %17) #31
-  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %2) #30
+  %19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %2) #30
   store ptr %18, ptr %.060, align 8
   %20 = getelementptr inbounds i8, ptr %.060, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -5379,10 +5379,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   br label %24
 
 24:                                               ; preds = %13, %23
-  %25 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
+  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %26 = add i64 %25, 1
   %27 = call noalias ptr @malloc(i64 noundef %26) #31
-  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %2) #30
+  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %2) #30
   store ptr %27, ptr %20, align 8
   %29 = call ptr @Mio_GateReadPins(ptr noundef nonnull %.060) #30
   %.not4755 = icmp eq ptr %29, null
@@ -5404,10 +5404,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %char = add i8 %.03657, 97
   store i8 %char, ptr %2, align 16
   store i8 0, ptr %nul, align 1
-  %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %34 = add i64 %33, 1
   %35 = call noalias ptr @malloc(i64 noundef %34) #31
-  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %2) #30
+  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %2) #30
   store ptr %35, ptr %.03856, align 8
   %37 = add i8 %.03657, 1
   %38 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.03856) #30
@@ -5427,10 +5427,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 
 42:                                               ; preds = %._crit_edge, %41
   store i16 122, ptr %2, align 16
-  %43 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %44 = add i64 %43, 1
   %45 = call noalias ptr @malloc(i64 noundef %44) #31
-  %46 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull readonly dereferenceable(1) %2) #30
+  %46 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %2) #30
   store ptr %45, ptr %39, align 8
   %47 = call ptr @Mio_GateReadNext(ptr noundef nonnull %.060) #30
   %.not = icmp eq ptr %47, null
@@ -5453,10 +5453,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 53:                                               ; preds = %._crit_edge62, %52
   %54 = call i32 @Mio_LibraryReadGateNum(ptr noundef nonnull %0) #30
   %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.69, i32 noundef %54) #30
-  %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %57 = add i64 %56, 1
   %58 = call noalias ptr @malloc(i64 noundef %57) #31
-  %59 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %2) #30
+  %59 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %2) #30
   store ptr %58, ptr %0, align 8
   ret void
 }
@@ -6027,7 +6027,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %80 = mul nsw i32 %79, %50
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %78, i64 %81
-  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i26.i = tail call i32 @bcmp(ptr %82, ptr nonnull %55, i64 %74)
   %.not15.i1727.i = icmp eq i32 %bcmp.i26.i, 0
   %.pre40.i = load ptr, ptr %36, align 8
   br i1 %.not15.i1727.i, label %Vec_MemHashLookup.exit.i, label %.lr.ph.i
@@ -6046,7 +6046,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i: ; preds = %Vec_MemHash
   %90 = mul nsw i32 %89, %50
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i64, ptr %88, i64 %91
-  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull readonly %55, i64 %74)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %92, ptr nonnull %55, i64 %74)
   %.not15.i17.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i17.i, label %Vec_MemHashLookup.exit.i.loopexit, label %93, !llvm.loop !102
 
@@ -6196,7 +6196,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %165 = mul nsw i32 %164, %136
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i64, ptr %163, i64 %166
-  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr readonly %1, i64 %159)
+  %bcmp.i48 = tail call i32 @bcmp(ptr %167, ptr %1, i64 %159)
   %.not15.i49 = icmp eq i32 %bcmp.i48, 0
   br i1 %.not15.i49, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -6216,7 +6216,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i22, %Vec_
   %177 = mul nsw i32 %176, %136
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i64, ptr %175, i64 %178
-  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr readonly %1, i64 %159)
+  %bcmp.i = tail call i32 @bcmp(ptr %179, ptr %1, i64 %159)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %180, !llvm.loop !102
 
@@ -6399,7 +6399,7 @@ Vec_MemPush.exit:                                 ; preds = %Vec_IntPush.exit, %
   %270 = getelementptr inbounds i64, ptr %263, i64 %269
   %271 = sext i32 %264 to i64
   %272 = shl nsw i64 %271, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr readonly align 8 %1, i64 %272, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %270, ptr align 8 %1, i64 %272, i1 false)
   br label %Vec_MemHashLookup.exit
 
 Vec_MemHashLookup.exit:                           ; preds = %171, %.lr.ph.i19, %Vec_MemPush.exit

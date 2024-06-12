@@ -231,7 +231,7 @@ fmap_readn.exit.thread:                           ; preds = %24, %22, %14
   br label %39
 
 31:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
   %32 = getelementptr inbounds i8, ptr %0, i64 1312
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %15, align 8
@@ -1007,7 +1007,7 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br i1 %.not.i.us74, label %fmap_readn.exit.thread, label %70
 
 70:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us73, i1 false)
   %71 = icmp ult i64 %spec.select.i.us73, 2147483648
   %72 = select i1 %71, i64 %spec.select.i.us73, i64 -1
   br label %fmap_readn.exit.us75
@@ -1063,7 +1063,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   br i1 %.not.i, label %fmap_readn.exit.thread, label %96
 
 96:                                               ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 1 %95, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %95, i64 %spec.select.i, i1 false)
   %97 = icmp ult i64 %spec.select.i, 2147483648
   %98 = select i1 %97, i64 %spec.select.i, i64 -1
   br label %fmap_readn.exit
@@ -1094,7 +1094,7 @@ fmap_readn.exit:                                  ; preds = %86, %96
 
 107:                                              ; preds = %.lr.ph.i
   %108 = getelementptr inbounds i8, ptr %106, i64 1
-  %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull readonly %26, i64 %28)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull %26, i64 %28)
   %.not32.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not32.i, label %cli_memmem.exit.thread59, label %109
 

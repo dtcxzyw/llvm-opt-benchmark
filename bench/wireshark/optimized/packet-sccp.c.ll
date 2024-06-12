@@ -3363,11 +3363,11 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br label %dissect_sccp_dlr_param.exit
 
 62:                                               ; preds = %10
-  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 1, ptr noundef readonly %7)
+  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 1, ptr noundef %7)
   br label %dissect_sccp_dlr_param.exit
 
 63:                                               ; preds = %10
-  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 0, ptr noundef readonly %7)
+  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 0, ptr noundef %7)
   br label %dissect_sccp_dlr_param.exit
 
 64:                                               ; preds = %10

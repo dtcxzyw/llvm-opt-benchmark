@@ -334,7 +334,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx27AndersenTemperatureC
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8
-  tail call void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull readonly align 8 dereferenceable(88) %.val, i64 noundef %.val1)
+  tail call void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull align 8 dereferenceable(88) %.val, i64 noundef %.val1)
   ret void
 }
 
@@ -355,7 +355,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx27Anders
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx27AndersenTemperatureCoupling12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx27AndersenTemperatureCoupling12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx27AndersenTemperatureCoupling12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

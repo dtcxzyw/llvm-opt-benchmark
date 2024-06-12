@@ -43,7 +43,7 @@ define ptr @filetxt_jobcomp_process_get_jobs(ptr nocapture noundef readonly %0) 
   %2 = alloca [4096 x i8], align 16
   %3 = tail call ptr @list_create(ptr noundef nonnull @jobcomp_destroy_job) #7
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
-  %5 = tail call noalias ptr @fopen(ptr noundef readonly %4, ptr noundef nonnull @.str.6)
+  %5 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.6)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %_open_log_file.exit.preheader
 
@@ -58,7 +58,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br label %11
 
 10:                                               ; preds = %1
-  tail call void @perror(ptr noundef readonly %4) #8
+  tail call void @perror(ptr noundef %4) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 

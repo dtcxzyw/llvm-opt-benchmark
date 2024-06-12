@@ -43,7 +43,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %bufsize to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %buf, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %buf, i8 0, i64 %conv.i, i1 false)
   store i32 302117423, ptr %buf, align 4
   %last_comp_version.i.i = getelementptr inbounds i8, ptr %buf, i64 24
   store i32 0, ptr %last_comp_version.i.i, align 4
@@ -1060,7 +1060,7 @@ if.then15:                                        ; preds = %if.then13
   %47 = load i8, ptr %arrayidx8.i.i72, align 1
   %conv9.i.i73 = zext i8 %47 to i32
   %or10.i.i74 = or disjoint i32 %or7.i.i71, %conv9.i.i73
-  %call1.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #9
+  %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
   %48 = trunc i64 %call1.i to i32
   %conv.neg.i = xor i32 %48, -1
   %sub.i = add i32 %or10.i.i74, %conv.neg.i

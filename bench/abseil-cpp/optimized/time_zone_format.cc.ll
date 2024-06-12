@@ -114,7 +114,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %0 = getelementptr inbounds i8, ptr %tm, i64 16
   %1 = getelementptr inbounds i8, ptr %tm, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(56) %1, i8 0, i64 24, i1 false), !alias.scope !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %1, i8 0, i64 24, i1 false), !alias.scope !5
   %ss.i.i = getelementptr inbounds i8, ptr %al, i64 12
   %mm.i.i = getelementptr inbounds i8, ptr %al, i64 11
   %hh.i.i = getelementptr inbounds i8, ptr %al, i64 10

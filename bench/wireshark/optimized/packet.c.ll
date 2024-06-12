@@ -800,7 +800,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %98
-  %113 = call fastcc i32 @call_dissector_work(ptr noundef nonnull readonly %108, ptr noundef %109, ptr noundef nonnull %30, ptr noundef %111, i32 noundef 1, ptr noundef nonnull %8)
+  %113 = call fastcc i32 @call_dissector_work(ptr noundef nonnull %108, ptr noundef %109, ptr noundef nonnull %30, ptr noundef %111, i32 noundef 1, ptr noundef nonnull %8)
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %call_dissector_with_data.exit
 
@@ -942,7 +942,7 @@ define i32 @call_dissector_with_data(ptr noundef readonly %0, ptr noundef %1, pt
   unreachable
 
 call_dissector_only.exit:                         ; preds = %5
-  %7 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef %4)
+  %7 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef %4)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %17
 
@@ -1120,7 +1120,7 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %61
-  %77 = call fastcc i32 @call_dissector_work(ptr noundef nonnull readonly %72, ptr noundef %73, ptr noundef nonnull %15, ptr noundef %75, i32 noundef 1, ptr noundef nonnull %6)
+  %77 = call fastcc i32 @call_dissector_work(ptr noundef nonnull %72, ptr noundef %73, ptr noundef nonnull %15, ptr noundef %75, i32 noundef 1, ptr noundef nonnull %6)
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %call_dissector_with_data.exit
 
@@ -5625,7 +5625,7 @@ define i32 @call_dissector(ptr noundef readonly %0, ptr noundef %1, ptr noundef 
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %4
-  %6 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef null)
+  %6 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef null)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %call_dissector_with_data.exit
 
@@ -6252,7 +6252,7 @@ define hidden void @call_all_postdissectors(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 call_dissector_only.exit:                         ; preds = %.lr.ph
-  %12 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull readonly %10, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef null)
+  %12 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %10, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr @postdissectors, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8

@@ -126,10 +126,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %validLocale.i = getelementptr inbounds i8, ptr %this, i64 165
   %validLocale2.i = getelementptr inbounds i8, ptr %that, i64 165
-  %call.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %validLocale.i, ptr noundef nonnull readonly dereferenceable(1) %validLocale2.i) #13
+  %call.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %validLocale.i, ptr noundef nonnull dereferenceable(1) %validLocale2.i) #13
   %actualLocale.i = getelementptr inbounds i8, ptr %this, i64 8
   %actualLocale5.i = getelementptr inbounds i8, ptr %that, i64 8
-  %call7.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %actualLocale.i, ptr noundef nonnull readonly dereferenceable(1) %actualLocale5.i) #13
+  %call7.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %actualLocale.i, ptr noundef nonnull dereferenceable(1) %actualLocale5.i) #13
   br label %_ZN6icu_756FormataSERKS0_.exit
 
 _ZN6icu_756FormataSERKS0_.exit:                   ; preds = %entry, %if.then.i

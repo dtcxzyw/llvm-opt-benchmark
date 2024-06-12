@@ -4586,7 +4586,7 @@ define range(i32 -1, 1) i32 @H5F_try_close(ptr noundef %0, ptr noundef writeonly
   br i1 %.not46, label %89, label %.preheader55
 
 .preheader55:                                     ; preds = %54, %43
-  %46 = call fastcc i32 @H5F__get_objects(ptr noundef %0, i32 noundef 54, i64 noundef 128, ptr noundef nonnull %6, i1 noundef zeroext false, ptr noundef nonnull writeonly %5)
+  %46 = call fastcc i32 @H5F__get_objects(ptr noundef %0, i32 noundef 54, i64 noundef 128, ptr noundef nonnull %6, i1 noundef zeroext false, ptr noundef nonnull %5)
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %H5F_get_obj_ids.exit, label %H5F_get_obj_ids.exit.thread
 

@@ -1289,7 +1289,7 @@ zend_throw_exception_zstr.exit:
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 35, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %8, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.2, i64 35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %8, ptr noundef nonnull align 1 dereferenceable(35) @.str.2, i64 35, i1 false)
   %9 = getelementptr inbounds i8, ptr %4, i64 59
   store i8 0, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)

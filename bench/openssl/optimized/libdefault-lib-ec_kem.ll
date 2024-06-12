@@ -377,12 +377,12 @@ if.end33.i:                                       ; preds = %if.end28.i
   %20 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %21 = load ptr, ptr %sender_authkey.i, align 8
-  %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef nonnull %recipient_pub.i)
+  %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef nonnull %recipient_pub.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %err.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end33.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %out, ptr nonnull align 16 %sender_pub.i, i64 %call2.i29.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 16 %sender_pub.i, i64 %call2.i29.i, i1 false)
   store i64 %call2.i29.i, ptr %outlen, align 8
   %22 = load i64, ptr %Nsecret12.i, align 8
   store i64 %22, ptr %secretlen, align 8
@@ -510,7 +510,7 @@ if.end18.i:                                       ; preds = %if.end15.i
   %8 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %9 = load ptr, ptr %sender_authkey.i, align 8
-  %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef nonnull %recipient_pub.i)
+  %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef nonnull %recipient_pub.i)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %err.i, label %if.end25.i
 

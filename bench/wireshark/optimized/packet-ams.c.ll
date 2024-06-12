@@ -541,7 +541,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %31 = add nuw nsw i32 %3, 5
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #3
   %33 = zext i8 %32 to i32
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.348, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33) #3
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.348, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33) #3
   %35 = load i32, ptr @hf_ams_targetnetid, align 4
   %36 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef 6, ptr noundef nonnull %5) #3
   %37 = add nuw nsw i32 %3, 6
@@ -565,7 +565,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %55 = add nuw nsw i32 %3, 13
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #3
   %57 = zext i8 %56 to i32
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.348, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57) #3
+  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.348, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57) #3
   %59 = load i32, ptr @hf_ams_sendernetid, align 4
   %60 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %59, ptr noundef %0, i32 noundef %40, i32 noundef 6, ptr noundef nonnull %5) #3
   %61 = add nuw nsw i32 %3, 14

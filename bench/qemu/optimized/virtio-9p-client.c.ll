@@ -787,7 +787,7 @@ do.end:                                           ; preds = %entry
   %4 = load ptr, ptr %version, align 8
   %tobool9.not = icmp eq ptr %4, null
   %5 = select i1 %tobool9.not, ptr @.str.15, ptr %4
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -1408,7 +1408,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %do
   %body_size.050 = phi i32 [ 10, %for.body.lr.ph ], [ %add, %do.end51 ]
   %arrayidx = getelementptr ptr, ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
-  %call.i23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #14
+  %call.i23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #14
   %cmp.i = icmp slt i64 %call.i23, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -2891,7 +2891,7 @@ if.end24:                                         ; preds = %if.then18, %do.end1
   %spec.select = select i1 %tobool25.not, i32 488, i32 %8
   %name = getelementptr inbounds i8, ptr %opt, i64 24
   %9 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -3144,7 +3144,7 @@ if.end28:                                         ; preds = %if.then21, %do.end1
   %spec.select = select i1 %tobool29.not, i32 488, i32 %9
   %name = getelementptr inbounds i8, ptr %opt, i64 24
   %10 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -3386,7 +3386,7 @@ if.end25:                                         ; preds = %if.then18, %do.end1
   %7 = phi i32 [ %6, %if.then18 ], [ %2, %do.end15 ]
   %name = getelementptr inbounds i8, ptr %opt, i64 24
   %8 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -3399,7 +3399,7 @@ v9fs_string_size.exit:                            ; preds = %if.end25, %if.else.
   %9 = trunc i64 %call.i to i32
   %symtgt = getelementptr inbounds i8, ptr %opt, i64 32
   %10 = load ptr, ptr %symtgt, align 8
-  %call.i17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #14
+  %call.i17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
   %cmp.i18 = icmp slt i64 %call.i17, 65534
   br i1 %cmp.i18, label %v9fs_string_size.exit22, label %if.else.i19
 
@@ -3651,7 +3651,7 @@ if.end39:                                         ; preds = %if.then27, %if.end2
   %10 = phi i32 [ %9, %if.then27 ], [ %4, %if.end24 ]
   %name = getelementptr inbounds i8, ptr %opt, i64 40
   %11 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -3828,7 +3828,7 @@ if.end15:                                         ; preds = %if.then10, %do.end7
   %5 = phi i32 [ %4, %if.then10 ], [ %2, %do.end7 ]
   %name = getelementptr inbounds i8, ptr %opt, i64 24
   %6 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 

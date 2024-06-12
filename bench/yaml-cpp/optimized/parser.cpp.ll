@@ -151,7 +151,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML6ParserC2ERSi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %in) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   invoke void @_ZN4YAML6Parser4LoadERSi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %in)
           to label %invoke.cont unwind label %lpad
 
@@ -406,7 +406,7 @@ if.end8:                                          ; preds = %_ZNKSt14default_del
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end8
-  tail call void @_ZN4YAML6Parser19HandleYamlDirectiveERKNS_5TokenE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(84) %call5)
+  tail call void @_ZN4YAML6Parser19HandleYamlDirectiveERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(84) %call5)
   br label %_ZN4YAML6Parser15HandleDirectiveERKNS_5TokenE.exit
 
 if.else.i:                                        ; preds = %if.end8
@@ -415,7 +415,7 @@ if.else.i:                                        ; preds = %if.end8
   br i1 %cmp.i5.i, label %if.then4.i, label %_ZN4YAML6Parser15HandleDirectiveERKNS_5TokenE.exit
 
 if.then4.i:                                       ; preds = %if.else.i
-  tail call void @_ZN4YAML6Parser18HandleTagDirectiveERKNS_5TokenE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(84) %call5)
+  tail call void @_ZN4YAML6Parser18HandleTagDirectiveERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(84) %call5)
   br label %_ZN4YAML6Parser15HandleDirectiveERKNS_5TokenE.exit
 
 _ZN4YAML6Parser15HandleDirectiveERKNS_5TokenE.exit: ; preds = %if.then.i, %if.else.i, %if.then4.i

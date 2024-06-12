@@ -1826,7 +1826,7 @@ _ZL10find_valuePKc.exit.thread.i.i.i:             ; preds = %.noexc202, %.prehea
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i103.i.i.i ], [ %indvars.iv.next.i.i.i.i, %579 ]
   %575 = getelementptr inbounds ptr, ptr %573, i64 %indvars.iv.i.i.i.i
   %576 = load ptr, ptr %575, align 8
-  %577 = call i32 @strncmp(ptr noundef %576, ptr noundef nonnull readonly %564, i64 noundef %569) #25
+  %577 = call i32 @strncmp(ptr noundef %576, ptr noundef nonnull %564, i64 noundef %569) #25
   %578 = icmp eq i32 %577, 0
   br i1 %578, label %_ZL22lambda_components_findPK19lambda_components_tPKcm.exit.i.i.i, label %579
 
@@ -1968,7 +1968,7 @@ _ZL22lambda_components_findPK19lambda_components_tPKcm.exit.thread.i.i.i: ; pred
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i
 
 632:                                              ; preds = %598
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %77, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %77, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %633 = getelementptr inbounds i8, ptr %600, i64 16
   %634 = load ptr, ptr %633, align 8
   %635 = load ptr, ptr %634, align 8
@@ -1980,7 +1980,7 @@ _ZL22lambda_components_findPK19lambda_components_tPKcm.exit.thread.i.i.i: ; pred
   br i1 %.not.i108.i.i, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i, label %639
 
 639:                                              ; preds = %632
-  %640 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %236, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %638) #24
+  %640 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %236, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %638) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i: ; preds = %639, %632, %631, %._crit_edge.i.i.i, %610
@@ -2220,7 +2220,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.i:   ; preds = %.noexc215, %715, %7
   store i8 %732, ptr %735, align 8
   %736 = getelementptr inbounds i8, ptr %702, i64 28
   %737 = getelementptr inbounds i8, ptr %702, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(68) %736, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %736, i8 0, i64 68, i1 false)
   store ptr %248, ptr %737, align 8
   %738 = load ptr, ptr %252, align 8
   %739 = getelementptr inbounds ptr, ptr %738, i64 %indvars.iv.i
@@ -2316,7 +2316,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.i:   ; preds = %.noexc215, %715, %7
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i
 
 784:                                              ; preds = %._crit_edge.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %86, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %86, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %785 = getelementptr inbounds i8, ptr %752, i64 16
   %786 = load ptr, ptr %785, align 8
   %787 = load ptr, ptr %786, align 8
@@ -2328,7 +2328,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.i:   ; preds = %.noexc215, %715, %7
   br i1 %.not.i37.i, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i, label %791
 
 791:                                              ; preds = %784
-  %792 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %238, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %790) #24
+  %792 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %238, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %790) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i:  ; preds = %791, %784, %783, %._crit_edge.i42.i, %762
@@ -2357,7 +2357,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i:  ; preds = %791, %784, %783, %.
   br i1 %809, label %811, label %840
 
 811:                                              ; preds = %.lr.ph63.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(12) %86, ptr noundef nonnull align 1 dereferenceable(12) @.str.219, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %86, ptr noundef nonnull align 1 dereferenceable(12) @.str.219, i64 12, i1 false)
   %812 = load ptr, ptr %810, align 8
   %813 = getelementptr inbounds i8, ptr %812, i64 8
   %814 = load i32, ptr %813, align 8
@@ -2417,7 +2417,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i:  ; preds = %791, %784, %783, %.
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit
 
 840:                                              ; preds = %.lr.ph63.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %86, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %86, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %841 = load ptr, ptr %810, align 8
   %842 = load ptr, ptr %841, align 8
   %843 = zext nneg i32 %808 to i64
@@ -2428,7 +2428,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i:  ; preds = %791, %784, %783, %.
   br i1 %.not.i509, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit, label %846
 
 846:                                              ; preds = %840
-  %847 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %238, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %845) #24
+  %847 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %238, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %845) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit:    ; preds = %817, %._crit_edge.i515, %839, %840, %846
@@ -2872,7 +2872,7 @@ _ZL21lambda_components_addP19lambda_components_tPKcm.exit208.i: ; preds = %.noex
   %1010 = sext i32 %1009 to i64
   %1011 = getelementptr inbounds ptr, ptr %1008, i64 %1010
   %1012 = load ptr, ptr %1011, align 8
-  %1013 = call ptr @strncpy(ptr noundef %1012, ptr noundef readonly %991, i64 noundef %992) #24
+  %1013 = call ptr @strncpy(ptr noundef %1012, ptr noundef %991, i64 noundef %992) #24
   %1014 = load i32, ptr %198, align 8
   %1015 = add nsw i32 %1014, 1
   store i32 %1015, ptr %198, align 8
@@ -3417,7 +3417,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i.i233: ; preds = %.lr.ph.i.i.i251,
   store i8 %1239, ptr %1242, align 8
   %1243 = getelementptr inbounds i8, ptr %1237, i64 28
   %1244 = getelementptr inbounds i8, ptr %1237, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(68) %1243, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %1243, i8 0, i64 68, i1 false)
   store ptr %1154, ptr %1244, align 8
   %1245 = load ptr, ptr %1153, align 8
   %1246 = getelementptr inbounds i8, ptr %1245, i64 48
@@ -3551,7 +3551,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.i.i: ; preds = %1256
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i238
 
 1309:                                             ; preds = %.loopexit83.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %1310 = load ptr, ptr %1188, align 8
   %1311 = load ptr, ptr %1310, align 8
   %1312 = zext nneg i32 %1278 to i64
@@ -3563,7 +3563,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.i.i: ; preds = %1256
 
 1315:                                             ; preds = %1309
   %1316 = getelementptr inbounds i8, ptr %38, i64 5
-  %1317 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1316, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1314) #24
+  %1317 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1316, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1314) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i238
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i238: ; preds = %1315, %1309, %1308, %._crit_edge.i.i.i243, %1287
@@ -3637,7 +3637,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i238: ; preds = %1315, %1309, %1
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit113.i.i
 
 1351:                                             ; preds = %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %39, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %39, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %1352 = getelementptr inbounds i8, ptr %1318, i64 16
   %1353 = load ptr, ptr %1352, align 8
   %1354 = load ptr, ptr %1353, align 8
@@ -3650,7 +3650,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i.i238: ; preds = %1315, %1309, %1
 
 1358:                                             ; preds = %1351
   %1359 = getelementptr inbounds i8, ptr %39, i64 5
-  %1360 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1359, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1357) #24
+  %1360 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1359, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1357) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit113.i.i
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit113.i.i: ; preds = %1358, %1351, %1350, %._crit_edge.i106.i.i, %1329
@@ -4079,7 +4079,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i222.i: ; preds = %.lr.ph.i.i234.i,
   store i8 %1569, ptr %1572, align 8
   %1573 = getelementptr inbounds i8, ptr %1485, i64 28
   %1574 = getelementptr inbounds i8, ptr %1485, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(68) %1573, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %1573, i8 0, i64 68, i1 false)
   store ptr %1453, ptr %1574, align 8
   %1575 = getelementptr inbounds i8, ptr %1485, i64 64
   %1576 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.116, i32 noundef 2972, i64 noundef 1, i64 noundef 88)
@@ -4131,7 +4131,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i222.i: ; preds = %.lr.ph.i.i234.i,
   %1592 = getelementptr inbounds [2 x i32], ptr %1582, i64 0, i64 %indvars.iv.i99.i.i
   store i32 %1587, ptr %1592, align 4
   %1593 = getelementptr inbounds [2 x double], ptr %1584, i64 0, i64 %indvars.iv.i99.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1583, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1583, i8 0, i64 16, i1 false)
   store double 0.000000e+00, ptr %1593, align 8
   %indvars.iv.next.i100.i.i = add nuw nsw i64 %indvars.iv.i99.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i100.i.i, %wide.trip.count.i.i.i
@@ -4426,7 +4426,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i222.i: ; preds = %.lr.ph.i.i234.i,
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223
 
 1721:                                             ; preds = %._crit_edge423.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %54, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %54, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %1722 = getelementptr inbounds i8, ptr %862, i64 16
   %1723 = load ptr, ptr %1722, align 8
   %1724 = load ptr, ptr %1723, align 8
@@ -4438,7 +4438,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i222.i: ; preds = %.lr.ph.i.i234.i,
   br i1 %.not.i237.i, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223, label %1728
 
 1728:                                             ; preds = %1721
-  %1729 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %243, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1727) #24
+  %1729 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1727) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223: ; preds = %1728, %1721, %1720, %._crit_edge.i241.i, %1699
@@ -4465,7 +4465,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223: ; preds = %1728, %1721, %172
   br i1 %1737, label %1739, label %1768
 
 1739:                                             ; preds = %1734
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(12) %54, ptr noundef nonnull align 1 dereferenceable(12) @.str.219, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %54, ptr noundef nonnull align 1 dereferenceable(12) @.str.219, i64 12, i1 false)
   %1740 = load ptr, ptr %1738, align 8
   %1741 = getelementptr inbounds i8, ptr %1740, i64 8
   %1742 = load i32, ptr %1741, align 8
@@ -4525,7 +4525,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223: ; preds = %1728, %1721, %172
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit532
 
 1768:                                             ; preds = %1734
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %54, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %54, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %1769 = load ptr, ptr %1738, align 8
   %1770 = load ptr, ptr %1769, align 8
   %1771 = zext nneg i32 %1736 to i64
@@ -4536,7 +4536,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i223: ; preds = %1728, %1721, %172
   br i1 %.not.i518, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit532, label %1774
 
 1774:                                             ; preds = %1768
-  %1775 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %243, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1773) #24
+  %1775 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %1773) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit532
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit532: ; preds = %1745, %._crit_edge.i525, %1767, %1768, %1774
@@ -5169,7 +5169,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i347:     ; preds = %1984, %1981
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369
 
 2034:                                             ; preds = %2005
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %27, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %27, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %2035 = getelementptr inbounds i8, ptr %2001, i64 16
   %2036 = load ptr, ptr %2035, align 8
   %2037 = load ptr, ptr %2036, align 8
@@ -5181,7 +5181,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i347:     ; preds = %1984, %1981
   br i1 %.not.i.i368, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369, label %2041
 
 2041:                                             ; preds = %2034
-  %2042 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1986, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %2040) #24
+  %2042 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1986, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %2040) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369: ; preds = %2041, %2034, %2033, %._crit_edge.i.i376, %2012
@@ -5254,7 +5254,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369: ; preds = %2041, %2034, %203
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit88.i
 
 2075:                                             ; preds = %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %28, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %28, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %2076 = getelementptr inbounds i8, ptr %2043, i64 16
   %2077 = load ptr, ptr %2076, align 8
   %2078 = load ptr, ptr %2077, align 8
@@ -5266,7 +5266,7 @@ _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit.i369: ; preds = %2041, %2034, %203
   br i1 %.not.i74.i, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit88.i, label %2082
 
 2082:                                             ; preds = %2075
-  %2083 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1990, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %2081) #24
+  %2083 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1990, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %2081) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit88.i
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit88.i: ; preds = %2082, %2075, %2074, %._crit_edge.i81.i, %2053
@@ -5457,7 +5457,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit107.i
 
 2147:                                             ; preds = %2118
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %27, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %27, ptr noundef nonnull align 1 dereferenceable(6) @.str.223, i64 6, i1 false)
   %2148 = getelementptr inbounds i8, ptr %2001, i64 16
   %2149 = load ptr, ptr %2148, align 8
   %2150 = load ptr, ptr %2149, align 8
@@ -5469,7 +5469,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %.not.i93.i, label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit107.i, label %2154
 
 2154:                                             ; preds = %2147
-  %2155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1986, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %2153) #24
+  %2155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1986, ptr noundef nonnull dereferenceable(1) @.str.224, ptr noundef nonnull %2153) #24
   br label %_ZL16lambda_vec_printPK12lambda_vec_tPcb.exit107.i
 
 _ZL16lambda_vec_printPK12lambda_vec_tPcb.exit107.i: ; preds = %2154, %2147, %2146, %._crit_edge.i100.i, %2125
@@ -6540,8 +6540,8 @@ _ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.i: ; preds
 _ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit73.i: ; preds = %.backedge.i62.i, %2573, %.preheader.i.i67.i, %2560, %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.i
   %.08.i66.i = phi ptr [ null, %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.i ], [ %.015.i60.i, %2560 ], [ null, %.backedge.i62.i ], [ %.015.i60.i, %2573 ], [ %.015.i60.i, %.preheader.i.i67.i ]
   %2577 = getelementptr inbounds i8, ptr %2501, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %2501, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %2577, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2501, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2577, i8 0, i64 48, i1 false)
   br i1 %2494, label %2578, label %2656
 
 2578:                                             ; preds = %_ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit73.i
@@ -7454,8 +7454,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit448:       ; preds = %2803, %2806
   store <2 x ptr> %2949, ptr %4, align 16
   store double %2948, ptr %2820, align 16
   store i32 0, ptr %2821, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(20) %2822, i8 0, i64 20, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2823, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2822, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2823, i8 0, i64 24, i1 false)
   %2950 = load ptr, ptr %2838, align 8
   %2951 = getelementptr inbounds i8, ptr %2950, i64 16
   %2952 = load double, ptr %2951, align 8
@@ -7463,8 +7463,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit448:       ; preds = %2803, %2806
   store <2 x ptr> %2953, ptr %5, align 16
   store double %2952, ptr %2824, align 16
   store i32 0, ptr %2825, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(20) %2826, i8 0, i64 20, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %2827, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2826, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2827, i8 0, i64 24, i1 false)
   %.not186241.i = icmp sgt i32 %2833, %2834
   br i1 %.not186241.i, label %._crit_edge247.i, label %.preheader.lr.ph.i
 
@@ -7737,7 +7737,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit448:       ; preds = %2803, %2806
   br i1 %3074, label %3075, label %3077
 
 3075:                                             ; preds = %3068
-  %3076 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3073) #24
+  %3076 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3073) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit
 
 3077:                                             ; preds = %3068
@@ -7749,11 +7749,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit448:       ; preds = %2803, %2806
 3081:                                             ; preds = %3077
   %3082 = load ptr, ptr %3071, align 8
   %3083 = load double, ptr %3082, align 8
-  %3084 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3083) #24
+  %3084 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3083) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit
 
 3085:                                             ; preds = %3077
-  %3086 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3079) #24
+  %3086 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3079) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit: ; preds = %3075, %3081, %3085
@@ -7767,7 +7767,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit: ; preds = %3075, %3081, %308
   br i1 %3093, label %3094, label %3096
 
 3094:                                             ; preds = %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit
-  %3095 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3092) #24
+  %3095 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3092) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit480
 
 3096:                                             ; preds = %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit
@@ -7779,11 +7779,11 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit: ; preds = %3075, %3081, %308
 3100:                                             ; preds = %3096
   %3101 = load ptr, ptr %3090, align 8
   %3102 = load double, ptr %3101, align 8
-  %3103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3102) #24
+  %3103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3102) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit480
 
 3104:                                             ; preds = %3096
-  %3105 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3098) #24
+  %3105 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3098) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit480
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit480: ; preds = %3094, %3100, %3104
@@ -7919,7 +7919,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit480: ; preds = %3094, %3100, %
   br i1 %3171, label %3172, label %3174
 
 3172:                                             ; preds = %3165
-  %3173 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3170) #24
+  %3173 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3170) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit481
 
 3174:                                             ; preds = %3165
@@ -7931,11 +7931,11 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit480: ; preds = %3094, %3100, %
 3178:                                             ; preds = %3174
   %3179 = load ptr, ptr %3168, align 8
   %3180 = load double, ptr %3179, align 8
-  %3181 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3180) #24
+  %3181 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3180) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit481
 
 3182:                                             ; preds = %3174
-  %3183 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3176) #24
+  %3183 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3176) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit481
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit481: ; preds = %3172, %3178, %3182
@@ -7992,7 +7992,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit481: ; preds = %3172, %3178, %
 .sink.split.i:                                    ; preds = %3211, %3200
   %.sink12.i = phi double [ %3216, %3211 ], [ %3202, %3200 ]
   %3217 = fmul double %.sink12.i, 5.000000e-01
-  %3218 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3217) #24
+  %3218 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3217) #24
   br label %_ZL29lambda_vec_print_intermediatePK12lambda_vec_tS1_Pc.exit
 
 _ZL29lambda_vec_print_intermediatePK12lambda_vec_tS1_Pc.exit: ; preds = %3203, %3207, %.sink.split.i
@@ -8014,7 +8014,7 @@ _ZL29lambda_vec_print_intermediatePK12lambda_vec_tS1_Pc.exit: ; preds = %3203, %
   br i1 %3231, label %3232, label %3234
 
 3232:                                             ; preds = %3224
-  %3233 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3230) #24
+  %3233 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3230) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482
 
 3234:                                             ; preds = %3224
@@ -8026,11 +8026,11 @@ _ZL29lambda_vec_print_intermediatePK12lambda_vec_tS1_Pc.exit: ; preds = %3203, %
 3238:                                             ; preds = %3234
   %3239 = load ptr, ptr %3228, align 8
   %3240 = load double, ptr %3239, align 8
-  %3241 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3240) #24
+  %3241 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3240) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482
 
 3242:                                             ; preds = %3234
-  %3243 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3236) #24
+  %3243 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3236) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482: ; preds = %3232, %3238, %3242
@@ -8043,7 +8043,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482: ; preds = %3232, %3238, %
   br i1 %3249, label %3250, label %3252
 
 3250:                                             ; preds = %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482
-  %3251 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3248) #24
+  %3251 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3248) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit483
 
 3252:                                             ; preds = %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482
@@ -8055,11 +8055,11 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit482: ; preds = %3232, %3238, %
 3256:                                             ; preds = %3252
   %3257 = load ptr, ptr %3246, align 8
   %3258 = load double, ptr %3257, align 8
-  %3259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3258) #24
+  %3259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3258) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit483
 
 3260:                                             ; preds = %3252
-  %3261 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3254) #24
+  %3261 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3254) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit483
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit483: ; preds = %3250, %3256, %3260
@@ -8113,7 +8113,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit483: ; preds = %3250, %3256, %
   br i1 %3292, label %3293, label %3295
 
 3293:                                             ; preds = %3286
-  %3294 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3291) #24
+  %3294 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3291) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484
 
 3295:                                             ; preds = %3286
@@ -8125,11 +8125,11 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit483: ; preds = %3250, %3256, %
 3299:                                             ; preds = %3295
   %3300 = load ptr, ptr %3289, align 8
   %3301 = load double, ptr %3300, align 8
-  %3302 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3301) #24
+  %3302 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3301) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484
 
 3303:                                             ; preds = %3295
-  %3304 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3297) #24
+  %3304 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3297) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484: ; preds = %3293, %3299, %3303
@@ -8143,7 +8143,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484: ; preds = %3293, %3299, %
   br i1 %3311, label %3312, label %3314
 
 3312:                                             ; preds = %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484
-  %3313 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3310) #24
+  %3313 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3310) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit485
 
 3314:                                             ; preds = %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484
@@ -8155,11 +8155,11 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit484: ; preds = %3293, %3299, %
 3318:                                             ; preds = %3314
   %3319 = load ptr, ptr %3308, align 8
   %3320 = load double, ptr %3319, align 8
-  %3321 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3320) #24
+  %3321 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3320) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit485
 
 3322:                                             ; preds = %3314
-  %3323 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3316) #24
+  %3323 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3316) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit485
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit485: ; preds = %3312, %3318, %3322
@@ -8282,7 +8282,7 @@ _ZL7bar_erriiPKd.exit:                            ; preds = %._crit_edge.i488, %
   br i1 %3378, label %3379, label %3381
 
 3379:                                             ; preds = %3373
-  %3380 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3377) #24
+  %3380 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.289, i32 noundef %3377) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit500
 
 3381:                                             ; preds = %3373
@@ -8294,11 +8294,11 @@ _ZL7bar_erriiPKd.exit:                            ; preds = %._crit_edge.i488, %
 3385:                                             ; preds = %3381
   %3386 = load ptr, ptr %3375, align 8
   %3387 = load double, ptr %3386, align 8
-  %3388 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3387) #24
+  %3388 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.290, double noundef %3387) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit500
 
 3389:                                             ; preds = %3381
-  %3390 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3383) #24
+  %3390 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %3383) #24
   br label %_ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit500
 
 _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit500: ; preds = %3379, %3385, %3389
@@ -8754,7 +8754,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.thread53: ; preds = %.lr.ph.i, %.lr
   %47 = getelementptr inbounds i8, ptr %39, i64 32
   %48 = getelementptr inbounds i8, ptr %39, i64 56
   %49 = getelementptr inbounds i8, ptr %39, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %48, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, i8 0, i64 20, i1 false)
   store i64 0, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %39, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %47, i8 0, i64 20, i1 false)
@@ -8991,8 +8991,8 @@ _ZL28lambda_data_find_sample_collP13lambda_data_tP12lambda_vec_t.exit.thread: ; 
   store i32 0, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %141, i64 32
   %149 = getelementptr inbounds i8, ptr %141, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %148, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %148, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
   %150 = load ptr, ptr %106, align 8
   br label %151
 
@@ -9557,7 +9557,7 @@ _ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us: ; preds = %.lr.
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call ptr @strncpy(ptr noundef %60, ptr noundef nonnull readonly %.064.us.us, i64 noundef %40) #24
+  %61 = tail call ptr @strncpy(ptr noundef %60, ptr noundef nonnull %.064.us.us, i64 noundef %40) #24
   %62 = load i32, ptr %22, align 8
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %22, align 8
@@ -9676,7 +9676,7 @@ switch.early.test.us:                             ; preds = %85
   br i1 %brmerge.i.us, label %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.us, label %101
 
 101:                                              ; preds = %.thread31.i.us
-  %102 = tail call i32 @strncmp(ptr noundef nonnull %97, ptr noundef nonnull readonly %.064.us, i64 noundef %90) #25
+  %102 = tail call i32 @strncmp(ptr noundef nonnull %97, ptr noundef nonnull %.064.us, i64 noundef %90) #25
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.thread
 

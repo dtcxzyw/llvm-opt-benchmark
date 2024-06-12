@@ -1926,7 +1926,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true
   br i1 %cmp.i2.i.i.i, label %cond.true, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %20, ptr readonly %22, i64 %19)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %20, ptr %22, i64 %19)
   %cmp.i.i.i4 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i4, label %cond.true, label %lor.rhs.i.i
 
@@ -1938,7 +1938,7 @@ lor.rhs.i.i:                                      ; preds = %lor.rhs.i, %_ZNSt11
   br i1 %cmp.not.i.i, label %cond.end, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
-  %bcmp.i3.i = tail call i32 @bcmp(ptr readonly %22, ptr readonly %20, i64 %19)
+  %bcmp.i3.i = tail call i32 @bcmp(ptr %22, ptr %20, i64 %19)
   %cmp7.i.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp7.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %cond.end
 
@@ -3995,7 +3995,7 @@ land.rhs.i.i.i:                                   ; preds = %.noexc
   br i1 %cmp.i2.i.i.i.i15, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %57, ptr readonly %46, i64 %47)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %57, ptr %46, i64 %47)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i, label %lor.rhs.i.i.i
 
@@ -4007,7 +4007,7 @@ lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i.i, %_ZNSt
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread109.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i: ; preds = %lor.rhs.i.i.i
-  %bcmp.i3.i.i = call i32 @bcmp(ptr readonly %46, ptr readonly %57, i64 %56)
+  %bcmp.i3.i.i = call i32 @bcmp(ptr %46, ptr %57, i64 %56)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i3.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread109.i
 
@@ -4201,7 +4201,7 @@ land.rhs.i.i78.i:                                 ; preds = %.noexc34
   br i1 %cmp.i2.i.i.i68.i, label %cleanup.done.thread110.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i79.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i79.i: ; preds = %land.rhs.i.i78.i
-  %bcmp.i.i80.i = call i32 @bcmp(ptr readonly %46, ptr readonly %87, i64 %47)
+  %bcmp.i.i80.i = call i32 @bcmp(ptr %46, ptr %87, i64 %47)
   %cmp.i.i.i81.i = icmp eq i32 %bcmp.i.i80.i, 0
   br i1 %cmp.i.i.i81.i, label %cleanup.done.thread110.i, label %lor.rhs.i.i70.i
 
@@ -4213,7 +4213,7 @@ lor.rhs.i.i70.i:                                  ; preds = %lor.rhs.i69.i, %_ZN
   br i1 %cmp.not.i.i71.i, label %cleanup.done.thread113.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i72.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i72.i: ; preds = %lor.rhs.i.i70.i
-  %bcmp.i3.i73.i = call i32 @bcmp(ptr readonly %87, ptr readonly %46, i64 %47)
+  %bcmp.i3.i73.i = call i32 @bcmp(ptr %87, ptr %46, i64 %47)
   %cmp7.i.i74.i = icmp eq i32 %bcmp.i3.i73.i, 0
   br i1 %cmp7.i.i74.i, label %cleanup.done.i, label %cleanup.done.thread113.i
 
@@ -4430,7 +4430,7 @@ land.rhs.i.i.i84:                                 ; preds = %.noexc89
   br i1 %cmp.i2.i.i.i.i61, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i88, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i85
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i85: ; preds = %land.rhs.i.i.i84
-  %bcmp.i.i.i86 = call i32 @bcmp(ptr readonly %113, ptr readonly %103, i64 %102)
+  %bcmp.i.i.i86 = call i32 @bcmp(ptr %113, ptr %103, i64 %102)
   %cmp.i.i.i.i87 = icmp eq i32 %bcmp.i.i.i86, 0
   br i1 %cmp.i.i.i.i87, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.i88, label %lor.rhs.i.i.i63
 
@@ -4442,7 +4442,7 @@ lor.rhs.i.i.i63:                                  ; preds = %lor.rhs.i.i62, %_ZN
   br i1 %cmp.not.i.i.i64, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread87.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i65
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i65: ; preds = %lor.rhs.i.i.i63
-  %bcmp.i3.i.i66 = call i32 @bcmp(ptr readonly %103, ptr readonly %113, i64 %112)
+  %bcmp.i3.i.i66 = call i32 @bcmp(ptr %103, ptr %113, i64 %112)
   %cmp7.i.i.i67 = icmp eq i32 %bcmp.i3.i.i66, 0
   br i1 %cmp7.i.i.i67, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.i77, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread87.i
 
@@ -4578,7 +4578,7 @@ land.rhs.i.i60.i:                                 ; preds = %.noexc91
   br i1 %cmp.i2.i.i.i50.i, label %cleanup.done.thread88.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i61.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i61.i: ; preds = %land.rhs.i.i60.i
-  %bcmp.i.i62.i = call i32 @bcmp(ptr readonly %103, ptr readonly %132, i64 %102)
+  %bcmp.i.i62.i = call i32 @bcmp(ptr %103, ptr %132, i64 %102)
   %cmp.i.i.i63.i = icmp eq i32 %bcmp.i.i62.i, 0
   br i1 %cmp.i.i.i63.i, label %cleanup.done.thread88.i, label %lor.rhs.i.i52.i
 
@@ -4590,7 +4590,7 @@ lor.rhs.i.i52.i:                                  ; preds = %lor.rhs.i51.i, %_ZN
   br i1 %cmp.not.i.i53.i, label %cleanup.done.thread91.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i54.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i54.i: ; preds = %lor.rhs.i.i52.i
-  %bcmp.i3.i55.i = call i32 @bcmp(ptr readonly %132, ptr readonly %103, i64 %102)
+  %bcmp.i3.i55.i = call i32 @bcmp(ptr %132, ptr %103, i64 %102)
   %cmp7.i.i56.i = icmp eq i32 %bcmp.i3.i55.i, 0
   br i1 %cmp7.i.i56.i, label %cleanup.done.i71, label %cleanup.done.thread91.i
 
@@ -5257,7 +5257,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true
   br i1 %cmp.i2.i.i.i, label %invoke.cont16, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr readonly %14, ptr readonly %agg.tmp12.sroa.2.0.copyload, i64 %13)
+  %bcmp.i.i = call i32 @bcmp(ptr %14, ptr %agg.tmp12.sroa.2.0.copyload, i64 %13)
   %cmp.i.i.i3 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i3, label %invoke.cont16, label %lor.rhs.i.i
 
@@ -5269,7 +5269,7 @@ lor.rhs.i.i:                                      ; preds = %lor.rhs.i, %_ZNSt11
   br i1 %cmp.not.i.i, label %cleanup.action, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
-  %bcmp.i3.i = call i32 @bcmp(ptr readonly %agg.tmp12.sroa.2.0.copyload, ptr readonly %14, i64 %13)
+  %bcmp.i3.i = call i32 @bcmp(ptr %agg.tmp12.sroa.2.0.copyload, ptr %14, i64 %13)
   %cmp7.i.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp7.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %cleanup.action
 
@@ -10385,7 +10385,7 @@ land.rhs.i.i:                                     ; preds = %if.end16
   br i1 %cmp.i2.i.i.i, label %if.then22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %34, ptr readonly %name.coerce1, i64 %name.coerce0)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %34, ptr %name.coerce1, i64 %name.coerce0)
   %cmp.i.i.i7 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i7, label %if.then22, label %lor.rhs.i.i
 
@@ -10397,7 +10397,7 @@ lor.rhs.i.i:                                      ; preds = %lor.rhs.i, %_ZNSt11
   br i1 %cmp.not.i.i, label %if.end42, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
-  %bcmp.i3.i = tail call i32 @bcmp(ptr readonly %name.coerce1, ptr readonly %34, i64 %33)
+  %bcmp.i3.i = tail call i32 @bcmp(ptr %name.coerce1, ptr %34, i64 %33)
   %cmp7.i.i = icmp eq i32 %bcmp.i3.i, 0
   br i1 %cmp7.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %if.end42
 
@@ -10516,7 +10516,7 @@ land.rhs.i.i50:                                   ; preds = %land.rhs
   br i1 %cmp.not17.i, label %if.then54, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i51
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i51: ; preds = %land.rhs.i.i50
-  %bcmp.i.i52 = tail call i32 @bcmp(ptr readonly %name.coerce1, ptr readonly %51, i64 %name.coerce0)
+  %bcmp.i.i52 = tail call i32 @bcmp(ptr %name.coerce1, ptr %51, i64 %name.coerce0)
   %cmp.i.i.i53 = icmp eq i32 %bcmp.i.i52, 0
   br i1 %cmp.i.i.i53, label %if.then54, label %lor.rhs.i.i42
 
@@ -10528,7 +10528,7 @@ lor.rhs.i.i42:                                    ; preds = %lor.rhs.i41, %_ZNSt
   br i1 %cmp.not.i.i43, label %if.end74, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i44
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i44: ; preds = %lor.rhs.i.i42
-  %bcmp.i3.i45 = tail call i32 @bcmp(ptr readonly %51, ptr readonly %name.coerce1, i64 %name.coerce0)
+  %bcmp.i3.i45 = tail call i32 @bcmp(ptr %51, ptr %name.coerce1, i64 %name.coerce0)
   %cmp7.i.i46 = icmp eq i32 %bcmp.i3.i45, 0
   br i1 %cmp7.i.i46, label %_ZN6google8protobuf12_GLOBAL__N_111IsSubSymbolESt17basic_string_viewIcSt11char_traitsIcEES5_.exit54, label %if.end74
 

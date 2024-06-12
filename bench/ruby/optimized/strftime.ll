@@ -196,7 +196,7 @@ buffer_size_check.exit:                           ; preds = %resize_buffer.exit,
   br i1 %.not.i2329, label %ruby_nonempty_memcpy.exit, label %79
 
 79:                                               ; preds = %buffer_size_check.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.11873, ptr readonly align 1 %.018633486, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.11873, ptr align 1 %.018633486, i64 %58, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %buffer_size_check.exit, %79
@@ -5387,7 +5387,7 @@ resize_buffer.exit2889.thread:                    ; preds = %2380, %resize_buffe
 
 ruby_nonempty_memcpy.exit2893:                    ; preds = %resize_buffer.exit2889, %buffer_size_check.exit2882, %2375
   %.29 = phi ptr [ %80, %2375 ], [ %2372, %buffer_size_check.exit2882 ], [ %2393, %resize_buffer.exit2889 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.29, ptr noundef nonnull readonly align 1 dereferenceable(1) %.218803096, i64 %.318863095, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.29, ptr noundef nonnull align 1 dereferenceable(1) %.218803096, i64 %.318863095, i1 false)
   %2395 = and i32 %.719003093, 12
   switch i32 %2395, label %2414 [
     i32 8, label %.preheader.i2899

@@ -227,7 +227,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i64 16), ptr %call.i, align 8, !noalias !5
   %rl.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %rl.i.i, i8 0, i64 24, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rl.i.i, i8 0, i64 24, i1 false), !noalias !5
   %3 = getelementptr inbounds i8, ptr %rev, i64 8
   store i32 0, ptr %3, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %rev, i64 16
@@ -3224,7 +3224,7 @@ _ZN3ue2L13getShengStateI5shengEEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSc
 
 for.end.i.i:                                      ; preds = %_ZN3ue2L13getShengStateI5shengEEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i153.i, %for.body4.us.i.i, %for.body.i124.i
   %arrayidx8.i.i = getelementptr inbounds [256 x <2 x i64>], ptr %add.ptr.i, i64 0, i64 %indvars.iv19.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 16 dereferenceable(16) %buf.i.i, i64 16, i1 false), !noalias !144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 16 dereferenceable(16) %buf.i.i, i64 16, i1 false), !noalias !144
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next20.i.i, 256
   br i1 %exitcond.not.i.i16, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i, label %for.body.i124.i, !llvm.loop !156
@@ -3235,7 +3235,7 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i:           ; preds = %for.end.i.i
   store i64 %125, ptr %agg.result, align 8, !alias.scope !144
   %bytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bytes3.i.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
   store ptr null, ptr %nfa.i, align 8, !noalias !144
   %126 = load ptr, ptr %ri.i, align 8, !noalias !144
   %cmp.not.i.i = icmp eq ptr %126, null
@@ -4227,7 +4227,7 @@ _ZN3ue2L13getShengStateI7sheng32EEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11Accel
 
 for.end.i.i:                                      ; preds = %_ZN3ue2L13getShengStateI7sheng32EEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i153.i, %for.body4.us.i.i, %for.body.i124.i
   %arrayidx13.i.i = getelementptr inbounds [256 x %struct.m512], ptr %add.ptr.i, i64 0, i64 %indvars.iv21.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %arrayidx13.i.i, ptr noundef nonnull align 16 dereferenceable(64) %buf.i.i, i64 64, i1 false), !noalias !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx13.i.i, ptr noundef nonnull align 16 dereferenceable(64) %buf.i.i, i64 64, i1 false), !noalias !157
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next22.i.i, 256
   br i1 %exitcond.not.i.i17, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i, label %for.body.i124.i, !llvm.loop !167
@@ -4238,7 +4238,7 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i:           ; preds = %for.end.i.i
   store i64 %125, ptr %agg.result, align 8, !alias.scope !157
   %bytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bytes3.i.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
   store ptr null, ptr %nfa.i, align 8, !noalias !157
   %126 = load ptr, ptr %ri.i, align 8, !noalias !157
   %cmp.not.i.i = icmp eq ptr %126, null
@@ -5105,7 +5105,7 @@ if.end.i.i:                                       ; preds = %_ZNSt3mapItN3ue211A
 
 for.end.i.i:                                      ; preds = %if.end.i.i, %for.body4.us.i.i, %for.body.i87.i
   %arrayidx15.i.i = getelementptr inbounds [256 x %struct.m512], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %arrayidx15.i.i, ptr noundef nonnull align 16 dereferenceable(64) %buf.i.i, i64 64, i1 false), !noalias !168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx15.i.i, ptr noundef nonnull align 16 dereferenceable(64) %buf.i.i, i64 64, i1 false), !noalias !168
   %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i17, 1
   %cmp.i120.i = icmp ugt i64 %indvars.iv.i.i17, 254
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i18, 256
@@ -5120,12 +5120,12 @@ cleanup.thread.i:                                 ; preds = %invoke.cont73.i
   store i64 %96, ptr %agg.result, align 8, !alias.scope !168
   %bytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bytes3.i.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
   %112 = icmp eq ptr %94, null
   br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i
 
 cleanup.i:                                        ; preds = %invoke.cont73.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !168
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !168
   %cmp.not.i.i.i = icmp eq ptr %94, null
   br i1 %cmp.not.i.i.i, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i, label %if.then.i.i122.i
 

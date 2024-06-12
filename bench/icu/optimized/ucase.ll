@@ -4213,13 +4213,13 @@ sw.bb22:                                          ; preds = %entry
   br label %return
 
 sw.bb27:                                          ; preds = %entry
-  %call.i = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 1)
+  %call.i = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 1)
   %cmp29 = icmp sgt i32 %call.i, -1
   %conv31 = zext i1 %cmp29 to i32
   br label %return
 
 sw.bb32:                                          ; preds = %entry
-  %call.i145 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 0)
+  %call.i145 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 0)
   %cmp34 = icmp sgt i32 %call.i145, -1
   %conv36 = zext i1 %cmp34 to i32
   br label %return
@@ -4230,12 +4230,12 @@ sw.bb37:                                          ; preds = %entry
   br i1 %cmp39, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb37
-  %call.i146 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 1)
+  %call.i146 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 1)
   %cmp41 = icmp sgt i32 %call.i146, -1
   br i1 %cmp41, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %call.i147 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 0)
+  %call.i147 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 0)
   %cmp43 = icmp sgt i32 %call.i147, -1
   %49 = zext i1 %cmp43 to i32
   br label %return

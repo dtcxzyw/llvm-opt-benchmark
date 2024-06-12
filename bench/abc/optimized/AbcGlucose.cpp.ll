@@ -789,7 +789,7 @@ tailrecurse:                                      ; preds = %11, %4
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %tailrecurse
-  %8 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef readonly %1, i32 noundef %3)
+  %8 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef %1, i32 noundef %3)
   %9 = icmp ne i32 %8, -1
   %10 = zext i1 %9 to i32
   br label %80
@@ -797,7 +797,7 @@ tailrecurse:                                      ; preds = %11, %4
 11:                                               ; preds = %tailrecurse
   %12 = sdiv i32 %5, 2
   %13 = add nsw i32 %12, %3
-  %14 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef readonly %1, i32 noundef %13)
+  %14 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef %1, i32 noundef %13)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %tailrecurse, label %16
 
@@ -939,7 +939,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4p
   br i1 %exitcond104.not, label %._crit_edge, label %65, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %65, %.preheader
-  %69 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef readonly %1, i32 noundef %62)
+  %69 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef %1, i32 noundef %62)
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %80, label %71
 
@@ -975,7 +975,7 @@ define range(i32 0, 2) i32 @bmcg_sat_solver_add_and(ptr noundef %0, i32 noundef 
   %13 = add nsw i32 %12, %4
   %14 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 2)
+  %15 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2)
   %.not17 = icmp eq i32 %15, 0
   br i1 %.not17, label %28, label %16
 
@@ -984,7 +984,7 @@ define range(i32 0, 2) i32 @bmcg_sat_solver_add_and(ptr noundef %0, i32 noundef 
   %17 = shl nsw i32 %3, 1
   %18 = add nsw i32 %17, %5
   store i32 %18, ptr %14, align 4
-  %19 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 2)
+  %19 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2)
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %28, label %20
 
@@ -1000,7 +1000,7 @@ define range(i32 0, 2) i32 @bmcg_sat_solver_add_and(ptr noundef %0, i32 noundef 
   %25 = or disjoint i32 %17, %24
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %25, ptr %26, align 4
-  %27 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 3)
+  %27 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 3)
   br label %28
 
 28:                                               ; preds = %20, %16, %7
@@ -1024,20 +1024,20 @@ define noundef i32 @_Z19bmcg_solver_add_xorPviiii(ptr noundef %0, i32 noundef %1
   %14 = or disjoint i32 %13, 1
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %14, ptr %15, align 4
-  %16 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
+  %16 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3)
   store i32 %9, ptr %6, align 4
   store i32 %10, ptr %12, align 4
   store i32 %13, ptr %15, align 4
-  %17 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
+  %17 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3)
   %18 = add nsw i32 %8, %4
   store i32 %18, ptr %6, align 4
   store i32 %11, ptr %12, align 4
   store i32 %13, ptr %15, align 4
-  %19 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
+  %19 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3)
   store i32 %18, ptr %6, align 4
   store i32 %10, ptr %12, align 4
   store i32 %14, ptr %15, align 4
-  %20 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
+  %20 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3)
   ret i32 4
 }
 
@@ -1840,7 +1840,7 @@ _ZN5Gluco10SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit: ; preds = %.lr.ph.i.i
   %93 = call noalias ptr @malloc(i64 noundef %92) #34
   %94 = getelementptr inbounds i8, ptr %89, i64 8
   store ptr %93, ptr %94, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr readonly align 4 %86, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr align 4 %86, i64 %92, i1 false)
   %95 = getelementptr inbounds i8, ptr %12, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %88, i32 noundef %84, i32 noundef %96)
@@ -1919,7 +1919,7 @@ define noalias noundef ptr @_Z22Glucose_SolverFromAig2P10Gia_Man_t_RN5Gluco10Sim
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #34
   %32 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %31, ptr %32, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr readonly align 4 %24, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr align 4 %24, i64 %30, i1 false)
   tail call void @Cnf_DataFree(ptr noundef nonnull %3)
   ret ptr %27
 }
@@ -2265,7 +2265,7 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit85:           ; preds = %.lr.ph.i81, %_ZL11V
 ._crit_edge103:                                   ; preds = %139, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit85
   %.059.lcssa = phi i32 [ 0, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit85 ], [ %.1, %139 ]
   %.val74 = load ptr, ptr %45, align 8
-  %140 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val74) #33
+  %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val74) #33
   %141 = trunc i64 %140 to i32
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit
@@ -2344,7 +2344,7 @@ _ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i:          ; preds = %166, %_ZL11Vec_StrG
 
 _ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit:          ; preds = %_ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i, %._crit_edge103
   %172 = load ptr, ptr %47, align 8
-  %173 = tail call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %172, ptr noundef readonly %.val71, i32 noundef %.059.lcssa)
+  %173 = tail call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %172, ptr noundef %.val71, i32 noundef %.059.lcssa)
   %.not65 = icmp eq i32 %173, 0
   br i1 %.not65, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit._crit_edge, label %51
 
@@ -2841,7 +2841,7 @@ _Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii.exit: ; preds = %_ZN5Gluco1
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %bmcg_sat_solver_set_nvars.exit
   %118 = phi ptr [ %.pre96, %._crit_edge.loopexit ], [ %22, %bmcg_sat_solver_set_nvars.exit ]
-  %119 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %118, ptr noundef nonnull readonly %4, i32 noundef 1)
+  %119 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %118, ptr noundef nonnull %4, i32 noundef 1)
   %.not = icmp eq i32 %119, 0
   br i1 %.not, label %120, label %126
 
@@ -3840,7 +3840,7 @@ bmcg_sat_solver_set_nvars.exit73:                 ; preds = %bmcg_sat_solver_set
   %70 = shl nsw i32 %57, 1
   %71 = or disjoint i32 %70, %67
   store i32 %71, ptr %36, align 4
-  %72 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %65, ptr noundef nonnull readonly %5, i32 noundef 2)
+  %72 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 2)
   %.not17.i = icmp eq i32 %72, 0
   br i1 %.not17.i, label %bmcg_sat_solver_add_and.exit, label %73
 
@@ -3852,7 +3852,7 @@ bmcg_sat_solver_set_nvars.exit73:                 ; preds = %bmcg_sat_solver_set
   %77 = shl nsw i32 %64, 1
   %78 = or disjoint i32 %77, %76
   store i32 %78, ptr %36, align 4
-  %79 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %65, ptr noundef nonnull readonly %5, i32 noundef 2)
+  %79 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 2)
   %.not18.i = icmp eq i32 %79, 0
   br i1 %.not18.i, label %bmcg_sat_solver_add_and.exit, label %80
 
@@ -3862,7 +3862,7 @@ bmcg_sat_solver_set_nvars.exit73:                 ; preds = %bmcg_sat_solver_set
   store i32 %81, ptr %36, align 4
   %82 = xor i32 %78, 1
   store i32 %82, ptr %37, align 4
-  %83 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %65, ptr noundef nonnull readonly %5, i32 noundef 3)
+  %83 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 3)
   br label %bmcg_sat_solver_add_and.exit
 
 bmcg_sat_solver_add_and.exit:                     ; preds = %49, %73, %80
@@ -3880,7 +3880,7 @@ bmcg_sat_solver_add_and.exit:                     ; preds = %49, %73, %80
   store i32 %69, ptr %4, align 4
   %89 = or disjoint i32 %88, %70
   store i32 %89, ptr %38, align 4
-  %90 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull readonly %4, i32 noundef 2)
+  %90 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull %4, i32 noundef 2)
   %.not17.i74 = icmp eq i32 %90, 0
   br i1 %.not17.i74, label %bmcg_sat_solver_add_and.exit79, label %91
 
@@ -3892,7 +3892,7 @@ bmcg_sat_solver_add_and.exit:                     ; preds = %49, %73, %80
   %95 = shl nsw i32 %64, 1
   %96 = or disjoint i32 %94, %95
   store i32 %96, ptr %38, align 4
-  %97 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull readonly %4, i32 noundef 2)
+  %97 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull %4, i32 noundef 2)
   %.not18.i75 = icmp eq i32 %97, 0
   br i1 %.not18.i75, label %bmcg_sat_solver_add_and.exit79, label %98
 
@@ -3902,7 +3902,7 @@ bmcg_sat_solver_add_and.exit:                     ; preds = %49, %73, %80
   store i32 %99, ptr %38, align 4
   %100 = xor i32 %96, 1
   store i32 %100, ptr %39, align 4
-  %101 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull readonly %4, i32 noundef 3)
+  %101 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull %4, i32 noundef 3)
   br label %bmcg_sat_solver_add_and.exit79
 
 bmcg_sat_solver_add_and.exit79:                   ; preds = %85, %91, %98
@@ -3921,13 +3921,13 @@ bmcg_sat_solver_add_and.exit79:                   ; preds = %85, %91, %98
   %107 = or disjoint i32 %106, 1
   store i32 %107, ptr %6, align 4
   %108 = load ptr, ptr %2, align 8
-  %109 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %108, ptr noundef nonnull readonly %6, i32 noundef 1)
+  %109 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %108, ptr noundef nonnull %6, i32 noundef 1)
   %110 = load ptr, ptr %11, align 8
   %.not51 = icmp eq ptr %110, null
   br i1 %.not51, label %113, label %111
 
 111:                                              ; preds = %104
-  %112 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %110, ptr noundef nonnull readonly %6, i32 noundef 1)
+  %112 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %110, ptr noundef nonnull %6, i32 noundef 1)
   br label %113
 
 113:                                              ; preds = %bmcg_sat_solver_add_and.exit79, %bmcg_sat_solver_add_and.exit, %104, %111, %102
@@ -4421,7 +4421,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %59 = xor i32 %58, 1
   store i32 %59, ptr %8, align 4
   %60 = load ptr, ptr %0, align 8
-  %61 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %60, ptr noundef nonnull readonly %8, i32 noundef 1)
+  %61 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %60, ptr noundef nonnull %8, i32 noundef 1)
   %.not90 = icmp eq i32 %61, 0
   br i1 %.not90, label %.critedge.thread, label %62
 
@@ -4447,7 +4447,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit.i.i.i:       ; preds = %.preheader.i.i.i.i,
   store i32 %58, ptr %8, align 4
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %71, ptr noundef nonnull readonly %8, i32 noundef 1)
+  %72 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef %71, ptr noundef nonnull %8, i32 noundef 1)
   %.not91 = icmp eq i32 %72, 0
   br i1 %.not91, label %.critedge.thread, label %73
 
@@ -5040,7 +5040,7 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %37
   %39 = xor i32 %28, 1
   %40 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %39, ptr %40, align 4
-  %41 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
+  %41 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %43, label %50
 
@@ -5057,7 +5057,7 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %37
   %.sink = phi ptr [ %40, %43 ], [ %46, %45 ]
   %.sink49 = phi i32 [ -1, %43 ], [ 1, %45 ]
   store i32 %28, ptr %.sink, align 4
-  %47 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
+  %47 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2)
   %48 = icmp eq i32 %47, %.sink49
   %49 = zext i1 %48 to i32
   br label %50

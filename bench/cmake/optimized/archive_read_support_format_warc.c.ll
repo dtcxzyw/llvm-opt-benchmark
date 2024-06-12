@@ -126,7 +126,7 @@ define internal range(i32 -30, 2) i32 @_warc_rdhdr(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %21, i64 %20
-  %25 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %20) #18
+  %25 = call ptr @memchr(ptr noundef nonnull %21, i32 noundef 13, i64 noundef %20) #18
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_warc_find_eoh.exit.thread, label %27
 
@@ -183,7 +183,7 @@ define internal range(i32 -30, 2) i32 @_warc_rdhdr(ptr noundef %0, ptr noundef %
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %.lr.ph68.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull readonly dereferenceable(3) @_warc_find_eoh._marker, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull dereferenceable(3) @_warc_find_eoh._marker, i64 3)
   %52 = icmp eq i32 %bcmp.i.i, 0
   br i1 %52, label %_warc_find_eoh.exit.thread261, label %54
 
@@ -237,7 +237,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
 71:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %72 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %61) #18
+  %72 = call ptr @memchr(ptr noundef nonnull %21, i32 noundef 13, i64 noundef %61) #18
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_warc_rdlen.exit.thread, label %74
 
@@ -295,7 +295,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %.lr.ph68.i.i103
-  %bcmp.i.i107 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %90, ptr noundef nonnull readonly dereferenceable(16) @_warc_rdlen._key, i64 16)
+  %bcmp.i.i107 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %90, ptr noundef nonnull dereferenceable(16) @_warc_rdlen._key, i64 16)
   %99 = icmp eq i32 %bcmp.i.i107, 0
   br i1 %99, label %xmemmem.exit.thread25.i, label %100
 
@@ -313,7 +313,7 @@ xmemmem.exit.thread25.i:                          ; preds = %98, %xmemmem.exit.i
   %103 = getelementptr inbounds i8, ptr %.050.i27.i, i64 17
   %104 = ptrtoint ptr %103 to i64
   %105 = sub i64 %59, %104
-  %106 = call ptr @memchr(ptr noundef nonnull readonly %103, i32 noundef 13, i64 noundef %105) #18
+  %106 = call ptr @memchr(ptr noundef nonnull %103, i32 noundef 13, i64 noundef %105) #18
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_warc_rdlen.exit.thread, label %108
 
@@ -428,7 +428,7 @@ _warc_rdlen.exit:                                 ; preds = %141
 147:                                              ; preds = %_warc_rdlen.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %148 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %61) #18
+  %148 = call ptr @memchr(ptr noundef nonnull %21, i32 noundef 13, i64 noundef %61) #18
   %149 = icmp eq ptr %148, null
   br i1 %149, label %_warc_rdrtm.exit.thread, label %150
 
@@ -486,7 +486,7 @@ _warc_rdlen.exit:                                 ; preds = %141
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %.lr.ph68.i.i124
-  %bcmp.i.i128 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %166, ptr noundef nonnull readonly dereferenceable(11) @_warc_rdrtm._key, i64 11)
+  %bcmp.i.i128 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %166, ptr noundef nonnull dereferenceable(11) @_warc_rdrtm._key, i64 11)
   %175 = icmp eq i32 %bcmp.i.i128, 0
   br i1 %175, label %xmemmem.exit.thread14.i, label %176
 
@@ -503,7 +503,7 @@ xmemmem.exit.thread14.i:                          ; preds = %174, %xmemmem.exit.
   %179 = getelementptr inbounds i8, ptr %.050.i16.i, i64 12
   %180 = ptrtoint ptr %179 to i64
   %181 = sub i64 %59, %180
-  %182 = call ptr @memchr(ptr noundef nonnull readonly %179, i32 noundef 13, i64 noundef %181) #18
+  %182 = call ptr @memchr(ptr noundef nonnull %179, i32 noundef 13, i64 noundef %181) #18
   %183 = icmp eq ptr %182, null
   br i1 %183, label %_warc_rdrtm.exit.thread, label %184
 
@@ -592,7 +592,7 @@ _warc_rdrtm.exit:                                 ; preds = %_warc_find_eol.exit
   br label %215
 
 215:                                              ; preds = %211, %209
-  %216 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %61) #18
+  %216 = call ptr @memchr(ptr noundef nonnull %21, i32 noundef 13, i64 noundef %61) #18
   %217 = icmp eq ptr %216, null
   br i1 %217, label %.thread, label %218
 
@@ -650,7 +650,7 @@ _warc_rdrtm.exit:                                 ; preds = %_warc_find_eol.exit
   br i1 %241, label %242, label %244
 
 242:                                              ; preds = %.lr.ph68.i.i155
-  %bcmp.i.i159 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %234, ptr noundef nonnull readonly dereferenceable(11) @_warc_rdtyp._key, i64 11)
+  %bcmp.i.i159 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %234, ptr noundef nonnull dereferenceable(11) @_warc_rdtyp._key, i64 11)
   %243 = icmp eq i32 %bcmp.i.i159, 0
   br i1 %243, label %xmemmem.exit.thread24.i, label %244
 
@@ -668,7 +668,7 @@ xmemmem.exit.thread24.i:                          ; preds = %242, %xmemmem.exit.
   %247 = getelementptr inbounds i8, ptr %.050.i26.i, i64 12
   %248 = ptrtoint ptr %247 to i64
   %249 = sub i64 %59, %248
-  %250 = call ptr @memchr(ptr noundef nonnull readonly %247, i32 noundef 13, i64 noundef %249) #18
+  %250 = call ptr @memchr(ptr noundef nonnull %247, i32 noundef 13, i64 noundef %249) #18
   %251 = icmp eq ptr %250, null
   br i1 %251, label %.thread, label %252
 
@@ -770,7 +770,7 @@ _warc_find_eol.exit.i178:                         ; preds = %.lr.ph.preheader.i.
   %.0.i142 = phi i32 [ 3, %280 ], [ 5, %282 ]
   store i64 %143, ptr %9, align 8
   store i64 0, ptr %16, align 8
-  %286 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %61) #18
+  %286 = call ptr @memchr(ptr noundef nonnull %21, i32 noundef 13, i64 noundef %61) #18
   %287 = icmp eq ptr %286, null
   br i1 %287, label %_warc_rduri.exit.thread, label %288
 
@@ -828,7 +828,7 @@ _warc_find_eol.exit.i178:                         ; preds = %.lr.ph.preheader.i.
   br i1 %311, label %312, label %314
 
 312:                                              ; preds = %.lr.ph68.i.i194
-  %bcmp.i.i198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %304, ptr noundef nonnull readonly dereferenceable(17) @_warc_rduri._key, i64 17)
+  %bcmp.i.i198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %304, ptr noundef nonnull dereferenceable(17) @_warc_rduri._key, i64 17)
   %313 = icmp eq i32 %bcmp.i.i198, 0
   br i1 %313, label %xmemmem.exit.thread68.i, label %314
 
@@ -846,7 +846,7 @@ xmemmem.exit.thread68.i:                          ; preds = %312, %xmemmem.exit.
   %317 = getelementptr inbounds i8, ptr %.050.i70.i, i64 18
   %318 = ptrtoint ptr %317 to i64
   %319 = sub i64 %59, %318
-  %320 = call ptr @memchr(ptr noundef nonnull readonly %317, i32 noundef 13, i64 noundef %319) #18
+  %320 = call ptr @memchr(ptr noundef nonnull %317, i32 noundef 13, i64 noundef %319) #18
   %321 = icmp eq ptr %320, null
   br i1 %321, label %_warc_rduri.exit.thread, label %322
 
@@ -932,7 +932,7 @@ _warc_find_eol.exit.i218:                         ; preds = %.lr.ph.preheader.i.
   %.036.lcssa.i = phi ptr [ %.036.lcssa.ph.i, %.critedge.loopexit.i ], [ %317, %.preheader74.i ]
   %348 = sub i64 %.050.i.i115121.i.pre-phi, %.pre-phi.i
   %349 = getelementptr i8, ptr %.036.lcssa.i, i64 %348
-  %350 = call ptr @memchr(ptr noundef nonnull readonly %.036.lcssa.i, i32 noundef 58, i64 noundef %348) #18
+  %350 = call ptr @memchr(ptr noundef nonnull %.036.lcssa.i, i32 noundef 58, i64 noundef %348) #18
   %351 = icmp eq ptr %350, null
   br i1 %351, label %_warc_rduri.exit.thread, label %352
 
@@ -990,7 +990,7 @@ _warc_find_eol.exit.i218:                         ; preds = %.lr.ph.preheader.i.
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %.lr.ph68.i61.i
-  %bcmp.i65.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %368, ptr noundef nonnull readonly dereferenceable(2) @.str.12, i64 2)
+  %bcmp.i65.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %368, ptr noundef nonnull dereferenceable(2) @.str.12, i64 2)
   %377 = icmp eq i32 %bcmp.i65.i, 0
   br i1 %377, label %.preheader.i210, label %378
 
@@ -1099,7 +1099,7 @@ _warc_rduri.exit:                                 ; preds = %400, %402, %393
   %425 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %426 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %61) #18
+  %426 = call ptr @memchr(ptr noundef nonnull %21, i32 noundef 13, i64 noundef %61) #18
   %427 = icmp eq ptr %426, null
   br i1 %427, label %_warc_rdmtm.exit.thread, label %428
 
@@ -1157,7 +1157,7 @@ _warc_rduri.exit:                                 ; preds = %400, %402, %393
   br i1 %451, label %452, label %454
 
 452:                                              ; preds = %.lr.ph68.i.i235
-  %bcmp.i.i239 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %444, ptr noundef nonnull readonly dereferenceable(15) @_warc_rdmtm._key, i64 15)
+  %bcmp.i.i239 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %444, ptr noundef nonnull dereferenceable(15) @_warc_rdmtm._key, i64 15)
   %453 = icmp eq i32 %bcmp.i.i239, 0
   br i1 %453, label %xmemmem.exit.thread14.i240, label %454
 
@@ -1174,7 +1174,7 @@ xmemmem.exit.thread14.i240:                       ; preds = %452, %xmemmem.exit.
   %457 = getelementptr inbounds i8, ptr %.050.i16.i241, i64 16
   %458 = ptrtoint ptr %457 to i64
   %459 = sub i64 %59, %458
-  %460 = call ptr @memchr(ptr noundef nonnull readonly %457, i32 noundef 13, i64 noundef %459) #18
+  %460 = call ptr @memchr(ptr noundef nonnull %457, i32 noundef 13, i64 noundef %459) #18
   %461 = icmp eq ptr %460, null
   br i1 %461, label %_warc_rdmtm.exit.thread, label %462
 

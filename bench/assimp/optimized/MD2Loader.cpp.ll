@@ -1318,7 +1318,7 @@ invoke.cont286:                                   ; preds = %if.end245, %call.i1
   %iNormalIndex.addr.0.i = phi i8 [ %78, %if.end245 ], [ -95, %call.i134.noexc ]
   %idxprom.i = zext i8 %iNormalIndex.addr.0.i to i64
   %arrayidx.i133 = getelementptr inbounds [162 x [3 x float]], ptr @_ZL11g_avNormals, i64 0, i64 %idxprom.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %arrayidx283, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i133, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx283, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i133, i64 12, i1 false)
   %79 = load ptr, ptr %m_pcHeader, align 8
   %numTexCoords288 = getelementptr inbounds i8, ptr %79, i64 28
   %80 = load i32, ptr %numTexCoords288, align 1

@@ -300,7 +300,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr nocapture noundef readonly %0) loc
   %28 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %22) #15
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %22) #15
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %_find_kvs_by_name.exit, label %26
 

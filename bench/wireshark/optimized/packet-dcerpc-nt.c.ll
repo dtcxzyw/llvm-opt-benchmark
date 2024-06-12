@@ -869,7 +869,7 @@ define hidden void @dcerpc_smb_store_pol_pkts(ptr nocapture noundef readonly %0,
   br i1 %.not, label %11, label %add_pol_handle.exit
 
 11:                                               ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) @is_null_pol.null_policy_hnd, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) @is_null_pol.null_policy_hnd, i64 20)
   %.not42 = icmp eq i32 %bcmp.i, 0
   br i1 %.not42, label %add_pol_handle.exit, label %12
 
@@ -877,7 +877,7 @@ define hidden void @dcerpc_smb_store_pol_pkts(ptr nocapture noundef readonly %0,
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef nonnull readonly align 4 dereferenceable(20) %0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %15 = load ptr, ptr @pol_hash, align 8
   %16 = call ptr @wmem_map_lookup(ptr noundef %15, ptr noundef nonnull %5) #7
   %.not.i = icmp eq ptr %16, null
@@ -982,7 +982,7 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   store ptr null, ptr %39, align 8
   %52 = call ptr @wmem_file_scope() #7
   %53 = call noalias ptr @wmem_alloc(ptr noundef %52, i64 noundef 20) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %53, ptr noundef nonnull readonly align 4 dereferenceable(20) %0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %53, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %54 = load ptr, ptr @pol_hash, align 8
   %55 = call ptr @wmem_map_insert(ptr noundef %54, ptr noundef %53, ptr noundef nonnull %51) #7
   br label %add_pol_handle.exit
@@ -1033,7 +1033,7 @@ define hidden void @dcerpc_store_polhnd_name(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %10, label %add_pol_handle.exit
 
 10:                                               ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) @is_null_pol.null_policy_hnd, i64 20)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) @is_null_pol.null_policy_hnd, i64 20)
   %.not33 = icmp eq i32 %bcmp.i, 0
   br i1 %.not33, label %add_pol_handle.exit, label %11
 
@@ -1041,7 +1041,7 @@ define hidden void @dcerpc_store_polhnd_name(ptr nocapture noundef readonly %0, 
   %12 = getelementptr inbounds i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %4, ptr noundef nonnull readonly align 4 dereferenceable(20) %0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %14 = load ptr, ptr @pol_hash, align 8
   %15 = call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef nonnull %4) #7
   %.not.i = icmp eq ptr %15, null
@@ -1122,7 +1122,7 @@ define hidden void @dcerpc_store_polhnd_name(ptr nocapture noundef readonly %0, 
   store ptr null, ptr %28, align 8
   %44 = call ptr @wmem_file_scope() #7
   %45 = call noalias ptr @wmem_alloc(ptr noundef %44, i64 noundef 20) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %45, ptr noundef nonnull readonly align 4 dereferenceable(20) %0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %45, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %46 = load ptr, ptr @pol_hash, align 8
   %47 = call ptr @wmem_map_insert(ptr noundef %46, ptr noundef %45, ptr noundef nonnull %43) #7
   br label %add_pol_handle.exit
@@ -1195,7 +1195,7 @@ define hidden range(i32 0, 2) i32 @dcerpc_fetch_polhnd_data(ptr nocapture nounde
 
 15:                                               ; preds = %14, %13
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %7, ptr noundef nonnull readonly align 4 dereferenceable(20) %0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %16 = load ptr, ptr @pol_hash, align 8
   %17 = call ptr @wmem_map_lookup(ptr noundef %16, ptr noundef nonnull %7) #7
   %.not.i = icmp eq ptr %17, null
@@ -1421,7 +1421,7 @@ define internal fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr n
   %36 = getelementptr inbounds i8, ptr %2, i64 20
   %37 = load i32, ptr %36, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %13, ptr noundef nonnull readonly align 4 dereferenceable(20) %15, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false)
   %38 = load ptr, ptr @pol_hash, align 8
   %39 = call ptr @wmem_map_lookup(ptr noundef %38, ptr noundef nonnull %13) #7
   %.not.i.i = icmp eq ptr %39, null
@@ -1589,7 +1589,7 @@ define hidden i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not.i, label %38, label %dcerpc_store_polhnd_type.exit
 
 38:                                               ; preds = %23
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %10, ptr noundef nonnull dereferenceable(20) @is_null_pol.null_policy_hnd, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %10, ptr noundef nonnull dereferenceable(20) @is_null_pol.null_policy_hnd, i64 20)
   %.not10.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not10.i, label %dcerpc_store_polhnd_type.exit, label %39
 
@@ -1597,7 +1597,7 @@ define hidden i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr n
   %40 = getelementptr inbounds i8, ptr %2, i64 20
   %41 = load i32, ptr %40, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull readonly align 4 dereferenceable(20) %10, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   %42 = load ptr, ptr @pol_hash, align 8
   %43 = call ptr @wmem_map_lookup(ptr noundef %42, ptr noundef nonnull %9) #7
   %.not.i.i = icmp eq ptr %43, null

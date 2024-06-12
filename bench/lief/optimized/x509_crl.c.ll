@@ -61,7 +61,7 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
   br label %148
 
 22:                                               ; preds = %.critedge
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(416) %19, i8 0, i64 416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %19, i8 0, i64 416, i1 false)
   %23 = load ptr, ptr %18, align 8
   br label %.critedge.thread
 

@@ -3716,7 +3716,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %4, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %4, ptr noundef nonnull %dir_fd)
   %tobool24.not = icmp eq i32 %call2.i, 0
   br i1 %tobool24.not, label %exit, label %if.end26
 
@@ -3734,7 +3734,7 @@ if.end30:                                         ; preds = %if.end26, %if.end18
 skip_optional_kwonly:                             ; preds = %if.end30, %if.end26, %if.end15
   %follow_symlinks.0 = phi i32 [ %call32, %if.end30 ], [ 1, %if.end26 ], [ 1, %if.end15 ]
   %8 = load i32, ptr %dir_fd, align 4
-  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef nonnull readonly %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
+  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef %module, ptr noundef nonnull %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end30, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -3871,7 +3871,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %dir_fd)
   %tobool32.not = icmp eq i32 %call2.i, 0
   br i1 %tobool32.not, label %exit, label %if.end34
 
@@ -4205,7 +4205,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %dir_fd)
   %tobool32.not = icmp eq i32 %call2.i, 0
   br i1 %tobool32.not, label %exit, label %if.end34
 
@@ -4482,7 +4482,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %6, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %6, ptr noundef nonnull %dir_fd)
   %tobool34.not = icmp eq i32 %call2.i, 0
   br i1 %tobool34.not, label %exit, label %if.end36
 
@@ -5039,7 +5039,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %src_dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -5077,7 +5077,7 @@ dir_fd_converter.exit35.thread:                   ; preds = %if.else.i24
   br label %exit
 
 dir_fd_converter.exit35:                          ; preds = %if.else.i24
-  %call2.i28 = call fastcc i32 @_fd_converter(ptr noundef nonnull %8, ptr noundef nonnull writeonly %dst_dir_fd)
+  %call2.i28 = call fastcc i32 @_fd_converter(ptr noundef nonnull %8, ptr noundef nonnull %dst_dir_fd)
   %tobool41.not = icmp eq i32 %call2.i28, 0
   br i1 %tobool41.not, label %exit, label %if.end43
 
@@ -5701,7 +5701,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonly_crit_edge
 
@@ -5711,7 +5711,7 @@ dir_fd_converter.exit.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_converte
 
 skip_optional_kwonly:                             ; preds = %if.end18, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge, %if.end15
   %7 = phi i32 [ %.pre, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge ], [ -100, %if.end15 ], [ -100, %if.end18 ]
-  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef nonnull readonly %path, i32 noundef %7, i32 noundef 0)
+  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef %module, ptr noundef nonnull %path, i32 noundef %7, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -5849,7 +5849,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull %dir_fd)
   %tobool39.not = icmp eq i32 %call2.i, 0
   br i1 %tobool39.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -6296,7 +6296,7 @@ skip_optional_kwonly:                             ; preds = %if.end72, %if.then6
   %setsigmask.1 = phi ptr [ %10, %if.end81 ], [ %10, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %10, %if.end72 ]
   %setsigdef.1 = phi ptr [ %11, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %11, %if.end72 ]
   %scheduler.0 = phi ptr [ %12, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ null, %if.end72 ]
-  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 0, ptr noundef readonly %module, ptr noundef nonnull readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
+  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 0, ptr noundef %module, ptr noundef nonnull %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
   br label %exit
 
 exit:                                             ; preds = %if.then53, %if.then40, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6488,7 +6488,7 @@ skip_optional_kwonly:                             ; preds = %if.end72, %if.then6
   %setsigmask.1 = phi ptr [ %10, %if.end81 ], [ %10, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %10, %if.end72 ]
   %setsigdef.1 = phi ptr [ %11, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ %11, %if.end72 ]
   %scheduler.0 = phi ptr [ %12, %if.end81 ], [ null, %if.then66 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %if.then31 ], [ null, %if.then23 ], [ null, %if.end15 ], [ null, %if.end72 ]
-  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 1, ptr noundef readonly %module, ptr noundef nonnull readonly %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
+  %call.i = call fastcc ptr @py_posix_spawn(i32 noundef 1, ptr noundef %module, ptr noundef nonnull %path, ptr noundef %4, ptr noundef %5, ptr noundef %file_actions.1, ptr noundef %setpgroup.1, i32 noundef %resetids.1, i32 noundef %setsid.1, ptr noundef %setsigmask.1, ptr noundef %setsigdef.1, ptr noundef %scheduler.0)
   br label %exit
 
 exit:                                             ; preds = %if.then53, %if.then40, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6614,7 +6614,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %skip_optional_kwonly
 
@@ -7243,7 +7243,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %src_dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -7271,7 +7271,7 @@ dir_fd_converter.exit30.thread:                   ; preds = %if.else.i19
   br label %exit
 
 dir_fd_converter.exit30:                          ; preds = %if.else.i19
-  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dst_dir_fd)
+  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dst_dir_fd)
   %tobool38.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool38.not, label %exit, label %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge
 
@@ -7282,7 +7282,7 @@ dir_fd_converter.exit30.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_conver
 skip_optional_kwonly:                             ; preds = %if.end35, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge, %if.end31, %if.end20
   %11 = phi i32 [ %.pre, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge ], [ -100, %if.end31 ], [ -100, %if.end20 ], [ -100, %if.end35 ]
   %12 = load i32, ptr %src_dir_fd, align 4
-  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull readonly %src, ptr noundef nonnull readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 0)
+  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull %src, ptr noundef nonnull %dst, i32 noundef %12, i32 noundef %11, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit30.thread, %dir_fd_converter.exit.thread, %dir_fd_converter.exit30, %dir_fd_converter.exit, %if.end15, %if.end, %cond.end9, %skip_optional_kwonly
@@ -7464,7 +7464,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull writeonly %src_dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %5, ptr noundef nonnull %src_dir_fd)
   %tobool29.not = icmp eq i32 %call2.i, 0
   br i1 %tobool29.not, label %exit, label %if.end31
 
@@ -7492,7 +7492,7 @@ dir_fd_converter.exit30.thread:                   ; preds = %if.else.i19
   br label %exit
 
 dir_fd_converter.exit30:                          ; preds = %if.else.i19
-  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dst_dir_fd)
+  %call2.i23 = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dst_dir_fd)
   %tobool38.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool38.not, label %exit, label %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge
 
@@ -7503,7 +7503,7 @@ dir_fd_converter.exit30.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_conver
 skip_optional_kwonly:                             ; preds = %if.end35, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge, %if.end31, %if.end20
   %11 = phi i32 [ %.pre, %dir_fd_converter.exit30.skip_optional_kwonly_crit_edge ], [ -100, %if.end31 ], [ -100, %if.end20 ], [ -100, %if.end35 ]
   %12 = load i32, ptr %src_dir_fd, align 4
-  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull readonly %src, ptr noundef nonnull readonly %dst, i32 noundef %12, i32 noundef %11, i32 noundef 1)
+  %call.i31 = call fastcc ptr @internal_rename(ptr noundef nonnull %src, ptr noundef nonnull %dst, i32 noundef %12, i32 noundef %11, i32 noundef 1)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit30.thread, %dir_fd_converter.exit.thread, %dir_fd_converter.exit30, %dir_fd_converter.exit, %if.end15, %if.end, %cond.end9, %skip_optional_kwonly
@@ -7666,7 +7666,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -7847,7 +7847,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd)
   %tobool41.not = icmp eq i32 %call2.i, 0
   br i1 %tobool41.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8346,7 +8346,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8502,7 +8502,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %4, ptr noundef nonnull %dir_fd)
   %tobool21.not = icmp eq i32 %call2.i, 0
   br i1 %tobool21.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -8708,7 +8708,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %7, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef nonnull %7, ptr noundef nonnull %dir_fd)
   %tobool44.not = icmp eq i32 %call2.i, 0
   br i1 %tobool44.not, label %exit, label %if.end46
 
@@ -12502,7 +12502,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd)
   %tobool47.not = icmp eq i32 %call2.i, 0
   br i1 %tobool47.not, label %exit, label %dir_fd_converter.exit.skip_optional_kwonlythread-pre-split_crit_edge
 
@@ -14011,7 +14011,7 @@ cond.true.i:                                      ; preds = %land.lhs.true.i
   br label %os_fstat_impl.exit
 
 if.end.i:                                         ; preds = %do.body.i
-  %call8.i = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef nonnull %st.i)
+  %call8.i = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef nonnull %st.i)
   br label %os_fstat_impl.exit
 
 os_fstat_impl.exit:                               ; preds = %land.rhs.i, %cond.true.i, %if.end.i
@@ -14052,7 +14052,7 @@ cond.true.i21:                                    ; preds = %land.lhs.true.i18
   br label %os_fstat_impl.exit29
 
 if.end.i27:                                       ; preds = %do.body.i14
-  %call8.i28 = call fastcc ptr @_pystat_fromstructstat(ptr noundef readonly %module, ptr noundef nonnull %st.i13)
+  %call8.i28 = call fastcc ptr @_pystat_fromstructstat(ptr noundef %module, ptr noundef nonnull %st.i13)
   br label %os_fstat_impl.exit29
 
 os_fstat_impl.exit29:                             ; preds = %land.rhs.i24, %cond.true.i21, %if.end.i27
@@ -14318,7 +14318,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %7, ptr noundef nonnull %dir_fd)
   %tobool39.not = icmp eq i32 %call2.i, 0
   br i1 %tobool39.not, label %exit, label %skip_optional_kwonly
 
@@ -14539,7 +14539,7 @@ dir_fd_converter.exit.thread:                     ; preds = %if.else.i
   br label %exit
 
 dir_fd_converter.exit:                            ; preds = %if.else.i
-  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull writeonly %dir_fd)
+  %call2.i = call fastcc i32 @_fd_converter(ptr noundef %8, ptr noundef nonnull %dir_fd)
   %tobool52.not = icmp eq i32 %call2.i, 0
   br i1 %tobool52.not, label %exit, label %skip_optional_kwonly
 
@@ -15943,7 +15943,7 @@ define internal ptr @os_confstr(ptr nocapture readnone %module, ptr noundef %arg
 entry:
   %buffer.i = alloca [255 x i8], align 16
   %name = alloca i32, align 4
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16005,7 +16005,7 @@ exit:                                             ; preds = %entry, %os_confstr_
 define internal ptr @os_sysconf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %name = alloca i32, align 4
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16063,7 +16063,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %1, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %1, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool8.not = icmp eq i32 %call.i, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -16129,7 +16129,7 @@ if.end:                                           ; preds = %entry, %cond.end
 if.end9:                                          ; preds = %if.end
   %arrayidx10 = getelementptr i8, ptr %cond17, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
-  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %2, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %2, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %exit, label %if.end14
 
@@ -25662,7 +25662,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #25
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.else.i
@@ -25672,7 +25672,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.el
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end3.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %d_name) #25
+  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #25
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then1.i.i, %if.end.i.i
@@ -25711,7 +25711,7 @@ if.then16.i.i:                                    ; preds = %land.lhs.true.i.i
 join_path_filename.exit.i:                        ; preds = %if.then16.i.i, %land.lhs.true.i.i, %if.end11.i.i
   %path_len.1.i.i = phi i64 [ %add.i.i, %if.then16.i.i ], [ %path_len.0.i.i, %land.lhs.true.i.i ], [ %path_len.0.i.i, %if.end11.i.i ]
   %add.ptr.i.i = getelementptr i8, ptr %call7.i.i, i64 %path_len.1.i.i
-  %call19.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(1) %d_name) #22
+  %call19.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull dereferenceable(1) %d_name) #22
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %join_path_filename.exit.i, %if.then6.i

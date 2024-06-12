@@ -2274,7 +2274,7 @@ if.end1594:                                       ; preds = %if.end1584, %if.end
   %tp_dst_offset = getelementptr inbounds i8, ptr %tm, i64 36
   store i32 %dst_offset.0, ptr %tp_dst_offset, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %copy.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %tm, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy.i, ptr noundef nonnull align 4 dereferenceable(40) %tm, i64 40, i1 false)
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %copy.i, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
   %tm_year.i = getelementptr inbounds i8, ptr %copy.i, i64 24
   %173 = load i16, ptr %tm_year.i, align 4

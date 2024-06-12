@@ -1235,7 +1235,7 @@ define range(i32 -1, 1) i32 @H5D__contig_fill(ptr noundef %0) local_unnamed_addr
   store i64 0, ptr %5, align 8
   store i64 %61, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %72 = call i64 @H5D__contig_writevv(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, i64 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %72 = call i64 @H5D__contig_writevv(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %73 = icmp slt i64 %72, 0
   br i1 %73, label %74, label %81
 

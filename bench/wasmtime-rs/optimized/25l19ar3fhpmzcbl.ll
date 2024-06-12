@@ -1336,7 +1336,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   store i8 1, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   ret void
 }
 
@@ -1354,7 +1354,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   store i8 1, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   ret void
 }
 

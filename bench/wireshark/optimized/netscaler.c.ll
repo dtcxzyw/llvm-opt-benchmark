@@ -128,7 +128,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds i8, ptr %.036.i, i64 8
-  %36 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull dereferenceable(27) @.str.4, i64 noundef 26) #12
+  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(27) @.str.4, i64 noundef 26) #12
   %.not31.i = icmp eq i32 %36, 0
   br i1 %.not31.i, label %54, label %.thread.i
 
@@ -152,17 +152,17 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 
 43:                                               ; preds = %.thread.i
   %44 = getelementptr inbounds i8, ptr %.036.i, i64 3
-  %45 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.5, i64 noundef 30) #12
+  %45 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.5, i64 noundef 30) #12
   %.not32.i = icmp eq i32 %45, 0
   br i1 %.not32.i, label %58, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.6, i64 noundef 30) #12
+  %47 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.6, i64 noundef 30) #12
   %.not33.i = icmp eq i32 %47, 0
   br i1 %.not33.i, label %62, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.7, i64 noundef 30) #12
+  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(31) @.str.7, i64 noundef 30) #12
   %.not34.i = icmp eq i32 %49, 0
   br i1 %.not34.i, label %67, label %50
 
@@ -412,7 +412,7 @@ nstrace_read_page.exit.i.i:                       ; preds = %165
   br label %114, !llvm.loop !7
 
 nstrace_set_start_time.exit:                      ; preds = %103, %103
-  %168 = tail call fastcc i32 @nstrace_set_start_time_v20(ptr noundef nonnull readonly %0, ptr noundef writeonly %1, ptr noundef %2)
+  %168 = tail call fastcc i32 @nstrace_set_start_time_v20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %nstrace_set_start_time.exit.threadthread-pre-split, label %183
 

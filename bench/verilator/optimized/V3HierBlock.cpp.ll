@@ -2520,13 +2520,13 @@ define dso_local void @_ZNK11V3HierBlock13hierGeneratedB5cxx11Eb(ptr dead_on_unw
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(144) %1, i1 noundef zeroext %2, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17)
+  call void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(144) %1, i1 noundef zeroext %2, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17)
   %7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 1, i8 noundef signext 32)
           to label %8 unwind label %21
 
 8:                                                ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  invoke void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(144) %1, i1 noundef zeroext %2, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18)
+  invoke void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %1, i1 noundef zeroext %2, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18)
           to label %_ZNK11V3HierBlock6hierMkB5cxx11Eb.exit unwind label %23
 
 _ZNK11V3HierBlock6hierMkB5cxx11Eb.exit:           ; preds = %8
@@ -2890,7 +2890,7 @@ _ZNK9V3Options7makeDirB5cxx11Ev.exit:             ; preds = %.lr.ph
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %32, align 8
-  invoke void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull readonly align 8 dereferenceable(144) %37, i1 noundef zeroext true, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17)
+  invoke void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(144) %37, i1 noundef zeroext true, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17)
           to label %_ZNK11V3HierBlock11hierWrapperB5cxx11Eb.exit unwind label %44
 
 _ZNK11V3HierBlock11hierWrapperB5cxx11Eb.exit:     ; preds = %36
@@ -5576,7 +5576,7 @@ _ZN6V3File12new_ofstreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb
   %.sroa.038.074 = phi ptr [ %.sroa.038.0, %31 ], [ %.sroa.038.072, %_ZN6V3File12new_ofstreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ]
   %26 = getelementptr inbounds i8, ptr %.sroa.038.074, i64 16
   %27 = load ptr, ptr %26, align 8
-  invoke void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(144) %27, i1 noundef zeroext true, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17)
+  invoke void @_ZNK11V3HierBlock12hierSomeFileB5cxx11EbPKcS1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %27, i1 noundef zeroext true, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17)
           to label %_ZNK11V3HierBlock11hierWrapperB5cxx11Eb.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNK11V3HierBlock11hierWrapperB5cxx11Eb.exit:     ; preds = %.lr.ph75

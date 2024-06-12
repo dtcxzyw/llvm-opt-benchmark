@@ -8000,7 +8000,7 @@ define internal fastcc void @_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLO
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %.val, i64 160
   %16 = load ptr, ptr %15, align 8
-  %17 = invoke fastcc noundef ptr @_ZNK7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getVarVertexEP11AstVarScope(ptr noundef nonnull readonly align 8 dereferenceable(168) %.val, ptr noundef %16)
+  %17 = invoke fastcc noundef ptr @_ZNK7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getVarVertexEP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(168) %.val, ptr noundef %16)
           to label %18 unwind label %20
 
 18:                                               ; preds = %11

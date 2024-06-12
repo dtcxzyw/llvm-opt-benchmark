@@ -26,7 +26,7 @@ define ptr @Ptngc_pack_array_xtc3(ptr nocapture noundef readonly %0, ptr nocaptu
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 16508
   store i32 0, ptr %15, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   %16 = getelementptr inbounds i8, ptr %11, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %17 = getelementptr inbounds i8, ptr %11, i64 96
@@ -4094,7 +4094,7 @@ define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr nocapture nounde
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 16508
   store i32 0, ptr %13, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   br label %14
 
 14:                                               ; preds = %4, %14

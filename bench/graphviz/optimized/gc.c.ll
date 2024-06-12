@@ -660,7 +660,7 @@ declare i32 @agapply(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal void @cntCluster(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #3 {
   %4 = tail call ptr @agnameof(ptr noundef %1) #13
-  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.8, i64 noundef 7) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.8, i64 noundef 7) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 

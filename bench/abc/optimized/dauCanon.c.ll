@@ -5108,7 +5108,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %12
   %48 = mul nsw i32 %47, %19
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i64, ptr %46, i64 %49
-  %bcmp.i92 = tail call i32 @bcmp(ptr %50, ptr readonly %2, i64 %42)
+  %bcmp.i92 = tail call i32 @bcmp(ptr %50, ptr %2, i64 %42)
   %.not15.i93 = icmp eq i32 %bcmp.i92, 0
   br i1 %.not15.i93, label %Vec_MemHashLookup.exit, label %.lr.ph
 
@@ -5128,7 +5128,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %12
   %60 = mul nsw i32 %59, %19
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i64, ptr %58, i64 %61
-  %bcmp.i = tail call i32 @bcmp(ptr %62, ptr readonly %2, i64 %42)
+  %bcmp.i = tail call i32 @bcmp(ptr %62, ptr %2, i64 %42)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %63, !llvm.loop !62
 
@@ -5305,7 +5305,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i.i: ; preds = %Vec_MemHa
   %139 = mul nsw i32 %138, %109
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i64, ptr %137, i64 %140
-  %bcmp.i26.i.i = tail call i32 @bcmp(ptr %141, ptr nonnull readonly %114, i64 %133)
+  %bcmp.i26.i.i = tail call i32 @bcmp(ptr %141, ptr nonnull %114, i64 %133)
   %.not15.i1727.i.i = icmp eq i32 %bcmp.i26.i.i, 0
   %.pre40.i.i = load ptr, ptr %95, align 8
   br i1 %.not15.i1727.i.i, label %Vec_MemHashLookup.exit.i.i, label %.lr.ph.i.i58
@@ -5324,7 +5324,7 @@ Vec_MemHashKey.exit.i.Vec_MemHashLookup.exit_crit_edge.i.i: ; preds = %Vec_MemHa
   %149 = mul nsw i32 %148, %109
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds i64, ptr %147, i64 %150
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %151, ptr nonnull readonly %114, i64 %133)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %151, ptr nonnull %114, i64 %133)
   %.not15.i17.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not15.i17.i.i, label %Vec_MemHashLookup.exit.i.i.loopexit, label %152, !llvm.loop !62
 
@@ -5479,7 +5479,7 @@ Vec_MemHashKey.exit.i.i.Vec_MemHashLookup.exit.thread.i_crit_edge: ; preds = %Ve
   %224 = mul nsw i32 %223, %195
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds i64, ptr %222, i64 %225
-  %bcmp.i48.i = tail call i32 @bcmp(ptr %226, ptr readonly %2, i64 %218)
+  %bcmp.i48.i = tail call i32 @bcmp(ptr %226, ptr %2, i64 %218)
   %.not15.i49.i = icmp eq i32 %bcmp.i48.i, 0
   br i1 %.not15.i49.i, label %Vec_MemHashInsert.exit, label %.lr.ph.i57
 
@@ -5499,7 +5499,7 @@ Vec_MemHashKey.exit.i.i.Vec_MemHashLookup.exit.thread.i_crit_edge: ; preds = %Ve
   %236 = mul nsw i32 %235, %195
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds i64, ptr %234, i64 %237
-  %bcmp.i.i = tail call i32 @bcmp(ptr %238, ptr readonly %2, i64 %218)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %238, ptr %2, i64 %218)
   %.not15.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not15.i.i, label %Vec_MemHashInsert.exit, label %239, !llvm.loop !62
 
@@ -5682,7 +5682,7 @@ Vec_MemPush.exit.i:                               ; preds = %._crit_edge.i.i.i, 
   %329 = getelementptr inbounds i64, ptr %322, i64 %328
   %330 = sext i32 %323 to i64
   %331 = shl nsw i64 %330, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %329, ptr readonly align 8 %2, i64 %331, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %329, ptr align 8 %2, i64 %331, i1 false)
   %332 = load ptr, ptr %246, align 8
   %333 = getelementptr i8, ptr %332, i64 4
   %.val15.i = load i32, ptr %333, align 4
@@ -7437,7 +7437,7 @@ Abc_TgEnumerationCost.exit:                       ; preds = %Abc_TgExpendSymmetr
   br i1 %or.cond, label %349, label %360
 
 349:                                              ; preds = %346
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %7, ptr noundef nonnull readonly align 8 dereferenceable(192) %6, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   %350 = load ptr, ptr %6, align 8
   %351 = load i32, ptr %91, align 8
   %352 = icmp slt i32 %351, 7
@@ -7480,7 +7480,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %349
   br i1 %365, label %Abc_TtClear.exit, label %366
 
 366:                                              ; preds = %361
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %7, ptr noundef nonnull readonly align 8 dereferenceable(192) %6, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   %367 = load ptr, ptr %6, align 8
   %368 = load i32, ptr %91, align 8
   %369 = icmp slt i32 %368, 7
@@ -7515,7 +7515,7 @@ Abc_TgManCopy.exit87:                             ; preds = %.lr.ph18.i.i83, %36
   br i1 %or.cond59.not, label %391, label %380
 
 380:                                              ; preds = %379
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %6, ptr noundef nonnull readonly align 8 dereferenceable(192) %7, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %7, i64 192, i1 false)
   %381 = getelementptr inbounds i8, ptr %7, i64 8
   %382 = load i32, ptr %381, align 8
   %383 = icmp slt i32 %382, 7
@@ -9195,7 +9195,7 @@ define internal fastcc void @Abc_TgFullEnumeration(ptr nocapture noundef %0, ptr
   %16 = load ptr, ptr %1, align 8
   %17 = zext nneg i32 %14 to i64
   %18 = shl nuw nsw i64 %17, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %16, i8 -1, i64 %18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, i8 -1, i64 %18, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %8, %.lr.ph.preheader.i
@@ -9211,11 +9211,11 @@ Abc_TtFill.exit:                                  ; preds = %8, %.lr.ph.preheade
   br i1 %.not.i, label %26, label %25
 
 25:                                               ; preds = %Abc_TtFill.exit
-  tail call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull readonly %0, ptr noundef nonnull %1)
+  tail call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %Abc_TgPhaseEnumerationScc.exit
 
 26:                                               ; preds = %Abc_TtFill.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %4, ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
@@ -9614,7 +9614,7 @@ Abc_TgFirstPermutation.exit:                      ; preds = %177, %.lr.ph.i
   br i1 %212, label %Abc_TgSaveBest.exit.i, label %Abc_TtCompareRev.exit.i.i
 
 Abc_TtCompareRev.exit.i.i:                        ; preds = %211
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %1, ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %213 = load ptr, ptr %0, align 8
   %214 = load i32, ptr %184, align 8
   %215 = icmp slt i32 %214, 7
@@ -9881,7 +9881,7 @@ Abc_TgFlipSymGroupByVar.exit:                     ; preds = %Abc_TgFlipSymGroupB
   br i1 %335, label %Abc_TgSaveBest.exit38.i, label %Abc_TtCompareRev.exit.i30.i
 
 Abc_TtCompareRev.exit.i30.i:                      ; preds = %334
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %1, ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 192, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %336 = load ptr, ptr %0, align 8
   %337 = load i32, ptr %184, align 8
   %338 = icmp slt i32 %337, 7
@@ -10604,7 +10604,7 @@ Abc_TgExpendSymmetry.exit:                        ; preds = %.lr.ph38.i, %._crit
   br i1 %69, label %Abc_TtClear.exit, label %70
 
 70:                                               ; preds = %Abc_TgExpendSymmetry.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %7, ptr noundef nonnull readonly align 8 dereferenceable(192) %6, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   %71 = load ptr, ptr %6, align 8
   %72 = load i32, ptr %22, align 8
   %73 = icmp slt i32 %72, 7
@@ -10636,7 +10636,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %70
   br i1 %82, label %Abc_TtClear.exit, label %83
 
 83:                                               ; preds = %Abc_TgManCopy.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %6, ptr noundef nonnull readonly align 8 dereferenceable(192) %7, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %7, i64 192, i1 false)
   %84 = getelementptr inbounds i8, ptr %7, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = icmp slt i32 %85, 7
@@ -10668,7 +10668,7 @@ Abc_TgManCopy.exit66:                             ; preds = %.lr.ph18.i.i62, %83
 .lr.ph.preheader.i68:                             ; preds = %Abc_TgManCopy.exit66
   %95 = zext nneg i32 %11 to i64
   %96 = shl nuw nsw i64 %95, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %1, i8 -1, i64 %96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, i8 -1, i64 %96, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %Abc_TgManCopy.exit66, %.lr.ph.preheader.i68
@@ -12171,7 +12171,7 @@ define internal fastcc void @Abc_TgPermEnumerationScc(ptr nocapture noundef read
   %3 = alloca [16 x i32], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.Abc_TgMan_t_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %5, ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %5, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
@@ -12354,7 +12354,7 @@ Abc_TgFirstPermutation.exit:                      ; preds = %59, %.lr.ph.i4
   br i1 %85, label %Abc_TgSaveBest.exit, label %Abc_TtCompareRev.exit.i
 
 Abc_TtCompareRev.exit.i:                          ; preds = %84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %1, ptr noundef nonnull readonly align 8 dereferenceable(192) %5, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(192) %5, i64 192, i1 false)
   %86 = icmp sgt i32 %73, 0
   br i1 %86, label %.lr.ph18.i.i.i, label %Abc_TgManCopy.exit.i
 
@@ -13016,7 +13016,7 @@ define internal fastcc range(i32 0, 8) i32 @Abc_TgSymGroupPerm(ptr nocapture nou
   %10 = shl nuw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
   %.not = icmp eq i32 %2, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %4, ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %12 = icmp sgt i32 %11, 0
   br i1 %.not, label %39, label %13
 
@@ -13059,7 +13059,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %13
   br i1 %27, label %Abc_TtCompareRev.exit, label %Abc_TtCompareRev.exit.thread
 
 Abc_TtCompareRev.exit:                            ; preds = %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %4, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load i32, ptr %29, align 8

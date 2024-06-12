@@ -295,7 +295,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %COVER_ctx_destroy.exit
 
 103:                                              ; preds = %COVER_warnOnSmallCorpus.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %78, i8 -1, i64 %77, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %78, i8 -1, i64 %77, i1 false)
   %104 = load i32, ptr @g_displayLevel, align 4
   %105 = icmp sgt i32 %104, 1
   br i1 %105, label %106, label %111
@@ -890,7 +890,7 @@ COVER_computeEpochs.exit:                         ; preds = %5, %15
   %.val71.i = load i32, ptr %30, align 4
   %42 = zext i32 %.val71.i to i64
   %43 = shl nuw nsw i64 %42, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %.val.i, i8 -1, i64 %43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %.val.i, i8 -1, i64 %43, i1 false)
   %44 = icmp ult i32 %40, %41
   br i1 %44, label %.lr.ph.i, label %COVER_selectSegment.exit.thread
 
@@ -1546,7 +1546,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
   %24 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !24
   store i64 %3, ptr %24, align 8, !alias.scope !27
   br label %69
 
@@ -1562,7 +1562,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef nonnull %14) #26
   tail call void @free(ptr noundef nonnull %15) #26
   %30 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !30
   store i64 %27, ptr %30, align 8, !alias.scope !33
   br label %69
 
@@ -1575,7 +1575,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef nonnull %14) #26
   tail call void @free(ptr noundef nonnull %15) #26
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !36
   store i64 %32, ptr %35, align 8, !alias.scope !39
   br label %69
 
@@ -1617,7 +1617,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
   %52 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !45
   store i64 %49, ptr %52, align 8, !alias.scope !48
   br label %69
 
@@ -1630,7 +1630,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
   %57 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !51
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !51
   store i64 %54, ptr %57, align 8, !alias.scope !54
   br label %69
 
@@ -1780,10 +1780,10 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %.0114 = phi ptr [ %79, %77 ], [ null, %75 ]
   %81 = getelementptr inbounds i8, ptr %7, i64 8
   %82 = getelementptr inbounds i8, ptr %7, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i64 -1, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
   %84 = tail call i32 @llvm.usub.sat.i32(i32 %36, i32 1)
   store i32 %84, ptr @g_displayLevel, align 4
   %85 = icmp sgt i32 %36, 1
@@ -2240,7 +2240,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   br label %.sink.split
 
 37:                                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %30, i8 -1, i64 %29, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, i8 -1, i64 %29, i1 false)
   %38 = icmp ne ptr %10, null
   %39 = icmp ne ptr %14, null
   %or.cond = and i1 %38, %39
@@ -2360,7 +2360,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %95 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %.sroa.5.0, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %73, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i64 %.sroa.544.0, ptr %78, align 8
   br label %COVER_best_finish.exit
 

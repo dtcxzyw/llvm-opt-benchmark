@@ -773,7 +773,7 @@ if.then:                                          ; preds = %if.end.i
 do.end:                                           ; preds = %entry, %if.end.i
   call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %11) #25
   %kill_signal_.i = getelementptr inbounds i8, ptr %p, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   store i32 15, ptr %kill_signal_.i, align 8
   %uv_loop_.i = getelementptr inbounds i8, ptr %p, i64 24
   store ptr null, ptr %uv_loop_.i, align 8
@@ -784,8 +784,8 @@ do.end:                                           ; preds = %entry, %if.end.i
   %buffered_output_size_.i = getelementptr inbounds i8, ptr %p, i64 320
   store i64 0, ptr %buffered_output_size_.i, align 8
   %exit_status_.i = getelementptr inbounds i8, ptr %p, i64 328
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(33) %uv_stdio_containers_.i, i8 0, i64 33, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(233) %uv_process_options_.i, i8 0, i64 233, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %uv_stdio_containers_.i, i8 0, i64 33, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(233) %uv_process_options_.i, i8 0, i64 233, i1 false)
   store i64 -1, ptr %exit_status_.i, align 8
   %term_signal_.i = getelementptr inbounds i8, ptr %p, i64 336
   store i32 -1, ptr %term_signal_.i, align 8
@@ -797,7 +797,7 @@ do.end:                                           ; preds = %entry, %if.end.i
   %lifecycle_.i = getelementptr inbounds i8, ptr %p, i64 508
   store i32 0, ptr %lifecycle_.i, align 4
   %env_.i = getelementptr inbounds i8, ptr %p, i64 512
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(153) %uv_timer_.i, i8 0, i64 153, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(153) %uv_timer_.i, i8 0, i64 153, i1 false)
   store ptr %11, ptr %env_.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %args, i64 16
   %13 = load i32, ptr %length_.i, align 8
@@ -3778,7 +3778,7 @@ do.end18:                                         ; preds = %do.body7
   store i64 %input_buffer.coerce1, ptr %input_buffer.sroa.2.0.input_buffer_.sroa_idx.i, align 8
   %first_output_buffer_.i = getelementptr inbounds i8, ptr %call19, i64 32
   %3 = or i1 %readable, %writable
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(556) %first_output_buffer_.i, i8 0, i64 556, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %first_output_buffer_.i, i8 0, i64 556, i1 false)
   br i1 %3, label %_ZNK4node20SyncProcessStdioPipe7uv_pipeEv.exit.i, label %do.body10.i
 
 do.body10.i:                                      ; preds = %do.end18

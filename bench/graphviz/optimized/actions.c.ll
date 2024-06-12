@@ -4669,17 +4669,17 @@ hsv2rgb.exit132.i:                                ; preds = %296, %295, %294, %2
   br label %agxbfree.exit133.i
 
 agxbfree.exit133.i:                               ; preds = %agxbuse.exit.i.thread, %315, %.thread187.i
-  %316 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.51) #24
+  %316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.51) #24
   %.not.i134.i = icmp eq i32 %316, 0
   br i1 %.not.i134.i, label %resolveColor.exit.i, label %317
 
 317:                                              ; preds = %agxbfree.exit133.i
-  %318 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.52) #24
+  %318 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.52) #24
   %.not25.i.i = icmp eq i32 %318, 0
   br i1 %.not25.i.i, label %resolveColor.exit.i, label %319
 
 319:                                              ; preds = %317
-  %320 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(10) @.str.53) #24
+  %320 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(10) @.str.53) #24
   %.not26.i.i = icmp eq i32 %320, 0
   br i1 %.not26.i.i, label %resolveColor.exit.i, label %321
 
@@ -4689,7 +4689,7 @@ agxbfree.exit133.i:                               ; preds = %agxbuse.exit.i.thre
   br i1 %323, label %324, label %334
 
 324:                                              ; preds = %321
-  %325 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %26, i32 noundef 47) #24
+  %325 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 47) #24
   %.not27.i.i = icmp eq ptr %325, null
   br i1 %.not27.i.i, label %334, label %326
 
@@ -4703,7 +4703,7 @@ agxbfree.exit133.i:                               ; preds = %agxbuse.exit.i.thre
   br label %334
 
 331:                                              ; preds = %326
-  %332 = call i32 @strncasecmp(ptr noundef nonnull @.str.54, ptr noundef nonnull readonly %26, i64 noundef 4) #24
+  %332 = call i32 @strncasecmp(ptr noundef nonnull @.str.54, ptr noundef nonnull %26, i64 noundef 4) #24
   %.not28.i.i = icmp eq i32 %332, 0
   %333 = getelementptr inbounds i8, ptr %325, i64 1
   %spec.select.i.i = select i1 %.not28.i.i, ptr %333, ptr %.0112.i
@@ -4711,7 +4711,7 @@ agxbfree.exit133.i:                               ; preds = %agxbuse.exit.i.thre
 
 334:                                              ; preds = %331, %329, %324, %321
   %.021.i.i = phi ptr [ %330, %329 ], [ %26, %324 ], [ %.0112.i, %321 ], [ %spec.select.i.i, %331 ]
-  %335 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.021.i.i) #24
+  %335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.021.i.i) #24
   %336 = load i64, ptr @canontoken.allocated, align 8
   %.not.i.i135.i = icmp ult i64 %335, %336
   %.pre.i.i.i = load ptr, ptr @canontoken.canon, align 8
@@ -5090,7 +5090,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #23
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #23
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -5150,7 +5150,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #23
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #23
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 

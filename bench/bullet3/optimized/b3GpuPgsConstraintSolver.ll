@@ -1810,8 +1810,8 @@ invoke.cont39:                                    ; preds = %invoke.cont39.lr.ph
   %arrayidx.i212 = getelementptr inbounds %struct.b3GpuSolverBody, ptr %56, i64 %indvars.iv
   %m_pushVelocity.i.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 80
   %m_invMass.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %arrayidx.i212, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %m_pushVelocity.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i212, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %m_pushVelocity.i.i, i8 0, i64 32, i1 false)
   %57 = load float, ptr %m_invMass.i, align 4
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %57, i64 0
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1833,10 +1833,10 @@ invoke.cont39:                                    ; preds = %invoke.cont39.lr.ph
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp23.sroa.2.0.m_linearFactor.sroa_idx.i, align 8
   %m_linVel.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %m_linearVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_linVel.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel.i.i, i64 16, i1 false)
   %m_angVel.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %m_angularVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %m_angVel.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel.i.i, i64 16, i1 false)
   store i32 %59, ptr %58, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %numBodies.addr, align 4

@@ -265,12 +265,12 @@ define range(i32 0, 2) i32 @Abc_NodeStrashBlifMv(ptr noundef %0, ptr nocapture n
   br i1 %.not.i, label %Abc_ObjMvVarNum.exit, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %8)
+  %14 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %8)
   %.not3.i = icmp eq ptr %14, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %8)
+  %16 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %8)
   %17 = load i32, ptr %16, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -560,12 +560,12 @@ Abc_StringGetNumber.exit168:                      ; preds = %.lr.ph.i164, %.lr.p
   br i1 %.not.i180, label %Abc_ObjMvVarNum.exit182, label %137
 
 137:                                              ; preds = %132
-  %138 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %110)
+  %138 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %110)
   %.not3.i181 = icmp eq ptr %138, null
   br i1 %.not3.i181, label %Abc_ObjMvVarNum.exit182, label %139
 
 139:                                              ; preds = %137
-  %140 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %110)
+  %140 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %110)
   br label %Abc_ObjMvVarNum.exit182
 
 Abc_ObjMvVarNum.exit182:                          ; preds = %132, %137, %139
@@ -678,12 +678,12 @@ Abc_StringGetNumber.exit198:                      ; preds = %.lr.ph.i194, %170
   br i1 %.not.i202, label %Abc_ObjMvVarNum.exit204, label %194
 
 194:                                              ; preds = %Abc_StringGetNumber.exit198
-  %195 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %189)
+  %195 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %189)
   %.not3.i203 = icmp eq ptr %195, null
   br i1 %.not3.i203, label %Abc_ObjMvVarNum.exit204, label %196
 
 196:                                              ; preds = %194
-  %197 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %189)
+  %197 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %189)
   br label %Abc_ObjMvVarNum.exit204
 
 Abc_ObjMvVarNum.exit204:                          ; preds = %Abc_StringGetNumber.exit198, %194, %196
@@ -808,12 +808,12 @@ Abc_StringGetNumber.exit220:                      ; preds = %.lr.ph.i216, %232
   br i1 %.not.i224, label %.lr.ph312.preheader, label %256
 
 256:                                              ; preds = %Abc_StringGetNumber.exit220
-  %257 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %251)
+  %257 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %251)
   %.not3.i225 = icmp eq ptr %257, null
   br i1 %.not3.i225, label %.lr.ph312.preheader, label %Abc_ObjMvVarNum.exit226
 
 Abc_ObjMvVarNum.exit226:                          ; preds = %256
-  %258 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %251)
+  %258 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %251)
   %259 = load i32, ptr %258, align 4
   %260 = icmp sgt i32 %259, 0
   br i1 %260, label %.lr.ph312.preheader, label %.loopexit266
@@ -1062,12 +1062,12 @@ define ptr @Abc_NtkStrashBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_ObjMvVarNum.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %13)
+  %24 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %13)
   %.not3.i = icmp eq ptr %24, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %13)
+  %26 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %13)
   %27 = load i32, ptr %26, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -1226,12 +1226,12 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_Base2Log.exit, 
   br i1 %.not.i500, label %Abc_ObjMvVarNum.exit502, label %91
 
 91:                                               ; preds = %80
-  %92 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %86)
+  %92 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %86)
   %.not3.i501 = icmp eq ptr %92, null
   br i1 %.not3.i501, label %Abc_ObjMvVarNum.exit502, label %93
 
 93:                                               ; preds = %91
-  %94 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %86)
+  %94 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %86)
   %95 = load i32, ptr %94, align 4
   br label %Abc_ObjMvVarNum.exit502
 
@@ -1429,12 +1429,12 @@ Abc_Base2Log.exit509:                             ; preds = %.lr.ph.i504, %Abc_O
   br i1 %.not.i513, label %Abc_ObjMvVarNum.exit515, label %169
 
 169:                                              ; preds = %158
-  %170 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %164)
+  %170 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %164)
   %.not3.i514 = icmp eq ptr %170, null
   br i1 %.not3.i514, label %Abc_ObjMvVarNum.exit515, label %171
 
 171:                                              ; preds = %169
-  %172 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %164)
+  %172 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %164)
   %173 = load i32, ptr %172, align 4
   br label %Abc_ObjMvVarNum.exit515
 
@@ -1677,7 +1677,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %236
   br i1 %.not.i528, label %Abc_ObjMvVarNum.exit530.thread, label %262
 
 262:                                              ; preds = %251
-  %263 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %257)
+  %263 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %257)
   %.not3.i529 = icmp eq ptr %263, null
   br i1 %.not3.i529, label %Abc_ObjMvVarNum.exit530.thread, label %Abc_ObjMvVarNum.exit530
 
@@ -1687,7 +1687,7 @@ Abc_ObjMvVarNum.exit530.thread:                   ; preds = %262, %251
   br label %.lr.ph.preheader.i531
 
 Abc_ObjMvVarNum.exit530:                          ; preds = %262
-  %266 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %257)
+  %266 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %257)
   %267 = load i32, ptr %266, align 4
   %268 = getelementptr inbounds i8, ptr %257, i64 64
   %269 = load ptr, ptr %268, align 8
@@ -1822,7 +1822,7 @@ Abc_Base2Log.exit537:                             ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not.i541, label %Abc_ObjMvVarNum.exit543.thread, label %325
 
 325:                                              ; preds = %314
-  %326 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %320)
+  %326 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %320)
   %.not3.i542 = icmp eq ptr %326, null
   br i1 %.not3.i542, label %Abc_ObjMvVarNum.exit543.thread, label %Abc_ObjMvVarNum.exit543
 
@@ -1832,7 +1832,7 @@ Abc_ObjMvVarNum.exit543.thread:                   ; preds = %325, %314
   br label %.lr.ph.preheader.i544
 
 Abc_ObjMvVarNum.exit543:                          ; preds = %325
-  %329 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %320)
+  %329 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %320)
   %330 = load i32, ptr %329, align 4
   %331 = getelementptr inbounds i8, ptr %320, i64 64
   %332 = load ptr, ptr %331, align 8
@@ -2828,12 +2828,12 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge4, %Vec_In
   br i1 %.not.i248, label %.lr.ph.preheader.i, label %161
 
 161:                                              ; preds = %147
-  %162 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %156)
+  %162 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %156)
   %.not3.i = icmp eq ptr %162, null
   br i1 %.not3.i, label %.lr.ph.preheader.i, label %Abc_ObjMvVarNum.exit
 
 Abc_ObjMvVarNum.exit:                             ; preds = %161
-  %163 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %156)
+  %163 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %156)
   %164 = load i32, ptr %163, align 4
   %165 = icmp ult i32 %164, 2
   br i1 %165, label %Abc_Base2Log.exit, label %.lr.ph.preheader.i
@@ -2957,12 +2957,12 @@ Abc_Base2Log.exit:                                ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not.i256, label %.lr.ph.preheader.i259, label %222
 
 222:                                              ; preds = %212
-  %223 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %202)
+  %223 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %202)
   %.not3.i257 = icmp eq ptr %223, null
   br i1 %.not3.i257, label %.lr.ph.preheader.i259, label %Abc_ObjMvVarNum.exit258
 
 Abc_ObjMvVarNum.exit258:                          ; preds = %222
-  %224 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %202)
+  %224 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %202)
   %225 = load i32, ptr %224, align 4
   %226 = icmp ult i32 %225, 2
   br i1 %226, label %Abc_Base2Log.exit265, label %.lr.ph.preheader.i259
@@ -3112,12 +3112,12 @@ Abc_Base2Log.exit265:                             ; preds = %.lr.ph.i260, %Abc_O
   br i1 %.not.i272, label %Abc_ObjMvVarNum.exit274, label %289
 
 289:                                              ; preds = %284
-  %290 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %276)
+  %290 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %276)
   %.not3.i273 = icmp eq ptr %290, null
   br i1 %.not3.i273, label %Abc_ObjMvVarNum.exit274, label %291
 
 291:                                              ; preds = %289
-  %292 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %276)
+  %292 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %276)
   %293 = load i32, ptr %292, align 4
   br label %Abc_ObjMvVarNum.exit274
 

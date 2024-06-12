@@ -1095,7 +1095,7 @@ ExtendBufferedRel.exit:                           ; preds = %7
   store ptr %0, ptr %.sroa.4141.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   store i8 %1, ptr %.sroa.5.0..sroa_idx, align 8
-  %21 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %13, i32 noundef %2, ptr noundef %5, i32 noundef %spec.select, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %14, ptr noundef nonnull writeonly %15)
+  %21 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %13, i32 noundef %2, ptr noundef %5, i32 noundef %spec.select, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %14, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %22 = load i32, ptr %14, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -1594,7 +1594,7 @@ RelationGetSmgr.exit.i:                           ; preds = %16, %11
   br label %ExtendBufferedRelBy.exit
 
 ExtendBufferedRelBy.exit:                         ; preds = %4, %RelationGetSmgr.exit.i
-  %26 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %5, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %6, ptr noundef nonnull writeonly %7)
+  %26 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %5, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %27 = load i32, ptr %6, align 4
   ret i32 %27
@@ -3164,7 +3164,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   store i32 %74, ptr %72, align 8
   %75 = sext i32 %73 to i64
   %76 = getelementptr [256 x %struct.PendingWriteback], ptr %71, i64 0, i64 %75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %76, ptr noundef nonnull readonly align 4 dereferenceable(20) %6, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %76, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
   br label %77
@@ -7981,7 +7981,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %63
   store i32 %94, ptr getelementptr inbounds (i8, ptr @BackendWritebackContext, i64 8), align 8
   %95 = sext i32 %93 to i64
   %96 = getelementptr [256 x %struct.PendingWriteback], ptr getelementptr inbounds (i8, ptr @BackendWritebackContext, i64 12), i64 0, i64 %95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %96, ptr noundef nonnull readonly align 4 dereferenceable(20) %41, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %96, ptr noundef nonnull align 4 dereferenceable(20) %41, i64 20, i1 false)
   %.pre.i = load ptr, ptr @BackendWritebackContext, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
   br label %97

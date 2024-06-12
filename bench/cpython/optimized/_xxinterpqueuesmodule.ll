@@ -237,7 +237,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %.compoundliteral.sroa.41.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %0, ptr %.compoundliteral.sroa.41.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.compoundliteral.sroa.6.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.6.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call.i8.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @_globals, i64 32), align 8

@@ -2161,7 +2161,7 @@ list_length.exit.i:                               ; preds = %143, %searchForDefa
 
 view_has_instead_trigger.exit.i:                  ; preds = %186, %183
   %190 = load i32, ptr %69, align 8
-  %191 = call fastcc ptr @matchLocks(i32 noundef 3, ptr noundef nonnull readonly %80, i32 noundef %190, ptr noundef %0, ptr noundef nonnull %8)
+  %191 = call fastcc ptr @matchLocks(i32 noundef 3, ptr noundef nonnull %80, i32 noundef %190, ptr noundef %0, ptr noundef nonnull %8)
   %.not105.i = icmp eq ptr %191, null
   br i1 %.not105.i, label %view_has_instead_trigger.exit.thread.i, label %.lr.ph144.i
 
@@ -2274,7 +2274,7 @@ rewriteValuesRTE.exit.thread372:                  ; preds = %view_has_instead_tr
   br i1 %242, label %.thread132.i.us, label %243
 
 243:                                              ; preds = %235
-  %244 = call ptr @build_column_default(ptr noundef nonnull readonly %80, i32 noundef %225)
+  %244 = call ptr @build_column_default(ptr noundef nonnull %80, i32 noundef %225)
   %.not111.i.us = icmp eq ptr %244, null
   br i1 %.not111.i.us, label %.thread132.i.us, label %246
 
@@ -2358,7 +2358,7 @@ rewriteValuesRTE.exit.thread372:                  ; preds = %view_has_instead_tr
   br i1 %292, label %.thread132.i, label %293
 
 293:                                              ; preds = %284
-  %294 = call ptr @build_column_default(ptr noundef nonnull readonly %80, i32 noundef %265)
+  %294 = call ptr @build_column_default(ptr noundef nonnull %80, i32 noundef %265)
   %.not111.i = icmp eq ptr %294, null
   br i1 %.not111.i, label %.thread132.i, label %308
 
@@ -3427,7 +3427,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %._crit_edge.i319, %
 
 821:                                              ; preds = %818, %817
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %822 = call ptr @get_view_query(ptr noundef nonnull readonly %80)
+  %822 = call ptr @get_view_query(ptr noundef nonnull %80)
   %823 = call ptr @copyObjectImpl(ptr noundef %822) #10
   %824 = load i32, ptr %11, align 4
   %825 = and i32 %824, -2
@@ -3475,7 +3475,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %._crit_edge.i319, %
 
 841:                                              ; preds = %.loopexit420.i
   %842 = load ptr, ptr %814, align 8
-  call void @error_view_not_updatable(ptr noundef readonly %80, i32 noundef %824, ptr noundef %842, ptr noundef nonnull %840)
+  call void @error_view_not_updatable(ptr noundef %80, i32 noundef %824, ptr noundef %842, ptr noundef nonnull %840)
   br label %843
 
 843:                                              ; preds = %841, %.loopexit420.i

@@ -1536,10 +1536,10 @@ define ptr @Gia_ManFaultUnfold(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #23
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #21
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #22
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %10
@@ -2332,10 +2332,10 @@ define ptr @Gia_ManStuckAtUnfold(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #23
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #21
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #22
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -2523,10 +2523,10 @@ define ptr @Gia_ManFlipUnfold(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #23
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #21
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #22
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -2710,10 +2710,10 @@ define ptr @Gia_ManFOFUnfold(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #23
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #23
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #21
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #22
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %18
@@ -3686,10 +3686,10 @@ Gia_FormStrTransform.exit:                        ; preds = %10
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %32
 
 32:                                               ; preds = %Gia_FormStrTransform.exit
-  %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #23
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #23
   %34 = add i64 %33, 1
   %35 = call noalias ptr @malloc(i64 noundef %34) #21
-  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %31) #22
+  %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %31) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Gia_FormStrTransform.exit, %32
@@ -4266,10 +4266,10 @@ define ptr @Gia_ManFaultCofactor(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #23
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #23
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #21
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #22
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %6

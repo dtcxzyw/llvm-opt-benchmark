@@ -402,7 +402,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumberneERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #6 align 2 {
 entry:
-  %call.i.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull readonly %this, ptr noundef nonnull readonly %rhs) #13
+  %call.i.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %this, ptr noundef nonnull %rhs) #13
   %cmp.i.i.i.i.not = icmp eq i32 %call.i.i.i.i, 0
   ret i1 %cmp.i.i.i.i.not
 }
@@ -426,7 +426,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumbergtERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #6 align 2 {
 entry:
-  %call.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull readonly %rhs, ptr noundef nonnull readonly %this) #13
+  %call.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull %rhs, ptr noundef nonnull %this) #13
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   ret i1 %cmp.i.i.i.i
 }
@@ -434,7 +434,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumbergeERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #6 align 2 {
 entry:
-  %call.i.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull readonly %this, ptr noundef nonnull readonly %rhs) #13
+  %call.i.i.i.i.i = tail call i32 @__gmpq_cmp(ptr noundef nonnull %this, ptr noundef nonnull %rhs) #13
   %cmp.i.i.i.i.i = icmp sgt i32 %call.i.i.i.i.i, -1
   ret i1 %cmp.i.i.i.i.i
 }

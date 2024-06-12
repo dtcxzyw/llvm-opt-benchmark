@@ -710,14 +710,14 @@ get_object_item.exit138:                          ; preds = %107, %109
   %115 = phi ptr [ %80, %.thread172 ], [ %106, %112 ], [ %80, %95 ]
   %.3 = phi ptr [ %104, %.thread172 ], [ %113, %112 ], [ %98, %95 ]
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %116) #13
+  %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #13
   %118 = add i64 %117, 1
   %119 = tail call ptr @cJSON_malloc(i64 noundef %118) #12
   %120 = icmp eq ptr %119, null
   br i1 %120, label %decode_pointer_inplace.exit.thread, label %121
 
 121:                                              ; preds = %.thread175
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr readonly align 1 %116, i64 %118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %116, i64 %118, i1 false)
   %122 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %119, i32 noundef 47) #13
   %.not117 = icmp eq ptr %122, null
   br i1 %.not117, label %decode_pointer_inplace.exit.thread, label %124
@@ -1199,7 +1199,7 @@ sort_object.exit112:                              ; preds = %16
   br i1 %93, label %.lr.ph.i, label %._crit_edge.i
 
 94:                                               ; preds = %86
-  %95 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.pre, ptr noundef nonnull readonly dereferenceable(1) %81) #13
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %81) #13
   br label %compare_strings.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %98
@@ -1901,7 +1901,7 @@ sort_object.exit61.split:                         ; preds = %sort_object.exit61,
   br i1 %98, label %compare_strings.exit.thread, label %compare_strings.exit
 
 compare_strings.exit:                             ; preds = %97
-  %99 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(1) %94) #13
+  %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %94) #13
   %.not53 = icmp eq i32 %99, 0
   br i1 %.not53, label %compare_strings.exit.thread, label %compare_strings.exit.thread64
 
@@ -1970,14 +1970,14 @@ declare ptr @cJSON_Duplicate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @detach_path(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %5 = add i64 %4, 1
   %6 = tail call ptr @cJSON_malloc(i64 noundef %5) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %detach_item_from_array.exit.thread, label %8
 
 8:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr readonly align 1 %1, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %1, i64 %5, i1 false)
   %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %detach_item_from_array.exit.thread30, label %11
@@ -2326,7 +2326,7 @@ define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef %1) unnamed_ad
   br i1 %or.cond, label %.preheader.preheader, label %compare_strings.exit
 
 compare_strings.exit:                             ; preds = %.preheader99.split.preheader
-  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %39) #13
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %39) #13
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.preheader99.splitthread-pre-split, label %.preheader.preheader
 
@@ -2399,7 +2399,7 @@ compare_strings.exit:                             ; preds = %.preheader99.split.
   br i1 %73, label %.lr.ph.i91, label %._crit_edge.i88
 
 74:                                               ; preds = %66
-  %75 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %60, ptr noundef nonnull readonly dereferenceable(1) %62) #13
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %62) #13
   br label %compare_strings.exit94
 
 .lr.ph.i91:                                       ; preds = %.preheader.i87, %78

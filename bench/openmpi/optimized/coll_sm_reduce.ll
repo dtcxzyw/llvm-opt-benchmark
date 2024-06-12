@@ -599,7 +599,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %193, %.lr.ph.i250.i
 
 opal_convertor_set_position.exit.i:               ; preds = %287, %286, %278, %275, %256, %237
   %.sink.i = phi ptr [ %263, %256 ], [ %236, %237 ], [ %.0198.i57, %275 ], [ %.0198.i57, %278 ], [ %.0198.i57, %286 ], [ %.0198.i57, %287 ]
-  call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %.sink.i, ptr noundef %.0196.i, i64 noundef %234, ptr noundef %3)
+  call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.sink.i, ptr noundef %.0196.i, i64 noundef %234, ptr noundef %3)
   %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
   %289 = icmp sgt i64 %indvars.iv53.i, 0
   br i1 %289, label %237, label %._crit_edge.i, !llvm.loop !10

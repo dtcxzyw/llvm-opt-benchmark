@@ -615,7 +615,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_read(ptr nocapture noundef readon
   store i64 %14, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %15 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %15 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   %.not.i39 = icmp eq i32 %15, 0
   br i1 %.not.i39, label %._crit_edge, label %.lr.ph
 
@@ -634,7 +634,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_read(ptr nocapture noundef readon
   br label %36
 
 18:                                               ; preds = %.lr.ph, %41
-  %19 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %19 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %20, label %24
 
@@ -713,7 +713,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %23, %
   store i64 %42, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %43 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %43 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %._crit_edge, label %18
 
@@ -891,7 +891,7 @@ ng_file_seek_rand.exit:                           ; preds = %6
 95:                                               ; preds = %ng_file_seek_rand.exit.thread18, %ng_file_seek_rand.exit
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %96 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %96 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %.not.i14 = icmp eq i32 %96, 0
   br i1 %.not.i14, label %97, label %99
 
@@ -906,7 +906,7 @@ ng_file_seek_rand.exit:                           ; preds = %6
   br label %109
 
 99:                                               ; preds = %95
-  %100 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %100 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %.not.i.i = icmp eq i32 %100, 0
   br i1 %.not.i.i, label %101, label %105
 
@@ -1052,7 +1052,7 @@ define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr nocapture n
   br label %ng_read_bytes.exit.thread
 
 31:                                               ; preds = %27
-  %32 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %9, i32 noundef 14, i32 noundef %1, ptr noundef %6, ptr noundef %7)
+  %32 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 14, i32 noundef %1, ptr noundef %6, ptr noundef %7)
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %33, label %ng_read_bytes.exit
 
@@ -1259,7 +1259,7 @@ default.unreachable:                              ; preds = %106
   br label %ng_read_bytes.exit.thread
 
 134:                                              ; preds = %130
-  %135 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %10, i32 noundef 48, i32 noundef %1, ptr noundef %6, ptr noundef %7)
+  %135 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 48, i32 noundef %1, ptr noundef %6, ptr noundef %7)
   %.not.i131 = icmp eq i32 %135, 0
   br i1 %.not.i131, label %136, label %ng_read_bytes.exit133
 
@@ -1636,7 +1636,7 @@ set_pseudo_header_frame4.exit:                    ; preds = %167, %173, %177, %1
   br label %ng_read_bytes.exit.thread
 
 282:                                              ; preds = %278
-  %283 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef nonnull %11, i32 noundef 34, i32 noundef %1, ptr noundef %6, ptr noundef %7)
+  %283 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 34, i32 noundef %1, ptr noundef %6, ptr noundef %7)
   %.not.i137 = icmp eq i32 %283, 0
   br i1 %.not.i137, label %284, label %ng_read_bytes.exit139
 
@@ -1745,7 +1745,7 @@ set_metadata_frame2.exit:                         ; preds = %317, %ng_read_bytes
   %337 = getelementptr inbounds i8, ptr %5, i64 16
   %338 = load i64, ptr %337, align 8
   %339 = getelementptr i8, ptr %336, i64 %338
-  %340 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull readonly %0, ptr noundef %339, i32 noundef %320, i32 noundef %1, ptr noundef %6, ptr noundef %7)
+  %340 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef nonnull %0, ptr noundef %339, i32 noundef %320, i32 noundef %1, ptr noundef %6, ptr noundef %7)
   %.not.i140 = icmp eq i32 %340, 0
   br i1 %.not.i140, label %341, label %ng_read_bytes.exit142
 
@@ -1958,7 +1958,7 @@ define internal fastcc i32 @ng_skip_bytes_seq(ptr nocapture noundef readonly %0,
 ng_read_bytes.exit:                               ; preds = %16, %18
   %.02127 = phi i32 [ %19, %18 ], [ %1, %16 ]
   %..021 = tail call i32 @llvm.umin.i32(i32 %.02127, i32 65536)
-  %20 = tail call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef %17, i32 noundef %..021, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+  %20 = tail call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef %17, i32 noundef %..021, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %21, label %18
 

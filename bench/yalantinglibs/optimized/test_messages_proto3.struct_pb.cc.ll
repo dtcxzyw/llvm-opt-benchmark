@@ -20736,7 +20736,7 @@ if.end162:                                        ; preds = %if.end104.i6338, %i
   %add.ptr165 = getelementptr inbounds i8, ptr %data, i64 %212
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i19423)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i19423, i8 0, i64 24, i1 false)
-  %call.i19424 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto314ForeignMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 4 dereferenceable(4) %197, ptr noundef %add.ptr165, i64 noundef %sz157.023102, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i19423)
+  %call.i19424 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto314ForeignMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %197, ptr noundef %add.ptr165, i64 noundef %sz157.023102, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i19423)
           to label %invoke.cont.i unwind label %lpad.i19425
 
 invoke.cont.i:                                    ; preds = %if.end162
@@ -29237,7 +29237,7 @@ _ZNSt6vectorIN22protobuf_test_messages6proto314ForeignMessageESaIS2_EE12emplace_
   %add.ptr743 = getelementptr inbounds i8, ptr %data, i64 %940
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i20233)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i20233, i8 0, i64 24, i1 false)
-  %call.i20234 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto314ForeignMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 4 dereferenceable(4) %939, ptr noundef %add.ptr743, i64 noundef %sz734.023324, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i20233)
+  %call.i20234 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto314ForeignMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %939, ptr noundef %add.ptr743, i64 noundef %sz734.023324, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i20233)
           to label %invoke.cont.i20239 unwind label %lpad.i20235
 
 invoke.cont.i20239:                               ; preds = %_ZNSt6vectorIN22protobuf_test_messages6proto314ForeignMessageESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
@@ -56045,7 +56045,7 @@ if.end2537:                                       ; preds = %if.end104.i27070, %
   %add.ptr2538 = getelementptr inbounds i8, ptr %data, i64 %3163
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i22256)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i22256, i8 0, i64 24, i1 false)
-  %call.i22257 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto314ForeignMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 4 dereferenceable(4) %value_tmp_val2503, ptr noundef %add.ptr2538, i64 noundef %msg_sz2531.024078, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i22256)
+  %call.i22257 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto314ForeignMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %value_tmp_val2503, ptr noundef %add.ptr2538, i64 noundef %msg_sz2531.024078, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i22256)
           to label %invoke.cont.i22262 unwind label %lpad.i22258
 
 invoke.cont.i22262:                               ; preds = %if.end2537

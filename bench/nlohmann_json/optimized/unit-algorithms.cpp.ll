@@ -1710,7 +1710,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i.i.i.i359, label %"_ZSt11find_if_notIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_0ET_SJ_SJ_T0_.exit.i", label %land.rhs.i.i.i.i, !llvm.loop !27
 
 "_ZSt11find_if_notIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_0ET_SJ_SJ_T0_.exit.i": ; preds = %call.i.i.i.i.i.noexc, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19DOCTEST_ANON_FUNC_2vE3$_0EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEEEEbT_.exit.i.i.i.i", %sw.bb4.i.i.i.i.i.i.i, %call.i1.i.i.i.i.noexc, %call.i6.i.i.i.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i), !noalias !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !18
@@ -1864,7 +1864,7 @@ call.i.i.i.i.i.noexc409:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i.i.i.i410, label %"_ZSt11find_if_notIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_1ET_SJ_SJ_T0_.exit.i", label %land.rhs.i.i.i.i395, !llvm.loop !50
 
 "_ZSt11find_if_notIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_1ET_SJ_SJ_T0_.exit.i": ; preds = %call.i.i.i.i.i.noexc409, %call.i1.i.i.i.i.noexc407, %call.i3.i.i.i.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp.i386, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i384, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i386, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i384, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i383), !noalias !44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i384), !noalias !41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i385), !noalias !41
@@ -2283,7 +2283,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i.i.i.i.i450, label %"_ZSt7none_ofIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_2EbT_SJ_T0_.exit.i", label %land.rhs.i.i.i.i.i, !llvm.loop !66
 
 "_ZSt7none_ofIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_2EbT_SJ_T0_.exit.i": ; preds = %call.i.i.i.i.i.i.noexc, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19DOCTEST_ANON_FUNC_2vE3$_2EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEEEEbT_.exit.i.i.i.i.i", %call.i3.i.i.i.i.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i442, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i442, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !60
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i442), !noalias !57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i), !noalias !57
@@ -2436,7 +2436,7 @@ call.i.i.i.i.i.i.noexc509:                        ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i.i.i.i.i510, label %"_ZSt7none_ofIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_3EbT_SJ_T0_.exit.i", label %land.rhs.i.i.i.i.i494, !llvm.loop !82
 
 "_ZSt7none_ofIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_3EbT_SJ_T0_.exit.i": ; preds = %call.i.i.i.i.i.i.noexc509, %.noexc, %call.i3.i.i.i.i.i.noexc505
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp.i.i483, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i481, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i483, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i481, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i480), !noalias !76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i481), !noalias !73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i482), !noalias !73
@@ -2670,7 +2670,7 @@ call.i.i.i.i.i.noexc575:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i.i.i.i576, label %"_ZSt7find_ifIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_4ET_SJ_SJ_T0_.exit.i", label %land.rhs.i.i.i.i554, !llvm.loop !104
 
 "_ZSt7find_ifIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_4ET_SJ_SJ_T0_.exit.i": ; preds = %call.i.i.i.i.i.noexc575, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19DOCTEST_ANON_FUNC_2vE3$_4EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEEEEbT_.exit.i.i.i.i", %sw.bb4.i.i.i.i.i.i.i557, %call.i1.i.i.i.i.noexc573, %call.i6.i.i.i.i.noexc571
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp.i545, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i543, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i545, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i543, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i542), !noalias !98
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i543), !noalias !95
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i544), !noalias !95
@@ -2831,7 +2831,7 @@ call.i.i.i.i.i.noexc633:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i.i.i.i634, label %"_ZSt7find_ifIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_5ET_SJ_SJ_T0_.exit.i", label %land.rhs.i.i.i.i618, !llvm.loop !126
 
 "_ZSt7find_ifIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEZL19DOCTEST_ANON_FUNC_2vE3$_5ET_SJ_SJ_T0_.exit.i": ; preds = %call.i.i.i.i.i.noexc633, %.noexc632, %call.i3.i.i.i.i.noexc628
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp.i609, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i607, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i609, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i607, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i606), !noalias !120
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i607), !noalias !117
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i608), !noalias !117
@@ -7338,7 +7338,7 @@ if.end6.i.i:                                      ; preds = %call2.i.i.i.noexc
 
 invoke.cont1630:                                  ; preds = %call.i.i.i.noexc1762, %call2.i.i.i.noexc, %call.i.i.noexc1760
   %agg.tmp1.sink.i = phi ptr [ %agg.tmp1.i1742, %call.i.i.noexc1760 ], [ %agg.tmp1.i1742, %call.i.i.i.noexc1762 ], [ %agg.tmp.i1741, %call2.i.i.i.noexc ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ref.tmp1622, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.sink.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1622, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.sink.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__next.i.i), !noalias !300
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i1740), !noalias !300
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i), !noalias !300
@@ -8791,7 +8791,7 @@ call33.i.i.noexc:                                 ; preds = %_ZN8nlohmann16json_
   br i1 %call33.i.i2069, label %invoke.cont2114, label %if.else.i.i.backedge
 
 invoke.cont2114:                                  ; preds = %call33.i.i.noexc, %call1334.i.i.noexc, %call.i.i.noexc2061, %call13.i.i.noexc, %call3335.i.i.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %it2110, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2042, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %it2110, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2042, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i2041), !noalias !334
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp24.i.i), !noalias !334
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i2042)
@@ -10339,7 +10339,7 @@ call.i5.i.i.i.noexc:                              ; preds = %.noexc2417
   %876 = load ptr, ptr %agg.tmp3.i.i.i, align 8
   store ptr %876, ptr %__i.i.i.i.i, align 8
   %m_it.i.i8.i.i.i = getelementptr inbounds i8, ptr %__i.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i8.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i3.i.i.i, i64 24, i1 false)
   %call.i4.i.i.i.i2419 = invoke noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEeqISG_TnNSt9enable_ifIXoosr3std7is_sameIT_SG_EE5valuesr3std7is_sameISJ_NS2_IKSF_EEEE5valueEDnE4typeELDn0EEEbRKSJ_(ptr noundef nonnull align 8 dereferenceable(32) %__i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4.i.i.i)
           to label %call.i4.i.i.i.i.noexc unwind label %lpad2793.loopexit.split-lp
 
@@ -30604,10 +30604,10 @@ entry:
   %4 = load ptr, ptr %agg.tmp1, align 8
   store ptr %4, ptr %agg.tmp.i, align 8
   %m_it.i.i9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i9, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i9, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
   store ptr %2, ptr %agg.tmp1.i, align 8
   %m_it.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
   %call.i.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i)
   %call2.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i)
   %call.val.i.i = load i8, ptr %call.i.i11, align 8
@@ -30680,11 +30680,11 @@ sw.default.i12.i.i.i:                             ; preds = %_ZNK8nlohmann16json
 if.then.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit.i"
   store ptr %2, ptr %agg.tmp2.i, align 8
   %m_it.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i3.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i3.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
   %13 = load ptr, ptr %agg.tmp3, align 8
   store ptr %13, ptr %agg.tmp3.i, align 8
   %m_it.i5.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i7.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i)
   %call2.i8.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i)
   %call.val.i9.i = load i8, ptr %call.i7.i, align 8
@@ -30759,11 +30759,11 @@ if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__op
   %22 = load ptr, ptr %agg.tmp1, align 8
   store ptr %22, ptr %agg.tmp8.i, align 8
   %m_it.i41.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i41.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i41.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
   %23 = load ptr, ptr %agg.tmp3, align 8
   store ptr %23, ptr %agg.tmp9.i, align 8
   %m_it.i43.i = getelementptr inbounds i8, ptr %agg.tmp9.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i43.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i43.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i45.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8.i)
   %call2.i46.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9.i)
   %call.val.i47.i = load i8, ptr %call.i45.i, align 8
@@ -30847,11 +30847,11 @@ if.else18.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %34 = load ptr, ptr %agg.tmp1, align 8
   store ptr %34, ptr %agg.tmp19.i, align 8
   %m_it.i92.i = getelementptr inbounds i8, ptr %agg.tmp19.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i92.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i92.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i2, i64 24, i1 false)
   %35 = load ptr, ptr %agg.tmp3, align 8
   store ptr %35, ptr %agg.tmp20.i, align 8
   %m_it.i94.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i94.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i94.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i96.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19.i)
   %call2.i97.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20.i)
   %call.val.i98.i = load i8, ptr %call.i96.i, align 8
@@ -30926,11 +30926,11 @@ if.then22.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
 if.else25.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i"
   store ptr %2, ptr %agg.tmp26.i, align 8
   %m_it.i134.i = getelementptr inbounds i8, ptr %agg.tmp26.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i134.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i134.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i5, i64 24, i1 false)
   %45 = load ptr, ptr %agg.tmp3, align 8
   store ptr %45, ptr %agg.tmp27.i, align 8
   %m_it.i136.i = getelementptr inbounds i8, ptr %agg.tmp27.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i136.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i136.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i7, i64 24, i1 false)
   %call.i138.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i)
   %call2.i139.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp27.i)
   %call.val.i140.i = load i8, ptr %call.i138.i, align 8
@@ -31355,7 +31355,7 @@ sw.default.i66.i:                                 ; preds = %if.end.i
   br label %while.cond1.i.backedge
 
 "_ZSt21__unguarded_partitionIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEET_SN_SN_SN_T0_.exit": ; preds = %while.end12.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp7.i21)

@@ -754,7 +754,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.start.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3.i)
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(16) %colors, i64 16, i1 false)
   %data.i8.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 16
   store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %data.i8.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 24
@@ -1024,7 +1024,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i26.i, 
   %sub.ptr.rhs.cast.i.i.i17 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i16, %sub.ptr.rhs.cast.i.i.i17
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %sub.ptr.sub.i.i.i18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i13, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i13, ptr noundef nonnull align 8 dereferenceable(16) %colors, i64 16, i1 false)
   %data.i8.i19 = getelementptr inbounds i8, ptr %agg.tmp3.i13, i64 16
   %33 = load ptr, ptr %data.i.i, align 8
   store ptr %33, ptr %data.i8.i19, align 8

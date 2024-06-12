@@ -1508,7 +1508,7 @@ entry:
   ]
 
 packet_matches_str.exit:                          ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly @.str.56, ptr nonnull readonly %buf, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull @.str.56, ptr nonnull %buf, i64 %conv.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.then, label %if.else9
 
@@ -1549,7 +1549,7 @@ if.then3:                                         ; preds = %compare_chr_send.ex
   br label %if.end11
 
 packet_matches_str.exit16:                        ; preds = %entry
-  %bcmp.i14 = tail call i32 @bcmp(ptr nonnull readonly @.str.58, ptr nonnull readonly %buf, i64 %conv.i)
+  %bcmp.i14 = tail call i32 @bcmp(ptr nonnull @.str.58, ptr nonnull %buf, i64 %conv.i)
   %tobool.not.i15 = icmp eq i32 %bcmp.i14, 0
   br i1 %tobool.not.i15, label %if.then8, label %if.else9
 

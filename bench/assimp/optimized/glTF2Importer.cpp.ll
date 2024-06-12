@@ -34131,7 +34131,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont40, label %for.body.i.i.i.i.i, !llvm.loop !314
 
 if.then.i210:                                     ; preds = %for.body.i.i.i.i.i
-  tail call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull readonly align 4 dereferenceable(12) %emissiveFactor, ptr noundef nonnull @.str.137, ptr noundef nonnull align 8 dereferenceable(40) %83)
+  tail call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull align 4 dereferenceable(12) %emissiveFactor, ptr noundef nonnull @.str.137, ptr noundef nonnull align 8 dereferenceable(40) %83)
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %for.inc.i.i.i.i.i, %if.then.i210
@@ -34386,7 +34386,7 @@ for.inc.i.i.i.i.i321:                             ; preds = %for.body.i.i.i.i.i3
   br i1 %cmp.not.i.i.i.i.i324, label %invoke.cont78, label %for.body.i.i.i.i.i315, !llvm.loop !314
 
 if.then.i320:                                     ; preds = %for.body.i.i.i.i.i315
-  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %pbrSpecularGlossiness71, ptr noundef nonnull readonly align 4 dereferenceable(12) %specularFactor, ptr noundef nonnull @.str.143, ptr noundef nonnull align 8 dereferenceable(40) %142)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %pbrSpecularGlossiness71, ptr noundef nonnull align 4 dereferenceable(12) %specularFactor, ptr noundef nonnull @.str.143, ptr noundef nonnull align 8 dereferenceable(40) %142)
   %.pre1246.pre = load ptr, ptr %mAl, align 8
   br label %invoke.cont78
 
@@ -34710,7 +34710,7 @@ for.inc.i.i.i.i.i518:                             ; preds = %for.body.i.i.i.i.i5
   br i1 %cmp.not.i.i.i.i.i521, label %invoke.cont161, label %for.body.i.i.i.i.i512, !llvm.loop !314
 
 if.then.i517:                                     ; preds = %for.body.i.i.i.i.i512
-  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull readonly align 4 dereferenceable(12) %materialSheen, ptr noundef nonnull @.str.153, ptr noundef nonnull align 8 dereferenceable(40) %202)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialSheen156, ptr noundef nonnull align 4 dereferenceable(12) %materialSheen, ptr noundef nonnull @.str.153, ptr noundef nonnull align 8 dereferenceable(40) %202)
   %.pre1248.pre = load ptr, ptr %mAl, align 8
   br label %invoke.cont161
 
@@ -35255,7 +35255,7 @@ for.inc.i.i.i.i.i860:                             ; preds = %for.body.i.i.i.i.i8
   br i1 %cmp.not.i.i.i.i.i863, label %invoke.cont268, label %for.body.i.i.i.i.i854, !llvm.loop !314
 
 if.then.i859:                                     ; preds = %for.body.i.i.i.i.i854
-  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull readonly align 4 dereferenceable(12) %attenuationColor, ptr noundef nonnull @.str.170, ptr noundef nonnull align 8 dereferenceable(40) %308)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_18WriteVecILm3EEEvRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEERAT__fPKcRS8_(ptr noundef nonnull align 8 dereferenceable(16) %materialVolume248, ptr noundef nonnull align 4 dereferenceable(12) %attenuationColor, ptr noundef nonnull @.str.170, ptr noundef nonnull align 8 dereferenceable(40) %308)
   br label %invoke.cont268
 
 invoke.cont268:                                   ; preds = %for.inc.i.i.i.i.i860, %if.then.i859
@@ -39665,7 +39665,6 @@ if.then33:                                        ; preds = %if.else30
   %mBoolValue = getelementptr inbounds i8, ptr %value, i64 120
   %14 = load i8, ptr %mBoolValue, align 8
   %tobool36 = trunc i8 %14 to i1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %valueNode, i8 0, i64 16, i1 false)
   %conv.i.i.i.i.i = select i1 %tobool36, i16 10, i16 9
   %flags.i.i.i.i.i25 = getelementptr inbounds i8, ptr %valueNode, i64 14
   store i16 %conv.i.i.i.i.i, ptr %flags.i.i.i.i.i25, align 2
@@ -78862,42 +78861,42 @@ if.end40:                                         ; preds = %for.body37
   %55 = inttoptr i64 %and.i.i99 to ptr
   %cond.i100 = select i1 %tobool.not.i97, ptr %55, ptr %it.0331
   store ptr %cond.i100, ptr %attr, align 8
-  %call.i.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull readonly dereferenceable(9) @.str.182, i64 noundef 8) #38
+  %call.i.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(9) @.str.182, i64 noundef 8) #38
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.then44, label %if.else.i101
 
 if.else.i101:                                     ; preds = %if.end40
-  %call.i29.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull readonly dereferenceable(7) @.str.183, i64 noundef 6) #38
+  %call.i29.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(7) @.str.183, i64 noundef 6) #38
   %cmp.i30.not.i = icmp eq i32 %call.i29.i, 0
   br i1 %cmp.i30.not.i, label %if.then44, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.else.i101
-  %call.i32.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull readonly dereferenceable(8) @.str.189, i64 noundef 7) #38
+  %call.i32.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(8) @.str.189, i64 noundef 7) #38
   %cmp.i33.not.i = icmp eq i32 %call.i32.i, 0
   br i1 %cmp.i33.not.i, label %if.then44, label %if.else10.i
 
 if.else10.i:                                      ; preds = %if.else5.i
-  %call.i35.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull readonly dereferenceable(9) @.str.184, i64 noundef 8) #38
+  %call.i35.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(9) @.str.184, i64 noundef 8) #38
   %cmp.i36.not.i = icmp eq i32 %call.i35.i, 0
   br i1 %cmp.i36.not.i, label %if.then44, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.else10.i
-  %call.i38.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(6) @.str.185, i64 noundef 5) #38
+  %call.i38.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(6) @.str.185, i64 noundef 5) #38
   %cmp.i39.not.i = icmp eq i32 %call.i38.i, 0
   br i1 %cmp.i39.not.i, label %if.then44, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else15.i
-  %call.i41.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull readonly dereferenceable(7) @.str.186, i64 noundef 6) #38
+  %call.i41.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(7) @.str.186, i64 noundef 6) #38
   %cmp.i42.not.i = icmp eq i32 %call.i41.i, 0
   br i1 %cmp.i42.not.i, label %if.then44, label %if.else25.i
 
 if.else25.i:                                      ; preds = %if.else20.i
-  %call.i44.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(12) @.str.365, i64 noundef 11) #38
+  %call.i44.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(12) @.str.365, i64 noundef 11) #38
   %cmp.i45.not.i = icmp eq i32 %call.i44.i, 0
   br i1 %cmp.i45.not.i, label %if.then44, label %if.else30.i
 
 if.else30.i:                                      ; preds = %if.else25.i
-  %call.i47.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i100, ptr noundef nonnull readonly dereferenceable(8) @.str.187, i64 noundef 7) #38
+  %call.i47.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i100, ptr noundef nonnull dereferenceable(8) @.str.187, i64 noundef 7) #38
   %cmp.i48.not.i = icmp eq i32 %call.i47.i, 0
   br i1 %cmp.i48.not.i, label %if.then44, label %for.inc
 
@@ -79120,7 +79119,7 @@ if.end85:                                         ; preds = %for.body81
   %and.i.i152 = and i64 %92, 281474976710655
   %93 = inttoptr i64 %and.i.i152 to ptr
   %cond.i153 = select i1 %tobool.not.i150, ptr %93, ptr %it76.0336
-  %call.i.i154 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i153, ptr noundef nonnull readonly dereferenceable(9) @.str.182, i64 noundef 8) #38
+  %call.i.i154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i153, ptr noundef nonnull dereferenceable(9) @.str.182, i64 noundef 8) #38
   %cmp.i.not.i155 = icmp eq i32 %call.i.i154, 0
   br i1 %cmp.i.not.i155, label %if.then.i160, label %if.else.i157
 
@@ -79130,7 +79129,7 @@ if.then.i160:                                     ; preds = %if.end85
   br label %if.then92
 
 if.else.i157:                                     ; preds = %if.end85
-  %call.i11.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i153, ptr noundef nonnull readonly dereferenceable(7) @.str.183, i64 noundef 6) #38
+  %call.i11.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i153, ptr noundef nonnull dereferenceable(7) @.str.183, i64 noundef 6) #38
   %cmp.i12.not.i = icmp eq i32 %call.i11.i, 0
   br i1 %cmp.i12.not.i, label %if.then4.i, label %if.else8.i
 
@@ -79140,7 +79139,7 @@ if.then4.i:                                       ; preds = %if.else.i157
   br label %if.then92
 
 if.else8.i:                                       ; preds = %if.else.i157
-  %call.i15.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %cond.i153, ptr noundef nonnull readonly dereferenceable(8) @.str.189, i64 noundef 7) #38
+  %call.i15.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i153, ptr noundef nonnull dereferenceable(8) @.str.189, i64 noundef 7) #38
   %cmp.i16.not.i = icmp eq i32 %call.i15.i, 0
   br i1 %cmp.i16.not.i, label %if.then11.i, label %for.inc119
 
@@ -81407,7 +81406,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i)
-  %call.i24 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
+  %call.i24 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
   %3 = load i64, ptr %out.i, align 8
   %cond.i = select i1 %call.i24, i64 %3, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
@@ -81678,7 +81677,7 @@ if.then97:                                        ; preds = %_ZNSt10unique_ptrIN
   %ref.tmp99.sroa.2.0.indices.sroa_idx = getelementptr inbounds i8, ptr %37, i64 24
   store i32 %36, ptr %ref.tmp99.sroa.2.0.indices.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i61)
-  %call.i62 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i55, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i61)
+  %call.i62 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i55, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i61)
   %38 = load i64, ptr %out.i61, align 8
   %cond.i63 = select i1 %call.i62, i64 %38, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i61)
@@ -81718,7 +81717,7 @@ if.then118:                                       ; preds = %if.end115
   %ref.tmp120.sroa.2.0.values.sroa_idx = getelementptr inbounds i8, ptr %44, i64 48
   store i32 %43, ptr %ref.tmp120.sroa.2.0.values.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i74)
-  %call.i75 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i68, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i74)
+  %call.i75 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i68, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i74)
   %45 = load i64, ptr %out.i74, align 8
   %cond.i76 = select i1 %call.i75, i64 %45, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i74)
@@ -83312,14 +83311,14 @@ lpad:                                             ; preds = %if.then6
 
 if.end7:                                          ; preds = %_ZNK10glTFCommon3RefIN5glTF26BufferEEcvbEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i)
-  %call.i6 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
+  %call.i6 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
   %8 = load i64, ptr %out.i, align 8
   %cond.i = select i1 %call.i6, i64 %8, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
   %byteOffset = getelementptr inbounds i8, ptr %this, i64 280
   store i64 %cond.i, ptr %byteOffset, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i7)
-  %call.i8 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(8) %out.i7)
+  %call.i8 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(8) %out.i7)
   %9 = load i64, ptr %out.i7, align 8
   %cond.i9 = select i1 %call.i8, i64 %9, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i7)
@@ -84088,7 +84087,7 @@ entry:
   %ref.tmp73 = alloca %"class.std::allocator.0", align 1
   %ref.tmp84 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i)
-  %call.i = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberImEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
   %0 = load i64, ptr %out.i, align 8
   %cond.i = select i1 %call.i, i64 %0, i64 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
@@ -90779,7 +90778,7 @@ entry:
   %type_string = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i)
-  %call.i = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIPKcEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEES2_RT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.89, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIPKcEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEES2_RT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.89, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
   %1 = load ptr, ptr %out.i, align 8
   %cond.i = select i1 %call.i, ptr %1, ptr @.str.366
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
@@ -90873,25 +90872,25 @@ if.end12:                                         ; preds = %invoke.cont7
 
 invoke.cont24:                                    ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i18)
-  %call.i19 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.369, ptr noundef nonnull align 4 dereferenceable(4) %out.i18)
+  %call.i19 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.369, ptr noundef nonnull align 4 dereferenceable(4) %out.i18)
   %8 = load float, ptr %out.i18, align 4
   %cond.i20 = select i1 %call.i19, float %8, float 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i18)
   store float %cond.i20, ptr %cameraProperties, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i21)
-  %call.i22 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.370, ptr noundef nonnull align 4 dereferenceable(4) %out.i21)
+  %call.i22 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.370, ptr noundef nonnull align 4 dereferenceable(4) %out.i21)
   %9 = load float, ptr %out.i21, align 4
   %cond.i23 = select i1 %call.i22, float %9, float 0x3FF921CAC0000000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i21)
   store float %cond.i23, ptr %yfov, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i24)
-  %call.i25 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.371, ptr noundef nonnull align 4 dereferenceable(4) %out.i24)
+  %call.i25 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.371, ptr noundef nonnull align 4 dereferenceable(4) %out.i24)
   %10 = load float, ptr %out.i24, align 4
   %cond.i26 = select i1 %call.i25, float %10, float 1.000000e+02
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i24)
   store float %cond.i26, ptr %zfar, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i27)
-  %call.i28 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.372, ptr noundef nonnull align 4 dereferenceable(4) %out.i27)
+  %call.i28 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.372, ptr noundef nonnull align 4 dereferenceable(4) %out.i27)
   %11 = load float, ptr %out.i27, align 4
   %cond.i29 = select i1 %call.i28, float %11, float 0x3F847AE140000000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i27)
@@ -90899,25 +90898,25 @@ invoke.cont24:                                    ; preds = %if.end12
 
 invoke.cont38:                                    ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i30)
-  %call.i31 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.373, ptr noundef nonnull align 4 dereferenceable(4) %out.i30)
+  %call.i31 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.373, ptr noundef nonnull align 4 dereferenceable(4) %out.i30)
   %12 = load float, ptr %out.i30, align 4
   %cond.i32 = select i1 %call.i31, float %12, float 1.000000e+00
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i30)
   store float %cond.i32, ptr %cameraProperties, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i33)
-  %call.i34 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.374, ptr noundef nonnull align 4 dereferenceable(4) %out.i33)
+  %call.i34 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.374, ptr noundef nonnull align 4 dereferenceable(4) %out.i33)
   %13 = load float, ptr %out.i33, align 4
   %cond.i35 = select i1 %call.i34, float %13, float 1.000000e+00
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i33)
   store float %cond.i35, ptr %yfov, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i36)
-  %call.i37 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.371, ptr noundef nonnull align 4 dereferenceable(4) %out.i36)
+  %call.i37 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.371, ptr noundef nonnull align 4 dereferenceable(4) %out.i36)
   %14 = load float, ptr %out.i36, align 4
   %cond.i38 = select i1 %call.i37, float %14, float 1.000000e+02
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i36)
   store float %cond.i38, ptr %zfar, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i39)
-  %call.i40 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.372, ptr noundef nonnull align 4 dereferenceable(4) %out.i39)
+  %call.i40 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i17, ptr noundef nonnull @.str.372, ptr noundef nonnull align 4 dereferenceable(4) %out.i39)
   %15 = load float, ptr %out.i39, align 4
   %cond.i41 = select i1 %call.i40, float %15, float 0x3F847AE140000000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i39)
@@ -91101,7 +91100,7 @@ if.else6:                                         ; preds = %if.else
 
 invoke.cont9:                                     ; preds = %if.then, %if.else6, %if.then4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i)
-  %call.i11 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIPKcEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEES2_RT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.84, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
+  %call.i11 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIPKcEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEES2_RT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.84, ptr noundef nonnull align 8 dereferenceable(8) %out.i)
   %2 = load ptr, ptr %out.i, align 8
   %cond.i = select i1 %call.i11, ptr %2, ptr @.str.56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
@@ -91116,7 +91115,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   store float 1.000000e+00, ptr %arrayidx5.i, align 4
   call fastcc void @_ZN10glTFCommonL10ReadMemberIA3_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.377, ptr noundef nonnull align 4 dereferenceable(12) %color)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i12)
-  %call.i13 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.378, ptr noundef nonnull align 4 dereferenceable(4) %out.i12)
+  %call.i13 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.378, ptr noundef nonnull align 4 dereferenceable(4) %out.i12)
   %3 = load float, ptr %out.i12, align 4
   %cond.i14 = select i1 %call.i13, float %3, float 1.000000e+00
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i12)
@@ -91306,14 +91305,14 @@ lpad26:                                           ; preds = %if.then25
 
 invoke.cont31:                                    ; preds = %invoke.cont23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i17)
-  %call.i18 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i16, ptr noundef nonnull @.str.382, ptr noundef nonnull align 4 dereferenceable(4) %out.i17)
+  %call.i18 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i16, ptr noundef nonnull @.str.382, ptr noundef nonnull align 4 dereferenceable(4) %out.i17)
   %29 = load float, ptr %out.i17, align 4
   %cond.i19 = select i1 %call.i18, float %29, float 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i17)
   %innerConeAngle = getelementptr inbounds i8, ptr %this, i64 292
   store float %cond.i19, ptr %innerConeAngle, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i20)
-  %call.i21 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %call3.i16, ptr noundef nonnull @.str.383, ptr noundef nonnull align 4 dereferenceable(4) %out.i20)
+  %call.i21 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call3.i16, ptr noundef nonnull @.str.383, ptr noundef nonnull align 4 dereferenceable(4) %out.i20)
   %30 = load float, ptr %out.i20, align 4
   %cond.i22 = select i1 %call.i21, float %30, float 0x3FE921FB60000000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i20)

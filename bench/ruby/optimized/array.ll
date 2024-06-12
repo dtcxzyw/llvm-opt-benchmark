@@ -358,7 +358,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %RB_FL_SET.exit
 
 21:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %22 = shl nuw i64 %8, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %5, ptr readonly align 1 %7, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %7, i64 %22, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %21
@@ -444,7 +444,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %RB_FL_SET.exit
 
 36:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %37 = shl nuw i64 %.0.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %19, ptr readonly align 1 %21, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %21, i64 %37, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %36
@@ -641,7 +641,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %62, %57, %rb_array_
 rbimpl_size_mul_or_raise.exit66:                  ; preds = %RB_OBJ_FROZEN.exit.thread
   %136 = load ptr, ptr %133, align 8
   %137 = shl nuw i64 %.0.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %132, ptr readonly align 1 %136, i64 %137, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr align 1 %136, i64 %137, i1 false)
   %138 = load i64, ptr %13, align 8
   %139 = and i64 %138, 7
   %140 = icmp ne i64 %139, 0
@@ -1013,7 +1013,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %15, %13
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %20 = shl nuw i64 %1, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr nonnull readonly align 1 %2, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr nonnull align 1 %2, i64 %20, i1 false)
   br label %ary_memcpy.exit
 
 21:                                               ; preds = %7
@@ -1179,7 +1179,7 @@ ec_ary_new.exit:                                  ; preds = %22, %24
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %39, %41
   %.0.i.i.i.i = phi ptr [ %40, %39 ], [ %43, %41 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr nonnull readonly align 1 %2, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr nonnull align 1 %2, i64 %19, i1 false)
   br label %ary_memcpy.exit
 
 44:                                               ; preds = %33
@@ -2088,7 +2088,7 @@ rb_ary_ptr_use_start.exit.i:                      ; preds = %20, %18
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %rb_ary_ptr_use_start.exit.i
   %25 = getelementptr i64, ptr %.0.i.i.i, i64 %.0.i
   %26 = shl nuw i64 %2, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %25, ptr readonly align 1 %1, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %1, i64 %26, i1 false)
   br label %ary_memcpy0.exit
 
 27:                                               ; preds = %rb_array_len.exit
@@ -2342,7 +2342,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %10
 
 15:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %16 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %13, ptr nonnull readonly align 1 %14, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %14, i64 %16, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %15
@@ -2403,7 +2403,7 @@ rbimpl_size_mul_or_raise.exit41:                  ; preds = %34
 
 41:                                               ; preds = %rbimpl_size_mul_or_raise.exit41
   %42 = shl nuw i64 %spec.select, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %35, ptr readonly align 1 %38, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %38, i64 %42, i1 false)
   br label %ruby_nonempty_memcpy.exit43
 
 ruby_nonempty_memcpy.exit43:                      ; preds = %rbimpl_size_mul_or_raise.exit41, %41
@@ -2844,7 +2844,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %81, %79
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %85 = shl nuw i64 %.0.i44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %.0.i48, i64 %85, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %.0.i48, i64 %85, i1 false)
   br label %ary_memcpy.exit.thread
 
 rb_ary_ptr_use_start.exit24.i.i:                  ; preds = %rb_array_const_ptr.exit
@@ -3224,7 +3224,7 @@ ary_ensure_room_for_unshift.exit:                 ; preds = %31, %RB_OBJ_FROZEN.
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %104, %106
   %.0.i.i.i = phi ptr [ %105, %104 ], [ %108, %106 ]
   %109 = shl nuw nsw i64 %23, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i, ptr readonly align 1 %1, i64 %109, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i, ptr align 1 %1, i64 %109, i1 false)
   br label %ary_memcpy0.exit
 
 110:                                              ; preds = %ary_ensure_room_for_unshift.exit
@@ -3674,7 +3674,7 @@ rb_array_const_ptr.exit:                          ; preds = %25, %27
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %36, %38
   %.0.i.i.i.i = phi ptr [ %37, %36 ], [ %40, %38 ]
   %41 = shl nuw i64 %3, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %30, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %30, i64 %41, i1 false)
   br label %ary_memcpy.exit
 
 42:                                               ; preds = %rb_array_const_ptr.exit
@@ -4738,7 +4738,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %RB_FL_SET.exit
 
 107:                                              ; preds = %rbimpl_size_mul_or_raise.exit
   %108 = shl nuw nsw i64 %1, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %91, ptr readonly align 1 %93, i64 %108, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %93, i64 %108, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %107
@@ -4945,7 +4945,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %27, %25
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %32 = shl nuw i64 %.0.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %.0.i14, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %.0.i14, i64 %32, i1 false)
   br label %ary_memcpy.exit
 
 33:                                               ; preds = %rb_array_const_ptr.exit
@@ -5935,7 +5935,7 @@ rb_ary_ptr_use_start.exit.i.i.i:                  ; preds = %42, %40
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i.i.i:              ; preds = %rb_ary_ptr_use_start.exit.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i.i, ptr readonly align 1 %.0.i14.i, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i.i, ptr align 1 %.0.i14.i, i64 %22, i1 false)
   br label %ary_memcpy.exit.i
 
 47:                                               ; preds = %rb_array_const_ptr.exit.i
@@ -6159,7 +6159,7 @@ RB_FL_SET.exit:                                   ; preds = %rb_ary_decrement_sh
 rb_ary_ptr_use_start.exit.i.i:                    ; preds = %154, %152
   %.0.i.i.i.i = phi ptr [ %153, %152 ], [ %156, %154 ]
   %157 = shl nuw nsw i64 %146, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr nonnull readonly align 1 %147, i64 %157, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr nonnull align 1 %147, i64 %157, i1 false)
   br label %ary_memcpy.exit
 
 158:                                              ; preds = %RB_FL_SET.exit
@@ -7426,7 +7426,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %79, %77
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %84 = shl nuw i64 %.0.i5077, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %.0.i53, i64 %84, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %.0.i53, i64 %84, i1 false)
   br label %ary_memcpy.exit
 
 85:                                               ; preds = %rb_array_const_ptr.exit
@@ -7575,7 +7575,7 @@ rb_array_const_ptr.exit59:                        ; preds = %140, %142
 rb_ary_ptr_use_start.exit.i.i68:                  ; preds = %151, %149
   %.0.i.i.i.i69 = phi ptr [ %150, %149 ], [ %152, %151 ]
   %153 = shl nuw nsw i64 %120, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i69, ptr readonly align 1 %.0.i58, i64 %153, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i69, ptr align 1 %.0.i58, i64 %153, i1 false)
   br label %ary_memcpy.exit71
 
 rb_ary_ptr_use_start.exit24.i.i61:                ; preds = %rb_array_const_ptr.exit59
@@ -7918,7 +7918,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %39, %37
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %44 = shl nuw i64 %.0.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %.0.i25, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %.0.i25, i64 %44, i1 false)
   br label %ary_memcpy.exit
 
 45:                                               ; preds = %rb_array_const_ptr.exit
@@ -8014,7 +8014,7 @@ rb_ary_ptr_use_start.exit.i.i37:                  ; preds = %80, %78
 rbimpl_size_mul_or_raise.exit.i.i39:              ; preds = %rb_ary_ptr_use_start.exit.i.i37
   %85 = getelementptr i64, ptr %.0.i.i.i.i38, i64 %.0.i
   %86 = shl nuw i64 %.0.i22, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %85, ptr readonly align 1 %.0.i27, i64 %86, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr align 1 %.0.i27, i64 %86, i1 false)
   br label %ary_memcpy.exit40
 
 87:                                               ; preds = %rb_array_const_ptr.exit28
@@ -9387,7 +9387,7 @@ define internal i64 @rb_ary_s_create(i32 noundef %0, ptr noundef readonly %1, i6
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %14, %16
   %.0.i.i.i.i = phi ptr [ %15, %14 ], [ %18, %16 ]
   %19 = shl nuw nsw i64 %4, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr nonnull readonly align 1 %1, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr nonnull align 1 %1, i64 %19, i1 false)
   br label %ary_memcpy.exit
 
 20:                                               ; preds = %8
@@ -12839,7 +12839,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %52, %50
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %57 = shl nuw i64 %43, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %44, i64 %57, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %44, i64 %57, i1 false)
   br label %ary_memcpy.exit
 
 58:                                               ; preds = %rb_array_const_ptr.exit
@@ -12919,7 +12919,7 @@ rb_ary_ptr_use_start.exit.i.i37:                  ; preds = %86, %84
 rbimpl_size_mul_or_raise.exit.i.i39:              ; preds = %rb_ary_ptr_use_start.exit.i.i37
   %91 = getelementptr i64, ptr %.0.i.i.i.i38, i64 %43
   %92 = shl nuw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %91, ptr readonly align 1 %.0.i28, i64 %92, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %.0.i28, i64 %92, i1 false)
   br label %ary_memcpy.exit40
 
 93:                                               ; preds = %ary_memcpy.exit
@@ -16010,7 +16010,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %67, %65
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %72 = shl nuw i64 %.0.i498587, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %.0.i52, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %.0.i52, i64 %72, i1 false)
   br label %ary_memcpy.exit
 
 73:                                               ; preds = %rb_array_const_ptr.exit
@@ -16104,7 +16104,7 @@ rb_ary_ptr_use_start.exit.i.i64:                  ; preds = %100, %103
 rbimpl_size_mul_or_raise.exit.i.i66:              ; preds = %rb_ary_ptr_use_start.exit.i.i64
   %107 = getelementptr i64, ptr %.0.i.i.i.i65, i64 %.040107
   %108 = shl nuw i64 %.040107, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %107, ptr readonly align 1 %.0.i5491, i64 %108, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr align 1 %.0.i5491, i64 %108, i1 false)
   br label %ary_memcpy.exit67
 
 rb_ary_ptr_use_start.exit24.i.i57:                ; preds = %rb_array_const_ptr.exit55, %rb_array_const_ptr.exit55.thread
@@ -16193,7 +16193,7 @@ rb_ary_ptr_use_start.exit.i.i80:                  ; preds = %137, %135
 rbimpl_size_mul_or_raise.exit.i.i82:              ; preds = %rb_ary_ptr_use_start.exit.i.i80
   %142 = getelementptr i64, ptr %.0.i.i.i.i81, i64 %.040.lcssa
   %143 = shl nuw i64 %124, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %142, ptr readonly align 1 %.0.i6998, i64 %143, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr align 1 %.0.i6998, i64 %143, i1 false)
   br label %ary_memcpy.exit83
 
 rb_ary_ptr_use_start.exit24.i.i72:                ; preds = %rb_array_const_ptr.exit70, %rb_array_const_ptr.exit70.thread
@@ -24120,7 +24120,7 @@ rb_ary_ptr_use_start.exit.i135:                   ; preds = %81, %79
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %rb_ary_ptr_use_start.exit.i135
   %86 = getelementptr i64, ptr %.0.i.i.i136, i64 %.0
   %87 = shl nuw i64 %4, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %86, ptr readonly align 1 %.0106, i64 %87, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %.0106, i64 %87, i1 false)
   br label %ary_memcpy0.exit
 
 88:                                               ; preds = %74
@@ -25915,7 +25915,7 @@ rb_ary_ptr_use_start.exit.i.i:                    ; preds = %43, %41
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %rb_ary_ptr_use_start.exit.i.i
   %48 = shl nuw i64 %.074, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0.i.i.i.i, ptr readonly align 1 %.0.i87, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %.0.i87, i64 %48, i1 false)
   br label %ary_memcpy.exit
 
 49:                                               ; preds = %rb_array_const_ptr.exit

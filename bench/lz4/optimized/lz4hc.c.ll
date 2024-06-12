@@ -65,9 +65,9 @@ LZ4_resetStreamHC_fast.exit:                      ; preds = %if.end
   br i1 %cmp.i21, label %if.then.i22, label %LZ4HC_init_internal.exit
 
 if.then.i22:                                      ; preds = %LZ4_resetStreamHC_fast.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %state, i8 0, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %state, i8 0, i64 131072, i1 false)
   %chainTable.i.i = getelementptr inbounds i8, ptr %state, i64 131072
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %chainTable.i.i, i8 -1, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %chainTable.i.i, i8 -1, i64 131072, i1 false)
   br label %LZ4HC_init_internal.exit
 
 LZ4HC_init_internal.exit:                         ; preds = %LZ4_resetStreamHC_fast.exit.thread, %LZ4_resetStreamHC_fast.exit, %if.then.i22
@@ -5564,9 +5564,9 @@ LZ4_initStreamHC.exit:                            ; preds = %entry
   br i1 %cmp.i39, label %if.then.i, label %LZ4HC_init_internal.exit
 
 if.then.i:                                        ; preds = %LZ4_initStreamHC.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
   %chainTable.i.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 131072
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %chainTable.i.i, i8 -1, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %chainTable.i.i, i8 -1, i64 131072, i1 false)
   br label %LZ4HC_init_internal.exit
 
 LZ4HC_init_internal.exit:                         ; preds = %LZ4_initStreamHC.exit.thread, %LZ4_initStreamHC.exit, %if.then.i
@@ -5683,9 +5683,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %LZ4HC_init_internal.exit
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
   %chainTable.i.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 131072
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %chainTable.i.i, i8 -1, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %chainTable.i.i, i8 -1, i64 131072, i1 false)
   br label %LZ4HC_init_internal.exit
 
 LZ4HC_init_internal.exit:                         ; preds = %if.then, %if.then.i
@@ -5739,9 +5739,9 @@ if.then.i.i:                                      ; preds = %if.then4
   %cmp.i30.i = icmp slt i16 %7, 1
   %10 = tail call i16 @llvm.umin.i16(i16 %7, i16 12)
   %conv.i31.i = select i1 %cmp.i30.i, i16 9, i16 %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
   %chainTable.i.i.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 131072
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(131072) %chainTable.i.i.i, i8 -1, i64 131072, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %chainTable.i.i.i, i8 -1, i64 131072, i1 false)
   br label %LZ4HC_init_internal.exit.i
 
 LZ4HC_init_internal.exit.i:                       ; preds = %if.then.i.i, %LZ4_initStreamHC.exit.thread.i

@@ -119,7 +119,7 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
   br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %.lr.ph.split.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %30, ptr noundef nonnull readonly dereferenceable(8) getelementptr inbounds (i8, ptr @keypair_context, i64 240), i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %30, ptr noundef nonnull dereferenceable(8) getelementptr inbounds (i8, ptr @keypair_context, i64 240), i64 8)
   %34 = icmp eq i32 %bcmp.i, 0
   br i1 %34, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %35
 
@@ -141,7 +141,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %33, %35
   br i1 %.not.i26, label %41, label %39
 
 39:                                               ; preds = %.lr.ph.split.i24
-  %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull readonly dereferenceable(8) getelementptr inbounds (i8, ptr @keypair_context, i64 248), i64 8)
+  %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull dereferenceable(8) getelementptr inbounds (i8, ptr @keypair_context, i64 248), i64 8)
   %40 = icmp eq i32 %bcmp.i27, 0
   br i1 %40, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit31, label %41
 
@@ -200,7 +200,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit31:   ; preds = %39, %41
   br i1 %63, label %.preheader.i, label %keypair_context_calc_key.exit, !llvm.loop !9
 
 keypair_context_calc_key.exit:                    ; preds = %60, %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
   br label %64
 
 64:                                               ; preds = %74, %keypair_context_calc_key.exit
@@ -218,7 +218,7 @@ keypair_context_calc_key.exit:                    ; preds = %60, %48
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %68
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %65, ptr noundef nonnull readonly dereferenceable(16) %3, i64 16)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %65, ptr noundef nonnull dereferenceable(16) %3, i64 16)
   %73 = icmp eq i32 %bcmp.i.i, 0
   br i1 %73, label %nwk_key_storage_get_entry_by_key.exit.i, label %74
 
@@ -312,7 +312,7 @@ define hidden void @nwk_key_storage_add_entry(ptr nocapture noundef readonly %0,
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) %0, i64 16)
   %15 = icmp eq i32 %bcmp.i, 0
   br i1 %15, label %nwk_key_storage_get_entry_by_key.exit, label %16
 
@@ -378,7 +378,7 @@ define hidden void @nwk_key_storage_release_entry(ptr nocapture noundef readonly
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %0, i64 16)
   %12 = icmp eq i32 %bcmp.i, 0
   br i1 %12, label %nwk_key_storage_get_entry_by_key.exit, label %13
 
@@ -727,7 +727,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit24:   ; preds = %11, %12
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef nonnull readonly dereferenceable(16) %2, i64 16)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef nonnull dereferenceable(16) %2, i64 16)
   %29 = icmp eq i32 %bcmp.i.i, 0
   br i1 %29, label %nwk_key_storage_get_entry_by_key.exit.i, label %30
 
@@ -758,7 +758,7 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %28
 
 36:                                               ; preds = %.preheader.i
   %37 = getelementptr inbounds i8, ptr %33, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull readonly align 16 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
   %38 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %.07.i, ptr %38, align 16
   %39 = getelementptr inbounds i8, ptr %33, i64 24
@@ -871,7 +871,7 @@ reverse.exit12.i:                                 ; preds = %reverse.exit.i
   store i64 %46, ptr %21, align 1
   %47 = load i64, ptr %12, align 8
   store i64 %47, ptr %22, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull readonly align 16 dereferenceable(16) %25, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %25, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 16, ptr %10, align 8
@@ -989,7 +989,7 @@ calc_key_cmac.exit.thread:                        ; preds = %rf4ce_aes_cmac.exit
   br label %82
 
 calc_key_cmac.exit:                               ; preds = %rf4ce_aes_cmac.exit24.i, %rf4ce_aes_cmac.exit24.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -1023,7 +1023,7 @@ define hidden void @vendor_secret_storage_add_entry(ptr nocapture noundef readon
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) %0, i64 16)
   %7 = icmp eq i32 %bcmp.i, 0
   br i1 %7, label %vendor_secret_storage_get_entry.exit, label %8
 
@@ -1075,7 +1075,7 @@ define hidden void @vendor_secret_storage_release_entry(ptr nocapture noundef re
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) %0, i64 16)
   %7 = icmp eq i32 %bcmp.i, 0
   br i1 %7, label %vendor_secret_storage_get_entry.exit, label %8
 

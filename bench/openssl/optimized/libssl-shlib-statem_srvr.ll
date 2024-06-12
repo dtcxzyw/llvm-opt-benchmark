@@ -4358,7 +4358,7 @@ lor.lhs.false97:                                  ; preds = %if.end93
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false97
   %session_id98 = getelementptr inbounds i8, ptr %call40, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %session_id98, ptr nonnull align 1 %add.ptr.i.i131, i64 %conv99, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id98, ptr nonnull align 1 %add.ptr.i.i131, i64 %conv99, i1 false)
   %add.ptr.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i.i131, i64 %conv99
   store ptr %add.ptr.i.i137, ptr %pkt, align 8
   %sub.i.i138 = sub i64 %sub.i.i132, %conv99
@@ -4390,7 +4390,7 @@ lor.lhs.false123:                                 ; preds = %lor.lhs.false106
   %idx.ext = zext nneg i32 %cond to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr119 = getelementptr inbounds i8, ptr %session_id_len113, i64 %idx.neg
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr119, ptr nonnull align 1 %add.ptr.i.i137, i64 %idx.ext, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr119, ptr nonnull align 1 %add.ptr.i.i137, i64 %idx.ext, i1 false)
   %extensions128 = getelementptr inbounds i8, ptr %call40, i64 624
   br label %if.end202.sink.split
 
@@ -4400,7 +4400,7 @@ if.else:                                          ; preds = %if.end76
 
 lor.lhs.false133:                                 ; preds = %if.else
   %random129 = getelementptr inbounds i8, ptr %call40, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %random129, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %random129, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i, i64 32, i1 false)
   %add.ptr.i.i158 = getelementptr inbounds i8, ptr %17, i64 34
   store ptr %add.ptr.i.i158, ptr %pkt, align 8
   %sub.i.i159 = add i64 %pkt.val.i.i86, -34
@@ -4438,7 +4438,7 @@ if.then142:                                       ; preds = %lor.lhs.false.i, %l
 if.end143:                                        ; preds = %lor.lhs.false136
   %session_id137 = getelementptr inbounds i8, ptr %call40, i64 48
   store i64 %conv.i, ptr %session_id_len139, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %session_id137, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id137, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
   %method145 = getelementptr inbounds i8, ptr %s, i64 24
   %27 = load ptr, ptr %method145, align 8
   %ssl3_enc146 = getelementptr inbounds i8, ptr %27, i64 216
@@ -4475,7 +4475,7 @@ if.end159:                                        ; preds = %lor.lhs.false.i170
   %dtls_cookie = getelementptr inbounds i8, ptr %call40, i64 88
   %dtls_cookie_len = getelementptr inbounds i8, ptr %call40, i64 80
   store i64 %conv.i173, ptr %dtls_cookie_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %dtls_cookie, ptr nonnull align 1 %add.ptr.i.i.i176, i64 %conv.i173, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %dtls_cookie, ptr nonnull align 1 %add.ptr.i.i.i176, i64 %conv.i173, i1 false)
   %call161 = tail call i64 @SSL_get_options(ptr noundef nonnull %s) #12
   %and162 = and i64 %call161, 8192
   %tobool163.not = icmp eq i64 %and162, 0
@@ -4588,7 +4588,7 @@ if.end202.sink.split:                             ; preds = %if.end180, %lor.lhs
   %extensions128.sink = phi ptr [ %extensions128, %lor.lhs.false123 ], [ %extensions185, %if.end180 ]
   %compression.sroa.3.1.ph = phi i64 [ 1, %lor.lhs.false123 ], [ %sub.i.i.i201, %if.end180 ]
   %compression.sroa.0.1.ph = phi ptr [ @tls_process_client_hello.null_compression, %lor.lhs.false123 ], [ %add.ptr.i.i.i205, %if.end180 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %extensions128.sink, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extensions128.sink, i8 0, i64 16, i1 false)
   br label %if.end202
 
 if.end202:                                        ; preds = %if.end202.sink.split, %lor.lhs.false190
@@ -4597,7 +4597,7 @@ if.end202:                                        ; preds = %if.end202.sink.spli
   %compressions = getelementptr inbounds i8, ptr %call40, i64 368
   %compressions_len = getelementptr inbounds i8, ptr %call40, i64 360
   store i64 %compression.sroa.3.1, ptr %compressions_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %compressions, ptr nonnull align 1 %compression.sroa.0.1, i64 %compression.sroa.3.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %compressions, ptr nonnull align 1 %compression.sroa.0.1, i64 %compression.sroa.3.1, i1 false)
   %extensions203 = getelementptr inbounds i8, ptr %call40, i64 624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extensions, ptr noundef nonnull align 8 dereferenceable(16) %extensions203, i64 16, i1 false)
   %pre_proc_exts = getelementptr inbounds i8, ptr %call40, i64 648

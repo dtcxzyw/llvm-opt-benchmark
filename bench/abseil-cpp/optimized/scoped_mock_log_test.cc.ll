@@ -8482,7 +8482,7 @@ entry:
   %x.val1 = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %x.val1, i64 %x.val
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 -43
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(43) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(43) @.str.79, i64 43)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(43) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(43) @.str.79, i64 43)
   %cmp9.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp9.i.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit", label %if.end.i
 

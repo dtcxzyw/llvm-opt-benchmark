@@ -377,7 +377,7 @@ define internal fastcc range(i32 -13, 1) i32 @create_dmns(ptr nocapture noundef 
   %34 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %37 = load ptr, ptr %36, align 8
   %.not6.i = icmp eq ptr %37, null

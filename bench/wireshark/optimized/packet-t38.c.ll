@@ -317,7 +317,7 @@ define void @t38_add_address(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br i1 %or.cond, label %52, label %16
 
 16:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not = icmp eq i32 %3, 0
   %17 = select i1 %.not, i32 196608, i32 65536
   %18 = call ptr @find_conversation(i32 noundef %5, ptr noundef %1, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %2, i32 noundef %3, i32 noundef %17) #9

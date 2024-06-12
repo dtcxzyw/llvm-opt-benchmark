@@ -3292,7 +3292,7 @@ for.end94:                                        ; preds = %for.cond80.for.inc9
   %sub6990 = phi i32 [ %sub69, %for.end67 ], [ %sub6986, %for.end67.thread ], [ %sub69, %for.cond80.for.inc92_crit_edge.us ]
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i)
   %sub.i = sub i32 %1, %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i, ptr noundef nonnull readonly align 16 dereferenceable(68) %rankVal, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i, ptr noundef nonnull align 16 dereferenceable(68) %rankVal, i64 68, i1 false)
   %cmp34.not.i = icmp eq i32 %nextRankStart.0.lcssa, 0
   br i1 %cmp34.not.i, label %HUFv07_fillDTableX4.exit, label %for.body.preheader.i
 
@@ -3331,7 +3331,7 @@ if.then.i:                                        ; preds = %for.body.i
   %add.ptr24.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol, i64 %idx.ext23.i
   %sub25.i = sub i32 %nextRankStart.0.lcssa, %17
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull readonly align 4 dereferenceable(68) %arrayidx21.i, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx21.i, i64 68, i1 false)
   %cmp.i.i43 = icmp sgt i32 %add.i, 1
   br i1 %cmp.i.i43, label %if.then.i.i, label %if.end.i.i
 
@@ -5187,7 +5187,7 @@ if.end11:                                         ; preds = %if.end7
   store i32 0, ptr %stage.i, align 4
   %previousDstEnd.i = getelementptr inbounds i8, ptr %call, i64 21520
   %hufTable.i = getelementptr inbounds i8, ptr %call, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i, align 4
   %fseEntropy.i = getelementptr inbounds i8, ptr %call, i64 21612
   store i32 0, ptr %fseEntropy.i, align 4
@@ -5196,7 +5196,7 @@ if.end11:                                         ; preds = %if.end7
   %dictID.i = getelementptr inbounds i8, ptr %call, i64 21712
   store i32 0, ptr %dictID.i, align 8
   %rep.i = getelementptr inbounds i8, ptr %call, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end, %if.end11
@@ -5224,7 +5224,7 @@ if.end11.i:                                       ; preds = %if.end7.i
   store i32 0, ptr %stage.i.i, align 4
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %call.i7, i64 21520
   %hufTable.i.i = getelementptr inbounds i8, ptr %call.i7, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i, align 4
   %fseEntropy.i.i = getelementptr inbounds i8, ptr %call.i7, i64 21612
   store i32 0, ptr %fseEntropy.i.i, align 4
@@ -5233,7 +5233,7 @@ if.end11.i:                                       ; preds = %if.end7.i
   %dictID.i.i = getelementptr inbounds i8, ptr %call.i7, i64 21712
   store i32 0, ptr %dictID.i.i, align 8
   %rep.i.i = getelementptr inbounds i8, ptr %call.i7, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   br label %ZSTDv07_createDCtx_advanced.exit
 
 ZSTDv07_createDCtx_advanced.exit:                 ; preds = %if.end7.i, %if.end11.i
@@ -5686,7 +5686,7 @@ if.end146.i:                                      ; preds = %if.end123.i
 
 HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %if.end146.i
   %add.ptr150.i = getelementptr inbounds i8, ptr %src, i64 3
-  %call2.i.i = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef nonnull %litBuffer147.i, i64 noundef %conv132.i, ptr noundef nonnull %add.ptr150.i, i64 noundef %conv140.i, ptr noundef nonnull readonly %hufTable151.i)
+  %call2.i.i = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef nonnull %litBuffer147.i, i64 noundef %conv132.i, ptr noundef nonnull %add.ptr150.i, i64 noundef %conv140.i, ptr noundef nonnull %hufTable151.i)
   %cmp.i110.i = icmp ult i64 %call2.i.i, -119
   br i1 %cmp.i110.i, label %if.end157.i, label %return
 
@@ -6310,7 +6310,7 @@ if.end3.i84.i.i:                                  ; preds = %if.end.i81.i.i
   br label %ZSTDv07_buildSeqTable.exit96.thread128.i.i
 
 sw.bb4.i77.i.i:                                   ; preds = %if.end50.i.i
-  %call5.i78.i.i = tail call i64 @FSEv07_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull readonly @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
+  %call5.i78.i.i = tail call i64 @FSEv07_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
   br label %ZSTDv07_buildSeqTable.exit96.thread128.i.i
 
 sw.bb10.i89.i.i:                                  ; preds = %if.end50.i.i
@@ -7072,12 +7072,12 @@ if.end35.i.i:                                     ; preds = %if.then28.i.i
   br i1 %cmp43.not.i.i, label %if.end46.i.i, label %if.then44.i.i
 
 if.then44.i.i:                                    ; preds = %if.end35.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i222.i, ptr readonly align 1 %add.ptr40.i237.i, i64 %add69.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i222.i, ptr align 1 %add.ptr40.i237.i, i64 %add69.i.i, i1 false)
   br label %ZSTDv07_execSequence.exit.i
 
 if.end46.i.i:                                     ; preds = %if.end35.i.i
   %diff.neg.i.i = sub i64 0, %sub.ptr.sub38.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i222.i, ptr readonly align 1 %add.ptr40.i237.i, i64 %diff.neg.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i222.i, ptr align 1 %add.ptr40.i237.i, i64 %diff.neg.i.i, i1 false)
   %add.ptr50.i.i = getelementptr inbounds i8, ptr %add.ptr.i222.i, i64 %diff.neg.i.i
   %sub.i239.i = add i64 %sub.ptr.sub38.neg.i.i, %add69.i.i
   %cmp52.i.i = icmp ugt ptr %add.ptr50.i.i, %add.ptr3.i225.i
@@ -7330,7 +7330,7 @@ if.end:
   store i32 0, ptr %stage.i, align 4
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %hufTable.i = getelementptr inbounds i8, ptr %dctx, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i, align 4
   %fseEntropy.i = getelementptr inbounds i8, ptr %dctx, i64 21612
   store i32 0, ptr %fseEntropy.i, align 4
@@ -7339,7 +7339,7 @@ if.end:
   %dictID.i = getelementptr inbounds i8, ptr %dctx, i64 21712
   store i32 0, ptr %dictID.i, align 8
   %rep.i = getelementptr inbounds i8, ptr %dctx, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   %tobool2 = icmp ne ptr %dict, null
   %tobool3 = icmp ne i64 %dictSize, 0
   %or.cond = and i1 %tobool2, %tobool3
@@ -7585,7 +7585,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end4
   %fParams.i = getelementptr inbounds i8, ptr %dctx, i64 21576
-  %call.i = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull readonly %src, i64 noundef %add18.i)
+  %call.i = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull %src, i64 noundef %add18.i)
   %dictID.i = getelementptr inbounds i8, ptr %dctx, i64 21588
   %4 = load i32, ptr %dictID.i, align 4
   %tobool.not.i48 = icmp eq i32 %4, 0
@@ -7680,7 +7680,7 @@ if.end.i58:                                       ; preds = %sw.bb27
   br i1 %cmp1.not.i, label %if.end49, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %op.0126, ptr nonnull readonly align 1 %add.ptr18, i64 %retval.0.i54.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0126, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i54.ph, i1 false)
   br label %if.end49
 
 sw.bb32:                                          ; preds = %if.end22
@@ -7693,7 +7693,7 @@ if.end.i61:                                       ; preds = %sw.bb32
   br i1 %cmp1.not.i62, label %if.end49, label %if.then2.i63
 
 if.then2.i63:                                     ; preds = %if.end.i61
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %op.0126, i8 %13, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %op.0126, i8 %13, i64 %12, i1 false)
   br label %if.end49
 
 if.end45:                                         ; preds = %if.end22
@@ -7743,7 +7743,7 @@ entry:
   store i32 0, ptr %stage.i.i, align 4
   %previousDstEnd.i.i1 = getelementptr inbounds i8, ptr %dctx, i64 21520
   %hufTable.i.i = getelementptr inbounds i8, ptr %dctx, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i1, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i, align 4
   %fseEntropy.i.i = getelementptr inbounds i8, ptr %dctx, i64 21612
   store i32 0, ptr %fseEntropy.i.i, align 4
@@ -7752,7 +7752,7 @@ entry:
   %dictID.i.i = getelementptr inbounds i8, ptr %dctx, i64 21712
   store i32 0, ptr %dictID.i.i, align 8
   %rep.i.i = getelementptr inbounds i8, ptr %dctx, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   %cmp.not.i.i = icmp eq ptr %dst, null
   br i1 %cmp.not.i.i, label %ZSTDv07_decompress_usingDict.exit, label %if.then.i.i
 
@@ -7793,12 +7793,12 @@ if.end:                                           ; preds = %entry
   %rep.i.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 21560
   store i64 5, ptr %expected.i.i.i, align 8
   store i32 0, ptr %stage.i.i.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i.i, align 4
   store i32 0, ptr %fseEntropy.i.i.i, align 4
   store i32 0, ptr %litEntropy.i.i.i, align 8
   store i32 0, ptr %dictID.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   %cmp.not.i.i.i = icmp eq ptr %dst, null
   br i1 %cmp.not.i.i.i, label %ZSTDv07_freeDCtx.exit, label %if.then.i.i.i
 
@@ -8088,7 +8088,7 @@ sw.bb28:                                          ; preds = %if.end2.sw.bb28_cri
   %add.ptr = getelementptr inbounds i8, ptr %dctx, i64 152845
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %src, i64 %9, i1 false)
   %fParams.i = getelementptr inbounds i8, ptr %dctx, i64 21576
-  %call.i = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull readonly %headerBuffer29, i64 noundef %8)
+  %call.i = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull %headerBuffer29, i64 noundef %8)
   %dictID.i = getelementptr inbounds i8, ptr %dctx, i64 21588
   %10 = load i32, ptr %dictID.i, align 4
   %tobool.not.i72 = icmp eq i32 %10, 0
@@ -8207,7 +8207,7 @@ if.end.i84:                                       ; preds = %sw.bb77
   br i1 %cmp1.not.i, label %sw.epilog.thread, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %dst, ptr readonly align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst, ptr align 1 %src, i64 %srcSize, i1 false)
   br label %sw.epilog
 
 sw.epilog.thread:                                 ; preds = %sw.bb73, %if.end.i84
@@ -8284,7 +8284,7 @@ ZSTDv07_createDCtx_advanced.exit.i:               ; preds = %if.end.i
   store i32 0, ptr %stage.i.i.i, align 4
   %previousDstEnd.i.i.i = getelementptr inbounds i8, ptr %call.i6, i64 21520
   %hufTable.i.i.i = getelementptr inbounds i8, ptr %call.i6, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i.i, align 4
   %fseEntropy.i.i.i = getelementptr inbounds i8, ptr %call.i6, i64 21612
   store i32 0, ptr %fseEntropy.i.i.i, align 4
@@ -8293,7 +8293,7 @@ ZSTDv07_createDCtx_advanced.exit.i:               ; preds = %if.end.i
   %dictID.i.i.i = getelementptr inbounds i8, ptr %call.i6, i64 21712
   store i32 0, ptr %dictID.i.i.i, align 8
   %rep.i.i.i = getelementptr inbounds i8, ptr %call.i6, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   %tobool13.i = icmp ne ptr %call.i, null
   %tobool15.i = icmp ne ptr %call.i5, null
   %or.cond2.i = and i1 %tobool15.i, %tobool13.i
@@ -8306,7 +8306,7 @@ if.then18.i:                                      ; preds = %ZSTDv07_createDCtx_
   br label %ZSTDv07_createDDict_advanced.exit
 
 if.end25.i:                                       ; preds = %ZSTDv07_createDCtx_advanced.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %dict, i64 %dictSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %dict, i64 %dictSize, i1 false)
   %call26.i = tail call i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef nonnull %call.i6, ptr noundef nonnull %call.i, i64 noundef %dictSize)
   %cmp.i.i = icmp ult i64 %call26.i, -119
   br i1 %cmp.i.i, label %if.end36.i, label %if.then29.i
@@ -8351,7 +8351,7 @@ define i64 @ZSTDv07_decompress_usingDDict(ptr noundef %dctx, ptr noundef %dst, i
 entry:
   %refContext = getelementptr inbounds i8, ptr %ddict, i64 16
   %0 = load ptr, ptr %refContext, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(21766) %dctx, ptr noundef nonnull readonly align 8 dereferenceable(21766) %0, i64 21766, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21766) %dctx, ptr noundef nonnull align 8 dereferenceable(21766) %0, i64 21766, i1 false)
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %1 = load ptr, ptr %previousDstEnd.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %dst
@@ -8413,7 +8413,7 @@ if.end17.i:                                       ; preds = %if.end7.i.i
   store i32 0, ptr %stage.i.i.i, align 4
   %previousDstEnd.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 21520
   %hufTable.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i.i, align 4
   %fseEntropy.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 21612
   store i32 0, ptr %fseEntropy.i.i.i, align 4
@@ -8422,7 +8422,7 @@ if.end17.i:                                       ; preds = %if.end7.i.i
   %dictID.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 21712
   store i32 0, ptr %dictID.i.i.i, align 8
   %rep.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   store ptr %call.i, ptr %call.i7, align 8
   %stage.i = getelementptr inbounds i8, ptr %call.i7, i64 32
   store i32 0, ptr %stage.i, align 8
@@ -8521,7 +8521,7 @@ if.end17:                                         ; preds = %if.end7.i
   store i32 0, ptr %stage.i.i, align 4
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %call.i, i64 21520
   %hufTable.i.i = getelementptr inbounds i8, ptr %call.i, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i, align 4
   %fseEntropy.i.i = getelementptr inbounds i8, ptr %call.i, i64 21612
   store i32 0, ptr %fseEntropy.i.i, align 4
@@ -8530,7 +8530,7 @@ if.end17:                                         ; preds = %if.end7.i
   %dictID.i.i = getelementptr inbounds i8, ptr %call.i, i64 21712
   store i32 0, ptr %dictID.i.i, align 8
   %rep.i.i = getelementptr inbounds i8, ptr %call.i, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   store ptr %call.i, ptr %call, align 8
   %stage = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %stage, align 8
@@ -8634,7 +8634,7 @@ entry:
   store i32 0, ptr %stage.i.i, align 4
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %0, i64 21520
   %hufTable.i.i = getelementptr inbounds i8, ptr %0, i64 5132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %hufTable.i.i, align 4
   %fseEntropy.i.i = getelementptr inbounds i8, ptr %0, i64 21612
   store i32 0, ptr %fseEntropy.i.i, align 4
@@ -8643,7 +8643,7 @@ entry:
   %dictID.i.i = getelementptr inbounds i8, ptr %0, i64 21712
   store i32 0, ptr %dictID.i.i, align 8
   %rep.i.i = getelementptr inbounds i8, ptr %0, i64 21560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   ret i64 0
 }
 
@@ -8903,7 +8903,7 @@ if.end174:                                        ; preds = %sw.bb162
 if.then.i:                                        ; preds = %if.end174
   %37 = load ptr, ptr %inBuff, align 8
   %add.ptr177 = getelementptr inbounds i8, ptr %37, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr177, ptr readonly align 1 %ip.0183, i64 %cond.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr177, ptr align 1 %ip.0183, i64 %cond.i, i1 false)
   %.pre191 = load i64, ptr %inPos, align 8
   br label %ZBUFFv07_limitCopy.exit
 
@@ -8961,7 +8961,7 @@ sw.bb217:                                         ; preds = %while.body.sw.bb217
 if.then.i173:                                     ; preds = %sw.bb217
   %48 = load ptr, ptr %outBuff, align 8
   %add.ptr226 = getelementptr inbounds i8, ptr %48, i64 %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %op.0182.ph, ptr readonly align 1 %add.ptr226, i64 %cond.i171, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0182.ph, ptr align 1 %add.ptr226, i64 %cond.i171, i1 false)
   %.pre194 = load i64, ptr %outStart, align 8
   br label %ZBUFFv07_limitCopy.exit174
 

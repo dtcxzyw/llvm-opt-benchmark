@@ -26144,7 +26144,7 @@ if.then15.i.i:                                    ; preds = %if.then4.i.i
   %50 = load i32, ptr %m_wrap.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
   %51 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i52.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %51, i32 noundef %inc.i.i, i32 noundef %48, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i, i1 noundef zeroext %cmp10.i.i, i32 noundef %50)
+  %call2.i.i52.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %51, i32 noundef %inc.i.i, i32 noundef %48, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i, i1 noundef zeroext %cmp10.i.i, i32 noundef %50)
           to label %call2.i.i.noexc.i unwind label %lpad.i
 
 call2.i.i.noexc.i:                                ; preds = %if.then15.i.i
@@ -26436,7 +26436,7 @@ if.then15.i.i171:                                 ; preds = %if.then4.i.i163
   %115 = load i32, ptr %m_wrap.i.i111, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %112, i64 8
   %116 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i172, align 8
-  %call2.i.i52.i173 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %116, i32 noundef %inc.i.i122, i32 noundef %113, i32 noundef %114, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i106, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i107, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i108, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i109, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i105, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i110, i1 noundef zeroext %cmp10.i.i165, i32 noundef %115)
+  %call2.i.i52.i173 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %116, i32 noundef %inc.i.i122, i32 noundef %113, i32 noundef %114, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i106, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i107, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i108, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i109, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i105, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i110, i1 noundef zeroext %cmp10.i.i165, i32 noundef %115)
           to label %call2.i.i.noexc.i174 unwind label %lpad.i146
 
 call2.i.i.noexc.i174:                             ; preds = %if.then15.i.i171
@@ -26729,7 +26729,7 @@ if.then15.i.i315:                                 ; preds = %if.then4.i.i307
   %181 = load i32, ptr %m_wrap.i.i255, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i316 = getelementptr inbounds i8, ptr %178, i64 8
   %182 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i316, align 8
-  %call2.i.i52.i317 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %182, i32 noundef %inc.i.i266, i32 noundef %179, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i250, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i251, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i252, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i253, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i249, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i254, i1 noundef zeroext %cmp10.i.i309, i32 noundef %181)
+  %call2.i.i52.i317 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %182, i32 noundef %inc.i.i266, i32 noundef %179, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i250, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i251, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i252, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i253, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i249, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i254, i1 noundef zeroext %cmp10.i.i309, i32 noundef %181)
           to label %call2.i.i.noexc.i318 unwind label %lpad.i290
 
 call2.i.i.noexc.i318:                             ; preds = %if.then15.i.i315
@@ -27021,7 +27021,7 @@ if.then15.i.i459:                                 ; preds = %if.then4.i.i451
   %246 = load i32, ptr %m_wrap.i.i399, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i460 = getelementptr inbounds i8, ptr %243, i64 8
   %247 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i460, align 8
-  %call2.i.i52.i461 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %247, i32 noundef %inc.i.i410, i32 noundef %244, i32 noundef %245, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i394, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i395, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i396, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i397, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i393, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i398, i1 noundef zeroext %cmp10.i.i453, i32 noundef %246)
+  %call2.i.i52.i461 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %247, i32 noundef %inc.i.i410, i32 noundef %244, i32 noundef %245, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i394, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i395, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i396, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i397, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i393, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i398, i1 noundef zeroext %cmp10.i.i453, i32 noundef %246)
           to label %call2.i.i.noexc.i462 unwind label %lpad.i434
 
 call2.i.i.noexc.i462:                             ; preds = %if.then15.i.i459
@@ -27313,7 +27313,7 @@ if.then15.i.i605:                                 ; preds = %if.then4.i.i597
   %311 = load i32, ptr %m_wrap.i.i545, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i606 = getelementptr inbounds i8, ptr %308, i64 8
   %312 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i606, align 8
-  %call2.i.i52.i607 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %312, i32 noundef %inc.i.i556, i32 noundef %309, i32 noundef %310, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i540, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i541, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i542, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i543, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i539, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i544, i1 noundef zeroext %cmp10.i.i599, i32 noundef %311)
+  %call2.i.i52.i607 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %312, i32 noundef %inc.i.i556, i32 noundef %309, i32 noundef %310, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i540, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i541, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i542, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i543, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i539, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i544, i1 noundef zeroext %cmp10.i.i599, i32 noundef %311)
           to label %call2.i.i.noexc.i608 unwind label %lpad.i580
 
 call2.i.i.noexc.i608:                             ; preds = %if.then15.i.i605
@@ -27605,7 +27605,7 @@ if.then15.i.i751:                                 ; preds = %if.then4.i.i743
   %376 = load i32, ptr %m_wrap.i.i691, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i752 = getelementptr inbounds i8, ptr %373, i64 8
   %377 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i752, align 8
-  %call2.i.i52.i753 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %377, i32 noundef %inc.i.i702, i32 noundef %374, i32 noundef %375, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i686, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i687, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i688, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i689, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i685, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i690, i1 noundef zeroext %cmp10.i.i745, i32 noundef %376)
+  %call2.i.i52.i753 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %377, i32 noundef %inc.i.i702, i32 noundef %374, i32 noundef %375, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i686, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i687, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i688, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i689, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i685, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i690, i1 noundef zeroext %cmp10.i.i745, i32 noundef %376)
           to label %call2.i.i.noexc.i754 unwind label %lpad.i726
 
 call2.i.i.noexc.i754:                             ; preds = %if.then15.i.i751
@@ -27897,7 +27897,7 @@ if.then15.i.i897:                                 ; preds = %if.then4.i.i889
   %441 = load i32, ptr %m_wrap.i.i837, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i898 = getelementptr inbounds i8, ptr %438, i64 8
   %442 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i898, align 8
-  %call2.i.i52.i899 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %442, i32 noundef %inc.i.i848, i32 noundef %439, i32 noundef %440, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i832, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i833, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i834, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i835, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i831, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i836, i1 noundef zeroext %cmp10.i.i891, i32 noundef %441)
+  %call2.i.i52.i899 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %442, i32 noundef %inc.i.i848, i32 noundef %439, i32 noundef %440, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i832, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i833, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i834, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i835, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i831, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i836, i1 noundef zeroext %cmp10.i.i891, i32 noundef %441)
           to label %call2.i.i.noexc.i900 unwind label %lpad.i872
 
 call2.i.i.noexc.i900:                             ; preds = %if.then15.i.i897
@@ -28189,7 +28189,7 @@ if.then15.i.i1043:                                ; preds = %if.then4.i.i1035
   %506 = load i32, ptr %m_wrap.i.i983, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i1044 = getelementptr inbounds i8, ptr %503, i64 8
   %507 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i1044, align 8
-  %call2.i.i52.i1045 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %507, i32 noundef %inc.i.i994, i32 noundef %504, i32 noundef %505, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i978, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i979, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i980, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i981, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i977, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i982, i1 noundef zeroext %cmp10.i.i1037, i32 noundef %506)
+  %call2.i.i52.i1045 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %507, i32 noundef %inc.i.i994, i32 noundef %504, i32 noundef %505, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i978, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i979, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i980, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i981, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i977, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i982, i1 noundef zeroext %cmp10.i.i1037, i32 noundef %506)
           to label %call2.i.i.noexc.i1046 unwind label %lpad.i1018
 
 call2.i.i.noexc.i1046:                            ; preds = %if.then15.i.i1043
@@ -28480,7 +28480,7 @@ if.then15.i.i1189:                                ; preds = %if.then4.i.i1181
   %571 = load i32, ptr %m_wrap.i.i1129, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i1190 = getelementptr inbounds i8, ptr %568, i64 8
   %572 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i1190, align 8
-  %call2.i.i52.i1191 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %572, i32 noundef %inc.i.i1140, i32 noundef %569, i32 noundef %570, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i1124, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i1125, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i1126, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i1127, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i1123, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i1128, i1 noundef zeroext %cmp10.i.i1183, i32 noundef %571)
+  %call2.i.i52.i1191 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %572, i32 noundef %inc.i.i1140, i32 noundef %569, i32 noundef %570, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i1124, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i1125, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i1126, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i1127, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i1123, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i1128, i1 noundef zeroext %cmp10.i.i1183, i32 noundef %571)
           to label %call2.i.i.noexc.i1192 unwind label %lpad.i1164
 
 call2.i.i.noexc.i1192:                            ; preds = %if.then15.i.i1189
@@ -49508,7 +49508,7 @@ if.then49:                                        ; preds = %if.else47
   %57 = load i32, ptr %m_wrap52, align 8
   %add.ptr.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i47, align 8
-  %call2.i48 = tail call noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %58, i32 noundef %x_, i32 noundef %y_, i32 noundef %z_, ptr noundef nonnull align 8 dereferenceable(8) %m_tile, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror, i1 noundef zeroext %54, i32 noundef %57)
+  %call2.i48 = tail call noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %58, i32 noundef %x_, i32 noundef %y_, i32 noundef %z_, ptr noundef nonnull align 8 dereferenceable(8) %m_tile, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror, i1 noundef zeroext %54, i32 noundef %57)
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %if.end.i.i, %if.then16, %if.then49
@@ -50044,7 +50044,7 @@ if.then15:                                        ; preds = %if.then4
   %15 = load i32, ptr %m_wrap, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %call2.i = tail call noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %16, i32 noundef %8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %m_tile, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror, i1 noundef zeroext %cmp10, i32 noundef %15)
+  %call2.i = tail call noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %16, i32 noundef %8, i32 noundef %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %m_tile, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror, i1 noundef zeroext %cmp10, i32 noundef %15)
   store ptr %call2.i, ptr %m_proxydata6, align 8
   %m_exists = getelementptr inbounds i8, ptr %this, i64 9
   store i8 %frombool, ptr %m_exists, align 1
@@ -89727,7 +89727,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -90059,9 +90059,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -90346,7 +90346,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -90402,7 +90402,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -90411,9 +90411,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -90582,7 +90582,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -90686,7 +90686,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -90822,7 +90822,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -90847,7 +90847,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -90856,9 +90856,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -91028,7 +91028,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -91132,7 +91132,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -91268,7 +91268,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -91293,7 +91293,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -91302,9 +91302,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -91473,7 +91473,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -91577,7 +91577,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -91713,7 +91713,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -91738,7 +91738,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -91747,9 +91747,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -91918,7 +91918,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -92022,7 +92022,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -92158,7 +92158,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -92183,7 +92183,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -92192,9 +92192,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -92363,7 +92363,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -92467,7 +92467,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -92603,7 +92603,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -92628,7 +92628,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -92637,9 +92637,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -92808,7 +92808,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -92912,7 +92912,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -93048,7 +93048,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -93073,7 +93073,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -93082,9 +93082,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -93253,7 +93253,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -93357,7 +93357,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -93493,7 +93493,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -93518,7 +93518,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -93527,9 +93527,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -93697,7 +93697,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -93801,7 +93801,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -93937,7 +93937,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -93962,7 +93962,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -93971,9 +93971,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -94149,7 +94149,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -94253,7 +94253,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -94389,7 +94389,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -94447,7 +94447,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -94779,9 +94779,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -95066,7 +95066,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -95153,7 +95153,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -95162,9 +95162,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -95343,7 +95343,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -95447,7 +95447,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -95583,7 +95583,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -95608,7 +95608,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -95617,9 +95617,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -95793,7 +95793,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -95897,7 +95897,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -96033,7 +96033,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -96058,7 +96058,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -96067,9 +96067,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -96247,7 +96247,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -96351,7 +96351,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -96487,7 +96487,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -96512,7 +96512,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -96521,9 +96521,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -96701,7 +96701,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -96805,7 +96805,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -96941,7 +96941,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -96966,7 +96966,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -96975,9 +96975,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -97151,7 +97151,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -97255,7 +97255,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -97391,7 +97391,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -97416,7 +97416,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -97425,9 +97425,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -97605,7 +97605,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -97709,7 +97709,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -97845,7 +97845,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -97870,7 +97870,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -97879,9 +97879,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -98058,7 +98058,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -98162,7 +98162,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -98298,7 +98298,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -98323,7 +98323,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -98332,9 +98332,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -98544,7 +98544,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -98648,7 +98648,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -98784,7 +98784,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -98842,7 +98842,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -98851,9 +98851,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -99065,7 +99065,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -99169,7 +99169,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -99305,7 +99305,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -99332,7 +99332,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -99664,9 +99664,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -99951,7 +99951,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -100038,7 +100038,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -100047,9 +100047,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -100261,7 +100261,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -100365,7 +100365,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -100501,7 +100501,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -100526,7 +100526,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -100535,9 +100535,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -100749,7 +100749,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -100853,7 +100853,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -100989,7 +100989,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101014,7 +101014,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -101023,9 +101023,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -101237,7 +101237,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -101341,7 +101341,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -101477,7 +101477,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101502,7 +101502,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -101511,9 +101511,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -101725,7 +101725,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -101829,7 +101829,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -101965,7 +101965,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -101990,7 +101990,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -101999,9 +101999,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -102213,7 +102213,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -102317,7 +102317,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i19.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -102453,7 +102453,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -102478,7 +102478,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -102487,9 +102487,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -102700,7 +102700,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %36 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %37, i32 noundef %inc.i.i.i.i, i32 noundef %34, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %36)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -102804,7 +102804,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %62 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i20.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %63, i32 noundef %inc.i20.i.i.i, i32 noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %62)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.loopexit.split-lp.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -102940,7 +102940,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -102965,7 +102965,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -102974,9 +102974,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -103152,7 +103152,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -103256,7 +103256,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -103392,7 +103392,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -103448,7 +103448,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -103457,9 +103457,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -103633,7 +103633,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -103737,7 +103737,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -103873,7 +103873,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -103898,7 +103898,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -103907,9 +103907,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -104088,7 +104088,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -104192,7 +104192,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -104328,7 +104328,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -104355,7 +104355,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -104687,9 +104687,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -104974,7 +104974,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -105061,7 +105061,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -105070,9 +105070,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -105250,7 +105250,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -105354,7 +105354,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -105490,7 +105490,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -105515,7 +105515,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -105524,9 +105524,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -105704,7 +105704,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -105808,7 +105808,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -105944,7 +105944,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -105969,7 +105969,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -105978,9 +105978,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -106154,7 +106154,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -106258,7 +106258,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -106394,7 +106394,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -106419,7 +106419,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -106428,9 +106428,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -106608,7 +106608,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -106712,7 +106712,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -106848,7 +106848,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -106873,7 +106873,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -106882,9 +106882,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -107061,7 +107061,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -107165,7 +107165,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -107301,7 +107301,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -107326,7 +107326,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -107335,9 +107335,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -107513,7 +107513,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -107617,7 +107617,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -107753,7 +107753,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -107809,7 +107809,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -107818,9 +107818,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -107996,7 +107996,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -108100,7 +108100,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -108236,7 +108236,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -108261,7 +108261,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -108270,9 +108270,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -108451,7 +108451,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -108555,7 +108555,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -108691,7 +108691,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -108716,7 +108716,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -108725,9 +108725,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -108903,7 +108903,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -109007,7 +109007,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -109143,7 +109143,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -109170,7 +109170,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -109502,9 +109502,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -109789,7 +109789,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -109876,7 +109876,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -109885,9 +109885,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -110065,7 +110065,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -110169,7 +110169,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -110305,7 +110305,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -110330,7 +110330,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -110339,9 +110339,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -110517,7 +110517,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -110621,7 +110621,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -110757,7 +110757,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -110782,7 +110782,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -110791,9 +110791,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -110971,7 +110971,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -111075,7 +111075,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -111211,7 +111211,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -111236,7 +111236,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -111245,9 +111245,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -111424,7 +111424,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -111528,7 +111528,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -111664,7 +111664,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -111689,7 +111689,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -111698,9 +111698,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -111876,7 +111876,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -111980,7 +111980,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -112116,7 +112116,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -112172,7 +112172,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -112181,9 +112181,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -112359,7 +112359,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -112463,7 +112463,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -112599,7 +112599,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -112624,7 +112624,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -112633,9 +112633,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -112814,7 +112814,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -112918,7 +112918,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -113054,7 +113054,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -113079,7 +113079,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -113088,9 +113088,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -113266,7 +113266,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -113370,7 +113370,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -113506,7 +113506,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -113531,7 +113531,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -113540,9 +113540,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -113720,7 +113720,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -113824,7 +113824,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -113960,7 +113960,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -113987,7 +113987,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -114319,9 +114319,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -114606,7 +114606,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -114693,7 +114693,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -114702,9 +114702,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -114880,7 +114880,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -114984,7 +114984,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -115120,7 +115120,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -115145,7 +115145,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -115154,9 +115154,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -115334,7 +115334,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -115438,7 +115438,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -115574,7 +115574,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -115599,7 +115599,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -115608,9 +115608,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -115787,7 +115787,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -115891,7 +115891,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -116027,7 +116027,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -116052,7 +116052,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -116061,9 +116061,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -116240,7 +116240,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -116344,7 +116344,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -116480,7 +116480,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -116536,7 +116536,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -116545,9 +116545,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -116722,7 +116722,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -116826,7 +116826,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -116962,7 +116962,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -116987,7 +116987,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -116996,9 +116996,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -117178,7 +117178,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -117282,7 +117282,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -117418,7 +117418,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -117443,7 +117443,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -117452,9 +117452,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -117629,7 +117629,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -117733,7 +117733,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -117869,7 +117869,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -117894,7 +117894,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -117903,9 +117903,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -118084,7 +118084,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -118188,7 +118188,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -118324,7 +118324,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -118349,7 +118349,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -118358,9 +118358,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -118539,7 +118539,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -118643,7 +118643,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -118779,7 +118779,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -118806,7 +118806,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -119138,9 +119138,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -119425,7 +119425,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -119512,7 +119512,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -119521,9 +119521,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -119702,7 +119702,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -119806,7 +119806,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -119942,7 +119942,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -119967,7 +119967,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -119976,9 +119976,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -120156,7 +120156,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -120260,7 +120260,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -120396,7 +120396,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -120421,7 +120421,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -120430,9 +120430,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -120609,7 +120609,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -120713,7 +120713,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -120849,7 +120849,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -120905,7 +120905,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -120914,9 +120914,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -121093,7 +121093,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -121197,7 +121197,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -121333,7 +121333,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -121358,7 +121358,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -121367,9 +121367,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -121549,7 +121549,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -121653,7 +121653,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -121789,7 +121789,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -121814,7 +121814,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -121823,9 +121823,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -122002,7 +122002,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -122106,7 +122106,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -122242,7 +122242,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -122267,7 +122267,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -122276,9 +122276,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -122457,7 +122457,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -122561,7 +122561,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -122697,7 +122697,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -122722,7 +122722,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -122731,9 +122731,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -122912,7 +122912,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -123016,7 +123016,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -123152,7 +123152,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -123177,7 +123177,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -123186,9 +123186,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -123365,7 +123365,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -123469,7 +123469,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i20.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -123605,7 +123605,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -123632,7 +123632,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -123964,9 +123964,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -124251,7 +124251,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -124338,7 +124338,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -124347,9 +124347,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -124527,7 +124527,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -124631,7 +124631,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i19.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -124767,7 +124767,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -124792,7 +124792,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -124801,9 +124801,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -124971,7 +124971,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -125075,7 +125075,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -125211,7 +125211,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -125267,7 +125267,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -125276,9 +125276,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -125448,7 +125448,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -125552,7 +125552,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -125688,7 +125688,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -125713,7 +125713,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -125722,9 +125722,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -125895,7 +125895,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %35 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %36, i32 noundef %inc.i.i.i.i, i32 noundef %33, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %35)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -125999,7 +125999,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %61 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %62, i32 noundef %inc.i18.i.i.i, i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %61)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -126135,7 +126135,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -126160,7 +126160,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -126169,9 +126169,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -126341,7 +126341,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -126445,7 +126445,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -126581,7 +126581,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -126606,7 +126606,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -126615,9 +126615,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -126787,7 +126787,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -126891,7 +126891,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -127027,7 +127027,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -127052,7 +127052,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -127061,9 +127061,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -127233,7 +127233,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -127337,7 +127337,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -127473,7 +127473,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -127498,7 +127498,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -127507,9 +127507,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -127679,7 +127679,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -127783,7 +127783,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -127919,7 +127919,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -127944,7 +127944,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -127953,9 +127953,9 @@ entry:
   %1 = load i32, ptr %chbegin.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %4 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
@@ -128125,7 +128125,7 @@ if.then15.i23.i.i:                                ; preds = %if.then4.i9.i.i
   %34 = load i32, ptr %m_wrap.i31.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i32.i.i, align 8
-  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
+  %call2.i.i44.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %35, i32 noundef %inc.i.i.i.i, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i20.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i27.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i28.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i29.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i16.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i30.i.i, i1 noundef zeroext %cmp10.i15.i.i, i32 noundef %34)
           to label %call2.i.i.noexc43.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc43.i.i:                            ; preds = %if.then15.i23.i.i
@@ -128229,7 +128229,7 @@ if.then15.i.i.i:                                  ; preds = %if.then4.i.i.i
   %60 = load i32, ptr %m_wrap.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull writeonly align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
+  %call2.i.i3.i.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_012ImageBufImpl6retileEiiiRPNS_3pvt14ImageCacheTileERiS5_S5_S5_RbbNS_8ImageBuf8WrapModeE(ptr noundef nonnull align 8 dereferenceable(664) %61, i32 noundef %inc.i18.i.i.i, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %m_tile.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tileybegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilezbegin.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_tilexend.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %m_readerror.i.i.i, i1 noundef zeroext %cmp10.i.i.i, i32 noundef %60)
           to label %call2.i.i.noexc.i.i unwind label %lpad5.i.i.i
 
 call2.i.i.noexc.i.i:                              ; preds = %if.then15.i.i.i
@@ -128365,7 +128365,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -128392,7 +128392,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %d.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %s.i.i.i)
   %chend.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 28
@@ -128724,9 +128724,9 @@ if.then.i.i.i114.i.i.i:                           ; preds = %if.end5.i110.us.i.i
 if.else.i.i.i:                                    ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i, %entry
   %65 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %67 = load ptr, ptr %__functor.val, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
           to label %for.cond30.preheader.i.i.i unwind label %lpad.i.i.i
 
 for.cond30.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -129011,7 +129011,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -129097,7 +129097,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -129107,7 +129107,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -129314,7 +129314,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -129338,7 +129338,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -129348,7 +129348,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -129557,7 +129557,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -129581,7 +129581,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -129591,7 +129591,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -129801,7 +129801,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -129825,7 +129825,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -129835,7 +129835,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -130044,7 +130044,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -130068,7 +130068,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -130078,7 +130078,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -130294,7 +130294,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -130349,7 +130349,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -130359,7 +130359,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -130566,7 +130566,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -130590,7 +130590,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -130600,7 +130600,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -130816,7 +130816,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -130871,7 +130871,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -130881,7 +130881,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -131095,7 +131095,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -131150,7 +131150,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -131160,7 +131160,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -131419,7 +131419,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -131474,7 +131474,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -131484,7 +131484,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -131745,7 +131745,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -131800,7 +131800,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -131810,7 +131810,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -132017,7 +132017,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -132041,7 +132041,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -132051,7 +132051,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -132312,7 +132312,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -132367,7 +132367,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -132377,7 +132377,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -132593,7 +132593,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -132648,7 +132648,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -132658,7 +132658,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -132872,7 +132872,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -132927,7 +132927,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -132937,7 +132937,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -133153,7 +133153,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -133208,7 +133208,7 @@ entry:
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %p.i.i.i)
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -133218,7 +133218,7 @@ entry:
   %3 = load i32, ptr %chbegin.i.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %2, %3
   %4 = load ptr, ptr %__functor.val, align 8
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext false)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i, i64 36
@@ -133425,7 +133425,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__source.val5, i64 80, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

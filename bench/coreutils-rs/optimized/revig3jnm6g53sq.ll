@@ -208,7 +208,7 @@ default.unreachable42:                            ; preds = %3
   %13 = load i32, ptr %12, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8), !noalias !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !18
   call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_offset17haa72012daf03a5e0E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %9, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %8, i32 noundef %13), !noalias !18
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !18
   %14 = load i32, ptr %9, align 4, !alias.scope !21, !noundef !4
@@ -226,7 +226,7 @@ default.unreachable42:                            ; preds = %3
   %19 = load i32, ptr %18, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !25
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !25
   call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_offset17haa72012daf03a5e0E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %7, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %6, i32 noundef %17), !noalias !25
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !25
   %20 = load i32, ptr %7, align 4, !alias.scope !28, !noundef !4
@@ -235,7 +235,7 @@ default.unreachable42:                            ; preds = %3
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !25
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !32
   call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_offset17haa72012daf03a5e0E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, i32 noundef %19), !noalias !32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !32
   %21 = load i32, ptr %5, align 4, !alias.scope !35, !noundef !4

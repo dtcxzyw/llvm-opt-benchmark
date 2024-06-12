@@ -5810,7 +5810,7 @@ define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, 
   %35 = getelementptr inbounds i8, ptr %8, i64 68
   store i32 0, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %8, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %36, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, i8 0, i64 144, i1 false)
   br label %37
 
 37:                                               ; preds = %34, %27
@@ -7174,7 +7174,7 @@ define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef 
   store i16 %51, ptr %UL_tti_info.DL_tti_info.i, align 8
   %68 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 8), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 8)
   %69 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %69, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
   %70 = select i1 %48, ptr getelementptr inbounds (i8, ptr @UL_tti_info, i64 24), ptr getelementptr inbounds (i8, ptr @DL_tti_info, i64 24)
   store i32 1, ptr %70, align 8
   br label %75
@@ -8460,7 +8460,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %590, %588, %587, %.
   store i32 %741, ptr %742, align 4
   %743 = getelementptr inbounds i8, ptr %734, i64 16
   %744 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull readonly align 8 dereferenceable(16) %744, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull align 8 dereferenceable(16) %744, i64 16, i1 false)
   br label %751
 
 745:                                              ; preds = %639
@@ -11030,7 +11030,7 @@ get_mac_lte_channel_priority.exit2008:            ; preds = %get_mac_lte_channel
 2331:                                             ; preds = %2327
   %2332 = getelementptr inbounds i8, ptr %2328, i64 8
   %2333 = load i32, ptr %2332, align 4
-  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2333, i8 noundef zeroext %2319, ptr noundef nonnull writeonly %37, ptr noundef nonnull writeonly %38)
+  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2333, i8 noundef zeroext %2319, ptr noundef nonnull %37, ptr noundef nonnull %38)
   %2334 = getelementptr %struct.lcid_drb_mapping_t, ptr %2324, i64 %indvars.iv.i, i32 1
   br label %lookup_rlc_channel_from_lcid.exit
 

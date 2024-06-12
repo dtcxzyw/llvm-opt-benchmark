@@ -36,7 +36,7 @@ entry:
 define noundef i32 @ossl_sha256_192_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %c, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %c, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 4

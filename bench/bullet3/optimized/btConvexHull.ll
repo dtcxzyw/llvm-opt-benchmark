@@ -1973,7 +1973,7 @@ _ZN14btHullTriangle4neibEii.exit128:              ; preds = %for.inc.i103, %if.t
   br i1 %narrow.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN14btHullTriangle4neibEii.exit128
-  tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull %call4, ptr noundef nonnull %36)
+  tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %call4, ptr noundef nonnull %36)
   %id.i.i = getelementptr inbounds i8, ptr %call4, i64 24
   %40 = load i32, ptr %id.i.i, align 4
   %41 = load ptr, ptr %m_data.i, align 8
@@ -2010,7 +2010,7 @@ if.end:                                           ; preds = %if.then, %_ZN14btHu
   br i1 %narrow.i149.not, label %if.end71, label %if.then66
 
 if.then66:                                        ; preds = %if.end
-  tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull %call19, ptr noundef nonnull %46)
+  tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %call19, ptr noundef nonnull %46)
   %id.i.i155 = getelementptr inbounds i8, ptr %call19, i64 24
   %50 = load i32, ptr %id.i.i155, align 4
   %51 = load ptr, ptr %m_data.i, align 8
@@ -2047,7 +2047,7 @@ if.end71:                                         ; preds = %if.then66, %if.end
   br i1 %narrow.i172.not, label %if.end83, label %if.then78
 
 if.then78:                                        ; preds = %if.end71
-  tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull %call36, ptr noundef nonnull %56)
+  tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %call36, ptr noundef nonnull %56)
   %id.i.i178 = getelementptr inbounds i8, ptr %call36, i64 24
   %60 = load i32, ptr %id.i.i178, align 4
   %61 = load ptr, ptr %m_data.i, align 8

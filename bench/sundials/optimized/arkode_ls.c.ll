@@ -331,7 +331,7 @@ switch.early.test:                                ; preds = %56
   %103 = getelementptr inbounds i8, ptr %calloc, i64 232
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %calloc, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %104, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %104, i8 0, i64 72, i1 false)
   %105 = getelementptr inbounds i8, ptr %calloc, i64 112
   store i64 51, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %calloc, i64 32
@@ -1107,7 +1107,7 @@ select.unfold:                                    ; preds = %69
 
 105:                                              ; preds = %95, %98, %58
   %106 = getelementptr inbounds i8, ptr %7, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %106, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %106, i8 0, i64 72, i1 false)
   %107 = getelementptr inbounds i8, ptr %7, i64 240
   %108 = load i32, ptr %107, align 8
   %.not37 = icmp eq i32 %108, 0
@@ -2085,7 +2085,7 @@ define i32 @arkLsMassInitialize(ptr noundef %0) #0 {
 arkLs_AccessMassMem.exit:                         ; preds = %4
   %10 = getelementptr inbounds i8, ptr %7, i64 72
   %11 = getelementptr inbounds i8, ptr %7, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8

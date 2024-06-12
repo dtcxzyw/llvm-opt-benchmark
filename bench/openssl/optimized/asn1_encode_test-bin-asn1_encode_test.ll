@@ -224,7 +224,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx5 = getelementptr inbounds [34 x %struct.TEST_CUSTOM_DATA], ptr @test_custom_data, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expected.i)
   store ptr null, ptr %expected.i, align 8
-  %call.i = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %arrayidx5, ptr noundef nonnull %expected.i, i32 noundef 0)
+  %call.i = call fastcc i64 @make_custom_der(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %expected.i, i32 noundef 0)
   %cmp.i = icmp eq i64 %call.i, 0
   br i1 %cmp.i, label %do_encode_custom.exit.thread, label %if.end.i
 
@@ -254,7 +254,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %7 = load ptr, ptr %data.i.i, align 8
-  %bcmp.i.i = call i32 @bcmp(ptr %7, ptr readonly %6, i64 %call.i)
+  %bcmp.i.i = call i32 @bcmp(ptr %7, ptr %6, i64 %call.i)
   %cmp4.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp4.not.i.i, label %do_encode_custom.exit.thread85, label %if.then6.i.i
 
@@ -307,7 +307,7 @@ sw.epilog:                                        ; preds = %do_encode_custom.ex
   %16 = load i64, ptr %encode_expectations_elem_size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %encoding.i)
   store ptr null, ptr %encoding.i, align 8
-  %call.i48 = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %arrayidx5, ptr noundef nonnull %encoding.i, i32 noundef 1)
+  %call.i48 = call fastcc i64 @make_custom_der(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %encoding.i, i32 noundef 1)
   %cmp.i49 = icmp eq i64 %call.i48, 0
   br i1 %cmp.i49, label %do_decode_custom.exit.thread, label %if.end.i50
 
@@ -348,7 +348,7 @@ if.else3.i.i:                                     ; preds = %if.end.i50
   br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %sw.bb24
 
 land.lhs.true.i.i:                                ; preds = %if.else3.i.i
-  %bcmp.i.i55 = call i32 @bcmp(ptr nonnull %call.i.i51, ptr readonly %arrayidx, i64 %16)
+  %bcmp.i.i55 = call i32 @bcmp(ptr nonnull %call.i.i51, ptr %arrayidx, i64 %16)
   %cmp6.i.i = icmp eq i32 %bcmp.i.i55, 0
   br i1 %cmp6.i.i, label %do_decode_custom.exit.thread88, label %sw.bb24
 
@@ -459,7 +459,7 @@ if.else3.i.i63:                                   ; preds = %if.end.i59
   br i1 %cmp4.i.i65, label %land.lhs.true.i.i71, label %sw.bb52
 
 land.lhs.true.i.i71:                              ; preds = %if.else3.i.i63
-  %bcmp.i.i72 = call i32 @bcmp(ptr nonnull %call.i.i61, ptr readonly %arrayidx42, i64 %31)
+  %bcmp.i.i72 = call i32 @bcmp(ptr nonnull %call.i.i61, ptr %arrayidx42, i64 %31)
   %cmp6.i.i73 = icmp eq i32 %bcmp.i.i72, 0
   br i1 %cmp6.i.i73, label %do_enc_dec.exit.thread95, label %sw.bb52
 

@@ -830,7 +830,7 @@ define i32 @If_CutSopBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i.i, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
-  %54 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef readonly %34, ptr noundef nonnull readonly %6, ptr noundef nonnull %5, i32 noundef %10, ptr noundef nonnull %4)
+  %54 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef %34, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, ptr noundef nonnull %4)
   %55 = load i64, ptr %4, align 8
   br label %.lr.ph.i.i
 

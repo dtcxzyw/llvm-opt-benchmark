@@ -836,7 +836,7 @@ land.rhs.i:                                       ; preds = %entry
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %s.coerce1, i64 %.pre
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i.i, ptr readonly %suffix.coerce1, i64 %suffix.coerce0)
+  %bcmp.i = tail call i32 @bcmp(ptr %add.ptr.i.i.i, ptr %suffix.coerce1, i64 %suffix.coerce0)
   %cmp.i.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i.i, label %if.then, label %return
 
@@ -865,14 +865,14 @@ entry:
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 %1
   %add.ptr.i.i.i = getelementptr i8, ptr %2, i64 -11
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.3, i64 11)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.3, i64 11)
   %cmp.i.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %land.rhs.i.i17
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %.pre.i = add i64 %1, -11
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.pre.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.3, i64 11)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.3, i64 11)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i, i64 %.pre.i, i64 %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
@@ -891,7 +891,7 @@ if.else:                                          ; preds = %entry
 land.rhs.i.i17:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.else
   %.pre.i19 = add i64 %1, -6
   %add.ptr.i.i.i.i21 = getelementptr inbounds i8, ptr %0, i64 %.pre.i19
-  %bcmp.i.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i.i21, ptr noundef nonnull readonly dereferenceable(6) @.str.4, i64 6)
+  %bcmp.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i.i.i.i21, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
   %cmp.i.i.i.i23 = icmp eq i32 %bcmp.i.i22, 0
   %spec.select = select i1 %cmp.i.i.i.i23, i64 %.pre.i19, i64 %1
   br label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit29

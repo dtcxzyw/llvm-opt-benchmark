@@ -21422,7 +21422,7 @@ invoke.cont8:                                     ; preds = %_ZN7testing7Matcher
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %values.i, i8 0, i64 24, i1 false), !noalias !298
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %values.i, i8 0, i64 24, i1 false), !noalias !298
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i4), !noalias !298
   call void @llvm.experimental.noalias.scope.decl(metadata !301)
   call void @llvm.experimental.noalias.scope.decl(metadata !304)
@@ -31130,7 +31130,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i.i.i.i.i.i.i.i.i.i.i), !noalias !516
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i.i.i.i.i), !noalias !516
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %values.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !517
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %values.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !517
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !517
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !521)
@@ -39982,7 +39982,7 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_113InPlaceHelperEE9MakeV
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i, i64 12
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   store i64 %3, ptr %y.i.i, align 8
@@ -40011,7 +40011,7 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_113InPlaceHelperEE9MakeV
   %add.ptr.i1.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i10, i64 12
   %_M_end_of_storage.i.i.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i1.i.i.i.i19, ptr %_M_end_of_storage.i.i.i.i.i20, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i10, ptr noundef nonnull readonly align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i2.i.i.i.i10, ptr noundef nonnull align 4 dereferenceable(12) %ilist.coerce0, i64 12, i1 false)
   %_M_finish.i.i.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i1.i.i.i.i19, ptr %_M_finish.i.i.i.i.i23, align 8
   %y.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 32
@@ -50286,7 +50286,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !821)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i.i.i.i.i.i.i.i.i.i.i), !noalias !824
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i.i.i.i.i), !noalias !824
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %values.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !825
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %values.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !825
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !829)
@@ -54567,7 +54567,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !917)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i.i.i.i.i.i.i.i.i.i.i), !noalias !920
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i.i.i.i.i), !noalias !920
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %values.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !921
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %values.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !921
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !921
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !925)

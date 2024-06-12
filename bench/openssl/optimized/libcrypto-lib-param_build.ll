@@ -872,7 +872,7 @@ param_bld_convert.exit:                           ; preds = %for.inc.i, %if.end1
   %i.0.lcssa.i = phi i64 [ 0, %if.end16 ], [ %wide.trip.count.i, %for.inc.i ]
   %arrayidx81.i = getelementptr inbounds %struct.ossl_param_st, ptr %call12, i64 %i.0.lcssa.i
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %arrayidx81.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx81.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   call void @ossl_param_set_secure_block(ptr noundef nonnull %arrayidx81.i, ptr noundef %s.0, i64 noundef %mul5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bld, i8 0, i64 16, i1 false)

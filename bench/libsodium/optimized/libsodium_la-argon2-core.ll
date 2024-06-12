@@ -27,7 +27,7 @@ if.then:                                          ; preds = %entry
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr %struct.block_, ptr %1, i64 %idx.ext
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 -1024
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %blockhash, ptr noundef nonnull readonly align 8 dereferenceable(1024) %add.ptr2, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %blockhash, ptr noundef nonnull align 8 dereferenceable(1024) %add.ptr2, i64 1024, i1 false)
   %lanes = getelementptr inbounds i8, ptr %instance, i64 36
   %3 = load i32, ptr %lanes, align 4
   %cmp318 = icmp ugt i32 %3, 1

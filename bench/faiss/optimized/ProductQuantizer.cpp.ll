@@ -478,7 +478,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph73.us.preheader.i:                          ; preds = %..preheader_crit_edge.us.i
   %scevgep115.i = getelementptr i8, ptr %145, i64 %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %scevgep115.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep116.i, i64 %144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep115.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep116.i, i64 %144, i1 false)
   br label %._crit_edge.us77.i
 
 .lr.ph75.split.i:                                 ; preds = %.lr.ph75.i
@@ -504,7 +504,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   %indvar.i = phi i64 [ 0, %.preheader.us78.preheader.i ], [ %indvar.next.i, %.preheader.us78.i ]
   %169 = mul nuw nsw i64 %indvar.i, %162
   %scevgep.i = getelementptr i8, ptr %168, i64 %169
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep100.i, i64 %167, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep100.i, i64 %167, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond107.not.i = icmp eq i64 %indvar.next.i, %wide.trip.count106.i
   br i1 %exitcond107.not.i, label %._crit_edge76.i, label %.preheader.us78.i, !llvm.loop !9
@@ -746,7 +746,7 @@ _ZN5faissL14init_hypercubeEiiiPKfPf.exit:         ; preds = %._crit_edge76.threa
   %258 = load ptr, ptr %35, align 8
   %259 = getelementptr inbounds float, ptr %258, i64 %257
   %260 = shl i64 %256, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %259, ptr readonly align 4 %253, i64 %260, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %259, ptr align 4 %253, i64 %260, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %6, align 8
   %261 = load ptr, ptr %48, align 8
   %.not.i.i.i.i59 = icmp eq ptr %261, null
@@ -876,7 +876,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66: ; preds = %.body, %110
   %306 = load ptr, ptr %299, align 8
   %307 = getelementptr inbounds float, ptr %306, i64 %305
   %308 = shl i64 %304, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %307, ptr readonly align 4 %301, i64 %308, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %307, ptr align 4 %301, i64 %308, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %309 = load i64, ptr %292, align 8
   %310 = icmp ugt i64 %309, %indvars.iv.next
@@ -1082,7 +1082,7 @@ define void @_ZNK5faiss16ProductQuantizer6decodeEPKhPfm(ptr noundef nonnull alig
   %27 = load i64, ptr %22, align 8, !noalias !18
   %28 = mul i64 %27, %.015.i
   %29 = getelementptr inbounds float, ptr %2, i64 %28
-  call void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr noundef %26, ptr noundef %29), !noalias !18
+  call void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %26, ptr noundef %29), !noalias !18
   %30 = add nuw i64 %.015.i, 1
   %31 = load i64, ptr %6, align 8, !noalias !18
   %32 = add i64 %31, 1

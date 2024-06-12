@@ -602,7 +602,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %if.then.loopexit23.i, label %for.inc.i
 
@@ -667,7 +667,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %if.then.loopexit23.i, label %for.inc.i
 

@@ -240,7 +240,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
   %86 = getelementptr inbounds i8, ptr %calloc, i64 144
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %calloc, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %87, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %87, i8 0, i64 56, i1 false)
   %88 = getelementptr inbounds i8, ptr %calloc, i64 116
   store i32 0, ptr %88, align 4
   %89 = load ptr, ptr %10, align 8
@@ -418,7 +418,7 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
 
 65:                                               ; preds = %61, %58, %54
   %66 = getelementptr inbounds i8, ptr %3, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   %67 = getelementptr inbounds i8, ptr %3, i64 152
   %68 = load i32, ptr %67, align 8
   %.not66 = icmp eq i32 %68, 0

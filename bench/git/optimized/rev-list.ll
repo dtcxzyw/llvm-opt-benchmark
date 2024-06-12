@@ -235,22 +235,22 @@ do.cond.i.us:                                     ; preds = %do.body.i.us
   br i1 %cmp.i.us, label %do.body.i.us, label %for.inc30.us, !llvm.loop !7
 
 if.then17.us:                                     ; preds = %do.body.i.us
-  %call.i.us = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(6) @.str.34) #12
+  %call.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(6) @.str.34) #12
   %tobool.not.i50.us = icmp eq i32 %call.i.us, 0
   br i1 %tobool.not.i50.us, label %parse_missing_action_value.exit, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %if.then17.us
-  %call1.i.us = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(10) @.str.35) #12
+  %call1.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(10) @.str.35) #12
   %tobool2.not.i.us = icmp eq i32 %call1.i.us, 0
   br i1 %tobool2.not.i.us, label %return.sink.split.sink.split.i, label %if.end4.i.us
 
 if.end4.i.us:                                     ; preds = %if.end.i.us
-  %call5.i.us = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(6) @.str.36) #12
+  %call5.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(6) @.str.36) #12
   %tobool6.not.i.us = icmp eq i32 %call5.i.us, 0
   br i1 %tobool6.not.i.us, label %return.sink.split.sink.split.i, label %if.end8.i.us
 
 if.end8.i.us:                                     ; preds = %if.end4.i.us
-  %call9.i.us = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.37) #12
+  %call9.i.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.37) #12
   %tobool10.not.i.us = icmp eq i32 %call9.i.us, 0
   br i1 %tobool10.not.i.us, label %return.sink.split.sink.split.i, label %for.inc30.us
 

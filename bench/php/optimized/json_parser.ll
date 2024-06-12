@@ -184,7 +184,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   br label %php_json_yylex.exit
 
 .critedge.i:                                      ; preds = %69, %66, %63, %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   br label %php_json_yylex.exit
 
 php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %57
@@ -970,7 +970,7 @@ define void @php_json_parser_init(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull readonly align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
   ret void
 }
 

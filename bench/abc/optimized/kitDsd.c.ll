@@ -1246,7 +1246,7 @@ Kit_DsdPrint.exit:                                ; preds = %1, %8
   %9 = phi i16 [ %.pre.i, %8 ], [ %6, %1 ]
   %10 = lshr i16 %9, 1
   %11 = zext nneg i16 %10 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %3, ptr noundef nonnull readonly %2, i32 noundef %11)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %3, ptr noundef nonnull %2, i32 noundef %11)
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %2)
   ret void
 }
@@ -1421,7 +1421,7 @@ Kit_DsdPrint.exit:                                ; preds = %2, %10
   %11 = phi i16 [ %.pre.i, %10 ], [ %8, %2 ]
   %12 = lshr i16 %11, 1
   %13 = zext nneg i16 %12 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %5, ptr noundef nonnull readonly %4, i32 noundef %13)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %5, ptr noundef nonnull %4, i32 noundef %13)
   tail call void @Kit_DsdVerify(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %1)
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %4)
   tail call void @Kit_DsdNtkFree(ptr noundef %3)
@@ -1582,7 +1582,7 @@ Kit_DsdPrint2.exit:                               ; preds = %3, %9
   %10 = phi i16 [ %.pre.i, %9 ], [ %7, %3 ]
   %11 = lshr i16 %10, 1
   %12 = zext nneg i16 %11 to i32
-  tail call void @Kit_DsdPrint2_rec(ptr noundef %0, ptr noundef nonnull readonly %5, i32 noundef %12)
+  tail call void @Kit_DsdPrint2_rec(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %12)
   tail call void @Kit_DsdVerify(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2)
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %5)
   tail call void @Kit_DsdNtkFree(ptr noundef %4)
@@ -1610,7 +1610,7 @@ Kit_DsdWrite.exit:                                ; preds = %3, %9
   %.0.i = phi ptr [ %10, %9 ], [ %0, %3 ]
   %12 = lshr i16 %11, 1
   %13 = zext nneg i16 %12 to i32
-  %14 = tail call ptr @Kit_DsdWrite_rec(ptr noundef %.0.i, ptr noundef nonnull readonly %5, i32 noundef %13)
+  %14 = tail call ptr @Kit_DsdWrite_rec(ptr noundef %.0.i, ptr noundef nonnull %5, i32 noundef %13)
   store i8 0, ptr %14, align 1
   tail call void @Kit_DsdVerify(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2)
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %5)
@@ -1681,7 +1681,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
 select.unfold.preheader.i:                        ; preds = %32
   %37 = zext nneg i32 %spec.select.i to i64
   %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %25, i8 -1, i64 %38, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %25, i8 -1, i64 %38, i1 false)
   br label %.critedge2
 
 39:                                               ; preds = %27
@@ -1787,7 +1787,7 @@ select.unfold.i99:                                ; preds = %select.unfold.i99, 
 select.unfold.preheader.i103:                     ; preds = %80
   %87 = zext nneg i32 %spec.select.i102 to i64
   %88 = shl nuw nsw i64 %87, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %25, i8 -1, i64 %88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %25, i8 -1, i64 %88, i1 false)
   %.pre178 = load i32, ptr %19, align 4
   br label %Kit_TruthFill.exit104
 
@@ -1877,7 +1877,7 @@ Kit_TruthAndPhase.exit:                           ; preds = %select.unfold.i106,
 select.unfold.preheader.i110:                     ; preds = %124
   %131 = zext nneg i32 %spec.select.i109 to i64
   %132 = shl nuw nsw i64 %131, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %25, i8 0, i64 %132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %25, i8 0, i64 %132, i1 false)
   %.pre = load i32, ptr %19, align 4
   br label %Kit_TruthClear.exit
 
@@ -2214,7 +2214,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %4
 select.unfold.preheader.i:                        ; preds = %32
   %37 = zext nneg i32 %spec.select.i to i64
   %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %26, i8 -1, i64 %38, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %26, i8 -1, i64 %38, i1 false)
   br label %.critedge4
 
 39:                                               ; preds = %28
@@ -2380,7 +2380,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %70, %80, %82
 select.unfold.preheader.i149:                     ; preds = %112
   %119 = zext nneg i32 %spec.select.i148 to i64
   %120 = shl nuw nsw i64 %119, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %26, i8 -1, i64 %120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %26, i8 -1, i64 %120, i1 false)
   %.pre243 = load i32, ptr %20, align 4
   br label %Kit_TruthFill.exit150
 
@@ -2474,7 +2474,7 @@ Kit_TruthAndPhase.exit:                           ; preds = %select.unfold.i153,
 select.unfold.preheader.i157:                     ; preds = %157
   %164 = zext nneg i32 %spec.select.i156 to i64
   %165 = shl nuw nsw i64 %164, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %26, i8 0, i64 %165, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %26, i8 0, i64 %165, i1 false)
   %.pre241 = load i32, ptr %20, align 4
   br label %Kit_TruthClear.exit
 
@@ -3170,7 +3170,7 @@ Kit_DsdLitSupport.exit209:                        ; preds = %63, %72, %74
 select.unfold.preheader.i:                        ; preds = %94
   %101 = zext nneg i32 %spec.select.i to i64
   %102 = shl nuw nsw i64 %101, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %29, i8 -1, i64 %102, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, i8 -1, i64 %102, i1 false)
   %.pre433 = load i32, ptr %23, align 4
   br label %Kit_TruthFill.exit
 
@@ -3260,7 +3260,7 @@ Kit_TruthAndPhase.exit:                           ; preds = %select.unfold.i, %s
 select.unfold.preheader.i213:                     ; preds = %138
   %145 = zext nneg i32 %spec.select.i212 to i64
   %146 = shl nuw nsw i64 %145, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %29, i8 0, i64 %146, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, i8 0, i64 %146, i1 false)
   %.pre = load i32, ptr %23, align 4
   br label %Kit_TruthClear.exit
 
@@ -3474,7 +3474,7 @@ Kit_TruthIthVar.exit:                             ; preds = %234, %232, %.prehea
 select.unfold.preheader.i231:                     ; preds = %Kit_TruthIthVar.exit
   %244 = zext nneg i32 %spec.select.i230 to i64
   %245 = shl nuw nsw i64 %244, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %5, i8 -1, i64 %245, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %5, i8 -1, i64 %245, i1 false)
   br label %Kit_TruthFill.exit232
 
 Kit_TruthFill.exit232:                            ; preds = %Kit_TruthIthVar.exit, %select.unfold.preheader.i231
@@ -3661,7 +3661,7 @@ Kit_TruthIthVar.exit269:                          ; preds = %318, %316, %.prehea
 select.unfold.preheader.i271:                     ; preds = %Kit_TruthIthVar.exit269
   %328 = zext nneg i32 %spec.select.i270 to i64
   %329 = shl nuw nsw i64 %328, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %5, i8 0, i64 %329, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %5, i8 0, i64 %329, i1 false)
   br label %Kit_TruthClear.exit272
 
 Kit_TruthClear.exit272:                           ; preds = %Kit_TruthIthVar.exit269, %select.unfold.preheader.i271
@@ -4074,7 +4074,7 @@ Kit_DsdGetSupports.exit:                          ; preds = %Kit_DsdLitSupport.e
 select.unfold.preheader.i:                        ; preds = %55
   %62 = zext nneg i32 %spec.select.i to i64
   %63 = shl nuw nsw i64 %62, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %4, i8 0, i64 %63, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %4, i8 0, i64 %63, i1 false)
   %.pre96 = load i16, ptr %1, align 8
   br label %Kit_TruthClear.exit
 
@@ -6737,7 +6737,7 @@ define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly 
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 1
   %6 = zext nneg i16 %5 to i32
-  %7 = tail call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %0, i32 noundef %6, i32 noundef 2)
+  %7 = tail call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef %0, i32 noundef %6, i32 noundef 2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %Kit_DsdRootNodeHasCommonVars.exit
 
@@ -6746,7 +6746,7 @@ define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly 
   %10 = load i16, ptr %9, align 2
   %11 = lshr i16 %10, 1
   %12 = zext nneg i16 %11 to i32
-  %13 = tail call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %1, i32 noundef %12, i32 noundef 2)
+  %13 = tail call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef %1, i32 noundef %12, i32 noundef 2)
   %.not4 = icmp eq i32 %13, 0
   br i1 %.not4, label %14, label %Kit_DsdRootNodeHasCommonVars.exit
 
@@ -8450,7 +8450,7 @@ Kit_DsdPrint.exit:                                ; preds = %2, %22
   %23 = phi i16 [ %.pre.i, %22 ], [ %20, %2 ]
   %24 = lshr i16 %23, 1
   %25 = zext nneg i16 %24 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %17, ptr noundef nonnull readonly %0, i32 noundef %25)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %17, ptr noundef nonnull %0, i32 noundef %25)
   %putchar35 = tail call i32 @putchar(i32 10)
   %26 = load i16, ptr %0, align 8
   %.not = icmp eq i16 %26, 0
@@ -8487,7 +8487,7 @@ Kit_DsdPrint.exit42:                              ; preds = %.lr.ph, %39
   %40 = phi i16 [ %.pre.i41, %39 ], [ %37, %.lr.ph ]
   %41 = lshr i16 %40, 1
   %42 = zext nneg i16 %41 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %34, ptr noundef nonnull readonly %32, i32 noundef %42)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %34, ptr noundef nonnull %32, i32 noundef %42)
   %putchar37 = tail call i32 @putchar(i32 10)
   %43 = load i16, ptr %0, align 8
   %44 = zext i16 %43 to i32
@@ -8515,7 +8515,7 @@ Kit_DsdPrint.exit46:                              ; preds = %Kit_DsdPrint.exit42
   %56 = phi i16 [ %.pre.i45, %55 ], [ %53, %Kit_DsdPrint.exit42 ]
   %57 = lshr i16 %56, 1
   %58 = zext nneg i16 %57 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %50, ptr noundef nonnull readonly %48, i32 noundef %58)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %50, ptr noundef nonnull %48, i32 noundef %58)
   %putchar38 = tail call i32 @putchar(i32 10)
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %32)
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %48)
@@ -8721,7 +8721,7 @@ Kit_DsdPrint.exit:                                ; preds = %2, %10
   %11 = phi i16 [ %.pre.i, %10 ], [ %8, %2 ]
   %12 = lshr i16 %11, 1
   %13 = zext nneg i16 %12 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %5, ptr noundef nonnull readonly %4, i32 noundef %13)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %5, ptr noundef nonnull %4, i32 noundef %13)
   %putchar = tail call i32 @putchar(i32 10)
   %.val = load i16, ptr %4, align 8
   %14 = getelementptr i8, ptr %4, i64 4
@@ -8879,7 +8879,7 @@ define void @Kit_DsdPrecompute4Vars() local_unnamed_addr #0 {
   %15 = load i16, ptr %14, align 2
   %16 = lshr i16 %15, 1
   %17 = zext nneg i16 %16 to i32
-  %18 = call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %13, i32 noundef %17, i32 noundef 3)
+  %18 = call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef %13, i32 noundef %17, i32 noundef 3)
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %31, label %19
 
@@ -8903,7 +8903,7 @@ Kit_DsdPrint.exit:                                ; preds = %19, %26
   %27 = phi i16 [ %.pre.i, %26 ], [ %24, %19 ]
   %28 = lshr i16 %27, 1
   %29 = zext nneg i16 %28 to i32
-  call void @Kit_DsdPrint_rec(ptr noundef %22, ptr noundef nonnull readonly %13, i32 noundef %29)
+  call void @Kit_DsdPrint_rec(ptr noundef %22, ptr noundef nonnull %13, i32 noundef %29)
   %putchar24 = call i32 @putchar(i32 10)
   %30 = add nsw i32 %.02035, 1
   br label %31
@@ -9797,7 +9797,7 @@ Kit_DsdPrint.exit:                                ; preds = %Kit_DsdNtkFree.exit
   %235 = phi i16 [ %.pre.i221, %234 ], [ %232, %Kit_DsdNtkFree.exit219 ]
   %236 = lshr i16 %235, 1
   %237 = zext nneg i16 %236 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %229, ptr noundef nonnull readonly %185, i32 noundef %237)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %229, ptr noundef nonnull %185, i32 noundef %237)
   %putchar = tail call i32 @putchar(i32 10)
   %238 = trunc nuw nsw i64 %177 to i32
   %239 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %170, i32 noundef %238)
@@ -9818,7 +9818,7 @@ Kit_DsdPrint.exit225:                             ; preds = %Kit_DsdPrint.exit, 
   %246 = phi i16 [ %.pre.i224, %245 ], [ %243, %Kit_DsdPrint.exit ]
   %247 = lshr i16 %246, 1
   %248 = zext nneg i16 %247 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %240, ptr noundef nonnull readonly %206, i32 noundef %248)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %240, ptr noundef nonnull %206, i32 noundef %248)
   %putchar158 = tail call i32 @putchar(i32 10)
   br label %249
 
@@ -9956,7 +9956,7 @@ Kit_DsdPrint.exit:                                ; preds = %9, %15
   %16 = phi i16 [ %.pre.i, %15 ], [ %13, %9 ]
   %17 = lshr i16 %16, 1
   %18 = zext nneg i16 %17 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %10, ptr noundef nonnull readonly %8, i32 noundef %18)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %10, ptr noundef nonnull %8, i32 noundef %18)
   %putchar = tail call i32 @putchar(i32 10)
   br label %19
 
@@ -10133,7 +10133,7 @@ Kit_DsdPrint.exit341:                             ; preds = %80, %88
   %89 = phi i16 [ %.pre.i340, %88 ], [ %86, %80 ]
   %90 = lshr i16 %89, 1
   %91 = zext nneg i16 %90 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %83, ptr noundef nonnull readonly %59, i32 noundef %91)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %83, ptr noundef nonnull %59, i32 noundef %91)
   %putchar328 = tail call i32 @putchar(i32 10)
   br label %92
 
@@ -10397,7 +10397,7 @@ Kit_DsdPrint.exit371:                             ; preds = %183, %191
   %192 = phi i16 [ %.pre.i370, %191 ], [ %189, %183 ]
   %193 = lshr i16 %192, 1
   %194 = zext nneg i16 %193 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %186, ptr noundef nonnull readonly %162, i32 noundef %194)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %186, ptr noundef nonnull %162, i32 noundef %194)
   %putchar326 = tail call i32 @putchar(i32 10)
   br label %195
 
@@ -10687,7 +10687,7 @@ Kit_DsdPrint.exit409:                             ; preds = %291, %299
   %300 = phi i16 [ %.pre.i408, %299 ], [ %297, %291 ]
   %301 = lshr i16 %300, 1
   %302 = zext nneg i16 %301 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %294, ptr noundef nonnull readonly %270, i32 noundef %302)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %294, ptr noundef nonnull %270, i32 noundef %302)
   %putchar324 = tail call i32 @putchar(i32 10)
   br label %303
 
@@ -10987,7 +10987,7 @@ Kit_DsdPrint.exit447:                             ; preds = %403, %411
   %412 = phi i16 [ %.pre.i446, %411 ], [ %409, %403 ]
   %413 = lshr i16 %412, 1
   %414 = zext nneg i16 %413 to i32
-  tail call void @Kit_DsdPrint_rec(ptr noundef %406, ptr noundef nonnull readonly %382, i32 noundef %414)
+  tail call void @Kit_DsdPrint_rec(ptr noundef %406, ptr noundef nonnull %382, i32 noundef %414)
   %putchar322 = tail call i32 @putchar(i32 10)
   br label %415
 

@@ -40,7 +40,7 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 17, ptr %3, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %5, align 4
   %.0158201 = add i32 %2, -1
   %10 = icmp sgt i32 %.0158201, -1
@@ -1316,7 +1316,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i32 17, ptr %8, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 4
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %31 = icmp ult i64 %30, 2
@@ -1539,7 +1539,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %151 = icmp eq i8 %150, 45
   %spec.select.idx.i.i = zext i1 %151 to i64
   %spec.select.i.i = getelementptr i8, ptr %37, i64 %spec.select.idx.i.i
-  %152 = call i64 @strspn(ptr noundef readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
+  %152 = call i64 @strspn(ptr noundef %spec.select.i.i, ptr noundef nonnull @.str.28) #14
   %153 = and i64 %152, 4294967295
   %154 = icmp ne i64 %153, 8
   %brmerge.i = or i1 %.074.i, %154
@@ -1882,7 +1882,7 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   %340 = icmp eq i8 %339, 45
   %spec.select.idx.i125.i = zext i1 %340 to i64
   %spec.select.i126.i = getelementptr i8, ptr %37, i64 %spec.select.idx.i125.i
-  %341 = call i64 @strspn(ptr noundef readonly %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
+  %341 = call i64 @strspn(ptr noundef %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
   %342 = and i64 %341, 4294967295
   %343 = icmp ne i64 %342, 6
   %brmerge95.i = or i1 %.074.i, %343

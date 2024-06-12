@@ -593,7 +593,7 @@ while.end:                                        ; preds = %land.rhs
 lor.lhs.false.i.i:                                ; preds = %while.end
   %sub.i.i = add i64 %4, -4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %sub.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.29, i64 4)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i, ptr noundef nonnull dereferenceable(4) @.str.29, i64 4)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i27, label %strbuf_strip_suffix.exit
 
@@ -619,7 +619,7 @@ if.then4.i.i:                                     ; preds = %if.end.i5.i
 
 strbuf_strip_suffix.exit:                         ; preds = %while.end.thread, %while.end, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
   %13 = phi ptr [ %11, %while.end ], [ %11, %lor.lhs.false.i.i ], [ @strbuf_slopbuf, %if.end.i5.i ], [ %.pre108, %if.then4.i.i ], [ %10, %while.end.thread ]
-  %call.i28 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %13, i32 noundef 47) #18
+  %call.i28 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 47) #18
   %tobool69.not = icmp eq ptr %call.i28, null
   br i1 %tobool69.not, label %if.then70, label %if.end
 
@@ -774,7 +774,7 @@ lor.lhs.false.i:                                  ; preds = %do.body.i.i
 lor.lhs.false.i.i51:                              ; preds = %lor.lhs.false.i
   %sub.i.i52 = add i64 %sub.ptr.sub.i, -5
   %add.ptr.i.i53 = getelementptr inbounds i8, ptr %line.054.i, i64 %sub.i.i52
-  %bcmp.i.i54 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i53, ptr noundef nonnull readonly dereferenceable(5) @.str.70, i64 5)
+  %bcmp.i.i54 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i53, ptr noundef nonnull dereferenceable(5) @.str.70, i64 5)
   %tobool.not.i11.i = icmp eq i32 %bcmp.i.i54, 0
   br i1 %tobool.not.i11.i, label %if.end.i55, label %if.then5.i
 
@@ -1148,7 +1148,7 @@ if.then7:                                         ; preds = %land.lhs.true
 lor.lhs.false.i.i:                                ; preds = %if.then7
   %sub.i.i = add i64 %5, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.144, i64 5)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.144, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
 
@@ -1191,7 +1191,7 @@ strbuf_strip_suffix.exit:                         ; preds = %if.then7, %lor.lhs.
 lor.lhs.false.i.i13:                              ; preds = %strbuf_strip_suffix.exit
   %sub.i.i14 = add i64 %11, -5
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %10, i64 %sub.i.i14
-  %bcmp.i.i16 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i15, ptr noundef nonnull readonly dereferenceable(5) @.str.144, i64 5)
+  %bcmp.i.i16 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i15, ptr noundef nonnull dereferenceable(5) @.str.144, i64 5)
   %tobool.not.i.i17 = icmp eq i32 %bcmp.i.i16, 0
   br i1 %tobool.not.i.i17, label %if.then.i19, label %strbuf_strip_suffix.exit26
 

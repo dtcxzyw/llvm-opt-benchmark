@@ -218,7 +218,7 @@ define internal i32 @prte_rmaps_seq_map(ptr noundef %0, ptr noundef %1) #0 {
   %85 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 1, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %86, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, i8 0, i64 64, i1 false)
   %87 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %88 = load ptr, ptr %87, align 8
   %.not6.i = icmp eq ptr %88, null
@@ -416,7 +416,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 184:                                              ; preds = %183, %180
   store ptr @pmix_list_t_class, ptr %.0275.sroa.gep557, align 8
   store i32 1, ptr %149, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %150, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %150, i8 0, i64 64, i1 false)
   %185 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %186 = load ptr, ptr %185, align 8
   %.not6.i408 = icmp eq ptr %186, null
@@ -566,7 +566,7 @@ pmix_obj_run_destructors.exit419:                 ; preds = %.lr.ph.i416, %213
 254:                                              ; preds = %253, %250
   store ptr @pmix_list_t_class, ptr %151, align 8
   store i32 1, ptr %152, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %153, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %153, i8 0, i64 64, i1 false)
   %255 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %256 = load ptr, ptr %255, align 8
   %.not6.i426 = icmp eq ptr %256, null
@@ -607,7 +607,7 @@ pmix_obj_run_constructors.exit430:                ; preds = %.lr.ph.i427, %254
 268:                                              ; preds = %267, %264
   store ptr @pmix_list_t_class, ptr %.0275.sroa.gep557, align 8
   store i32 1, ptr %149, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %150, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %150, i8 0, i64 64, i1 false)
   %269 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %270 = load ptr, ptr %269, align 8
   %.not6.i431 = icmp eq ptr %270, null
@@ -811,7 +811,7 @@ pmix_obj_run_destructors.exit443:                 ; preds = %.lr.ph.i440, %322
 365:                                              ; preds = %364, %361
   store ptr @pmix_list_t_class, ptr %.0275.sroa.gep557, align 8
   store i32 1, ptr %149, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %150, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %150, i8 0, i64 64, i1 false)
   %366 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %367 = load ptr, ptr %366, align 8
   %.not6.i450 = icmp eq ptr %367, null
@@ -1167,7 +1167,7 @@ pmix_pointer_array_get_item.exit476:              ; preds = %pmix_pointer_array_
   %532 = load ptr, ptr %526, align 8
   %533 = getelementptr inbounds i8, ptr %529, i64 152
   %534 = load ptr, ptr %533, align 8
-  %535 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull readonly dereferenceable(1) %532) #15
+  %535 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull dereferenceable(1) %532) #15
   %536 = icmp eq i32 %535, 0
   br i1 %536, label %.thread575, label %537
 
@@ -1177,12 +1177,12 @@ pmix_pointer_array_get_item.exit476:              ; preds = %pmix_pointer_array_
   br i1 %539, label %540, label %546
 
 540:                                              ; preds = %537
-  %541 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.24) #15
+  %541 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.24) #15
   %542 = icmp eq i32 %541, 0
   br i1 %542, label %.thread575, label %543
 
 543:                                              ; preds = %540
-  %544 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.25) #15
+  %544 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %532, ptr noundef nonnull dereferenceable(10) @.str.25) #15
   %545 = icmp eq i32 %544, 0
   br i1 %545, label %.thread575, label %546
 
@@ -1207,7 +1207,7 @@ pmix_pointer_array_get_item.exit476:              ; preds = %pmix_pointer_array_
 .lr.ph.i478:                                      ; preds = %.preheader.i, %550
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %550 ], [ 0, %.preheader.i ]
   %553 = phi ptr [ %552, %550 ], [ %549, %.preheader.i ]
-  %554 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %553, ptr noundef nonnull readonly dereferenceable(1) %532) #15
+  %554 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %553, ptr noundef nonnull dereferenceable(1) %532) #15
   %555 = icmp eq i32 %554, 0
   br i1 %555, label %.thread575, label %550
 

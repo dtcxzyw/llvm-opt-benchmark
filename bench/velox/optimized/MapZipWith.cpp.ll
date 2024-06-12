@@ -5645,7 +5645,7 @@ if.then.i.i68.i.i:                                ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i.i154:                              ; preds = %if.then.i.i68.i.i, %.noexc.i.i
   %row.011.i.i.i.i = phi i32 [ %inc.i.i.i.i, %.noexc.i.i ], [ %226, %if.then.i.i68.i.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i.i, i32 noundef %row.011.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i, i32 noundef %row.011.i.i.i.i)
           to label %.noexc.i.i unwind label %lpad16.loopexit.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i.i154
@@ -5661,10 +5661,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZNK8facebook5velox
   %231 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i.i, i64 8
   store ptr %229, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, align 8
@@ -5708,7 +5708,7 @@ while.body.i.i.i.i.i.i.i.i:                       ; preds = %if.then3.i.i.i.i.i.
   %235 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %235 to i32
   %add.i26.i.i.i.i.i.i.i = or disjoint i32 %233, %cast.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i.i.i)
           to label %.noexc69.i.i unwind label %lpad16.loopexit.split-lp.loopexit.i.i
 
 .noexc69.i.i:                                     ; preds = %while.body.i.i.i.i.i.i.i.i
@@ -5746,7 +5746,7 @@ while.body.i42.i.i.i.i.i.i.i:                     ; preds = %.noexc70.i.i, %whil
   %237 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i.i.i = trunc nuw nsw i64 %237 to i32
   %add.i45.i.i.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i.i.i, %cast.i44.i.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i.i.i)
           to label %.noexc70.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc70.i.i:                                     ; preds = %while.body.i42.i.i.i.i.i.i.i
@@ -5791,7 +5791,7 @@ for.body.lr.ph.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %.noexc71.i.i, %for.body.lr.ph.i.i.i.i.i.i.i.i
   %row.015.i.i.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i.i.i, %.noexc71.i.i ]
   %conv7.i.i.i.i.i.i.i.i = trunc i64 %row.015.i.i.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i.i.i)
           to label %.noexc71.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc71.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i
@@ -5804,7 +5804,7 @@ while.body.i55.i.i.i.i.i.i.i:                     ; preds = %.noexc72.i.i, %whil
   %239 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i.i, i1 true)
   %cast.i56.i.i.i.i.i.i.i = trunc nuw nsw i64 %239 to i32
   %add10.i.i.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i.i.i, %cast.i56.i.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i.i)
           to label %.noexc72.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc72.i.i:                                     ; preds = %while.body.i55.i.i.i.i.i.i.i
@@ -5840,7 +5840,7 @@ while.body.i70.i.i.i.i.i.i.i:                     ; preds = %if.then19.i.i.i.i.i
   %241 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i.i, i1 true)
   %cast.i72.i.i.i.i.i.i.i = trunc nuw nsw i64 %241 to i32
   %add.i73.i.i.i.i.i.i.i = or disjoint i32 %233, %cast.i72.i.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i.i.i)
           to label %.noexc73.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc73.i.i:                                     ; preds = %while.body.i70.i.i.i.i.i.i.i
@@ -6028,7 +6028,7 @@ if.then.i.i215.i.i:                               ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i.i:                              ; preds = %if.then.i.i215.i.i, %.noexc.i.i.i
   %row.011.i.i220.i.i = phi i32 [ %inc.i.i221.i.i, %.noexc.i.i.i ], [ %261, %if.then.i.i215.i.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i.i, i32 noundef %row.011.i.i220.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i.i, i32 noundef %row.011.i.i220.i.i)
           to label %.noexc.i.i.i unwind label %lpad.loopexit.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %for.body.i.i219.i.i
@@ -6044,10 +6044,10 @@ if.else.i.i98.i.i:                                ; preds = %_ZNK8facebook5velox
   %266 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i.i, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i.i, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i.i, i64 8
   store ptr %264, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i.i, align 8
@@ -6091,7 +6091,7 @@ while.body.i.i.i.i.i.i208.i.i:                    ; preds = %if.then3.i.i.i.i.i1
   %270 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i.i, i1 true)
   %cast.i.i.i.i.i.i210.i.i = trunc nuw nsw i64 %270 to i32
   %add.i26.i.i.i.i.i211.i.i = or disjoint i32 %268, %cast.i.i.i.i.i.i210.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i26.i.i.i.i.i211.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i26.i.i.i.i.i211.i.i)
           to label %.noexc2.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i.i
 
 .noexc2.i.i.i:                                    ; preds = %while.body.i.i.i.i.i.i208.i.i
@@ -6129,7 +6129,7 @@ while.body.i42.i.i.i.i.i130.i.i:                  ; preds = %.noexc3.i.i.i, %whi
   %272 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i.i, i1 true)
   %cast.i44.i.i.i.i.i132.i.i = trunc nuw nsw i64 %272 to i32
   %add.i45.i.i.i.i.i133.i.i = or disjoint i32 %mul.i41.i.i.i.i.i129.i.i, %cast.i44.i.i.i.i.i132.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i45.i.i.i.i.i133.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i45.i.i.i.i.i133.i.i)
           to label %.noexc3.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 .noexc3.i.i.i:                                    ; preds = %while.body.i42.i.i.i.i.i130.i.i
@@ -6174,7 +6174,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i.i:                ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i.i:                      ; preds = %.noexc4.i.i.i, %for.body.lr.ph.i.i.i.i.i.i174.i.i
   %row.015.i.i.i.i.i.i177.i.i = phi i64 [ %conv.i.i.i.i.i.i175.i.i, %for.body.lr.ph.i.i.i.i.i.i174.i.i ], [ %inc.i.i.i.i.i.i179.i.i, %.noexc4.i.i.i ]
   %conv7.i.i.i.i.i.i178.i.i = trunc i64 %row.015.i.i.i.i.i.i177.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, i32 noundef %conv7.i.i.i.i.i.i178.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, i32 noundef %conv7.i.i.i.i.i.i178.i.i)
           to label %.noexc4.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 .noexc4.i.i.i:                                    ; preds = %for.body.i.i.i.i.i.i176.i.i
@@ -6187,7 +6187,7 @@ while.body.i55.i.i.i.i.i183.i.i:                  ; preds = %.noexc5.i.i.i, %whi
   %274 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i.i, i1 true)
   %cast.i56.i.i.i.i.i185.i.i = trunc nuw nsw i64 %274 to i32
   %add10.i.i.i.i.i.i186.i.i = or disjoint i32 %mul9.i.i.i.i.i.i182.i.i, %cast.i56.i.i.i.i.i185.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, i32 noundef %add10.i.i.i.i.i.i186.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, i32 noundef %add10.i.i.i.i.i.i186.i.i)
           to label %.noexc5.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 .noexc5.i.i.i:                                    ; preds = %while.body.i55.i.i.i.i.i183.i.i
@@ -6223,7 +6223,7 @@ while.body.i70.i.i.i.i.i161.i.i:                  ; preds = %if.then19.i.i.i.i.i
   %276 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i.i, i1 true)
   %cast.i72.i.i.i.i.i163.i.i = trunc nuw nsw i64 %276 to i32
   %add.i73.i.i.i.i.i164.i.i = or disjoint i32 %268, %cast.i72.i.i.i.i.i163.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i73.i.i.i.i.i164.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i73.i.i.i.i.i164.i.i)
           to label %.noexc6.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 .noexc6.i.i.i:                                    ; preds = %while.body.i70.i.i.i.i.i161.i.i
@@ -6458,7 +6458,7 @@ if.then.i.i426.i.i:                               ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i.i:                              ; preds = %if.then.i.i426.i.i, %.noexc.i434.i.i
   %row.011.i.i431.i.i = phi i32 [ %inc.i.i435.i.i, %.noexc.i434.i.i ], [ %299, %if.then.i.i426.i.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i.i, i32 noundef %row.011.i.i431.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i.i, i32 noundef %row.011.i.i431.i.i)
           to label %.noexc.i434.i.i unwind label %lpad.loopexit.i432.i.i
 
 .noexc.i434.i.i:                                  ; preds = %for.body.i.i430.i.i
@@ -6474,10 +6474,10 @@ if.else.i.i284.i.i:                               ; preds = %_ZNK8facebook5velox
   %304 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i.i, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i.i, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i.i, i64 8
   store ptr %302, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i.i, align 8
@@ -6521,7 +6521,7 @@ while.body.i.i.i.i.i.i416.i.i:                    ; preds = %if.then3.i.i.i.i.i3
   %308 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i.i, i1 true)
   %cast.i.i.i.i.i.i418.i.i = trunc nuw nsw i64 %308 to i32
   %add.i26.i.i.i.i.i419.i.i = or disjoint i32 %306, %cast.i.i.i.i.i.i418.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i26.i.i.i.i.i419.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i26.i.i.i.i.i419.i.i)
           to label %.noexc2.i422.i.i unwind label %lpad.loopexit.split-lp.loopexit.i420.i.i
 
 .noexc2.i422.i.i:                                 ; preds = %while.body.i.i.i.i.i.i416.i.i
@@ -6559,7 +6559,7 @@ while.body.i42.i.i.i.i.i319.i.i:                  ; preds = %.noexc3.i333.i.i, %
   %310 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i.i, i1 true)
   %cast.i44.i.i.i.i.i321.i.i = trunc nuw nsw i64 %310 to i32
   %add.i45.i.i.i.i.i322.i.i = or disjoint i32 %mul.i41.i.i.i.i.i318.i.i, %cast.i44.i.i.i.i.i321.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i45.i.i.i.i.i322.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i45.i.i.i.i.i322.i.i)
           to label %.noexc3.i333.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i.i
 
 .noexc3.i333.i.i:                                 ; preds = %while.body.i42.i.i.i.i.i319.i.i
@@ -6604,7 +6604,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i.i:                ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i.i:                      ; preds = %.noexc4.i383.i.i, %for.body.lr.ph.i.i.i.i.i.i376.i.i
   %row.015.i.i.i.i.i.i379.i.i = phi i64 [ %conv.i.i.i.i.i.i377.i.i, %for.body.lr.ph.i.i.i.i.i.i376.i.i ], [ %inc.i.i.i.i.i.i384.i.i, %.noexc4.i383.i.i ]
   %conv7.i.i.i.i.i.i380.i.i = trunc i64 %row.015.i.i.i.i.i.i379.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, i32 noundef %conv7.i.i.i.i.i.i380.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, i32 noundef %conv7.i.i.i.i.i.i380.i.i)
           to label %.noexc4.i383.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i.i
 
 .noexc4.i383.i.i:                                 ; preds = %for.body.i.i.i.i.i.i378.i.i
@@ -6617,7 +6617,7 @@ while.body.i55.i.i.i.i.i388.i.i:                  ; preds = %.noexc5.i394.i.i, %
   %312 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i.i, i1 true)
   %cast.i56.i.i.i.i.i390.i.i = trunc nuw nsw i64 %312 to i32
   %add10.i.i.i.i.i.i391.i.i = or disjoint i32 %mul9.i.i.i.i.i.i387.i.i, %cast.i56.i.i.i.i.i390.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, i32 noundef %add10.i.i.i.i.i.i391.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, i32 noundef %add10.i.i.i.i.i.i391.i.i)
           to label %.noexc5.i394.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i.i
 
 .noexc5.i394.i.i:                                 ; preds = %while.body.i55.i.i.i.i.i388.i.i
@@ -6653,7 +6653,7 @@ while.body.i70.i.i.i.i.i360.i.i:                  ; preds = %if.then19.i.i.i.i.i
   %314 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i.i, i1 true)
   %cast.i72.i.i.i.i.i362.i.i = trunc nuw nsw i64 %314 to i32
   %add.i73.i.i.i.i.i363.i.i = or disjoint i32 %306, %cast.i72.i.i.i.i.i362.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i73.i.i.i.i.i363.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i73.i.i.i.i.i363.i.i)
           to label %.noexc6.i366.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i.i
 
 .noexc6.i366.i.i:                                 ; preds = %while.body.i70.i.i.i.i.i360.i.i
@@ -7329,7 +7329,7 @@ if.then.i.i68.i763.i:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i767.i:                              ; preds = %if.then.i.i68.i763.i, %.noexc.i771.i
   %row.011.i.i.i768.i = phi i32 [ %inc.i.i.i772.i, %.noexc.i771.i ], [ %394, %if.then.i.i68.i763.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i17.i, i32 noundef %row.011.i.i.i768.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i17.i, i32 noundef %row.011.i.i.i768.i)
           to label %.noexc.i771.i unwind label %lpad16.loopexit.i769.i
 
 .noexc.i771.i:                                    ; preds = %for.body.i.i.i767.i
@@ -7345,10 +7345,10 @@ if.else.i.i.i635.i:                               ; preds = %_ZNK8facebook5velox
   %399 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i16.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i16.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i17.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i17.i, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i15.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i15.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i17.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i17.i, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i15.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i640.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i15.i, i64 8
   store ptr %397, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i640.i, align 8
@@ -7392,7 +7392,7 @@ while.body.i.i.i.i.i.i.i753.i:                    ; preds = %if.then3.i.i.i.i.i.
   %403 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i754.i, i1 true)
   %cast.i.i.i.i.i.i.i755.i = trunc nuw nsw i64 %403 to i32
   %add.i26.i.i.i.i.i.i756.i = or disjoint i32 %401, %cast.i.i.i.i.i.i.i755.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i26.i.i.i.i.i.i756.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i26.i.i.i.i.i.i756.i)
           to label %.noexc69.i759.i unwind label %lpad16.loopexit.split-lp.loopexit.i757.i
 
 .noexc69.i759.i:                                  ; preds = %while.body.i.i.i.i.i.i.i753.i
@@ -7430,7 +7430,7 @@ while.body.i42.i.i.i.i.i.i664.i:                  ; preds = %.noexc70.i670.i, %w
   %405 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i665.i, i1 true)
   %cast.i44.i.i.i.i.i.i666.i = trunc nuw nsw i64 %405 to i32
   %add.i45.i.i.i.i.i.i667.i = or disjoint i32 %mul.i41.i.i.i.i.i.i663.i, %cast.i44.i.i.i.i.i.i666.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i45.i.i.i.i.i.i667.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i45.i.i.i.i.i.i667.i)
           to label %.noexc70.i670.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i668.i
 
 .noexc70.i670.i:                                  ; preds = %while.body.i42.i.i.i.i.i.i664.i
@@ -7475,7 +7475,7 @@ for.body.lr.ph.i.i.i.i.i.i.i713.i:                ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i715.i:                      ; preds = %.noexc71.i720.i, %for.body.lr.ph.i.i.i.i.i.i.i713.i
   %row.015.i.i.i.i.i.i.i716.i = phi i64 [ %conv.i.i.i.i.i.i.i714.i, %for.body.lr.ph.i.i.i.i.i.i.i713.i ], [ %inc.i.i.i.i.i.i.i721.i, %.noexc71.i720.i ]
   %conv7.i.i.i.i.i.i.i717.i = trunc i64 %row.015.i.i.i.i.i.i.i716.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, i32 noundef %conv7.i.i.i.i.i.i.i717.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, i32 noundef %conv7.i.i.i.i.i.i.i717.i)
           to label %.noexc71.i720.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i718.i
 
 .noexc71.i720.i:                                  ; preds = %for.body.i.i.i.i.i.i.i715.i
@@ -7488,7 +7488,7 @@ while.body.i55.i.i.i.i.i.i725.i:                  ; preds = %.noexc72.i731.i, %w
   %407 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i726.i, i1 true)
   %cast.i56.i.i.i.i.i.i727.i = trunc nuw nsw i64 %407 to i32
   %add10.i.i.i.i.i.i.i728.i = or disjoint i32 %mul9.i.i.i.i.i.i.i724.i, %cast.i56.i.i.i.i.i.i727.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, i32 noundef %add10.i.i.i.i.i.i.i728.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, i32 noundef %add10.i.i.i.i.i.i.i728.i)
           to label %.noexc72.i731.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i729.i
 
 .noexc72.i731.i:                                  ; preds = %while.body.i55.i.i.i.i.i.i725.i
@@ -7524,7 +7524,7 @@ while.body.i70.i.i.i.i.i.i697.i:                  ; preds = %if.then19.i.i.i.i.i
   %409 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i698.i, i1 true)
   %cast.i72.i.i.i.i.i.i699.i = trunc nuw nsw i64 %409 to i32
   %add.i73.i.i.i.i.i.i700.i = or disjoint i32 %401, %cast.i72.i.i.i.i.i.i699.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i73.i.i.i.i.i.i700.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i73.i.i.i.i.i.i700.i)
           to label %.noexc73.i703.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i701.i
 
 .noexc73.i703.i:                                  ; preds = %while.body.i70.i.i.i.i.i.i697.i
@@ -7712,7 +7712,7 @@ if.then.i.i215.i582.i:                            ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i586.i:                           ; preds = %if.then.i.i215.i582.i, %.noexc.i.i590.i
   %row.011.i.i220.i587.i = phi i32 [ %inc.i.i221.i591.i, %.noexc.i.i590.i ], [ %429, %if.then.i.i215.i582.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i10.i, i32 noundef %row.011.i.i220.i587.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i10.i, i32 noundef %row.011.i.i220.i587.i)
           to label %.noexc.i.i590.i unwind label %lpad.loopexit.i.i588.i
 
 .noexc.i.i590.i:                                  ; preds = %for.body.i.i219.i586.i
@@ -7728,10 +7728,10 @@ if.else.i.i98.i441.i:                             ; preds = %_ZNK8facebook5velox
   %434 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i9.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i9.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i10.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i10.i, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i8.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i8.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i10.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i10.i, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i8.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i446.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i8.i, i64 8
   store ptr %432, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i446.i, align 8
@@ -7775,7 +7775,7 @@ while.body.i.i.i.i.i.i208.i572.i:                 ; preds = %if.then3.i.i.i.i.i1
   %438 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i573.i, i1 true)
   %cast.i.i.i.i.i.i210.i574.i = trunc nuw nsw i64 %438 to i32
   %add.i26.i.i.i.i.i211.i575.i = or disjoint i32 %436, %cast.i.i.i.i.i.i210.i574.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i26.i.i.i.i.i211.i575.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i26.i.i.i.i.i211.i575.i)
           to label %.noexc2.i.i578.i unwind label %lpad.loopexit.split-lp.loopexit.i.i576.i
 
 .noexc2.i.i578.i:                                 ; preds = %while.body.i.i.i.i.i.i208.i572.i
@@ -7813,7 +7813,7 @@ while.body.i42.i.i.i.i.i130.i476.i:               ; preds = %.noexc3.i.i489.i, %
   %440 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i477.i, i1 true)
   %cast.i44.i.i.i.i.i132.i478.i = trunc nuw nsw i64 %440 to i32
   %add.i45.i.i.i.i.i133.i479.i = or disjoint i32 %mul.i41.i.i.i.i.i129.i475.i, %cast.i44.i.i.i.i.i132.i478.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i45.i.i.i.i.i133.i479.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i45.i.i.i.i.i133.i479.i)
           to label %.noexc3.i.i489.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i480.i
 
 .noexc3.i.i489.i:                                 ; preds = %while.body.i42.i.i.i.i.i130.i476.i
@@ -7858,7 +7858,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i532.i:             ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i534.i:                   ; preds = %.noexc4.i.i539.i, %for.body.lr.ph.i.i.i.i.i.i174.i532.i
   %row.015.i.i.i.i.i.i177.i535.i = phi i64 [ %conv.i.i.i.i.i.i175.i533.i, %for.body.lr.ph.i.i.i.i.i.i174.i532.i ], [ %inc.i.i.i.i.i.i179.i540.i, %.noexc4.i.i539.i ]
   %conv7.i.i.i.i.i.i178.i536.i = trunc i64 %row.015.i.i.i.i.i.i177.i535.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, i32 noundef %conv7.i.i.i.i.i.i178.i536.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, i32 noundef %conv7.i.i.i.i.i.i178.i536.i)
           to label %.noexc4.i.i539.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i537.i
 
 .noexc4.i.i539.i:                                 ; preds = %for.body.i.i.i.i.i.i176.i534.i
@@ -7871,7 +7871,7 @@ while.body.i55.i.i.i.i.i183.i544.i:               ; preds = %.noexc5.i.i550.i, %
   %442 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i545.i, i1 true)
   %cast.i56.i.i.i.i.i185.i546.i = trunc nuw nsw i64 %442 to i32
   %add10.i.i.i.i.i.i186.i547.i = or disjoint i32 %mul9.i.i.i.i.i.i182.i543.i, %cast.i56.i.i.i.i.i185.i546.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, i32 noundef %add10.i.i.i.i.i.i186.i547.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, i32 noundef %add10.i.i.i.i.i.i186.i547.i)
           to label %.noexc5.i.i550.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i548.i
 
 .noexc5.i.i550.i:                                 ; preds = %while.body.i55.i.i.i.i.i183.i544.i
@@ -7907,7 +7907,7 @@ while.body.i70.i.i.i.i.i161.i516.i:               ; preds = %if.then19.i.i.i.i.i
   %444 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i517.i, i1 true)
   %cast.i72.i.i.i.i.i163.i518.i = trunc nuw nsw i64 %444 to i32
   %add.i73.i.i.i.i.i164.i519.i = or disjoint i32 %436, %cast.i72.i.i.i.i.i163.i518.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i73.i.i.i.i.i164.i519.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i73.i.i.i.i.i164.i519.i)
           to label %.noexc6.i.i522.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i520.i
 
 .noexc6.i.i522.i:                                 ; preds = %while.body.i70.i.i.i.i.i161.i516.i
@@ -8142,7 +8142,7 @@ if.then.i.i426.i374.i:                            ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i378.i:                           ; preds = %if.then.i.i426.i374.i, %.noexc.i434.i382.i
   %row.011.i.i431.i379.i = phi i32 [ %inc.i.i435.i383.i, %.noexc.i434.i382.i ], [ %467, %if.then.i.i426.i374.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4.i, i32 noundef %row.011.i.i431.i379.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4.i, i32 noundef %row.011.i.i431.i379.i)
           to label %.noexc.i434.i382.i unwind label %lpad.loopexit.i432.i380.i
 
 .noexc.i434.i382.i:                               ; preds = %for.body.i.i430.i378.i
@@ -8158,10 +8158,10 @@ if.else.i.i284.i148.i:                            ; preds = %_ZNK8facebook5velox
   %472 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i3.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i3.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4.i, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i2.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i2.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4.i, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i2.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i153.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i2.i, i64 8
   store ptr %470, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i153.i, align 8
@@ -8205,7 +8205,7 @@ while.body.i.i.i.i.i.i416.i364.i:                 ; preds = %if.then3.i.i.i.i.i3
   %476 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i365.i, i1 true)
   %cast.i.i.i.i.i.i418.i366.i = trunc nuw nsw i64 %476 to i32
   %add.i26.i.i.i.i.i419.i367.i = or disjoint i32 %474, %cast.i.i.i.i.i.i418.i366.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i26.i.i.i.i.i419.i367.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i26.i.i.i.i.i419.i367.i)
           to label %.noexc2.i422.i370.i unwind label %lpad.loopexit.split-lp.loopexit.i420.i368.i
 
 .noexc2.i422.i370.i:                              ; preds = %while.body.i.i.i.i.i.i416.i364.i
@@ -8243,7 +8243,7 @@ while.body.i42.i.i.i.i.i319.i266.i:               ; preds = %.noexc3.i333.i281.i
   %478 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i267.i, i1 true)
   %cast.i44.i.i.i.i.i321.i268.i = trunc nuw nsw i64 %478 to i32
   %add.i45.i.i.i.i.i322.i269.i = or disjoint i32 %mul.i41.i.i.i.i.i318.i265.i, %cast.i44.i.i.i.i.i321.i268.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i45.i.i.i.i.i322.i269.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i45.i.i.i.i.i322.i269.i)
           to label %.noexc3.i333.i281.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i270.i
 
 .noexc3.i333.i281.i:                              ; preds = %while.body.i42.i.i.i.i.i319.i266.i
@@ -8288,7 +8288,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i324.i:             ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i326.i:                   ; preds = %.noexc4.i383.i331.i, %for.body.lr.ph.i.i.i.i.i.i376.i324.i
   %row.015.i.i.i.i.i.i379.i327.i = phi i64 [ %conv.i.i.i.i.i.i377.i325.i, %for.body.lr.ph.i.i.i.i.i.i376.i324.i ], [ %inc.i.i.i.i.i.i384.i332.i, %.noexc4.i383.i331.i ]
   %conv7.i.i.i.i.i.i380.i328.i = trunc i64 %row.015.i.i.i.i.i.i379.i327.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, i32 noundef %conv7.i.i.i.i.i.i380.i328.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, i32 noundef %conv7.i.i.i.i.i.i380.i328.i)
           to label %.noexc4.i383.i331.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i329.i
 
 .noexc4.i383.i331.i:                              ; preds = %for.body.i.i.i.i.i.i378.i326.i
@@ -8301,7 +8301,7 @@ while.body.i55.i.i.i.i.i388.i336.i:               ; preds = %.noexc5.i394.i342.i
   %480 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i337.i, i1 true)
   %cast.i56.i.i.i.i.i390.i338.i = trunc nuw nsw i64 %480 to i32
   %add10.i.i.i.i.i.i391.i339.i = or disjoint i32 %mul9.i.i.i.i.i.i387.i335.i, %cast.i56.i.i.i.i.i390.i338.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, i32 noundef %add10.i.i.i.i.i.i391.i339.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, i32 noundef %add10.i.i.i.i.i.i391.i339.i)
           to label %.noexc5.i394.i342.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i340.i
 
 .noexc5.i394.i342.i:                              ; preds = %while.body.i55.i.i.i.i.i388.i336.i
@@ -8337,7 +8337,7 @@ while.body.i70.i.i.i.i.i360.i308.i:               ; preds = %if.then19.i.i.i.i.i
   %482 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i309.i, i1 true)
   %cast.i72.i.i.i.i.i362.i310.i = trunc nuw nsw i64 %482 to i32
   %add.i73.i.i.i.i.i363.i311.i = or disjoint i32 %474, %cast.i72.i.i.i.i.i362.i310.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i73.i.i.i.i.i363.i311.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i73.i.i.i.i.i363.i311.i)
           to label %.noexc6.i366.i314.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i312.i
 
 .noexc6.i366.i314.i:                              ; preds = %while.body.i70.i.i.i.i.i360.i308.i
@@ -8839,7 +8839,7 @@ if.then.i.i169:                                   ; preds = %_ZNK8facebook5velox
 
 for.body.i.i:                                     ; preds = %if.then.i.i169, %.noexc174
   %row.011.i.i = phi i32 [ %inc.i.i, %.noexc174 ], [ %537, %if.then.i.i169 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i, i32 noundef %row.011.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i, i32 noundef %row.011.i.i)
           to label %.noexc174 unwind label %lpad38.loopexit
 
 .noexc174:                                        ; preds = %for.body.i.i
@@ -8855,10 +8855,10 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %542 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i, i64 8
   store ptr %540, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i, align 8
@@ -8902,7 +8902,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %546 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %546 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %544, %cast.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i)
           to label %.noexc175 unwind label %lpad38.loopexit.split-lp.loopexit
 
 .noexc175:                                        ; preds = %while.body.i.i.i.i.i.i
@@ -8940,7 +8940,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %.noexc176, %while.b
   %548 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %548 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i)
           to label %.noexc176 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc176:                                        ; preds = %while.body.i42.i.i.i.i.i
@@ -8985,7 +8985,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i166:                          ; preds = %.noexc177, %for.body.lr.ph.i.i.i.i.i.i
   %row.015.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %.noexc177 ]
   %conv7.i.i.i.i.i.i = trunc i64 %row.015.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i)
           to label %.noexc177 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc177:                                        ; preds = %for.body.i.i.i.i.i.i166
@@ -8998,7 +8998,7 @@ while.body.i55.i.i.i.i.i:                         ; preds = %.noexc178, %while.b
   %550 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i, i1 true)
   %cast.i56.i.i.i.i.i = trunc nuw nsw i64 %550 to i32
   %add10.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i, %cast.i56.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i)
           to label %.noexc178 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc178:                                        ; preds = %while.body.i55.i.i.i.i.i
@@ -9034,7 +9034,7 @@ while.body.i70.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %552 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i, i1 true)
   %cast.i72.i.i.i.i.i = trunc nuw nsw i64 %552 to i32
   %add.i73.i.i.i.i.i = or disjoint i32 %544, %cast.i72.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i)
           to label %.noexc179 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc179:                                        ; preds = %while.body.i70.i.i.i.i.i
@@ -10593,7 +10593,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i6.i
   %sh_prom.i24.i.i.i.i = zext nneg i32 %sub.i23.i.i.i.i to i64
   %shl.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i
   %and7.i.i.i.i = and i64 %shl.i.i.i.i.i, %sub.i22.i.i.i.i
-  call fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i, i32 noundef %div.i.i.i.i545, i64 noundef %and7.i.i.i.i)
+  call fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, i32 noundef %div.i.i.i.i545, i64 noundef %and7.i.i.i.i)
   br label %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i6.i
@@ -10609,7 +10609,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end8.i.i.i.i
   %sub.i28.i.i.i.i = sub nsw i32 64, %sub12.i.i.i.i
   %sh_prom.i29.i.i.i.i = zext nneg i32 %sub.i28.i.i.i.i to i64
   %shl.i30.i.i.i.i = shl i64 %sub.i.i27.i.i.i.i, %sh_prom.i29.i.i.i.i
-  call fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i, i32 noundef %div11.i.i.i.i, i64 noundef %shl.i30.i.i.i.i)
+  call fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, i32 noundef %div11.i.i.i.i, i64 noundef %shl.i30.i.i.i.i)
   br label %if.end14.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.then10.i.i.i.i, %if.end8.i.i.i.i
@@ -10887,7 +10887,7 @@ if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i9.i
   %sh_prom.i33.i.i.i.i = zext nneg i32 %sub21.i.i.i.i to i64
   %notmask.i34.i.i.i.i = shl nsw i64 -1, %sh_prom.i33.i.i.i.i
   %sub.i35.i.i.i.i = xor i64 %notmask.i34.i.i.i.i, -1
-  call fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp6.i.i.i, i32 noundef %div20.i.i.i.i, i64 noundef %sub.i35.i.i.i.i)
+  call fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, i32 noundef %div20.i.i.i.i, i64 noundef %sub.i35.i.i.i.i)
   br label %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i: ; preds = %if.then19.i.i.i.i, %for.end.i.i.i9.i, %if.then3.i.i.i.i, %if.else.i
@@ -15789,7 +15789,7 @@ if.then.i.i68.i:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i:                                   ; preds = %if.then.i.i68.i, %.noexc.i
   %row.011.i.i.i = phi i32 [ %inc.i.i.i, %.noexc.i ], [ %53, %if.then.i.i68.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i, i32 noundef %row.011.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, i32 noundef %row.011.i.i.i)
           to label %.noexc.i unwind label %lpad16.loopexit.i
 
 .noexc.i:                                         ; preds = %for.body.i.i.i
@@ -15806,10 +15806,10 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %58 = load i32, ptr %end_4.i.i.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i, i64 8
   store ptr %56, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i, align 8
@@ -15853,7 +15853,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.
   %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %62 to i32
   %add.i26.i.i.i.i.i.i = or disjoint i32 %60, %cast.i.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i.i)
           to label %.noexc69.i unwind label %lpad16.loopexit.split-lp.loopexit.i
 
 .noexc69.i:                                       ; preds = %while.body.i.i.i.i.i.i.i
@@ -15891,7 +15891,7 @@ while.body.i42.i.i.i.i.i.i:                       ; preds = %.noexc70.i, %while.
   %64 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i.i = trunc nuw nsw i64 %64 to i32
   %add.i45.i.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i.i, %cast.i44.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i.i)
           to label %.noexc70.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc70.i:                                       ; preds = %while.body.i42.i.i.i.i.i.i
@@ -15936,7 +15936,7 @@ for.body.lr.ph.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i:                           ; preds = %.noexc71.i, %for.body.lr.ph.i.i.i.i.i.i.i
   %row.015.i.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i.i, %.noexc71.i ]
   %conv7.i.i.i.i.i.i.i = trunc i64 %row.015.i.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i.i)
           to label %.noexc71.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc71.i:                                       ; preds = %for.body.i.i.i.i.i.i.i
@@ -15949,7 +15949,7 @@ while.body.i55.i.i.i.i.i.i:                       ; preds = %.noexc72.i, %while.
   %66 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i, i1 true)
   %cast.i56.i.i.i.i.i.i = trunc nuw nsw i64 %66 to i32
   %add10.i.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i.i, %cast.i56.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i)
           to label %.noexc72.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc72.i:                                       ; preds = %while.body.i55.i.i.i.i.i.i
@@ -15985,7 +15985,7 @@ while.body.i70.i.i.i.i.i.i:                       ; preds = %if.then19.i.i.i.i.i
   %68 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i, i1 true)
   %cast.i72.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add.i73.i.i.i.i.i.i = or disjoint i32 %60, %cast.i72.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i.i)
           to label %.noexc73.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc73.i:                                       ; preds = %while.body.i70.i.i.i.i.i.i
@@ -16175,7 +16175,7 @@ if.then.i.i215.i:                                 ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i:                                ; preds = %if.then.i.i215.i, %.noexc.i.i
   %row.011.i.i220.i = phi i32 [ %inc.i.i221.i, %.noexc.i.i ], [ %88, %if.then.i.i215.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i, i32 noundef %row.011.i.i220.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i, i32 noundef %row.011.i.i220.i)
           to label %.noexc.i.i unwind label %lpad.loopexit.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i219.i
@@ -16192,10 +16192,10 @@ if.else.i.i98.i:                                  ; preds = %_ZNK8facebook5velox
   %93 = load i32, ptr %end_4.i.i100.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i, i64 8
   store ptr %91, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i, align 8
@@ -16239,7 +16239,7 @@ while.body.i.i.i.i.i.i208.i:                      ; preds = %if.then3.i.i.i.i.i1
   %97 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i, i1 true)
   %cast.i.i.i.i.i.i210.i = trunc nuw nsw i64 %97 to i32
   %add.i26.i.i.i.i.i211.i = or disjoint i32 %95, %cast.i.i.i.i.i.i210.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i26.i.i.i.i.i211.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i26.i.i.i.i.i211.i)
           to label %.noexc2.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i
 
 .noexc2.i.i:                                      ; preds = %while.body.i.i.i.i.i.i208.i
@@ -16277,7 +16277,7 @@ while.body.i42.i.i.i.i.i130.i:                    ; preds = %.noexc3.i.i, %while
   %99 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i, i1 true)
   %cast.i44.i.i.i.i.i132.i = trunc nuw nsw i64 %99 to i32
   %add.i45.i.i.i.i.i133.i = or disjoint i32 %mul.i41.i.i.i.i.i129.i, %cast.i44.i.i.i.i.i132.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i45.i.i.i.i.i133.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i45.i.i.i.i.i133.i)
           to label %.noexc3.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc3.i.i:                                      ; preds = %while.body.i42.i.i.i.i.i130.i
@@ -16322,7 +16322,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i:                  ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i:                        ; preds = %.noexc4.i.i, %for.body.lr.ph.i.i.i.i.i.i174.i
   %row.015.i.i.i.i.i.i177.i = phi i64 [ %conv.i.i.i.i.i.i175.i, %for.body.lr.ph.i.i.i.i.i.i174.i ], [ %inc.i.i.i.i.i.i179.i, %.noexc4.i.i ]
   %conv7.i.i.i.i.i.i178.i = trunc i64 %row.015.i.i.i.i.i.i177.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, i32 noundef %conv7.i.i.i.i.i.i178.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, i32 noundef %conv7.i.i.i.i.i.i178.i)
           to label %.noexc4.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc4.i.i:                                      ; preds = %for.body.i.i.i.i.i.i176.i
@@ -16335,7 +16335,7 @@ while.body.i55.i.i.i.i.i183.i:                    ; preds = %.noexc5.i.i, %while
   %101 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i, i1 true)
   %cast.i56.i.i.i.i.i185.i = trunc nuw nsw i64 %101 to i32
   %add10.i.i.i.i.i.i186.i = or disjoint i32 %mul9.i.i.i.i.i.i182.i, %cast.i56.i.i.i.i.i185.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, i32 noundef %add10.i.i.i.i.i.i186.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, i32 noundef %add10.i.i.i.i.i.i186.i)
           to label %.noexc5.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc5.i.i:                                      ; preds = %while.body.i55.i.i.i.i.i183.i
@@ -16371,7 +16371,7 @@ while.body.i70.i.i.i.i.i161.i:                    ; preds = %if.then19.i.i.i.i.i
   %103 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i, i1 true)
   %cast.i72.i.i.i.i.i163.i = trunc nuw nsw i64 %103 to i32
   %add.i73.i.i.i.i.i164.i = or disjoint i32 %95, %cast.i72.i.i.i.i.i163.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i73.i.i.i.i.i164.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i73.i.i.i.i.i164.i)
           to label %.noexc6.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc6.i.i:                                      ; preds = %while.body.i70.i.i.i.i.i161.i
@@ -16608,7 +16608,7 @@ if.then.i.i426.i:                                 ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i:                                ; preds = %if.then.i.i426.i, %.noexc.i434.i
   %row.011.i.i431.i = phi i32 [ %inc.i.i435.i, %.noexc.i434.i ], [ %126, %if.then.i.i426.i ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i, i32 noundef %row.011.i.i431.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i, i32 noundef %row.011.i.i431.i)
           to label %.noexc.i434.i unwind label %lpad.loopexit.i432.i
 
 .noexc.i434.i:                                    ; preds = %for.body.i.i430.i
@@ -16625,10 +16625,10 @@ if.else.i.i284.i:                                 ; preds = %_ZNK8facebook5velox
   %131 = load i32, ptr %end_4.i.i286.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i, i64 8
   store ptr %129, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i, align 8
@@ -16672,7 +16672,7 @@ while.body.i.i.i.i.i.i416.i:                      ; preds = %if.then3.i.i.i.i.i3
   %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i, i1 true)
   %cast.i.i.i.i.i.i418.i = trunc nuw nsw i64 %135 to i32
   %add.i26.i.i.i.i.i419.i = or disjoint i32 %133, %cast.i.i.i.i.i.i418.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i26.i.i.i.i.i419.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i26.i.i.i.i.i419.i)
           to label %.noexc2.i422.i unwind label %lpad.loopexit.split-lp.loopexit.i420.i
 
 .noexc2.i422.i:                                   ; preds = %while.body.i.i.i.i.i.i416.i
@@ -16710,7 +16710,7 @@ while.body.i42.i.i.i.i.i319.i:                    ; preds = %.noexc3.i333.i, %wh
   %137 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i, i1 true)
   %cast.i44.i.i.i.i.i321.i = trunc nuw nsw i64 %137 to i32
   %add.i45.i.i.i.i.i322.i = or disjoint i32 %mul.i41.i.i.i.i.i318.i, %cast.i44.i.i.i.i.i321.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i45.i.i.i.i.i322.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i45.i.i.i.i.i322.i)
           to label %.noexc3.i333.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i
 
 .noexc3.i333.i:                                   ; preds = %while.body.i42.i.i.i.i.i319.i
@@ -16755,7 +16755,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i:                  ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i:                        ; preds = %.noexc4.i383.i, %for.body.lr.ph.i.i.i.i.i.i376.i
   %row.015.i.i.i.i.i.i379.i = phi i64 [ %conv.i.i.i.i.i.i377.i, %for.body.lr.ph.i.i.i.i.i.i376.i ], [ %inc.i.i.i.i.i.i384.i, %.noexc4.i383.i ]
   %conv7.i.i.i.i.i.i380.i = trunc i64 %row.015.i.i.i.i.i.i379.i to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, i32 noundef %conv7.i.i.i.i.i.i380.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, i32 noundef %conv7.i.i.i.i.i.i380.i)
           to label %.noexc4.i383.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i
 
 .noexc4.i383.i:                                   ; preds = %for.body.i.i.i.i.i.i378.i
@@ -16768,7 +16768,7 @@ while.body.i55.i.i.i.i.i388.i:                    ; preds = %.noexc5.i394.i, %wh
   %139 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i, i1 true)
   %cast.i56.i.i.i.i.i390.i = trunc nuw nsw i64 %139 to i32
   %add10.i.i.i.i.i.i391.i = or disjoint i32 %mul9.i.i.i.i.i.i387.i, %cast.i56.i.i.i.i.i390.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, i32 noundef %add10.i.i.i.i.i.i391.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, i32 noundef %add10.i.i.i.i.i.i391.i)
           to label %.noexc5.i394.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i
 
 .noexc5.i394.i:                                   ; preds = %while.body.i55.i.i.i.i.i388.i
@@ -16804,7 +16804,7 @@ while.body.i70.i.i.i.i.i360.i:                    ; preds = %if.then19.i.i.i.i.i
   %141 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i, i1 true)
   %cast.i72.i.i.i.i.i362.i = trunc nuw nsw i64 %141 to i32
   %add.i73.i.i.i.i.i363.i = or disjoint i32 %133, %cast.i72.i.i.i.i.i362.i
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i73.i.i.i.i.i363.i)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i73.i.i.i.i.i363.i)
           to label %.noexc6.i366.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i
 
 .noexc6.i366.i:                                   ; preds = %while.body.i70.i.i.i.i.i360.i
@@ -17490,7 +17490,7 @@ if.then.i.i68.i780:                               ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i784:                                ; preds = %if.then.i.i68.i780, %.noexc.i788
   %row.011.i.i.i785 = phi i32 [ %inc.i.i.i789, %.noexc.i788 ], [ %227, %if.then.i.i68.i780 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i17, i32 noundef %row.011.i.i.i785)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i17, i32 noundef %row.011.i.i.i785)
           to label %.noexc.i788 unwind label %lpad16.loopexit.i786
 
 .noexc.i788:                                      ; preds = %for.body.i.i.i784
@@ -17507,10 +17507,10 @@ if.else.i.i.i652:                                 ; preds = %_ZNK8facebook5velox
   %232 = load i32, ptr %end_4.i.i.i654, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i16, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i17, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i17, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i15, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i17, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i17, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i15, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i657 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i15, i64 8
   store ptr %230, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i657, align 8
@@ -17554,7 +17554,7 @@ while.body.i.i.i.i.i.i.i770:                      ; preds = %if.then3.i.i.i.i.i.
   %236 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i771, i1 true)
   %cast.i.i.i.i.i.i.i772 = trunc nuw nsw i64 %236 to i32
   %add.i26.i.i.i.i.i.i773 = or disjoint i32 %234, %cast.i.i.i.i.i.i.i772
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i26.i.i.i.i.i.i773)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i26.i.i.i.i.i.i773)
           to label %.noexc69.i776 unwind label %lpad16.loopexit.split-lp.loopexit.i774
 
 .noexc69.i776:                                    ; preds = %while.body.i.i.i.i.i.i.i770
@@ -17592,7 +17592,7 @@ while.body.i42.i.i.i.i.i.i681:                    ; preds = %.noexc70.i687, %whi
   %238 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i682, i1 true)
   %cast.i44.i.i.i.i.i.i683 = trunc nuw nsw i64 %238 to i32
   %add.i45.i.i.i.i.i.i684 = or disjoint i32 %mul.i41.i.i.i.i.i.i680, %cast.i44.i.i.i.i.i.i683
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i45.i.i.i.i.i.i684)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i45.i.i.i.i.i.i684)
           to label %.noexc70.i687 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i685
 
 .noexc70.i687:                                    ; preds = %while.body.i42.i.i.i.i.i.i681
@@ -17637,7 +17637,7 @@ for.body.lr.ph.i.i.i.i.i.i.i730:                  ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i732:                        ; preds = %.noexc71.i737, %for.body.lr.ph.i.i.i.i.i.i.i730
   %row.015.i.i.i.i.i.i.i733 = phi i64 [ %conv.i.i.i.i.i.i.i731, %for.body.lr.ph.i.i.i.i.i.i.i730 ], [ %inc.i.i.i.i.i.i.i738, %.noexc71.i737 ]
   %conv7.i.i.i.i.i.i.i734 = trunc i64 %row.015.i.i.i.i.i.i.i733 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, i32 noundef %conv7.i.i.i.i.i.i.i734)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, i32 noundef %conv7.i.i.i.i.i.i.i734)
           to label %.noexc71.i737 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i735
 
 .noexc71.i737:                                    ; preds = %for.body.i.i.i.i.i.i.i732
@@ -17650,7 +17650,7 @@ while.body.i55.i.i.i.i.i.i742:                    ; preds = %.noexc72.i748, %whi
   %240 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i743, i1 true)
   %cast.i56.i.i.i.i.i.i744 = trunc nuw nsw i64 %240 to i32
   %add10.i.i.i.i.i.i.i745 = or disjoint i32 %mul9.i.i.i.i.i.i.i741, %cast.i56.i.i.i.i.i.i744
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, i32 noundef %add10.i.i.i.i.i.i.i745)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, i32 noundef %add10.i.i.i.i.i.i.i745)
           to label %.noexc72.i748 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i746
 
 .noexc72.i748:                                    ; preds = %while.body.i55.i.i.i.i.i.i742
@@ -17686,7 +17686,7 @@ while.body.i70.i.i.i.i.i.i714:                    ; preds = %if.then19.i.i.i.i.i
   %242 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i715, i1 true)
   %cast.i72.i.i.i.i.i.i716 = trunc nuw nsw i64 %242 to i32
   %add.i73.i.i.i.i.i.i717 = or disjoint i32 %234, %cast.i72.i.i.i.i.i.i716
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i73.i.i.i.i.i.i717)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i73.i.i.i.i.i.i717)
           to label %.noexc73.i720 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i718
 
 .noexc73.i720:                                    ; preds = %while.body.i70.i.i.i.i.i.i714
@@ -17876,7 +17876,7 @@ if.then.i.i215.i599:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i603:                             ; preds = %if.then.i.i215.i599, %.noexc.i.i607
   %row.011.i.i220.i604 = phi i32 [ %inc.i.i221.i608, %.noexc.i.i607 ], [ %262, %if.then.i.i215.i599 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i10, i32 noundef %row.011.i.i220.i604)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i10, i32 noundef %row.011.i.i220.i604)
           to label %.noexc.i.i607 unwind label %lpad.loopexit.i.i605
 
 .noexc.i.i607:                                    ; preds = %for.body.i.i219.i603
@@ -17893,10 +17893,10 @@ if.else.i.i98.i458:                               ; preds = %_ZNK8facebook5velox
   %267 = load i32, ptr %end_4.i.i100.i460, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i9, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i10, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i10, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i10, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i10, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i8, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i463 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i8, i64 8
   store ptr %265, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i463, align 8
@@ -17940,7 +17940,7 @@ while.body.i.i.i.i.i.i208.i589:                   ; preds = %if.then3.i.i.i.i.i1
   %271 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i590, i1 true)
   %cast.i.i.i.i.i.i210.i591 = trunc nuw nsw i64 %271 to i32
   %add.i26.i.i.i.i.i211.i592 = or disjoint i32 %269, %cast.i.i.i.i.i.i210.i591
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i26.i.i.i.i.i211.i592)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i26.i.i.i.i.i211.i592)
           to label %.noexc2.i.i595 unwind label %lpad.loopexit.split-lp.loopexit.i.i593
 
 .noexc2.i.i595:                                   ; preds = %while.body.i.i.i.i.i.i208.i589
@@ -17978,7 +17978,7 @@ while.body.i42.i.i.i.i.i130.i493:                 ; preds = %.noexc3.i.i506, %wh
   %273 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i494, i1 true)
   %cast.i44.i.i.i.i.i132.i495 = trunc nuw nsw i64 %273 to i32
   %add.i45.i.i.i.i.i133.i496 = or disjoint i32 %mul.i41.i.i.i.i.i129.i492, %cast.i44.i.i.i.i.i132.i495
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i45.i.i.i.i.i133.i496)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i45.i.i.i.i.i133.i496)
           to label %.noexc3.i.i506 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i497
 
 .noexc3.i.i506:                                   ; preds = %while.body.i42.i.i.i.i.i130.i493
@@ -18023,7 +18023,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i549:               ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i551:                     ; preds = %.noexc4.i.i556, %for.body.lr.ph.i.i.i.i.i.i174.i549
   %row.015.i.i.i.i.i.i177.i552 = phi i64 [ %conv.i.i.i.i.i.i175.i550, %for.body.lr.ph.i.i.i.i.i.i174.i549 ], [ %inc.i.i.i.i.i.i179.i557, %.noexc4.i.i556 ]
   %conv7.i.i.i.i.i.i178.i553 = trunc i64 %row.015.i.i.i.i.i.i177.i552 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, i32 noundef %conv7.i.i.i.i.i.i178.i553)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, i32 noundef %conv7.i.i.i.i.i.i178.i553)
           to label %.noexc4.i.i556 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i554
 
 .noexc4.i.i556:                                   ; preds = %for.body.i.i.i.i.i.i176.i551
@@ -18036,7 +18036,7 @@ while.body.i55.i.i.i.i.i183.i561:                 ; preds = %.noexc5.i.i567, %wh
   %275 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i562, i1 true)
   %cast.i56.i.i.i.i.i185.i563 = trunc nuw nsw i64 %275 to i32
   %add10.i.i.i.i.i.i186.i564 = or disjoint i32 %mul9.i.i.i.i.i.i182.i560, %cast.i56.i.i.i.i.i185.i563
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, i32 noundef %add10.i.i.i.i.i.i186.i564)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, i32 noundef %add10.i.i.i.i.i.i186.i564)
           to label %.noexc5.i.i567 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i565
 
 .noexc5.i.i567:                                   ; preds = %while.body.i55.i.i.i.i.i183.i561
@@ -18072,7 +18072,7 @@ while.body.i70.i.i.i.i.i161.i533:                 ; preds = %if.then19.i.i.i.i.i
   %277 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i534, i1 true)
   %cast.i72.i.i.i.i.i163.i535 = trunc nuw nsw i64 %277 to i32
   %add.i73.i.i.i.i.i164.i536 = or disjoint i32 %269, %cast.i72.i.i.i.i.i163.i535
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i73.i.i.i.i.i164.i536)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i73.i.i.i.i.i164.i536)
           to label %.noexc6.i.i539 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i537
 
 .noexc6.i.i539:                                   ; preds = %while.body.i70.i.i.i.i.i161.i533
@@ -18309,7 +18309,7 @@ if.then.i.i426.i390:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i394:                             ; preds = %if.then.i.i426.i390, %.noexc.i434.i398
   %row.011.i.i431.i395 = phi i32 [ %inc.i.i435.i399, %.noexc.i434.i398 ], [ %300, %if.then.i.i426.i390 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i3, i32 noundef %row.011.i.i431.i395)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i3, i32 noundef %row.011.i.i431.i395)
           to label %.noexc.i434.i398 unwind label %lpad.loopexit.i432.i396
 
 .noexc.i434.i398:                                 ; preds = %for.body.i.i430.i394
@@ -18326,10 +18326,10 @@ if.else.i.i284.i164:                              ; preds = %_ZNK8facebook5velox
   %305 = load i32, ptr %end_4.i.i286.i166, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i2, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i3, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i1, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i3, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i1, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i169 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i1, i64 8
   store ptr %303, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i169, align 8
@@ -18373,7 +18373,7 @@ while.body.i.i.i.i.i.i416.i380:                   ; preds = %if.then3.i.i.i.i.i3
   %309 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i381, i1 true)
   %cast.i.i.i.i.i.i418.i382 = trunc nuw nsw i64 %309 to i32
   %add.i26.i.i.i.i.i419.i383 = or disjoint i32 %307, %cast.i.i.i.i.i.i418.i382
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i26.i.i.i.i.i419.i383)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i26.i.i.i.i.i419.i383)
           to label %.noexc2.i422.i386 unwind label %lpad.loopexit.split-lp.loopexit.i420.i384
 
 .noexc2.i422.i386:                                ; preds = %while.body.i.i.i.i.i.i416.i380
@@ -18411,7 +18411,7 @@ while.body.i42.i.i.i.i.i319.i282:                 ; preds = %.noexc3.i333.i297, 
   %311 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i283, i1 true)
   %cast.i44.i.i.i.i.i321.i284 = trunc nuw nsw i64 %311 to i32
   %add.i45.i.i.i.i.i322.i285 = or disjoint i32 %mul.i41.i.i.i.i.i318.i281, %cast.i44.i.i.i.i.i321.i284
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i45.i.i.i.i.i322.i285)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i45.i.i.i.i.i322.i285)
           to label %.noexc3.i333.i297 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i286
 
 .noexc3.i333.i297:                                ; preds = %while.body.i42.i.i.i.i.i319.i282
@@ -18456,7 +18456,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i340:               ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i342:                     ; preds = %.noexc4.i383.i347, %for.body.lr.ph.i.i.i.i.i.i376.i340
   %row.015.i.i.i.i.i.i379.i343 = phi i64 [ %conv.i.i.i.i.i.i377.i341, %for.body.lr.ph.i.i.i.i.i.i376.i340 ], [ %inc.i.i.i.i.i.i384.i348, %.noexc4.i383.i347 ]
   %conv7.i.i.i.i.i.i380.i344 = trunc i64 %row.015.i.i.i.i.i.i379.i343 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, i32 noundef %conv7.i.i.i.i.i.i380.i344)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, i32 noundef %conv7.i.i.i.i.i.i380.i344)
           to label %.noexc4.i383.i347 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i345
 
 .noexc4.i383.i347:                                ; preds = %for.body.i.i.i.i.i.i378.i342
@@ -18469,7 +18469,7 @@ while.body.i55.i.i.i.i.i388.i352:                 ; preds = %.noexc5.i394.i358, 
   %313 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i353, i1 true)
   %cast.i56.i.i.i.i.i390.i354 = trunc nuw nsw i64 %313 to i32
   %add10.i.i.i.i.i.i391.i355 = or disjoint i32 %mul9.i.i.i.i.i.i387.i351, %cast.i56.i.i.i.i.i390.i354
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, i32 noundef %add10.i.i.i.i.i.i391.i355)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, i32 noundef %add10.i.i.i.i.i.i391.i355)
           to label %.noexc5.i394.i358 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i356
 
 .noexc5.i394.i358:                                ; preds = %while.body.i55.i.i.i.i.i388.i352
@@ -18505,7 +18505,7 @@ while.body.i70.i.i.i.i.i360.i324:                 ; preds = %if.then19.i.i.i.i.i
   %315 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i325, i1 true)
   %cast.i72.i.i.i.i.i362.i326 = trunc nuw nsw i64 %315 to i32
   %add.i73.i.i.i.i.i363.i327 = or disjoint i32 %307, %cast.i72.i.i.i.i.i362.i326
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i73.i.i.i.i.i363.i327)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i73.i.i.i.i.i363.i327)
           to label %.noexc6.i366.i330 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i328
 
 .noexc6.i366.i330:                                ; preds = %while.body.i70.i.i.i.i.i360.i324
@@ -19178,7 +19178,7 @@ if.then.i.i68.i1601:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i1605:                               ; preds = %if.then.i.i68.i1601, %.noexc.i1609
   %row.011.i.i.i1606 = phi i32 [ %inc.i.i.i1610, %.noexc.i1609 ], [ %401, %if.then.i.i68.i1601 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i838, i32 noundef %row.011.i.i.i1606)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i838, i32 noundef %row.011.i.i.i1606)
           to label %.noexc.i1609 unwind label %lpad16.loopexit.i1607
 
 .noexc.i1609:                                     ; preds = %for.body.i.i.i1605
@@ -19195,10 +19195,10 @@ if.else.i.i.i1473:                                ; preds = %_ZNK8facebook5velox
   %406 = load i32, ptr %end_4.i.i.i1475, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i837, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i837)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i838, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i838, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i836, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i836)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i838, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i838, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i836, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i1478 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i836, i64 8
   store ptr %404, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i1478, align 8
@@ -19242,7 +19242,7 @@ while.body.i.i.i.i.i.i.i1591:                     ; preds = %if.then3.i.i.i.i.i.
   %410 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i1592, i1 true)
   %cast.i.i.i.i.i.i.i1593 = trunc nuw nsw i64 %410 to i32
   %add.i26.i.i.i.i.i.i1594 = or disjoint i32 %408, %cast.i.i.i.i.i.i.i1593
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i26.i.i.i.i.i.i1594)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i26.i.i.i.i.i.i1594)
           to label %.noexc69.i1597 unwind label %lpad16.loopexit.split-lp.loopexit.i1595
 
 .noexc69.i1597:                                   ; preds = %while.body.i.i.i.i.i.i.i1591
@@ -19280,7 +19280,7 @@ while.body.i42.i.i.i.i.i.i1502:                   ; preds = %.noexc70.i1508, %wh
   %412 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i1503, i1 true)
   %cast.i44.i.i.i.i.i.i1504 = trunc nuw nsw i64 %412 to i32
   %add.i45.i.i.i.i.i.i1505 = or disjoint i32 %mul.i41.i.i.i.i.i.i1501, %cast.i44.i.i.i.i.i.i1504
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i45.i.i.i.i.i.i1505)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i45.i.i.i.i.i.i1505)
           to label %.noexc70.i1508 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1506
 
 .noexc70.i1508:                                   ; preds = %while.body.i42.i.i.i.i.i.i1502
@@ -19325,7 +19325,7 @@ for.body.lr.ph.i.i.i.i.i.i.i1551:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i1553:                       ; preds = %.noexc71.i1558, %for.body.lr.ph.i.i.i.i.i.i.i1551
   %row.015.i.i.i.i.i.i.i1554 = phi i64 [ %conv.i.i.i.i.i.i.i1552, %for.body.lr.ph.i.i.i.i.i.i.i1551 ], [ %inc.i.i.i.i.i.i.i1559, %.noexc71.i1558 ]
   %conv7.i.i.i.i.i.i.i1555 = trunc i64 %row.015.i.i.i.i.i.i.i1554 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, i32 noundef %conv7.i.i.i.i.i.i.i1555)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, i32 noundef %conv7.i.i.i.i.i.i.i1555)
           to label %.noexc71.i1558 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1556
 
 .noexc71.i1558:                                   ; preds = %for.body.i.i.i.i.i.i.i1553
@@ -19338,7 +19338,7 @@ while.body.i55.i.i.i.i.i.i1563:                   ; preds = %.noexc72.i1569, %wh
   %414 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i1564, i1 true)
   %cast.i56.i.i.i.i.i.i1565 = trunc nuw nsw i64 %414 to i32
   %add10.i.i.i.i.i.i.i1566 = or disjoint i32 %mul9.i.i.i.i.i.i.i1562, %cast.i56.i.i.i.i.i.i1565
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, i32 noundef %add10.i.i.i.i.i.i.i1566)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, i32 noundef %add10.i.i.i.i.i.i.i1566)
           to label %.noexc72.i1569 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1567
 
 .noexc72.i1569:                                   ; preds = %while.body.i55.i.i.i.i.i.i1563
@@ -19374,7 +19374,7 @@ while.body.i70.i.i.i.i.i.i1535:                   ; preds = %if.then19.i.i.i.i.i
   %416 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i1536, i1 true)
   %cast.i72.i.i.i.i.i.i1537 = trunc nuw nsw i64 %416 to i32
   %add.i73.i.i.i.i.i.i1538 = or disjoint i32 %408, %cast.i72.i.i.i.i.i.i1537
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i73.i.i.i.i.i.i1538)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i73.i.i.i.i.i.i1538)
           to label %.noexc73.i1541 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i1539
 
 .noexc73.i1541:                                   ; preds = %while.body.i70.i.i.i.i.i.i1535
@@ -19564,7 +19564,7 @@ if.then.i.i215.i1420:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i1424:                            ; preds = %if.then.i.i215.i1420, %.noexc.i.i1428
   %row.011.i.i220.i1425 = phi i32 [ %inc.i.i221.i1429, %.noexc.i.i1428 ], [ %436, %if.then.i.i215.i1420 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i831, i32 noundef %row.011.i.i220.i1425)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i831, i32 noundef %row.011.i.i220.i1425)
           to label %.noexc.i.i1428 unwind label %lpad.loopexit.i.i1426
 
 .noexc.i.i1428:                                   ; preds = %for.body.i.i219.i1424
@@ -19581,10 +19581,10 @@ if.else.i.i98.i1279:                              ; preds = %_ZNK8facebook5velox
   %441 = load i32, ptr %end_4.i.i100.i1281, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i830, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i830)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i831, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i831, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i829, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i829)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i831, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i831, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i829, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i1284 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i829, i64 8
   store ptr %439, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i1284, align 8
@@ -19628,7 +19628,7 @@ while.body.i.i.i.i.i.i208.i1410:                  ; preds = %if.then3.i.i.i.i.i1
   %445 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i1411, i1 true)
   %cast.i.i.i.i.i.i210.i1412 = trunc nuw nsw i64 %445 to i32
   %add.i26.i.i.i.i.i211.i1413 = or disjoint i32 %443, %cast.i.i.i.i.i.i210.i1412
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i26.i.i.i.i.i211.i1413)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i26.i.i.i.i.i211.i1413)
           to label %.noexc2.i.i1416 unwind label %lpad.loopexit.split-lp.loopexit.i.i1414
 
 .noexc2.i.i1416:                                  ; preds = %while.body.i.i.i.i.i.i208.i1410
@@ -19666,7 +19666,7 @@ while.body.i42.i.i.i.i.i130.i1314:                ; preds = %.noexc3.i.i1327, %w
   %447 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i1315, i1 true)
   %cast.i44.i.i.i.i.i132.i1316 = trunc nuw nsw i64 %447 to i32
   %add.i45.i.i.i.i.i133.i1317 = or disjoint i32 %mul.i41.i.i.i.i.i129.i1313, %cast.i44.i.i.i.i.i132.i1316
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i45.i.i.i.i.i133.i1317)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i45.i.i.i.i.i133.i1317)
           to label %.noexc3.i.i1327 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i1318
 
 .noexc3.i.i1327:                                  ; preds = %while.body.i42.i.i.i.i.i130.i1314
@@ -19711,7 +19711,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i1370:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i1372:                    ; preds = %.noexc4.i.i1377, %for.body.lr.ph.i.i.i.i.i.i174.i1370
   %row.015.i.i.i.i.i.i177.i1373 = phi i64 [ %conv.i.i.i.i.i.i175.i1371, %for.body.lr.ph.i.i.i.i.i.i174.i1370 ], [ %inc.i.i.i.i.i.i179.i1378, %.noexc4.i.i1377 ]
   %conv7.i.i.i.i.i.i178.i1374 = trunc i64 %row.015.i.i.i.i.i.i177.i1373 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, i32 noundef %conv7.i.i.i.i.i.i178.i1374)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, i32 noundef %conv7.i.i.i.i.i.i178.i1374)
           to label %.noexc4.i.i1377 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i1375
 
 .noexc4.i.i1377:                                  ; preds = %for.body.i.i.i.i.i.i176.i1372
@@ -19724,7 +19724,7 @@ while.body.i55.i.i.i.i.i183.i1382:                ; preds = %.noexc5.i.i1388, %w
   %449 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i1383, i1 true)
   %cast.i56.i.i.i.i.i185.i1384 = trunc nuw nsw i64 %449 to i32
   %add10.i.i.i.i.i.i186.i1385 = or disjoint i32 %mul9.i.i.i.i.i.i182.i1381, %cast.i56.i.i.i.i.i185.i1384
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, i32 noundef %add10.i.i.i.i.i.i186.i1385)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, i32 noundef %add10.i.i.i.i.i.i186.i1385)
           to label %.noexc5.i.i1388 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i1386
 
 .noexc5.i.i1388:                                  ; preds = %while.body.i55.i.i.i.i.i183.i1382
@@ -19760,7 +19760,7 @@ while.body.i70.i.i.i.i.i161.i1354:                ; preds = %if.then19.i.i.i.i.i
   %451 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i1355, i1 true)
   %cast.i72.i.i.i.i.i163.i1356 = trunc nuw nsw i64 %451 to i32
   %add.i73.i.i.i.i.i164.i1357 = or disjoint i32 %443, %cast.i72.i.i.i.i.i163.i1356
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i73.i.i.i.i.i164.i1357)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i73.i.i.i.i.i164.i1357)
           to label %.noexc6.i.i1360 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i1358
 
 .noexc6.i.i1360:                                  ; preds = %while.body.i70.i.i.i.i.i161.i1354
@@ -19997,7 +19997,7 @@ if.then.i.i426.i1211:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i1215:                            ; preds = %if.then.i.i426.i1211, %.noexc.i434.i1219
   %row.011.i.i431.i1216 = phi i32 [ %inc.i.i435.i1220, %.noexc.i434.i1219 ], [ %474, %if.then.i.i426.i1211 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i824, i32 noundef %row.011.i.i431.i1216)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i824, i32 noundef %row.011.i.i431.i1216)
           to label %.noexc.i434.i1219 unwind label %lpad.loopexit.i432.i1217
 
 .noexc.i434.i1219:                                ; preds = %for.body.i.i430.i1215
@@ -20014,10 +20014,10 @@ if.else.i.i284.i985:                              ; preds = %_ZNK8facebook5velox
   %479 = load i32, ptr %end_4.i.i286.i987, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i823, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i823)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i824, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i824, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i822, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i822)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i824, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i824, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i822, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i990 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i822, i64 8
   store ptr %477, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i990, align 8
@@ -20061,7 +20061,7 @@ while.body.i.i.i.i.i.i416.i1201:                  ; preds = %if.then3.i.i.i.i.i3
   %483 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i1202, i1 true)
   %cast.i.i.i.i.i.i418.i1203 = trunc nuw nsw i64 %483 to i32
   %add.i26.i.i.i.i.i419.i1204 = or disjoint i32 %481, %cast.i.i.i.i.i.i418.i1203
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i26.i.i.i.i.i419.i1204)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i26.i.i.i.i.i419.i1204)
           to label %.noexc2.i422.i1207 unwind label %lpad.loopexit.split-lp.loopexit.i420.i1205
 
 .noexc2.i422.i1207:                               ; preds = %while.body.i.i.i.i.i.i416.i1201
@@ -20099,7 +20099,7 @@ while.body.i42.i.i.i.i.i319.i1103:                ; preds = %.noexc3.i333.i1118,
   %485 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i1104, i1 true)
   %cast.i44.i.i.i.i.i321.i1105 = trunc nuw nsw i64 %485 to i32
   %add.i45.i.i.i.i.i322.i1106 = or disjoint i32 %mul.i41.i.i.i.i.i318.i1102, %cast.i44.i.i.i.i.i321.i1105
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i45.i.i.i.i.i322.i1106)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i45.i.i.i.i.i322.i1106)
           to label %.noexc3.i333.i1118 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i1107
 
 .noexc3.i333.i1118:                               ; preds = %while.body.i42.i.i.i.i.i319.i1103
@@ -20144,7 +20144,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i1161:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i1163:                    ; preds = %.noexc4.i383.i1168, %for.body.lr.ph.i.i.i.i.i.i376.i1161
   %row.015.i.i.i.i.i.i379.i1164 = phi i64 [ %conv.i.i.i.i.i.i377.i1162, %for.body.lr.ph.i.i.i.i.i.i376.i1161 ], [ %inc.i.i.i.i.i.i384.i1169, %.noexc4.i383.i1168 ]
   %conv7.i.i.i.i.i.i380.i1165 = trunc i64 %row.015.i.i.i.i.i.i379.i1164 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, i32 noundef %conv7.i.i.i.i.i.i380.i1165)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, i32 noundef %conv7.i.i.i.i.i.i380.i1165)
           to label %.noexc4.i383.i1168 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i1166
 
 .noexc4.i383.i1168:                               ; preds = %for.body.i.i.i.i.i.i378.i1163
@@ -20157,7 +20157,7 @@ while.body.i55.i.i.i.i.i388.i1173:                ; preds = %.noexc5.i394.i1179,
   %487 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i1174, i1 true)
   %cast.i56.i.i.i.i.i390.i1175 = trunc nuw nsw i64 %487 to i32
   %add10.i.i.i.i.i.i391.i1176 = or disjoint i32 %mul9.i.i.i.i.i.i387.i1172, %cast.i56.i.i.i.i.i390.i1175
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, i32 noundef %add10.i.i.i.i.i.i391.i1176)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, i32 noundef %add10.i.i.i.i.i.i391.i1176)
           to label %.noexc5.i394.i1179 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i1177
 
 .noexc5.i394.i1179:                               ; preds = %while.body.i55.i.i.i.i.i388.i1173
@@ -20193,7 +20193,7 @@ while.body.i70.i.i.i.i.i360.i1145:                ; preds = %if.then19.i.i.i.i.i
   %489 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i1146, i1 true)
   %cast.i72.i.i.i.i.i362.i1147 = trunc nuw nsw i64 %489 to i32
   %add.i73.i.i.i.i.i363.i1148 = or disjoint i32 %481, %cast.i72.i.i.i.i.i362.i1147
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i73.i.i.i.i.i363.i1148)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i73.i.i.i.i.i363.i1148)
           to label %.noexc6.i366.i1151 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i1149
 
 .noexc6.i366.i1151:                               ; preds = %while.body.i70.i.i.i.i.i360.i1145
@@ -20866,7 +20866,7 @@ if.then.i.i68.i2422:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i2426:                               ; preds = %if.then.i.i68.i2422, %.noexc.i2430
   %row.011.i.i.i2427 = phi i32 [ %inc.i.i.i2431, %.noexc.i2430 ], [ %575, %if.then.i.i68.i2422 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i1659, i32 noundef %row.011.i.i.i2427)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i1659, i32 noundef %row.011.i.i.i2427)
           to label %.noexc.i2430 unwind label %lpad16.loopexit.i2428
 
 .noexc.i2430:                                     ; preds = %for.body.i.i.i2426
@@ -20883,10 +20883,10 @@ if.else.i.i.i2294:                                ; preds = %_ZNK8facebook5velox
   %580 = load i32, ptr %end_4.i.i.i2296, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i1658, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i1658)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i1659, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i1659, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i1657, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i1657)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i1659, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i1659, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i1657, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i2299 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i1657, i64 8
   store ptr %578, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i2299, align 8
@@ -20930,7 +20930,7 @@ while.body.i.i.i.i.i.i.i2412:                     ; preds = %if.then3.i.i.i.i.i.
   %584 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i2413, i1 true)
   %cast.i.i.i.i.i.i.i2414 = trunc nuw nsw i64 %584 to i32
   %add.i26.i.i.i.i.i.i2415 = or disjoint i32 %582, %cast.i.i.i.i.i.i.i2414
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i26.i.i.i.i.i.i2415)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i26.i.i.i.i.i.i2415)
           to label %.noexc69.i2418 unwind label %lpad16.loopexit.split-lp.loopexit.i2416
 
 .noexc69.i2418:                                   ; preds = %while.body.i.i.i.i.i.i.i2412
@@ -20968,7 +20968,7 @@ while.body.i42.i.i.i.i.i.i2323:                   ; preds = %.noexc70.i2329, %wh
   %586 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i2324, i1 true)
   %cast.i44.i.i.i.i.i.i2325 = trunc nuw nsw i64 %586 to i32
   %add.i45.i.i.i.i.i.i2326 = or disjoint i32 %mul.i41.i.i.i.i.i.i2322, %cast.i44.i.i.i.i.i.i2325
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i45.i.i.i.i.i.i2326)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i45.i.i.i.i.i.i2326)
           to label %.noexc70.i2329 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2327
 
 .noexc70.i2329:                                   ; preds = %while.body.i42.i.i.i.i.i.i2323
@@ -21013,7 +21013,7 @@ for.body.lr.ph.i.i.i.i.i.i.i2372:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i2374:                       ; preds = %.noexc71.i2379, %for.body.lr.ph.i.i.i.i.i.i.i2372
   %row.015.i.i.i.i.i.i.i2375 = phi i64 [ %conv.i.i.i.i.i.i.i2373, %for.body.lr.ph.i.i.i.i.i.i.i2372 ], [ %inc.i.i.i.i.i.i.i2380, %.noexc71.i2379 ]
   %conv7.i.i.i.i.i.i.i2376 = trunc i64 %row.015.i.i.i.i.i.i.i2375 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, i32 noundef %conv7.i.i.i.i.i.i.i2376)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, i32 noundef %conv7.i.i.i.i.i.i.i2376)
           to label %.noexc71.i2379 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2377
 
 .noexc71.i2379:                                   ; preds = %for.body.i.i.i.i.i.i.i2374
@@ -21026,7 +21026,7 @@ while.body.i55.i.i.i.i.i.i2384:                   ; preds = %.noexc72.i2390, %wh
   %588 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i2385, i1 true)
   %cast.i56.i.i.i.i.i.i2386 = trunc nuw nsw i64 %588 to i32
   %add10.i.i.i.i.i.i.i2387 = or disjoint i32 %mul9.i.i.i.i.i.i.i2383, %cast.i56.i.i.i.i.i.i2386
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, i32 noundef %add10.i.i.i.i.i.i.i2387)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, i32 noundef %add10.i.i.i.i.i.i.i2387)
           to label %.noexc72.i2390 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2388
 
 .noexc72.i2390:                                   ; preds = %while.body.i55.i.i.i.i.i.i2384
@@ -21062,7 +21062,7 @@ while.body.i70.i.i.i.i.i.i2356:                   ; preds = %if.then19.i.i.i.i.i
   %590 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i2357, i1 true)
   %cast.i72.i.i.i.i.i.i2358 = trunc nuw nsw i64 %590 to i32
   %add.i73.i.i.i.i.i.i2359 = or disjoint i32 %582, %cast.i72.i.i.i.i.i.i2358
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i73.i.i.i.i.i.i2359)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i73.i.i.i.i.i.i2359)
           to label %.noexc73.i2362 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i2360
 
 .noexc73.i2362:                                   ; preds = %while.body.i70.i.i.i.i.i.i2356
@@ -21252,7 +21252,7 @@ if.then.i.i215.i2241:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i2245:                            ; preds = %if.then.i.i215.i2241, %.noexc.i.i2249
   %row.011.i.i220.i2246 = phi i32 [ %inc.i.i221.i2250, %.noexc.i.i2249 ], [ %610, %if.then.i.i215.i2241 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i1652, i32 noundef %row.011.i.i220.i2246)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i1652, i32 noundef %row.011.i.i220.i2246)
           to label %.noexc.i.i2249 unwind label %lpad.loopexit.i.i2247
 
 .noexc.i.i2249:                                   ; preds = %for.body.i.i219.i2245
@@ -21269,10 +21269,10 @@ if.else.i.i98.i2100:                              ; preds = %_ZNK8facebook5velox
   %615 = load i32, ptr %end_4.i.i100.i2102, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i1651, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i1651)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i1652, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i1652, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i1650, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i1650)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i1652, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i1652, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i1650, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i2105 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i1650, i64 8
   store ptr %613, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i2105, align 8
@@ -21316,7 +21316,7 @@ while.body.i.i.i.i.i.i208.i2231:                  ; preds = %if.then3.i.i.i.i.i1
   %619 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i2232, i1 true)
   %cast.i.i.i.i.i.i210.i2233 = trunc nuw nsw i64 %619 to i32
   %add.i26.i.i.i.i.i211.i2234 = or disjoint i32 %617, %cast.i.i.i.i.i.i210.i2233
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i26.i.i.i.i.i211.i2234)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i26.i.i.i.i.i211.i2234)
           to label %.noexc2.i.i2237 unwind label %lpad.loopexit.split-lp.loopexit.i.i2235
 
 .noexc2.i.i2237:                                  ; preds = %while.body.i.i.i.i.i.i208.i2231
@@ -21354,7 +21354,7 @@ while.body.i42.i.i.i.i.i130.i2135:                ; preds = %.noexc3.i.i2148, %w
   %621 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i2136, i1 true)
   %cast.i44.i.i.i.i.i132.i2137 = trunc nuw nsw i64 %621 to i32
   %add.i45.i.i.i.i.i133.i2138 = or disjoint i32 %mul.i41.i.i.i.i.i129.i2134, %cast.i44.i.i.i.i.i132.i2137
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i45.i.i.i.i.i133.i2138)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i45.i.i.i.i.i133.i2138)
           to label %.noexc3.i.i2148 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i2139
 
 .noexc3.i.i2148:                                  ; preds = %while.body.i42.i.i.i.i.i130.i2135
@@ -21399,7 +21399,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i2191:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i2193:                    ; preds = %.noexc4.i.i2198, %for.body.lr.ph.i.i.i.i.i.i174.i2191
   %row.015.i.i.i.i.i.i177.i2194 = phi i64 [ %conv.i.i.i.i.i.i175.i2192, %for.body.lr.ph.i.i.i.i.i.i174.i2191 ], [ %inc.i.i.i.i.i.i179.i2199, %.noexc4.i.i2198 ]
   %conv7.i.i.i.i.i.i178.i2195 = trunc i64 %row.015.i.i.i.i.i.i177.i2194 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, i32 noundef %conv7.i.i.i.i.i.i178.i2195)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, i32 noundef %conv7.i.i.i.i.i.i178.i2195)
           to label %.noexc4.i.i2198 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i2196
 
 .noexc4.i.i2198:                                  ; preds = %for.body.i.i.i.i.i.i176.i2193
@@ -21412,7 +21412,7 @@ while.body.i55.i.i.i.i.i183.i2203:                ; preds = %.noexc5.i.i2209, %w
   %623 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i2204, i1 true)
   %cast.i56.i.i.i.i.i185.i2205 = trunc nuw nsw i64 %623 to i32
   %add10.i.i.i.i.i.i186.i2206 = or disjoint i32 %mul9.i.i.i.i.i.i182.i2202, %cast.i56.i.i.i.i.i185.i2205
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, i32 noundef %add10.i.i.i.i.i.i186.i2206)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, i32 noundef %add10.i.i.i.i.i.i186.i2206)
           to label %.noexc5.i.i2209 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i2207
 
 .noexc5.i.i2209:                                  ; preds = %while.body.i55.i.i.i.i.i183.i2203
@@ -21448,7 +21448,7 @@ while.body.i70.i.i.i.i.i161.i2175:                ; preds = %if.then19.i.i.i.i.i
   %625 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i2176, i1 true)
   %cast.i72.i.i.i.i.i163.i2177 = trunc nuw nsw i64 %625 to i32
   %add.i73.i.i.i.i.i164.i2178 = or disjoint i32 %617, %cast.i72.i.i.i.i.i163.i2177
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i73.i.i.i.i.i164.i2178)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i73.i.i.i.i.i164.i2178)
           to label %.noexc6.i.i2181 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i2179
 
 .noexc6.i.i2181:                                  ; preds = %while.body.i70.i.i.i.i.i161.i2175
@@ -21685,7 +21685,7 @@ if.then.i.i426.i2032:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i2036:                            ; preds = %if.then.i.i426.i2032, %.noexc.i434.i2040
   %row.011.i.i431.i2037 = phi i32 [ %inc.i.i435.i2041, %.noexc.i434.i2040 ], [ %648, %if.then.i.i426.i2032 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i1645, i32 noundef %row.011.i.i431.i2037)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i1645, i32 noundef %row.011.i.i431.i2037)
           to label %.noexc.i434.i2040 unwind label %lpad.loopexit.i432.i2038
 
 .noexc.i434.i2040:                                ; preds = %for.body.i.i430.i2036
@@ -21702,10 +21702,10 @@ if.else.i.i284.i1806:                             ; preds = %_ZNK8facebook5velox
   %653 = load i32, ptr %end_4.i.i286.i1808, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i1644, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i1644)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i1645, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i1645, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i1643, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i1643)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i1645, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i1645, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i1643, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i1811 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i1643, i64 8
   store ptr %651, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i1811, align 8
@@ -21749,7 +21749,7 @@ while.body.i.i.i.i.i.i416.i2022:                  ; preds = %if.then3.i.i.i.i.i3
   %657 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i2023, i1 true)
   %cast.i.i.i.i.i.i418.i2024 = trunc nuw nsw i64 %657 to i32
   %add.i26.i.i.i.i.i419.i2025 = or disjoint i32 %655, %cast.i.i.i.i.i.i418.i2024
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i26.i.i.i.i.i419.i2025)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i26.i.i.i.i.i419.i2025)
           to label %.noexc2.i422.i2028 unwind label %lpad.loopexit.split-lp.loopexit.i420.i2026
 
 .noexc2.i422.i2028:                               ; preds = %while.body.i.i.i.i.i.i416.i2022
@@ -21787,7 +21787,7 @@ while.body.i42.i.i.i.i.i319.i1924:                ; preds = %.noexc3.i333.i1939,
   %659 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i1925, i1 true)
   %cast.i44.i.i.i.i.i321.i1926 = trunc nuw nsw i64 %659 to i32
   %add.i45.i.i.i.i.i322.i1927 = or disjoint i32 %mul.i41.i.i.i.i.i318.i1923, %cast.i44.i.i.i.i.i321.i1926
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i45.i.i.i.i.i322.i1927)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i45.i.i.i.i.i322.i1927)
           to label %.noexc3.i333.i1939 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i1928
 
 .noexc3.i333.i1939:                               ; preds = %while.body.i42.i.i.i.i.i319.i1924
@@ -21832,7 +21832,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i1982:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i1984:                    ; preds = %.noexc4.i383.i1989, %for.body.lr.ph.i.i.i.i.i.i376.i1982
   %row.015.i.i.i.i.i.i379.i1985 = phi i64 [ %conv.i.i.i.i.i.i377.i1983, %for.body.lr.ph.i.i.i.i.i.i376.i1982 ], [ %inc.i.i.i.i.i.i384.i1990, %.noexc4.i383.i1989 ]
   %conv7.i.i.i.i.i.i380.i1986 = trunc i64 %row.015.i.i.i.i.i.i379.i1985 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, i32 noundef %conv7.i.i.i.i.i.i380.i1986)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, i32 noundef %conv7.i.i.i.i.i.i380.i1986)
           to label %.noexc4.i383.i1989 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i1987
 
 .noexc4.i383.i1989:                               ; preds = %for.body.i.i.i.i.i.i378.i1984
@@ -21845,7 +21845,7 @@ while.body.i55.i.i.i.i.i388.i1994:                ; preds = %.noexc5.i394.i2000,
   %661 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i1995, i1 true)
   %cast.i56.i.i.i.i.i390.i1996 = trunc nuw nsw i64 %661 to i32
   %add10.i.i.i.i.i.i391.i1997 = or disjoint i32 %mul9.i.i.i.i.i.i387.i1993, %cast.i56.i.i.i.i.i390.i1996
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, i32 noundef %add10.i.i.i.i.i.i391.i1997)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, i32 noundef %add10.i.i.i.i.i.i391.i1997)
           to label %.noexc5.i394.i2000 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i1998
 
 .noexc5.i394.i2000:                               ; preds = %while.body.i55.i.i.i.i.i388.i1994
@@ -21881,7 +21881,7 @@ while.body.i70.i.i.i.i.i360.i1966:                ; preds = %if.then19.i.i.i.i.i
   %663 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i1967, i1 true)
   %cast.i72.i.i.i.i.i362.i1968 = trunc nuw nsw i64 %663 to i32
   %add.i73.i.i.i.i.i363.i1969 = or disjoint i32 %655, %cast.i72.i.i.i.i.i362.i1968
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i73.i.i.i.i.i363.i1969)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i73.i.i.i.i.i363.i1969)
           to label %.noexc6.i366.i1972 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i1970
 
 .noexc6.i366.i1972:                               ; preds = %while.body.i70.i.i.i.i.i360.i1966
@@ -22554,7 +22554,7 @@ if.then.i.i68.i3243:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i3247:                               ; preds = %if.then.i.i68.i3243, %.noexc.i3251
   %row.011.i.i.i3248 = phi i32 [ %inc.i.i.i3252, %.noexc.i3251 ], [ %749, %if.then.i.i68.i3243 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i2480, i32 noundef %row.011.i.i.i3248)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i2480, i32 noundef %row.011.i.i.i3248)
           to label %.noexc.i3251 unwind label %lpad16.loopexit.i3249
 
 .noexc.i3251:                                     ; preds = %for.body.i.i.i3247
@@ -22571,10 +22571,10 @@ if.else.i.i.i3115:                                ; preds = %_ZNK8facebook5velox
   %754 = load i32, ptr %end_4.i.i.i3117, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i2479, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i2479)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i2480, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i2480, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i2478, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i2478)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i2480, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i2480, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i2478, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i3120 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i2478, i64 8
   store ptr %752, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i3120, align 8
@@ -22618,7 +22618,7 @@ while.body.i.i.i.i.i.i.i3233:                     ; preds = %if.then3.i.i.i.i.i.
   %758 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i3234, i1 true)
   %cast.i.i.i.i.i.i.i3235 = trunc nuw nsw i64 %758 to i32
   %add.i26.i.i.i.i.i.i3236 = or disjoint i32 %756, %cast.i.i.i.i.i.i.i3235
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i26.i.i.i.i.i.i3236)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i26.i.i.i.i.i.i3236)
           to label %.noexc69.i3239 unwind label %lpad16.loopexit.split-lp.loopexit.i3237
 
 .noexc69.i3239:                                   ; preds = %while.body.i.i.i.i.i.i.i3233
@@ -22656,7 +22656,7 @@ while.body.i42.i.i.i.i.i.i3144:                   ; preds = %.noexc70.i3150, %wh
   %760 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i3145, i1 true)
   %cast.i44.i.i.i.i.i.i3146 = trunc nuw nsw i64 %760 to i32
   %add.i45.i.i.i.i.i.i3147 = or disjoint i32 %mul.i41.i.i.i.i.i.i3143, %cast.i44.i.i.i.i.i.i3146
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i45.i.i.i.i.i.i3147)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i45.i.i.i.i.i.i3147)
           to label %.noexc70.i3150 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3148
 
 .noexc70.i3150:                                   ; preds = %while.body.i42.i.i.i.i.i.i3144
@@ -22701,7 +22701,7 @@ for.body.lr.ph.i.i.i.i.i.i.i3193:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i3195:                       ; preds = %.noexc71.i3200, %for.body.lr.ph.i.i.i.i.i.i.i3193
   %row.015.i.i.i.i.i.i.i3196 = phi i64 [ %conv.i.i.i.i.i.i.i3194, %for.body.lr.ph.i.i.i.i.i.i.i3193 ], [ %inc.i.i.i.i.i.i.i3201, %.noexc71.i3200 ]
   %conv7.i.i.i.i.i.i.i3197 = trunc i64 %row.015.i.i.i.i.i.i.i3196 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, i32 noundef %conv7.i.i.i.i.i.i.i3197)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, i32 noundef %conv7.i.i.i.i.i.i.i3197)
           to label %.noexc71.i3200 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3198
 
 .noexc71.i3200:                                   ; preds = %for.body.i.i.i.i.i.i.i3195
@@ -22714,7 +22714,7 @@ while.body.i55.i.i.i.i.i.i3205:                   ; preds = %.noexc72.i3211, %wh
   %762 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i3206, i1 true)
   %cast.i56.i.i.i.i.i.i3207 = trunc nuw nsw i64 %762 to i32
   %add10.i.i.i.i.i.i.i3208 = or disjoint i32 %mul9.i.i.i.i.i.i.i3204, %cast.i56.i.i.i.i.i.i3207
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, i32 noundef %add10.i.i.i.i.i.i.i3208)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, i32 noundef %add10.i.i.i.i.i.i.i3208)
           to label %.noexc72.i3211 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3209
 
 .noexc72.i3211:                                   ; preds = %while.body.i55.i.i.i.i.i.i3205
@@ -22750,7 +22750,7 @@ while.body.i70.i.i.i.i.i.i3177:                   ; preds = %if.then19.i.i.i.i.i
   %764 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i3178, i1 true)
   %cast.i72.i.i.i.i.i.i3179 = trunc nuw nsw i64 %764 to i32
   %add.i73.i.i.i.i.i.i3180 = or disjoint i32 %756, %cast.i72.i.i.i.i.i.i3179
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i73.i.i.i.i.i.i3180)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i73.i.i.i.i.i.i3180)
           to label %.noexc73.i3183 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i3181
 
 .noexc73.i3183:                                   ; preds = %while.body.i70.i.i.i.i.i.i3177
@@ -22940,7 +22940,7 @@ if.then.i.i215.i3062:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i3066:                            ; preds = %if.then.i.i215.i3062, %.noexc.i.i3070
   %row.011.i.i220.i3067 = phi i32 [ %inc.i.i221.i3071, %.noexc.i.i3070 ], [ %784, %if.then.i.i215.i3062 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i2473, i32 noundef %row.011.i.i220.i3067)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i2473, i32 noundef %row.011.i.i220.i3067)
           to label %.noexc.i.i3070 unwind label %lpad.loopexit.i.i3068
 
 .noexc.i.i3070:                                   ; preds = %for.body.i.i219.i3066
@@ -22957,10 +22957,10 @@ if.else.i.i98.i2921:                              ; preds = %_ZNK8facebook5velox
   %789 = load i32, ptr %end_4.i.i100.i2923, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i2472, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i2472)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i2473, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i2473, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i2471, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i2471)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i2473, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i2473, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i2471, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i2926 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i2471, i64 8
   store ptr %787, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i2926, align 8
@@ -23004,7 +23004,7 @@ while.body.i.i.i.i.i.i208.i3052:                  ; preds = %if.then3.i.i.i.i.i1
   %793 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i3053, i1 true)
   %cast.i.i.i.i.i.i210.i3054 = trunc nuw nsw i64 %793 to i32
   %add.i26.i.i.i.i.i211.i3055 = or disjoint i32 %791, %cast.i.i.i.i.i.i210.i3054
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i26.i.i.i.i.i211.i3055)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i26.i.i.i.i.i211.i3055)
           to label %.noexc2.i.i3058 unwind label %lpad.loopexit.split-lp.loopexit.i.i3056
 
 .noexc2.i.i3058:                                  ; preds = %while.body.i.i.i.i.i.i208.i3052
@@ -23042,7 +23042,7 @@ while.body.i42.i.i.i.i.i130.i2956:                ; preds = %.noexc3.i.i2969, %w
   %795 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i2957, i1 true)
   %cast.i44.i.i.i.i.i132.i2958 = trunc nuw nsw i64 %795 to i32
   %add.i45.i.i.i.i.i133.i2959 = or disjoint i32 %mul.i41.i.i.i.i.i129.i2955, %cast.i44.i.i.i.i.i132.i2958
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i45.i.i.i.i.i133.i2959)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i45.i.i.i.i.i133.i2959)
           to label %.noexc3.i.i2969 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i2960
 
 .noexc3.i.i2969:                                  ; preds = %while.body.i42.i.i.i.i.i130.i2956
@@ -23087,7 +23087,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i3012:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i3014:                    ; preds = %.noexc4.i.i3019, %for.body.lr.ph.i.i.i.i.i.i174.i3012
   %row.015.i.i.i.i.i.i177.i3015 = phi i64 [ %conv.i.i.i.i.i.i175.i3013, %for.body.lr.ph.i.i.i.i.i.i174.i3012 ], [ %inc.i.i.i.i.i.i179.i3020, %.noexc4.i.i3019 ]
   %conv7.i.i.i.i.i.i178.i3016 = trunc i64 %row.015.i.i.i.i.i.i177.i3015 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, i32 noundef %conv7.i.i.i.i.i.i178.i3016)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, i32 noundef %conv7.i.i.i.i.i.i178.i3016)
           to label %.noexc4.i.i3019 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3017
 
 .noexc4.i.i3019:                                  ; preds = %for.body.i.i.i.i.i.i176.i3014
@@ -23100,7 +23100,7 @@ while.body.i55.i.i.i.i.i183.i3024:                ; preds = %.noexc5.i.i3030, %w
   %797 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i3025, i1 true)
   %cast.i56.i.i.i.i.i185.i3026 = trunc nuw nsw i64 %797 to i32
   %add10.i.i.i.i.i.i186.i3027 = or disjoint i32 %mul9.i.i.i.i.i.i182.i3023, %cast.i56.i.i.i.i.i185.i3026
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, i32 noundef %add10.i.i.i.i.i.i186.i3027)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, i32 noundef %add10.i.i.i.i.i.i186.i3027)
           to label %.noexc5.i.i3030 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3028
 
 .noexc5.i.i3030:                                  ; preds = %while.body.i55.i.i.i.i.i183.i3024
@@ -23136,7 +23136,7 @@ while.body.i70.i.i.i.i.i161.i2996:                ; preds = %if.then19.i.i.i.i.i
   %799 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i2997, i1 true)
   %cast.i72.i.i.i.i.i163.i2998 = trunc nuw nsw i64 %799 to i32
   %add.i73.i.i.i.i.i164.i2999 = or disjoint i32 %791, %cast.i72.i.i.i.i.i163.i2998
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i73.i.i.i.i.i164.i2999)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i73.i.i.i.i.i164.i2999)
           to label %.noexc6.i.i3002 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3000
 
 .noexc6.i.i3002:                                  ; preds = %while.body.i70.i.i.i.i.i161.i2996
@@ -23373,7 +23373,7 @@ if.then.i.i426.i2853:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i2857:                            ; preds = %if.then.i.i426.i2853, %.noexc.i434.i2861
   %row.011.i.i431.i2858 = phi i32 [ %inc.i.i435.i2862, %.noexc.i434.i2861 ], [ %822, %if.then.i.i426.i2853 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i2466, i32 noundef %row.011.i.i431.i2858)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i2466, i32 noundef %row.011.i.i431.i2858)
           to label %.noexc.i434.i2861 unwind label %lpad.loopexit.i432.i2859
 
 .noexc.i434.i2861:                                ; preds = %for.body.i.i430.i2857
@@ -23390,10 +23390,10 @@ if.else.i.i284.i2627:                             ; preds = %_ZNK8facebook5velox
   %827 = load i32, ptr %end_4.i.i286.i2629, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i2465, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i2465)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i2466, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i2466, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i2464, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i2464)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i2466, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i2466, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i2464, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i2632 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i2464, i64 8
   store ptr %825, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i2632, align 8
@@ -23437,7 +23437,7 @@ while.body.i.i.i.i.i.i416.i2843:                  ; preds = %if.then3.i.i.i.i.i3
   %831 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i2844, i1 true)
   %cast.i.i.i.i.i.i418.i2845 = trunc nuw nsw i64 %831 to i32
   %add.i26.i.i.i.i.i419.i2846 = or disjoint i32 %829, %cast.i.i.i.i.i.i418.i2845
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i26.i.i.i.i.i419.i2846)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i26.i.i.i.i.i419.i2846)
           to label %.noexc2.i422.i2849 unwind label %lpad.loopexit.split-lp.loopexit.i420.i2847
 
 .noexc2.i422.i2849:                               ; preds = %while.body.i.i.i.i.i.i416.i2843
@@ -23475,7 +23475,7 @@ while.body.i42.i.i.i.i.i319.i2745:                ; preds = %.noexc3.i333.i2760,
   %833 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i2746, i1 true)
   %cast.i44.i.i.i.i.i321.i2747 = trunc nuw nsw i64 %833 to i32
   %add.i45.i.i.i.i.i322.i2748 = or disjoint i32 %mul.i41.i.i.i.i.i318.i2744, %cast.i44.i.i.i.i.i321.i2747
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i45.i.i.i.i.i322.i2748)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i45.i.i.i.i.i322.i2748)
           to label %.noexc3.i333.i2760 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i2749
 
 .noexc3.i333.i2760:                               ; preds = %while.body.i42.i.i.i.i.i319.i2745
@@ -23520,7 +23520,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i2803:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i2805:                    ; preds = %.noexc4.i383.i2810, %for.body.lr.ph.i.i.i.i.i.i376.i2803
   %row.015.i.i.i.i.i.i379.i2806 = phi i64 [ %conv.i.i.i.i.i.i377.i2804, %for.body.lr.ph.i.i.i.i.i.i376.i2803 ], [ %inc.i.i.i.i.i.i384.i2811, %.noexc4.i383.i2810 ]
   %conv7.i.i.i.i.i.i380.i2807 = trunc i64 %row.015.i.i.i.i.i.i379.i2806 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, i32 noundef %conv7.i.i.i.i.i.i380.i2807)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, i32 noundef %conv7.i.i.i.i.i.i380.i2807)
           to label %.noexc4.i383.i2810 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i2808
 
 .noexc4.i383.i2810:                               ; preds = %for.body.i.i.i.i.i.i378.i2805
@@ -23533,7 +23533,7 @@ while.body.i55.i.i.i.i.i388.i2815:                ; preds = %.noexc5.i394.i2821,
   %835 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i2816, i1 true)
   %cast.i56.i.i.i.i.i390.i2817 = trunc nuw nsw i64 %835 to i32
   %add10.i.i.i.i.i.i391.i2818 = or disjoint i32 %mul9.i.i.i.i.i.i387.i2814, %cast.i56.i.i.i.i.i390.i2817
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, i32 noundef %add10.i.i.i.i.i.i391.i2818)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, i32 noundef %add10.i.i.i.i.i.i391.i2818)
           to label %.noexc5.i394.i2821 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i2819
 
 .noexc5.i394.i2821:                               ; preds = %while.body.i55.i.i.i.i.i388.i2815
@@ -23569,7 +23569,7 @@ while.body.i70.i.i.i.i.i360.i2787:                ; preds = %if.then19.i.i.i.i.i
   %837 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i2788, i1 true)
   %cast.i72.i.i.i.i.i362.i2789 = trunc nuw nsw i64 %837 to i32
   %add.i73.i.i.i.i.i363.i2790 = or disjoint i32 %829, %cast.i72.i.i.i.i.i362.i2789
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i73.i.i.i.i.i363.i2790)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i73.i.i.i.i.i363.i2790)
           to label %.noexc6.i366.i2793 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i2791
 
 .noexc6.i366.i2793:                               ; preds = %while.body.i70.i.i.i.i.i360.i2787
@@ -24242,7 +24242,7 @@ if.then.i.i68.i4064:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i4068:                               ; preds = %if.then.i.i68.i4064, %.noexc.i4072
   %row.011.i.i.i4069 = phi i32 [ %inc.i.i.i4073, %.noexc.i4072 ], [ %923, %if.then.i.i68.i4064 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i3301, i32 noundef %row.011.i.i.i4069)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i3301, i32 noundef %row.011.i.i.i4069)
           to label %.noexc.i4072 unwind label %lpad16.loopexit.i4070
 
 .noexc.i4072:                                     ; preds = %for.body.i.i.i4068
@@ -24259,10 +24259,10 @@ if.else.i.i.i3936:                                ; preds = %_ZNK8facebook5velox
   %928 = load i32, ptr %end_4.i.i.i3938, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i3300, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i3300)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i3301, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i3301, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i3299, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i3299)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i3301, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i3301, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i3299, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i3941 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i3299, i64 8
   store ptr %926, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i3941, align 8
@@ -24306,7 +24306,7 @@ while.body.i.i.i.i.i.i.i4054:                     ; preds = %if.then3.i.i.i.i.i.
   %932 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i4055, i1 true)
   %cast.i.i.i.i.i.i.i4056 = trunc nuw nsw i64 %932 to i32
   %add.i26.i.i.i.i.i.i4057 = or disjoint i32 %930, %cast.i.i.i.i.i.i.i4056
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i26.i.i.i.i.i.i4057)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i26.i.i.i.i.i.i4057)
           to label %.noexc69.i4060 unwind label %lpad16.loopexit.split-lp.loopexit.i4058
 
 .noexc69.i4060:                                   ; preds = %while.body.i.i.i.i.i.i.i4054
@@ -24344,7 +24344,7 @@ while.body.i42.i.i.i.i.i.i3965:                   ; preds = %.noexc70.i3971, %wh
   %934 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i3966, i1 true)
   %cast.i44.i.i.i.i.i.i3967 = trunc nuw nsw i64 %934 to i32
   %add.i45.i.i.i.i.i.i3968 = or disjoint i32 %mul.i41.i.i.i.i.i.i3964, %cast.i44.i.i.i.i.i.i3967
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i45.i.i.i.i.i.i3968)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i45.i.i.i.i.i.i3968)
           to label %.noexc70.i3971 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3969
 
 .noexc70.i3971:                                   ; preds = %while.body.i42.i.i.i.i.i.i3965
@@ -24389,7 +24389,7 @@ for.body.lr.ph.i.i.i.i.i.i.i4014:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i4016:                       ; preds = %.noexc71.i4021, %for.body.lr.ph.i.i.i.i.i.i.i4014
   %row.015.i.i.i.i.i.i.i4017 = phi i64 [ %conv.i.i.i.i.i.i.i4015, %for.body.lr.ph.i.i.i.i.i.i.i4014 ], [ %inc.i.i.i.i.i.i.i4022, %.noexc71.i4021 ]
   %conv7.i.i.i.i.i.i.i4018 = trunc i64 %row.015.i.i.i.i.i.i.i4017 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, i32 noundef %conv7.i.i.i.i.i.i.i4018)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, i32 noundef %conv7.i.i.i.i.i.i.i4018)
           to label %.noexc71.i4021 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4019
 
 .noexc71.i4021:                                   ; preds = %for.body.i.i.i.i.i.i.i4016
@@ -24402,7 +24402,7 @@ while.body.i55.i.i.i.i.i.i4026:                   ; preds = %.noexc72.i4032, %wh
   %936 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i4027, i1 true)
   %cast.i56.i.i.i.i.i.i4028 = trunc nuw nsw i64 %936 to i32
   %add10.i.i.i.i.i.i.i4029 = or disjoint i32 %mul9.i.i.i.i.i.i.i4025, %cast.i56.i.i.i.i.i.i4028
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, i32 noundef %add10.i.i.i.i.i.i.i4029)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, i32 noundef %add10.i.i.i.i.i.i.i4029)
           to label %.noexc72.i4032 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4030
 
 .noexc72.i4032:                                   ; preds = %while.body.i55.i.i.i.i.i.i4026
@@ -24438,7 +24438,7 @@ while.body.i70.i.i.i.i.i.i3998:                   ; preds = %if.then19.i.i.i.i.i
   %938 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i3999, i1 true)
   %cast.i72.i.i.i.i.i.i4000 = trunc nuw nsw i64 %938 to i32
   %add.i73.i.i.i.i.i.i4001 = or disjoint i32 %930, %cast.i72.i.i.i.i.i.i4000
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i73.i.i.i.i.i.i4001)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i73.i.i.i.i.i.i4001)
           to label %.noexc73.i4004 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i4002
 
 .noexc73.i4004:                                   ; preds = %while.body.i70.i.i.i.i.i.i3998
@@ -24628,7 +24628,7 @@ if.then.i.i215.i3883:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i3887:                            ; preds = %if.then.i.i215.i3883, %.noexc.i.i3891
   %row.011.i.i220.i3888 = phi i32 [ %inc.i.i221.i3892, %.noexc.i.i3891 ], [ %958, %if.then.i.i215.i3883 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i3294, i32 noundef %row.011.i.i220.i3888)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i3294, i32 noundef %row.011.i.i220.i3888)
           to label %.noexc.i.i3891 unwind label %lpad.loopexit.i.i3889
 
 .noexc.i.i3891:                                   ; preds = %for.body.i.i219.i3887
@@ -24645,10 +24645,10 @@ if.else.i.i98.i3742:                              ; preds = %_ZNK8facebook5velox
   %963 = load i32, ptr %end_4.i.i100.i3744, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i3293, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i3293)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i3294, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i3294, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i3292, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i3292)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i3294, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i3294, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i3292, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i3747 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i3292, i64 8
   store ptr %961, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i3747, align 8
@@ -24692,7 +24692,7 @@ while.body.i.i.i.i.i.i208.i3873:                  ; preds = %if.then3.i.i.i.i.i1
   %967 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i3874, i1 true)
   %cast.i.i.i.i.i.i210.i3875 = trunc nuw nsw i64 %967 to i32
   %add.i26.i.i.i.i.i211.i3876 = or disjoint i32 %965, %cast.i.i.i.i.i.i210.i3875
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i26.i.i.i.i.i211.i3876)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i26.i.i.i.i.i211.i3876)
           to label %.noexc2.i.i3879 unwind label %lpad.loopexit.split-lp.loopexit.i.i3877
 
 .noexc2.i.i3879:                                  ; preds = %while.body.i.i.i.i.i.i208.i3873
@@ -24730,7 +24730,7 @@ while.body.i42.i.i.i.i.i130.i3777:                ; preds = %.noexc3.i.i3790, %w
   %969 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i3778, i1 true)
   %cast.i44.i.i.i.i.i132.i3779 = trunc nuw nsw i64 %969 to i32
   %add.i45.i.i.i.i.i133.i3780 = or disjoint i32 %mul.i41.i.i.i.i.i129.i3776, %cast.i44.i.i.i.i.i132.i3779
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i45.i.i.i.i.i133.i3780)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i45.i.i.i.i.i133.i3780)
           to label %.noexc3.i.i3790 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i3781
 
 .noexc3.i.i3790:                                  ; preds = %while.body.i42.i.i.i.i.i130.i3777
@@ -24775,7 +24775,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i3833:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i3835:                    ; preds = %.noexc4.i.i3840, %for.body.lr.ph.i.i.i.i.i.i174.i3833
   %row.015.i.i.i.i.i.i177.i3836 = phi i64 [ %conv.i.i.i.i.i.i175.i3834, %for.body.lr.ph.i.i.i.i.i.i174.i3833 ], [ %inc.i.i.i.i.i.i179.i3841, %.noexc4.i.i3840 ]
   %conv7.i.i.i.i.i.i178.i3837 = trunc i64 %row.015.i.i.i.i.i.i177.i3836 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, i32 noundef %conv7.i.i.i.i.i.i178.i3837)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, i32 noundef %conv7.i.i.i.i.i.i178.i3837)
           to label %.noexc4.i.i3840 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3838
 
 .noexc4.i.i3840:                                  ; preds = %for.body.i.i.i.i.i.i176.i3835
@@ -24788,7 +24788,7 @@ while.body.i55.i.i.i.i.i183.i3845:                ; preds = %.noexc5.i.i3851, %w
   %971 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i3846, i1 true)
   %cast.i56.i.i.i.i.i185.i3847 = trunc nuw nsw i64 %971 to i32
   %add10.i.i.i.i.i.i186.i3848 = or disjoint i32 %mul9.i.i.i.i.i.i182.i3844, %cast.i56.i.i.i.i.i185.i3847
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, i32 noundef %add10.i.i.i.i.i.i186.i3848)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, i32 noundef %add10.i.i.i.i.i.i186.i3848)
           to label %.noexc5.i.i3851 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3849
 
 .noexc5.i.i3851:                                  ; preds = %while.body.i55.i.i.i.i.i183.i3845
@@ -24824,7 +24824,7 @@ while.body.i70.i.i.i.i.i161.i3817:                ; preds = %if.then19.i.i.i.i.i
   %973 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i3818, i1 true)
   %cast.i72.i.i.i.i.i163.i3819 = trunc nuw nsw i64 %973 to i32
   %add.i73.i.i.i.i.i164.i3820 = or disjoint i32 %965, %cast.i72.i.i.i.i.i163.i3819
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i73.i.i.i.i.i164.i3820)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i73.i.i.i.i.i164.i3820)
           to label %.noexc6.i.i3823 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3821
 
 .noexc6.i.i3823:                                  ; preds = %while.body.i70.i.i.i.i.i161.i3817
@@ -25061,7 +25061,7 @@ if.then.i.i426.i3674:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i3678:                            ; preds = %if.then.i.i426.i3674, %.noexc.i434.i3682
   %row.011.i.i431.i3679 = phi i32 [ %inc.i.i435.i3683, %.noexc.i434.i3682 ], [ %996, %if.then.i.i426.i3674 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i3287, i32 noundef %row.011.i.i431.i3679)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i3287, i32 noundef %row.011.i.i431.i3679)
           to label %.noexc.i434.i3682 unwind label %lpad.loopexit.i432.i3680
 
 .noexc.i434.i3682:                                ; preds = %for.body.i.i430.i3678
@@ -25078,10 +25078,10 @@ if.else.i.i284.i3448:                             ; preds = %_ZNK8facebook5velox
   %1001 = load i32, ptr %end_4.i.i286.i3450, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i3286, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i3286)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i3287, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i3287, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i3285, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i3285)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i3287, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i3287, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i3285, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i3453 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i3285, i64 8
   store ptr %999, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i3453, align 8
@@ -25125,7 +25125,7 @@ while.body.i.i.i.i.i.i416.i3664:                  ; preds = %if.then3.i.i.i.i.i3
   %1005 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i3665, i1 true)
   %cast.i.i.i.i.i.i418.i3666 = trunc nuw nsw i64 %1005 to i32
   %add.i26.i.i.i.i.i419.i3667 = or disjoint i32 %1003, %cast.i.i.i.i.i.i418.i3666
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i26.i.i.i.i.i419.i3667)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i26.i.i.i.i.i419.i3667)
           to label %.noexc2.i422.i3670 unwind label %lpad.loopexit.split-lp.loopexit.i420.i3668
 
 .noexc2.i422.i3670:                               ; preds = %while.body.i.i.i.i.i.i416.i3664
@@ -25163,7 +25163,7 @@ while.body.i42.i.i.i.i.i319.i3566:                ; preds = %.noexc3.i333.i3581,
   %1007 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i3567, i1 true)
   %cast.i44.i.i.i.i.i321.i3568 = trunc nuw nsw i64 %1007 to i32
   %add.i45.i.i.i.i.i322.i3569 = or disjoint i32 %mul.i41.i.i.i.i.i318.i3565, %cast.i44.i.i.i.i.i321.i3568
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i45.i.i.i.i.i322.i3569)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i45.i.i.i.i.i322.i3569)
           to label %.noexc3.i333.i3581 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i3570
 
 .noexc3.i333.i3581:                               ; preds = %while.body.i42.i.i.i.i.i319.i3566
@@ -25208,7 +25208,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i3624:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i3626:                    ; preds = %.noexc4.i383.i3631, %for.body.lr.ph.i.i.i.i.i.i376.i3624
   %row.015.i.i.i.i.i.i379.i3627 = phi i64 [ %conv.i.i.i.i.i.i377.i3625, %for.body.lr.ph.i.i.i.i.i.i376.i3624 ], [ %inc.i.i.i.i.i.i384.i3632, %.noexc4.i383.i3631 ]
   %conv7.i.i.i.i.i.i380.i3628 = trunc i64 %row.015.i.i.i.i.i.i379.i3627 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, i32 noundef %conv7.i.i.i.i.i.i380.i3628)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, i32 noundef %conv7.i.i.i.i.i.i380.i3628)
           to label %.noexc4.i383.i3631 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i3629
 
 .noexc4.i383.i3631:                               ; preds = %for.body.i.i.i.i.i.i378.i3626
@@ -25221,7 +25221,7 @@ while.body.i55.i.i.i.i.i388.i3636:                ; preds = %.noexc5.i394.i3642,
   %1009 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i3637, i1 true)
   %cast.i56.i.i.i.i.i390.i3638 = trunc nuw nsw i64 %1009 to i32
   %add10.i.i.i.i.i.i391.i3639 = or disjoint i32 %mul9.i.i.i.i.i.i387.i3635, %cast.i56.i.i.i.i.i390.i3638
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, i32 noundef %add10.i.i.i.i.i.i391.i3639)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, i32 noundef %add10.i.i.i.i.i.i391.i3639)
           to label %.noexc5.i394.i3642 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i3640
 
 .noexc5.i394.i3642:                               ; preds = %while.body.i55.i.i.i.i.i388.i3636
@@ -25257,7 +25257,7 @@ while.body.i70.i.i.i.i.i360.i3608:                ; preds = %if.then19.i.i.i.i.i
   %1011 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i3609, i1 true)
   %cast.i72.i.i.i.i.i362.i3610 = trunc nuw nsw i64 %1011 to i32
   %add.i73.i.i.i.i.i363.i3611 = or disjoint i32 %1003, %cast.i72.i.i.i.i.i362.i3610
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i73.i.i.i.i.i363.i3611)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i73.i.i.i.i.i363.i3611)
           to label %.noexc6.i366.i3614 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i3612
 
 .noexc6.i366.i3614:                               ; preds = %while.body.i70.i.i.i.i.i360.i3608
@@ -25930,7 +25930,7 @@ if.then.i.i68.i4885:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i4889:                               ; preds = %if.then.i.i68.i4885, %.noexc.i4893
   %row.011.i.i.i4890 = phi i32 [ %inc.i.i.i4894, %.noexc.i4893 ], [ %1097, %if.then.i.i68.i4885 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i4122, i32 noundef %row.011.i.i.i4890)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i4122, i32 noundef %row.011.i.i.i4890)
           to label %.noexc.i4893 unwind label %lpad16.loopexit.i4891
 
 .noexc.i4893:                                     ; preds = %for.body.i.i.i4889
@@ -25947,10 +25947,10 @@ if.else.i.i.i4757:                                ; preds = %_ZNK8facebook5velox
   %1102 = load i32, ptr %end_4.i.i.i4759, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i4121, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i4121)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i4122, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i4122, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i4120, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i4120)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i4122, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i4122, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i4120, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i4762 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i4120, i64 8
   store ptr %1100, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i4762, align 8
@@ -25994,7 +25994,7 @@ while.body.i.i.i.i.i.i.i4875:                     ; preds = %if.then3.i.i.i.i.i.
   %1106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i4876, i1 true)
   %cast.i.i.i.i.i.i.i4877 = trunc nuw nsw i64 %1106 to i32
   %add.i26.i.i.i.i.i.i4878 = or disjoint i32 %1104, %cast.i.i.i.i.i.i.i4877
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i26.i.i.i.i.i.i4878)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i26.i.i.i.i.i.i4878)
           to label %.noexc69.i4881 unwind label %lpad16.loopexit.split-lp.loopexit.i4879
 
 .noexc69.i4881:                                   ; preds = %while.body.i.i.i.i.i.i.i4875
@@ -26032,7 +26032,7 @@ while.body.i42.i.i.i.i.i.i4786:                   ; preds = %.noexc70.i4792, %wh
   %1108 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i4787, i1 true)
   %cast.i44.i.i.i.i.i.i4788 = trunc nuw nsw i64 %1108 to i32
   %add.i45.i.i.i.i.i.i4789 = or disjoint i32 %mul.i41.i.i.i.i.i.i4785, %cast.i44.i.i.i.i.i.i4788
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i45.i.i.i.i.i.i4789)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i45.i.i.i.i.i.i4789)
           to label %.noexc70.i4792 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4790
 
 .noexc70.i4792:                                   ; preds = %while.body.i42.i.i.i.i.i.i4786
@@ -26077,7 +26077,7 @@ for.body.lr.ph.i.i.i.i.i.i.i4835:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i4837:                       ; preds = %.noexc71.i4842, %for.body.lr.ph.i.i.i.i.i.i.i4835
   %row.015.i.i.i.i.i.i.i4838 = phi i64 [ %conv.i.i.i.i.i.i.i4836, %for.body.lr.ph.i.i.i.i.i.i.i4835 ], [ %inc.i.i.i.i.i.i.i4843, %.noexc71.i4842 ]
   %conv7.i.i.i.i.i.i.i4839 = trunc i64 %row.015.i.i.i.i.i.i.i4838 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, i32 noundef %conv7.i.i.i.i.i.i.i4839)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, i32 noundef %conv7.i.i.i.i.i.i.i4839)
           to label %.noexc71.i4842 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4840
 
 .noexc71.i4842:                                   ; preds = %for.body.i.i.i.i.i.i.i4837
@@ -26090,7 +26090,7 @@ while.body.i55.i.i.i.i.i.i4847:                   ; preds = %.noexc72.i4853, %wh
   %1110 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i4848, i1 true)
   %cast.i56.i.i.i.i.i.i4849 = trunc nuw nsw i64 %1110 to i32
   %add10.i.i.i.i.i.i.i4850 = or disjoint i32 %mul9.i.i.i.i.i.i.i4846, %cast.i56.i.i.i.i.i.i4849
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, i32 noundef %add10.i.i.i.i.i.i.i4850)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, i32 noundef %add10.i.i.i.i.i.i.i4850)
           to label %.noexc72.i4853 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4851
 
 .noexc72.i4853:                                   ; preds = %while.body.i55.i.i.i.i.i.i4847
@@ -26126,7 +26126,7 @@ while.body.i70.i.i.i.i.i.i4819:                   ; preds = %if.then19.i.i.i.i.i
   %1112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i4820, i1 true)
   %cast.i72.i.i.i.i.i.i4821 = trunc nuw nsw i64 %1112 to i32
   %add.i73.i.i.i.i.i.i4822 = or disjoint i32 %1104, %cast.i72.i.i.i.i.i.i4821
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i73.i.i.i.i.i.i4822)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i73.i.i.i.i.i.i4822)
           to label %.noexc73.i4825 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i4823
 
 .noexc73.i4825:                                   ; preds = %while.body.i70.i.i.i.i.i.i4819
@@ -26316,7 +26316,7 @@ if.then.i.i215.i4704:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i4708:                            ; preds = %if.then.i.i215.i4704, %.noexc.i.i4712
   %row.011.i.i220.i4709 = phi i32 [ %inc.i.i221.i4713, %.noexc.i.i4712 ], [ %1132, %if.then.i.i215.i4704 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i4115, i32 noundef %row.011.i.i220.i4709)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i4115, i32 noundef %row.011.i.i220.i4709)
           to label %.noexc.i.i4712 unwind label %lpad.loopexit.i.i4710
 
 .noexc.i.i4712:                                   ; preds = %for.body.i.i219.i4708
@@ -26333,10 +26333,10 @@ if.else.i.i98.i4563:                              ; preds = %_ZNK8facebook5velox
   %1137 = load i32, ptr %end_4.i.i100.i4565, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i4114, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i4114)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i4115, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i4115, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i4113, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i4113)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i4115, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i4115, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i4113, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i4568 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i4113, i64 8
   store ptr %1135, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i4568, align 8
@@ -26380,7 +26380,7 @@ while.body.i.i.i.i.i.i208.i4694:                  ; preds = %if.then3.i.i.i.i.i1
   %1141 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i4695, i1 true)
   %cast.i.i.i.i.i.i210.i4696 = trunc nuw nsw i64 %1141 to i32
   %add.i26.i.i.i.i.i211.i4697 = or disjoint i32 %1139, %cast.i.i.i.i.i.i210.i4696
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i26.i.i.i.i.i211.i4697)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i26.i.i.i.i.i211.i4697)
           to label %.noexc2.i.i4700 unwind label %lpad.loopexit.split-lp.loopexit.i.i4698
 
 .noexc2.i.i4700:                                  ; preds = %while.body.i.i.i.i.i.i208.i4694
@@ -26418,7 +26418,7 @@ while.body.i42.i.i.i.i.i130.i4598:                ; preds = %.noexc3.i.i4611, %w
   %1143 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i4599, i1 true)
   %cast.i44.i.i.i.i.i132.i4600 = trunc nuw nsw i64 %1143 to i32
   %add.i45.i.i.i.i.i133.i4601 = or disjoint i32 %mul.i41.i.i.i.i.i129.i4597, %cast.i44.i.i.i.i.i132.i4600
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i45.i.i.i.i.i133.i4601)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i45.i.i.i.i.i133.i4601)
           to label %.noexc3.i.i4611 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i4602
 
 .noexc3.i.i4611:                                  ; preds = %while.body.i42.i.i.i.i.i130.i4598
@@ -26463,7 +26463,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i4654:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i4656:                    ; preds = %.noexc4.i.i4661, %for.body.lr.ph.i.i.i.i.i.i174.i4654
   %row.015.i.i.i.i.i.i177.i4657 = phi i64 [ %conv.i.i.i.i.i.i175.i4655, %for.body.lr.ph.i.i.i.i.i.i174.i4654 ], [ %inc.i.i.i.i.i.i179.i4662, %.noexc4.i.i4661 ]
   %conv7.i.i.i.i.i.i178.i4658 = trunc i64 %row.015.i.i.i.i.i.i177.i4657 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, i32 noundef %conv7.i.i.i.i.i.i178.i4658)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, i32 noundef %conv7.i.i.i.i.i.i178.i4658)
           to label %.noexc4.i.i4661 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i4659
 
 .noexc4.i.i4661:                                  ; preds = %for.body.i.i.i.i.i.i176.i4656
@@ -26476,7 +26476,7 @@ while.body.i55.i.i.i.i.i183.i4666:                ; preds = %.noexc5.i.i4672, %w
   %1145 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i4667, i1 true)
   %cast.i56.i.i.i.i.i185.i4668 = trunc nuw nsw i64 %1145 to i32
   %add10.i.i.i.i.i.i186.i4669 = or disjoint i32 %mul9.i.i.i.i.i.i182.i4665, %cast.i56.i.i.i.i.i185.i4668
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, i32 noundef %add10.i.i.i.i.i.i186.i4669)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, i32 noundef %add10.i.i.i.i.i.i186.i4669)
           to label %.noexc5.i.i4672 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i4670
 
 .noexc5.i.i4672:                                  ; preds = %while.body.i55.i.i.i.i.i183.i4666
@@ -26512,7 +26512,7 @@ while.body.i70.i.i.i.i.i161.i4638:                ; preds = %if.then19.i.i.i.i.i
   %1147 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i4639, i1 true)
   %cast.i72.i.i.i.i.i163.i4640 = trunc nuw nsw i64 %1147 to i32
   %add.i73.i.i.i.i.i164.i4641 = or disjoint i32 %1139, %cast.i72.i.i.i.i.i163.i4640
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i73.i.i.i.i.i164.i4641)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i73.i.i.i.i.i164.i4641)
           to label %.noexc6.i.i4644 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i4642
 
 .noexc6.i.i4644:                                  ; preds = %while.body.i70.i.i.i.i.i161.i4638
@@ -26749,7 +26749,7 @@ if.then.i.i426.i4495:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i4499:                            ; preds = %if.then.i.i426.i4495, %.noexc.i434.i4503
   %row.011.i.i431.i4500 = phi i32 [ %inc.i.i435.i4504, %.noexc.i434.i4503 ], [ %1170, %if.then.i.i426.i4495 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4108, i32 noundef %row.011.i.i431.i4500)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4108, i32 noundef %row.011.i.i431.i4500)
           to label %.noexc.i434.i4503 unwind label %lpad.loopexit.i432.i4501
 
 .noexc.i434.i4503:                                ; preds = %for.body.i.i430.i4499
@@ -26766,10 +26766,10 @@ if.else.i.i284.i4269:                             ; preds = %_ZNK8facebook5velox
   %1175 = load i32, ptr %end_4.i.i286.i4271, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i4107, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i4107)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4108, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4108, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i4106, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i4106)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4108, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4108, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i4106, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i4274 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i4106, i64 8
   store ptr %1173, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i4274, align 8
@@ -26813,7 +26813,7 @@ while.body.i.i.i.i.i.i416.i4485:                  ; preds = %if.then3.i.i.i.i.i3
   %1179 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i4486, i1 true)
   %cast.i.i.i.i.i.i418.i4487 = trunc nuw nsw i64 %1179 to i32
   %add.i26.i.i.i.i.i419.i4488 = or disjoint i32 %1177, %cast.i.i.i.i.i.i418.i4487
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i26.i.i.i.i.i419.i4488)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i26.i.i.i.i.i419.i4488)
           to label %.noexc2.i422.i4491 unwind label %lpad.loopexit.split-lp.loopexit.i420.i4489
 
 .noexc2.i422.i4491:                               ; preds = %while.body.i.i.i.i.i.i416.i4485
@@ -26851,7 +26851,7 @@ while.body.i42.i.i.i.i.i319.i4387:                ; preds = %.noexc3.i333.i4402,
   %1181 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i4388, i1 true)
   %cast.i44.i.i.i.i.i321.i4389 = trunc nuw nsw i64 %1181 to i32
   %add.i45.i.i.i.i.i322.i4390 = or disjoint i32 %mul.i41.i.i.i.i.i318.i4386, %cast.i44.i.i.i.i.i321.i4389
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i45.i.i.i.i.i322.i4390)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i45.i.i.i.i.i322.i4390)
           to label %.noexc3.i333.i4402 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i4391
 
 .noexc3.i333.i4402:                               ; preds = %while.body.i42.i.i.i.i.i319.i4387
@@ -26896,7 +26896,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i4445:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i4447:                    ; preds = %.noexc4.i383.i4452, %for.body.lr.ph.i.i.i.i.i.i376.i4445
   %row.015.i.i.i.i.i.i379.i4448 = phi i64 [ %conv.i.i.i.i.i.i377.i4446, %for.body.lr.ph.i.i.i.i.i.i376.i4445 ], [ %inc.i.i.i.i.i.i384.i4453, %.noexc4.i383.i4452 ]
   %conv7.i.i.i.i.i.i380.i4449 = trunc i64 %row.015.i.i.i.i.i.i379.i4448 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, i32 noundef %conv7.i.i.i.i.i.i380.i4449)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, i32 noundef %conv7.i.i.i.i.i.i380.i4449)
           to label %.noexc4.i383.i4452 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i4450
 
 .noexc4.i383.i4452:                               ; preds = %for.body.i.i.i.i.i.i378.i4447
@@ -26909,7 +26909,7 @@ while.body.i55.i.i.i.i.i388.i4457:                ; preds = %.noexc5.i394.i4463,
   %1183 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i4458, i1 true)
   %cast.i56.i.i.i.i.i390.i4459 = trunc nuw nsw i64 %1183 to i32
   %add10.i.i.i.i.i.i391.i4460 = or disjoint i32 %mul9.i.i.i.i.i.i387.i4456, %cast.i56.i.i.i.i.i390.i4459
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, i32 noundef %add10.i.i.i.i.i.i391.i4460)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, i32 noundef %add10.i.i.i.i.i.i391.i4460)
           to label %.noexc5.i394.i4463 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i4461
 
 .noexc5.i394.i4463:                               ; preds = %while.body.i55.i.i.i.i.i388.i4457
@@ -26945,7 +26945,7 @@ while.body.i70.i.i.i.i.i360.i4429:                ; preds = %if.then19.i.i.i.i.i
   %1185 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i4430, i1 true)
   %cast.i72.i.i.i.i.i362.i4431 = trunc nuw nsw i64 %1185 to i32
   %add.i73.i.i.i.i.i363.i4432 = or disjoint i32 %1177, %cast.i72.i.i.i.i.i362.i4431
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i73.i.i.i.i.i363.i4432)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i73.i.i.i.i.i363.i4432)
           to label %.noexc6.i366.i4435 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i4433
 
 .noexc6.i366.i4435:                               ; preds = %while.body.i70.i.i.i.i.i360.i4429
@@ -27618,7 +27618,7 @@ if.then.i.i68.i5706:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i5710:                               ; preds = %if.then.i.i68.i5706, %.noexc.i5714
   %row.011.i.i.i5711 = phi i32 [ %inc.i.i.i5715, %.noexc.i5714 ], [ %1271, %if.then.i.i68.i5706 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i4943, i32 noundef %row.011.i.i.i5711)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i4943, i32 noundef %row.011.i.i.i5711)
           to label %.noexc.i5714 unwind label %lpad16.loopexit.i5712
 
 .noexc.i5714:                                     ; preds = %for.body.i.i.i5710
@@ -27635,10 +27635,10 @@ if.else.i.i.i5578:                                ; preds = %_ZNK8facebook5velox
   %1276 = load i32, ptr %end_4.i.i.i5580, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i4942, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i4942)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i4943, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i4943, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i4941, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i4941)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i4943, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i4943, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i4941, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i5583 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i4941, i64 8
   store ptr %1274, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i5583, align 8
@@ -27682,7 +27682,7 @@ while.body.i.i.i.i.i.i.i5696:                     ; preds = %if.then3.i.i.i.i.i.
   %1280 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i5697, i1 true)
   %cast.i.i.i.i.i.i.i5698 = trunc nuw nsw i64 %1280 to i32
   %add.i26.i.i.i.i.i.i5699 = or disjoint i32 %1278, %cast.i.i.i.i.i.i.i5698
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i26.i.i.i.i.i.i5699)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i26.i.i.i.i.i.i5699)
           to label %.noexc69.i5702 unwind label %lpad16.loopexit.split-lp.loopexit.i5700
 
 .noexc69.i5702:                                   ; preds = %while.body.i.i.i.i.i.i.i5696
@@ -27720,7 +27720,7 @@ while.body.i42.i.i.i.i.i.i5607:                   ; preds = %.noexc70.i5613, %wh
   %1282 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i5608, i1 true)
   %cast.i44.i.i.i.i.i.i5609 = trunc nuw nsw i64 %1282 to i32
   %add.i45.i.i.i.i.i.i5610 = or disjoint i32 %mul.i41.i.i.i.i.i.i5606, %cast.i44.i.i.i.i.i.i5609
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i45.i.i.i.i.i.i5610)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i45.i.i.i.i.i.i5610)
           to label %.noexc70.i5613 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5611
 
 .noexc70.i5613:                                   ; preds = %while.body.i42.i.i.i.i.i.i5607
@@ -27765,7 +27765,7 @@ for.body.lr.ph.i.i.i.i.i.i.i5656:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i5658:                       ; preds = %.noexc71.i5663, %for.body.lr.ph.i.i.i.i.i.i.i5656
   %row.015.i.i.i.i.i.i.i5659 = phi i64 [ %conv.i.i.i.i.i.i.i5657, %for.body.lr.ph.i.i.i.i.i.i.i5656 ], [ %inc.i.i.i.i.i.i.i5664, %.noexc71.i5663 ]
   %conv7.i.i.i.i.i.i.i5660 = trunc i64 %row.015.i.i.i.i.i.i.i5659 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, i32 noundef %conv7.i.i.i.i.i.i.i5660)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, i32 noundef %conv7.i.i.i.i.i.i.i5660)
           to label %.noexc71.i5663 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5661
 
 .noexc71.i5663:                                   ; preds = %for.body.i.i.i.i.i.i.i5658
@@ -27778,7 +27778,7 @@ while.body.i55.i.i.i.i.i.i5668:                   ; preds = %.noexc72.i5674, %wh
   %1284 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i5669, i1 true)
   %cast.i56.i.i.i.i.i.i5670 = trunc nuw nsw i64 %1284 to i32
   %add10.i.i.i.i.i.i.i5671 = or disjoint i32 %mul9.i.i.i.i.i.i.i5667, %cast.i56.i.i.i.i.i.i5670
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, i32 noundef %add10.i.i.i.i.i.i.i5671)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, i32 noundef %add10.i.i.i.i.i.i.i5671)
           to label %.noexc72.i5674 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5672
 
 .noexc72.i5674:                                   ; preds = %while.body.i55.i.i.i.i.i.i5668
@@ -27814,7 +27814,7 @@ while.body.i70.i.i.i.i.i.i5640:                   ; preds = %if.then19.i.i.i.i.i
   %1286 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i5641, i1 true)
   %cast.i72.i.i.i.i.i.i5642 = trunc nuw nsw i64 %1286 to i32
   %add.i73.i.i.i.i.i.i5643 = or disjoint i32 %1278, %cast.i72.i.i.i.i.i.i5642
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i73.i.i.i.i.i.i5643)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i73.i.i.i.i.i.i5643)
           to label %.noexc73.i5646 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i5644
 
 .noexc73.i5646:                                   ; preds = %while.body.i70.i.i.i.i.i.i5640
@@ -28004,7 +28004,7 @@ if.then.i.i215.i5525:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i5529:                            ; preds = %if.then.i.i215.i5525, %.noexc.i.i5533
   %row.011.i.i220.i5530 = phi i32 [ %inc.i.i221.i5534, %.noexc.i.i5533 ], [ %1306, %if.then.i.i215.i5525 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i4936, i32 noundef %row.011.i.i220.i5530)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i4936, i32 noundef %row.011.i.i220.i5530)
           to label %.noexc.i.i5533 unwind label %lpad.loopexit.i.i5531
 
 .noexc.i.i5533:                                   ; preds = %for.body.i.i219.i5529
@@ -28021,10 +28021,10 @@ if.else.i.i98.i5384:                              ; preds = %_ZNK8facebook5velox
   %1311 = load i32, ptr %end_4.i.i100.i5386, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i4935, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i4935)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i4936, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i4936, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i4934, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i4934)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i4936, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i4936, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i4934, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i5389 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i4934, i64 8
   store ptr %1309, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i5389, align 8
@@ -28068,7 +28068,7 @@ while.body.i.i.i.i.i.i208.i5515:                  ; preds = %if.then3.i.i.i.i.i1
   %1315 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i5516, i1 true)
   %cast.i.i.i.i.i.i210.i5517 = trunc nuw nsw i64 %1315 to i32
   %add.i26.i.i.i.i.i211.i5518 = or disjoint i32 %1313, %cast.i.i.i.i.i.i210.i5517
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i26.i.i.i.i.i211.i5518)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i26.i.i.i.i.i211.i5518)
           to label %.noexc2.i.i5521 unwind label %lpad.loopexit.split-lp.loopexit.i.i5519
 
 .noexc2.i.i5521:                                  ; preds = %while.body.i.i.i.i.i.i208.i5515
@@ -28106,7 +28106,7 @@ while.body.i42.i.i.i.i.i130.i5419:                ; preds = %.noexc3.i.i5432, %w
   %1317 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i5420, i1 true)
   %cast.i44.i.i.i.i.i132.i5421 = trunc nuw nsw i64 %1317 to i32
   %add.i45.i.i.i.i.i133.i5422 = or disjoint i32 %mul.i41.i.i.i.i.i129.i5418, %cast.i44.i.i.i.i.i132.i5421
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i45.i.i.i.i.i133.i5422)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i45.i.i.i.i.i133.i5422)
           to label %.noexc3.i.i5432 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i5423
 
 .noexc3.i.i5432:                                  ; preds = %while.body.i42.i.i.i.i.i130.i5419
@@ -28151,7 +28151,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i5475:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i5477:                    ; preds = %.noexc4.i.i5482, %for.body.lr.ph.i.i.i.i.i.i174.i5475
   %row.015.i.i.i.i.i.i177.i5478 = phi i64 [ %conv.i.i.i.i.i.i175.i5476, %for.body.lr.ph.i.i.i.i.i.i174.i5475 ], [ %inc.i.i.i.i.i.i179.i5483, %.noexc4.i.i5482 ]
   %conv7.i.i.i.i.i.i178.i5479 = trunc i64 %row.015.i.i.i.i.i.i177.i5478 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, i32 noundef %conv7.i.i.i.i.i.i178.i5479)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, i32 noundef %conv7.i.i.i.i.i.i178.i5479)
           to label %.noexc4.i.i5482 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i5480
 
 .noexc4.i.i5482:                                  ; preds = %for.body.i.i.i.i.i.i176.i5477
@@ -28164,7 +28164,7 @@ while.body.i55.i.i.i.i.i183.i5487:                ; preds = %.noexc5.i.i5493, %w
   %1319 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i5488, i1 true)
   %cast.i56.i.i.i.i.i185.i5489 = trunc nuw nsw i64 %1319 to i32
   %add10.i.i.i.i.i.i186.i5490 = or disjoint i32 %mul9.i.i.i.i.i.i182.i5486, %cast.i56.i.i.i.i.i185.i5489
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, i32 noundef %add10.i.i.i.i.i.i186.i5490)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, i32 noundef %add10.i.i.i.i.i.i186.i5490)
           to label %.noexc5.i.i5493 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i5491
 
 .noexc5.i.i5493:                                  ; preds = %while.body.i55.i.i.i.i.i183.i5487
@@ -28200,7 +28200,7 @@ while.body.i70.i.i.i.i.i161.i5459:                ; preds = %if.then19.i.i.i.i.i
   %1321 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i5460, i1 true)
   %cast.i72.i.i.i.i.i163.i5461 = trunc nuw nsw i64 %1321 to i32
   %add.i73.i.i.i.i.i164.i5462 = or disjoint i32 %1313, %cast.i72.i.i.i.i.i163.i5461
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i73.i.i.i.i.i164.i5462)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i73.i.i.i.i.i164.i5462)
           to label %.noexc6.i.i5465 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i5463
 
 .noexc6.i.i5465:                                  ; preds = %while.body.i70.i.i.i.i.i161.i5459
@@ -28437,7 +28437,7 @@ if.then.i.i426.i5316:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i5320:                            ; preds = %if.then.i.i426.i5316, %.noexc.i434.i5324
   %row.011.i.i431.i5321 = phi i32 [ %inc.i.i435.i5325, %.noexc.i434.i5324 ], [ %1344, %if.then.i.i426.i5316 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4929, i32 noundef %row.011.i.i431.i5321)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4929, i32 noundef %row.011.i.i431.i5321)
           to label %.noexc.i434.i5324 unwind label %lpad.loopexit.i432.i5322
 
 .noexc.i434.i5324:                                ; preds = %for.body.i.i430.i5320
@@ -28454,10 +28454,10 @@ if.else.i.i284.i5090:                             ; preds = %_ZNK8facebook5velox
   %1349 = load i32, ptr %end_4.i.i286.i5092, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i4928, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i4928)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4929, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4929, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i4927, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i4927)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i4929, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i4929, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i4927, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i5095 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i4927, i64 8
   store ptr %1347, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i5095, align 8
@@ -28501,7 +28501,7 @@ while.body.i.i.i.i.i.i416.i5306:                  ; preds = %if.then3.i.i.i.i.i3
   %1353 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i5307, i1 true)
   %cast.i.i.i.i.i.i418.i5308 = trunc nuw nsw i64 %1353 to i32
   %add.i26.i.i.i.i.i419.i5309 = or disjoint i32 %1351, %cast.i.i.i.i.i.i418.i5308
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i26.i.i.i.i.i419.i5309)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i26.i.i.i.i.i419.i5309)
           to label %.noexc2.i422.i5312 unwind label %lpad.loopexit.split-lp.loopexit.i420.i5310
 
 .noexc2.i422.i5312:                               ; preds = %while.body.i.i.i.i.i.i416.i5306
@@ -28539,7 +28539,7 @@ while.body.i42.i.i.i.i.i319.i5208:                ; preds = %.noexc3.i333.i5223,
   %1355 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i5209, i1 true)
   %cast.i44.i.i.i.i.i321.i5210 = trunc nuw nsw i64 %1355 to i32
   %add.i45.i.i.i.i.i322.i5211 = or disjoint i32 %mul.i41.i.i.i.i.i318.i5207, %cast.i44.i.i.i.i.i321.i5210
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i45.i.i.i.i.i322.i5211)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i45.i.i.i.i.i322.i5211)
           to label %.noexc3.i333.i5223 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i5212
 
 .noexc3.i333.i5223:                               ; preds = %while.body.i42.i.i.i.i.i319.i5208
@@ -28584,7 +28584,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i5266:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i5268:                    ; preds = %.noexc4.i383.i5273, %for.body.lr.ph.i.i.i.i.i.i376.i5266
   %row.015.i.i.i.i.i.i379.i5269 = phi i64 [ %conv.i.i.i.i.i.i377.i5267, %for.body.lr.ph.i.i.i.i.i.i376.i5266 ], [ %inc.i.i.i.i.i.i384.i5274, %.noexc4.i383.i5273 ]
   %conv7.i.i.i.i.i.i380.i5270 = trunc i64 %row.015.i.i.i.i.i.i379.i5269 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, i32 noundef %conv7.i.i.i.i.i.i380.i5270)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, i32 noundef %conv7.i.i.i.i.i.i380.i5270)
           to label %.noexc4.i383.i5273 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i5271
 
 .noexc4.i383.i5273:                               ; preds = %for.body.i.i.i.i.i.i378.i5268
@@ -28597,7 +28597,7 @@ while.body.i55.i.i.i.i.i388.i5278:                ; preds = %.noexc5.i394.i5284,
   %1357 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i5279, i1 true)
   %cast.i56.i.i.i.i.i390.i5280 = trunc nuw nsw i64 %1357 to i32
   %add10.i.i.i.i.i.i391.i5281 = or disjoint i32 %mul9.i.i.i.i.i.i387.i5277, %cast.i56.i.i.i.i.i390.i5280
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, i32 noundef %add10.i.i.i.i.i.i391.i5281)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, i32 noundef %add10.i.i.i.i.i.i391.i5281)
           to label %.noexc5.i394.i5284 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i5282
 
 .noexc5.i394.i5284:                               ; preds = %while.body.i55.i.i.i.i.i388.i5278
@@ -28633,7 +28633,7 @@ while.body.i70.i.i.i.i.i360.i5250:                ; preds = %if.then19.i.i.i.i.i
   %1359 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i5251, i1 true)
   %cast.i72.i.i.i.i.i362.i5252 = trunc nuw nsw i64 %1359 to i32
   %add.i73.i.i.i.i.i363.i5253 = or disjoint i32 %1351, %cast.i72.i.i.i.i.i362.i5252
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i73.i.i.i.i.i363.i5253)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i73.i.i.i.i.i363.i5253)
           to label %.noexc6.i366.i5256 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i5254
 
 .noexc6.i366.i5256:                               ; preds = %while.body.i70.i.i.i.i.i360.i5250
@@ -29306,7 +29306,7 @@ if.then.i.i68.i6527:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i6531:                               ; preds = %if.then.i.i68.i6527, %.noexc.i6535
   %row.011.i.i.i6532 = phi i32 [ %inc.i.i.i6536, %.noexc.i6535 ], [ %1445, %if.then.i.i68.i6527 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i5764, i32 noundef %row.011.i.i.i6532)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i5764, i32 noundef %row.011.i.i.i6532)
           to label %.noexc.i6535 unwind label %lpad16.loopexit.i6533
 
 .noexc.i6535:                                     ; preds = %for.body.i.i.i6531
@@ -29323,10 +29323,10 @@ if.else.i.i.i6399:                                ; preds = %_ZNK8facebook5velox
   %1450 = load i32, ptr %end_4.i.i.i6401, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i5763, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i5763)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i5764, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i5764, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i5762, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i5762)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i5764, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i5764, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i5762, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i6404 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i5762, i64 8
   store ptr %1448, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i6404, align 8
@@ -29370,7 +29370,7 @@ while.body.i.i.i.i.i.i.i6517:                     ; preds = %if.then3.i.i.i.i.i.
   %1454 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i6518, i1 true)
   %cast.i.i.i.i.i.i.i6519 = trunc nuw nsw i64 %1454 to i32
   %add.i26.i.i.i.i.i.i6520 = or disjoint i32 %1452, %cast.i.i.i.i.i.i.i6519
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i26.i.i.i.i.i.i6520)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i26.i.i.i.i.i.i6520)
           to label %.noexc69.i6523 unwind label %lpad16.loopexit.split-lp.loopexit.i6521
 
 .noexc69.i6523:                                   ; preds = %while.body.i.i.i.i.i.i.i6517
@@ -29408,7 +29408,7 @@ while.body.i42.i.i.i.i.i.i6428:                   ; preds = %.noexc70.i6434, %wh
   %1456 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i6429, i1 true)
   %cast.i44.i.i.i.i.i.i6430 = trunc nuw nsw i64 %1456 to i32
   %add.i45.i.i.i.i.i.i6431 = or disjoint i32 %mul.i41.i.i.i.i.i.i6427, %cast.i44.i.i.i.i.i.i6430
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i45.i.i.i.i.i.i6431)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i45.i.i.i.i.i.i6431)
           to label %.noexc70.i6434 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6432
 
 .noexc70.i6434:                                   ; preds = %while.body.i42.i.i.i.i.i.i6428
@@ -29453,7 +29453,7 @@ for.body.lr.ph.i.i.i.i.i.i.i6477:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i6479:                       ; preds = %.noexc71.i6484, %for.body.lr.ph.i.i.i.i.i.i.i6477
   %row.015.i.i.i.i.i.i.i6480 = phi i64 [ %conv.i.i.i.i.i.i.i6478, %for.body.lr.ph.i.i.i.i.i.i.i6477 ], [ %inc.i.i.i.i.i.i.i6485, %.noexc71.i6484 ]
   %conv7.i.i.i.i.i.i.i6481 = trunc i64 %row.015.i.i.i.i.i.i.i6480 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, i32 noundef %conv7.i.i.i.i.i.i.i6481)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, i32 noundef %conv7.i.i.i.i.i.i.i6481)
           to label %.noexc71.i6484 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6482
 
 .noexc71.i6484:                                   ; preds = %for.body.i.i.i.i.i.i.i6479
@@ -29466,7 +29466,7 @@ while.body.i55.i.i.i.i.i.i6489:                   ; preds = %.noexc72.i6495, %wh
   %1458 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i6490, i1 true)
   %cast.i56.i.i.i.i.i.i6491 = trunc nuw nsw i64 %1458 to i32
   %add10.i.i.i.i.i.i.i6492 = or disjoint i32 %mul9.i.i.i.i.i.i.i6488, %cast.i56.i.i.i.i.i.i6491
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, i32 noundef %add10.i.i.i.i.i.i.i6492)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, i32 noundef %add10.i.i.i.i.i.i.i6492)
           to label %.noexc72.i6495 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6493
 
 .noexc72.i6495:                                   ; preds = %while.body.i55.i.i.i.i.i.i6489
@@ -29502,7 +29502,7 @@ while.body.i70.i.i.i.i.i.i6461:                   ; preds = %if.then19.i.i.i.i.i
   %1460 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i6462, i1 true)
   %cast.i72.i.i.i.i.i.i6463 = trunc nuw nsw i64 %1460 to i32
   %add.i73.i.i.i.i.i.i6464 = or disjoint i32 %1452, %cast.i72.i.i.i.i.i.i6463
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i73.i.i.i.i.i.i6464)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i73.i.i.i.i.i.i6464)
           to label %.noexc73.i6467 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i6465
 
 .noexc73.i6467:                                   ; preds = %while.body.i70.i.i.i.i.i.i6461
@@ -29692,7 +29692,7 @@ if.then.i.i215.i6346:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i6350:                            ; preds = %if.then.i.i215.i6346, %.noexc.i.i6354
   %row.011.i.i220.i6351 = phi i32 [ %inc.i.i221.i6355, %.noexc.i.i6354 ], [ %1480, %if.then.i.i215.i6346 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i5757, i32 noundef %row.011.i.i220.i6351)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i5757, i32 noundef %row.011.i.i220.i6351)
           to label %.noexc.i.i6354 unwind label %lpad.loopexit.i.i6352
 
 .noexc.i.i6354:                                   ; preds = %for.body.i.i219.i6350
@@ -29709,10 +29709,10 @@ if.else.i.i98.i6205:                              ; preds = %_ZNK8facebook5velox
   %1485 = load i32, ptr %end_4.i.i100.i6207, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i5756, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i5756)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i5757, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i5757, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i5755, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i5755)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i5757, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i5757, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i5755, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i6210 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i5755, i64 8
   store ptr %1483, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i6210, align 8
@@ -29756,7 +29756,7 @@ while.body.i.i.i.i.i.i208.i6336:                  ; preds = %if.then3.i.i.i.i.i1
   %1489 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i6337, i1 true)
   %cast.i.i.i.i.i.i210.i6338 = trunc nuw nsw i64 %1489 to i32
   %add.i26.i.i.i.i.i211.i6339 = or disjoint i32 %1487, %cast.i.i.i.i.i.i210.i6338
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i26.i.i.i.i.i211.i6339)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i26.i.i.i.i.i211.i6339)
           to label %.noexc2.i.i6342 unwind label %lpad.loopexit.split-lp.loopexit.i.i6340
 
 .noexc2.i.i6342:                                  ; preds = %while.body.i.i.i.i.i.i208.i6336
@@ -29794,7 +29794,7 @@ while.body.i42.i.i.i.i.i130.i6240:                ; preds = %.noexc3.i.i6253, %w
   %1491 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i6241, i1 true)
   %cast.i44.i.i.i.i.i132.i6242 = trunc nuw nsw i64 %1491 to i32
   %add.i45.i.i.i.i.i133.i6243 = or disjoint i32 %mul.i41.i.i.i.i.i129.i6239, %cast.i44.i.i.i.i.i132.i6242
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i45.i.i.i.i.i133.i6243)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i45.i.i.i.i.i133.i6243)
           to label %.noexc3.i.i6253 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i6244
 
 .noexc3.i.i6253:                                  ; preds = %while.body.i42.i.i.i.i.i130.i6240
@@ -29839,7 +29839,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i6296:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i6298:                    ; preds = %.noexc4.i.i6303, %for.body.lr.ph.i.i.i.i.i.i174.i6296
   %row.015.i.i.i.i.i.i177.i6299 = phi i64 [ %conv.i.i.i.i.i.i175.i6297, %for.body.lr.ph.i.i.i.i.i.i174.i6296 ], [ %inc.i.i.i.i.i.i179.i6304, %.noexc4.i.i6303 ]
   %conv7.i.i.i.i.i.i178.i6300 = trunc i64 %row.015.i.i.i.i.i.i177.i6299 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, i32 noundef %conv7.i.i.i.i.i.i178.i6300)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, i32 noundef %conv7.i.i.i.i.i.i178.i6300)
           to label %.noexc4.i.i6303 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i6301
 
 .noexc4.i.i6303:                                  ; preds = %for.body.i.i.i.i.i.i176.i6298
@@ -29852,7 +29852,7 @@ while.body.i55.i.i.i.i.i183.i6308:                ; preds = %.noexc5.i.i6314, %w
   %1493 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i6309, i1 true)
   %cast.i56.i.i.i.i.i185.i6310 = trunc nuw nsw i64 %1493 to i32
   %add10.i.i.i.i.i.i186.i6311 = or disjoint i32 %mul9.i.i.i.i.i.i182.i6307, %cast.i56.i.i.i.i.i185.i6310
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, i32 noundef %add10.i.i.i.i.i.i186.i6311)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, i32 noundef %add10.i.i.i.i.i.i186.i6311)
           to label %.noexc5.i.i6314 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i6312
 
 .noexc5.i.i6314:                                  ; preds = %while.body.i55.i.i.i.i.i183.i6308
@@ -29888,7 +29888,7 @@ while.body.i70.i.i.i.i.i161.i6280:                ; preds = %if.then19.i.i.i.i.i
   %1495 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i6281, i1 true)
   %cast.i72.i.i.i.i.i163.i6282 = trunc nuw nsw i64 %1495 to i32
   %add.i73.i.i.i.i.i164.i6283 = or disjoint i32 %1487, %cast.i72.i.i.i.i.i163.i6282
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i73.i.i.i.i.i164.i6283)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i73.i.i.i.i.i164.i6283)
           to label %.noexc6.i.i6286 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i6284
 
 .noexc6.i.i6286:                                  ; preds = %while.body.i70.i.i.i.i.i161.i6280
@@ -30125,7 +30125,7 @@ if.then.i.i426.i6137:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i6141:                            ; preds = %if.then.i.i426.i6137, %.noexc.i434.i6145
   %row.011.i.i431.i6142 = phi i32 [ %inc.i.i435.i6146, %.noexc.i434.i6145 ], [ %1518, %if.then.i.i426.i6137 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i5750, i32 noundef %row.011.i.i431.i6142)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i5750, i32 noundef %row.011.i.i431.i6142)
           to label %.noexc.i434.i6145 unwind label %lpad.loopexit.i432.i6143
 
 .noexc.i434.i6145:                                ; preds = %for.body.i.i430.i6141
@@ -30142,10 +30142,10 @@ if.else.i.i284.i5911:                             ; preds = %_ZNK8facebook5velox
   %1523 = load i32, ptr %end_4.i.i286.i5913, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i5749, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i5749)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i5750, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i5750, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i5748, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i5748)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i5750, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i5750, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i5748, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i5916 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i5748, i64 8
   store ptr %1521, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i5916, align 8
@@ -30189,7 +30189,7 @@ while.body.i.i.i.i.i.i416.i6127:                  ; preds = %if.then3.i.i.i.i.i3
   %1527 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i6128, i1 true)
   %cast.i.i.i.i.i.i418.i6129 = trunc nuw nsw i64 %1527 to i32
   %add.i26.i.i.i.i.i419.i6130 = or disjoint i32 %1525, %cast.i.i.i.i.i.i418.i6129
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i26.i.i.i.i.i419.i6130)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i26.i.i.i.i.i419.i6130)
           to label %.noexc2.i422.i6133 unwind label %lpad.loopexit.split-lp.loopexit.i420.i6131
 
 .noexc2.i422.i6133:                               ; preds = %while.body.i.i.i.i.i.i416.i6127
@@ -30227,7 +30227,7 @@ while.body.i42.i.i.i.i.i319.i6029:                ; preds = %.noexc3.i333.i6044,
   %1529 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i6030, i1 true)
   %cast.i44.i.i.i.i.i321.i6031 = trunc nuw nsw i64 %1529 to i32
   %add.i45.i.i.i.i.i322.i6032 = or disjoint i32 %mul.i41.i.i.i.i.i318.i6028, %cast.i44.i.i.i.i.i321.i6031
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i45.i.i.i.i.i322.i6032)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i45.i.i.i.i.i322.i6032)
           to label %.noexc3.i333.i6044 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i6033
 
 .noexc3.i333.i6044:                               ; preds = %while.body.i42.i.i.i.i.i319.i6029
@@ -30272,7 +30272,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i6087:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i6089:                    ; preds = %.noexc4.i383.i6094, %for.body.lr.ph.i.i.i.i.i.i376.i6087
   %row.015.i.i.i.i.i.i379.i6090 = phi i64 [ %conv.i.i.i.i.i.i377.i6088, %for.body.lr.ph.i.i.i.i.i.i376.i6087 ], [ %inc.i.i.i.i.i.i384.i6095, %.noexc4.i383.i6094 ]
   %conv7.i.i.i.i.i.i380.i6091 = trunc i64 %row.015.i.i.i.i.i.i379.i6090 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, i32 noundef %conv7.i.i.i.i.i.i380.i6091)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, i32 noundef %conv7.i.i.i.i.i.i380.i6091)
           to label %.noexc4.i383.i6094 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i6092
 
 .noexc4.i383.i6094:                               ; preds = %for.body.i.i.i.i.i.i378.i6089
@@ -30285,7 +30285,7 @@ while.body.i55.i.i.i.i.i388.i6099:                ; preds = %.noexc5.i394.i6105,
   %1531 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i6100, i1 true)
   %cast.i56.i.i.i.i.i390.i6101 = trunc nuw nsw i64 %1531 to i32
   %add10.i.i.i.i.i.i391.i6102 = or disjoint i32 %mul9.i.i.i.i.i.i387.i6098, %cast.i56.i.i.i.i.i390.i6101
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, i32 noundef %add10.i.i.i.i.i.i391.i6102)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, i32 noundef %add10.i.i.i.i.i.i391.i6102)
           to label %.noexc5.i394.i6105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i6103
 
 .noexc5.i394.i6105:                               ; preds = %while.body.i55.i.i.i.i.i388.i6099
@@ -30321,7 +30321,7 @@ while.body.i70.i.i.i.i.i360.i6071:                ; preds = %if.then19.i.i.i.i.i
   %1533 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i6072, i1 true)
   %cast.i72.i.i.i.i.i362.i6073 = trunc nuw nsw i64 %1533 to i32
   %add.i73.i.i.i.i.i363.i6074 = or disjoint i32 %1525, %cast.i72.i.i.i.i.i362.i6073
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i73.i.i.i.i.i363.i6074)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i73.i.i.i.i.i363.i6074)
           to label %.noexc6.i366.i6077 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i6075
 
 .noexc6.i366.i6077:                               ; preds = %while.body.i70.i.i.i.i.i360.i6071
@@ -30994,7 +30994,7 @@ if.then.i.i68.i7348:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i7352:                               ; preds = %if.then.i.i68.i7348, %.noexc.i7356
   %row.011.i.i.i7353 = phi i32 [ %inc.i.i.i7357, %.noexc.i7356 ], [ %1619, %if.then.i.i68.i7348 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i6585, i32 noundef %row.011.i.i.i7353)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i6585, i32 noundef %row.011.i.i.i7353)
           to label %.noexc.i7356 unwind label %lpad16.loopexit.i7354
 
 .noexc.i7356:                                     ; preds = %for.body.i.i.i7352
@@ -31011,10 +31011,10 @@ if.else.i.i.i7220:                                ; preds = %_ZNK8facebook5velox
   %1624 = load i32, ptr %end_4.i.i.i7222, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i6584, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i6584)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i6585, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i6585, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i6583, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i6583)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i6585, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i6585, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i6583, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i7225 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i6583, i64 8
   store ptr %1622, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i7225, align 8
@@ -31058,7 +31058,7 @@ while.body.i.i.i.i.i.i.i7338:                     ; preds = %if.then3.i.i.i.i.i.
   %1628 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i7339, i1 true)
   %cast.i.i.i.i.i.i.i7340 = trunc nuw nsw i64 %1628 to i32
   %add.i26.i.i.i.i.i.i7341 = or disjoint i32 %1626, %cast.i.i.i.i.i.i.i7340
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i26.i.i.i.i.i.i7341)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i26.i.i.i.i.i.i7341)
           to label %.noexc69.i7344 unwind label %lpad16.loopexit.split-lp.loopexit.i7342
 
 .noexc69.i7344:                                   ; preds = %while.body.i.i.i.i.i.i.i7338
@@ -31096,7 +31096,7 @@ while.body.i42.i.i.i.i.i.i7249:                   ; preds = %.noexc70.i7255, %wh
   %1630 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i7250, i1 true)
   %cast.i44.i.i.i.i.i.i7251 = trunc nuw nsw i64 %1630 to i32
   %add.i45.i.i.i.i.i.i7252 = or disjoint i32 %mul.i41.i.i.i.i.i.i7248, %cast.i44.i.i.i.i.i.i7251
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i45.i.i.i.i.i.i7252)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i45.i.i.i.i.i.i7252)
           to label %.noexc70.i7255 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7253
 
 .noexc70.i7255:                                   ; preds = %while.body.i42.i.i.i.i.i.i7249
@@ -31141,7 +31141,7 @@ for.body.lr.ph.i.i.i.i.i.i.i7298:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i7300:                       ; preds = %.noexc71.i7305, %for.body.lr.ph.i.i.i.i.i.i.i7298
   %row.015.i.i.i.i.i.i.i7301 = phi i64 [ %conv.i.i.i.i.i.i.i7299, %for.body.lr.ph.i.i.i.i.i.i.i7298 ], [ %inc.i.i.i.i.i.i.i7306, %.noexc71.i7305 ]
   %conv7.i.i.i.i.i.i.i7302 = trunc i64 %row.015.i.i.i.i.i.i.i7301 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, i32 noundef %conv7.i.i.i.i.i.i.i7302)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, i32 noundef %conv7.i.i.i.i.i.i.i7302)
           to label %.noexc71.i7305 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7303
 
 .noexc71.i7305:                                   ; preds = %for.body.i.i.i.i.i.i.i7300
@@ -31154,7 +31154,7 @@ while.body.i55.i.i.i.i.i.i7310:                   ; preds = %.noexc72.i7316, %wh
   %1632 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i7311, i1 true)
   %cast.i56.i.i.i.i.i.i7312 = trunc nuw nsw i64 %1632 to i32
   %add10.i.i.i.i.i.i.i7313 = or disjoint i32 %mul9.i.i.i.i.i.i.i7309, %cast.i56.i.i.i.i.i.i7312
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, i32 noundef %add10.i.i.i.i.i.i.i7313)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, i32 noundef %add10.i.i.i.i.i.i.i7313)
           to label %.noexc72.i7316 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7314
 
 .noexc72.i7316:                                   ; preds = %while.body.i55.i.i.i.i.i.i7310
@@ -31190,7 +31190,7 @@ while.body.i70.i.i.i.i.i.i7282:                   ; preds = %if.then19.i.i.i.i.i
   %1634 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i7283, i1 true)
   %cast.i72.i.i.i.i.i.i7284 = trunc nuw nsw i64 %1634 to i32
   %add.i73.i.i.i.i.i.i7285 = or disjoint i32 %1626, %cast.i72.i.i.i.i.i.i7284
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i73.i.i.i.i.i.i7285)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i73.i.i.i.i.i.i7285)
           to label %.noexc73.i7288 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i7286
 
 .noexc73.i7288:                                   ; preds = %while.body.i70.i.i.i.i.i.i7282
@@ -31380,7 +31380,7 @@ if.then.i.i215.i7167:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i7171:                            ; preds = %if.then.i.i215.i7167, %.noexc.i.i7175
   %row.011.i.i220.i7172 = phi i32 [ %inc.i.i221.i7176, %.noexc.i.i7175 ], [ %1654, %if.then.i.i215.i7167 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i6578, i32 noundef %row.011.i.i220.i7172)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i6578, i32 noundef %row.011.i.i220.i7172)
           to label %.noexc.i.i7175 unwind label %lpad.loopexit.i.i7173
 
 .noexc.i.i7175:                                   ; preds = %for.body.i.i219.i7171
@@ -31397,10 +31397,10 @@ if.else.i.i98.i7026:                              ; preds = %_ZNK8facebook5velox
   %1659 = load i32, ptr %end_4.i.i100.i7028, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i6577, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i6577)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i6578, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i6578, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i6576, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i6576)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i6578, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i6578, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i6576, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i7031 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i6576, i64 8
   store ptr %1657, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i7031, align 8
@@ -31444,7 +31444,7 @@ while.body.i.i.i.i.i.i208.i7157:                  ; preds = %if.then3.i.i.i.i.i1
   %1663 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i7158, i1 true)
   %cast.i.i.i.i.i.i210.i7159 = trunc nuw nsw i64 %1663 to i32
   %add.i26.i.i.i.i.i211.i7160 = or disjoint i32 %1661, %cast.i.i.i.i.i.i210.i7159
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i26.i.i.i.i.i211.i7160)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i26.i.i.i.i.i211.i7160)
           to label %.noexc2.i.i7163 unwind label %lpad.loopexit.split-lp.loopexit.i.i7161
 
 .noexc2.i.i7163:                                  ; preds = %while.body.i.i.i.i.i.i208.i7157
@@ -31482,7 +31482,7 @@ while.body.i42.i.i.i.i.i130.i7061:                ; preds = %.noexc3.i.i7074, %w
   %1665 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i7062, i1 true)
   %cast.i44.i.i.i.i.i132.i7063 = trunc nuw nsw i64 %1665 to i32
   %add.i45.i.i.i.i.i133.i7064 = or disjoint i32 %mul.i41.i.i.i.i.i129.i7060, %cast.i44.i.i.i.i.i132.i7063
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i45.i.i.i.i.i133.i7064)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i45.i.i.i.i.i133.i7064)
           to label %.noexc3.i.i7074 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i7065
 
 .noexc3.i.i7074:                                  ; preds = %while.body.i42.i.i.i.i.i130.i7061
@@ -31527,7 +31527,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i7117:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i7119:                    ; preds = %.noexc4.i.i7124, %for.body.lr.ph.i.i.i.i.i.i174.i7117
   %row.015.i.i.i.i.i.i177.i7120 = phi i64 [ %conv.i.i.i.i.i.i175.i7118, %for.body.lr.ph.i.i.i.i.i.i174.i7117 ], [ %inc.i.i.i.i.i.i179.i7125, %.noexc4.i.i7124 ]
   %conv7.i.i.i.i.i.i178.i7121 = trunc i64 %row.015.i.i.i.i.i.i177.i7120 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, i32 noundef %conv7.i.i.i.i.i.i178.i7121)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, i32 noundef %conv7.i.i.i.i.i.i178.i7121)
           to label %.noexc4.i.i7124 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7122
 
 .noexc4.i.i7124:                                  ; preds = %for.body.i.i.i.i.i.i176.i7119
@@ -31540,7 +31540,7 @@ while.body.i55.i.i.i.i.i183.i7129:                ; preds = %.noexc5.i.i7135, %w
   %1667 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i7130, i1 true)
   %cast.i56.i.i.i.i.i185.i7131 = trunc nuw nsw i64 %1667 to i32
   %add10.i.i.i.i.i.i186.i7132 = or disjoint i32 %mul9.i.i.i.i.i.i182.i7128, %cast.i56.i.i.i.i.i185.i7131
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, i32 noundef %add10.i.i.i.i.i.i186.i7132)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, i32 noundef %add10.i.i.i.i.i.i186.i7132)
           to label %.noexc5.i.i7135 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7133
 
 .noexc5.i.i7135:                                  ; preds = %while.body.i55.i.i.i.i.i183.i7129
@@ -31576,7 +31576,7 @@ while.body.i70.i.i.i.i.i161.i7101:                ; preds = %if.then19.i.i.i.i.i
   %1669 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i7102, i1 true)
   %cast.i72.i.i.i.i.i163.i7103 = trunc nuw nsw i64 %1669 to i32
   %add.i73.i.i.i.i.i164.i7104 = or disjoint i32 %1661, %cast.i72.i.i.i.i.i163.i7103
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i73.i.i.i.i.i164.i7104)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i73.i.i.i.i.i164.i7104)
           to label %.noexc6.i.i7107 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7105
 
 .noexc6.i.i7107:                                  ; preds = %while.body.i70.i.i.i.i.i161.i7101
@@ -31813,7 +31813,7 @@ if.then.i.i426.i6958:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i6962:                            ; preds = %if.then.i.i426.i6958, %.noexc.i434.i6966
   %row.011.i.i431.i6963 = phi i32 [ %inc.i.i435.i6967, %.noexc.i434.i6966 ], [ %1692, %if.then.i.i426.i6958 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i6571, i32 noundef %row.011.i.i431.i6963)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i6571, i32 noundef %row.011.i.i431.i6963)
           to label %.noexc.i434.i6966 unwind label %lpad.loopexit.i432.i6964
 
 .noexc.i434.i6966:                                ; preds = %for.body.i.i430.i6962
@@ -31830,10 +31830,10 @@ if.else.i.i284.i6732:                             ; preds = %_ZNK8facebook5velox
   %1697 = load i32, ptr %end_4.i.i286.i6734, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i6570, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i6570)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i6571, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i6571, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i6569, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i6569)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i6571, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i6571, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i6569, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i6737 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i6569, i64 8
   store ptr %1695, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i6737, align 8
@@ -31877,7 +31877,7 @@ while.body.i.i.i.i.i.i416.i6948:                  ; preds = %if.then3.i.i.i.i.i3
   %1701 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i6949, i1 true)
   %cast.i.i.i.i.i.i418.i6950 = trunc nuw nsw i64 %1701 to i32
   %add.i26.i.i.i.i.i419.i6951 = or disjoint i32 %1699, %cast.i.i.i.i.i.i418.i6950
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i26.i.i.i.i.i419.i6951)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i26.i.i.i.i.i419.i6951)
           to label %.noexc2.i422.i6954 unwind label %lpad.loopexit.split-lp.loopexit.i420.i6952
 
 .noexc2.i422.i6954:                               ; preds = %while.body.i.i.i.i.i.i416.i6948
@@ -31915,7 +31915,7 @@ while.body.i42.i.i.i.i.i319.i6850:                ; preds = %.noexc3.i333.i6865,
   %1703 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i6851, i1 true)
   %cast.i44.i.i.i.i.i321.i6852 = trunc nuw nsw i64 %1703 to i32
   %add.i45.i.i.i.i.i322.i6853 = or disjoint i32 %mul.i41.i.i.i.i.i318.i6849, %cast.i44.i.i.i.i.i321.i6852
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i45.i.i.i.i.i322.i6853)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i45.i.i.i.i.i322.i6853)
           to label %.noexc3.i333.i6865 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i6854
 
 .noexc3.i333.i6865:                               ; preds = %while.body.i42.i.i.i.i.i319.i6850
@@ -31960,7 +31960,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i6908:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i6910:                    ; preds = %.noexc4.i383.i6915, %for.body.lr.ph.i.i.i.i.i.i376.i6908
   %row.015.i.i.i.i.i.i379.i6911 = phi i64 [ %conv.i.i.i.i.i.i377.i6909, %for.body.lr.ph.i.i.i.i.i.i376.i6908 ], [ %inc.i.i.i.i.i.i384.i6916, %.noexc4.i383.i6915 ]
   %conv7.i.i.i.i.i.i380.i6912 = trunc i64 %row.015.i.i.i.i.i.i379.i6911 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, i32 noundef %conv7.i.i.i.i.i.i380.i6912)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, i32 noundef %conv7.i.i.i.i.i.i380.i6912)
           to label %.noexc4.i383.i6915 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i6913
 
 .noexc4.i383.i6915:                               ; preds = %for.body.i.i.i.i.i.i378.i6910
@@ -31973,7 +31973,7 @@ while.body.i55.i.i.i.i.i388.i6920:                ; preds = %.noexc5.i394.i6926,
   %1705 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i6921, i1 true)
   %cast.i56.i.i.i.i.i390.i6922 = trunc nuw nsw i64 %1705 to i32
   %add10.i.i.i.i.i.i391.i6923 = or disjoint i32 %mul9.i.i.i.i.i.i387.i6919, %cast.i56.i.i.i.i.i390.i6922
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, i32 noundef %add10.i.i.i.i.i.i391.i6923)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, i32 noundef %add10.i.i.i.i.i.i391.i6923)
           to label %.noexc5.i394.i6926 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i6924
 
 .noexc5.i394.i6926:                               ; preds = %while.body.i55.i.i.i.i.i388.i6920
@@ -32009,7 +32009,7 @@ while.body.i70.i.i.i.i.i360.i6892:                ; preds = %if.then19.i.i.i.i.i
   %1707 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i6893, i1 true)
   %cast.i72.i.i.i.i.i362.i6894 = trunc nuw nsw i64 %1707 to i32
   %add.i73.i.i.i.i.i363.i6895 = or disjoint i32 %1699, %cast.i72.i.i.i.i.i362.i6894
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i73.i.i.i.i.i363.i6895)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i73.i.i.i.i.i363.i6895)
           to label %.noexc6.i366.i6898 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i6896
 
 .noexc6.i366.i6898:                               ; preds = %while.body.i70.i.i.i.i.i360.i6892
@@ -32682,7 +32682,7 @@ if.then.i.i68.i8169:                              ; preds = %_ZNK8facebook5velox
 
 for.body.i.i.i8173:                               ; preds = %if.then.i.i68.i8169, %.noexc.i8177
   %row.011.i.i.i8174 = phi i32 [ %inc.i.i.i8178, %.noexc.i8177 ], [ %1793, %if.then.i.i68.i8169 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i7406, i32 noundef %row.011.i.i.i8174)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i7406, i32 noundef %row.011.i.i.i8174)
           to label %.noexc.i8177 unwind label %lpad16.loopexit.i8175
 
 .noexc.i8177:                                     ; preds = %for.body.i.i.i8173
@@ -32699,10 +32699,10 @@ if.else.i.i.i8041:                                ; preds = %_ZNK8facebook5velox
   %1798 = load i32, ptr %end_4.i.i.i8043, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i7405, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i.i.i7405)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i7406, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i7406, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i7404, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i.i.i7404)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1.i.i7406, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i7406, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i.i7404, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i8046 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i.i7404, i64 8
   store ptr %1796, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i.i8046, align 8
@@ -32746,7 +32746,7 @@ while.body.i.i.i.i.i.i.i8159:                     ; preds = %if.then3.i.i.i.i.i.
   %1802 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i8160, i1 true)
   %cast.i.i.i.i.i.i.i8161 = trunc nuw nsw i64 %1802 to i32
   %add.i26.i.i.i.i.i.i8162 = or disjoint i32 %1800, %cast.i.i.i.i.i.i.i8161
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i26.i.i.i.i.i.i8162)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i26.i.i.i.i.i.i8162)
           to label %.noexc69.i8165 unwind label %lpad16.loopexit.split-lp.loopexit.i8163
 
 .noexc69.i8165:                                   ; preds = %while.body.i.i.i.i.i.i.i8159
@@ -32784,7 +32784,7 @@ while.body.i42.i.i.i.i.i.i8070:                   ; preds = %.noexc70.i8076, %wh
   %1804 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i8071, i1 true)
   %cast.i44.i.i.i.i.i.i8072 = trunc nuw nsw i64 %1804 to i32
   %add.i45.i.i.i.i.i.i8073 = or disjoint i32 %mul.i41.i.i.i.i.i.i8069, %cast.i44.i.i.i.i.i.i8072
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i45.i.i.i.i.i.i8073)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i45.i.i.i.i.i.i8073)
           to label %.noexc70.i8076 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i8074
 
 .noexc70.i8076:                                   ; preds = %while.body.i42.i.i.i.i.i.i8070
@@ -32829,7 +32829,7 @@ for.body.lr.ph.i.i.i.i.i.i.i8119:                 ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i.i8121:                       ; preds = %.noexc71.i8126, %for.body.lr.ph.i.i.i.i.i.i.i8119
   %row.015.i.i.i.i.i.i.i8122 = phi i64 [ %conv.i.i.i.i.i.i.i8120, %for.body.lr.ph.i.i.i.i.i.i.i8119 ], [ %inc.i.i.i.i.i.i.i8127, %.noexc71.i8126 ]
   %conv7.i.i.i.i.i.i.i8123 = trunc i64 %row.015.i.i.i.i.i.i.i8122 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, i32 noundef %conv7.i.i.i.i.i.i.i8123)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, i32 noundef %conv7.i.i.i.i.i.i.i8123)
           to label %.noexc71.i8126 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i8124
 
 .noexc71.i8126:                                   ; preds = %for.body.i.i.i.i.i.i.i8121
@@ -32842,7 +32842,7 @@ while.body.i55.i.i.i.i.i.i8131:                   ; preds = %.noexc72.i8137, %wh
   %1806 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i8132, i1 true)
   %cast.i56.i.i.i.i.i.i8133 = trunc nuw nsw i64 %1806 to i32
   %add10.i.i.i.i.i.i.i8134 = or disjoint i32 %mul9.i.i.i.i.i.i.i8130, %cast.i56.i.i.i.i.i.i8133
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, i32 noundef %add10.i.i.i.i.i.i.i8134)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, i32 noundef %add10.i.i.i.i.i.i.i8134)
           to label %.noexc72.i8137 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i8135
 
 .noexc72.i8137:                                   ; preds = %while.body.i55.i.i.i.i.i.i8131
@@ -32878,7 +32878,7 @@ while.body.i70.i.i.i.i.i.i8103:                   ; preds = %if.then19.i.i.i.i.i
   %1808 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i8104, i1 true)
   %cast.i72.i.i.i.i.i.i8105 = trunc nuw nsw i64 %1808 to i32
   %add.i73.i.i.i.i.i.i8106 = or disjoint i32 %1800, %cast.i72.i.i.i.i.i.i8105
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i73.i.i.i.i.i.i8106)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i73.i.i.i.i.i.i8106)
           to label %.noexc73.i8109 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i8107
 
 .noexc73.i8109:                                   ; preds = %while.body.i70.i.i.i.i.i.i8103
@@ -33068,7 +33068,7 @@ if.then.i.i215.i7988:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i219.i7992:                            ; preds = %if.then.i.i215.i7988, %.noexc.i.i7996
   %row.011.i.i220.i7993 = phi i32 [ %inc.i.i221.i7997, %.noexc.i.i7996 ], [ %1828, %if.then.i.i215.i7988 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i7399, i32 noundef %row.011.i.i220.i7993)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i7399, i32 noundef %row.011.i.i220.i7993)
           to label %.noexc.i.i7996 unwind label %lpad.loopexit.i.i7994
 
 .noexc.i.i7996:                                   ; preds = %for.body.i.i219.i7992
@@ -33085,10 +33085,10 @@ if.else.i.i98.i7847:                              ; preds = %_ZNK8facebook5velox
   %1833 = load i32, ptr %end_4.i.i100.i7849, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i80.i7398, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i80.i7398)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i7399, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i7399, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i7397, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i79.i7397)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i81.i7399, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i81.i7399, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i79.i7397, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i7852 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i79.i7397, i64 8
   store ptr %1831, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i103.i7852, align 8
@@ -33132,7 +33132,7 @@ while.body.i.i.i.i.i.i208.i7978:                  ; preds = %if.then3.i.i.i.i.i1
   %1837 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i7979, i1 true)
   %cast.i.i.i.i.i.i210.i7980 = trunc nuw nsw i64 %1837 to i32
   %add.i26.i.i.i.i.i211.i7981 = or disjoint i32 %1835, %cast.i.i.i.i.i.i210.i7980
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i26.i.i.i.i.i211.i7981)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i26.i.i.i.i.i211.i7981)
           to label %.noexc2.i.i7984 unwind label %lpad.loopexit.split-lp.loopexit.i.i7982
 
 .noexc2.i.i7984:                                  ; preds = %while.body.i.i.i.i.i.i208.i7978
@@ -33170,7 +33170,7 @@ while.body.i42.i.i.i.i.i130.i7882:                ; preds = %.noexc3.i.i7895, %w
   %1839 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i7883, i1 true)
   %cast.i44.i.i.i.i.i132.i7884 = trunc nuw nsw i64 %1839 to i32
   %add.i45.i.i.i.i.i133.i7885 = or disjoint i32 %mul.i41.i.i.i.i.i129.i7881, %cast.i44.i.i.i.i.i132.i7884
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i45.i.i.i.i.i133.i7885)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i45.i.i.i.i.i133.i7885)
           to label %.noexc3.i.i7895 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i7886
 
 .noexc3.i.i7895:                                  ; preds = %while.body.i42.i.i.i.i.i130.i7882
@@ -33215,7 +33215,7 @@ for.body.lr.ph.i.i.i.i.i.i174.i7938:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i176.i7940:                    ; preds = %.noexc4.i.i7945, %for.body.lr.ph.i.i.i.i.i.i174.i7938
   %row.015.i.i.i.i.i.i177.i7941 = phi i64 [ %conv.i.i.i.i.i.i175.i7939, %for.body.lr.ph.i.i.i.i.i.i174.i7938 ], [ %inc.i.i.i.i.i.i179.i7946, %.noexc4.i.i7945 ]
   %conv7.i.i.i.i.i.i178.i7942 = trunc i64 %row.015.i.i.i.i.i.i177.i7941 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, i32 noundef %conv7.i.i.i.i.i.i178.i7942)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, i32 noundef %conv7.i.i.i.i.i.i178.i7942)
           to label %.noexc4.i.i7945 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7943
 
 .noexc4.i.i7945:                                  ; preds = %for.body.i.i.i.i.i.i176.i7940
@@ -33228,7 +33228,7 @@ while.body.i55.i.i.i.i.i183.i7950:                ; preds = %.noexc5.i.i7956, %w
   %1841 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i7951, i1 true)
   %cast.i56.i.i.i.i.i185.i7952 = trunc nuw nsw i64 %1841 to i32
   %add10.i.i.i.i.i.i186.i7953 = or disjoint i32 %mul9.i.i.i.i.i.i182.i7949, %cast.i56.i.i.i.i.i185.i7952
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, i32 noundef %add10.i.i.i.i.i.i186.i7953)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, i32 noundef %add10.i.i.i.i.i.i186.i7953)
           to label %.noexc5.i.i7956 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7954
 
 .noexc5.i.i7956:                                  ; preds = %while.body.i55.i.i.i.i.i183.i7950
@@ -33264,7 +33264,7 @@ while.body.i70.i.i.i.i.i161.i7922:                ; preds = %if.then19.i.i.i.i.i
   %1843 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i7923, i1 true)
   %cast.i72.i.i.i.i.i163.i7924 = trunc nuw nsw i64 %1843 to i32
   %add.i73.i.i.i.i.i164.i7925 = or disjoint i32 %1835, %cast.i72.i.i.i.i.i163.i7924
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i73.i.i.i.i.i164.i7925)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i73.i.i.i.i.i164.i7925)
           to label %.noexc6.i.i7928 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7926
 
 .noexc6.i.i7928:                                  ; preds = %while.body.i70.i.i.i.i.i161.i7922
@@ -33501,7 +33501,7 @@ if.then.i.i426.i7779:                             ; preds = %_ZNK8facebook5velox
 
 for.body.i.i430.i7783:                            ; preds = %if.then.i.i426.i7779, %.noexc.i434.i7787
   %row.011.i.i431.i7784 = phi i32 [ %inc.i.i435.i7788, %.noexc.i434.i7787 ], [ %1866, %if.then.i.i426.i7779 ]
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i7392, i32 noundef %row.011.i.i431.i7784)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i7392, i32 noundef %row.011.i.i431.i7784)
           to label %.noexc.i434.i7787 unwind label %lpad.loopexit.i432.i7785
 
 .noexc.i434.i7787:                                ; preds = %for.body.i.i430.i7783
@@ -33518,10 +33518,10 @@ if.else.i.i284.i7553:                             ; preds = %_ZNK8facebook5velox
   %1871 = load i32, ptr %end_4.i.i286.i7555, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i261.i7391, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp3.i.i.i.i261.i7391)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i7392, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i7392, i64 64, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i7390, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp24.i.i.i.i260.i7390)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp1.i262.i7392, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i262.i7392, i64 64, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i260.i7390, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i7558 = getelementptr inbounds i8, ptr %agg.tmp24.i.i.i.i260.i7390, i64 8
   store ptr %1869, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i289.i7558, align 8
@@ -33565,7 +33565,7 @@ while.body.i.i.i.i.i.i416.i7769:                  ; preds = %if.then3.i.i.i.i.i3
   %1875 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i7770, i1 true)
   %cast.i.i.i.i.i.i418.i7771 = trunc nuw nsw i64 %1875 to i32
   %add.i26.i.i.i.i.i419.i7772 = or disjoint i32 %1873, %cast.i.i.i.i.i.i418.i7771
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i26.i.i.i.i.i419.i7772)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i26.i.i.i.i.i419.i7772)
           to label %.noexc2.i422.i7775 unwind label %lpad.loopexit.split-lp.loopexit.i420.i7773
 
 .noexc2.i422.i7775:                               ; preds = %while.body.i.i.i.i.i.i416.i7769
@@ -33603,7 +33603,7 @@ while.body.i42.i.i.i.i.i319.i7671:                ; preds = %.noexc3.i333.i7686,
   %1877 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i7672, i1 true)
   %cast.i44.i.i.i.i.i321.i7673 = trunc nuw nsw i64 %1877 to i32
   %add.i45.i.i.i.i.i322.i7674 = or disjoint i32 %mul.i41.i.i.i.i.i318.i7670, %cast.i44.i.i.i.i.i321.i7673
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i45.i.i.i.i.i322.i7674)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i45.i.i.i.i.i322.i7674)
           to label %.noexc3.i333.i7686 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i7675
 
 .noexc3.i333.i7686:                               ; preds = %while.body.i42.i.i.i.i.i319.i7671
@@ -33648,7 +33648,7 @@ for.body.lr.ph.i.i.i.i.i.i376.i7729:              ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i.i378.i7731:                    ; preds = %.noexc4.i383.i7736, %for.body.lr.ph.i.i.i.i.i.i376.i7729
   %row.015.i.i.i.i.i.i379.i7732 = phi i64 [ %conv.i.i.i.i.i.i377.i7730, %for.body.lr.ph.i.i.i.i.i.i376.i7729 ], [ %inc.i.i.i.i.i.i384.i7737, %.noexc4.i383.i7736 ]
   %conv7.i.i.i.i.i.i380.i7733 = trunc i64 %row.015.i.i.i.i.i.i379.i7732 to i32
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, i32 noundef %conv7.i.i.i.i.i.i380.i7733)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, i32 noundef %conv7.i.i.i.i.i.i380.i7733)
           to label %.noexc4.i383.i7736 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i381.i7734
 
 .noexc4.i383.i7736:                               ; preds = %for.body.i.i.i.i.i.i378.i7731
@@ -33661,7 +33661,7 @@ while.body.i55.i.i.i.i.i388.i7741:                ; preds = %.noexc5.i394.i7747,
   %1879 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i7742, i1 true)
   %cast.i56.i.i.i.i.i390.i7743 = trunc nuw nsw i64 %1879 to i32
   %add10.i.i.i.i.i.i391.i7744 = or disjoint i32 %mul9.i.i.i.i.i.i387.i7740, %cast.i56.i.i.i.i.i390.i7743
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, i32 noundef %add10.i.i.i.i.i.i391.i7744)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, i32 noundef %add10.i.i.i.i.i.i391.i7744)
           to label %.noexc5.i394.i7747 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i7745
 
 .noexc5.i394.i7747:                               ; preds = %while.body.i55.i.i.i.i.i388.i7741
@@ -33697,7 +33697,7 @@ while.body.i70.i.i.i.i.i360.i7713:                ; preds = %if.then19.i.i.i.i.i
   %1881 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i7714, i1 true)
   %cast.i72.i.i.i.i.i362.i7715 = trunc nuw nsw i64 %1881 to i32
   %add.i73.i.i.i.i.i363.i7716 = or disjoint i32 %1873, %cast.i72.i.i.i.i.i362.i7715
-  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i73.i.i.i.i.i363.i7716)
+  invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i73.i.i.i.i.i363.i7716)
           to label %.noexc6.i366.i7719 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i7717
 
 .noexc6.i366.i7719:                               ; preds = %while.body.i70.i.i.i.i.i360.i7713

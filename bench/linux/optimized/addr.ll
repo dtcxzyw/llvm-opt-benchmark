@@ -48,7 +48,7 @@ define dso_local i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
 17:                                               ; preds = %10
   %sext5 = shl i64 %2, 32
   %18 = ashr exact i64 %sext5, 32
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %18, ptr noundef nonnull @.str.3) #10
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %18, ptr noundef nonnull @.str.3) #10
   br label %rpc_ntop6_noscopeid.exit
 
 20:                                               ; preds = %10
@@ -60,7 +60,7 @@ define dso_local i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
 24:                                               ; preds = %20
   %sext4 = shl i64 %2, 32
   %25 = ashr exact i64 %sext4, 32
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %25, ptr noundef nonnull @.str.4) #10
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %25, ptr noundef nonnull @.str.4) #10
   br label %rpc_ntop6_noscopeid.exit
 
 27:                                               ; preds = %20
@@ -74,11 +74,11 @@ define dso_local i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
 
 33:                                               ; preds = %27
   %34 = getelementptr i8, ptr %0, i64 20
-  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %32, ptr noundef nonnull @.str.5, ptr noundef %34) #10
+  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %32, ptr noundef nonnull @.str.5, ptr noundef %34) #10
   br label %rpc_ntop6_noscopeid.exit
 
 36:                                               ; preds = %27
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %32, ptr noundef nonnull @.str.6, ptr noundef %11) #10
+  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %32, ptr noundef nonnull @.str.6, ptr noundef %11) #10
   br label %rpc_ntop6_noscopeid.exit
 
 rpc_ntop6_noscopeid.exit:                         ; preds = %17, %24, %33, %36

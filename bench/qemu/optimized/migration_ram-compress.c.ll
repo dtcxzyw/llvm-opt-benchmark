@@ -435,7 +435,7 @@ if.end36:                                         ; preds = %if.then30
   %result.i = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   store i32 0, ptr %result.i, align 4
   %block.i = getelementptr inbounds i8, ptr %arrayidx28, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %block.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %block.i, i8 0, i64 16, i1 false)
   %.pre23 = load ptr, ptr @comp_param, align 8
   br label %if.end37
 

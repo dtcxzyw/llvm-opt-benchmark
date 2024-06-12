@@ -914,7 +914,7 @@ for.end181:                                       ; preds = %for.body172, %if.en
   %.compoundliteral.sroa.2.0.sigaltstack_used.sroa_idx.i = getelementptr inbounds i8, ptr %call184, i64 9176
   store i32 2, ptr %.compoundliteral.sroa.2.0.sigaltstack_used.sroa_idx.i, align 8
   %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx.i = getelementptr inbounds i8, ptr %call184, i64 9180
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx.i, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx.i, i8 0, i64 12, i1 false)
   %call.i91 = call i64 @sysconf(i32 noundef 2) #27
   %cmp.i92 = icmp sgt i64 %call.i91, 0
   br i1 %cmp.i92, label %land.lhs.true.i, label %init_task_state.exit
@@ -1277,7 +1277,7 @@ entry.tail.i:                                     ; preds = %lor.lhs.false
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %lor.lhs.false, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.33) #28
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.33) #28
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 

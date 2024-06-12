@@ -843,7 +843,7 @@ blf_read_log_object_header.exit.thread:           ; preds = %41
 
 blf_read_log_object_header.exit:                  ; preds = %41
   %45 = add i64 %.1232525, 16
-  %46 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %45, ptr noundef nonnull writeonly %7, i64 noundef 16, ptr noundef %2, ptr noundef %3)
+  %46 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %45, ptr noundef nonnull %7, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   %.not246 = icmp eq i32 %46, 0
   br i1 %.not246, label %blf_read_log_object_header2.exit.thread.loopexit, label %47
 
@@ -864,7 +864,7 @@ blf_read_log_object_header.exit:                  ; preds = %41
 
 54:                                               ; preds = %49
   %55 = add i64 %.1232525, 16
-  %56 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %55, ptr noundef nonnull %8, i64 noundef 24, ptr noundef %2, ptr noundef %3)
+  %56 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %55, ptr noundef nonnull %8, i64 noundef 24, ptr noundef %2, ptr noundef %3)
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %blf_read_log_object_header2.exit.thread.loopexit, label %57
 
@@ -886,7 +886,7 @@ blf_read_log_object_header3.exit.thread:          ; preds = %59
 
 blf_read_log_object_header3.exit:                 ; preds = %59
   %63 = add i64 %.1232525, 16
-  %64 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %63, ptr noundef nonnull writeonly %9, i64 noundef 16, ptr noundef %2, ptr noundef %3)
+  %64 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %63, ptr noundef nonnull %9, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   %.not244 = icmp eq i32 %64, 0
   br i1 %.not244, label %blf_read_log_object_header2.exit.thread.loopexit, label %65
 
@@ -1126,7 +1126,7 @@ blf_read_log_object_header3.exit:                 ; preds = %59
   br label %.thread
 
 198:                                              ; preds = %190
-  %199 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %192, ptr noundef nonnull writeonly %5, i64 noundef 16, ptr noundef %2, ptr noundef %3)
+  %199 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %192, ptr noundef nonnull %5, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   %.not.i.i = icmp eq i32 %199, 0
   br i1 %.not.i.i, label %200, label %blf_read_bytes.exit.i
 
@@ -1150,7 +1150,7 @@ blf_read_bytes.exit.i:                            ; preds = %198
   %209 = add nuw nsw i64 %208, 1
   %210 = tail call noalias ptr @g_try_malloc(i64 noundef %209) #13
   %211 = add i64 %192, 16
-  %212 = tail call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %211, ptr noundef writeonly %210, i64 noundef %208, ptr noundef %2, ptr noundef %3)
+  %212 = tail call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %211, ptr noundef %210, i64 noundef %208, ptr noundef %2, ptr noundef %3)
   %.not.i87.i = icmp eq i32 %212, 0
   br i1 %.not.i87.i, label %213, label %blf_read_bytes.exit89.i
 
@@ -1221,7 +1221,7 @@ switch.lookup:                                    ; preds = %230
 
 240:                                              ; preds = %230, %switch.lookup
   %.080.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %230 ]
-  %241 = tail call fastcc i32 @blf_prepare_interface_name(ptr noundef nonnull readonly %0, i32 noundef %.080.i, i16 noundef zeroext %233, i16 noundef zeroext -1, ptr noundef nonnull %226, i32 noundef 0)
+  %241 = tail call fastcc i32 @blf_prepare_interface_name(ptr noundef nonnull %0, i32 noundef %.080.i, i16 noundef zeroext %233, i16 noundef zeroext -1, ptr noundef nonnull %226, i32 noundef 0)
   tail call void @g_strfreev(ptr noundef nonnull %220) #14
   tail call void @g_free(ptr noundef nonnull %210) #14
   br label %.thread
@@ -1270,7 +1270,7 @@ switch.lookup:                                    ; preds = %230
   %264 = getelementptr inbounds i8, ptr %260, i64 16
   %265 = load i64, ptr %264, align 8
   %266 = sub i64 %263, %265
-  tail call fastcc void @blf_set_xml_channels(ptr noundef nonnull readonly %0, ptr noundef %261, i64 noundef %266)
+  tail call fastcc void @blf_set_xml_channels(ptr noundef nonnull %0, ptr noundef %261, i64 noundef %266)
   br label %267
 
 267:                                              ; preds = %259, %257
@@ -1281,7 +1281,7 @@ switch.lookup:                                    ; preds = %230
   %272 = load i64, ptr %271, align 8
   %273 = sub i64 %270, %272
   %274 = trunc i64 %273 to i32
-  tail call fastcc void @blf_init_rec(ptr noundef nonnull readonly %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %274, i32 noundef %274)
+  tail call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %274, i32 noundef %274)
   br label %306
 
 275:                                              ; preds = %blf_read_bytes.exit89.i, %blf_read_bytes.exit89.i, %blf_read_bytes.exit89.i
@@ -1329,7 +1329,7 @@ switch.lookup:                                    ; preds = %230
   %298 = load i64, ptr %297, align 8
   %299 = sub i64 %296, %298
   %300 = trunc i64 %299 to i32
-  tail call fastcc void @blf_init_rec(ptr noundef nonnull readonly %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %300, i32 noundef %300)
+  tail call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %300, i32 noundef %300)
   tail call void @g_free(ptr noundef nonnull %210) #14
   %.not84.i = icmp eq ptr %.079.i, null
   br i1 %.not84.i, label %306, label %301
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe(ptr nocapture
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 32, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 32, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -1750,7 +1750,7 @@ blf_read_bytes.exit:                              ; preds = %15
   %87 = getelementptr inbounds i8, ptr %85, i64 24
   %88 = load i64, ptr %87, align 8
   %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %83, ptr noundef writeonly %89, i64 noundef %.pre-phi, ptr noundef %1, ptr noundef %2)
+  %90 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %83, ptr noundef %89, i64 noundef %.pre-phi, ptr noundef %1, ptr noundef %2)
   %.not.i33 = icmp eq i32 %90, 0
   br i1 %.not.i33, label %91, label %blf_read_bytes.exit35
 
@@ -1814,7 +1814,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe_ext(ptr nocap
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 32, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 32, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -1852,7 +1852,7 @@ blf_read_bytes.exit:                              ; preds = %15
   %34 = getelementptr inbounds i8, ptr %32, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = tail call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %31, ptr noundef writeonly %36, i64 noundef %25, ptr noundef %1, ptr noundef %2)
+  %37 = tail call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %36, i64 noundef %25, ptr noundef %1, ptr noundef %2)
   %.not.i29 = icmp eq i32 %37, 0
   br i1 %.not.i29, label %38, label %blf_read_bytes.exit31
 
@@ -1917,7 +1917,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_wlanframe(ptr nocapture nou
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 16, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 16, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -1955,7 +1955,7 @@ blf_read_bytes.exit:                              ; preds = %15
   %34 = getelementptr inbounds i8, ptr %32, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = tail call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %31, ptr noundef writeonly %36, i64 noundef %25, ptr noundef %1, ptr noundef %2)
+  %37 = tail call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %31, ptr noundef %36, i64 noundef %25, ptr noundef %1, ptr noundef %2)
   %.not.i28 = icmp eq i32 %37, 0
   br i1 %.not.i28, label %38, label %blf_read_bytes.exit30
 
@@ -2015,7 +2015,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canmessage(ptr nocapture no
   br label %blf_read_bytes.exit.thread
 
 18:                                               ; preds = %9
-  %19 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 8, ptr noundef %1, ptr noundef %2)
+  %19 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 8, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %blf_read_bytes.exit
 
@@ -2064,7 +2064,7 @@ blf_read_bytes.exit:                              ; preds = %18
 
 41:                                               ; preds = %36
   %42 = add i64 %4, 16
-  %43 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %42, ptr noundef nonnull writeonly %11, i64 noundef 8, ptr noundef %1, ptr noundef %2)
+  %43 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %42, ptr noundef nonnull %11, i64 noundef 8, ptr noundef %1, ptr noundef %2)
   %.not.i43 = icmp eq i32 %43, 0
   br i1 %.not.i43, label %44, label %blf_add_direction_option.exit
 
@@ -2110,7 +2110,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canerror(ptr nocapture noun
   br label %blf_read_bytes.exit.thread
 
 16:                                               ; preds = %9
-  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 4, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %blf_read_bytes.exit
 
@@ -2174,7 +2174,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canerrorext(ptr nocapture n
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 24, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 24, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -2307,7 +2307,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage(ptr nocapture 
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 20, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 20, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -2392,7 +2392,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage64(ptr nocaptur
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 40, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 40, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -2504,7 +2504,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canfderror64(ptr nocapture 
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 44, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 44, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -2639,7 +2639,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_flexraydata(ptr nocapture n
   br label %blf_read_bytes.exit.thread
 
 16:                                               ; preds = %8
-  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 12, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 12, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %blf_read_bytes.exit
 
@@ -2719,7 +2719,7 @@ blf_read_bytes.exit:                              ; preds = %16
   %70 = getelementptr inbounds i8, ptr %68, i64 24
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr i8, ptr %69, i64 %71
-  %73 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %67, ptr noundef writeonly %72, i64 noundef %60, ptr noundef %1, ptr noundef %2)
+  %73 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %67, ptr noundef %72, i64 noundef %60, ptr noundef %1, ptr noundef %2)
   %.not.i46 = icmp eq i32 %73, 0
   br i1 %.not.i46, label %74, label %blf_read_bytes.exit48
 
@@ -2780,7 +2780,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_flexraymessage(ptr nocaptur
   br label %blf_read_bytes.exit.thread
 
 16:                                               ; preds = %8
-  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 32, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 32, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %blf_read_bytes.exit
 
@@ -2886,7 +2886,7 @@ blf_read_bytes.exit:                              ; preds = %16
   %87 = getelementptr inbounds i8, ptr %85, i64 24
   %88 = load i64, ptr %87, align 8
   %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %84, ptr noundef writeonly %89, i64 noundef %77, ptr noundef %1, ptr noundef %2)
+  %90 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %84, ptr noundef %89, i64 noundef %77, ptr noundef %1, ptr noundef %2)
   %.not.i50 = icmp eq i32 %90, 0
   br i1 %.not.i50, label %91, label %blf_read_bytes.exit52
 
@@ -2950,7 +2950,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_flexrayrcvmessageex(ptr noc
   br label %blf_read_bytes.exit.thread
 
 18:                                               ; preds = %9
-  %19 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 44, ptr noundef %1, ptr noundef %2)
+  %19 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 44, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %blf_read_bytes.exit
 
@@ -3072,7 +3072,7 @@ blf_read_bytes.exit:                              ; preds = %18
   %100 = getelementptr inbounds i8, ptr %98, i64 24
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr i8, ptr %99, i64 %101
-  %103 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %97, ptr noundef writeonly %102, i64 noundef %90, ptr noundef %1, ptr noundef %2)
+  %103 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %97, ptr noundef %102, i64 noundef %90, ptr noundef %1, ptr noundef %2)
   %.not.i56 = icmp eq i32 %103, 0
   br i1 %.not.i56, label %104, label %blf_read_bytes.exit58
 
@@ -3136,7 +3136,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage(ptr nocapture no
   br label %blf_read_bytes.exit.thread
 
 18:                                               ; preds = %9
-  %19 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 20, ptr noundef %1, ptr noundef %2)
+  %19 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 20, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %blf_read_bytes.exit
 
@@ -3228,7 +3228,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror(ptr nocapture 
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 8, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 8, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -3287,7 +3287,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage2(ptr nocapture n
   br label %blf_read_bytes.exit.thread
 
 16:                                               ; preds = %9
-  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 136, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 136, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %blf_read_bytes.exit
 
@@ -3399,7 +3399,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_lincrcerror2(ptr nocapture 
   br label %blf_read_bytes.exit.thread
 
 16:                                               ; preds = %9
-  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 128, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 128, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %blf_read_bytes.exit
 
@@ -3511,7 +3511,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror2(ptr nocapture
   br label %blf_read_bytes.exit.thread
 
 16:                                               ; preds = %9
-  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 56, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 56, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %blf_read_bytes.exit
 
@@ -3596,7 +3596,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_status(ptr nocaptu
   br label %blf_read_bytes.exit.thread
 
 19:                                               ; preds = %9
-  %20 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %10, i64 noundef 16, ptr noundef %1, ptr noundef %2)
+  %20 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %10, i64 noundef 16, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %21, label %blf_read_bytes.exit
 
@@ -3614,7 +3614,7 @@ blf_read_bytes.exit:                              ; preds = %19
 
 25:                                               ; preds = %blf_read_bytes.exit
   %26 = add i64 %4, 16
-  %27 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %26, ptr noundef nonnull writeonly %12, i64 noundef 8, ptr noundef %1, ptr noundef %2)
+  %27 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %26, ptr noundef nonnull %12, i64 noundef 8, ptr noundef %1, ptr noundef %2)
   %.not.i35 = icmp eq i32 %27, 0
   br i1 %.not.i35, label %28, label %blf_read_bytes.exit37
 
@@ -3761,7 +3761,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_phystate(ptr nocap
   br label %blf_read_bytes.exit.thread
 
 15:                                               ; preds = %8
-  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %4, ptr noundef nonnull writeonly %9, i64 noundef 8, ptr noundef %1, ptr noundef %2)
+  %16 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 8, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %blf_read_bytes.exit
 
@@ -3986,7 +3986,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_pull_next_logcontainer(ptr nocap
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %6, i64 40
   %82 = getelementptr inbounds i8, ptr %6, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %81, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 -1, i64 16, i1 false)
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %6, i64 56
   %84 = getelementptr inbounds i8, ptr %0, i64 36
@@ -4740,7 +4740,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_can_fill_buf_and_rec(ptr nocaptu
   %38 = getelementptr inbounds i8, ptr %36, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr i8, ptr %37, i64 %39
-  %41 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %6, ptr noundef writeonly %40, i64 noundef %29, ptr noundef %1, ptr noundef %2)
+  %41 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %6, ptr noundef %40, i64 noundef %29, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %42, label %blf_read_bytes.exit
 

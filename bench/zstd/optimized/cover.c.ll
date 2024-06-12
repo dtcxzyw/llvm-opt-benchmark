@@ -305,7 +305,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   br label %return
 
 if.end36:                                         ; preds = %COVER_warnOnSmallCorpus.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
   %26 = load i32, ptr @g_displayLevel, align 4
   %cmp37 = icmp sgt i32 %26, 1
   br i1 %cmp37, label %if.then38, label %if.end41
@@ -902,7 +902,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %activeDmers.val43.i = load i32, ptr %4, align 4
   %conv.i.i = zext i32 %activeDmers.val43.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %activeDmers.val.i, i8 -1, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %activeDmers.val.i, i8 -1, i64 %mul.i.i, i1 false)
   %cmp8.i = icmp ult i32 %conv31, %add
   br i1 %cmp8.i, label %while.body.lr.ph.i, label %if.then36
 
@@ -1642,7 +1642,7 @@ if.then:                                          ; preds = %entry
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
   %totalCompressedSize.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !23
   store i64 %dictContentSize, ptr %totalCompressedSize.i.i, align 8, !alias.scope !26
   br label %return
 
@@ -1658,7 +1658,7 @@ if.then6:                                         ; preds = %if.end
   tail call void @free(ptr noundef nonnull %call) #23
   tail call void @free(ptr noundef nonnull %call1) #23
   %totalCompressedSize.i.i67 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !29
   store i64 %call3, ptr %totalCompressedSize.i.i67, align 8, !alias.scope !32
   br label %return
 
@@ -1671,7 +1671,7 @@ if.then11:                                        ; preds = %if.end7
   tail call void @free(ptr noundef nonnull %call) #23
   tail call void @free(ptr noundef nonnull %call1) #23
   %totalCompressedSize.i.i68 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !35
   store i64 %call8, ptr %totalCompressedSize.i.i68, align 8, !alias.scope !38
   br label %return
 
@@ -1713,7 +1713,7 @@ if.then23:                                        ; preds = %while.body
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
   %totalCompressedSize.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !44
   store i64 %call20, ptr %totalCompressedSize.i.i69, align 8, !alias.scope !47
   br label %return
 
@@ -1726,7 +1726,7 @@ if.then28:                                        ; preds = %if.end24
   tail call void @free(ptr noundef %call) #23
   tail call void @free(ptr noundef %call1) #23
   %totalCompressedSize.i.i72 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !50
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !50
   store i64 %call25, ptr %totalCompressedSize.i.i72, align 8, !alias.scope !53
   br label %return
 
@@ -2305,7 +2305,7 @@ if.then6:                                         ; preds = %if.then
   br label %_cleanup.sink.split
 
 if.end9:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call5.i, i8 -1, i64 %mul.i, i1 false)
   %tobool10 = icmp ne ptr %call, null
   %tobool11 = icmp ne ptr %call4, null
   %or.cond = and i1 %tobool10, %tobool11

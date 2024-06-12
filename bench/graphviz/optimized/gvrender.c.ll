@@ -1090,7 +1090,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   %15 = phi ptr [ %10, %.lr.ph ], [ %60, %59 ]
   %.pn = phi ptr [ %1, %.lr.ph ], [ %16, %59 ]
   %16 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str) #21
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str) #21
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -1099,7 +1099,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.1) #21
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.1) #21
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %24
 
@@ -1108,7 +1108,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #21
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.2) #21
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
 
@@ -1117,12 +1117,12 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str.3) #21
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str.3) #21
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(10) @.str.4) #21
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.4) #21
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
@@ -1131,7 +1131,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(5) @.str.5) #21
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.5) #21
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %39
 
@@ -1140,7 +1140,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(13) @.str.6) #21
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.6) #21
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.preheader, label %46
 
@@ -1157,7 +1157,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 46:                                               ; preds = %39
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.7) #21
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.7) #21
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -1166,7 +1166,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(9) @.str.8) #21
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.8) #21
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
 
@@ -1175,7 +1175,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 54:                                               ; preds = %50
-  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(8) @.str.9) #21
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.9) #21
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %59, label %57
 
@@ -1872,47 +1872,47 @@ get_imagescale.exit.thread:                       ; preds = %get_imagescale.exit
   br i1 %85, label %get_imagepos.exit, label %86
 
 86:                                               ; preds = %get_imagescale.exit.thread
-  %87 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.19) #21
+  %87 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.19) #21
   %.not.i121 = icmp eq i32 %87, 0
   br i1 %.not.i121, label %get_imagepos.exit, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.20) #21
+  %89 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.20) #21
   %.not10.i = icmp eq i32 %89, 0
   br i1 %.not10.i, label %get_imagepos.exit, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.21) #21
+  %91 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.21) #21
   %.not11.i = icmp eq i32 %91, 0
   br i1 %.not11.i, label %get_imagepos.exit, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.22) #21
+  %93 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.22) #21
   %.not12.i = icmp eq i32 %93, 0
   br i1 %.not12.i, label %get_imagepos.exit, label %94
 
 94:                                               ; preds = %92
-  %95 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.23) #21
+  %95 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #21
   %.not13.i = icmp eq i32 %95, 0
   br i1 %.not13.i, label %get_imagepos.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.24) #21
+  %97 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.24) #21
   %.not14.i = icmp eq i32 %97, 0
   br i1 %.not14.i, label %get_imagepos.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.25) #21
+  %99 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.25) #21
   %.not15.i = icmp eq i32 %99, 0
   br i1 %.not15.i, label %get_imagepos.exit, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.26) #21
+  %101 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #21
   %.not16.i = icmp eq i32 %101, 0
   br i1 %.not16.i, label %get_imagepos.exit, label %102
 
 102:                                              ; preds = %100
-  %103 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.27) #21
+  %103 = tail call i32 @strcasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.27) #21
   %.not17.i = icmp eq i32 %103, 0
   %..i122 = select i1 %.not17.i, i32 8, i32 4
   br label %get_imagepos.exit

@@ -237,7 +237,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true6.i
   %call10.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %call3.i, i64 noundef %sub.ptr.sub.i) #9
   %add.ptr.i = getelementptr inbounds i8, ptr %call10.i, i64 24
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i.i)
-  %call.i15.i = tail call noalias ptr @fopen64(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull @.str.5)
+  %call.i15.i = tail call noalias ptr @fopen64(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.5)
   %tobool.not.i16.i = icmp eq ptr %call.i15.i, null
   br i1 %tobool.not.i16.i, label %clib_resolve_lds.exit.thread.i, label %if.then.i17.i
 

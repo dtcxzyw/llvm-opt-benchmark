@@ -357,7 +357,7 @@ while.body:                                       ; preds = %if.end15, %if.end37
   %call.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %a.i)
   %spec.select.i = call i64 @llvm.umin.i64(i64 %call.i, i64 %7)
   %call1.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %a.i)
-  %call2.i = call i32 @memcmp(ptr noundef %call1.i, ptr noundef readonly %6, i64 noundef %spec.select.i) #15
+  %call2.i = call i32 @memcmp(ptr noundef %call1.i, ptr noundef %6, i64 noundef %spec.select.i) #15
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit
 

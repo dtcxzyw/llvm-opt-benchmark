@@ -528,7 +528,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %1, ptr %13, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = tail call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 92) #26
+  %15 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 92) #26
   %16 = icmp ugt ptr %15, %14
   %17 = getelementptr inbounds i8, ptr %15, i64 1
   %spec.select.i = select i1 %16, ptr %17, ptr %14
@@ -2068,7 +2068,7 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
   br i1 %.not.i10.i, label %511, label %1297
 
 511:                                              ; preds = %_ZL7get_inpP4ffio.exit.i
-  %512 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.39) #26
+  %512 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.39) #26
   %513 = icmp eq i32 %512, 0
   br i1 %513, label %514, label %565
 
@@ -2194,7 +2194,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %557, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 565:                                              ; preds = %511
-  %566 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(8) @.str.40) #26
+  %566 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(8) @.str.40) #26
   %567 = icmp eq i32 %566, 0
   br i1 %567, label %568, label %571
 
@@ -2213,7 +2213,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %557, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 571:                                              ; preds = %565
-  %572 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(8) @.str.41) #26
+  %572 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(8) @.str.41) #26
   %573 = icmp eq i32 %572, 0
   br i1 %573, label %574, label %577
 
@@ -2237,7 +2237,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %557, %_ZL6ignorePKc
   br i1 %.not31.i.i, label %587, label %579
 
 579:                                              ; preds = %577
-  %580 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.44) #26
+  %580 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.44) #26
   %581 = icmp eq i32 %580, 0
   br i1 %581, label %582, label %_ZL8dispatchPKcS0_.exit.i.backedge
 
@@ -2251,7 +2251,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %557, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 587:                                              ; preds = %577
-  %588 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.43) #26
+  %588 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.43) #26
   %589 = icmp eq i32 %588, 0
   br i1 %589, label %590, label %597
 
@@ -2275,7 +2275,7 @@ _ZL6acceptPKc.exit.i:                             ; preds = %593, %590
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 597:                                              ; preds = %587
-  %598 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.44) #26
+  %598 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.44) #26
   %599 = icmp eq i32 %598, 0
   br i1 %599, label %600, label %1120
 
@@ -2467,7 +2467,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %623
   %fputs.i.i.i = call i32 @fputs(ptr nonnull %674, ptr %673)
   %675 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %676 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
-  %677 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %676, i32 noundef 92) #26
+  %677 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %676, i32 noundef 92) #26
   %678 = icmp ugt ptr %677, %676
   %679 = getelementptr inbounds i8, ptr %677, i64 1
   %spec.select.i9.i.i.i = select i1 %678, ptr %679, ptr %676
@@ -2874,7 +2874,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %805, %812
   %fputs.i114.i.i = call i32 @fputs(ptr nonnull %902, ptr %901)
   %903 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %904 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
-  %905 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %904, i32 noundef 92) #26
+  %905 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %904, i32 noundef 92) #26
   %906 = icmp ugt ptr %905, %904
   %907 = getelementptr inbounds i8, ptr %905, i64 1
   %spec.select.i3.i.i.i = select i1 %906, ptr %907, ptr %904
@@ -3222,7 +3222,7 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %fputs.i147.i.i = call i32 @fputs(ptr nonnull %1071, ptr %1070)
   %1072 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1073 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
-  %1074 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1073, i32 noundef 92) #26
+  %1074 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1073, i32 noundef 92) #26
   %1075 = icmp ugt ptr %1074, %1073
   %1076 = getelementptr inbounds i8, ptr %1074, i64 1
   %spec.select.i11.i.i.i = select i1 %1075, ptr %1076, ptr %1073
@@ -3302,7 +3302,7 @@ _ZL6expectPKc.exit.i:                             ; preds = %1111, %1104, %1048,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1120:                                             ; preds = %597
-  %1121 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.45) #26
+  %1121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.45) #26
   %1122 = icmp eq i32 %1121, 0
   br i1 %1122, label %1123, label %1247
 
@@ -3491,7 +3491,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1185, %11
   %fputs.i.i = call i32 @fputs(ptr nonnull %1220, ptr %1219)
   %1221 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
   %1222 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30216), align 8
-  %1223 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1222, i32 noundef 92) #26
+  %1223 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1222, i32 noundef 92) #26
   %1224 = icmp ugt ptr %1223, %1222
   %1225 = getelementptr inbounds i8, ptr %1223, i64 1
   %spec.select.i29.i.i = select i1 %1224, ptr %1225, ptr %1222
@@ -3531,7 +3531,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1247:                                             ; preds = %1120
-  %1248 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.46) #26
+  %1248 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.46) #26
   %1249 = icmp eq i32 %1248, 0
   br i1 %1249, label %1250, label %1251
 
@@ -3540,7 +3540,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1251:                                             ; preds = %1247
-  %1252 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(8) @.str.47) #26
+  %1252 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(8) @.str.47) #26
   %1253 = icmp eq i32 %1252, 0
   br i1 %1253, label %1254, label %1255
 
@@ -3549,7 +3549,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1255:                                             ; preds = %1251
-  %1256 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.48) #26
+  %1256 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.48) #26
   %1257 = icmp eq i32 %1256, 0
   br i1 %1257, label %.preheader.i12.i, label %1265
 
@@ -3581,7 +3581,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1265:                                             ; preds = %1255
-  %1266 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.49) #26
+  %1266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(10) @.str.49) #26
   %1267 = icmp eq i32 %1266, 0
   br i1 %1267, label %1268, label %1271
 
@@ -3593,7 +3593,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1271:                                             ; preds = %1265
-  %1272 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.50) #26
+  %1272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(7) @.str.50) #26
   %1273 = icmp eq i32 %1272, 0
   br i1 %1273, label %1274, label %1275
 
@@ -3602,7 +3602,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1275:                                             ; preds = %1271
-  %1276 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(13) @.str.51) #26
+  %1276 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(13) @.str.51) #26
   %1277 = icmp eq i32 %1276, 0
   br i1 %1277, label %1278, label %1279
 
@@ -3611,7 +3611,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1279:                                             ; preds = %1275
-  %1280 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(5) @.str.52) #26
+  %1280 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(5) @.str.52) #26
   %1281 = icmp eq i32 %1280, 0
   br i1 %1281, label %1282, label %1285
 
@@ -3621,7 +3621,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1285:                                             ; preds = %1279
-  %1286 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(5) @.str.53) #26
+  %1286 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(5) @.str.53) #26
   %1287 = icmp eq i32 %1286, 0
   br i1 %1287, label %1288, label %1290
 
@@ -3632,12 +3632,12 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1238, %1196, %1149,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1290:                                             ; preds = %1285
-  %1291 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %507, ptr noundef nonnull dereferenceable(21) @.str.42) #26
+  %1291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %507, ptr noundef nonnull dereferenceable(21) @.str.42) #26
   %1292 = icmp eq i32 %1291, 0
   br i1 %1292, label %1293, label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1293:                                             ; preds = %1290
-  %1294 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.132) #26
+  %1294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.132) #26
   %1295 = icmp eq i32 %1294, 0
   %1296 = zext i1 %1295 to i32
   store i32 %1296, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30200), align 8

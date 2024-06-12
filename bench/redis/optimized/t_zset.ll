@@ -3494,7 +3494,7 @@ if.then:                                          ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %0, i32 127)
   %conv2.i = zext nneg i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull readonly align 1 %call, i64 %conv2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %call, i64 %conv2.i, i1 false)
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %conv2.i
   store i8 0, ptr %arrayidx.i, align 1
   %call.i = call double @strtod(ptr nocapture noundef nonnull %buf.i, ptr noundef null) #19
@@ -3727,7 +3727,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %4, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -3774,7 +3774,7 @@ if.then.i21:                                      ; preds = %cond.end.i18
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i14)
   %spec.store.select.i.i22 = call i32 @llvm.umin.i32(i32 %8, i32 127)
   %conv2.i.i23 = zext nneg i32 %spec.store.select.i.i22 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i14, ptr nonnull readonly align 1 %call.i19, i64 %conv2.i.i23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i14, ptr nonnull align 1 %call.i19, i64 %conv2.i.i23, i1 false)
   %arrayidx.i.i24 = getelementptr inbounds [128 x i8], ptr %buf.i.i14, i64 0, i64 %conv2.i.i23
   store i8 0, ptr %arrayidx.i.i24, align 1
   %call.i.i25 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i14, ptr noundef null) #19
@@ -3847,7 +3847,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %0, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -3934,7 +3934,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %0, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -4423,7 +4423,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %5, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -4652,7 +4652,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %0, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -4740,7 +4740,7 @@ zzlCompareElements.exit:                          ; preds = %entry.if.end_crit_e
   %vstr.0.i = phi ptr [ %vbuf.i, %if.then.i29 ], [ %call.i26, %entry.if.end_crit_edge.i ]
   %cond.i = call i32 @llvm.umin.i32(i32 %8, i32 %conv12)
   %conv.i27 = sext i32 %cond.i to i64
-  %call5.i = call i32 @memcmp(ptr noundef nonnull %vstr.0.i, ptr noundef nonnull readonly %ele, i64 noundef %conv.i27) #21
+  %call5.i = call i32 @memcmp(ptr noundef nonnull %vstr.0.i, ptr noundef nonnull %ele, i64 noundef %conv.i27) #21
   %cmp6.i = icmp eq i32 %call5.i, 0
   %sub.i = sub i32 %8, %conv12
   %retval.0.i28 = select i1 %cmp6.i, i32 %sub.i, i32 %call5.i
@@ -4813,7 +4813,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %1, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -5105,7 +5105,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %1, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i33, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i33, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i34 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -6032,7 +6032,7 @@ if.then.i28:                                      ; preds = %if.then27
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %10, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i27, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i27, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i29 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -6459,7 +6459,7 @@ if.then16:                                        ; preds = %if.then13
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %10, i32 127)
   %conv2.i12 = zext nneg i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull readonly align 1 %9, i64 %conv2.i12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %9, i64 %conv2.i12, i1 false)
   %arrayidx.i13 = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %conv2.i12
   store i8 0, ptr %arrayidx.i13, align 1
   %call.i = call double @strtod(ptr nocapture noundef nonnull %buf.i, ptr noundef null) #19
@@ -7882,7 +7882,7 @@ if.then.i53:                                      ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %18, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -9760,10 +9760,10 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp6.i, label %if.end11, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %for.body.i
-  %call.i = tail call i64 @zuiLength(ptr noundef readonly %src)
+  %call.i = tail call i64 @zuiLength(ptr noundef %src)
   %add.i = add i64 %call.i, %algo_one_work.015.i
   %arrayidx10.i = getelementptr inbounds %struct.zsetopsrc, ptr %src, i64 %indvars.iv.i
-  %call11.i = tail call i64 @zuiLength(ptr noundef readonly %arrayidx10.i)
+  %call11.i = tail call i64 @zuiLength(ptr noundef %arrayidx10.i)
   %add12.i = add i64 %call11.i, %algo_two_work.016.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %setnum
@@ -10812,7 +10812,7 @@ if.then.i66:                                      ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %10, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i67 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -11094,7 +11094,7 @@ entry:
   %0 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %2 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -11417,7 +11417,7 @@ if.end162:                                        ; preds = %if.then17, %lor.lhs
 define dso_local void @zrangeCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %handler = alloca %struct.zrange_result_handler, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -11436,7 +11436,7 @@ entry:
 define dso_local void @zrevrangeCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %handler = alloca %struct.zrange_result_handler, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -11645,7 +11645,7 @@ if.then.i69:                                      ; preds = %cond.end.i67
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %7, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i68, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i68, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i70 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -11932,7 +11932,7 @@ return:                                           ; preds = %if.end97, %if.then
 define dso_local void @zrangebyscoreCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %handler = alloca %struct.zrange_result_handler, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -11951,7 +11951,7 @@ entry:
 define dso_local void @zrevrangebyscoreCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %handler = alloca %struct.zrange_result_handler, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -12046,7 +12046,7 @@ if.then.i:                                        ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %7, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -12097,7 +12097,7 @@ if.then.i37:                                      ; preds = %cond.end.i34
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i30)
   %spec.store.select.i.i38 = call i32 @llvm.umin.i32(i32 %13, i32 127)
   %conv2.i.i39 = zext nneg i32 %spec.store.select.i.i38 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i30, ptr nonnull readonly align 1 %call.i35, i64 %conv2.i.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i30, ptr nonnull align 1 %call.i35, i64 %conv2.i.i39, i1 false)
   %arrayidx.i.i40 = getelementptr inbounds [128 x i8], ptr %buf.i.i30, i64 0, i64 %conv2.i.i39
   store i8 0, ptr %arrayidx.i.i40, align 1
   %call.i.i41 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i30, ptr noundef null) #19
@@ -12686,7 +12686,7 @@ if.then.i61:                                      ; preds = %cond.end.i59
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %2, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i60, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i60, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -13087,7 +13087,7 @@ if.end95:                                         ; preds = %land.rhs64, %zslLex
 define dso_local void @zrangebylexCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %handler = alloca %struct.zrange_result_handler, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -13106,7 +13106,7 @@ entry:
 define dso_local void @zrevrangebylexCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %handler = alloca %struct.zrange_result_handler, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds i8, ptr %handler, i64 8
   store ptr %c, ptr %client1.i, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 48
@@ -13735,7 +13735,7 @@ if.then.i88:                                      ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %12, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call.i.i89 = call double @strtod(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null) #19
@@ -15078,7 +15078,7 @@ if.then17:                                        ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %8, i32 127)
   %conv2.i = zext nneg i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull readonly align 1 %7, i64 %conv2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %7, i64 %conv2.i, i1 false)
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr %buf.i, i64 0, i64 %conv2.i
   store i8 0, ptr %arrayidx.i, align 1
   %call.i = call double @strtod(ptr nocapture noundef nonnull %buf.i, ptr noundef null) #19
@@ -15380,8 +15380,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @zuiCompareByRevCardinality(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) #0 {
 entry:
-  %call.i = tail call i64 @zuiLength(ptr noundef readonly %s1)
-  %call1.i = tail call i64 @zuiLength(ptr noundef readonly %s2)
+  %call.i = tail call i64 @zuiLength(ptr noundef %s1)
+  %call1.i = tail call i64 @zuiLength(ptr noundef %s2)
   %cmp.i = icmp ugt i64 %call.i, %call1.i
   %cmp2.i = icmp ult i64 %call.i, %call1.i
   %..i.neg = zext i1 %cmp2.i to i32

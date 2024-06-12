@@ -105,7 +105,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   %3 = load i32, ptr %encrypt, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tweak.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
   %block2.i = getelementptr inbounds i8, ptr %0, i64 520
   %4 = load ptr, ptr %block2.i, align 8
   call void %4(ptr noundef nonnull %tweak.i, ptr noundef nonnull %tweak.i, ptr noundef nonnull %2) #8

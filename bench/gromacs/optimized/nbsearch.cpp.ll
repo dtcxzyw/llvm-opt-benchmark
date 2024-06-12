@@ -2750,7 +2750,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
   %78 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %79, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %79, i8 0, i64 36, i1 false)
   br label %80
 
 80:                                               ; preds = %.thread92, %77, %._crit_edge
@@ -6772,7 +6772,7 @@ define noundef zeroext i1 @_ZN3gmx30AnalysisNeighborhoodPairSearch12findNextPair
 
 9:                                                ; preds = %2
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %.sroa.24.0..sroa_idx.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.24.0..sroa_idx.i, i8 0, i64 20, i1 false)
   br label %_ZNK3gmx8internal34AnalysisNeighborhoodPairSearchImpl13initFoundPairEPNS_24AnalysisNeighborhoodPairE.exit
 
 10:                                               ; preds = %2

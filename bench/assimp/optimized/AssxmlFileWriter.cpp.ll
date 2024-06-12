@@ -1108,7 +1108,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i391.i
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %idxprom.i.i.i = zext i32 %104 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %arrayidx.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   %add9.i.i.i = add nsw i32 %104, 4
   store i32 %add9.i.i.i, ptr %name.i, align 4
   br label %for.inc.i392.i
@@ -1121,7 +1121,7 @@ if.end.i18.i.i:                                   ; preds = %for.body.i391.i
 if.end4.i21.i.i:                                  ; preds = %if.end.i18.i.i
   %idxprom.i23.i.i = zext i32 %105 to i64
   %arrayidx.i24.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i23.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %arrayidx.i24.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i24.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
   %add9.i27.i.i = add nsw i32 %105, 4
   store i32 %add9.i27.i.i, ptr %name.i, align 4
   br label %for.inc.i392.i
@@ -1134,7 +1134,7 @@ if.end.i32.i.i:                                   ; preds = %for.body.i391.i
 if.end4.i35.i.i:                                  ; preds = %if.end.i32.i.i
   %idxprom.i37.i.i = zext i32 %106 to i64
   %arrayidx.i38.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i37.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %arrayidx.i38.i.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i38.i.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
   %add9.i41.i.i = add nsw i32 %106, 5
   store i32 %add9.i41.i.i, ptr %name.i, align 4
   br label %for.inc.i392.i
@@ -1147,7 +1147,7 @@ if.end.i46.i.i:                                   ; preds = %for.body.i391.i
 if.end4.i49.i.i:                                  ; preds = %if.end.i46.i.i
   %idxprom.i51.i.i = zext i32 %107 to i64
   %arrayidx.i52.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i51.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %arrayidx.i52.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i52.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
   %add9.i55.i.i = add nsw i32 %107, 6
   store i32 %add9.i55.i.i, ptr %name.i, align 4
   br label %for.inc.i392.i
@@ -1160,7 +1160,7 @@ if.end.i60.i.i:                                   ; preds = %for.body.i391.i
 if.end4.i63.i.i:                                  ; preds = %if.end.i60.i.i
   %idxprom.i65.i.i = zext i32 %108 to i64
   %arrayidx.i66.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i65.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %arrayidx.i66.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i66.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
   %add9.i69.i.i = add nsw i32 %108, 6
   store i32 %add9.i69.i.i, ptr %name.i, align 4
   br label %for.inc.i392.i
@@ -1473,7 +1473,7 @@ if.end.i.i434.i:                                  ; preds = %for.body.i400.i
 if.end4.i.i436.i:                                 ; preds = %if.end.i.i434.i
   %idxprom.i.i437.i = zext i32 %174 to i64
   %arrayidx.i.i438.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i.i437.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %arrayidx.i.i438.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i.i438.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   %add9.i.i439.i = add nsw i32 %174, 4
   store i32 %add9.i.i439.i, ptr %name.i, align 4
   br label %for.inc.i409.i
@@ -1486,7 +1486,7 @@ if.end.i18.i428.i:                                ; preds = %for.body.i400.i
 if.end4.i21.i430.i:                               ; preds = %if.end.i18.i428.i
   %idxprom.i23.i431.i = zext i32 %175 to i64
   %arrayidx.i24.i432.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i23.i431.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %arrayidx.i24.i432.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i24.i432.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
   %add9.i27.i433.i = add nsw i32 %175, 4
   store i32 %add9.i27.i433.i, ptr %name.i, align 4
   br label %for.inc.i409.i
@@ -1499,7 +1499,7 @@ if.end.i32.i422.i:                                ; preds = %for.body.i400.i
 if.end4.i35.i424.i:                               ; preds = %if.end.i32.i422.i
   %idxprom.i37.i425.i = zext i32 %176 to i64
   %arrayidx.i38.i426.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i37.i425.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %arrayidx.i38.i426.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i38.i426.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
   %add9.i41.i427.i = add nsw i32 %176, 5
   store i32 %add9.i41.i427.i, ptr %name.i, align 4
   br label %for.inc.i409.i
@@ -1512,7 +1512,7 @@ if.end.i46.i416.i:                                ; preds = %for.body.i400.i
 if.end4.i49.i418.i:                               ; preds = %if.end.i46.i416.i
   %idxprom.i51.i419.i = zext i32 %177 to i64
   %arrayidx.i52.i420.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i51.i419.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %arrayidx.i52.i420.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i52.i420.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
   %add9.i55.i421.i = add nsw i32 %177, 6
   store i32 %add9.i55.i421.i, ptr %name.i, align 4
   br label %for.inc.i409.i
@@ -1525,7 +1525,7 @@ if.end.i60.i403.i:                                ; preds = %for.body.i400.i
 if.end4.i63.i405.i:                               ; preds = %if.end.i60.i403.i
   %idxprom.i65.i406.i = zext i32 %178 to i64
   %arrayidx.i66.i407.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i65.i406.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %arrayidx.i66.i407.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i66.i407.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
   %add9.i69.i408.i = add nsw i32 %178, 6
   store i32 %add9.i69.i408.i, ptr %name.i, align 4
   br label %for.inc.i409.i

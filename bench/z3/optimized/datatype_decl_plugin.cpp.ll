@@ -11384,7 +11384,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 .noexc:                                           ; preds = %invoke.cont.i408
-  invoke void @_ZNK8datatype8accessor11instantiateERK10ref_vectorI4sort11ast_managerE(ptr nonnull writeonly sret(%class.obj_ref.0) align 8 %acc, ptr noundef nonnull readonly align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(16) %sorts.i)
+  invoke void @_ZNK8datatype8accessor11instantiateERK10ref_vectorI4sort11ast_managerE(ptr nonnull sret(%class.obj_ref.0) align 8 %acc, ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(16) %sorts.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -16592,7 +16592,7 @@ return.sink.split:                                ; preds = %for.cond72, %_ZNK15
   store i32 0, ptr %m_ref.i.i.i153, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype10param_size6offsetE, i64 16), ptr %call.i, align 8
   %m_offset.i.i154 = getelementptr inbounds i8, ptr %call.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i154, ptr noundef nonnull readonly align 8 dereferenceable(16) %m_num_elements.i.i151.sink, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i154, ptr noundef nonnull align 8 dereferenceable(16) %m_num_elements.i.i151.sink, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %for.cond.preheader.i.i.i.i, %cleanup, %call.i142.noexc, %if.then2.i.i.i, %if.then.i.i.i147, %if.then.i.i.i135, %invoke.cont66

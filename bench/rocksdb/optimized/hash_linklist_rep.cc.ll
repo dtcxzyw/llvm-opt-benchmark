@@ -2273,7 +2273,7 @@ return:                                           ; preds = %if.else, %if.then
   %hash_link_list_rep_.i.i2 = getelementptr inbounds i8, ptr %call2.sink9, i64 8
   store ptr %this, ptr %hash_link_list_rep_.i.i2, align 8
   %head_.i.i3 = getelementptr inbounds i8, ptr %call2.sink9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %head_.i.i3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i.i3, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorE, i64 16), ptr %call2.sink9, align 8
   %memtable_rep_.i4 = getelementptr inbounds i8, ptr %call2.sink9, i64 32
   store ptr %this, ptr %memtable_rep_.i4, align 8

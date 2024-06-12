@@ -3233,7 +3233,7 @@ intel_dp_drrs_compute_config.exit:                ; preds = %308, %312, %333, %3
   %365 = or i32 %364, %363
   store i32 %365, ptr %351, align 4
   store i8 7, ptr %352, align 4
-  tail call fastcc void @intel_dp_compute_vsc_colorimetry(ptr noundef %1, ptr noundef readonly %2, ptr noundef %352)
+  tail call fastcc void @intel_dp_compute_vsc_colorimetry(ptr noundef %1, ptr noundef %2, ptr noundef %352)
   br label %intel_dp_compute_vsc_sdp.exit
 
 intel_dp_compute_vsc_sdp.exit:                    ; preds = %intel_dp_drrs_compute_config.exit, %359, %362

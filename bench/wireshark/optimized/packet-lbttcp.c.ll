@@ -202,7 +202,7 @@ define internal fastcc noalias ptr @lbttcp_transport_create(ptr nocapture nounde
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %7, ptr %5, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %copy_address_wmem.exit, label %13
@@ -1438,7 +1438,7 @@ lbttcp_client_transport_find.exit.thread:         ; preds = %4, %10, %lbttcp_cli
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %19, ptr %17, align 8
   %24 = icmp eq i32 %21, 0
   br i1 %24, label %copy_address_wmem.exit, label %25

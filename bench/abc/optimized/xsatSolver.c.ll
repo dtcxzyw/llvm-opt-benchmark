@@ -2955,7 +2955,7 @@ xSAT_BQueuePush.exit:                             ; preds = %68, %82
 104:                                              ; preds = %91
   %105 = getelementptr inbounds i8, ptr %89, i64 8
   store i32 0, ptr %89, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   br label %106
 
 106:                                              ; preds = %104, %91, %88, %xSAT_BQueuePush.exit
@@ -4782,7 +4782,7 @@ xSAT_BQueuePush.exit83:                           ; preds = %981, %995
 1031:                                             ; preds = %1017
   %1032 = getelementptr inbounds i8, ptr %1015, i64 8
   store i32 0, ptr %1015, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1032, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1032, i8 0, i64 16, i1 false)
   tail call void @xSAT_SolverCancelUntil(ptr noundef nonnull %0, i32 noundef 0)
   br label %xSAT_SolverDecide.exit.thread
 

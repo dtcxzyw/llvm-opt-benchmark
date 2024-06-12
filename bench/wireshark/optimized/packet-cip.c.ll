@@ -6843,7 +6843,7 @@ define hidden void @dissect_epath(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
   store i32 0, ptr %15, align 4
   br label %16
 
@@ -8171,7 +8171,7 @@ cip_get_service.exit:                             ; preds = %86, %91, %94, %102
 
 137:                                              ; preds = %132
   %138 = getelementptr inbounds i8, ptr %134, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %134, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %134, i8 -1, i64 32, i1 false)
   store i32 0, ptr %138, align 4
   br label %139
 
@@ -8227,7 +8227,7 @@ dissect_epath.exit200.thread207:                  ; preds = %.lr.ph.i, %.lr.ph, 
 159:                                              ; preds = %122
   %160 = load ptr, ptr %9, align 8
   %161 = getelementptr inbounds i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
   store i32 0, ptr %161, align 4
   %162 = load i32, ptr @hf_cip_epath, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %162, ptr noundef %1, i32 noundef %128, i32 noundef %129, i32 noundef 0) #13
@@ -8754,7 +8754,7 @@ define hidden void @load_cip_request_data(ptr noundef %0, ptr nocapture noundef 
 
 10:                                               ; preds = %6, %2
   %11 = getelementptr inbounds i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %1, i8 -1, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, i8 -1, i64 32, i1 false)
   store i32 0, ptr %11, align 4
   br label %12
 
@@ -8826,12 +8826,12 @@ define hidden i32 @dissect_cip_generic_service_rsp(ptr noundef %0, ptr noundef %
   br i1 %.not7.i, label %31, label %30
 
 30:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %7, ptr noundef nonnull align 4 dereferenceable(36) %29, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, ptr noundef nonnull align 4 dereferenceable(36) %29, i64 36, i1 false)
   br label %load_cip_request_data.exit
 
 31:                                               ; preds = %27, %3
   %32 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
   store i32 0, ptr %32, align 4
   br label %load_cip_request_data.exit
 
@@ -9618,7 +9618,7 @@ proto_item_set_generated.exit29:                  ; preds = %proto_item_set_gene
   %51 = phi ptr [ %30, %.thread ], [ %46, %43 ]
   %52 = phi ptr [ %39, %.thread ], [ %45, %43 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %52, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %52, i8 -1, i64 32, i1 false)
   store i32 0, ptr %53, align 4
   br label %54
 
@@ -11057,7 +11057,7 @@ dissect_cip_cm_fwd_close_rsp_success.exit.i:      ; preds = %display_connection_
   %589 = call ptr @proto_tree_add_subtree(ptr noundef %540, ptr noundef %0, i32 noundef %587, i32 noundef %581, i32 noundef %588, ptr noundef nonnull %11, ptr noundef nonnull @.str.3129) #13
   %590 = load ptr, ptr %11, align 8
   %591 = getelementptr inbounds i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %9, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %9, i8 -1, i64 32, i1 false)
   store i32 0, ptr %591, align 4
   %592 = load i32, ptr @hf_cip_epath, align 4
   %593 = call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %592, ptr noundef %0, i32 noundef %587, i32 noundef %581, i32 noundef 0) #13
@@ -12152,12 +12152,12 @@ define internal i32 @dissect_cip_class_cco(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not7.i.i, label %34, label %33
 
 33:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %32, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %32, i64 36, i1 false)
   br label %load_cip_request_data.exit.i
 
 34:                                               ; preds = %30, %4
   %35 = getelementptr inbounds i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %6, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, i8 -1, i64 32, i1 false)
   store i32 0, ptr %35, align 4
   br label %load_cip_request_data.exit.i
 
@@ -13545,7 +13545,7 @@ proto_item_set_generated.exit34:                  ; preds = %proto_item_set_gene
   %38 = load i32, ptr %10, align 8
   %39 = shl i32 %38, 1
   %40 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
   store i32 0, ptr %40, align 4
   %41 = icmp sgt i32 %39, 0
   br i1 %41, label %.lr.ph.i.preheader, label %dissect_epath.exit
@@ -13886,7 +13886,7 @@ get_connection_timeout_multiplier.exit:           ; preds = %83, %switch.lookup
   %194 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %192, i32 noundef %189, i32 noundef %193, ptr noundef nonnull %17, ptr noundef nonnull @.str.3129) #13
   %195 = load ptr, ptr %17, align 8
   %196 = getelementptr inbounds i8, ptr %18, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %18, i8 -1, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %18, i8 -1, i64 32, i1 false)
   store i32 0, ptr %196, align 4
   store i32 0, ptr %19, align 4
   %197 = load i32, ptr @hf_cip_epath, align 4

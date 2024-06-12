@@ -666,7 +666,7 @@ tokenize_expand_file.exit:                        ; preds = %.thread, %151, %107
   %155 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %154, ptr @CurrentMemoryContext, align 8
   %156 = and i8 %.0124, 1
-  %157 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre240) #15
+  %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre240) #15
   %sext.i = shl i64 %157, 32
   %158 = ashr exact i64 %sext.i, 32
   %159 = add nsw i64 %158, 25
@@ -679,7 +679,7 @@ tokenize_expand_file.exit:                        ; preds = %.thread, %151, %107
   store ptr null, ptr %163, align 8
   %sext10.i = add i64 %sext.i, 4294967296
   %164 = ashr exact i64 %sext10.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr readonly align 1 %.pre240, i64 %164, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr align 1 %.pre240, i64 %164, i1 false)
   %165 = call ptr @lappend(ptr noundef %.0.i, ptr noundef nonnull %160) #13
   store ptr %155, ptr @CurrentMemoryContext, align 8
   br label %166
@@ -1242,7 +1242,7 @@ list_head.exit:                                   ; preds = %2, %24
   %131 = getelementptr i8, ptr %130, i64 8
   %.val770 = load i8, ptr %131, align 8
   %132 = and i8 %.val770, 1
-  %133 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val769) #15
+  %133 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val769) #15
   %sext.i.i = shl i64 %133, 32
   %134 = ashr exact i64 %sext.i.i, 32
   %135 = add nsw i64 %134, 25
@@ -1255,7 +1255,7 @@ list_head.exit:                                   ; preds = %2, %24
   store ptr null, ptr %139, align 8
   %sext10.i.i = add i64 %sext.i.i, 4294967296
   %140 = ashr exact i64 %sext10.i.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr readonly align 1 %.val769, i64 %140, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr align 1 %.val769, i64 %140, i1 false)
   %141 = tail call fastcc i32 @regcomp_auth_token(ptr noundef nonnull %136, ptr noundef %14, i32 noundef %12, ptr noundef nonnull %15, i32 noundef %1)
   %.not753 = icmp eq i32 %141, 0
   br i1 %.not753, label %142, label %.thread851
@@ -1323,7 +1323,7 @@ list_head.exit:                                   ; preds = %2, %24
   %173 = getelementptr i8, ptr %172, i64 8
   %.val772 = load i8, ptr %173, align 8
   %174 = and i8 %.val772, 1
-  %175 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val771) #15
+  %175 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val771) #15
   %sext.i.i774 = shl i64 %175, 32
   %176 = ashr exact i64 %sext.i.i774, 32
   %177 = add nsw i64 %176, 25
@@ -1336,7 +1336,7 @@ list_head.exit:                                   ; preds = %2, %24
   store ptr null, ptr %181, align 8
   %sext10.i.i775 = add i64 %sext.i.i774, 4294967296
   %182 = ashr exact i64 %sext10.i.i775, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr readonly align 1 %.val771, i64 %182, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr align 1 %.val771, i64 %182, i1 false)
   %183 = tail call fastcc i32 @regcomp_auth_token(ptr noundef nonnull %178, ptr noundef %14, i32 noundef %12, ptr noundef nonnull %15, i32 noundef %1)
   %.not752 = icmp eq i32 %183, 0
   br i1 %.not752, label %184, label %.thread851
@@ -4044,7 +4044,7 @@ list_head.exit:                                   ; preds = %2, %9
   %66 = getelementptr i8, ptr %65, i64 8
   %.val117 = load i8, ptr %66, align 8
   %67 = and i8 %.val117, 1
-  %68 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val116) #15
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val116) #15
   %sext.i.i = shl i64 %68, 32
   %69 = ashr exact i64 %sext.i.i, 32
   %70 = add nsw i64 %69, 25
@@ -4057,7 +4057,7 @@ list_head.exit:                                   ; preds = %2, %9
   store ptr null, ptr %74, align 8
   %sext10.i.i = add i64 %sext.i.i, 4294967296
   %75 = ashr exact i64 %sext10.i.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr readonly align 1 %.val116, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %.val116, i64 %75, i1 false)
   %76 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %71, ptr %76, align 8
   %77 = load ptr, ptr %0, align 8
@@ -4122,7 +4122,7 @@ list_head.exit:                                   ; preds = %2, %9
   %110 = getelementptr i8, ptr %109, i64 8
   %.val115 = load i8, ptr %110, align 8
   %111 = and i8 %.val115, 1
-  %112 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val114) #15
+  %112 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val114) #15
   %sext.i.i119 = shl i64 %112, 32
   %113 = ashr exact i64 %sext.i.i119, 32
   %114 = add nsw i64 %113, 25
@@ -4135,7 +4135,7 @@ list_head.exit:                                   ; preds = %2, %9
   store ptr null, ptr %118, align 8
   %sext10.i.i120 = add i64 %sext.i.i119, 4294967296
   %119 = ashr exact i64 %sext10.i.i120, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr readonly align 1 %.val114, i64 %119, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 1 %.val114, i64 %119, i1 false)
   %120 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %115, ptr %120, align 8
   %121 = load ptr, ptr %76, align 8
@@ -4212,7 +4212,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6)
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull readonly dereferenceable(1) %0) #15
+  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %0) #15
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %36, label %143
 
@@ -4328,7 +4328,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %109, ptr align 1 %111, i64 %113, i1 false)
   %114 = getelementptr i8, ptr %81, i64 2
   %115 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %114) #13
-  %116 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %102) #15
+  %116 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #15
   %sext.i25 = shl i64 %116, 32
   %117 = ashr exact i64 %sext.i25, 32
   %118 = add nsw i64 %117, 25
@@ -4341,7 +4341,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   store ptr null, ptr %122, align 8
   %sext10.i = add i64 %sext.i25, 4294967296
   %123 = ashr exact i64 %sext10.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr readonly align 1 %102, i64 %123, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr align 1 %102, i64 %123, i1 false)
   call void @pfree(ptr noundef %102) #13
   br label %124
 
@@ -4874,7 +4874,7 @@ check_ip.exit.thread.i:                           ; preds = %check_same_host_or_
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %149
-  %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull readonly dereferenceable(1) %118) #15
+  %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %118) #15
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %189, label %is_member.exit.thread.i.i
 

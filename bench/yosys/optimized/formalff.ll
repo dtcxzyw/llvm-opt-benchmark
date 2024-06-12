@@ -5399,7 +5399,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   %1558 = getelementptr inbounds i8, ptr %45, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1558, i8 0, i64 48, i1 false)
   %1559 = getelementptr inbounds i8, ptr %45, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %1559, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1559, i8 0, i64 48, i1 false)
   %1560 = invoke { ptr, ptr } @_ZN5Yosys5RTLIL6Design7modulesEv(ptr noundef nonnull align 8 dereferenceable(376) %2)
           to label %1561 unwind label %1579
 
@@ -5656,7 +5656,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE7do_hashERKS4_.exi
 
 .loopexit691:                                     ; preds = %.noexc378, %_ZN12_GLOBAL__N_115HierarchyWorkerC2EPN5Yosys5RTLIL6DesignE.exit
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
-  call fastcc void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS7_EENS0_8hash_opsIS4_EEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(49) %1559) #20
+  call fastcc void @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS7_EENS0_8hash_opsIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %1559) #20
   %1691 = load ptr, ptr %1589, align 8
   %.not.i.i.i.i.i379 = icmp eq ptr %1691, null
   br i1 %.not.i.i.i.i.i379, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPNS0_5RTLIL6ModuleENS1_8hash_opsIS5_EEE7entry_tESaIS9_EED2Ev.exit.i.i, label %1692
@@ -86727,7 +86727,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
   br i1 %.not.i179, label %893, label %891
 
 891:                                              ; preds = %889
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_115HierarchyWorker24find_replaced_clk_inputsEN5Yosys5RTLIL8IdStringEE5empty, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_115HierarchyWorker24find_replaced_clk_inputsEN5Yosys5RTLIL8IdStringEE5empty, i8 0, i64 24, i1 false)
   %892 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN12_GLOBAL__N_112ReplacedPortESaIS1_EED2Ev, ptr nonnull @_ZZN12_GLOBAL__N_115HierarchyWorker24find_replaced_clk_inputsEN5Yosys5RTLIL8IdStringEE5empty, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_115HierarchyWorker24find_replaced_clk_inputsEN5Yosys5RTLIL8IdStringEE5empty) #20
   br label %893
@@ -89637,7 +89637,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_112ReplacedPortES2_SaIS1
   store i32 %2306, ptr %.015.i.i.i.i.i.i.i, align 4
   %2314 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 4
   %2315 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %2314, ptr noundef nonnull readonly align 4 dereferenceable(5) %2315, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %2314, ptr noundef nonnull align 4 dereferenceable(5) %2315, i64 5, i1 false)
   %2316 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i, i64 12
   %2317 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i301 = icmp eq ptr %2316, %2281

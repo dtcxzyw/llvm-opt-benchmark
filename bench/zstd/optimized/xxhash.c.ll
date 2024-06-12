@@ -158,7 +158,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTD_XXH32_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(48) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(48) %srcState, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %dstState, ptr noundef nonnull align 1 dereferenceable(48) %srcState, i64 48, i1 false)
   ret void
 }
 
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %entry
 if.then12:                                        ; preds = %if.end
   %mem32 = getelementptr inbounds i8, ptr %state, i64 24
   %add.ptr14 = getelementptr inbounds i8, ptr %mem32, i64 %conv8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr14, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr nonnull align 1 %input, i64 %len, i1 false)
   %3 = load i32, ptr %memsize, align 4
   %add17 = add i32 %3, %conv
   store i32 %add17, ptr %memsize, align 4
@@ -238,7 +238,7 @@ if.then20:                                        ; preds = %if.end18
   %add.ptr25 = getelementptr inbounds i8, ptr %mem3221, i64 %conv8
   %sub = sub i32 16, %2
   %conv27 = zext i32 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr25, ptr nonnull readonly align 1 %input, i64 %conv27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull align 1 %input, i64 %conv27, i1 false)
   %v = getelementptr inbounds i8, ptr %state, i64 8
   %4 = load <4 x i32>, ptr %v, align 4
   %5 = load <4 x i32>, ptr %mem3221, align 1
@@ -318,7 +318,7 @@ if.then99:                                        ; preds = %if.end96
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %mem32100, ptr nonnull readonly align 1 %p.2, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem32100, ptr nonnull align 1 %p.2, i64 %sub.ptr.sub, i1 false)
   %conv106 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv106, ptr %memsize, align 4
   br label %return
@@ -619,7 +619,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTD_XXH64_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(88) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(88) %srcState, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %dstState, ptr noundef nonnull align 1 dereferenceable(88) %srcState, i64 88, i1 false)
   ret void
 }
 
@@ -669,7 +669,7 @@ if.end:                                           ; preds = %entry
 if.then5:                                         ; preds = %if.end
   %mem64 = getelementptr inbounds i8, ptr %state, i64 40
   %add.ptr7 = getelementptr inbounds i8, ptr %mem64, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr7, ptr nonnull readonly align 1 %input, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr7, ptr nonnull align 1 %input, i64 %len, i1 false)
   %conv8 = trunc i64 %len to i32
   %2 = load i32, ptr %memsize, align 8
   %add10 = add i32 %2, %conv8
@@ -685,7 +685,7 @@ if.then13:                                        ; preds = %if.end11
   %add.ptr18 = getelementptr inbounds i8, ptr %mem6414, i64 %conv
   %sub = sub i32 32, %1
   %conv20 = zext i32 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr18, ptr nonnull readonly align 1 %input, i64 %conv20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18, ptr nonnull align 1 %input, i64 %conv20, i1 false)
   %v = getelementptr inbounds i8, ptr %state, i64 8
   %3 = load i64, ptr %v, align 8
   %mem6414.val = load i64, ptr %mem6414, align 1
@@ -793,7 +793,7 @@ if.then100:                                       ; preds = %if.end97
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %mem64101, ptr readonly align 1 %p.2, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem64101, ptr align 1 %p.2, i64 %sub.ptr.sub, i1 false)
   %conv107 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv107, ptr %memsize, align 8
   br label %return

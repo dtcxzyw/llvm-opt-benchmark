@@ -74,7 +74,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 ._crit_edge:                                      ; preds = %15, %8
   %.lcssa = phi i32 [ 1, %8 ], [ %14, %15 ]
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.36, i32 noundef %.lcssa) #5
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.36, i32 noundef %.lcssa) #5
   br label %regatoi.exit
 
 .preheader:                                       ; preds = %4, %.preheader

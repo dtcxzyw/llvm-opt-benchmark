@@ -71,7 +71,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Ssw_ManSetDefaultParamsLcorr(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 2, ptr %3, align 8
@@ -82,7 +82,7 @@ define void @Ssw_ManSetDefaultParamsLcorr(ptr nocapture noundef writeonly %0) lo
   store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 68
   %8 = getelementptr inbounds i8, ptr %0, i64 132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 250, ptr %9, align 4
   store <4 x i32> <i32 1, i32 1000, i32 50, i32 5000>, ptr %8, align 4
@@ -1032,7 +1032,7 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   %.072.sroa.gep173 = getelementptr inbounds i8, ptr %3, i64 12
   %.072.sroa.gep164 = getelementptr inbounds i8, ptr %3, i64 32
   %.072.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   store i32 1, ptr %.072.sroa.gep173, align 4
   store i32 2, ptr %.072.sroa.gep, align 8
   store <4 x i32> <i32 1000, i32 5000000, i32 100, i32 -1>, ptr %.072.sroa.gep164, align 8
@@ -1041,7 +1041,7 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   %7 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 68
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   store <4 x i32> <i32 0, i32 1000, i32 50, i32 5000>, ptr %.072.sroa.gep191, align 4
   %9 = getelementptr inbounds i8, ptr %3, i64 148
   store i32 250, ptr %9, align 4
@@ -1340,7 +1340,7 @@ define ptr @Ssw_LatchCorrespondence(ptr noundef %0, ptr noundef %1) local_unname
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 2, ptr %7, align 8
@@ -1351,7 +1351,7 @@ define ptr @Ssw_LatchCorrespondence(ptr noundef %0, ptr noundef %1) local_unname
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 68
   %12 = getelementptr inbounds i8, ptr %3, i64 132
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
   %13 = getelementptr inbounds i8, ptr %3, i64 148
   store i32 250, ptr %13, align 4
   store <4 x i32> <i32 1, i32 1000, i32 50, i32 5000>, ptr %12, align 4

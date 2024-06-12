@@ -746,7 +746,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   br label %f_err.i
 
 if.end29.i:                                       ; preds = %if.end25.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %msg_hdr.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %msg_hdr.i, i8 0, i64 64, i1 false)
   %48 = load i8, ptr %wire.i, align 1
   store i8 %48, ptr %msg_hdr.i, align 8
   %49 = load i8, ptr %incdec.ptr.i.i, align 1
@@ -889,7 +889,7 @@ if.else.i79.i:                                    ; preds = %lor.lhs.false32.i.i
   br i1 %cmp11.not.i.i, label %if.end56.i.i, label %if.then54.i.i
 
 if.then54.i.i:                                    ; preds = %if.else.i79.i
-  %call55.i.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef nonnull readonly %msg_hdr.i)
+  %call55.i.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef nonnull %msg_hdr.i)
   br label %dtls1_process_out_of_seq_message.exit.i
 
 if.end56.i.i:                                     ; preds = %if.else.i79.i
@@ -910,7 +910,7 @@ if.end.i.i.i:                                     ; preds = %if.end61.i.i
 if.end66.thread.i.i:                              ; preds = %if.end.i.i.i
   %fragment.i51.i84.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fragment.i51.i84.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %msg_hdr.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %msg_hdr.i, i64 64, i1 false)
   br label %if.end83.i.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -927,7 +927,7 @@ if.then68.i.i:                                    ; preds = %if.then1.i.i.i
   store ptr %call2.i.i.i, ptr %fragment.i.i80.i, align 8
   %reassembly14.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   store ptr null, ptr %reassembly14.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %msg_hdr.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %msg_hdr.i, i64 64, i1 false)
   %72 = load ptr, ptr %method.i, align 8
   %ssl_read_bytes70.i.i = getelementptr inbounds i8, ptr %72, i64 128
   %73 = load ptr, ptr %ssl_read_bytes70.i.i, align 8

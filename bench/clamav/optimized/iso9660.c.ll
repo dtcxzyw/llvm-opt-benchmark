@@ -211,7 +211,7 @@ define noundef i32 @cli_scaniso(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %82 = getelementptr inbounds i8, ptr %.0130, i64 8
   %83 = load i32, ptr %32, align 4
   %.not.i = icmp eq i32 %83, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull readonly align 1 dereferenceable(32) %82, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 1 dereferenceable(32) %82, i64 32, i1 false)
   store i8 0, ptr %68, align 8
   br i1 %.not.i, label %iso_string.exit, label %84
 
@@ -230,7 +230,7 @@ iso_string.exit:                                  ; preds = %76, %84
   %88 = getelementptr inbounds i8, ptr %.0130, i64 40
   %89 = load i32, ptr %32, align 4
   %.not.i156 = icmp eq i32 %89, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull readonly align 1 dereferenceable(32) %88, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 1 dereferenceable(32) %88, i64 32, i1 false)
   store i8 0, ptr %68, align 8
   br i1 %.not.i156, label %iso_string.exit158, label %90
 
@@ -259,7 +259,7 @@ iso_string.exit158:                               ; preds = %iso_string.exit, %9
   %102 = getelementptr inbounds i8, ptr %.0130, i64 190
   %103 = load i32, ptr %32, align 4
   %.not.i159 = icmp eq i32 %103, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull readonly align 1 dereferenceable(128) %102, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull align 1 dereferenceable(128) %102, i64 128, i1 false)
   store i8 0, ptr %71, align 8
   br i1 %.not.i159, label %iso_string.exit161, label %104
 
@@ -278,7 +278,7 @@ iso_string.exit161:                               ; preds = %iso_string.exit158,
   %108 = getelementptr inbounds i8, ptr %.0130, i64 318
   %109 = load i32, ptr %32, align 4
   %.not.i162 = icmp eq i32 %109, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull readonly align 1 dereferenceable(128) %108, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull align 1 dereferenceable(128) %108, i64 128, i1 false)
   store i8 0, ptr %71, align 8
   br i1 %.not.i162, label %iso_string.exit164, label %110
 
@@ -297,7 +297,7 @@ iso_string.exit164:                               ; preds = %iso_string.exit161,
   %114 = getelementptr inbounds i8, ptr %.0130, i64 446
   %115 = load i32, ptr %32, align 4
   %.not.i165 = icmp eq i32 %115, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull readonly align 1 dereferenceable(128) %114, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull align 1 dereferenceable(128) %114, i64 128, i1 false)
   store i8 0, ptr %71, align 8
   br i1 %.not.i165, label %iso_string.exit167, label %116
 
@@ -316,7 +316,7 @@ iso_string.exit167:                               ; preds = %iso_string.exit164,
   %120 = getelementptr inbounds i8, ptr %.0130, i64 574
   %121 = load i32, ptr %32, align 4
   %.not.i168 = icmp eq i32 %121, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull readonly align 1 dereferenceable(128) %120, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %67, ptr noundef nonnull align 1 dereferenceable(128) %120, i64 128, i1 false)
   store i8 0, ptr %71, align 8
   br i1 %.not.i168, label %iso_string.exit170, label %122
 
@@ -749,7 +749,7 @@ needblock.exit:                                   ; preds = %26
 87:                                               ; preds = %84
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.093, i32 258)
   %88 = zext nneg i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 1 %85, i64 %88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 1 %85, i64 %88, i1 false)
   %89 = getelementptr inbounds [260 x i8], ptr %14, i64 0, i64 %88
   store i8 0, ptr %89, align 1
   %90 = add nuw nsw i32 %spec.store.select.i, 1
@@ -767,7 +767,7 @@ needblock.exit:                                   ; preds = %26
 
 96:                                               ; preds = %84
   %97 = zext i32 %.093 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 1 %85, i64 %97, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 1 %85, i64 %97, i1 false)
   %98 = getelementptr inbounds [260 x i8], ptr %14, i64 0, i64 %97
   store i8 0, ptr %98, align 1
   br label %iso_string.exit

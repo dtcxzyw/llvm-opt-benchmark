@@ -38,7 +38,7 @@ define hidden i32 @mbedtls_ssl_cache_get(ptr nocapture noundef readonly %0, ptr 
 
 10:                                               ; preds = %.lr.ph.split.us.i
   %11 = getelementptr inbounds i8, ptr %.024.us.i, i64 8
-  %bcmp.us.i = tail call i32 @bcmp(ptr readonly %1, ptr nonnull %11, i64 %2)
+  %bcmp.us.i = tail call i32 @bcmp(ptr %1, ptr nonnull %11, i64 %2)
   %.not20.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not20.us.i, label %ssl_cache_find_entry.exit, label %12
 
@@ -64,7 +64,7 @@ define hidden i32 @mbedtls_ssl_cache_get(ptr nocapture noundef readonly %0, ptr 
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.024.i, i64 8
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %1, ptr nonnull %22, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr nonnull %22, i64 %2)
   %.not20.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not20.i, label %ssl_cache_find_entry.exit, label %23
 
@@ -130,7 +130,7 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr nocapture noundef %0, ptr nocapture
 
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %.04265.i, i64 8
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %1, ptr nonnull %17, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr nonnull %17, i64 %2)
   %18 = icmp eq i32 %bcmp.i, 0
   br i1 %18, label %.loopexit.i, label %19
 

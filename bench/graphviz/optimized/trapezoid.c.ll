@@ -77,7 +77,7 @@ gv_calloc.exit44:                                 ; preds = %gv_calloc.exit
 
 _max.exit.i:                                      ; preds = %36, %32, %gv_calloc.exit44
   %.sink.i.i = phi ptr [ %21, %gv_calloc.exit44 ], [ %..i.i, %36 ], [ %25, %32 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i64 16, i1 false)
   %41 = tail call fastcc ptr @gv_recalloc(ptr noundef nonnull %22, i64 noundef 2, i64 noundef 3, i64 noundef 40)
   %42 = getelementptr inbounds i8, ptr %41, i64 76
   store i32 2, ptr %42, align 4
@@ -112,7 +112,7 @@ _max.exit.i:                                      ; preds = %36, %32, %gv_calloc
 init_query_structure.exit:                        ; preds = %_max.exit.i, %52, %56
   %.sink.i158.i = phi ptr [ %21, %_max.exit.i ], [ %..i157.i, %56 ], [ %25, %52 ]
   %60 = getelementptr inbounds i8, ptr %45, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i158.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i158.i, i64 16, i1 false)
   %61 = getelementptr inbounds i8, ptr %45, i64 148
   store i32 1, ptr %61, align 4
   %62 = tail call fastcc ptr @gv_recalloc(ptr noundef nonnull %45, i64 noundef 4, i64 noundef 5, i64 noundef 40)
@@ -331,7 +331,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %150 = getelementptr inbounds i8, ptr %145, i64 16
   %151 = getelementptr inbounds i8, ptr %145, i64 36
   %152 = load i32, ptr %151, align 4
-  %153 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %145, ptr noundef nonnull %150, i32 noundef %152, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
+  %153 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %145, ptr noundef nonnull %150, i32 noundef %152, ptr noundef nonnull %1, ptr noundef nonnull %5)
   store i32 %153, ptr %151, align 4
   %154 = load ptr, ptr %12, align 8
   %155 = sext i32 %153 to i64
@@ -340,7 +340,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   store i32 %157, ptr %151, align 4
   %158 = getelementptr inbounds i8, ptr %145, i64 40
   %159 = load i32, ptr %158, align 8
-  %160 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %150, ptr noundef nonnull %145, i32 noundef %159, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
+  %160 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %150, ptr noundef nonnull %145, i32 noundef %159, ptr noundef nonnull %1, ptr noundef nonnull %5)
   store i32 %160, ptr %158, align 8
   %161 = load ptr, ptr %12, align 8
   %162 = sext i32 %160 to i64

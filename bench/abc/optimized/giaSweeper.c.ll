@@ -995,10 +995,10 @@ define ptr @Gia_SweeperExtractUserLogic(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %41
 
 41:                                               ; preds = %.critedge
-  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #26
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #26
   %43 = add i64 %42, 1
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #25
-  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %40) #23
+  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %40) #23
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %41
@@ -1010,10 +1010,10 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %41
   br i1 %.not.i128, label %Abc_UtilStrsav.exit129, label %49
 
 49:                                               ; preds = %Abc_UtilStrsav.exit
-  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #26
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #26
   %51 = add i64 %50, 1
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #25
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %48) #23
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %48) #23
   br label %Abc_UtilStrsav.exit129
 
 Abc_UtilStrsav.exit129:                           ; preds = %Abc_UtilStrsav.exit, %49
@@ -1735,10 +1735,10 @@ Vec_PtrDup.exit:                                  ; preds = %1, %7
   br i1 %.not.i8, label %Abc_UtilStrsav.exit, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #26
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #26
   %22 = add i64 %21, 1
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #25
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #23
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %19) #23
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %20
@@ -1875,10 +1875,10 @@ define ptr @Gia_SweeperCleanup(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %41
 
 41:                                               ; preds = %.critedge
-  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #26
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #26
   %43 = add i64 %42, 1
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #25
-  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %40) #23
+  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %40) #23
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %41
@@ -1890,10 +1890,10 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %41
   br i1 %.not.i103, label %Abc_UtilStrsav.exit104, label %49
 
 49:                                               ; preds = %Abc_UtilStrsav.exit
-  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #26
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #26
   %51 = add i64 %50, 1
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #25
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %48) #23
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %48) #23
   br label %Abc_UtilStrsav.exit104
 
 Abc_UtilStrsav.exit104:                           ; preds = %Abc_UtilStrsav.exit, %49
@@ -3408,7 +3408,7 @@ Gia_ManAddClausesMux.exit:                        ; preds = %.critedge2, %247
   %262 = ptrtoint ptr %259 to i64
   %263 = xor i64 %261, %262
   %264 = inttoptr i64 %263 to ptr
-  call fastcc void @Gia_ManCollectSuper_rec(ptr noundef readonly %253, ptr noundef %264, ptr noundef %254)
+  call fastcc void @Gia_ManCollectSuper_rec(ptr noundef %253, ptr noundef %264, ptr noundef %254)
   %265 = load i64, ptr %47, align 4
   %266 = lshr i64 %265, 32
   %267 = and i64 %266, 536870911
@@ -3419,7 +3419,7 @@ Gia_ManAddClausesMux.exit:                        ; preds = %.critedge2, %247
   %272 = ptrtoint ptr %269 to i64
   %273 = xor i64 %271, %272
   %274 = inttoptr i64 %273 to ptr
-  call fastcc void @Gia_ManCollectSuper_rec(ptr noundef readonly %253, ptr noundef %274, ptr noundef %254)
+  call fastcc void @Gia_ManCollectSuper_rec(ptr noundef %253, ptr noundef %274, ptr noundef %254)
   %275 = load ptr, ptr %31, align 8
   %276 = getelementptr i8, ptr %275, i64 4
   %.val92 = load i32, ptr %276, align 4

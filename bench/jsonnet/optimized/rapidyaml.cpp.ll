@@ -3314,18 +3314,18 @@ define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %8
 
 8:                                                ; preds = %8, %4
   %.idx.i = phi i64 [ 96, %4 ], [ %.add.i, %8 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %9 = icmp eq i64 %.add.i, 256
   br i1 %9, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %8
@@ -3805,7 +3805,7 @@ define dso_local void @_ZN2c43yml4Tree5_freeEv(ptr nocapture noundef nonnull ali
 
 _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %42, %27
   %49 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %49, i8 0, i64 160, i1 false)
   ret void
 }
@@ -3825,18 +3825,18 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local void @_ZN2c43yml4TreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %7
 
 7:                                                ; preds = %7, %2
   %.idx.i = phi i64 [ 96, %2 ], [ %.add.i, %7 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %8 = icmp eq i64 %.add.i, 256
   br i1 %8, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %7
@@ -4058,18 +4058,18 @@ define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4Tr
 define dso_local void @_ZN2c43yml4TreeC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %7
 
 7:                                                ; preds = %7, %2
   %.idx.i = phi i64 [ 96, %2 ], [ %.add.i, %7 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %8 = icmp eq i64 %.add.i, 256
   br i1 %8, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %7
@@ -4206,7 +4206,7 @@ define dso_local void @_ZN2c43yml4Tree5_moveERS1_(ptr nocapture noundef nonnull 
   br i1 %exitcond.not, label %_ZN2c43yml4Tree6_clearEv.exit, label %66, !llvm.loop !56
 
 _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %64, i8 0, i64 160, i1 false)
   ret void
 }
@@ -12172,7 +12172,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit180.thread: ; preds = %126, %_ZNK2c415b
   %.sroa.017.0.copyload = load ptr, ptr %48, align 8
   %.sroa.218.0.copyload = load i64, ptr %49, align 8
   %133 = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr readonly align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
   %134 = add i64 %.sroa.218.0.copyload, 1
   br label %.lr.ph.i.i182
 
@@ -12366,7 +12366,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit194.thread: ; preds = %170, 
   %206 = getelementptr inbounds i8, ptr %46, i64 %.0133
   %207 = sub i64 %205, %.0133
   %208 = getelementptr inbounds i8, ptr %1, i64 %.0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr nonnull readonly align 1 %206, i64 %207, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr nonnull align 1 %206, i64 %207, i1 false)
   %209 = add i64 %207, %.0
   %210 = add i64 %209, 1
   %211 = getelementptr inbounds i8, ptr %1, i64 %209
@@ -12433,7 +12433,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit199.thread: ; preds = %._crit_edge.thre
   %233 = getelementptr inbounds i8, ptr %46, i64 %174
   %234 = sub i64 %47, %174
   %235 = getelementptr inbounds i8, ptr %1, i64 %210
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr nonnull readonly align 1 %233, i64 %234, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr nonnull align 1 %233, i64 %234, i1 false)
   %236 = add i64 %234, %210
   %237 = add i64 %236, 1
   %238 = getelementptr inbounds i8, ptr %1, i64 %236
@@ -12815,7 +12815,7 @@ define dso_local void @_ZNK2c43yml4Tree11lookup_pathENS_15basic_substringIKcEEm(
   br label %17
 
 17:                                               ; preds = %26, %13
-  %18 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull readonly align 8 dereferenceable(256) %1, ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %18 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %1, ptr noundef nonnull %0, ptr noundef nonnull %6)
   %.not.i = icmp eq i64 %18, -1
   br i1 %.not.i, label %20, label %19
 
@@ -13152,7 +13152,7 @@ _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %13, %9, %4
   br label %20
 
 20:                                               ; preds = %29, %_ZN2c43yml4Tree7root_idEv.exit
-  %21 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %21 = call noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i = icmp eq i64 %21, -1
   br i1 %.not.i, label %23, label %22
 
@@ -15009,9 +15009,9 @@ define dso_local void @_ZN2c43yml6ParserD2Ev(ptr noundef nonnull align 8 derefer
   store i64 0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 2544
   %39 = getelementptr inbounds i8, ptr %0, i64 2632
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %38, i8 0, i64 81, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %39, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %38, i8 0, i64 81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %39, i8 0, i64 104, i1 false)
   %.not.i.i3 = icmp eq ptr %35, %23
   br i1 %.not.i.i3, label %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EED2Ev.exit, label %40
 
@@ -15344,9 +15344,9 @@ define dso_local void @_ZN2c43yml6ParserC2EOS1_(ptr noundef nonnull align 8 dere
   store i32 0, ptr %1, align 8
   store i64 0, ptr %32, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 2544
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %83, i8 0, i64 81, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %61, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %83, i8 0, i64 81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %61, i8 0, i64 104, i1 false)
   ret void
 }
 
@@ -15980,9 +15980,9 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EEaSEOS5_.exit: ; preds = %_ZN2c43
   store i32 0, ptr %1, align 8
   store i64 0, ptr %86, align 8
   %138 = getelementptr inbounds i8, ptr %1, i64 2544
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %138, i8 0, i64 81, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(104) %116, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %138, i8 0, i64 81, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %116, i8 0, i64 104, i1 false)
   ret ptr %0
 }
 
@@ -17560,7 +17560,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %12, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %11, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %11, ptr noundef nonnull align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
   %149 = getelementptr inbounds i8, ptr %11, i64 21
   store i8 10, ptr %149, align 1
   %150 = getelementptr inbounds i8, ptr %12, i64 16
@@ -18012,7 +18012,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit128: ; preds =
   store ptr %2, ptr %3, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i124, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %2, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.339, i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %2, ptr noundef nonnull align 1 dereferenceable(19) @.str.339, i64 19, i1 false)
   store i8 10, ptr %338, align 1
   store i64 20, ptr %339, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -18822,7 +18822,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %3
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
   %363 = getelementptr inbounds i8, ptr %2, i64 21
   store i8 10, ptr %363, align 1
   %364 = getelementptr inbounds i8, ptr %3, i64 16
@@ -22402,7 +22402,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %6
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %2, ptr noundef nonnull align 1 dereferenceable(21) @.str.236, i64 21, i1 false)
   %667 = getelementptr inbounds i8, ptr %2, i64 21
   store i8 10, ptr %667, align 1
   %668 = getelementptr inbounds i8, ptr %3, i64 16
@@ -25340,7 +25340,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
   %37 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 10, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %3, i64 16
@@ -29533,7 +29533,7 @@ define linkonce_odr dso_local void @_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_subs
   br i1 %.not.i.i.i.i, label %_ZN2c43yml6detail13_SubstrWriter6appendEc.exit, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JEEEvT_S7_DpOT0_.exit
 
 _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JEEEvT_S7_DpOT0_.exit: ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %1, i64 %2, i1 false)
   %.not = icmp eq i64 %2, 1023
   br i1 %.not, label %_ZN2c43yml6detail13_SubstrWriter6appendEc.exit, label %7
 
@@ -32019,7 +32019,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %.
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %5, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %4, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.356, i64 42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %4, ptr noundef nonnull align 1 dereferenceable(42) @.str.356, i64 42, i1 false)
   %247 = getelementptr inbounds i8, ptr %4, i64 42
   store i8 10, ptr %247, align 2
   %248 = getelementptr inbounds i8, ptr %5, i64 16
@@ -32746,7 +32746,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, ptr noundef nonnull align 1 dereferenceable(28) @.str.266, i64 28, i1 false)
   %46 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 10, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %3, i64 16
@@ -37040,7 +37040,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %29
   %.sroa.2.0..sroa_idx.i.i180 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i180, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(58) %2, ptr noundef nonnull readonly align 1 dereferenceable(58) @.str.365, i64 58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(58) %2, ptr noundef nonnull align 1 dereferenceable(58) @.str.365, i64 58, i1 false)
   %414 = getelementptr inbounds i8, ptr %2, i64 58
   store i8 10, ptr %414, align 2
   %415 = getelementptr inbounds i8, ptr %3, i64 16
@@ -37964,7 +37964,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %29
   %.sroa.2.0..sroa_idx.i.i183 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i183, align 8
   store ptr %3, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(52) %2, ptr noundef nonnull readonly align 1 dereferenceable(52) @.str.374, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(52) %2, ptr noundef nonnull align 1 dereferenceable(52) @.str.374, i64 52, i1 false)
   %413 = getelementptr inbounds i8, ptr %2, i64 52
   store i8 10, ptr %413, align 4
   %414 = getelementptr inbounds i8, ptr %3, i64 16
@@ -38400,7 +38400,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %11, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %10, ptr noundef nonnull readonly align 1 dereferenceable(42) @.str.385, i64 42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %10, ptr noundef nonnull align 1 dereferenceable(42) @.str.385, i64 42, i1 false)
   %139 = getelementptr inbounds i8, ptr %10, i64 42
   store i8 10, ptr %139, align 2
   %140 = getelementptr inbounds i8, ptr %11, i64 16
@@ -41350,7 +41350,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %_
   store ptr %15, ptr %16, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %16, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %15, ptr noundef nonnull readonly align 1 dereferenceable(65) @.str.320, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %15, ptr noundef nonnull align 1 dereferenceable(65) @.str.320, i64 65, i1 false)
   store i8 10, ptr %89, align 1
   store i64 66, ptr %90, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -41486,7 +41486,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit88: ; preds = 
   store ptr %9, ptr %10, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i84, align 8
   store ptr %10, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %9, ptr noundef nonnull readonly align 1 dereferenceable(65) @.str.321, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %9, ptr noundef nonnull align 1 dereferenceable(65) @.str.321, i64 65, i1 false)
   store i8 10, ptr %96, align 1
   store i64 66, ptr %97, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -42172,7 +42172,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit82:     ; preds = %151, %170
   store ptr %6, ptr %7, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %7, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %6, ptr noundef nonnull readonly align 1 dereferenceable(37) @.str.315, i64 37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %6, ptr noundef nonnull align 1 dereferenceable(37) @.str.315, i64 37, i1 false)
   store i8 10, ptr %31, align 1
   store i64 38, ptr %32, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -44580,7 +44580,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   store ptr %28, ptr %29, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %29, ptr %30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %28, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.391, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %28, ptr noundef nonnull align 1 dereferenceable(31) @.str.391, i64 31, i1 false)
   store i8 10, ptr %96, align 1
   store i64 32, ptr %97, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %30)
@@ -44688,7 +44688,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit260: ; preds =
   store ptr %24, ptr %25, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i256, align 8
   store ptr %25, ptr %26, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %24, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str.392, i64 34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %24, ptr noundef nonnull align 1 dereferenceable(34) @.str.392, i64 34, i1 false)
   store i8 10, ptr %98, align 2
   store i64 35, ptr %99, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %26)
@@ -44772,7 +44772,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit269: ; preds =
   store ptr %20, ptr %21, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i265, align 8
   store ptr %21, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %20, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.393, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %20, ptr noundef nonnull align 1 dereferenceable(31) @.str.393, i64 31, i1 false)
   store i8 10, ptr %92, align 1
   store i64 32, ptr %93, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %22)
@@ -44874,7 +44874,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit280: ; preds =
   store ptr %16, ptr %17, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i276, align 8
   store ptr %17, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %16, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.394, i64 35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %16, ptr noundef nonnull align 1 dereferenceable(35) @.str.394, i64 35, i1 false)
   store i8 10, ptr %94, align 1
   store i64 36, ptr %95, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -45029,7 +45029,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit290: ; preds =
   store ptr %12, ptr %13, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i286, align 8
   store ptr %13, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %12, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.395, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %12, ptr noundef nonnull align 1 dereferenceable(31) @.str.395, i64 31, i1 false)
   store i8 10, ptr %86, align 1
   store i64 32, ptr %87, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -45131,7 +45131,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit301: ; preds =
   store ptr %8, ptr %9, align 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i297, align 8
   store ptr %9, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %8, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.396, i64 35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %8, ptr noundef nonnull align 1 dereferenceable(35) @.str.396, i64 35, i1 false)
   store i8 10, ptr %90, align 1
   store i64 36, ptr %91, align 8
   call void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS6_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -46898,7 +46898,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %8, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.415, i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, ptr noundef nonnull align 1 dereferenceable(26) @.str.415, i64 26, i1 false)
   %511 = getelementptr inbounds i8, ptr %7, i64 26
   store i8 10, ptr %511, align 2
   %512 = getelementptr inbounds i8, ptr %8, i64 16
@@ -47746,7 +47746,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 1023, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %7, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.398, i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull align 1 dereferenceable(26) @.str.398, i64 26, i1 false)
   %47 = getelementptr inbounds i8, ptr %6, i64 26
   store i8 10, ptr %47, align 2
   %48 = getelementptr inbounds i8, ptr %7, i64 16
@@ -48346,13 +48346,13 @@ define dso_local void @_ZNK2c43yml6Parser8locationENS0_12ConstNodeRefE(ptr dead_
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %.split
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit
 
 11:                                               ; preds = %.split
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !noalias !225
-  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %13)
+  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %13)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit
 
 _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit:   ; preds = %10, %11
@@ -48381,13 +48381,13 @@ _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit:   ; preds = %10, %11
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8
 
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8, !noalias !228
-  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %26)
+  call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind writable sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef %26)
   br label %_ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8
 
 _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8:  ; preds = %23, %24

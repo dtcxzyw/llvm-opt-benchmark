@@ -1699,7 +1699,7 @@ dissect_configresponse.exit:                      ; preds = %377, %.thread67.i54
   br label %dissect_comrej.exit
 
 573:                                              ; preds = %268
-  %574 = call fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull readonly %1, ptr noundef %272, ptr noundef %3)
+  %574 = call fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull %1, ptr noundef %272, ptr noundef %3)
   br label %dissect_comrej.exit
 
 575:                                              ; preds = %268
@@ -2075,7 +2075,7 @@ proto_item_set_generated.exit.i:                  ; preds = %679, %676, %673, %6
   %783 = load i16, ptr %782, align 4
   %784 = getelementptr inbounds i8, ptr %764, i64 24
   %785 = load i32, ptr %784, align 8
-  %786 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %121, i16 noundef zeroext %783, i32 noundef %785)
+  %786 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull %1, ptr noundef nonnull %121, i16 noundef zeroext %783, i32 noundef %785)
   %787 = getelementptr inbounds i8, ptr %764, i64 32
   %788 = load i32, ptr %787, align 8
   %.not107.i = icmp eq i16 %786, 0
@@ -2596,7 +2596,7 @@ proto_item_set_generated.exit.i551:               ; preds = %913, %910, %907, %9
   %1023 = load i16, ptr %1022, align 4
   %1024 = getelementptr inbounds i8, ptr %1004, i64 24
   %1025 = load i32, ptr %1024, align 8
-  %1026 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %121, i16 noundef zeroext %1023, i32 noundef %1025)
+  %1026 = call fastcc zeroext i16 @get_service_uuid(ptr noundef nonnull %1, ptr noundef nonnull %121, i16 noundef zeroext %1023, i32 noundef %1025)
   %1027 = getelementptr inbounds i8, ptr %1004, i64 32
   %1028 = load i32, ptr %1027, align 8
   %.not110.i = icmp eq i16 %1026, 0

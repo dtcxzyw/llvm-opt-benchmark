@@ -2600,7 +2600,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit43.i: ; preds = %while.body.
   %add.ptr.i223 = getelementptr inbounds i8, ptr %add.ptr64, i64 %inc2.i35.i
   %41 = load ptr, ptr %__begin3.sroa.0.0559, align 8
   %42 = load i64, ptr %_M_string_length.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i223, ptr align 1 %41, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i223, ptr align 1 %41, i64 %42, i1 false)
   %43 = load i64, ptr %_M_string_length.i.i.i, align 8
   %add.i224 = add i64 %43, %inc2.i35.i
   br label %if.end.i225
@@ -2760,7 +2760,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit43.i302: ; preds = %while.bo
   %add.ptr.i308 = getelementptr inbounds i8, ptr %add.ptr82, i64 %inc2.i35.i306
   %56 = load ptr, ptr %52, align 8
   %57 = load i64, ptr %_M_string_length.i.i.i298, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i308, ptr align 1 %56, i64 %57, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i308, ptr align 1 %56, i64 %57, i1 false)
   %58 = load i64, ptr %_M_string_length.i.i.i298, align 8
   %add.i309 = add i64 %58, %inc2.i35.i306
   br label %if.end.i310
@@ -3315,7 +3315,7 @@ if.end11:                                         ; preds = %if.end104.i, %if.en
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
-  %call.i813 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN16struct_pb_sample4Vec3EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 4 dereferenceable(12) %16, ptr noundef %add.ptr, i64 noundef %sz.0909, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
+  %call.i813 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN16struct_pb_sample4Vec3EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef %add.ptr, i64 noundef %sz.0909, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end11
@@ -5095,7 +5095,7 @@ _ZNSt6vectorIN16struct_pb_sample4Vec3ESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit:
   %add.ptr120 = getelementptr inbounds i8, ptr %data, i64 %204
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i887)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i887, i8 0, i64 24, i1 false)
-  %call.i888 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN16struct_pb_sample4Vec3EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 4 dereferenceable(12) %205, ptr noundef %add.ptr120, i64 noundef %sz111.0957, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i887)
+  %call.i888 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN16struct_pb_sample4Vec3EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(12) %205, ptr noundef %add.ptr120, i64 noundef %sz111.0957, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i887)
           to label %invoke.cont.i893 unwind label %lpad.i889
 
 invoke.cont.i893:                                 ; preds = %_ZNSt6vectorIN16struct_pb_sample4Vec3ESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
@@ -7679,7 +7679,7 @@ _ZNSt6vectorIN16struct_pb_sample6rect32ESaIS1_EE12emplace_backIJEEERS1_DpOT_.exi
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
-  %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN16struct_pb_sample6rect32EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 4 dereferenceable(16) %33, ptr noundef %add.ptr, i64 noundef %sz.0174, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
+  %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN16struct_pb_sample6rect32EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef %add.ptr, i64 noundef %sz.0174, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt6vectorIN16struct_pb_sample6rect32ESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit

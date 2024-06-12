@@ -447,7 +447,7 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
   unreachable
 
 9:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(136) %5, ptr noundef nonnull readonly align 1 dereferenceable(136) %6, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %5, ptr noundef nonnull align 1 dereferenceable(136) %6, i64 136, i1 false)
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
@@ -456,7 +456,7 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
 13:                                               ; preds = %9
   %14 = load ptr, ptr %6, align 8
   %15 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %11, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %14, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %14, i64 %11, i1 false)
   br label %fstrndup.exit
 
 fstrndup.exit:                                    ; preds = %9, %13
@@ -471,7 +471,7 @@ fstrndup.exit:                                    ; preds = %9, %13
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %17, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %21, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %21, i64 %17, i1 false)
   br label %fstrndup.exit42
 
 fstrndup.exit42:                                  ; preds = %fstrndup.exit, %19
@@ -487,7 +487,7 @@ fstrndup.exit42:                                  ; preds = %fstrndup.exit, %19
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %29, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %29, i64 %25, i1 false)
   br label %fstrndup.exit44
 
 fstrndup.exit44:                                  ; preds = %fstrndup.exit42, %27
@@ -503,7 +503,7 @@ fstrndup.exit44:                                  ; preds = %fstrndup.exit42, %2
   %36 = getelementptr inbounds i8, ptr %6, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %33, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr readonly align 1 %37, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %37, i64 %33, i1 false)
   br label %fstrndup.exit46
 
 fstrndup.exit46:                                  ; preds = %fstrndup.exit44, %35
@@ -519,7 +519,7 @@ fstrndup.exit46:                                  ; preds = %fstrndup.exit44, %3
   %44 = getelementptr inbounds i8, ptr %6, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %41, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %45, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %45, i64 %41, i1 false)
   br label %fstrndup.exit48
 
 fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %43
@@ -572,7 +572,7 @@ fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %4
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %68, %65
   %70 = phi ptr [ %69, %68 ], [ %60, %65 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %70, ptr readonly align 1 %57, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr align 1 %57, i64 %58, i1 false)
   store i64 %58, ptr %66, align 8
   br label %fbuffer_dup.exit
 
@@ -628,7 +628,7 @@ fbuffer_dup.exit:                                 ; preds = %50, %ruby_nonempty_
 
 ruby_nonempty_memcpy.exit.i.i52:                  ; preds = %93, %90
   %95 = phi ptr [ %94, %93 ], [ %85, %90 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %95, ptr readonly align 1 %82, i64 %83, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr align 1 %82, i64 %83, i1 false)
   store i64 %83, ptr %91, align 8
   br label %fbuffer_dup.exit53
 
@@ -684,7 +684,7 @@ fbuffer_dup.exit53:                               ; preds = %75, %ruby_nonempty_
 
 ruby_nonempty_memcpy.exit.i.i57:                  ; preds = %118, %115
   %120 = phi ptr [ %119, %118 ], [ %110, %115 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %120, ptr readonly align 1 %107, i64 %108, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr align 1 %107, i64 %108, i1 false)
   store i64 %108, ptr %116, align 8
   br label %fbuffer_dup.exit58
 
@@ -777,7 +777,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %21, %25
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %25 ], [ %24, %21 ]
   %26 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %26, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %14, ptr %27, align 8
@@ -869,7 +869,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %14, ptr %28, align 8
@@ -961,7 +961,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %14, ptr %28, align 8
@@ -1053,7 +1053,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 56
   store i64 %14, ptr %28, align 8
@@ -1145,7 +1145,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 72
   store i64 %14, ptr %28, align 8
@@ -1376,7 +1376,7 @@ RSTRING_PTR.exit:                                 ; preds = %Check_Type.exit, %2
 
 27:                                               ; preds = %RSTRING_PTR.exit
   %28 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %.sroa.2.0.i, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %.sroa.2.0.i, i64 %25, i1 false)
   br label %fstrndup.exit
 
 fstrndup.exit:                                    ; preds = %RSTRING_PTR.exit, %27
@@ -1430,7 +1430,7 @@ RSTRING_PTR.exit102:                              ; preds = %Check_Type.exit98, 
 
 49:                                               ; preds = %RSTRING_PTR.exit102
   %50 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %47, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %.sroa.2.0.i101, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %.sroa.2.0.i101, i64 %47, i1 false)
   br label %fstrndup.exit104
 
 fstrndup.exit104:                                 ; preds = %RSTRING_PTR.exit102, %49
@@ -1485,7 +1485,7 @@ RSTRING_PTR.exit110:                              ; preds = %Check_Type.exit106,
 
 72:                                               ; preds = %RSTRING_PTR.exit110
   %73 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %70, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %.sroa.2.0.i109, i64 %70, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %.sroa.2.0.i109, i64 %70, i1 false)
   br label %fstrndup.exit112
 
 fstrndup.exit112:                                 ; preds = %RSTRING_PTR.exit110, %72
@@ -1540,7 +1540,7 @@ RSTRING_PTR.exit118:                              ; preds = %Check_Type.exit114,
 
 95:                                               ; preds = %RSTRING_PTR.exit118
   %96 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr readonly align 1 %.sroa.2.0.i117, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %.sroa.2.0.i117, i64 %93, i1 false)
   br label %fstrndup.exit120
 
 fstrndup.exit120:                                 ; preds = %RSTRING_PTR.exit118, %95
@@ -1595,7 +1595,7 @@ RSTRING_PTR.exit126:                              ; preds = %Check_Type.exit122,
 
 118:                                              ; preds = %RSTRING_PTR.exit126
   %119 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %116, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr readonly align 1 %.sroa.2.0.i125, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %.sroa.2.0.i125, i64 %116, i1 false)
   br label %fstrndup.exit128
 
 fstrndup.exit128:                                 ; preds = %RSTRING_PTR.exit126, %118
@@ -2582,7 +2582,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 generate_json_false.exit:                         ; preds = %36, %38
   %41 = phi ptr [ %40, %38 ], [ %28, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %42, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %42, ptr noundef nonnull align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
   %43 = load i64, ptr %30, align 8
   %44 = add i64 %43, 5
   store i64 %44, ptr %30, align 8
@@ -3281,7 +3281,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %75, %73
   %78 = phi i64 [ %.pre.i41, %75 ], [ %68, %73 ]
   %79 = phi ptr [ %77, %75 ], [ %65, %73 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %80, ptr nonnull readonly align 1 %52, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %52, i64 %55, i1 false)
   %81 = load i64, ptr %67, align 8
   %82 = add i64 %81, %55
   store i64 %82, ptr %67, align 8
@@ -3404,7 +3404,7 @@ ruby_nonempty_memcpy.exit.i55:                    ; preds = %134, %132
   %137 = phi i64 [ %.pre.i56, %134 ], [ %127, %132 ]
   %138 = phi ptr [ %136, %134 ], [ %124, %132 ]
   %139 = getelementptr inbounds i8, ptr %138, i64 %137
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %139, ptr nonnull readonly align 1 %110, i64 %114, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull align 1 %110, i64 %114, i1 false)
   %140 = load i64, ptr %126, align 8
   %141 = add i64 %140, %114
   store i64 %141, ptr %126, align 8
@@ -3548,7 +3548,7 @@ ruby_nonempty_memcpy.exit.i71:                    ; preds = %202, %200
   %205 = phi i64 [ %.pre.i72, %202 ], [ %195, %200 ]
   %206 = phi ptr [ %204, %202 ], [ %192, %200 ]
   %207 = getelementptr inbounds i8, ptr %206, i64 %205
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %207, ptr nonnull readonly align 1 %178, i64 %182, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %207, ptr nonnull align 1 %178, i64 %182, i1 false)
   %208 = load i64, ptr %194, align 8
   %209 = add i64 %208, %182
   store i64 %209, ptr %194, align 8
@@ -3737,7 +3737,7 @@ generate_json_false.exit:                         ; preds = %76, %78
   %81 = phi i64 [ %.pre.i.i85, %78 ], [ %71, %76 ]
   %82 = phi ptr [ %80, %78 ], [ %68, %76 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 %81
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %83, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %83, ptr noundef nonnull align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
   %84 = load i64, ptr %70, align 8
   %85 = add i64 %84, 5
   store i64 %85, ptr %70, align 8
@@ -4062,7 +4062,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %70
   %75 = phi i64 [ %.pre.i39, %72 ], [ %65, %70 ]
   %76 = phi ptr [ %74, %72 ], [ %63, %70 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 %75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %77, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %7, i64 %9, i1 false)
   %78 = load i64, ptr %33, align 8
   %79 = add i64 %78, %9
   store i64 %79, ptr %33, align 8
@@ -4125,7 +4125,7 @@ ruby_nonempty_memcpy.exit.i46:                    ; preds = %96, %94
   %98 = phi i64 [ %.pre.i47, %96 ], [ %89, %94 ]
   %99 = phi ptr [ %97, %96 ], [ %87, %94 ]
   %100 = getelementptr inbounds i8, ptr %99, i64 %98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %100, ptr nonnull readonly align 1 %10, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr nonnull align 1 %10, i64 %12, i1 false)
   %101 = load i64, ptr %33, align 8
   %102 = add i64 %101, %12
   store i64 %102, ptr %33, align 8
@@ -4329,7 +4329,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %70, %68
   %73 = phi i64 [ %.pre.i68, %70 ], [ %61, %68 ]
   %74 = phi ptr [ %72, %70 ], [ %62, %68 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %75, ptr readonly align 1 %6, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %6, i64 %8, i1 false)
   %76 = load i64, ptr %38, align 8
   %77 = add i64 %76, %8
   store i64 %77, ptr %38, align 8
@@ -4418,7 +4418,7 @@ ruby_nonempty_memcpy.exit.i76:                    ; preds = %106, %104
   %108 = phi i64 [ %.pre.i77, %106 ], [ %99, %104 ]
   %109 = phi ptr [ %107, %106 ], [ %97, %104 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 %108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %110, ptr readonly align 1 %17, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr align 1 %17, i64 %19, i1 false)
   %111 = load i64, ptr %38, align 8
   %112 = add i64 %111, %19
   store i64 %112, ptr %38, align 8
@@ -4473,7 +4473,7 @@ ruby_nonempty_memcpy.exit.i85:                    ; preds = %128, %126
   %130 = phi i64 [ %.pre.i86, %128 ], [ %121, %126 ]
   %131 = phi ptr [ %129, %128 ], [ %119, %126 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 %130
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %132, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr nonnull align 1 %9, i64 %11, i1 false)
   %133 = load i64, ptr %38, align 8
   %134 = add i64 %133, %11
   store i64 %134, ptr %38, align 8
@@ -4539,7 +4539,7 @@ ruby_nonempty_memcpy.exit.i94:                    ; preds = %154, %152
   %156 = phi i64 [ %.pre.i95, %154 ], [ %147, %152 ]
   %157 = phi ptr [ %155, %154 ], [ %145, %152 ]
   %158 = getelementptr inbounds i8, ptr %157, i64 %156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %158, ptr nonnull readonly align 1 %6, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr nonnull align 1 %6, i64 %8, i1 false)
   %159 = load i64, ptr %38, align 8
   %160 = add i64 %159, %8
   store i64 %160, ptr %38, align 8
@@ -4598,7 +4598,7 @@ ruby_nonempty_memcpy.exit.i103:                   ; preds = %177, %175
   %179 = phi i64 [ %.pre.i104, %177 ], [ %170, %175 ]
   %180 = phi ptr [ %178, %177 ], [ %168, %175 ]
   %181 = getelementptr inbounds i8, ptr %180, i64 %179
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %181, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull align 1 %9, i64 %11, i1 false)
   %182 = load i64, ptr %38, align 8
   %183 = add i64 %182, %11
   store i64 %183, ptr %38, align 8
@@ -5747,7 +5747,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %491, %489
   %493 = phi i64 [ %.pre.i.i29, %491 ], [ %484, %489 ]
   %494 = phi ptr [ %492, %491 ], [ %482, %489 ]
   %495 = getelementptr inbounds i8, ptr %494, i64 %493
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %495, ptr readonly align 1 %473, i64 %474, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %495, ptr align 1 %473, i64 %474, i1 false)
   %496 = load i64, ptr %17, align 8
   %497 = add i64 %496, %474
   store i64 %497, ptr %17, align 8
@@ -5801,7 +5801,7 @@ fbuffer_append.exit75.i:                          ; preds = %514, %512
   %516 = phi i64 [ %.pre.i74.i, %514 ], [ %507, %512 ]
   %517 = phi ptr [ %515, %514 ], [ %505, %512 ]
   %518 = getelementptr inbounds i8, ptr %517, i64 %516
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %518, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.96, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %518, ptr noundef nonnull align 1 dereferenceable(6) @.str.96, i64 6, i1 false)
   %519 = load i64, ptr %17, align 8
   %520 = add i64 %519, 6
   store i64 %520, ptr %17, align 8
@@ -5850,7 +5850,7 @@ fbuffer_append.exit83.i:                          ; preds = %536, %534
   %538 = phi i64 [ %.pre.i82.i, %536 ], [ %529, %534 ]
   %539 = phi ptr [ %537, %536 ], [ %527, %534 ]
   %540 = getelementptr inbounds i8, ptr %539, i64 %538
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %540, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.97, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %540, ptr noundef nonnull align 1 dereferenceable(6) @.str.97, i64 6, i1 false)
   %541 = load i64, ptr %17, align 8
   %542 = add i64 %541, 6
   store i64 %542, ptr %17, align 8
@@ -5940,7 +5940,7 @@ ruby_nonempty_memcpy.exit.i90.i:                  ; preds = %569, %567
   %571 = phi i64 [ %.pre.i91.i, %569 ], [ %562, %567 ]
   %572 = phi ptr [ %570, %569 ], [ %560, %567 ]
   %573 = getelementptr inbounds i8, ptr %572, i64 %571
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %573, ptr readonly align 1 %551, i64 %552, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %573, ptr align 1 %551, i64 %552, i1 false)
   %574 = load i64, ptr %17, align 8
   %575 = add i64 %574, %552
   store i64 %575, ptr %17, align 8
@@ -5991,7 +5991,7 @@ fbuffer_append.exit101.i:                         ; preds = %591, %589
   %593 = phi i64 [ %.pre.i100.i, %591 ], [ %584, %589 ]
   %594 = phi ptr [ %592, %591 ], [ %582, %589 ]
   %595 = getelementptr inbounds i8, ptr %594, i64 %593
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %595, ptr noundef nonnull readonly align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %595, ptr noundef nonnull align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
   %596 = load i64, ptr %17, align 8
   %597 = add i64 %596, %.061.i
   store i64 %597, ptr %17, align 8
@@ -6054,7 +6054,7 @@ ruby_nonempty_memcpy.exit.i108.i:                 ; preds = %618, %616
   %620 = phi i64 [ %.pre.i109.i, %618 ], [ %611, %616 ]
   %621 = phi ptr [ %619, %618 ], [ %609, %616 ]
   %622 = getelementptr inbounds i8, ptr %621, i64 %620
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %622, ptr readonly align 1 %600, i64 %601, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %622, ptr align 1 %600, i64 %601, i1 false)
   %623 = load i64, ptr %17, align 8
   %624 = add i64 %623, %601
   store i64 %624, ptr %17, align 8
@@ -6222,7 +6222,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %45, %43
   %48 = phi i64 [ %.pre.i.i, %45 ], [ %38, %43 ]
   %49 = phi ptr [ %47, %45 ], [ %35, %43 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %50, ptr nonnull readonly align 16 %3, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 16 %3, i64 %25, i1 false)
   %51 = load i64, ptr %37, align 8
   %52 = add i64 %51, %25
   store i64 %52, ptr %37, align 8
@@ -6344,7 +6344,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %31, %29
   %34 = phi i64 [ %.pre.i, %31 ], [ %24, %29 ]
   %35 = phi ptr [ %33, %31 ], [ %21, %29 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %36, ptr readonly align 1 %5, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %5, i64 %9, i1 false)
   %37 = load i64, ptr %23, align 8
   %38 = add i64 %37, %9
   store i64 %38, ptr %23, align 8
@@ -6444,7 +6444,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %54, %52
   %57 = phi i64 [ %.pre.i, %54 ], [ %47, %52 ]
   %58 = phi ptr [ %56, %54 ], [ %44, %52 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %59, ptr readonly align 1 %34, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %34, i64 %32, i1 false)
   %60 = load i64, ptr %46, align 8
   %61 = add i64 %60, %32
   store i64 %61, ptr %46, align 8
@@ -6506,7 +6506,7 @@ ruby_nonempty_memcpy.exit.i57:                    ; preds = %81, %79
   %84 = phi i64 [ %.pre.i58, %81 ], [ %74, %79 ]
   %85 = phi ptr [ %83, %81 ], [ %71, %79 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %86, ptr readonly align 1 %11, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %11, i64 %13, i1 false)
   %87 = load i64, ptr %73, align 8
   %88 = add i64 %87, %13
   store i64 %88, ptr %73, align 8
@@ -6571,7 +6571,7 @@ ruby_nonempty_memcpy.exit.i66:                    ; preds = %107, %105
   %109 = phi i64 [ %.pre.i67, %107 ], [ %100, %105 ]
   %110 = phi ptr [ %108, %107 ], [ %98, %105 ]
   %111 = getelementptr inbounds i8, ptr %110, i64 %109
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %111, ptr nonnull readonly align 1 %14, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %14, i64 %16, i1 false)
   %112 = load i64, ptr %91, align 8
   %113 = add i64 %112, %16
   store i64 %113, ptr %91, align 8
@@ -6710,7 +6710,7 @@ ruby_nonempty_memcpy.exit.i76:                    ; preds = %168, %166
   %171 = phi i64 [ %.pre.i77, %168 ], [ %161, %166 ]
   %172 = phi ptr [ %170, %168 ], [ %158, %166 ]
   %173 = getelementptr inbounds i8, ptr %172, i64 %171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %173, ptr readonly align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %173, ptr align 1 %20, i64 %22, i1 false)
   %174 = load i64, ptr %160, align 8
   %175 = add i64 %174, %22
   store i64 %175, ptr %160, align 8

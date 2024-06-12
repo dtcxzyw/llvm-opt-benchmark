@@ -50,11 +50,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid3, ptr noundef nonnull readonly dereferenceable(32) %keydata, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid3, ptr noundef nonnull dereferenceable(32) %keydata, i64 32)
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid3, ptr noundef nonnull readonly dereferenceable(20) %keydata, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid3, ptr noundef nonnull dereferenceable(20) %keydata, i64 20)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -83,11 +83,11 @@ if.end.i8:                                        ; preds = %if.else.i5, %if.the
   br i1 %cmp.i.i11, label %if.then.i.i17, label %if.end.i.i12
 
 if.then.i.i17:                                    ; preds = %if.end.i8
-  %bcmp3.i.i18 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid3, ptr noundef nonnull readonly dereferenceable(32) %oid4, i64 32)
+  %bcmp3.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid3, ptr noundef nonnull dereferenceable(32) %oid4, i64 32)
   br label %return
 
 if.end.i.i12:                                     ; preds = %if.end.i8
-  %bcmp.i.i13 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid3, ptr noundef nonnull readonly dereferenceable(20) %oid4, i64 20)
+  %bcmp.i.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid3, ptr noundef nonnull dereferenceable(20) %oid4, i64 20)
   br label %return
 
 return:                                           ; preds = %if.end.i.i12, %if.then.i.i17, %if.end.i.i, %if.then.i.i

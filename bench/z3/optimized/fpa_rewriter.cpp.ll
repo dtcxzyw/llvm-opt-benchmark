@@ -529,28 +529,28 @@ sw.bb124:                                         ; preds = %_ZNK4decl13get_decl
   %70 = load ptr, ptr %args, align 8
   %arrayidx126 = getelementptr inbounds i8, ptr %args, i64 8
   %71 = load ptr, ptr %arrayidx126, align 8
-  %call.i = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %70, ptr noundef %71, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %70, ptr noundef %71, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb128:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %72 = load ptr, ptr %args, align 8
   %arrayidx130 = getelementptr inbounds i8, ptr %args, i64 8
   %73 = load ptr, ptr %arrayidx130, align 8
-  %call.i138 = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i138 = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb132:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %74 = load ptr, ptr %args, align 8
   %arrayidx134 = getelementptr inbounds i8, ptr %args, i64 8
   %75 = load ptr, ptr %arrayidx134, align 8
-  %call.i139 = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %74, ptr noundef %75, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i139 = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %74, ptr noundef %75, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb136:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %76 = load ptr, ptr %args, align 8
   %arrayidx138 = getelementptr inbounds i8, ptr %args, i64 8
   %77 = load ptr, ptr %arrayidx138, align 8
-  %call.i140 = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %76, ptr noundef %77, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i140 = tail call noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %76, ptr noundef %77, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb140:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit

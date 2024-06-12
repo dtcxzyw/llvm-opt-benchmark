@@ -220,7 +220,7 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca %struct._php_json_encoder, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = call i32 @php_json_escape_string(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #13
   %7 = icmp eq i32 %6, -1
   %8 = load ptr, ptr %4, align 8
@@ -344,7 +344,7 @@ declare i32 @php_json_escape_string(ptr noundef, ptr noundef, i64 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define i32 @php_json_encode_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._php_json_encoder, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = trunc i64 %3 to i32
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %6, ptr %7, align 4
@@ -362,7 +362,7 @@ define i32 @php_json_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %4 = alloca %struct._php_json_encoder, align 4
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @json_globals, i64 4), align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4) #13
@@ -521,7 +521,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br label %141
 
 .thread282:                                       ; preds = %29, %.thread, %22, %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %31 = load i64, ptr %6, align 8
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds i8, ptr %3, i64 4

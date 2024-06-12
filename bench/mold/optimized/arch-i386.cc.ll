@@ -1281,12 +1281,12 @@ if.else128:                                       ; preds = %sw.bb118
 
 sw.bb.i:                                          ; preds = %if.else128, %if.else128
   %add.ptr.i211 = getelementptr inbounds i8, ptr %add.ptr19, i64 -2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %add.ptr.i211, ptr noundef nonnull align 1 dereferenceable(11) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %add.ptr.i211, ptr noundef nonnull align 1 dereferenceable(11) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn, i64 7, i1 false)
   br label %_ZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEm.exit
 
 sw.bb3.i207:                                      ; preds = %if.else128, %if.else128
   %add.ptr4.i208 = getelementptr inbounds i8, ptr %add.ptr19, i64 -2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %add.ptr4.i208, ptr noundef nonnull align 1 dereferenceable(12) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn_0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr4.i208, ptr noundef nonnull align 1 dereferenceable(12) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn_0, i64 12, i1 false)
   br label %_ZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEm.exit
 
 sw.default.i212:                                  ; preds = %if.else128

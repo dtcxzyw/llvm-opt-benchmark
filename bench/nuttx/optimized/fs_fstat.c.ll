@@ -60,7 +60,7 @@ define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %30, label %31, label %52
 
 31:                                               ; preds = %27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 24576, ptr %32, align 8
   %33 = load ptr, ptr %22, align 8

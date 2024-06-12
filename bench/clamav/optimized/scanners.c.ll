@@ -7667,7 +7667,7 @@ default.unreachable:                              ; preds = %4
   br i1 %.not26.i.us, label %.critedge, label %fmap_readn.exit.us
 
 fmap_readn.exit.us:                               ; preds = %35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr nonnull align 1 %38, i64 %spec.select.i.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %38, i64 %spec.select.i.us, i1 false)
   %39 = add nsw i64 %spec.select.i.us, -1
   %or.cond.us = icmp ult i64 %39, -2
   br i1 %or.cond.us, label %40, label %.critedge
@@ -7704,7 +7704,7 @@ fmap_readn.exit.us:                               ; preds = %35
   br i1 %.not26.i, label %.critedge, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr nonnull align 1 %55, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %55, i64 %spec.select.i, i1 false)
   %56 = add nsw i64 %spec.select.i, -1
   %or.cond = icmp ult i64 %56, -2
   br i1 %or.cond, label %57, label %.critedge

@@ -125,7 +125,7 @@ if.end12:                                         ; preds = %if.then, %if.then9,
   %idx.ext.i.i.i = zext i32 %mul.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %idx.ext.i.i.i
   store ptr %add.ptr.i.i.i, ptr %p.i84, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr3.i, ptr align 1 %14, i64 %idx.ext.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr3.i, ptr align 1 %14, i64 %idx.ext.i.i.i, i1 false)
   %15 = load i32, ptr %level, align 4
   %and4.i = and i32 %15, 1
   %cmp.not.i = icmp ne i32 %and4.i, 0
@@ -158,7 +158,7 @@ if.then.i:                                        ; preds = %bcread_bytecode.exi
   %idx.ext.i.i.i82 = zext nneg i32 %add20 to i64
   %add.ptr.i.i.i83 = getelementptr inbounds i8, ptr %20, i64 %idx.ext.i.i.i82
   store ptr %add.ptr.i.i.i83, ptr %p.i84, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %19, ptr align 1 %20, i64 %idx.ext.i.i.i82, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %20, i64 %idx.ext.i.i.i82, i1 false)
   %21 = load i32, ptr %level, align 4
   %and.i = and i32 %21, 1
   %cmp.not.i85 = icmp eq i32 %and.i, 0
@@ -582,7 +582,7 @@ if.then52:                                        ; preds = %bcread_knum.exit
   %idx.ext.i.i.i119 = zext i32 %sizedbg.0 to i64
   %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %63, i64 %idx.ext.i.i.i119
   store ptr %add.ptr.i.i.i120, ptr %p.i84, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr59, ptr align 1 %63, i64 %idx.ext.i.i.i119, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr59, ptr align 1 %63, i64 %idx.ext.i.i.i119, i1 false)
   %64 = load i32, ptr %level, align 4
   %and.i122 = and i32 %64, 1
   %cmp.not.i123 = icmp eq i32 %and.i122, 0

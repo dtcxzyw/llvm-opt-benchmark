@@ -45,7 +45,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %call1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1, i8 0, i64 56, i1 false)
   %length.i = getelementptr inbounds i8, ptr %call1, i64 48
   store i32 -1, ptr %length.i, align 8
   %heapAllocated = getelementptr inbounds i8, ptr %call1, i64 24
@@ -134,7 +134,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end2
 
 if.else:                                          ; preds = %if.then
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %pData, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %pData, i8 0, i64 56, i1 false)
   %length.i = getelementptr inbounds i8, ptr %pData, i64 48
   store i32 -1, ptr %length.i, align 8
   br label %if.end2

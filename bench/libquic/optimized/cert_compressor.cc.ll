@@ -57,7 +57,7 @@ entry:
   store ptr %client_cached_cert_hashes.coerce0, ptr %client_cached_cert_hashes.i, align 8, !noalias !5
   %0 = getelementptr inbounds i8, ptr %client_cached_cert_hashes.i, i64 8
   store i64 %client_cached_cert_hashes.coerce1, ptr %0, align 8, !noalias !5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %entries, i8 0, i64 24, i1 false), !alias.scope !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries, i8 0, i64 24, i1 false), !alias.scope !5
   %_M_finish.i.i = getelementptr inbounds i8, ptr %certs, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !5
   %2 = load ptr, ptr %certs, align 8, !noalias !5
@@ -199,7 +199,7 @@ if.end.i:                                         ; preds = %invoke.cont21.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %incdec.ptr.i.i.i152, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i152, ptr noundef nonnull align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i152, i64 32
   br label %for.inc43.i
 
@@ -229,12 +229,12 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN3net
 _ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i17.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i.i, i1 false), !noalias !5
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i.i, i1 false), !noalias !5
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
@@ -276,7 +276,7 @@ if.then37.i:                                      ; preds = %invoke.cont35.i
   br i1 %cmp.not.i20.i, label %if.else.i24.i, label %if.then.i21.i
 
 if.then.i21.i:                                    ; preds = %if.then37.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %incdec.ptr.i.i.i152, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i152, ptr noundef nonnull align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i152, i64 32
   br label %for.inc43.i
 
@@ -306,12 +306,12 @@ cond.true.i.i.i38.i:                              ; preds = %_ZNKSt6vectorIN3net
 _ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i: ; preds = %cond.true.i.i.i38.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i
   %cond.i12.i.i41.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i ], [ %call5.i.i.i.i.i55.i, %cond.true.i.i.i38.i ]
   %add.ptr.i.i42.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i41.i, i64 %sub.ptr.div.i.i.i.i31.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i42.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i42.i, ptr noundef nonnull align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %cmp.i.i.i.i.i43.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i28.i, 0
   br i1 %cmp.i.i.i.i.i43.i, label %if.then.i.i.i.i.i51.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i
 
 if.then.i.i.i.i.i51.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i41.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i28.i, i1 false), !noalias !5
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i41.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i28.i, i1 false), !noalias !5
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i
 
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i: ; preds = %if.then.i.i.i.i.i51.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i
@@ -334,7 +334,7 @@ if.end40.i:                                       ; preds = %if.end30.i, %invoke
   br i1 %cmp.not.i59.i, label %if.else.i63.i, label %if.then.i60.i
 
 if.then.i60.i:                                    ; preds = %if.end40.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %incdec.ptr.i.i.i152, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i152, ptr noundef nonnull align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %incdec.ptr.i61.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i152, i64 32
   br label %for.inc43.i
 
@@ -373,12 +373,12 @@ cond.true.i.i.i77.i:                              ; preds = %_ZNKSt6vectorIN3net
 _ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i: ; preds = %cond.true.i.i.i77.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i
   %cond.i12.i.i80.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i ], [ %call5.i.i.i.i.i94.i, %cond.true.i.i.i77.i ]
   %add.ptr.i.i81.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i80.i, i64 %sub.ptr.div.i.i.i.i70.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i81.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i81.i, ptr noundef nonnull align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %cmp.i.i.i.i.i82.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i67.i, 0
   br i1 %cmp.i.i.i.i.i82.i, label %if.then.i.i.i.i.i90.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i
 
 if.then.i.i.i.i.i90.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i80.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i67.i, i1 false), !noalias !5
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i80.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i67.i, i1 false), !noalias !5
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i
 
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i: ; preds = %if.then.i.i.i.i.i90.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i
@@ -1198,7 +1198,7 @@ entry:
   store ptr %in.coerce0, ptr %in, align 8
   %0 = getelementptr inbounds i8, ptr %in, i64 8
   store i64 %in.coerce1, ptr %0, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %entries, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %in.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cert.i)
@@ -1677,7 +1677,7 @@ _ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i
   br i1 %cmp.i.i.i.i.i55.i, label %if.then.i.i.i.i.i58.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
 if.then.i.i.i.i.i58.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i, ptr align 8 %this.val.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i, ptr align 8 %this.val.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i58.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i

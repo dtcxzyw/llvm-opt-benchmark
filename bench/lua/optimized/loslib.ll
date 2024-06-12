@@ -209,7 +209,7 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %cmp10.i, label %if.then12.i, label %for.inc.i
 
 if.then12.i:                                      ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr35, ptr nonnull align 1 %incdec.ptr34, i64 %conv320.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr35, ptr nonnull align 1 %incdec.ptr34, i64 %conv320.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr35, i64 %conv320.i
   store i8 0, ptr %arrayidx.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr34, i64 %conv320.i

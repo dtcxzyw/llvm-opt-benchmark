@@ -6744,12 +6744,12 @@ call.i82.noexc:                                   ; preds = %invoke.cont80
   store float 0x3FE921FB60000000, ptr %mHorizontalFOV.i.i, align 4
   %mAspect.i.i = getelementptr inbounds i8, ptr %call.i8287, i64 1076
   store <2 x float> zeroinitializer, ptr %mAspect.i.i, align 4
-  %call.i.i.i84 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %add.ptr) #25
+  %call.i.i.i84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #25
   %conv.i.i.i = trunc i64 %call.i.i.i84 to i32
   %spec.store.select.i.i.i = call i32 @llvm.smin.i32(i32 %conv.i.i.i, i32 1023)
   store i32 %spec.store.select.i.i.i, ptr %call.i8287, align 4
   %conv2.i.i.i = sext i32 %spec.store.select.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr nonnull readonly align 1 %add.ptr, i64 %conv2.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i.i, ptr nonnull align 1 %add.ptr, i64 %conv2.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i.i, i64 0, i64 %conv2.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mPosition.i.i, i8 0, i64 16, i1 false)
@@ -8160,7 +8160,7 @@ _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE8LogErrorIJRA65_KcEEEvDpOT_.exit:
   br label %for.inc98
 
 if.end8.i:                                        ; preds = %sw.bb5.i
-  call void @_ZN6Assimp15BlenderImporter12ResolveImageEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexEPKNS3_5ImageERNS3_14ConversionDataE(ptr nonnull readnone align 8 poison, ptr noundef nonnull %call8, ptr nonnull readnone poison, ptr noundef nonnull %52, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(336) %conv_data)
+  call void @_ZN6Assimp15BlenderImporter12ResolveImageEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexEPKNS3_5ImageERNS3_14ConversionDataE(ptr nonnull align 8 poison, ptr noundef nonnull %call8, ptr nonnull poison, ptr noundef nonnull %52, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(336) %conv_data)
   br label %for.inc98
 
 for.inc98:                                        ; preds = %lor.lhs.false.i, %if.end8.i, %_ZN6Assimp12LogFunctionsINS_15BlenderImporterEE8LogErrorIJRA65_KcEEEvDpOT_.exit, %_ZN6Assimp15BlenderImporter18AddSentinelTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE.exit.i, %if.end92, %for.body87

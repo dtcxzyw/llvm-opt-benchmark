@@ -384,7 +384,7 @@ aclcopy.exit:                                     ; preds = %34, %36
   %46 = load i32, ptr %12, align 4
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr readonly align 8 %45, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %45, i64 %48, i1 false)
   br label %.loopexit
 
 49:                                               ; preds = %5
@@ -451,7 +451,7 @@ aclcopy.exit31:                                   ; preds = %74, %76
   %86 = load i32, ptr %6, align 4
   %87 = sext i32 %86 to i64
   %88 = shl nsw i64 %87, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr readonly align 8 %85, i64 %88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 8 %85, i64 %88, i1 false)
   br label %.loopexit
 
 89:                                               ; preds = %51
@@ -508,7 +508,7 @@ aclcopy.exit33:                                   ; preds = %108, %110
   %120 = load i32, ptr %6, align 4
   %121 = sext i32 %120 to i64
   %122 = shl nsw i64 %121, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr readonly align 8 %119, i64 %122, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr align 8 %119, i64 %122, i1 false)
   %123 = getelementptr inbounds i8, ptr %1, i64 8
   %124 = load i32, ptr %123, align 4
   %.not = icmp eq i32 %124, 0
@@ -7720,7 +7720,7 @@ define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr n
 aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.us.split.us
   %26 = load ptr, ptr %14, align 8
   %27 = load i32, ptr %26, align 8
-  tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
+  tail call fastcc void @check_acl(ptr noundef nonnull %2)
   br label %.thread.sink.split
 
 .lr.ph78:                                         ; preds = %.lr.ph.split.split.preheader, %.thread69
@@ -7730,7 +7730,7 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
   %29 = sext i32 %.sroa.4.05377 to i64
   %30 = getelementptr %union.ListCell, ptr %28, i64 %29
   %31 = load i32, ptr %30, align 8
-  tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
+  tail call fastcc void @check_acl(ptr noundef nonnull %2)
   %32 = icmp eq i32 %31, %3
   br i1 %32, label %.thread.sink.split, label %33
 

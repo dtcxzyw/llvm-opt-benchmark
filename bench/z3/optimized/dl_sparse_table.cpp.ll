@@ -2240,7 +2240,7 @@ entry:
   br i1 %2, label %_ZN7datalog19sparse_table_plugin8mk_cloneERKNS_12sparse_tableE.exit, label %dynamic_cast.notnull.i.i
 
 dynamic_cast.notnull.i.i:                         ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call2.i, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %call2.i, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   br label %_ZN7datalog19sparse_table_plugin8mk_cloneERKNS_12sparse_tableE.exit
 
 _ZN7datalog19sparse_table_plugin8mk_cloneERKNS_12sparse_tableE.exit: ; preds = %entry, %dynamic_cast.notnull.i.i
@@ -2263,7 +2263,7 @@ entry:
   br i1 %1, label %_ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %call2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   br label %_ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit
 
 _ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit: ; preds = %entry, %dynamic_cast.notnull.i
@@ -10884,7 +10884,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog19sparse_table_plugin15join_project_fnclERKNS_10table_baseES4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(36) %tb1, ptr noundef nonnull align 8 dereferenceable(36) %tb2) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit
 
@@ -10893,7 +10893,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %tb2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i8, label %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit9
 
@@ -10913,7 +10913,7 @@ _ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit9: ; preds = %_ZN7da
   br i1 %6, label %_ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit9
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call5, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %call5, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   br label %_ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit
 
 _ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit: ; preds = %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit9, %dynamic_cast.notnull.i
@@ -11067,7 +11067,7 @@ define linkonce_odr hidden void @_ZN7datalog19sparse_table_plugin8union_fnclERNS
 entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.21, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = call ptr @__dynamic_cast(ptr nonnull %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i.invoke, label %invoke.cont
 
@@ -11079,7 +11079,7 @@ dynamic_cast.bad_cast.i.cont:                     ; preds = %dynamic_cast.bad_ca
   unreachable
 
 invoke.cont:                                      ; preds = %entry
-  %2 = call ptr @__dynamic_cast(ptr nonnull readonly %src0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %2 = call ptr @__dynamic_cast(ptr nonnull %src0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i.invoke, label %invoke.cont2
 
@@ -11088,7 +11088,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %4, label %invoke.cont5, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %invoke.cont2
-  %5 = call ptr @__dynamic_cast(ptr nonnull readonly %delta0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %5 = call ptr @__dynamic_cast(ptr nonnull %delta0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %6 = freeze ptr %5
   br label %invoke.cont5
 
@@ -11261,7 +11261,7 @@ entry:
   %et.i.i = alloca ptr, align 8
   %_va = alloca %"class.datalog::verbose_action", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.22, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont2
 
@@ -11289,7 +11289,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   br i1 %5, label %invoke.cont9, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %invoke.cont5
-  %6 = call ptr @__dynamic_cast(ptr nonnull readonly %call6, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %6 = call ptr @__dynamic_cast(ptr nonnull %call6, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %dynamic_cast.notnull.i, %invoke.cont5
@@ -11659,7 +11659,7 @@ entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   %t_offsets = alloca %"struct.datalog::sparse_table::key_indexer::query_result", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.23, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont2
 
@@ -11685,7 +11685,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   br i1 %4, label %_ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %invoke.cont5
-  %5 = call ptr @__dynamic_cast(ptr nonnull readonly %call6, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %5 = call ptr @__dynamic_cast(ptr nonnull %call6, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   br label %_ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit
 
 _ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit: ; preds = %invoke.cont5, %dynamic_cast.notnull.i
@@ -12207,7 +12207,7 @@ entry:
   %et.i.i = alloca ptr, align 8
   %_va = alloca %"class.datalog::verbose_action", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.24, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont2
 
@@ -12235,7 +12235,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   br i1 %5, label %invoke.cont9, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %invoke.cont5
-  %6 = call ptr @__dynamic_cast(ptr nonnull readonly %call6, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %6 = call ptr @__dynamic_cast(ptr nonnull %call6, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %dynamic_cast.notnull.i, %invoke.cont5
@@ -12983,7 +12983,7 @@ define linkonce_odr hidden void @_ZN7datalog19sparse_table_plugin18negation_filt
 entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   %to_remove = alloca %class.svector.2, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog19sparse_table_plugin3getERNS_10table_baseE.exit
 
@@ -12992,7 +12992,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog19sparse_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %neg0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %neg0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i11, label %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit
 
@@ -14614,7 +14614,7 @@ entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   %to_remove = alloca %class.svector.2, align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.29, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %0 = call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont
 
@@ -14627,12 +14627,12 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %to_remove, align 8
-  %2 = call ptr @__dynamic_cast(ptr nonnull readonly %_s1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %2 = call ptr @__dynamic_cast(ptr nonnull %_s1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i8.invoke, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %4 = call ptr @__dynamic_cast(ptr nonnull readonly %_s2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
+  %4 = call ptr @__dynamic_cast(ptr nonnull %_s2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %dynamic_cast.bad_cast.i8.invoke, label %invoke.cont6
 

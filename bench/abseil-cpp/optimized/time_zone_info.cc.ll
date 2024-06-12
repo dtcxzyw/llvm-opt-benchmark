@@ -2694,7 +2694,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @_ZN4absl13time_internal14cctz_extension24zone_info_source_factoryB5cxx11E, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl13time_internal4cctz14ZoneInfoSourceESt14default_deleteIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS3_12TimeZoneInfo4LoadESF_E3$_0E9_M_invokeERKSt9_Any_dataSF_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl13time_internal4cctz14ZoneInfoSourceESt14default_deleteIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZNS3_12TimeZoneInfo4LoadESF_E3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void %0(ptr nonnull sret(%"class.std::unique_ptr") align 8 %zip, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -6191,7 +6191,7 @@ if.end12.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
 
 invoke.cont16.i.i.i.i:                            ; preds = %if.end12.i.i.i.i
   %call15.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path.i.i.i.i) #22, !noalias !128
-  %call.i.i.i.i.i = call noalias ptr @fopen(ptr noundef readonly %call15.i.i.i.i, ptr noundef nonnull @.str.12), !noalias !129
+  %call.i.i.i.i.i = call noalias ptr @fopen(ptr noundef %call15.i.i.i.i, ptr noundef nonnull @.str.12), !noalias !129
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp.i.not.i.i.i.i.i, label %cleanup.cont.i.i.i, label %if.end19.i.i.i.i
 
@@ -6251,7 +6251,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc89.i.i.i.i, 
   %__begin3.0.idx119.i.i.i.i = phi i64 [ 0, %cleanup.cont.i.i.i ], [ %__begin3.0.add.i.i.i.i, %for.inc89.i.i.i.i ]
   %__begin3.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr @constinit.16, i64 %__begin3.0.idx119.i.i.i.i
   %6 = load ptr, ptr %__begin3.0.ptr.i.i.i.i, align 8, !noalias !135
-  %call.i.i12.i.i.i = call noalias ptr @fopen(ptr noundef readonly %6, ptr noundef nonnull @.str.12), !noalias !136
+  %call.i.i12.i.i.i = call noalias ptr @fopen(ptr noundef %6, ptr noundef nonnull @.str.12), !noalias !136
   %cmp.i.not.i.i13.i.i.i = icmp eq ptr %call.i.i12.i.i.i, null
   br i1 %cmp.i.not.i.i13.i.i.i, label %for.inc89.i.i.i.i, label %if.end.i14.i.i.i
 
@@ -6560,7 +6560,7 @@ if.end.i33.i.i.i:                                 ; preds = %if.then.i32.i.i.i, 
 
 invoke.cont24.i.i.i.i:                            ; preds = %if.end.i33.i.i.i
   %call23.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path.i22.i.i.i) #22, !noalias !143
-  %call.i.i35.i.i.i = call noalias ptr @fopen(ptr noundef readonly %call23.i.i.i.i, ptr noundef nonnull @.str.12), !noalias !144
+  %call.i.i35.i.i.i = call noalias ptr @fopen(ptr noundef %call23.i.i.i.i, ptr noundef nonnull @.str.12), !noalias !144
   %cmp.i.not.i.i36.i.i.i = icmp eq ptr %call.i.i35.i.i.i, null
   br i1 %cmp.i.not.i.i36.i.i.i, label %for.inc.critedge.i.i.i.i, label %if.end27.i.i.i.i
 

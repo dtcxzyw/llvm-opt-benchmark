@@ -1548,7 +1548,7 @@ check_exists_finfos.exit.thread.us.i204:          ; preds = %56, %.lr.ph.split.u
   br i1 %68, label %check_exists_finfos.exit.thread.i, label %check_exists_finfos.exit.i
 
 check_exists_finfos.exit.i:                       ; preds = %65
-  %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef nonnull %63, ptr noundef nonnull readonly %51, i1 noundef zeroext false)
+  %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef nonnull %63, ptr noundef nonnull %51, i1 noundef zeroext false)
   %.not4.i = icmp eq i64 %69, 0
   br i1 %.not4.i, label %check_exists_finfos.exit.thread.i, label %stack_pop.exit
 
@@ -4678,7 +4678,7 @@ read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue
   br i1 %69, label %read_tree_finfos.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull readonly %.021, i1 noundef zeroext %4)
+  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull %.021, i1 noundef zeroext %4)
   br label %read_tree_finfos.exit
 
 read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, %70

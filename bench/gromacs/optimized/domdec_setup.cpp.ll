@@ -2006,7 +2006,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit60.i: ; preds = %_ZN3gmx14L
   %307 = lshr exact i64 %306, 2
   %308 = trunc i64 %307 to i32
   %309 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %8, float noundef %296, ptr noundef readonly %12, ptr noundef nonnull readonly align 4 dereferenceable(200) %14, i32 noundef %298, ptr noundef nonnull align 8 dereferenceable(856) %10, float noundef %300, i32 noundef %223, i32 noundef %308, ptr noundef %303, ptr noundef %309, ptr noundef nonnull %26, ptr noundef nonnull %16)
+  invoke fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %8, float noundef %296, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(200) %14, i32 noundef %298, ptr noundef nonnull align 8 dereferenceable(856) %10, float noundef %300, i32 noundef %223, i32 noundef %308, ptr noundef %303, ptr noundef %309, ptr noundef nonnull %26, ptr noundef nonnull %16)
           to label %310 unwind label %313
 
 310:                                              ; preds = %290

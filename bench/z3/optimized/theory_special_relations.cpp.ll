@@ -3485,7 +3485,7 @@ if.then.i.i:                                      ; preds = %if.then
 _ZN3smt24theory_special_relations22set_neg_cycle_conflictERNS0_8relationE.exit: ; preds = %if.then, %if.then.i.i
   %m_graph.i = getelementptr inbounds i8, ptr %8, i64 64
   tail call void @_ZN8dl_graphIN3smt24theory_special_relations7int_extEE19traverse_neg_cycle2INS1_8relationEEEvbRT_(ptr noundef nonnull align 8 dereferenceable(368) %m_graph.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(552) %8)
-  tail call void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %8)
+  tail call void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %8)
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
@@ -3775,7 +3775,7 @@ _ZNK10union_findI22union_find_default_ctxS0_E4findEj.exit18.i: ; preds = %while.
   br i1 %cmp11.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZNK10union_findI22union_find_default_ctxS0_E4findEj.exit18.i
-  %call12.i = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(36) %4)
+  %call12.i = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(36) %4)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNK10union_findI22union_find_default_ctxS0_E4findEj.exit18.i, %for.body.i
@@ -4843,7 +4843,7 @@ if.then.i.i3:                                     ; preds = %if.then
 _ZN3smt24theory_special_relations22set_neg_cycle_conflictERNS0_8relationE.exit: ; preds = %if.then, %if.then.i.i3
   %m_graph.i4 = getelementptr inbounds i8, ptr %20, i64 64
   tail call void @_ZN8dl_graphIN3smt24theory_special_relations7int_extEE19traverse_neg_cycle2INS1_8relationEEEvbRT_(ptr noundef nonnull align 8 dereferenceable(368) %m_graph.i4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(552) %20)
-  tail call void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %20)
+  tail call void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %20)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN3smt24theory_special_relations4atom6enableEv.exit, %_ZN3smt24theory_special_relations22set_neg_cycle_conflictERNS0_8relationE.exit
@@ -6849,7 +6849,7 @@ lpad2.loopexit.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont11, %i
           cleanup
   br label %lpad2.body
 
-lpad2.loopexit.split-lp:                          ; preds = %invoke.cont28, %if.then.i51, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i, %.noexc88
+lpad2.loopexit.split-lp:                          ; preds = %invoke.cont28.invoke, %if.then.i51, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad2.body
@@ -7082,6 +7082,9 @@ invoke.cont28:                                    ; preds = %.noexc53, %lor.lhs.
   %33 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %33, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
+  br label %invoke.cont28.invoke
+
+invoke.cont28.invoke:                             ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i, %invoke.cont28
   invoke void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %r)
           to label %cleanup unwind label %lpad2.loopexit.split-lp
 
@@ -7176,11 +7179,7 @@ if.then.i.i86:                                    ; preds = %if.then68
 
 _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i:   ; preds = %if.then.i.i86, %if.then68
   invoke void @_ZN8dl_graphIN3smt24theory_special_relations7int_extEE19traverse_neg_cycle2INS1_8relationEEEvbRT_(ptr noundef nonnull align 8 dereferenceable(368) %m_graph, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(552) %r)
-          to label %.noexc88 unwind label %lpad2.loopexit.split-lp
-
-.noexc88:                                         ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i
-  invoke void @_ZN3smt24theory_special_relations12set_conflictERNS0_8relationE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(552) %r)
-          to label %cleanup unwind label %lpad2.loopexit.split-lp
+          to label %invoke.cont28.invoke unwind label %lpad2.loopexit.split-lp
 
 if.end71:                                         ; preds = %invoke.cont66, %invoke.cont35
   %54 = load ptr, ptr %target, align 8
@@ -7411,8 +7410,8 @@ for.inc:                                          ; preds = %invoke.cont80, %inv
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %cleanup, label %for.body
 
-cleanup:                                          ; preds = %for.inc, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit, %.noexc88, %invoke.cont28
-  %retval.0.ph = phi i32 [ 1, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit ], [ -1, %.noexc88 ], [ -1, %invoke.cont28 ], [ 1, %for.inc ]
+cleanup:                                          ; preds = %for.inc, %invoke.cont28.invoke, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit
+  %retval.0.ph = phi i32 [ 1, %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit ], [ -1, %invoke.cont28.invoke ], [ 1, %for.inc ]
   %.pr259 = load ptr, ptr %target, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pr259, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8uint_setD2Ev.exit, label %if.then.i.i.i.i
@@ -8849,7 +8848,7 @@ _ZNK10union_findI22union_find_default_ctxS0_E4findEj.exit18.i: ; preds = %while.
   br i1 %cmp.i13, label %if.end14.sink.split.i, label %sw.epilog
 
 if.end14.sink.split.i:                            ; preds = %_ZNK10union_findI22union_find_default_ctxS0_E4findEj.exit18.i, %if.then.i
-  %call13.i = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull readonly align 8 dereferenceable(36) %3)
+  %call13.i = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(36) %3)
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %while.body
@@ -8867,7 +8866,7 @@ if.then.i18:                                      ; preds = %sw.bb9
   %m_v2.i.i22 = getelementptr inbounds i8, ptr %3, i64 24
   %17 = load i32, ptr %m_v2.i.i22, align 8
   tail call void @_ZN10union_findI22union_find_default_ctxS0_E5mergeEjj(ptr noundef nonnull align 8 dereferenceable(56) %m_uf.i20, i32 noundef %16, i32 noundef %17)
-  %call5.i = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull readonly align 8 dereferenceable(145) %this, ptr noundef nonnull readonly align 8 dereferenceable(36) %3)
+  %call5.i = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(36) %3)
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %while.body

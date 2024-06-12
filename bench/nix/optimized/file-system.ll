@@ -2984,7 +2984,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %12, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i: ; preds = %11
-  %bcmp.i9.i = tail call i32 @bcmp(ptr nonnull readonly %1, ptr readonly %3, i64 %.sroa.speculated.i5.i)
+  %bcmp.i9.i = tail call i32 @bcmp(ptr nonnull %1, ptr %3, i64 %.sroa.speculated.i5.i)
   %13 = icmp ne i32 %bcmp.i9.i, 0
   %14 = add i64 %2, 2
   %.not.i = icmp ugt i64 %14, %0

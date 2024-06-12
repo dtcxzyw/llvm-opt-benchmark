@@ -427,10 +427,10 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br i1 %.not42, label %55, label %50
 
 50:                                               ; preds = %49
-  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %52 = add i64 %51, 1
   %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #10
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %1) #12
+  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %1) #12
   br label %58
 
 55:                                               ; preds = %49

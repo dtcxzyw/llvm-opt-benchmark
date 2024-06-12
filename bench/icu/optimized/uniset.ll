@@ -7935,7 +7935,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
 
 _ZNK6icu_7510UnicodeSet9toPatternERNS_13UnicodeStringEa.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then4.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 -8
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510UnicodeSet10_toPatternERNS_13UnicodeStringEa(ptr noundef nonnull readonly align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(64) %result, i8 noundef signext %escapeUnprintable)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510UnicodeSet10_toPatternERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(64) %result, i8 noundef signext %escapeUnprintable)
   ret ptr %call2.i
 }
 

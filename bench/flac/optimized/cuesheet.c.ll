@@ -347,7 +347,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true36.i
   br i1 %cmp41.not.i, label %if.end44.i, label %if.then2
 
 if.end44.i:                                       ; preds = %lor.lhs.false.i, %if.end34.i
-  %call.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %data.i, ptr noundef nonnull readonly dereferenceable(1) %retval.0.ph.i217.i, i64 noundef 128) #14
+  %call.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %data.i, ptr noundef nonnull dereferenceable(1) %retval.0.ph.i217.i, i64 noundef 128) #14
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %if.end499.i
 
@@ -1148,7 +1148,7 @@ if.end282.i:                                      ; preds = %lor.lhs.false277.i
   %sub285.i = add i32 %143, -1
   %idxprom286.i = zext i32 %sub285.i to i64
   %isrc.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %142, i64 %idxprom286.i, i32 2
-  %call.i420.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %isrc.i, ptr noundef nonnull readonly dereferenceable(1) %retval.0.ph.i396.i, i64 noundef 12) #14
+  %call.i420.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %isrc.i, ptr noundef nonnull dereferenceable(1) %retval.0.ph.i396.i, i64 noundef 12) #14
   %arrayidx.i421.i = getelementptr inbounds i8, ptr %isrc.i, i64 12
   store i8 0, ptr %arrayidx.i421.i, align 1
   br label %if.end499.i

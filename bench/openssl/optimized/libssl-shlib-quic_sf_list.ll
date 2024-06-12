@@ -125,7 +125,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end7:                                          ; preds = %if.then2.i, %if.end.i
   %range4.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %range, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %pkt5.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %pkt, ptr %pkt5.i, align 8
   %data6.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -177,7 +177,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 
 if.end.i72:                                       ; preds = %if.then2.i.i, %if.end.i.i
   %range4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %range, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %pkt5.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %pkt, ptr %pkt5.i.i, align 8
   %data6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -240,7 +240,7 @@ if.then2.i77:                                     ; preds = %if.end.i75
 
 stream_frame_new.exit82:                          ; preds = %if.end.i75, %if.then2.i77
   %range4.i79 = getelementptr inbounds i8, ptr %call.i73, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i79, ptr noundef nonnull readonly align 8 dereferenceable(16) %range, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i79, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %pkt5.i80 = getelementptr inbounds i8, ptr %call.i73, i64 32
   store ptr %pkt, ptr %pkt5.i80, align 8
   %data6.i81 = getelementptr inbounds i8, ptr %call.i73, i64 40

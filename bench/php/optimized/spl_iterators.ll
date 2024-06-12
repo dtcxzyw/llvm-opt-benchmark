@@ -4462,7 +4462,7 @@ define hidden void @zim_FilterIterator_rewind(ptr nocapture noundef readonly %0,
   br label %spl_filter_it_rewind.exit
 
 spl_filter_it_rewind.exit:                        ; preds = %17, %21, %26
-  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull readonly %3, ptr noundef nonnull %10)
+  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull %3, ptr noundef nonnull %10)
   br label %27
 
 27:                                               ; preds = %spl_filter_it_rewind.exit, %14, %6
@@ -4512,7 +4512,7 @@ define hidden void @zim_FilterIterator_next(ptr nocapture noundef readonly %0, p
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %22, align 8
-  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull readonly %3, ptr noundef nonnull %17)
+  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull %3, ptr noundef nonnull %17)
   br label %25
 
 25:                                               ; preds = %16, %13, %6

@@ -1509,7 +1509,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %81 = zext i16 %43 to i32
   %82 = zext i16 %44 to i32
   %83 = zext i16 %78 to i32
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.837, ptr noundef %80, i32 noundef %76, i32 noundef %81, i32 noundef %82, i32 noundef %83) #5
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.837, ptr noundef %80, i32 noundef %76, i32 noundef %81, i32 noundef %82, i32 noundef %83) #5
   br label %EcSummaryFormater.exit
 
 85:                                               ; preds = %._crit_edge.i
@@ -1523,7 +1523,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %93 = tail call ptr @val_to_str(i32 noundef %92, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
   %94 = getelementptr inbounds i8, ptr %7, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.838, i32 noundef 2, ptr noundef %88, i32 noundef %89, ptr noundef %93, i32 noundef %95) #5
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.838, i32 noundef 2, ptr noundef %88, i32 noundef %89, ptr noundef %93, i32 noundef %95) #5
   br label %EcSummaryFormater.exit
 
 97:                                               ; preds = %._crit_edge.i
@@ -1543,7 +1543,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %111 = tail call ptr @val_to_str(i32 noundef %110, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
   %112 = getelementptr inbounds i8, ptr %7, i64 8
   %113 = load i32, ptr %112, align 8
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.839, i32 noundef 3, ptr noundef %100, i32 noundef %101, ptr noundef %105, i32 noundef %107, ptr noundef %111, i32 noundef %113) #5
+  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.839, i32 noundef 3, ptr noundef %100, i32 noundef %101, ptr noundef %105, i32 noundef %107, ptr noundef %111, i32 noundef %113) #5
   br label %EcSummaryFormater.exit
 
 115:                                              ; preds = %._crit_edge.i
@@ -1569,7 +1569,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %135 = tail call ptr @val_to_str(i32 noundef %134, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
   %136 = getelementptr inbounds i8, ptr %7, i64 12
   %137 = load i32, ptr %136, align 4
-  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.840, i32 noundef 4, ptr noundef %118, i32 noundef %119, ptr noundef %123, i32 noundef %125, ptr noundef %129, i32 noundef %131, ptr noundef %135, i32 noundef %137) #5
+  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.840, i32 noundef 4, ptr noundef %118, i32 noundef %119, ptr noundef %123, i32 noundef %125, ptr noundef %129, i32 noundef %131, ptr noundef %135, i32 noundef %137) #5
   br label %EcSummaryFormater.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %37
@@ -1577,7 +1577,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %.14283.i = phi i32 [ %68, %._crit_edge.i ], [ 0, %37 ]
   %139 = zext i8 %41 to i32
   %140 = tail call ptr @val_to_str(i32 noundef %139, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.842) #5
-  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.841, i32 noundef %.184.i, i32 noundef %.14283.i, ptr noundef %140) #5
+  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.841, i32 noundef %.184.i, i32 noundef %.14283.i, ptr noundef %140) #5
   br label %EcSummaryFormater.exit
 
 EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115, %._crit_edge.thread.i
@@ -1669,7 +1669,7 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   %185 = zext i16 %174 to i32
   %186 = zext i16 %175 to i32
   %187 = zext i16 %181 to i32
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.843, ptr noundef %184, i32 noundef %183, i32 noundef %179, i32 noundef %185, i32 noundef %186, i32 noundef %187) #5
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.843, ptr noundef %184, i32 noundef %183, i32 noundef %179, i32 noundef %185, i32 noundef %186, i32 noundef %187) #5
   br label %EcSubFormatter.exit
 
 189:                                              ; preds = %171, %171, %171
@@ -1680,16 +1680,16 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   %.sroa.7.4.insert.ext.i = zext i16 %174 to i32
   %.sroa.7.4.insert.insert.i = or disjoint i32 %.sroa.10.4.insert.shift.i, %.sroa.7.4.insert.ext.i
   %192 = zext i16 %181 to i32
-  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.844, ptr noundef %191, i32 noundef %190, i32 noundef %179, i32 noundef %.sroa.7.4.insert.insert.i, i32 noundef %192) #5
+  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.844, ptr noundef %191, i32 noundef %190, i32 noundef %179, i32 noundef %.sroa.7.4.insert.insert.i, i32 noundef %192) #5
   br label %EcSubFormatter.exit
 
 194:                                              ; preds = %171
-  %195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.845, i32 noundef 255, i32 noundef %179) #5
+  %195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.845, i32 noundef 255, i32 noundef %179) #5
   br label %EcSubFormatter.exit
 
 196:                                              ; preds = %171
   %197 = zext i8 %172 to i32
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.846, i32 noundef %197, i32 noundef %179) #5
+  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.846, i32 noundef %197, i32 noundef %179) #5
   br label %EcSubFormatter.exit
 
 EcSubFormatter.exit:                              ; preds = %182, %189, %194, %196
@@ -1706,11 +1706,11 @@ EcSubFormatter.exit:                              ; preds = %182, %189, %194, %1
   br i1 %.not.i325, label %208, label %206
 
 206:                                              ; preds = %EcSubFormatter.exit
-  %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.847, i32 noundef %203, ptr noundef %204) #5
+  %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.847, i32 noundef %203, ptr noundef %204) #5
   br label %EcCmdFormatter.exit
 
 208:                                              ; preds = %EcSubFormatter.exit
-  %209 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.848, i32 noundef %203) #5
+  %209 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 199, ptr noundef nonnull @.str.848, i32 noundef %203) #5
   br label %EcCmdFormatter.exit
 
 EcCmdFormatter.exit:                              ; preds = %206, %208

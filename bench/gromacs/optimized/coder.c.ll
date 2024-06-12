@@ -1292,7 +1292,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 .preheader.preheader.i48:                         ; preds = %66
   %scevgep.i = getelementptr i8, ptr %2, i64 %57
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %scevgep.i, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i8 0, i64 12, i1 false)
   br label %.split22.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge14.us.i, %.preheader.us.preheader.i

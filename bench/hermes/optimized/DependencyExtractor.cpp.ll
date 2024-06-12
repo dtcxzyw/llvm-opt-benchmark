@@ -227,7 +227,7 @@ entry:
   %extract = alloca %"class.hermes::(anonymous namespace)::DependencyExtractor", align 16
   %sm_.i = getelementptr inbounds i8, ptr %extract, i64 24
   %sm_.i.i = getelementptr inbounds i8, ptr %astContext, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %extract, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %extract, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %sm_.i.i, align 8
   store ptr %0, ptr %sm_.i, align 8
   %requireIdent_.i = getelementptr inbounds i8, ptr %extract, i64 32

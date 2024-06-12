@@ -77,7 +77,7 @@ entry:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -106,7 +106,7 @@ invoke.cont2:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
   %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -194,7 +194,7 @@ entry:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
   %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -245,7 +245,7 @@ entry:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
   %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -556,7 +556,7 @@ delete.notnull25.i:                               ; preds = %if.end20.i
 _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i, %delete.notnull25.i
   %transitionRulesInitialized.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   tail call void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #13
   ret void
 }
@@ -618,7 +618,7 @@ delete.notnull25:                                 ; preds = %if.end20
 if.end29:                                         ; preds = %delete.notnull25, %if.end20
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -713,7 +713,7 @@ call.i.noexc:                                     ; preds = %if.then.i
   %initialRule.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i.i, i8 0, i64 32, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call.i.noexc, %entry
@@ -803,7 +803,7 @@ if.then:                                          ; preds = %entry
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2917,7 +2917,7 @@ delete.notnull25.i:                               ; preds = %if.end20.i
 
 _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i, %delete.notnull25.i
   store i8 0, ptr %transitionRulesInitialized, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tzid, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tzid, i64 8
   store i16 2, ptr %fUnion2.i, align 8

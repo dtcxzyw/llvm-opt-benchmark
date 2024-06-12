@@ -827,7 +827,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end10
 
 if.else7:                                         ; preds = %if.then
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo.i, align 8
@@ -840,7 +840,7 @@ if.else7:                                         ; preds = %if.then
   br label %if.end10
 
 if.else9:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr @the_repository, align 8
   %hash_algo.i14 = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i14, align 8
@@ -856,7 +856,7 @@ if.end10:                                         ; preds = %if.then, %if.then2,
   %name.addr.0 = phi ptr [ %name, %if.else9 ], [ %add.ptr, %if.then2 ], [ %name, %if.else7 ], [ %name, %if.then ]
   %call11 = call ptr @alloc_ref(ptr noundef %name.addr.0) #10
   %old_oid = getelementptr inbounds i8, ptr %call11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %old_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i20 = getelementptr inbounds i8, ptr %oid, i64 32
   %6 = load i32, ptr %algo.i20, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call11, i64 40

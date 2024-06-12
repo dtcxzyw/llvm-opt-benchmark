@@ -2028,7 +2028,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 356:                                              ; preds = %348
   %357 = load i32, ptr @ett_common_client_message, align 4
-  %358 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %353, ptr noundef nonnull readonly %.0434, i32 noundef 1)
+  %358 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %353, ptr noundef nonnull %.0434, i32 noundef 1)
   %359 = zext i16 %353 to i32
   %360 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %352, ptr noundef %0, i32 noundef %.8535, i32 noundef 2, i32 noundef %357, ptr noundef null, ptr noundef nonnull @.str.705, ptr noundef %358, i32 noundef %359) #4
   %361 = load i32, ptr @hf_message_type, align 4
@@ -2046,7 +2046,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %371 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %370) #4
   %372 = add i32 %.8535, 10
   %373 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %372) #4
-  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %369, ptr noundef nonnull readonly %.0434, i32 noundef 1, i16 noundef zeroext %371, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.8535)
+  call fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %369, ptr noundef nonnull %.0434, i32 noundef 1, i16 noundef zeroext %371, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.8535)
   br label %dissect_spice_mini_data_header.exit.i
 
 dissect_spice_mini_data_header.exit.i:            ; preds = %365, %356, %348
@@ -2054,7 +2054,7 @@ dissect_spice_mini_data_header.exit.i:            ; preds = %365, %356, %348
   %.082.i = phi i32 [ %373, %365 ], [ %355, %348 ], [ %355, %356 ]
   %.0.i = phi i32 [ 18, %365 ], [ 6, %348 ], [ 6, %356 ]
   %374 = load ptr, ptr %39, align 8
-  %375 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %.083.i, ptr noundef nonnull readonly %.0434, i32 noundef 1)
+  %375 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %.083.i, ptr noundef nonnull %.0434, i32 noundef 1)
   call void @col_append_sep_str(ptr noundef %374, i32 noundef 25, ptr noundef nonnull @.str.703, ptr noundef %375) #4
   %376 = add i32 %.0.i, %.8535
   %377 = icmp ult i16 %.083.i, 101
@@ -2785,7 +2785,7 @@ define internal fastcc i32 @dissect_spice_data_server_pdu(ptr noundef %0, ptr no
 
 28:                                               ; preds = %16
   %29 = load i32, ptr @ett_common_client_message, align 4
-  %30 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %17, ptr noundef nonnull readonly %3, i32 noundef 0)
+  %30 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %17, ptr noundef nonnull %3, i32 noundef 0)
   %31 = zext i16 %17 to i32
   %32 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %27, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.705, ptr noundef %30, i32 noundef %31) #4
   %33 = load i32, ptr @hf_message_type, align 4

@@ -633,7 +633,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 4 dereferenceable(6) %111, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull readonly align 4 dereferenceable(6) %111, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 4 dereferenceable(6) %111, i64 6, i1 false)
   %112 = load i32, ptr %101, align 8
   %113 = load i8, ptr %102, align 4
   %114 = trunc i8 %113 to i1

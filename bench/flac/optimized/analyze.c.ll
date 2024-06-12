@@ -51,7 +51,7 @@ if.then:                                          ; preds = %entry
   store i32 -1, ptr getelementptr inbounds (i8, ptr @all_, i64 524280), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @all_, i64 524284), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @all_, i64 524288), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @all_, i64 524296), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @all_, i64 524296), i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -346,7 +346,7 @@ for.body180:                                      ; preds = %for.body180.lr.ph, 
   store i32 -1, ptr %peak_index.i, align 8
   store i32 0, ptr %nbuckets.i, align 4
   store i32 0, ptr %nsamples.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %sum.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum.i, i8 0, i64 16, i1 false)
   %63 = load i32, ptr %add.ptr185, align 8
   switch i32 %63, label %for.inc243 [
     i32 2, label %sw.bb187

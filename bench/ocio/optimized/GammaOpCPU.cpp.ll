@@ -1372,7 +1372,7 @@ entry:
   %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_grnGamma.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_bluGamma.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %gamma, align 8
   %m_style.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i.i.i, align 8
@@ -1649,7 +1649,7 @@ entry:
   %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_grnGamma.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_bluGamma.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %gamma, align 8
   %m_style.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i.i.i, align 8

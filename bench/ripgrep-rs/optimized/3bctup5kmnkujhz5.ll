@@ -834,7 +834,7 @@ define void @"_ZN83_$LT$grep_regex..matcher..RegexMatcherBuilder$u20$as$u20$core
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 22
   store i8 0, ptr %.sroa.71.0..sroa_idx.i, align 2, !alias.scope !110
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 30
   store i8 1, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !110
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 31
@@ -1043,7 +1043,7 @@ define void @_ZN10grep_regex7matcher12RegexMatcher3new17h497c129d9bc0fd2aE(ptr n
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 22
   store i8 0, ptr %.sroa.71.0..sroa_idx.i, align 2, !alias.scope !119
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 30
   store i8 1, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !119
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 31
@@ -1080,7 +1080,7 @@ define void @_ZN10grep_regex7matcher12RegexMatcher16new_line_matcher17ha0b2ec326
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 22
   store i8 0, ptr %.sroa.71.0..sroa_idx.i, align 2, !alias.scope !130
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i, i64 7, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 30
   store i8 1, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !130
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 31

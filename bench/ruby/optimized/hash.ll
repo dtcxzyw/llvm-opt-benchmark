@@ -1659,7 +1659,7 @@ ar_each_key.exit36:                               ; preds = %41, %30
   %44 = load i64, ptr %5, align 8
   %45 = or i64 %44, 32768
   store i64 %45, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   br label %46
 
 46:                                               ; preds = %1, %._crit_edge, %ar_each_key.exit36
@@ -2092,7 +2092,7 @@ rb_hash_modify_check.exit:                        ; preds = %12
   %61 = load i64, ptr %2, align 8
   %62 = or i64 %61, 32768
   store i64 %62, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull readonly align 8 dereferenceable(56) %53, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %53, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 56, i1 false)
   br label %63
 
@@ -3743,7 +3743,7 @@ rb_hash_free.exit:                                ; preds = %RHASH_SIZE.exit, %6
   %66 = phi i64 [ %.pre, %61 ], [ %59, %RHASH_SIZE.exit ]
   %67 = or i64 %66, 32768
   store i64 %67, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.pre22, ptr noundef nonnull readonly align 8 dereferenceable(56) %55, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.pre22, ptr noundef nonnull align 8 dereferenceable(56) %55, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 0, i64 56, i1 false)
   br label %rb_hash_compare_by_id_p.exit
 
@@ -10090,13 +10090,13 @@ define internal noundef range(i64 0, 21) i64 @env_has_key(i64 %0, i64 noundef %1
   br i1 %.not.i.i.i, label %rb_vm_lock_enter.exit.i, label %rb_vm_lock_enter.exit.thread.i
 
 rb_vm_lock_enter.exit.thread.i:                   ; preds = %2
-  %9 = call ptr @getenv(ptr noundef readonly %7) #24
+  %9 = call ptr @getenv(ptr noundef %7) #24
   br label %has_env_with_lock.exit
 
 rb_vm_lock_enter.exit.i:                          ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
   %.pr.i = load ptr, ptr @ruby_single_main_ractor, align 8
-  %10 = call ptr @getenv(ptr noundef readonly %7) #24
+  %10 = call ptr @getenv(ptr noundef %7) #24
   %.not.i.i2.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i.i2.i, label %11, label %has_env_with_lock.exit
 
@@ -12062,7 +12062,7 @@ define internal fastcc ptr @get_env_cstr(i64 noundef %0, ptr noundef %1) unnamed
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %2
-  %5 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %3) #25
+  %5 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %3) #25
   %.not3.i = icmp eq i32 %5, 0
   br i1 %.not3.i, label %8, label %rb_enc_asciicompat.exit.thread
 

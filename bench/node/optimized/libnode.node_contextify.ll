@@ -4105,7 +4105,7 @@ if.end327:                                        ; preds = %if.then313, %_ZNK2v
   %cached_data.i.i = getelementptr inbounds i8, ptr %source, i64 48
   store ptr %cached_data.0, ptr %cached_data.i.i, align 8, !alias.scope !6
   %consume_cache_task19.i.i = getelementptr inbounds i8, ptr %source, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %consume_cache_task19.i.i, i8 0, i64 24, i1 false), !alias.scope !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %consume_cache_task19.i.i, i8 0, i64 24, i1 false), !alias.scope !6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %origin.i)
   %cmp.not.i = icmp ne ptr %cached_data.0, null
   %..i = zext i1 %cmp.not.i to i32

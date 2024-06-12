@@ -397,7 +397,7 @@ get_tables_to_cluster.exit:                       ; preds = %128
   %164 = load i32, ptr %162, align 4
   %165 = getelementptr inbounds i8, ptr %162, i64 4
   %166 = load i32, ptr %165, align 4
-  call void @cluster_rel(i32 noundef %164, i32 noundef %166, ptr noundef nonnull readonly %5)
+  call void @cluster_rel(i32 noundef %164, i32 noundef %166, ptr noundef nonnull %5)
   call void @PopActiveSnapshot() #8
   call void @CommitTransactionCommand() #8
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1

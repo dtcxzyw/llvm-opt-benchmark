@@ -1563,7 +1563,7 @@ return.sink.split.i.i:                            ; preds = %if.then11
 
 if.end.i:                                         ; preds = %return.sink.split.i.i, %if.then11
   %tobool14.i = phi i1 [ false, %return.sink.split.i.i ], [ true, %if.then11 ]
-  %call1.i = tail call i64 @wcslen(ptr noundef readonly %text) #17
+  %call1.i = tail call i64 @wcslen(ptr noundef %text) #17
   %tobool.not.i = icmp eq i32 %raw_malloc, 0
   %add4.i = add i64 %call1.i, 1
   br i1 %tobool.not.i, label %if.else.i, label %if.then2.i
@@ -2493,7 +2493,7 @@ entry:
 
 do.body9.i:                                       ; preds = %do.body9.i, %entry
   store i32 0, ptr %call10.i, align 4
-  %call11.i = tail call i64 @write(i32 noundef %fd, ptr noundef readonly %buf, i64 noundef %spec.store.select.i) #16
+  %call11.i = tail call i64 @write(i32 noundef %fd, ptr noundef %buf, i64 noundef %spec.store.select.i) #16
   %0 = load i32, ptr %call10.i, align 4
   %cmp14.i = icmp slt i64 %call11.i, 0
   %cmp16.i = icmp eq i32 %0, 4

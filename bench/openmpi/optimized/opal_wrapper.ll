@@ -2056,7 +2056,7 @@ define internal fastcc void @options_data_expand(ptr noundef %0) unnamed_addr #0
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #20
   %14 = getelementptr inbounds i8, ptr %10, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   store ptr %13, ptr %14, align 8
   store ptr null, ptr %13, align 8
   %15 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #20
@@ -2084,7 +2084,7 @@ define internal fastcc void @options_data_expand(ptr noundef %0) unnamed_addr #0
   store ptr %25, ptr %26, align 8
   store ptr null, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %10, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %27, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %38, label %28
 

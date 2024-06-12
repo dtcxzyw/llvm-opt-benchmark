@@ -3053,7 +3053,7 @@ setup_ga.exit:                                    ; preds = %if.end4.i, %if.end.
   %args7.i = getelementptr inbounds i8, ptr %call13, i64 24
   store ptr %args.addr.0.i, ptr %args7.i, align 8
   %parameters.i = getelementptr inbounds i8, ptr %call13, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %parameters.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parameters.i, i8 0, i64 16, i1 false)
   %call8.i = tail call ptr @PyVectorcall_Function(ptr noundef nonnull %1) #5
   %cmp9.not.i = icmp eq ptr %call8.i, null
   %vectorcall12.i = getelementptr inbounds i8, ptr %call13, i64 56
@@ -3132,7 +3132,7 @@ setup_ga.exit:                                    ; preds = %if.end4.i, %if.end.
   %args7.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %args.addr.0.i, ptr %args7.i, align 8
   %parameters.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %parameters.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parameters.i, i8 0, i64 16, i1 false)
   %call8.i = tail call ptr @PyVectorcall_Function(ptr noundef nonnull %origin) #5
   %cmp9.not.i = icmp eq ptr %call8.i, null
   %vectorcall12.i = getelementptr inbounds i8, ptr %call, i64 56

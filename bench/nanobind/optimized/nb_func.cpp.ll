@@ -718,7 +718,7 @@ define noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr nocapture noundef %
 
 33:                                               ; preds = %29, %30
   %34 = phi ptr [ %32, %30 ], [ @.str.4, %29 ]
-  %35 = tail call noalias ptr @strdup(ptr noundef readonly %34) #21
+  %35 = tail call noalias ptr @strdup(ptr noundef %34) #21
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %36, label %_ZN8nanobind6detail12strdup_checkEPKc.exit
 
@@ -1134,7 +1134,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
 
 240:                                              ; preds = %238, %233
   %241 = phi ptr [ %239, %238 ], [ %235, %233 ]
-  %242 = call noalias ptr @strdup(ptr noundef nonnull readonly %241) #21
+  %242 = call noalias ptr @strdup(ptr noundef nonnull %241) #21
   %.not.i213 = icmp eq ptr %242, null
   br i1 %.not.i213, label %243, label %_ZN8nanobind6detail12strdup_checkEPKc.exit214
 
@@ -1174,7 +1174,7 @@ _ZN8nanobind6detail12strdup_checkEPKc.exit214:    ; preds = %240
 256:                                              ; preds = %254
   %257 = getelementptr inbounds i8, ptr %0, i64 64
   %258 = load ptr, ptr %257, align 8
-  %259 = call noalias ptr @strdup(ptr noundef readonly %258) #21
+  %259 = call noalias ptr @strdup(ptr noundef %258) #21
   %.not.i215 = icmp eq ptr %259, null
   br i1 %.not.i215, label %260, label %_ZN8nanobind6detail12strdup_checkEPKc.exit216
 
@@ -1369,7 +1369,7 @@ _ZN8nanobind6detail12malloc_checkEm.exit221:      ; preds = %303
   br i1 %.not206, label %_ZN8nanobind6detail12strdup_checkEPKc.exit223, label %348
 
 348:                                              ; preds = %337
-  %349 = call noalias ptr @strdup(ptr noundef nonnull readonly %347) #21
+  %349 = call noalias ptr @strdup(ptr noundef nonnull %347) #21
   %.not.i222 = icmp eq ptr %349, null
   br i1 %.not.i222, label %350, label %_ZN8nanobind6detail12strdup_checkEPKc.exit223
 

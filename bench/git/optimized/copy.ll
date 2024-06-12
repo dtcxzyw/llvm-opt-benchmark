@@ -140,7 +140,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %times.i)
-  %call.i = call i32 @stat64(ptr noundef readonly %src, ptr noundef nonnull %st.i) #5
+  %call.i = call i32 @stat64(ptr noundef %src, ptr noundef nonnull %st.i) #5
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %copy_times.exit, label %if.end.i
 
@@ -152,7 +152,7 @@ if.end.i:                                         ; preds = %if.then
   %1 = load i64, ptr %st_mtim.i, align 8
   %modtime.i = getelementptr inbounds i8, ptr %times.i, i64 8
   store i64 %1, ptr %modtime.i, align 8
-  %call2.i = call i32 @utime(ptr noundef readonly %dst, ptr noundef nonnull %times.i) #5
+  %call2.i = call i32 @utime(ptr noundef %dst, ptr noundef nonnull %times.i) #5
   %call2.lobit.i = ashr i32 %call2.i, 31
   br label %copy_times.exit
 

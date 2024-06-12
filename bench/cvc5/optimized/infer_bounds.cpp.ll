@@ -1578,7 +1578,7 @@ if.then12:                                        ; preds = %_ZN4cvc58internal12
 
 _ZNK4cvc58internal6theory5arith6linear17InferBoundsResult14boundIsIntegerEv.exit: ; preds = %if.then12
   %_mp_den.i.i.i.i = getelementptr inbounds i8, ptr %ibr, i64 24
-  %call2.i.i.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull readonly %_mp_den.i.i.i.i, i64 noundef 1) #26
+  %call2.i.i.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i.i, i64 noundef 1) #26
   %cmp.i.i.i33 = icmp eq i32 %call2.i.i.i, 0
   %d_value.i.i = getelementptr inbounds i8, ptr %ibr, i64 8
   br i1 %cmp.i.i.i33, label %if.then15, label %if.then25

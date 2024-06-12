@@ -875,7 +875,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %311 = getelementptr %struct.wtap_option_t, ptr %309, i64 %310
   store i32 %279, ptr %311, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull readonly align 1 dereferenceable(16) %280, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull align 1 dereferenceable(16) %280, i64 16, i1 false)
   br label %wtap_block_add_uint8_option.exit
 
 313:                                              ; preds = %13

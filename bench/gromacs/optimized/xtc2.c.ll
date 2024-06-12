@@ -1512,7 +1512,7 @@ Ptngc_find_magic_index.exit542:                   ; preds = %502
 
 581:                                              ; preds = %579, %577
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %12) #11
-  call fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly %18, i32 noundef 3, ptr noundef nonnull readonly %13, ptr noundef nonnull %21)
+  call fastcc void @trajcoder_base_compress(ptr noundef nonnull %18, i32 noundef 3, ptr noundef nonnull %13, ptr noundef nonnull %21)
   call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %.2.i, ptr noundef nonnull %12) #11
   store i32 0, ptr %17, align 4
   br label %583
@@ -1638,7 +1638,7 @@ define internal fastcc void @flush_large(ptr noundef %0, ptr nocapture noundef %
   tail call void @Ptngc_writebits(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef %7) #11
   %11 = mul nuw nsw i64 %indvars.iv58, 3
   %12 = getelementptr inbounds i32, ptr %2, i64 %11
-  tail call fastcc void @trajcoder_base_compress(ptr noundef readonly %12, i32 noundef 3, ptr noundef readonly %4, ptr noundef %6)
+  tail call fastcc void @trajcoder_base_compress(ptr noundef %12, i32 noundef 3, ptr noundef %4, ptr noundef %6)
   tail call void @Ptngc_writemanybits(ptr noundef %0, ptr noundef %6, i32 noundef %5, ptr noundef %7) #11
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
@@ -1655,7 +1655,7 @@ define internal fastcc void @flush_large(ptr noundef %0, ptr nocapture noundef %
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %15 ]
   %16 = mul nuw nsw i64 %indvars.iv, 3
   %17 = getelementptr inbounds i32, ptr %2, i64 %16
-  tail call fastcc void @trajcoder_base_compress(ptr noundef readonly %17, i32 noundef 3, ptr noundef readonly %4, ptr noundef %6)
+  tail call fastcc void @trajcoder_base_compress(ptr noundef %17, i32 noundef 3, ptr noundef %4, ptr noundef %6)
   tail call void @Ptngc_writemanybits(ptr noundef %0, ptr noundef %6, i32 noundef %5, ptr noundef %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

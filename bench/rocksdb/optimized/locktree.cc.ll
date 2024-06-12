@@ -3320,7 +3320,7 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %m_owners, align 8
   %function.val = load ptr, ptr %function, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp2.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %agg.tmp2.sroa.0.i, ptr noundef nonnull readonly align 8 dereferenceable(81) %m_range, i64 81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %agg.tmp2.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(81) %m_range, i64 81, i1 false)
   %m_size.i.i = getelementptr inbounds i8, ptr %function.val, i64 8
   %4 = load i64, ptr %m_size.i.i, align 8
   %m_size_limit.i.i = getelementptr inbounds i8, ptr %function.val, i64 16
@@ -3388,7 +3388,7 @@ if.then12:                                        ; preds = %if.end10
   %10 = load ptr, ptr %m_owners17, align 8
   %function.val13 = load ptr, ptr %function, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp2.sroa.0.i14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %agg.tmp2.sroa.0.i14, ptr noundef nonnull readonly align 8 dereferenceable(81) %m_range, i64 81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %agg.tmp2.sroa.0.i14, ptr noundef nonnull align 8 dereferenceable(81) %m_range, i64 81, i1 false)
   %m_size.i.i15 = getelementptr inbounds i8, ptr %function.val13, i64 8
   %11 = load i64, ptr %m_size.i.i15, align 8
   %m_size_limit.i.i16 = getelementptr inbounds i8, ptr %function.val13, i64 16

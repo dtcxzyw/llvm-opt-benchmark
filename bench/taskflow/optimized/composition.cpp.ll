@@ -8311,7 +8311,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
   %_call.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1092, i64 120
   %_M_manager.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1092, i64 136
   %_M_invoker.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1092, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_call.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !103
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_call.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !103
   store ptr @"_ZNSt17_Function_handlerIFvvEZ21composition_example_2vE3$_7E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !103
   store ptr @"_ZNSt17_Function_handlerIFvvEZ21composition_example_2vE3$_7E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %_M_manager.i.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !103
   %_join_counter.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1092, i64 152
@@ -9061,14 +9061,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1163, ptr %CapacityX.i.i.i.i.i.i.i.i.i.i.i.i.i.i1162, align 8, !noalias !126
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i1164 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 104
   %_M_invoker.i.i.i.i.i.i.i.i.i.i1165 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1163, i8 0, i64 16, i1 false), !noalias !126
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1163, i8 0, i64 16, i1 false), !noalias !126
   store i32 1, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1163, align 4, !noalias !126
   store ptr @"_ZNSt17_Function_handlerIFbvEZ21composition_example_2vE3$_8E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i1165, align 8, !noalias !126
   store ptr @"_ZNSt17_Function_handlerIFbvEZ21composition_example_2vE3$_8E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i1164, align 8, !noalias !126
   %_call.i.i.i.i.i.i.i.i.i1167 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 120
   %_M_manager.i.i1.i.i.i.i.i.i.i.i.i1168 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 136
   %_M_invoker.i2.i.i.i.i.i.i.i.i.i1169 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_call.i.i.i.i.i.i.i.i.i1167, i8 0, i64 16, i1 false), !noalias !126
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_call.i.i.i.i.i.i.i.i.i1167, i8 0, i64 16, i1 false), !noalias !126
   store ptr @"_ZNSt17_Function_handlerIFvvEZ21composition_example_2vE3$_9E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2.i.i.i.i.i.i.i.i.i1169, align 8, !noalias !126
   store ptr @"_ZNSt17_Function_handlerIFvvEZ21composition_example_2vE3$_9E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %_M_manager.i.i1.i.i.i.i.i.i.i.i.i1168, align 8, !noalias !126
   %_join_counter.i.i.i.i.i.i.i.i.i1170 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 152
@@ -9822,14 +9822,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1488, ptr %CapacityX.i.i.i.i.i.i.i.i.i.i.i.i.i.i1487, align 8, !noalias !149
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i1489 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 104
   %_M_invoker.i.i.i.i.i.i.i.i.i.i1490 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1488, i8 0, i64 16, i1 false), !noalias !149
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1488, i8 0, i64 16, i1 false), !noalias !149
   store i32 2, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i1488, align 4, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFbvEZ21composition_example_2vE4$_10E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i1490, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFbvEZ21composition_example_2vE4$_10E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i1489, align 8, !noalias !149
   %_call.i.i.i.i.i.i.i.i.i1492 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 120
   %_M_manager.i.i1.i.i.i.i.i.i.i.i.i1493 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 136
   %_M_invoker.i2.i.i.i.i.i.i.i.i.i1494 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_call.i.i.i.i.i.i.i.i.i1492, i8 0, i64 16, i1 false), !noalias !149
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_call.i.i.i.i.i.i.i.i.i1492, i8 0, i64 16, i1 false), !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvvEZ21composition_example_2vE4$_11E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2.i.i.i.i.i.i.i.i.i1494, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvvEZ21composition_example_2vE4$_11E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation", ptr %_M_manager.i.i1.i.i.i.i.i.i.i.i.i1493, align 8, !noalias !149
   %_join_counter.i.i.i.i.i.i.i.i.i1495 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 152

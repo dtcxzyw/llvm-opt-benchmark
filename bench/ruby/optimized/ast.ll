@@ -931,7 +931,7 @@ define internal i64 @lex_array(i64 noundef %0, i32 noundef %1) #0 {
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %7
-  %12 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %10) #11
+  %12 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %10) #11
   %.not3.i = icmp eq i32 %12, 0
   br i1 %.not3.i, label %rb_enc_asciicompat.exit._crit_edge, label %rb_enc_asciicompat.exit.thread
 

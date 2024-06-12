@@ -1239,12 +1239,12 @@ Vec_IntFillExtra.exit341:                         ; preds = %405, %._crit_edge.i
   br i1 %.not.i312, label %Abc_ObjMvVarNum.exit, label %573
 
 573:                                              ; preds = %566
-  %574 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %561)
+  %574 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %561)
   %.not3.i = icmp eq ptr %574, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %575
 
 575:                                              ; preds = %573
-  %576 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %561)
+  %576 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %561)
   %577 = load i32, ptr %576, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -1313,10 +1313,10 @@ define ptr @Abc_NtkFlattenLogicHierarchy2(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #13
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %8) #12
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %8) #12
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %9
@@ -1329,10 +1329,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %9
   br i1 %.not.i73, label %Abc_UtilStrsav.exit74, label %18
 
 18:                                               ; preds = %Abc_UtilStrsav.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #14
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #14
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #13
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #12
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #12
   br label %Abc_UtilStrsav.exit74
 
 Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit, %18
@@ -2872,12 +2872,12 @@ Vec_IntFillExtra.exit366:                         ; preds = %465, %._crit_edge.i
   br i1 %.not.i336, label %Abc_ObjMvVarNum.exit, label %640
 
 640:                                              ; preds = %633
-  %641 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %628)
+  %641 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %628)
   %.not3.i = icmp eq ptr %641, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %642
 
 642:                                              ; preds = %640
-  %643 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %628)
+  %643 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull %628)
   %644 = load i32, ptr %643, align 4
   br label %Abc_ObjMvVarNum.exit
 

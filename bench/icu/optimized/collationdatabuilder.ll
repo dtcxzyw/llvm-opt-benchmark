@@ -6082,7 +6082,7 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 if.end6.i:                                        ; preds = %new.cont.i, %entry
   %2 = phi ptr [ %call.i, %new.cont.i ], [ %0, %entry ]
-  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %2, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef writeonly %ces, i32 noundef %cesLength)
+  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %2, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef %ces, i32 noundef %cesLength)
   br label %_ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringEiPli.exit
 
 _ZN6icu_7520CollationDataBuilder6getCEsERKNS_13UnicodeStringEiPli.exit: ; preds = %new.cont.thread.i, %if.end6.i
@@ -6181,7 +6181,7 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 if.end6.i:                                        ; preds = %new.cont.i, %if.then
   %5 = phi ptr [ %call.i, %new.cont.i ], [ %3, %if.then ]
-  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %5, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef writeonly %ces, i32 noundef %cesLength)
+  %call8.i = tail call noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %5, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0, ptr noundef %ces, i32 noundef %cesLength)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -6216,7 +6216,7 @@ lpad.i15:                                         ; preds = %new.notnull.i14
 
 if.end6.i8:                                       ; preds = %new.cont.i16, %if.else
   %8 = phi ptr [ %call.i12, %new.cont.i16 ], [ %6, %if.else ]
-  %call8.i918 = invoke noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %8, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %cond.i, ptr noundef writeonly %ces, i32 noundef %cesLength)
+  %call8.i918 = invoke noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %8, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %cond.i, ptr noundef %ces, i32 noundef %cesLength)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %new.cont.thread.i17, %if.end6.i8

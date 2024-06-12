@@ -694,7 +694,7 @@ IDANewy.exit.i.i.i:                               ; preds = %327, %323
   br i1 %400, label %401, label %IDANewyyp.exit.i.i.i
 
 401:                                              ; preds = %398
-  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull readonly %0, double noundef %.086108.i.i.i)
+  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull %0, double noundef %.086108.i.i.i)
   br label %IDANewyyp.exit.i.i.i
 
 IDANewyyp.exit.i.i.i:                             ; preds = %401, %398, %396

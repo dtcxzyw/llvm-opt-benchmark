@@ -177,7 +177,7 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr @.str, ptr %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
-  %11 = call ptr @getenv(ptr noundef nonnull readonly %spec.store.select) #35
+  %11 = call ptr @getenv(ptr noundef nonnull %spec.store.select) #35
   %.not.i.not = icmp eq ptr %11, null
   br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %12
 
@@ -392,7 +392,7 @@ define dso_local void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx11
 
 33:                                               ; preds = %30, %30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
-  %34 = call ptr @getenv(ptr noundef nonnull readonly @.str.6) #35
+  %34 = call ptr @getenv(ptr noundef nonnull @.str.6) #35
   %.not.i.not = icmp eq ptr %34, null
   br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %35
 
@@ -489,7 +489,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools6GetEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #35
-  %4 = tail call ptr @getenv(ptr noundef readonly %3) #35
+  %4 = tail call ptr @getenv(ptr noundef %3) #35
   %.not.i = icmp ne ptr %4, null
   br i1 %.not.i, label %5, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -511,7 +511,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools6HasEnvEPKc(ptr nocap
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools6HasEnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
   %2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #35
-  %3 = tail call ptr @getenv(ptr noundef readonly %2) #35
+  %3 = tail call ptr @getenv(ptr noundef %2) #35
   %4 = icmp ne ptr %3, null
   ret i1 %4
 }
@@ -901,7 +901,7 @@ sub_0.i:                                          ; preds = %10, %10
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %2, ptr nonnull align 1 %8, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %8, i64 %9, i1 false)
   %23 = getelementptr inbounds [4096 x i8], ptr %2, i64 0, i64 %9
   store i8 0, ptr %23, align 1
   br label %_ZN5cmsysL21RemoveTrailingSlashesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA4096_cRS5_.exit
@@ -1513,7 +1513,7 @@ _ZN5cmsys11SystemTools10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 7:                                                ; preds = %_ZN5cmsys11SystemTools10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #35
-  %9 = tail call noalias noundef ptr @fopen(ptr noundef %8, ptr noundef nonnull readonly @.str.3)
+  %9 = tail call noalias noundef ptr @fopen(ptr noundef %8, ptr noundef nonnull @.str.3)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
 
@@ -1908,35 +1908,34 @@ define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_(ptr n
   br i1 %.not.i, label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #38
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
   %6 = add i64 %5, 1
   %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #39
-  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #35
+  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #35
   br label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit
 
 9:                                                ; preds = %2
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
   br i1 %.not.i, label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19, label %14
 
 _ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19: ; preds = %9
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #38
   %11 = add i64 %10, 1
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #39
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #35
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #35
   br label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit
 
 14:                                               ; preds = %9
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
-  %17 = add i64 %15, 1
-  %18 = add i64 %17, %16
-  %19 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #39
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #35
-  %21 = getelementptr inbounds i8, ptr %19, i64 %15
-  %22 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %1) #35
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
+  %16 = add i64 %10, 1
+  %17 = add i64 %16, %15
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #39
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %0) #35
+  %20 = getelementptr inbounds i8, ptr %18, i64 %10
+  %21 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %1) #35
   br label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit
 
 _ZN5cmsys11SystemTools15DuplicateStringEPKc.exit: ; preds = %4, %3, %14, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19
-  %.0 = phi ptr [ %19, %14 ], [ %12, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19 ], [ %7, %4 ], [ null, %3 ]
+  %.0 = phi ptr [ %18, %14 ], [ %12, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19 ], [ %7, %4 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1967,54 +1966,67 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %3
   %5 = tail call noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_(ptr noundef %1, ptr noundef %2)
-  br label %31
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
 
 6:                                                ; preds = %3
   %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %7, label %9
+  %.not.i.i = icmp eq ptr %2, null
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
+  br i1 %.not28, label %8, label %20
 
-7:                                                ; preds = %6
-  %8 = tail call noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_(ptr noundef nonnull %0, ptr noundef %2)
-  br label %31
+8:                                                ; preds = %6
+  br i1 %.not.i.i, label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i, label %12
 
-9:                                                ; preds = %6
-  %.not29 = icmp eq ptr %2, null
-  br i1 %.not29, label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit, label %18
+_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i: ; preds = %8
+  %9 = add i64 %7, 1
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #39
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #35
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
 
-_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit: ; preds = %9
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #38
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #38
-  %12 = add i64 %10, 1
-  %13 = add i64 %12, %11
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #39
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %0) #35
-  %16 = getelementptr inbounds i8, ptr %14, i64 %10
-  %17 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #35
-  br label %31
+12:                                               ; preds = %8
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #38
+  %14 = add i64 %7, 1
+  %15 = add i64 %14, %13
+  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #39
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %0) #35
+  %18 = getelementptr inbounds i8, ptr %16, i64 %7
+  %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %2) #35
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
 
-18:                                               ; preds = %9
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #38
-  %22 = add i64 %19, 1
-  %23 = add i64 %22, %20
-  %24 = add i64 %23, %21
-  %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #39
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %0) #35
-  %27 = getelementptr inbounds i8, ptr %25, i64 %19
-  %28 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #35
-  %29 = getelementptr inbounds i8, ptr %27, i64 %20
-  %30 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %2) #35
-  br label %31
+20:                                               ; preds = %6
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
+  br i1 %.not.i.i, label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34, label %28
 
-31:                                               ; preds = %18, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit, %7, %4
-  %.0 = phi ptr [ %25, %18 ], [ %14, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit ], [ %8, %7 ], [ %5, %4 ]
+_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34: ; preds = %20
+  %22 = add i64 %7, 1
+  %23 = add i64 %22, %21
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #39
+  %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %0) #35
+  %26 = getelementptr inbounds i8, ptr %24, i64 %7
+  %27 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %1) #35
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
+
+28:                                               ; preds = %20
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #38
+  %30 = add i64 %7, 1
+  %31 = add i64 %30, %21
+  %32 = add i64 %31, %29
+  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #39
+  %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %0) #35
+  %35 = getelementptr inbounds i8, ptr %33, i64 %7
+  %36 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %1) #35
+  %37 = getelementptr inbounds i8, ptr %35, i64 %21
+  %38 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %2) #35
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
+
+_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit: ; preds = %12, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i, %28, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34, %4
+  %.0 = phi ptr [ %33, %28 ], [ %24, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34 ], [ %5, %4 ], [ %16, %12 ], [ %10, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i ]
   ret ptr %.0
 }
 
@@ -8192,7 +8204,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %26
-  %30 = call ptr @getenv(ptr noundef nonnull readonly @.str.6) #35
+  %30 = call ptr @getenv(ptr noundef nonnull @.str.6) #35
   %.not.i.not = icmp eq ptr %30, null
   br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.invoke
 
@@ -9116,7 +9128,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools16FileHasSignatureEPK
 
 14:                                               ; preds = %.noexc30
   %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
-  %16 = call noalias noundef ptr @fopen(ptr noundef %15, ptr noundef nonnull readonly @.str.27)
+  %16 = call noalias noundef ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.27)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #35
   %.not = icmp eq ptr %16, null
@@ -9240,7 +9252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 28:                                               ; preds = %.noexc54
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
-  %30 = call noalias noundef ptr @fopen(ptr noundef %29, ptr noundef nonnull readonly @.str.27)
+  %30 = call noalias noundef ptr @fopen(ptr noundef %29, ptr noundef nonnull @.str.27)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #35
   %.not = icmp eq ptr %30, null
@@ -9983,7 +9995,7 @@ define dso_local noundef i32 @_ZN5cmsys11SystemTools16GetTerminalWidthEv() local
   %12 = call i32 @isatty(i32 noundef 1) #35
   %.not = icmp eq i32 %12, 0
   %.1 = select i1 %.not, i32 -1, i32 %spec.select
-  %13 = call ptr @getenv(ptr noundef nonnull readonly @.str.31) #35
+  %13 = call ptr @getenv(ptr noundef nonnull @.str.31) #35
   %.not.i.not = icmp eq ptr %13, null
   br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %14
 
@@ -10914,7 +10926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
-  %24 = call ptr @getenv(ptr noundef nonnull readonly @.str.36) #35
+  %24 = call ptr @getenv(ptr noundef nonnull @.str.36) #35
   %.not.i.not = icmp eq ptr %24, null
   br i1 %.not.i.not, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %25
 

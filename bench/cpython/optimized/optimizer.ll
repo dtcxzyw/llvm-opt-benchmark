@@ -885,7 +885,7 @@ entry:
   %trace_stack.i = alloca [5 x %struct.anon.5], align 16
   %dependencies = alloca %struct._bloom_filter, align 4
   %buffer = alloca [512 x %struct._PyUOpInstruction], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %dependencies, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %dependencies, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %trace_stack.i)
   %0 = ptrtoint ptr %code to i64
   br label %for.body.i.i.i
@@ -1992,7 +1992,7 @@ _Py_BloomFilter_Add.exit:                         ; preds = %for.body.i
 define dso_local void @_Py_Executors_InvalidateDependency(ptr nocapture noundef readonly %interp, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %obj_filter = alloca %struct._bloom_filter, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %obj_filter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %obj_filter, i8 0, i64 32, i1 false)
   %0 = ptrtoint ptr %obj to i64
   br label %for.body.i.i
 

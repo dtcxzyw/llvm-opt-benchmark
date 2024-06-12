@@ -2545,7 +2545,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %buf_temp, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %buf_temp, i8 0, i64 64, i1 false)
   %name_len.i = getelementptr inbounds i8, ptr %call, i64 16
   %name_len.val.i = load i64, ptr %name_len.i, align 1
   %name_len1.i = getelementptr inbounds i8, ptr %buf_temp, i64 16
@@ -12821,7 +12821,7 @@ if.end.i:                                         ; preds = %if.then16
   br i1 %tobool3.not.i, label %host_to_target_sockaddr.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i19, ptr nonnull readonly align 16 %3, i64 %conv.i18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i19, ptr nonnull align 16 %3, i64 %conv.i18, i1 false)
   %cmp8.not.i = icmp eq i32 %cond, 1
   %6 = load i16, ptr %3, align 16
   br i1 %cmp8.not.i, label %host_to_target_sockaddr.exit, label %if.end13.i
@@ -12936,7 +12936,7 @@ if.end.i:                                         ; preds = %if.then16
   br i1 %tobool3.not.i, label %host_to_target_sockaddr.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i19, ptr nonnull readonly align 16 %3, i64 %conv.i18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i19, ptr nonnull align 16 %3, i64 %conv.i18, i1 false)
   %cmp8.not.i = icmp eq i32 %cond, 1
   %6 = load i16, ptr %3, align 16
   br i1 %cmp8.not.i, label %host_to_target_sockaddr.exit, label %if.end13.i
@@ -13728,7 +13728,7 @@ if.end2.i:                                        ; preds = %if.end.i65
   br i1 %tobool3.not.i, label %host_to_target_sockaddr.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end2.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i68, ptr nonnull readonly align 16 %addr.0, i64 %conv.i67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i68, ptr nonnull align 16 %addr.0, i64 %conv.i67, i1 false)
   %cmp8.not.i = icmp eq i32 %cond47, 1
   %21 = load i16, ptr %addr.0, align 2
   br i1 %cmp8.not.i, label %host_to_target_sockaddr.exit, label %if.end13.i
@@ -18818,7 +18818,7 @@ do.body102:                                       ; preds = %sw.bb92
 
 if.end5.i:                                        ; preds = %do.body102
   %offender135 = getelementptr inbounds i8, ptr %cmsg.0146, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(16) %offender135, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %call.i, ptr noundef nonnull align 2 dereferenceable(16) %offender135, i64 16, i1 false)
   %34 = load i16, ptr %offender135, align 2
   store i16 %34, ptr %call.i, align 2
   br label %sw.epilog238
@@ -18882,7 +18882,7 @@ do.body167:                                       ; preds = %sw.bb155
 
 if.end5.i127:                                     ; preds = %do.body167
   %offender208 = getelementptr inbounds i8, ptr %cmsg.0146, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %call.i125, ptr noundef nonnull readonly align 2 dereferenceable(28) %offender208, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %call.i125, ptr noundef nonnull align 2 dereferenceable(28) %offender208, i64 28, i1 false)
   %47 = load i16, ptr %offender208, align 2
   store i16 %47, ptr %call.i125, align 2
   %cond137 = icmp eq i16 %47, 10

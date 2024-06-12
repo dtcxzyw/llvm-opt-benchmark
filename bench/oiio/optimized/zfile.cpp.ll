@@ -775,7 +775,7 @@ entry:
 if.end:                                           ; preds = %entry
   %worldtoscreen.i = getelementptr inbounds i8, ptr %header, i64 8
   %0 = getelementptr inbounds i8, ptr %header, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %worldtoscreen.i, align 4
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %header, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -783,7 +783,7 @@ if.end:                                           ; preds = %entry
   store float 1.000000e+00, ptr %arrayidx9.i.i, align 4
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %header, i64 68
   %1 = getelementptr inbounds i8, ptr %header, i64 76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx12.i.i, align 4
   %arrayidx6.i1.i = getelementptr inbounds i8, ptr %header, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i1.i, align 4
@@ -836,7 +836,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %worldtoscreen.i = getelementptr inbounds i8, ptr %header, i64 8
   %0 = getelementptr inbounds i8, ptr %header, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %worldtoscreen.i, align 4
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %header, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -845,7 +845,7 @@ if.end:                                           ; preds = %entry
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %header, i64 68
   %worldtocamera.i = getelementptr inbounds i8, ptr %header, i64 72
   %1 = getelementptr inbounds i8, ptr %header, i64 76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx12.i.i, align 4
   %arrayidx6.i1.i = getelementptr inbounds i8, ptr %header, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i1.i, align 4
@@ -1734,7 +1734,7 @@ if.end:                                           ; preds = %entry
   store i64 267, ptr %format, align 8
   %worldtoscreen.i = getelementptr inbounds i8, ptr %header, i64 8
   %0 = getelementptr inbounds i8, ptr %header, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %worldtoscreen.i, align 4
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %header, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -1743,7 +1743,7 @@ if.end:                                           ; preds = %entry
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %header, i64 68
   %worldtocamera.i = getelementptr inbounds i8, ptr %header, i64 72
   %1 = getelementptr inbounds i8, ptr %header, i64 76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx12.i.i, align 4
   %arrayidx6.i1.i = getelementptr inbounds i8, ptr %header, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i1.i, align 4

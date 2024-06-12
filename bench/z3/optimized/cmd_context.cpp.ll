@@ -4947,7 +4947,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i.i.i
   %m_value.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   %12 = load i64, ptr %m_value.i.i, align 8
   store i64 %12, ptr %decls.i, align 8
-  %call2.i = call noundef ptr @_ZNK11macro_decls4findEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(8) %decls.i, i32 noundef %0, ptr noundef nonnull readonly %m_domain.i)
+  %call2.i = call noundef ptr @_ZNK11macro_decls4findEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(8) %decls.i, i32 noundef %0, ptr noundef nonnull %m_domain.i)
   %cmp.i = icmp ne ptr %call2.i, null
   br label %_ZNK11cmd_context14contains_macroERK6symboljPKP4sort.exit
 
@@ -15667,7 +15667,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i.i.i
   %m_value.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   %12 = load i64, ptr %m_value.i.i, align 8
   store i64 %12, ptr %decls.i, align 8
-  %call2.i12 = invoke noundef ptr @_ZNK11macro_decls4findEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(8) %decls.i, i32 noundef %arity, ptr noundef readonly %domain)
+  %call2.i12 = invoke noundef ptr @_ZNK11macro_decls4findEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(8) %decls.i, i32 noundef %arity, ptr noundef %domain)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont.thread:                               ; preds = %for.body.i.i.i.i, %for.body20.i.i.i.i, %for.inc36.i.i.i.i, %for.cond18.preheader.i.i.i.i
@@ -15800,7 +15800,7 @@ invoke.cont7:                                     ; preds = %land.lhs.true.i.i.i
   %m_value.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i51, i64 16
   %26 = load i64, ptr %m_value.i.i52, align 8
   store i64 %26, ptr %fs.i, align 8
-  %call2.i = call noundef zeroext i1 @_ZNK10func_decls8containsEjPKP4sortS1_(ptr noundef nonnull align 8 dereferenceable(8) %fs.i, i32 noundef %arity, ptr noundef readonly %domain, ptr noundef readnone %call6)
+  %call2.i = call noundef zeroext i1 @_ZNK10func_decls8containsEjPKP4sortS1_(ptr noundef nonnull align 8 dereferenceable(8) %fs.i, i32 noundef %arity, ptr noundef %domain, ptr noundef %call6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fs.i)
   br i1 %call2.i, label %if.then9, label %if.end13
 
@@ -17753,7 +17753,7 @@ _ZNK11cmd_context14contains_macroERK6symboljPKP4sort.exit: ; preds = %land.lhs.t
   %m_value.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   %11 = load i64, ptr %m_value.i.i, align 8
   store i64 %11, ptr %decls.i, align 8
-  %call2.i = call noundef ptr @_ZNK11macro_decls4findEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(8) %decls.i, i32 noundef %arity, ptr noundef nonnull readonly %domain)
+  %call2.i = call noundef ptr @_ZNK11macro_decls4findEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(8) %decls.i, i32 noundef %arity, ptr noundef nonnull %domain)
   %cmp.i.not = icmp eq ptr %call2.i, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %decls.i)
   br i1 %cmp.i.not, label %if.end, label %if.then

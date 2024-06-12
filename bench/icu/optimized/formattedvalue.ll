@@ -673,7 +673,7 @@ return.sink.split.i.i:                            ; preds = %if.end2.i.i, %if.en
 
 if.end:                                           ; preds = %if.end2.i.i
   %fImpl = getelementptr inbounds i8, ptr %ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %fImpl, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %fImpl, i8 0, i64 25, i1 false)
   br label %return
 
 return:                                           ; preds = %return.sink.split.i.i, %entry, %if.end

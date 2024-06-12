@@ -505,7 +505,7 @@ if.end76:                                         ; preds = %invoke.cont48
 invoke.cont80:                                    ; preds = %if.end76
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileE, i64 16), ptr %call78, align 8
   %m44.i = getelementptr inbounds i8, ptr %call78, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %m44.i, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %m44.i, i8 0, i64 160, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %lpad.i.i.i.i
 

@@ -4402,7 +4402,7 @@ for.end.i:                                        ; preds = %next.i, %while.body
   br i1 %tobool18.not.i, label %sw.epilog, label %while.body.i19
 
 sw.bb28:                                          ; preds = %if.end22
-  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull readonly %buffer, ptr noundef nonnull readonly @.str.1, i64 noundef 2, ptr noundef nonnull %agg.result, ptr noundef null)
+  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.1, i64 noundef 2, ptr noundef nonnull %agg.result, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %tmp, i64 24, i1 false)
   %17 = load i64, ptr %agg.result, align 8
   %cmp30 = icmp slt i64 %17, 0
@@ -5463,7 +5463,7 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull readonly %buffer, ptr noundef readonly %what, i64 noundef %len, ptr noundef null, ptr noundef null)
+  call void @evbuffer_search_range(ptr nonnull sret(%struct.evbuffer_ptr) align 8 %tmp, ptr noundef nonnull %buffer, ptr noundef %what, i64 noundef %len, ptr noundef null, ptr noundef null)
   %ptr.sroa.0.0.copyload = load i64, ptr %tmp, align 8
   %cmp = icmp slt i64 %ptr.sroa.0.0.copyload, 0
   br i1 %cmp, label %do.body13, label %if.else

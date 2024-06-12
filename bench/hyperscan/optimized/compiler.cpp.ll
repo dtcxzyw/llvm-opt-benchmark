@@ -2640,7 +2640,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %do.end.i, label %if.end.i
 
 do.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %rose, i8 0, i64 24, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rose, i8 0, i64 24, i1 false), !alias.scope !10
   br label %if.end
 
 if.end.i:                                         ; preds = %entry
@@ -2648,7 +2648,7 @@ if.end.i:                                         ; preds = %entry
   store i64 %4, ptr %rose, align 8, !alias.scope !10
   %bytes.i.i = getelementptr inbounds i8, ptr %rose, i64 8
   %bytes3.i.i = getelementptr inbounds i8, ptr %rose.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %if.end.i17, %if.then.i, %invoke.cont29, %call1.i.noexc, %call.i.noexc, %if.end26
@@ -2756,7 +2756,7 @@ if.end.i17:                                       ; preds = %call.i.noexc19
   store i32 %9, ptr %length.i, align 8
   %platform9.i = getelementptr inbounds i8, ptr %call.i20, i64 16
   store i64 %p.2.i, ptr %platform9.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %3, i64 %conv31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %3, i64 %conv31, i1 false)
   %16 = load i32, ptr %length.i, align 8
   %conv11.i = zext i32 %16 to i64
   %call12.i21 = invoke i32 @Crc32c_ComputeBuf(i32 noundef 0, ptr noundef nonnull %add.ptr.i, i64 noundef %conv11.i)

@@ -733,7 +733,7 @@ define void @Gia_ManQuantMarkUsedCis(ptr nocapture noundef readonly %0, ptr noca
 .lr.ph.preheader.i:                               ; preds = %3
   %9 = zext nneg i32 %7 to i64
   %10 = shl nuw nsw i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val12.val, i8 0, i64 %10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.val12.val, i8 0, i64 %10, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %3, %.lr.ph.preheader.i
@@ -2366,7 +2366,7 @@ define void @Gia_ManQuantCollect(ptr noundef %0, i32 noundef %1, ptr nocapture n
 .lr.ph.preheader.i.i:                             ; preds = %7
   %13 = zext nneg i32 %11 to i64
   %14 = shl nuw nsw i64 %13, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val12.val.i, i8 0, i64 %14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.val12.val.i, i8 0, i64 %14, i1 false)
   br label %Abc_TtClear.exit.i
 
 Abc_TtClear.exit.i:                               ; preds = %.lr.ph.preheader.i.i, %7
@@ -2944,7 +2944,7 @@ define i32 @Gia_ManQuantExist(ptr noundef %0, i32 noundef %1, ptr nocapture noun
 .lr.ph.preheader.i.i.i:                           ; preds = %4
   %23 = zext nneg i32 %21 to i64
   %24 = shl nuw nsw i64 %23, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val12.val.i.i, i8 0, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.val12.val.i.i, i8 0, i64 %24, i1 false)
   br label %Abc_TtClear.exit.i.i
 
 Abc_TtClear.exit.i.i:                             ; preds = %.lr.ph.preheader.i.i.i, %4

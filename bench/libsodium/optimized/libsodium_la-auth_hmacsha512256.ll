@@ -74,7 +74,7 @@ entry:
   %call.i1 = call i32 @crypto_auth_hmacsha512_update(ptr noundef nonnull %state, ptr noundef %in, i64 noundef %inlen) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %out0.i)
   %call.i2 = call i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %state, ptr noundef nonnull %out0.i) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %out, ptr noundef nonnull align 16 dereferenceable(32) %out0.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %out, ptr noundef nonnull align 16 dereferenceable(32) %out0.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %out0.i)
   ret i32 0
 }
@@ -90,7 +90,7 @@ entry:
   %call.i1.i = call i32 @crypto_auth_hmacsha512_update(ptr noundef nonnull %state.i, ptr noundef %in, i64 noundef %inlen) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %out0.i.i)
   %call.i2.i = call i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %state.i, ptr noundef nonnull %out0.i.i) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %correct, ptr noundef nonnull align 16 dereferenceable(32) %out0.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %correct, ptr noundef nonnull align 16 dereferenceable(32) %out0.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %out0.i.i)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %state.i)
   %call2 = call i32 @crypto_verify_32(ptr noundef nonnull %h, ptr noundef nonnull %correct) #5

@@ -2395,7 +2395,7 @@ ek_write_name.exit.i:                             ; preds = %36, %28
   unreachable
 
 74:                                               ; preds = %46
-  tail call fastcc void @json_write_field_hex_value(ptr noundef readonly %1, ptr noundef nonnull readonly %49)
+  tail call fastcc void @json_write_field_hex_value(ptr noundef %1, ptr noundef nonnull %49)
   br label %ek_write_hex.exit.i
 
 ek_write_hex.exit.i:                              ; preds = %74, %69, %65, %61, %57

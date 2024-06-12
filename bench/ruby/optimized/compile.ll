@@ -1065,7 +1065,7 @@ vm_ci_mid.exit.i.i:                               ; preds = %213, %.thread111.i.
   %218 = load ptr, ptr %217, align 8
   %219 = load i64, ptr %218, align 8
   store i32 61, ptr %186, align 8
-  %220 = tail call fastcc ptr @compile_data_calloc2(ptr noundef nonnull readonly %0, i64 noundef %99, i64 noundef 8)
+  %220 = tail call fastcc ptr @compile_data_calloc2(ptr noundef nonnull %0, i64 noundef %99, i64 noundef 8)
   store ptr %220, ptr %217, align 8
   store i64 %219, ptr %220, align 8
   br i1 %.not.i.not.i.i.i, label %223, label %221
@@ -1328,7 +1328,7 @@ vm_ci_mid.exit101.i.i:                            ; preds = %302, %300
   br label %iseq_specialized_instruction.exit.i
 
 335:                                              ; preds = %vm_ci_mid.exit101.i.i
-  tail call fastcc void @insn_set_specialized_instruction(ptr noundef nonnull readonly %0, ptr noundef nonnull %.081.i, i32 noundef 78)
+  tail call fastcc void @insn_set_specialized_instruction(ptr noundef nonnull %0, ptr noundef nonnull %.081.i, i32 noundef 78)
   br label %iseq_specialized_instruction.exit.i
 
 336:                                              ; preds = %vm_ci_mid.exit101.i.i
@@ -3438,7 +3438,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %39
   %42 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %41, i64 noundef 8) #39
   %43 = shl nuw nsw i64 %41, 3
   %44 = getelementptr inbounds i8, ptr %38, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %42, ptr nonnull readonly align 1 %44, i64 %43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %44, i64 %43, i1 false)
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 144
@@ -3772,7 +3772,7 @@ rbimpl_size_mul_or_raise.exit.i111:               ; preds = %rb_array_const_ptr.
 
 .lr.ph.preheader.i:                               ; preds = %rbimpl_size_mul_or_raise.exit.i111
   %219 = shl nuw nsw i64 %207, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %208, ptr readonly align 1 %.0.i.i, i64 %219, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr align 1 %.0.i.i, i64 %219, i1 false)
   %220 = call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1)
   %smax = zext nneg i32 %220 to i64
   br label %.lr.ph.i
@@ -5602,7 +5602,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %3
   %6 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %5, i64 noundef 8) #39
   %7 = shl nuw nsw i64 %5, 3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %6, ptr nonnull readonly align 1 %8, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %8, i64 %7, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 144
@@ -6009,7 +6009,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
   %16 = shl nuw nsw i64 %15, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %7, ptr readonly align 1 %14, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %14, i64 %16, i1 false)
   %.pre = load i32, ptr %11, align 4
   %17 = icmp eq i32 %.pre, 0
   br i1 %17, label %.loopexit, label %.lr.ph
@@ -9557,7 +9557,7 @@ RSTRING_PTR.exit.i:                               ; preds = %145, %140
   unreachable
 
 ibf_dump_overwrite.exit:                          ; preds = %RSTRING_PTR.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(40) %.sroa.2.0.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %6, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.2.0.i.i, ptr noundef nonnull align 4 dereferenceable(40) %6, i64 40, i1 false)
   %150 = load i64, ptr %35, align 8
   store ptr %7, ptr %9, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #37, !srcloc !61
@@ -12978,7 +12978,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %1806
   %1814 = zext i32 %1462 to i64
   %1815 = getelementptr i8, ptr %1813, i64 %1814
   %1816 = shl nuw nsw i64 %1808, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %1809, ptr noundef nonnull readonly align 1 dereferenceable(1) %1815, i64 %1816, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1809, ptr noundef nonnull align 1 dereferenceable(1) %1815, i64 %1816, i1 false)
   br label %ibf_load_param_opt_table.exit
 
 ibf_load_param_opt_table.exit:                    ; preds = %ibf_load_outer_variables.exit, %rbimpl_size_mul_or_raise.exit.i
@@ -12994,7 +12994,7 @@ ibf_load_param_opt_table.exit:                    ; preds = %ibf_load_outer_vari
   %1821 = load ptr, ptr %23, align 8
   %1822 = load ptr, ptr %1821, align 8
   %1823 = getelementptr i8, ptr %1822, i64 %1818
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %1820, ptr noundef nonnull readonly align 1 dereferenceable(32) %1823, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1820, ptr noundef nonnull align 1 dereferenceable(32) %1823, i64 32, i1 false)
   %1824 = getelementptr inbounds i8, ptr %1820, i64 16
   %1825 = load ptr, ptr %1824, align 8
   %1826 = load i32, ptr %1820, align 8
@@ -13010,7 +13010,7 @@ ibf_load_param_opt_table.exit:                    ; preds = %ibf_load_outer_vari
   %1833 = load ptr, ptr %1832, align 8
   %1834 = and i64 %1831, 4294967295
   %1835 = getelementptr i8, ptr %1833, i64 %1834
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1828, ptr readonly align 1 %1835, i64 %1830, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1828, ptr align 1 %1835, i64 %1830, i1 false)
   br label %ibf_load_alloc.exit.i77
 
 ibf_load_alloc.exit.i77:                          ; preds = %1829, %1819
@@ -13031,7 +13031,7 @@ ibf_load_alloc.exit.i77:                          ; preds = %1829, %1819
   %1847 = load ptr, ptr %1846, align 8
   %1848 = and i64 %1845, 4294967295
   %1849 = getelementptr i8, ptr %1847, i64 %1848
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1842, ptr readonly align 1 %1849, i64 %1844, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1842, ptr align 1 %1849, i64 %1844, i1 false)
   br label %ibf_load_alloc.exit35.i
 
 ibf_load_alloc.exit35.i:                          ; preds = %1843, %ibf_load_alloc.exit.i77
@@ -13381,7 +13381,7 @@ ibf_load_alloc.exit.i:                            ; preds = %ibf_load_insns_info
   %2013 = load ptr, ptr %2012, align 8
   %2014 = zext i32 %1459 to i64
   %2015 = getelementptr i8, ptr %2013, i64 %2014
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2010, ptr readonly align 1 %2015, i64 %2011, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2010, ptr align 1 %2015, i64 %2011, i1 false)
   br label %2016
 
 2016:                                             ; preds = %ibf_load_id.exit.i40, %ibf_load_alloc.exit.i
@@ -17189,7 +17189,7 @@ new_trace_body.exit:                              ; preds = %ISEQ_COMPILE_DATA.e
 
 118:                                              ; preds = %ISEQ_COMPILE_DATA.exit, %ISEQ_COMPILE_DATA.exit.thread, %new_trace_body.exit, %5
   %119 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false), !alias.scope !81
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false), !alias.scope !81
   %sext5150 = shl i64 %54, 32
   %120 = ashr exact i64 %sext5150, 17
   store i64 %120, ptr %10, align 8, !alias.scope !81
@@ -30045,7 +30045,7 @@ define internal fastcc void @pm_compile_call(ptr noundef %0, ptr nocapture nound
   %21 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %18, ptr noundef %spec.select.val, i32 noundef %20) #37
   %.sroa.0.0.extract.trunc.i = trunc i64 %21 to i32
   %22 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false), !alias.scope !136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false), !alias.scope !136
   %sext = shl i64 %21, 32
   %23 = ashr exact i64 %sext, 17
   store i64 %23, ptr %8, align 8, !alias.scope !136
@@ -50756,7 +50756,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_op_asgn1(ptr noundef %0, ptr
   br label %20
 
 20:                                               ; preds = %10, %4
-  %21 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull readonly %2)
+  %21 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull %2)
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %private_recv_p.exit.thread, label %22
 
@@ -52429,7 +52429,7 @@ new_label_body.exit159:                           ; preds = %ISEQ_COMPILE_DATA.e
   %100 = load i8, ptr %99, align 4
   %101 = and i8 %100, -16
   store i8 %101, ptr %99, align 4
-  %102 = tail call fastcc ptr @get_nd_recv(ptr noundef readonly %2)
+  %102 = tail call fastcc ptr @get_nd_recv(ptr noundef %2)
   %.not.i = icmp eq ptr %102, null
   br i1 %.not.i, label %private_recv_p.exit.thread, label %103
 
@@ -54417,7 +54417,7 @@ get_node_call_nd_mid.exit83:                      ; preds = %103, %103, %103, %1
   br i1 %113, label %114, label %get_nd_args.exit89.thread
 
 114:                                              ; preds = %get_node_call_nd_mid.exit83
-  %115 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull readonly %2)
+  %115 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull %2)
   %.not.i84 = icmp eq ptr %115, null
   br i1 %.not.i84, label %private_recv_p.exit.thread, label %116
 
@@ -54878,7 +54878,7 @@ get_nd_args.exit126:                              ; preds = %62, %.sink.split.i1
   %.0911.i = phi i32 [ %84, %83 ], [ 0, %.preheader ]
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull readonly dereferenceable(1) %.070.i) #44
+  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %.070.i) #44
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %iseq_builtin_function_lookup.exit, label %83
 
@@ -55327,7 +55327,7 @@ iseq_block_param_id_p.exit:                       ; preds = %301
   br label %359
 
 iseq_block_param_id_p.exit.thread:                ; preds = %301, %297, %._crit_edge.i.i, %257, %255
-  %326 = call fastcc ptr @get_nd_recv(ptr noundef nonnull readonly %2)
+  %326 = call fastcc ptr @get_nd_recv(ptr noundef nonnull %2)
   %.not.i99 = icmp eq ptr %326, null
   br i1 %.not.i99, label %private_recv_p.exit.thread, label %327
 
@@ -60820,7 +60820,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_attrasgn(ptr noundef %0, ptr
   br i1 %11, label %12, label %111
 
 12:                                               ; preds = %4
-  %13 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull readonly %2)
+  %13 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull %2)
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %private_recv_p.exit.thread, label %14
 
@@ -61004,7 +61004,7 @@ rb_obj_written.exit:                              ; preds = %84, %101
   br i1 %117, label %336, label %118
 
 118:                                              ; preds = %111
-  %119 = call fastcc ptr @get_nd_recv(ptr noundef nonnull readonly %2)
+  %119 = call fastcc ptr @get_nd_recv(ptr noundef nonnull %2)
   %.not.i158 = icmp eq ptr %119, null
   br i1 %.not.i158, label %private_recv_p.exit161.thread, label %120
 
@@ -72627,7 +72627,7 @@ iseq_compile_each.exit:                           ; preds = %220, %225
   br i1 %282, label %283, label %293
 
 283:                                              ; preds = %281
-  %284 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull readonly %2)
+  %284 = tail call fastcc ptr @get_nd_recv(ptr noundef nonnull %2)
   %.not.i = icmp eq ptr %284, null
   br i1 %.not.i, label %private_recv_p.exit, label %285
 
@@ -75397,7 +75397,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %rbimpl_size_mul_or_
   %128 = load ptr, ptr %127, align 8
   %129 = zext i32 %126 to i64
   %130 = shl nuw nsw i64 %129, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %121, ptr readonly align 1 %128, i64 %130, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr align 1 %128, i64 %130, i1 false)
   %.pre.i.i = load i32, ptr %125, align 4
   %131 = icmp eq i32 %.pre.i.i, 0
   br i1 %131, label %rb_iseq_original_iseq.exit.i, label %.lr.ph.i.i
@@ -75950,7 +75950,7 @@ ibf_dump_pos.exit:                                ; preds = %ibf_dump_pos.exit.p
   br i1 %397, label %398, label %ibf_dump_param_opt_table.exit
 
 398:                                              ; preds = %ibf_dump_pos.exit
-  call fastcc void @ibf_dump_align(ptr noundef nonnull readonly %0, i64 noundef 8)
+  call fastcc void @ibf_dump_align(ptr noundef nonnull %0, i64 noundef 8)
   %.val8.i = load ptr, ptr %78, align 8
   %.val8.val.i = load i64, ptr %.val8.i, align 8
   %399 = inttoptr i64 %.val8.val.i to ptr
@@ -85078,7 +85078,7 @@ define internal fastcc i64 @parse_rational(ptr nocapture noundef readonly %0) un
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %17
 
 17:                                               ; preds = %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %16, ptr readonly align 1 %8, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %8, i64 %14, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %6, %17
@@ -87471,7 +87471,7 @@ define internal fastcc void @pm_compile_branch_condition(ptr noundef %0, ptr nou
   %15 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %12, ptr noundef %.val, i32 noundef %14) #37
   %.sroa.0.0.extract.trunc.i = trunc i64 %15 to i32
   %16 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !282
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !282
   %sext = shl i64 %15, 32
   %17 = ashr exact i64 %sext, 17
   store i64 %17, ptr %8, align 8, !alias.scope !282
@@ -94049,7 +94049,7 @@ define internal fastcc void @pm_compile_index_operator_write_node(ptr noundef %0
   %15 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %12, ptr noundef %.val, i32 noundef %14) #37
   %.sroa.0.0.extract.trunc.i = trunc i64 %15 to i32
   %16 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !290
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !290
   %sext = shl i64 %15, 32
   %17 = ashr exact i64 %sext, 17
   store i64 %17, ptr %6, align 8, !alias.scope !290
@@ -94704,7 +94704,7 @@ define internal fastcc void @pm_compile_index_control_flow_write_node(ptr nounde
   %19 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %16, ptr noundef %.val, i32 noundef %18) #37
   %.sroa.0.0.extract.trunc.i = trunc i64 %19 to i32
   %20 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false), !alias.scope !293
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false), !alias.scope !293
   %sext = shl i64 %19, 32
   %21 = ashr exact i64 %sext, 17
   store i64 %21, ptr %10, align 8, !alias.scope !293
@@ -96083,7 +96083,7 @@ define internal fastcc void @pm_compile_target_node(ptr noundef %0, ptr nocaptur
   %19 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %16, ptr noundef %.val168, i32 noundef %18) #37
   %.sroa.0.0.extract.trunc.i = trunc i64 %19 to i32
   %20 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false), !alias.scope !301
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false), !alias.scope !301
   %sext = shl i64 %19, 32
   %21 = ashr exact i64 %sext, 17
   store i64 %21, ptr %10, align 8, !alias.scope !301
@@ -100537,7 +100537,7 @@ define internal fastcc void @pm_compile_destructured_param_write(ptr noundef %0,
   %13 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %10, ptr noundef %.val, i32 noundef %12) #37
   %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
   %14 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false), !alias.scope !310
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false), !alias.scope !310
   %sext = shl i64 %13, 32
   %15 = ashr exact i64 %sext, 17
   store i64 %15, ptr %6, align 8, !alias.scope !310

@@ -179,7 +179,7 @@ if.end.i:                                         ; preds = %entry
   %2 = load i32, ptr %last_proc_stream_id, align 4
   %state.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i, align 8
-  %call4.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %2, i32 noundef %error_code, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %2, i32 noundef %error_code, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.not.i, label %if.end8.i, label %session_terminate_session.exit
 
@@ -206,7 +206,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %state.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i, align 8
-  %call4.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %last_stream_id, i32 noundef %error_code, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %last_stream_id, i32 noundef %error_code, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.not.i, label %if.end8.i, label %session_terminate_session.exit
 
@@ -239,12 +239,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.end3.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %reason) #16
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reason) #16
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.end.i
   %debug_datalen.0.i = phi i64 [ %call.i, %if.else.i ], [ 0, %if.end.i ]
-  %call4.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %0, i32 noundef %error_code, ptr noundef readonly %reason, i64 noundef %debug_datalen.0.i, i8 noundef zeroext 1)
+  %call4.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %0, i32 noundef %error_code, ptr noundef %reason, i64 noundef %debug_datalen.0.i, i8 noundef zeroext 1)
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.not.i, label %if.end8.i, label %session_terminate_session.exit
 
@@ -319,7 +319,7 @@ define i32 @nghttp2_session_client_new(ptr nocapture noundef writeonly %session_
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
-  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef readonly %callbacks, ptr noundef %user_data, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 0, ptr noundef null, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %nghttp2_session_client_new3.exit
 
@@ -359,7 +359,7 @@ define i32 @nghttp2_session_client_new2(ptr nocapture noundef writeonly %session
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
-  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef readonly %callbacks, ptr noundef %user_data, i32 noundef 0, ptr noundef %option, ptr noundef null)
+  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 0, ptr noundef %option, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %nghttp2_session_client_new3.exit
 
@@ -892,7 +892,7 @@ define i32 @nghttp2_session_server_new(ptr nocapture noundef writeonly %session_
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
-  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef readonly %callbacks, ptr noundef %user_data, i32 noundef 1, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 1, ptr noundef null, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %nghttp2_session_server_new3.exit
 
@@ -932,7 +932,7 @@ define i32 @nghttp2_session_server_new2(ptr nocapture noundef writeonly %session
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
-  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef readonly %callbacks, ptr noundef %user_data, i32 noundef 1, ptr noundef %option, ptr noundef null)
+  %call.i = call fastcc i32 @session_new(ptr noundef nonnull %session.i, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 1, ptr noundef %option, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %nghttp2_session_server_new3.exit
 
@@ -3962,7 +3962,7 @@ for.cond.backedge:                                ; preds = %if.then74, %if.end8
 if.end.i.i125:                                    ; preds = %if.then74
   %117 = load i32, ptr %last_proc_stream_id.i, align 4
   store i32 15, ptr %state.i.i126, align 8
-  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %117, i32 noundef 2, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %117, i32 noundef 2, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %if.end8.i.i127, label %if.end76
 
@@ -4864,7 +4864,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.11, i64 noundef 31, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef 31, i8 noundef zeroext 1)
   %call4.i.i.i.fr = freeze i32 %call4.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i.fr, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %session_handle_invalid_connection.exit
@@ -4930,7 +4930,7 @@ if.end.i.i.i102:                                  ; preds = %if.end4.i98
   %16 = load i32, ptr %last_proc_stream_id.i.i99, align 4
   %state.i.i.i103 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i103, align 8
-  %call4.i.i.i105 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %16, i32 noundef 1, ptr noundef nonnull readonly @.str.12, i64 noundef 40, i8 noundef zeroext 1)
+  %call4.i.i.i105 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %16, i32 noundef 1, ptr noundef nonnull @.str.12, i64 noundef 40, i8 noundef zeroext 1)
   %call4.i.i.i105.fr = freeze i32 %call4.i.i.i105
   %cmp5.not.i.i.i106 = icmp eq i32 %call4.i.i.i105.fr, 0
   br i1 %cmp5.not.i.i.i106, label %if.end8.i.i.i107, label %session_handle_invalid_connection.exit108
@@ -4987,7 +4987,7 @@ if.end.i.i.i120:                                  ; preds = %if.end4.i116
   %24 = load i32, ptr %last_proc_stream_id.i.i117, align 4
   %state.i.i.i121 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i121, align 8
-  %call4.i.i.i123 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %24, i32 noundef 1, ptr noundef nonnull readonly @.str.14, i64 noundef 34, i8 noundef zeroext 1)
+  %call4.i.i.i123 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %24, i32 noundef 1, ptr noundef nonnull @.str.14, i64 noundef 34, i8 noundef zeroext 1)
   %call4.i.i.i123.fr = freeze i32 %call4.i.i.i123
   %cmp5.not.i.i.i124 = icmp eq i32 %call4.i.i.i123.fr, 0
   br i1 %cmp5.not.i.i.i124, label %if.end8.i.i.i125, label %session_handle_invalid_connection.exit126
@@ -5058,7 +5058,7 @@ if.end.i.i.i138:                                  ; preds = %if.end4.i134
   %35 = load i32, ptr %last_proc_stream_id.i.i135, align 4
   %state.i.i.i139 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i139, align 8
-  %call4.i.i.i141 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %35, i32 noundef 1, ptr noundef nonnull readonly @.str.16, i64 noundef 48, i8 noundef zeroext 1)
+  %call4.i.i.i141 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %35, i32 noundef 1, ptr noundef nonnull @.str.16, i64 noundef 48, i8 noundef zeroext 1)
   %call4.i.i.i141.fr = freeze i32 %call4.i.i.i141
   %cmp5.not.i.i.i142 = icmp eq i32 %call4.i.i.i141.fr, 0
   br i1 %cmp5.not.i.i.i142, label %if.end8.i.i.i143, label %session_handle_invalid_connection.exit144
@@ -5118,7 +5118,7 @@ if.end.i.i.i156:                                  ; preds = %if.end4.i152
   %46 = load i32, ptr %last_proc_stream_id.i.i153, align 4
   %state.i.i.i157 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i157, align 8
-  %call4.i.i.i159 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %46, i32 noundef 1, ptr noundef nonnull readonly @.str.17, i64 noundef 33, i8 noundef zeroext 1)
+  %call4.i.i.i159 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %46, i32 noundef 1, ptr noundef nonnull @.str.17, i64 noundef 33, i8 noundef zeroext 1)
   %call4.i.i.i159.fr = freeze i32 %call4.i.i.i159
   %cmp5.not.i.i.i160 = icmp eq i32 %call4.i.i.i159.fr, 0
   br i1 %cmp5.not.i.i.i160, label %if.end8.i.i.i161, label %session_handle_invalid_connection.exit162
@@ -5274,7 +5274,7 @@ if.end.i.i.i32:                                   ; preds = %if.end4.i28
   %11 = load i32, ptr %last_proc_stream_id.i.i29, align 4
   %state.i.i.i33 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i33, align 8
-  %call4.i.i.i35 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %11, i32 noundef 5, ptr noundef nonnull readonly @.str.15, i64 noundef 22, i8 noundef zeroext 1)
+  %call4.i.i.i35 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %11, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 22, i8 noundef zeroext 1)
   %call4.i.i.i35.fr = freeze i32 %call4.i.i.i35
   %cmp5.not.i.i.i36 = icmp eq i32 %call4.i.i.i35.fr, 0
   br i1 %cmp5.not.i.i.i36, label %if.end8.i.i.i37, label %session_handle_invalid_connection.exit38
@@ -5357,7 +5357,7 @@ if.end.i.i.i47:                                   ; preds = %if.end4.i
   %6 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %6, i32 noundef 1, ptr noundef nonnull readonly @.str.21, i64 noundef 37, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %6, i32 noundef 1, ptr noundef nonnull @.str.21, i64 noundef 37, i8 noundef zeroext 1)
   %call4.i.i.i.fr = freeze i32 %call4.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i.fr, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %session_handle_invalid_connection.exit
@@ -5406,7 +5406,7 @@ if.end.i.i.i58:                                   ; preds = %if.end4.i54
   %14 = load i32, ptr %last_proc_stream_id.i.i55, align 4
   %state.i.i.i59 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i59, align 8
-  %call4.i.i.i61 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 1, ptr noundef nonnull readonly @.str.22, i64 noundef 57, i8 noundef zeroext 1)
+  %call4.i.i.i61 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 1, ptr noundef nonnull @.str.22, i64 noundef 57, i8 noundef zeroext 1)
   %call4.i.i.i61.fr = freeze i32 %call4.i.i.i61
   %cmp5.not.i.i.i62 = icmp eq i32 %call4.i.i.i61.fr, 0
   br i1 %cmp5.not.i.i.i62, label %if.end8.i.i.i63, label %session_handle_invalid_connection.exit64
@@ -5458,7 +5458,7 @@ if.end.i.i.i76:                                   ; preds = %if.end4.i72
   %23 = load i32, ptr %last_proc_stream_id.i.i73, align 4
   %state.i.i.i77 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i77, align 8
-  %call4.i.i.i79 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %23, i32 noundef 1, ptr noundef nonnull readonly @.str.23, i64 noundef 54, i8 noundef zeroext 1)
+  %call4.i.i.i79 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %23, i32 noundef 1, ptr noundef nonnull @.str.23, i64 noundef 54, i8 noundef zeroext 1)
   %call4.i.i.i79.fr = freeze i32 %call4.i.i.i79
   %cmp5.not.i.i.i80 = icmp eq i32 %call4.i.i.i79.fr, 0
   br i1 %cmp5.not.i.i.i80, label %if.end8.i.i.i81, label %session_handle_invalid_connection.exit82
@@ -5596,7 +5596,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.24, i64 noundef 23, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.24, i64 noundef 23, i8 noundef zeroext 1)
   %call4.i.i.i.fr = freeze i32 %call4.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i.fr, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %session_handle_invalid_connection.exit
@@ -5646,7 +5646,7 @@ if.end.i.i.i47:                                   ; preds = %if.end4.i43
   %14 = load i32, ptr %last_proc_stream_id.i.i44, align 4
   %state.i.i.i48 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i48, align 8
-  %call4.i.i.i50 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 5, ptr noundef nonnull readonly @.str.15, i64 noundef 22, i8 noundef zeroext 1)
+  %call4.i.i.i50 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 22, i8 noundef zeroext 1)
   %call4.i.i.i50.fr = freeze i32 %call4.i.i.i50
   %cmp5.not.i.i.i51 = icmp eq i32 %call4.i.i.i50.fr, 0
   br i1 %cmp5.not.i.i.i51, label %if.end8.i.i.i52, label %session_handle_invalid_connection.exit53
@@ -5768,7 +5768,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %7 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %7, i32 noundef 1, ptr noundef nonnull readonly @.str.26, i64 noundef 24, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %7, i32 noundef 1, ptr noundef nonnull @.str.26, i64 noundef 24, i8 noundef zeroext 1)
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return
 
@@ -5796,7 +5796,7 @@ if.end.i.i:                                       ; preds = %if.then7
   %13 = load i32, ptr %last_proc_stream_id.i, align 4
   %state.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i, align 8
-  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %13, i32 noundef 1, ptr noundef nonnull readonly @.str.27, i64 noundef 16, i8 noundef zeroext 1)
+  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %13, i32 noundef 1, ptr noundef nonnull @.str.27, i64 noundef 16, i8 noundef zeroext 1)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %return
 
@@ -5961,12 +5961,12 @@ if.end.i.i:                                       ; preds = %get_error_code_from
   br i1 %cmp.i.i, label %if.end3.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %reason) #16
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reason) #16
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.else.i.i, %if.end.i.i
   %debug_datalen.0.i.i = phi i64 [ %call.i.i, %if.else.i.i ], [ 0, %if.end.i.i ]
-  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %2, i32 noundef %retval.0.i, ptr noundef readonly %reason, i64 noundef %debug_datalen.0.i.i, i8 noundef zeroext 1)
+  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %2, i32 noundef %retval.0.i, ptr noundef %reason, i64 noundef %debug_datalen.0.i.i, i8 noundef zeroext 1)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %return
 
@@ -6014,7 +6014,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.28, i64 noundef 26, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.28, i64 noundef 26, i8 noundef zeroext 1)
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return
 
@@ -6070,7 +6070,7 @@ if.end.i.i.i32:                                   ; preds = %if.end4.i28
   %17 = load i32, ptr %last_proc_stream_id.i.i29, align 4
   %state.i.i.i33 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i33, align 8
-  %call4.i.i.i35 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %17, i32 noundef 1, ptr noundef nonnull readonly @.str.29, i64 noundef 26, i8 noundef zeroext 1)
+  %call4.i.i.i35 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %17, i32 noundef 1, ptr noundef nonnull @.str.29, i64 noundef 26, i8 noundef zeroext 1)
   %cmp5.not.i.i.i36 = icmp eq i32 %call4.i.i.i35, 0
   br i1 %cmp5.not.i.i.i36, label %if.end8.i.i.i37, label %return
 
@@ -6342,7 +6342,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.30, i64 noundef 24, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.30, i64 noundef 24, i8 noundef zeroext 1)
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return
 
@@ -6390,7 +6390,7 @@ if.end.i.i.i127:                                  ; preds = %if.end4.i123
   %15 = load i32, ptr %last_proc_stream_id.i.i124, align 4
   %state.i.i.i128 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i128, align 8
-  %call4.i.i.i130 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %15, i32 noundef 6, ptr noundef nonnull readonly @.str.31, i64 noundef 30, i8 noundef zeroext 1)
+  %call4.i.i.i130 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %15, i32 noundef 6, ptr noundef nonnull @.str.31, i64 noundef 30, i8 noundef zeroext 1)
   %cmp5.not.i.i.i131 = icmp eq i32 %call4.i.i.i130, 0
   br i1 %cmp5.not.i.i.i131, label %if.end8.i.i.i132, label %return
 
@@ -6431,7 +6431,7 @@ if.end.i.i.i145:                                  ; preds = %if.end4.i141
   %23 = load i32, ptr %last_proc_stream_id.i.i142, align 4
   %state.i.i.i146 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i146, align 8
-  %call4.i.i.i148 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %23, i32 noundef 1, ptr noundef nonnull readonly @.str.32, i64 noundef 24, i8 noundef zeroext 1)
+  %call4.i.i.i148 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %23, i32 noundef 1, ptr noundef nonnull @.str.32, i64 noundef 24, i8 noundef zeroext 1)
   %cmp5.not.i.i.i149 = icmp eq i32 %call4.i.i.i148, 0
   br i1 %cmp5.not.i.i.i149, label %if.end8.i.i.i150, label %return
 
@@ -7070,7 +7070,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.41, i64 noundef 28, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.41, i64 noundef 28, i8 noundef zeroext 1)
   %call4.i.i.i.fr = freeze i32 %call4.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i.fr, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %session_handle_invalid_connection.exit
@@ -7125,7 +7125,7 @@ if.end.i.i.i85:                                   ; preds = %if.end4.i81
   %14 = load i32, ptr %last_proc_stream_id.i.i82, align 4
   %state.i.i.i86 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i86, align 8
-  %call4.i.i.i88 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 1, ptr noundef nonnull readonly @.str.42, i64 noundef 27, i8 noundef zeroext 1)
+  %call4.i.i.i88 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 1, ptr noundef nonnull @.str.42, i64 noundef 27, i8 noundef zeroext 1)
   %call4.i.i.i88.fr = freeze i32 %call4.i.i.i88
   %cmp5.not.i.i.i89 = icmp eq i32 %call4.i.i.i88.fr, 0
   br i1 %cmp5.not.i.i.i89, label %if.end8.i.i.i90, label %session_handle_invalid_connection.exit91
@@ -7173,7 +7173,7 @@ if.end.i.i.i103:                                  ; preds = %if.end4.i99
   %21 = load i32, ptr %last_proc_stream_id.i.i100, align 4
   %state.i.i.i104 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i104, align 8
-  %call4.i.i.i106 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %21, i32 noundef 1, ptr noundef nonnull readonly @.str.43, i64 noundef 31, i8 noundef zeroext 1)
+  %call4.i.i.i106 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %21, i32 noundef 1, ptr noundef nonnull @.str.43, i64 noundef 31, i8 noundef zeroext 1)
   %call4.i.i.i106.fr = freeze i32 %call4.i.i.i106
   %cmp5.not.i.i.i107 = icmp eq i32 %call4.i.i.i106.fr, 0
   br i1 %cmp5.not.i.i.i107, label %if.end8.i.i.i108, label %session_handle_invalid_connection.exit109
@@ -7240,7 +7240,7 @@ if.end.i.i.i121:                                  ; preds = %if.end4.i117
   %33 = load i32, ptr %last_proc_stream_id.i.i118, align 4
   %state.i.i.i122 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i122, align 8
-  %call4.i.i.i124 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %33, i32 noundef 1, ptr noundef nonnull readonly @.str.44, i64 noundef 40, i8 noundef zeroext 1)
+  %call4.i.i.i124 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %33, i32 noundef 1, ptr noundef nonnull @.str.44, i64 noundef 40, i8 noundef zeroext 1)
   %call4.i.i.i124.fr = freeze i32 %call4.i.i.i124
   %cmp5.not.i.i.i125 = icmp eq i32 %call4.i.i.i124.fr, 0
   br i1 %cmp5.not.i.i.i125, label %if.end8.i.i.i126, label %session_handle_invalid_connection.exit127
@@ -7292,7 +7292,7 @@ if.end.i.i.i139:                                  ; preds = %if.end4.i135
   %41 = load i32, ptr %last_proc_stream_id.i.i136, align 4
   %state.i.i.i140 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i140, align 8
-  %call4.i.i.i142 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %41, i32 noundef 1, ptr noundef nonnull readonly @.str.45, i64 noundef 28, i8 noundef zeroext 1)
+  %call4.i.i.i142 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %41, i32 noundef 1, ptr noundef nonnull @.str.45, i64 noundef 28, i8 noundef zeroext 1)
   %call4.i.i.i142.fr = freeze i32 %call4.i.i.i142
   %cmp5.not.i.i.i143 = icmp eq i32 %call4.i.i.i142.fr, 0
   br i1 %cmp5.not.i.i.i143, label %if.end8.i.i.i144, label %session_handle_invalid_connection.exit145
@@ -7423,7 +7423,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.47, i64 noundef 20, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.47, i64 noundef 20, i8 noundef zeroext 1)
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return
 
@@ -7588,7 +7588,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %5 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull readonly @.str.48, i64 noundef 22, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %5, i32 noundef 1, ptr noundef nonnull @.str.48, i64 noundef 22, i8 noundef zeroext 1)
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return
 
@@ -7643,7 +7643,7 @@ if.end.i.i.i30:                                   ; preds = %if.end4.i26
   %17 = load i32, ptr %last_proc_stream_id.i.i27, align 4
   %state.i.i.i31 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i31, align 8
-  %call4.i.i.i33 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %17, i32 noundef 1, ptr noundef nonnull readonly @.str.49, i64 noundef 30, i8 noundef zeroext 1)
+  %call4.i.i.i33 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %17, i32 noundef 1, ptr noundef nonnull @.str.49, i64 noundef 30, i8 noundef zeroext 1)
   %cmp5.not.i.i.i34 = icmp eq i32 %call4.i.i.i33, 0
   br i1 %cmp5.not.i.i.i34, label %if.end8.i.i.i35, label %return
 
@@ -7829,7 +7829,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end4.i.i
   %6 = load i32, ptr %last_proc_stream_id.i.i.i, align 4
   %state.i.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i.i, align 8
-  %call4.i.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %6, i32 noundef 1, ptr noundef nonnull readonly @.str.92, i64 noundef 41, i8 noundef zeroext 1)
+  %call4.i.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %6, i32 noundef 1, ptr noundef nonnull @.str.92, i64 noundef 41, i8 noundef zeroext 1)
   %cmp5.not.i.i.i.i = icmp eq i32 %call4.i.i.i.i, 0
   br i1 %cmp5.not.i.i.i.i, label %if.end8.i.i.i.i, label %return
 
@@ -7871,7 +7871,7 @@ if.end.i.i.i22.i:                                 ; preds = %if.end4.i18.i
   %14 = load i32, ptr %last_proc_stream_id.i.i19.i, align 4
   %state.i.i.i23.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i23.i, align 8
-  %call4.i.i.i24.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 3, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i.i24.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %14, i32 noundef 3, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i.i.i25.i = icmp eq i32 %call4.i.i.i24.i, 0
   br i1 %cmp5.not.i.i.i25.i, label %if.end8.i.i.i26.i, label %return
 
@@ -7945,7 +7945,7 @@ if.end.i.i.i.i21:                                 ; preds = %if.end4.i.i18
   %28 = load i32, ptr %last_proc_stream_id.i.i.i22, align 4
   %state.i.i.i.i23 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i.i23, align 8
-  %call4.i.i.i.i24 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %28, i32 noundef 1, ptr noundef nonnull readonly @.str.93, i64 noundef 28, i8 noundef zeroext 1)
+  %call4.i.i.i.i24 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %28, i32 noundef 1, ptr noundef nonnull @.str.93, i64 noundef 28, i8 noundef zeroext 1)
   %cmp5.not.i.i.i.i25 = icmp eq i32 %call4.i.i.i.i24, 0
   br i1 %cmp5.not.i.i.i.i25, label %if.end8.i.i.i.i26, label %return
 
@@ -8013,7 +8013,7 @@ if.end.i.i.i48.i:                                 ; preds = %if.end4.i44.i
   %42 = load i32, ptr %last_proc_stream_id.i.i45.i, align 4
   %state.i.i.i49.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i49.i, align 8
-  %call4.i.i.i51.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %42, i32 noundef 1, ptr noundef nonnull readonly @.str.94, i64 noundef 33, i8 noundef zeroext 1)
+  %call4.i.i.i51.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %42, i32 noundef 1, ptr noundef nonnull @.str.94, i64 noundef 33, i8 noundef zeroext 1)
   %cmp5.not.i.i.i52.i = icmp eq i32 %call4.i.i.i51.i, 0
   br i1 %cmp5.not.i.i.i52.i, label %if.end8.i.i.i53.i, label %return
 
@@ -8054,7 +8054,7 @@ if.end.i.i.i66.i:                                 ; preds = %if.end4.i62.i
   %50 = load i32, ptr %last_proc_stream_id.i.i63.i, align 4
   %state.i.i.i67.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i67.i, align 8
-  %call4.i.i.i69.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %50, i32 noundef 1, ptr noundef nonnull readonly @.str.92, i64 noundef 41, i8 noundef zeroext 1)
+  %call4.i.i.i69.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %50, i32 noundef 1, ptr noundef nonnull @.str.92, i64 noundef 41, i8 noundef zeroext 1)
   %cmp5.not.i.i.i70.i = icmp eq i32 %call4.i.i.i69.i, 0
   br i1 %cmp5.not.i.i.i70.i, label %if.end8.i.i.i71.i, label %return
 
@@ -8314,7 +8314,7 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   %7 = load i32, ptr %last_proc_stream_id.i.i, align 4
   %state.i.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i, align 8
-  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %7, i32 noundef 1, ptr noundef nonnull readonly @.str.50, i64 noundef 31, i8 noundef zeroext 1)
+  %call4.i.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %7, i32 noundef 1, ptr noundef nonnull @.str.50, i64 noundef 31, i8 noundef zeroext 1)
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return
 
@@ -8363,7 +8363,7 @@ if.end.i.i.i56:                                   ; preds = %if.end4.i52
   %16 = load i32, ptr %last_proc_stream_id.i.i53, align 4
   %state.i.i.i57 = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i.i57, align 8
-  %call4.i.i.i59 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %16, i32 noundef 1, ptr noundef nonnull readonly @.str.51, i64 noundef 54, i8 noundef zeroext 1)
+  %call4.i.i.i59 = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %16, i32 noundef 1, ptr noundef nonnull @.str.51, i64 noundef 54, i8 noundef zeroext 1)
   %cmp5.not.i.i.i60 = icmp eq i32 %call4.i.i.i59, 0
   br i1 %cmp5.not.i.i.i60, label %if.end8.i.i.i61, label %return
 
@@ -8830,7 +8830,7 @@ if.end.i.i:                                       ; preds = %if.then
   %4 = load i32, ptr %last_proc_stream_id.i, align 4
   %state.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i, align 8
-  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %4, i32 noundef 3, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %4, i32 noundef 3, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %return
 
@@ -9260,8 +9260,8 @@ fail.i:                                           ; preds = %if.end32.i, %if.the
 if.end.i.i.i:                                     ; preds = %fail.i
   %43 = load i32, ptr %last_proc_stream_id.i.i929, align 4
   store i32 15, ptr %state, align 8
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %failure_reason.0.i) #16
-  %call4.i.i.i = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %43, i32 noundef %error_code.0.i, ptr noundef nonnull readonly %failure_reason.0.i, i64 noundef %call.i.i.i, i8 noundef zeroext 1)
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %failure_reason.0.i) #16
+  %call4.i.i.i = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %43, i32 noundef %error_code.0.i, ptr noundef nonnull %failure_reason.0.i, i64 noundef %call.i.i.i, i8 noundef zeroext 1)
   %call4.i.i.fr.i = freeze i32 %call4.i.i.i
   %cmp5.not.i.i.i = icmp eq i32 %call4.i.i.fr.i, 0
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %nghttp2_session_terminate_session_with_reason.exit.i
@@ -10437,7 +10437,7 @@ if.end28.i:                                       ; preds = %if.then20.i, %land.
 if.end.i.i.i928:                                  ; preds = %if.end28.i
   %160 = load i32, ptr %last_proc_stream_id.i.i929, align 4
   store i32 15, ptr %state, align 8
-  %call4.i.i.i930 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %160, i32 noundef 9, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i.i930 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %160, i32 noundef 9, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %call4.i.i.fr.i931 = freeze i32 %call4.i.i.i930
   %cmp5.not.i.i.i932 = icmp eq i32 %call4.i.i.fr.i931, 0
   br i1 %cmp5.not.i.i.i932, label %if.end8.i.i.i933, label %nghttp2_session_terminate_session.exit.i
@@ -12336,7 +12336,7 @@ if.end.i.i:                                       ; preds = %entry
   %2 = load i32, ptr %last_proc_stream_id.i, align 4
   %state.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i, align 8
-  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %2, i32 noundef 6, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %2, i32 noundef 6, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %nghttp2_session_terminate_session.exit
 
@@ -14993,7 +14993,7 @@ if.end.i.i:                                       ; preds = %if.then
   %3 = load i32, ptr %last_proc_stream_id.i, align 4
   %state.i.i = getelementptr inbounds i8, ptr %session, i64 952
   store i32 15, ptr %state.i.i, align 8
-  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %3, i32 noundef 3, ptr noundef readonly null, i64 noundef 0, i8 noundef zeroext 1)
+  %call4.i.i = tail call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %session, i32 noundef %3, i32 noundef 3, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %return
 

@@ -79,7 +79,7 @@ land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
 
 match.exit.i.i:                                   ; preds = %land.lhs.true3.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i.i)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %cond.true.i, label %if.end6.i.i
 
@@ -164,7 +164,7 @@ land.lhs.true3.i.i:                               ; preds = %for.body.i
   br i1 %cmp5.i10.i, label %match.exit.i, label %if.end6.i
 
 match.exit.i:                                     ; preds = %land.lhs.true3.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %cond.true, label %if.end6.i
 
@@ -387,7 +387,7 @@ land.lhs.true3.i:                                 ; preds = %for.body.i
   br i1 %cmp5.i, label %match.exit, label %for.inc.i
 
 match.exit:                                       ; preds = %land.lhs.true3.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %16, ptr readonly %key, i64 %conv.i2)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %16, ptr %key, i64 %conv.i2)
   %cmp7.i3 = icmp eq i32 %bcmp.i, 0
   br i1 %cmp7.i3, label %get_or_insert_entry.exit, label %for.inc.i
 
@@ -483,7 +483,7 @@ land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
 
 match.exit.i.i:                                   ; preds = %land.lhs.true3.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i.i)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %if.then.i, label %if.end6.i.i
 
@@ -566,7 +566,7 @@ land.lhs.true3.i.i:                               ; preds = %for.body.i
   br i1 %cmp5.i10.i, label %match.exit.i, label %if.end6.i
 
 match.exit.i:                                     ; preds = %land.lhs.true3.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %if.then, label %if.end6.i
 

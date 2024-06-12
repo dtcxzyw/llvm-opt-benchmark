@@ -210,7 +210,7 @@ if.end30.us.i:                                    ; preds = %while.cond3.while.e
 while.body5.us.i:                                 ; preds = %while.cond3.preheader.us.i, %checkEscapes.us.i
   %indvars.iv60.i = phi i64 [ 0, %while.cond3.preheader.us.i ], [ %indvars.iv.next61.i, %checkEscapes.us.i ]
   %arrayidx7.us.i = getelementptr inbounds [5 x i8], ptr @_ZN6icu_75L22escapeSequences_2022JPE, i64 %indvars.iv60.i
-  %call.us.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx7.us.i) #10
+  %call.us.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx7.us.i) #10
   %conv8.us.i = trunc i64 %call.us.i to i32
   %cmp9.not.us.i = icmp slt i32 %sub.us.i, %conv8.us.i
   br i1 %cmp9.not.us.i, label %checkEscapes.us.i, label %while.cond11.preheader.us.i
@@ -457,7 +457,7 @@ if.end30.us.i:                                    ; preds = %while.cond3.while.e
 while.body5.us.i:                                 ; preds = %while.cond3.preheader.us.i, %checkEscapes.us.i
   %indvars.iv60.i = phi i64 [ 0, %while.cond3.preheader.us.i ], [ %indvars.iv.next61.i, %checkEscapes.us.i ]
   %arrayidx7.us.i = getelementptr inbounds [5 x i8], ptr @_ZN6icu_75L22escapeSequences_2022CNE, i64 %indvars.iv60.i
-  %call.us.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx7.us.i) #10
+  %call.us.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx7.us.i) #10
   %conv8.us.i = trunc i64 %call.us.i to i32
   %cmp9.not.us.i = icmp slt i32 %sub.us.i, %conv8.us.i
   br i1 %cmp9.not.us.i, label %checkEscapes.us.i, label %while.cond11.preheader.us.i

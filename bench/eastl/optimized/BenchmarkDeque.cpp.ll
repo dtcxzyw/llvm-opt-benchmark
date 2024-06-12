@@ -143,7 +143,7 @@ for.cond.preheader:                               ; preds = %for.body.i
 for.body:                                         ; preds = %for.cond.preheader, %_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
   %cmp31 = phi i1 [ false, %for.cond.preheader ], [ true, %_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit ]
   %cmp24 = phi i1 [ true, %for.cond.preheader ], [ false, %_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %stdDeque, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stdDeque, i8 0, i64 80, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i, align 8
   %call5.i.i2.i.i1.i.i43 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
           to label %call5.i.i2.i.i1.i.i.noexc unwind label %lpad22
@@ -354,7 +354,7 @@ if.then14.i:                                      ; preds = %if.then.i1927
 if.then.i.i.i.i.i.i1933:                          ; preds = %if.then14.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr21.i to i64
   %sub.ptr.sub.i.i.i.i.i.i1934 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i933
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i1928, ptr nonnull align 8 %24, i64 %sub.ptr.sub.i.i.i.i.i.i1934, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i1928, ptr nonnull align 8 %24, i64 %sub.ptr.sub.i.i.i.i.i.i1934, i1 false)
   br label %.noexc964
 
 if.else.i1929:                                    ; preds = %if.then.i1927
@@ -367,7 +367,7 @@ if.then.i.i.i.i.i22.i:                            ; preds = %if.else.i1929
   %.pre.i.i.i.i.i.i1931 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1930
   %add.ptr29.i1932 = getelementptr inbounds ptr, ptr %add.ptr.i1928, i64 %add.i1918
   %add.ptr.i.i.i.i.i23.i = getelementptr inbounds ptr, ptr %add.ptr29.i1932, i64 %.pre.i.i.i.i.i.i1931
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i.i.i23.i, ptr align 8 %24, i64 %sub.ptr.sub.i.i.i.i.i20.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i, ptr align 8 %24, i64 %sub.ptr.sub.i.i.i.i.i20.i, i1 false)
   br label %.noexc964
 
 if.else31.i:                                      ; preds = %if.then.i.i.i960
@@ -411,7 +411,7 @@ call5.i.i2.i.i.noexc:                             ; preds = %_ZNSt11_Deque_baseI
 if.then.i.i.i.i.i28.i:                            ; preds = %call5.i.i2.i.i.noexc
   %sub.ptr.lhs.cast.i.i.i.i.i24.i = ptrtoint ptr %add.ptr55.i to i64
   %sub.ptr.sub.i.i.i.i.i26.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24.i, %sub.ptr.rhs.cast.i.i.i.i933
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr42.i, ptr align 8 %24, i64 %sub.ptr.sub.i.i.i.i.i26.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr42.i, ptr align 8 %24, i64 %sub.ptr.sub.i.i.i.i.i26.i, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_19ValuePairES3_ET0_T_S5_S4_.exit30.i
 
 _ZSt4copyIPPN12_GLOBAL__N_19ValuePairES3_ET0_T_S5_S4_.exit30.i: ; preds = %if.then.i.i.i.i.i28.i, %call5.i.i2.i.i.noexc
@@ -815,7 +815,7 @@ if.then14.i1993:                                  ; preds = %if.then.i1978
 if.then.i.i.i.i.i.i1994:                          ; preds = %if.then14.i1993
   %sub.ptr.lhs.cast.i.i.i.i.i.i1995 = ptrtoint ptr %add.ptr21.i1983 to i64
   %sub.ptr.sub.i.i.i.i.i.i1996 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i1995, %sub.ptr.rhs.cast.i.i.i.i990
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr9.i, ptr nonnull align 8 %67, i64 %sub.ptr.sub.i.i.i.i.i.i1996, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr9.i, ptr nonnull align 8 %67, i64 %sub.ptr.sub.i.i.i.i.i.i1996, i1 false)
   br label %.noexc1020
 
 if.else.i1985:                                    ; preds = %if.then.i1978
@@ -828,7 +828,7 @@ if.then.i.i.i.i.i22.i1986:                        ; preds = %if.else.i1985
   %.pre.i.i.i.i.i.i1990 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1989
   %add.ptr29.i1991 = getelementptr inbounds ptr, ptr %add.ptr9.i, i64 %add.i1944
   %add.ptr.i.i.i.i.i23.i1992 = getelementptr inbounds ptr, ptr %add.ptr29.i1991, i64 %.pre.i.i.i.i.i.i1990
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i.i.i.i.i23.i1992, ptr align 8 %67, i64 %sub.ptr.sub.i.i.i.i.i20.i1988, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i23.i1992, ptr align 8 %67, i64 %sub.ptr.sub.i.i.i.i.i20.i1988, i1 false)
   br label %.noexc1020
 
 if.else31.i1949:                                  ; preds = %if.then.i.i.i1016
@@ -859,7 +859,7 @@ call5.i.i2.i.i.noexc1999:                         ; preds = %_ZNSt11_Deque_baseI
 if.then.i.i.i.i.i28.i1961:                        ; preds = %call5.i.i2.i.i.noexc1999
   %sub.ptr.lhs.cast.i.i.i.i.i24.i1962 = ptrtoint ptr %add.ptr55.i1959 to i64
   %sub.ptr.sub.i.i.i.i.i26.i1963 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24.i1962, %sub.ptr.rhs.cast.i.i.i.i990
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr48.i, ptr align 8 %67, i64 %sub.ptr.sub.i.i.i.i.i26.i1963, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr48.i, ptr align 8 %67, i64 %sub.ptr.sub.i.i.i.i.i26.i1963, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_19ValuePairES3_ET0_T_S5_S4_.exit30.i1964
 
 _ZSt4copyIPPN12_GLOBAL__N_19ValuePairES3_ET0_T_S5_S4_.exit30.i1964: ; preds = %if.then.i.i.i.i.i28.i1961, %call5.i.i2.i.i.noexc1999
@@ -3089,7 +3089,7 @@ while.body.i.i.i.i.i1114:                         ; preds = %if.then.i.i.i.i1092
 
 if.then.i.i.i.i.i.i.i.i1123:                      ; preds = %while.body.i.i.i.i.i1114
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %.sroa.speculated.i.i.i.i.i1121, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp.sroa.0.0.i.i.i.i1115, ptr align 4 %__first.addr.016.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i, i1 false), !noalias !108
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp.sroa.0.0.i.i.i.i1115, ptr align 4 %__first.addr.016.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i, i1 false), !noalias !108
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i.i.i.i.i
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i1123, %while.body.i.i.i.i.i1114
@@ -3171,7 +3171,7 @@ while.body.i29.i.i.i.i:                           ; preds = %_ZNSt15_Deque_itera
 
 if.then.i.i.i.i39.i.i.i.i:                        ; preds = %while.body.i29.i.i.i.i
   %add.ptr.idx.i40.i.i.i.i = shl nsw i64 %.sroa.speculated.i36.i.i.i.i, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp7.sroa.0.0.i.i.i.i1099, ptr align 4 %__first.addr.016.i30.i.i.i.i, i64 %add.ptr.idx.i40.i.i.i.i, i1 false), !noalias !121
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp7.sroa.0.0.i.i.i.i1099, ptr align 4 %__first.addr.016.i30.i.i.i.i, i64 %add.ptr.idx.i40.i.i.i.i, i1 false), !noalias !121
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i43.i.i.i.i
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i43.i.i.i.i: ; preds = %if.then.i.i.i.i39.i.i.i.i, %while.body.i29.i.i.i.i
@@ -3252,7 +3252,7 @@ while.body.i94.i.i.i.i:                           ; preds = %for.end.i.i.i.i1104
 
 if.then.i.i.i.i104.i.i.i.i:                       ; preds = %while.body.i94.i.i.i.i
   %add.ptr.idx.i105.i.i.i.i = shl nsw i64 %.sroa.speculated.i101.i.i.i.i, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp9.sroa.0.0.i.i.i.i1111, ptr align 4 %__first.addr.016.i95.i.i.i.i, i64 %add.ptr.idx.i105.i.i.i.i, i1 false), !noalias !125
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp9.sroa.0.0.i.i.i.i1111, ptr align 4 %__first.addr.016.i95.i.i.i.i, i64 %add.ptr.idx.i105.i.i.i.i, i1 false), !noalias !125
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i108.i.i.i.i
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i108.i.i.i.i: ; preds = %if.then.i.i.i.i104.i.i.i.i, %while.body.i94.i.i.i.i
@@ -3323,7 +3323,7 @@ while.body.i159.i.i.i.i:                          ; preds = %if.end.i.i.i.i1131,
 
 if.then.i.i.i.i169.i.i.i.i:                       ; preds = %while.body.i159.i.i.i.i
   %add.ptr.idx.i170.i.i.i.i = shl nsw i64 %.sroa.speculated.i166.i.i.i.i, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp12.sroa.0.0.i.i.i.i1133, ptr align 4 %__first.addr.016.i160.i.i.i.i, i64 %add.ptr.idx.i170.i.i.i.i, i1 false), !noalias !128
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp12.sroa.0.0.i.i.i.i1133, ptr align 4 %__first.addr.016.i160.i.i.i.i, i64 %add.ptr.idx.i170.i.i.i.i, i1 false), !noalias !128
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i173.i.i.i.i
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i173.i.i.i.i: ; preds = %if.then.i.i.i.i169.i.i.i.i, %while.body.i159.i.i.i.i
@@ -3552,7 +3552,7 @@ if.then.i.i.i.i.i.i.i.i1076:                      ; preds = %if.end.i.i.i.i.i, %
   %add.ptr833.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i.i.i.i.i, i64 %idx.neg31.i.i.i.i.i
   %add.ptr8.idx.neg.i.i.i.i.i = shl nsw i64 %.sroa.speculated29.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i.i1077 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i.i.i.i.i, i64 %idx.neg31.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i.i.i.i.i1077, ptr nonnull align 4 %add.ptr833.i.i.i.i.i, i64 %add.ptr8.idx.neg.i.i.i.i.i, i1 false), !noalias !134
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i.i1077, ptr nonnull align 4 %add.ptr833.i.i.i.i.i, i64 %add.ptr8.idx.neg.i.i.i.i.i, i1 false), !noalias !134
   %add.i.i.i.i.i.i.i = sub nsw i64 %.pre21.i.pre-phi.i.i.i.i, %.sroa.speculated29.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i1078 = icmp sgt i64 %add.i.i.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i.i.i1078, label %land.lhs.true.i.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i
@@ -3639,7 +3639,7 @@ if.then.i.i.i.i40.i.i.i.i:                        ; preds = %if.end.i34.i.i.i.i,
   %add.ptr833.i44.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i31.i.i.i.i, i64 %idx.neg31.i43.i.i.i.i
   %add.ptr8.idx.neg.i45.i.i.i.i = shl nsw i64 %.sroa.speculated29.i41.i.i.i.i, 3
   %add.ptr.i.i.i.i47.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i42.i.i.i.i, i64 %idx.neg31.i43.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i47.i.i.i.i, ptr nonnull align 4 %add.ptr833.i44.i.i.i.i, i64 %add.ptr8.idx.neg.i45.i.i.i.i, i1 false), !noalias !147
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i47.i.i.i.i, ptr nonnull align 4 %add.ptr833.i44.i.i.i.i, i64 %add.ptr8.idx.neg.i45.i.i.i.i, i1 false), !noalias !147
   %add.i.i.i54.i.i.i.i = sub nsw i64 %.pre21.i53.pre-phi.i.i.i.i, %.sroa.speculated29.i41.i.i.i.i
   %cmp.i.i.i55.i.i.i.i = icmp sgt i64 %add.i.i.i54.i.i.i.i, -1
   br i1 %cmp.i.i.i55.i.i.i.i, label %land.lhs.true.i.i.i69.i.i.i.i, label %cond.false.i.i.i56.i.i.i.i
@@ -3725,7 +3725,7 @@ if.then.i.i.i.i113.i.i.i.i:                       ; preds = %if.end.i107.i.i.i.i
   %add.ptr833.i117.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i104.i.i.i.i, i64 %idx.neg31.i116.i.i.i.i
   %add.ptr8.idx.neg.i118.i.i.i.i = shl nsw i64 %.sroa.speculated29.i114.i.i.i.i, 3
   %add.ptr.i.i.i.i120.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i115.i.i.i.i, i64 %idx.neg31.i116.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i120.i.i.i.i, ptr nonnull align 4 %add.ptr833.i117.i.i.i.i, i64 %add.ptr8.idx.neg.i118.i.i.i.i, i1 false), !noalias !151
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i120.i.i.i.i, ptr nonnull align 4 %add.ptr833.i117.i.i.i.i, i64 %add.ptr8.idx.neg.i118.i.i.i.i, i1 false), !noalias !151
   %add.i.i.i127.i.i.i.i = sub nsw i64 %.pre21.i126.pre-phi.i.i.i.i, %.sroa.speculated29.i114.i.i.i.i
   %cmp.i.i.i128.i.i.i.i = icmp sgt i64 %add.i.i.i127.i.i.i.i, -1
   br i1 %cmp.i.i.i128.i.i.i.i, label %land.lhs.true.i.i.i142.i.i.i.i, label %cond.false.i.i.i129.i.i.i.i
@@ -3802,7 +3802,7 @@ if.then.i.i.i.i186.i.i.i.i:                       ; preds = %if.end.i180.i.i.i.i
   %add.ptr833.i190.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i177.i.i.i.i, i64 %idx.neg31.i189.i.i.i.i
   %add.ptr8.idx.neg.i191.i.i.i.i = shl nsw i64 %.sroa.speculated29.i187.i.i.i.i, 3
   %add.ptr.i.i.i.i193.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i188.i.i.i.i, i64 %idx.neg31.i189.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i193.i.i.i.i, ptr nonnull align 4 %add.ptr833.i190.i.i.i.i, i64 %add.ptr8.idx.neg.i191.i.i.i.i, i1 false), !noalias !154
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i193.i.i.i.i, ptr nonnull align 4 %add.ptr833.i190.i.i.i.i, i64 %add.ptr8.idx.neg.i191.i.i.i.i, i1 false), !noalias !154
   %add.i.i.i200.i.i.i.i = sub nsw i64 %.pre21.i199.pre-phi.i.i.i.i, %.sroa.speculated29.i187.i.i.i.i
   %cmp.i.i.i201.i.i.i.i = icmp sgt i64 %add.i.i.i200.i.i.i.i, -1
   br i1 %cmp.i.i.i201.i.i.i.i, label %land.lhs.true.i.i.i215.i.i.i.i, label %cond.false.i.i.i202.i.i.i.i
@@ -4991,7 +4991,7 @@ if.then.i.i.i.i.i.i.i.i1825:                      ; preds = %if.end.i.i.i.i.i181
   %add.ptr833.i.i.i.i.i1830 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i.i.i.i.i1816, i64 %idx.neg31.i.i.i.i.i1829
   %add.ptr8.idx.neg.i.i.i.i.i1831 = shl nsw i64 %.sroa.speculated29.i.i.i.i.i1827, 3
   %add.ptr.i.i.i.i.i.i.i.i1832 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i.i.i.i.i1828, i64 %idx.neg31.i.i.i.i.i1829
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i.i.i.i.i1832, ptr nonnull align 4 %add.ptr833.i.i.i.i.i1830, i64 %add.ptr8.idx.neg.i.i.i.i.i1831, i1 false), !noalias !207
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i.i1832, ptr nonnull align 4 %add.ptr833.i.i.i.i.i1830, i64 %add.ptr8.idx.neg.i.i.i.i.i1831, i1 false), !noalias !207
   %add.i.i.i.i.i.i.i1833 = sub nsw i64 %.pre21.i.pre-phi.i.i.i.i1826, %.sroa.speculated29.i.i.i.i.i1827
   %cmp.i.i.i.i.i.i.i1834 = icmp sgt i64 %add.i.i.i.i.i.i.i1833, -1
   br i1 %cmp.i.i.i.i.i.i.i1834, label %land.lhs.true.i.i.i.i.i.i.i1851, label %cond.false.i.i.i.i.i.i.i1835
@@ -5078,7 +5078,7 @@ if.then.i.i.i.i40.i.i.i.i1713:                    ; preds = %if.end.i34.i.i.i.i1
   %add.ptr833.i44.i.i.i.i1718 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i31.i.i.i.i1704, i64 %idx.neg31.i43.i.i.i.i1717
   %add.ptr8.idx.neg.i45.i.i.i.i1719 = shl nsw i64 %.sroa.speculated29.i41.i.i.i.i1715, 3
   %add.ptr.i.i.i.i47.i.i.i.i1720 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i42.i.i.i.i1716, i64 %idx.neg31.i43.i.i.i.i1717
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i47.i.i.i.i1720, ptr nonnull align 4 %add.ptr833.i44.i.i.i.i1718, i64 %add.ptr8.idx.neg.i45.i.i.i.i1719, i1 false), !noalias !219
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i47.i.i.i.i1720, ptr nonnull align 4 %add.ptr833.i44.i.i.i.i1718, i64 %add.ptr8.idx.neg.i45.i.i.i.i1719, i1 false), !noalias !219
   %add.i.i.i54.i.i.i.i1721 = sub nsw i64 %.pre21.i53.pre-phi.i.i.i.i1714, %.sroa.speculated29.i41.i.i.i.i1715
   %cmp.i.i.i55.i.i.i.i1722 = icmp sgt i64 %add.i.i.i54.i.i.i.i1721, -1
   br i1 %cmp.i.i.i55.i.i.i.i1722, label %land.lhs.true.i.i.i69.i.i.i.i1803, label %cond.false.i.i.i56.i.i.i.i1723
@@ -5160,7 +5160,7 @@ if.then.i.i.i.i113.i.i.i.i1768:                   ; preds = %if.end.i107.i.i.i.i
   %add.ptr833.i117.i.i.i.i1773 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i104.i.i.i.i1759, i64 %idx.neg31.i116.i.i.i.i1772
   %add.ptr8.idx.neg.i118.i.i.i.i1774 = shl nsw i64 %.sroa.speculated29.i114.i.i.i.i1770, 3
   %add.ptr.i.i.i.i120.i.i.i.i1775 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i115.i.i.i.i1771, i64 %idx.neg31.i116.i.i.i.i1772
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i120.i.i.i.i1775, ptr nonnull align 4 %add.ptr833.i117.i.i.i.i1773, i64 %add.ptr8.idx.neg.i118.i.i.i.i1774, i1 false), !noalias !222
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i120.i.i.i.i1775, ptr nonnull align 4 %add.ptr833.i117.i.i.i.i1773, i64 %add.ptr8.idx.neg.i118.i.i.i.i1774, i1 false), !noalias !222
   %add.i.i.i127.i.i.i.i1776 = sub nsw i64 %.pre21.i126.pre-phi.i.i.i.i1769, %.sroa.speculated29.i114.i.i.i.i1770
   %cmp.i.i.i128.i.i.i.i1777 = icmp sgt i64 %add.i.i.i127.i.i.i.i1776, -1
   br i1 %cmp.i.i.i128.i.i.i.i1777, label %land.lhs.true.i.i.i142.i.i.i.i1794, label %cond.false.i.i.i129.i.i.i.i1778
@@ -5236,7 +5236,7 @@ if.then.i.i.i.i186.i.i.i.i1878:                   ; preds = %if.end.i180.i.i.i.i
   %add.ptr833.i190.i.i.i.i1883 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__last.addr.013.i177.i.i.i.i1869, i64 %idx.neg31.i189.i.i.i.i1882
   %add.ptr8.idx.neg.i191.i.i.i.i1884 = shl nsw i64 %.sroa.speculated29.i187.i.i.i.i1880, 3
   %add.ptr.i.i.i.i193.i.i.i.i1885 = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %__rend.028.i188.i.i.i.i1881, i64 %idx.neg31.i189.i.i.i.i1882
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i.i193.i.i.i.i1885, ptr nonnull align 4 %add.ptr833.i190.i.i.i.i1883, i64 %add.ptr8.idx.neg.i191.i.i.i.i1884, i1 false), !noalias !225
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i193.i.i.i.i1885, ptr nonnull align 4 %add.ptr833.i190.i.i.i.i1883, i64 %add.ptr8.idx.neg.i191.i.i.i.i1884, i1 false), !noalias !225
   %add.i.i.i200.i.i.i.i1886 = sub nsw i64 %.pre21.i199.pre-phi.i.i.i.i1879, %.sroa.speculated29.i187.i.i.i.i1880
   %cmp.i.i.i201.i.i.i.i1887 = icmp sgt i64 %add.i.i.i200.i.i.i.i1886, -1
   br i1 %cmp.i.i.i201.i.i.i.i1887, label %land.lhs.true.i.i.i215.i.i.i.i1904, label %cond.false.i.i.i202.i.i.i.i1888
@@ -5342,7 +5342,7 @@ while.body.i.i.i.i.i1584:                         ; preds = %if.then.i.i.i.i1468
 
 if.then.i.i.i.i.i.i.i.i1598:                      ; preds = %while.body.i.i.i.i.i1584
   %add.ptr.idx.i.i.i.i.i1599 = shl nsw i64 %.sroa.speculated.i.i.i.i.i1595, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp.sroa.0.0.i.i.i.i1585, ptr align 4 %__first.addr.016.i.i.i.i.i1589, i64 %add.ptr.idx.i.i.i.i.i1599, i1 false), !noalias !228
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp.sroa.0.0.i.i.i.i1585, ptr align 4 %__first.addr.016.i.i.i.i.i1589, i64 %add.ptr.idx.i.i.i.i.i1599, i1 false), !noalias !228
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i.i.i.i.i1600
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i.i.i.i.i1600: ; preds = %if.then.i.i.i.i.i.i.i.i1598, %while.body.i.i.i.i.i1584
@@ -5424,7 +5424,7 @@ while.body.i29.i.i.i.i1480:                       ; preds = %_ZNSt15_Deque_itera
 
 if.then.i.i.i.i39.i.i.i.i1494:                    ; preds = %while.body.i29.i.i.i.i1480
   %add.ptr.idx.i40.i.i.i.i1495 = shl nsw i64 %.sroa.speculated.i36.i.i.i.i1491, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp7.sroa.0.0.i.i.i.i1484, ptr align 4 %__first.addr.016.i30.i.i.i.i1485, i64 %add.ptr.idx.i40.i.i.i.i1495, i1 false), !noalias !240
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp7.sroa.0.0.i.i.i.i1484, ptr align 4 %__first.addr.016.i30.i.i.i.i1485, i64 %add.ptr.idx.i40.i.i.i.i1495, i1 false), !noalias !240
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i43.i.i.i.i1496
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i43.i.i.i.i1496: ; preds = %if.then.i.i.i.i39.i.i.i.i1494, %while.body.i29.i.i.i.i1480
@@ -5501,7 +5501,7 @@ while.body.i94.i.i.i.i1534:                       ; preds = %for.end.i.i.i.i1521
 
 if.then.i.i.i.i104.i.i.i.i1548:                   ; preds = %while.body.i94.i.i.i.i1534
   %add.ptr.idx.i105.i.i.i.i1549 = shl nsw i64 %.sroa.speculated.i101.i.i.i.i1545, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp9.sroa.0.0.i.i.i.i1538, ptr align 4 %__first.addr.016.i95.i.i.i.i1539, i64 %add.ptr.idx.i105.i.i.i.i1549, i1 false), !noalias !243
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp9.sroa.0.0.i.i.i.i1538, ptr align 4 %__first.addr.016.i95.i.i.i.i1539, i64 %add.ptr.idx.i105.i.i.i.i1549, i1 false), !noalias !243
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i108.i.i.i.i1550
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i108.i.i.i.i1550: ; preds = %if.then.i.i.i.i104.i.i.i.i1548, %while.body.i94.i.i.i.i1534
@@ -5571,7 +5571,7 @@ while.body.i159.i.i.i.i1633:                      ; preds = %if.end.i.i.i.i1628,
 
 if.then.i.i.i.i169.i.i.i.i1647:                   ; preds = %while.body.i159.i.i.i.i1633
   %add.ptr.idx.i170.i.i.i.i1648 = shl nsw i64 %.sroa.speculated.i166.i.i.i.i1644, 3
-  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 4 %agg.tmp12.sroa.0.0.i.i.i.i1637, ptr align 4 %__first.addr.016.i160.i.i.i.i1638, i64 %add.ptr.idx.i170.i.i.i.i1648, i1 false), !noalias !246
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %agg.tmp12.sroa.0.0.i.i.i.i1637, ptr align 4 %__first.addr.016.i160.i.i.i.i1638, i64 %add.ptr.idx.i170.i.i.i.i1648, i1 false), !noalias !246
   br label %_ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i173.i.i.i.i1649
 
 _ZSt14__copy_move_a1ILb1EPN12_GLOBAL__N_19ValuePairES2_ET1_T0_S4_S3_.exit.i173.i.i.i.i1649: ; preds = %if.then.i.i.i.i169.i.i.i.i1647, %while.body.i159.i.i.i.i1633
@@ -6436,7 +6436,7 @@ if.then14:                                        ; preds = %if.then
 if.then.i.i.i.i.i:                                ; preds = %if.then14
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr9, ptr nonnull align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr9, ptr nonnull align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.end65
 
 if.else:                                          ; preds = %if.then
@@ -6449,7 +6449,7 @@ if.then.i.i.i.i.i22:                              ; preds = %if.else
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
   %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i20, i1 false)
   br label %if.end65
 
 if.else31:                                        ; preds = %entry
@@ -6486,7 +6486,7 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_19ValuePairESaIS1_EE15_M_allocate_mapEm.exit: ;
 if.then.i.i.i.i.i28:                              ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_19ValuePairESaIS1_EE15_M_allocate_mapEm.exit
   %sub.ptr.lhs.cast.i.i.i.i.i24 = ptrtoint ptr %add.ptr55 to i64
   %sub.ptr.sub.i.i.i.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24, %sub.ptr.rhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr48, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i26, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr48, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i26, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_19ValuePairES3_ET0_T_S5_S4_.exit30
 
 _ZSt4copyIPPN12_GLOBAL__N_19ValuePairES3_ET0_T_S5_S4_.exit30: ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_19ValuePairESaIS1_EE15_M_allocate_mapEm.exit, %if.then.i.i.i.i.i28

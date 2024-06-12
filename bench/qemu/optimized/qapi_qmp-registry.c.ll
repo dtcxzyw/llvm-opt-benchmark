@@ -84,7 +84,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %cmd.08.i = phi ptr [ %cmd.0.i, %for.inc.i ], [ %cmd.06.i, %entry ]
   %0 = load ptr, ptr %cmd.08.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
@@ -115,7 +115,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %cmd.08.i = phi ptr [ %cmd.0.i, %for.inc.i ], [ %cmd.06.i, %entry ]
   %0 = load ptr, ptr %cmd.08.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 

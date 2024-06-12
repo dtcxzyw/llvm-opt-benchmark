@@ -985,7 +985,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN6cmList4sor
 
 31:                                               ; preds = %2
   %.not.i.i13 = icmp eq i32 %.sroa.5.0.copyload, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !alias.scope !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !alias.scope !34
   br i1 %.not.i.i13, label %32, label %_ZN12_GLOBAL__N_112StringSorter16GetCompareFilterB5cxx11EN6cmList17SortConfiguration13CompareMethodE.exit.i
 
 32:                                               ; preds = %31
@@ -999,7 +999,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN6cmList4sor
 _ZN12_GLOBAL__N_112StringSorter16GetCompareFilterB5cxx11EN6cmList17SortConfiguration13CompareMethodE.exit.i: ; preds = %32, %31
   %35 = getelementptr inbounds i8, ptr %14, i64 32
   %.not.i5.i = icmp eq i32 %.sroa.10.0.copyload, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false), !alias.scope !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false), !alias.scope !37
   br i1 %.not.i5.i, label %36, label %_ZN12_GLOBAL__N_112StringSorterC2ERKN6cmList17SortConfigurationE.exit
 
 36:                                               ; preds = %_ZN12_GLOBAL__N_112StringSorter16GetCompareFilterB5cxx11EN6cmList17SortConfiguration13CompareMethodE.exit.i
@@ -1013,7 +1013,7 @@ _ZN12_GLOBAL__N_112StringSorter16GetCompareFilterB5cxx11EN6cmList17SortConfigura
 _ZN12_GLOBAL__N_112StringSorterC2ERKN6cmList17SortConfigurationE.exit: ; preds = %_ZN12_GLOBAL__N_112StringSorter16GetCompareFilterB5cxx11EN6cmList17SortConfiguration13CompareMethodE.exit.i, %36
   %39 = getelementptr inbounds i8, ptr %14, i64 64
   %40 = icmp eq i32 %.sroa.5.0.copyload, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !40
   %_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E_E9_M_invokeERKSt9_Any_dataS7_S7_._ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E0_E9_M_invokeERKSt9_Any_dataS7_S7_.i.i = select i1 %40, ptr @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E_E9_M_invokeERKSt9_Any_dataS7_S7_, ptr @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E0_E9_M_invokeERKSt9_Any_dataS7_S7_
   %_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation._ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E0_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.i.i = select i1 %40, ptr @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr @_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EZN12_GLOBAL__N_112StringSorter21GetComparisonFunctionEN6cmList17SortConfiguration13CompareMethodEEUlS7_S7_E0_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation
   %41 = getelementptr inbounds i8, ptr %14, i64 88
@@ -1047,7 +1047,7 @@ _ZN12_GLOBAL__N_112StringSorterC2ERKN6cmList17SortConfigurationE.exit: ; preds =
   %53 = getelementptr inbounds [2 x %"class.std::function"], ptr %13, i64 0, i64 %51
   %54 = getelementptr inbounds i8, ptr %52, i64 24
   %55 = getelementptr inbounds i8, ptr %53, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false), !noalias !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false), !noalias !43
   %56 = load ptr, ptr %55, align 8, !noalias !43
   store ptr %56, ptr %54, align 8, !noalias !43
   %57 = getelementptr inbounds i8, ptr %53, i64 16
@@ -1057,7 +1057,7 @@ _ZN12_GLOBAL__N_112StringSorterC2ERKN6cmList17SortConfigurationE.exit: ; preds =
 
 59:                                               ; preds = %50
   %60 = getelementptr inbounds i8, ptr %52, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !noalias !43
   store ptr %58, ptr %60, align 8, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false), !noalias !43
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i
@@ -1071,7 +1071,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
   %64 = getelementptr inbounds i8, ptr %11, i64 64
   %65 = getelementptr inbounds i8, ptr %11, i64 88
   %66 = getelementptr inbounds i8, ptr %13, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false), !noalias !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false), !noalias !43
   %67 = load ptr, ptr %66, align 8, !noalias !43
   store ptr %67, ptr %65, align 8, !noalias !43
   %68 = getelementptr inbounds i8, ptr %13, i64 80
@@ -1082,7 +1082,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
 70:                                               ; preds = %63
   %71 = getelementptr inbounds i8, ptr %13, i64 64
   %72 = getelementptr inbounds i8, ptr %11, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !noalias !43
   store ptr %69, ptr %72, align 8, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false), !noalias !43
   br label %_ZN12_GLOBAL__N_112StringSorterC2EOS0_.exit.i.i
@@ -1101,7 +1101,7 @@ _ZN12_GLOBAL__N_112StringSorterC2EOS0_.exit.i.i:  ; preds = %70, %63
   %80 = getelementptr inbounds [2 x %"class.std::function"], ptr %11, i64 0, i64 %78
   %81 = getelementptr inbounds i8, ptr %79, i64 24
   %82 = getelementptr inbounds i8, ptr %80, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false), !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false), !alias.scope !43
   %83 = load ptr, ptr %82, align 8, !noalias !43
   store ptr %83, ptr %81, align 8, !alias.scope !43
   %84 = getelementptr inbounds i8, ptr %80, i64 16
@@ -1111,7 +1111,7 @@ _ZN12_GLOBAL__N_112StringSorterC2EOS0_.exit.i.i:  ; preds = %70, %63
 
 86:                                               ; preds = %77
   %87 = getelementptr inbounds i8, ptr %79, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
   store ptr %85, ptr %87, align 8, !alias.scope !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false), !noalias !43
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i.i
@@ -1124,7 +1124,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
 90:                                               ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i.i
   %91 = getelementptr inbounds i8, ptr %12, i64 64
   %92 = getelementptr inbounds i8, ptr %12, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false), !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false), !alias.scope !43
   %93 = load ptr, ptr %65, align 8, !noalias !43
   store ptr %93, ptr %92, align 8, !alias.scope !43
   %94 = getelementptr inbounds i8, ptr %11, i64 80
@@ -1134,7 +1134,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StringSorterEEC2ES3_.exit.i.i: ; preds = %90
   %96 = getelementptr inbounds i8, ptr %12, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   store ptr %95, ptr %96, align 8, !alias.scope !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false), !noalias !43
   br label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EED2Ev.exit.i.i.i
@@ -1333,7 +1333,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StringSorterEED2Ev.exit.i.
   %171 = getelementptr inbounds [2 x %"class.std::function"], ptr %5, i64 0, i64 %169
   %172 = getelementptr inbounds i8, ptr %170, i64 24
   %173 = getelementptr inbounds i8, ptr %171, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %170, i8 0, i64 24, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, i8 0, i64 24, i1 false), !alias.scope !46
   %174 = load ptr, ptr %173, align 8, !noalias !46
   store ptr %174, ptr %172, align 8, !alias.scope !46
   %175 = getelementptr inbounds i8, ptr %171, i64 16
@@ -1343,7 +1343,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StringSorterEED2Ev.exit.i.
 
 177:                                              ; preds = %168
   %178 = getelementptr inbounds i8, ptr %170, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false)
   store ptr %176, ptr %178, align 8, !alias.scope !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, i8 0, i64 16, i1 false), !noalias !46
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i.i.i.i.i
@@ -1354,7 +1354,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
   br i1 %180, label %181, label %168
 
 181:                                              ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %159, i8 0, i64 24, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, i8 0, i64 24, i1 false), !alias.scope !46
   %182 = load ptr, ptr %161, align 8, !noalias !46
   store ptr %182, ptr %160, align 8, !alias.scope !46
   %183 = load ptr, ptr %162, align 8, !noalias !46
@@ -1362,7 +1362,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
   br i1 %.not.i.i.not.i4.i.i.i.i.i.i.i, label %185, label %184
 
 184:                                              ; preds = %181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false)
   store ptr %183, ptr %164, align 8, !alias.scope !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false), !noalias !46
   br label %185
@@ -5965,7 +5965,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   %.sroa.05.010.i = phi ptr [ %18, %.noexc24 ], [ %3, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
   %.sroa.02.09.i = phi ptr [ %19, %.noexc24 ], [ %12, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ]
   %.val1.i = load i64, ptr %.sroa.05.010.i, align 8
-  %17 = invoke noundef i64 @_ZNK6cmList12ComputeIndexElb(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %.val1.i, i1 noundef zeroext true)
+  %17 = invoke noundef i64 @_ZNK6cmList12ComputeIndexElb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.val1.i, i1 noundef zeroext true)
           to label %.noexc24 unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 .noexc24:                                         ; preds = %.lr.ph.i
@@ -10342,7 +10342,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %37 = getelementptr inbounds [2 x %"class.std::function"], ptr %4, i64 0, i64 %35
   %38 = getelementptr inbounds i8, ptr %36, i64 24
   %39 = getelementptr inbounds i8, ptr %37, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
   %41 = getelementptr inbounds i8, ptr %37, i64 16
@@ -10352,7 +10352,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 
 43:                                               ; preds = %34
   %44 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   store ptr %42, ptr %44, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i
@@ -10366,7 +10366,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
   %48 = getelementptr inbounds i8, ptr %6, i64 64
   %49 = getelementptr inbounds i8, ptr %6, i64 88
   %50 = getelementptr inbounds i8, ptr %4, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 80
@@ -10377,7 +10377,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
 54:                                               ; preds = %47
   %55 = getelementptr inbounds i8, ptr %4, i64 64
   %56 = getelementptr inbounds i8, ptr %6, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
   store ptr %53, ptr %56, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_112StringSorterEEC2EONS0_15_Iter_comp_iterIS3_EE.exit
@@ -10710,7 +10710,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %36 = getelementptr inbounds [2 x %"class.std::function"], ptr %7, i64 0, i64 %34
   %37 = getelementptr inbounds i8, ptr %35, i64 24
   %38 = getelementptr inbounds i8, ptr %36, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !283
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !283
   %39 = load ptr, ptr %38, align 8, !noalias !283
   store ptr %39, ptr %37, align 8, !alias.scope !283
   %40 = getelementptr inbounds i8, ptr %36, i64 16
@@ -10720,7 +10720,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds i8, ptr %35, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   store ptr %41, ptr %43, align 8, !alias.scope !283
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false), !noalias !283
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i
@@ -10731,7 +10731,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
   br i1 %45, label %46, label %33
 
 46:                                               ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !283
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !283
   %47 = load ptr, ptr %11, align 8, !noalias !283
   store ptr %47, ptr %10, align 8, !alias.scope !283
   %48 = load ptr, ptr %12, align 8, !noalias !283
@@ -10739,7 +10739,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS
   br i1 %.not.i.i.not.i4.i.i.i, label %50, label %49
 
 49:                                               ; preds = %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   store ptr %48, ptr %14, align 8, !alias.scope !283
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !283
   br label %50

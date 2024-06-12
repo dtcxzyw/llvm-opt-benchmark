@@ -595,7 +595,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   br i1 %.not.i, label %job_res_fit_in_row.exit.thread, label %job_res_fit_in_row.exit
 
 job_res_fit_in_row.exit:                          ; preds = %140
-  %143 = call fastcc i32 @_handle_job_res(ptr noundef nonnull readonly %6, ptr noundef nonnull %136, i32 noundef 2)
+  %143 = call fastcc i32 @_handle_job_res(ptr noundef nonnull %6, ptr noundef nonnull %136, i32 noundef 2)
   %.not101 = icmp eq i32 %143, 0
   br i1 %.not101, label %156, label %job_res_fit_in_row.exit.thread
 

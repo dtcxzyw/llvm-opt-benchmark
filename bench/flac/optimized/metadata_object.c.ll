@@ -93,7 +93,7 @@ if.then.i:                                        ; preds = %sw.bb8
   br i1 %cmp2.i, label %if.then18, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %1, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %1, i64 %conv.i, i1 false)
   br label %if.end19
 
 if.then18:                                        ; preds = %if.then.i
@@ -148,7 +148,7 @@ sw.bb21:                                          ; preds = %if.then2
   %length31 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %div3024, ptr %length31, align 8
   %description = getelementptr inbounds i8, ptr %call, i64 32
-  %call.i = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str) #28
+  %call.i = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #28
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then40, label %if.end41
 
@@ -159,7 +159,7 @@ if.then40:                                        ; preds = %sw.bb21
 if.end41:                                         ; preds = %sw.bb21
   %mime_type = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call.i, ptr %mime_type, align 8
-  %call.i38 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str) #28
+  %call.i38 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #28
   %tobool.not.i39 = icmp eq ptr %call.i38, null
   br i1 %tobool.not.i39, label %if.then46, label %copy_cstring_.exit42
 
@@ -250,7 +250,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.i, label %if.then23, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %5, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %5, i64 %conv.i, i1 false)
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %if.end, %if.end.i
@@ -293,7 +293,7 @@ if.then.i86:                                      ; preds = %if.end35
   br i1 %cmp2.i89, label %if.then45, label %if.end.i90
 
 if.end.i90:                                       ; preds = %if.then.i86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i88, ptr nonnull readonly align 1 %7, i64 %conv.i87, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i88, ptr nonnull align 1 %7, i64 %conv.i87, i1 false)
   br label %copy_bytes_.exit91
 
 copy_bytes_.exit91:                               ; preds = %if.end35, %if.end.i90
@@ -466,7 +466,7 @@ for.body.i104:                                    ; preds = %if.else100, %for.in
   %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i114, %for.inc.i113 ], [ 0, %if.else100 ]
   %add.ptr.i106 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i105
   %add.ptr3.i107 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %17, i64 %indvars.iv.i105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr.i106, ptr noundef nonnull readonly align 8 dereferenceable(32) %add.ptr3.i107, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i106, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i107, i64 32, i1 false)
   %indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i107, i64 24
   %18 = load ptr, ptr %indices.i.i, align 8
   %cmp.i.i108 = icmp eq ptr %18, null
@@ -534,7 +534,7 @@ sw.bb114:                                         ; preds = %if.then
   store i32 %23, ptr %data117, align 8
   %mime_type121 = getelementptr inbounds i8, ptr %object, i64 24
   %24 = load ptr, ptr %mime_type121, align 8
-  %call.i = tail call noalias ptr @strdup(ptr noundef readonly %24) #28
+  %call.i = tail call noalias ptr @strdup(ptr noundef %24) #28
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then124, label %if.end125
 
@@ -550,7 +550,7 @@ if.end125:                                        ; preds = %sw.bb114
   store ptr %call.i, ptr %mime_type, align 8
   %description128 = getelementptr inbounds i8, ptr %object, i64 32
   %26 = load ptr, ptr %description128, align 8
-  %call.i124 = tail call noalias ptr @strdup(ptr noundef readonly %26) #28
+  %call.i124 = tail call noalias ptr @strdup(ptr noundef %26) #28
   %tobool.not.i125 = icmp eq ptr %call.i124, null
   br i1 %tobool.not.i125, label %if.then131, label %if.end132
 
@@ -587,7 +587,7 @@ if.then.i135:                                     ; preds = %if.end132
   br i1 %cmp2.i138, label %if.then156, label %if.end.i139
 
 if.end.i139:                                      ; preds = %if.then.i135
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i137, ptr nonnull readonly align 1 %30, i64 %conv.i136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i137, ptr nonnull align 1 %30, i64 %conv.i136, i1 false)
   br label %copy_bytes_.exit140
 
 copy_bytes_.exit140:                              ; preds = %if.end132, %if.end.i139
@@ -616,7 +616,7 @@ if.then.i147:                                     ; preds = %sw.default
   br i1 %cmp2.i150, label %if.then165, label %if.end.i151
 
 if.end.i151:                                      ; preds = %if.then.i147
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i149, ptr nonnull readonly align 1 %31, i64 %conv.i148, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i149, ptr nonnull align 1 %31, i64 %conv.i148, i1 false)
   br label %copy_bytes_.exit152
 
 copy_bytes_.exit152:                              ; preds = %sw.default, %if.end.i151
@@ -892,7 +892,7 @@ sw.default:                                       ; preds = %if.end9
 
 if.then.i:                                        ; preds = %sw.default
   %conv.i = zext i32 %4 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %data34.val, ptr nonnull %.pre.i, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %data34.val, ptr nonnull %.pre.i, i64 %conv.i)
   %cmp5.i = icmp eq i32 %bcmp.i, 0
   br label %compare_block_data_unknown_.exit
 
@@ -1468,7 +1468,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %data, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %data, i64 %conv.i, i1 false)
   br label %if.end9
 
 if.end9:                                          ; preds = %entry, %if.end.i, %if.then
@@ -2387,7 +2387,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %for.inc.i
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i: ; preds = %for.body.i
-  %call11.i.i = tail call i32 @strncasecmp(ptr noundef readonly %entry.coerce1, ptr noundef %4, i64 noundef %conv10.i.i) #26
+  %call11.i.i = tail call i32 @strncasecmp(ptr noundef %entry.coerce1, ptr noundef %4, i64 noundef %conv10.i.i) #26
   %cmp12.i.not.i = icmp eq i32 %call11.i.i, 0
   br i1 %cmp12.i.not.i, label %vorbiscomment_find_entry_from_.exit, label %for.inc.i
 
@@ -2458,7 +2458,7 @@ for.body.i43:                                     ; preds = %for.inc.i55, %for.b
   br i1 %or.cond.i.i54, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i59, label %for.inc.i55
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i59: ; preds = %for.body.i43
-  %call11.i.i60 = tail call i32 @strncasecmp(ptr noundef readonly %entry2.sroa.626.0.copyload, ptr noundef %14, i64 noundef %conv10.i.i) #26
+  %call11.i.i60 = tail call i32 @strncasecmp(ptr noundef %entry2.sroa.626.0.copyload, ptr noundef %14, i64 noundef %conv10.i.i) #26
   %cmp12.i.not.i61 = icmp eq i32 %call11.i.i60, 0
   br i1 %cmp12.i.not.i61, label %vorbiscomment_find_entry_from_.exit63, label %for.inc.i55
 
@@ -2536,7 +2536,7 @@ for.body.i74:                                     ; preds = %for.inc.i86, %for.b
   br i1 %or.cond.i.i85, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i90, label %for.inc.i86
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i90: ; preds = %for.body.i74
-  %call11.i.i91 = tail call i32 @strncasecmp(ptr noundef readonly %entry2.sroa.626.0.copyload, ptr noundef %30, i64 noundef %conv10.i.i) #26
+  %call11.i.i91 = tail call i32 @strncasecmp(ptr noundef %entry2.sroa.626.0.copyload, ptr noundef %30, i64 noundef %conv10.i.i) #26
   %cmp12.i.not.i92 = icmp eq i32 %call11.i.i91, 0
   br i1 %cmp12.i.not.i92, label %if.end43, label %for.inc.i86
 
@@ -2798,7 +2798,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %for.inc.i
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i: ; preds = %for.body.i
-  %call11.i.i = tail call i32 @strncasecmp(ptr noundef readonly %field_name, ptr noundef %5, i64 noundef %conv10.i.i) #26
+  %call11.i.i = tail call i32 @strncasecmp(ptr noundef %field_name, ptr noundef %5, i64 noundef %conv10.i.i) #26
   %cmp12.i.not.i = icmp eq i32 %call11.i.i, 0
   br i1 %cmp12.i.not.i, label %return.loopexit.split.loop.exit11.i, label %for.inc.i
 
@@ -2852,7 +2852,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %for.inc
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %for.body
-  %call11.i = tail call i32 @strncasecmp(ptr noundef readonly %field_name, ptr noundef %4, i64 noundef %conv10.i) #26
+  %call11.i = tail call i32 @strncasecmp(ptr noundef %field_name, ptr noundef %4, i64 noundef %conv10.i) #26
   %cmp12.i.not = icmp eq i32 %call11.i, 0
   br i1 %cmp12.i.not, label %if.then, label %for.inc
 
@@ -2936,7 +2936,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %for.inc
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %for.body
-  %call11.i = tail call i32 @strncasecmp(ptr noundef readonly %field_name, ptr noundef %5, i64 noundef %conv10.i) #26
+  %call11.i = tail call i32 @strncasecmp(ptr noundef %field_name, ptr noundef %5, i64 noundef %conv10.i) #26
   %cmp12.i.not = icmp eq i32 %call11.i, 0
   br i1 %cmp12.i.not, label %if.then, label %for.inc
 
@@ -3001,7 +3001,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %object, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %object, i64 32, i1 false)
   %indices.i = getelementptr inbounds i8, ptr %object, i64 24
   %0 = load ptr, ptr %indices.i, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -3543,10 +3543,10 @@ entry:
   %indices.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %1 = load ptr, ptr %indices.i, align 8
   %tobool.not.i = icmp eq i32 %copy, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %track, i64 32, i1 false)
+  br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull readonly align 8 dereferenceable(32) %track, i64 32, i1 false)
   %indices.i.i = getelementptr inbounds i8, ptr %track, i64 24
   %2 = load ptr, ptr %indices.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
@@ -3569,11 +3569,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i
   store ptr %call.i.i, ptr %indices.i, align 8
   br label %if.end3.i
 
-if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull readonly align 8 dereferenceable(32) %track, i64 32, i1 false)
-  br label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.else.i, %if.end.i.i, %if.then.i
+if.end3.i:                                        ; preds = %if.end.i.i, %if.then.i, %entry
   tail call void @free(ptr noundef %1) #28
   %6 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
   %7 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
@@ -4004,7 +4000,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %mime_type, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %mime_type, i64 %conv.i, i1 false)
   br label %if.end13
 
 if.end13:                                         ; preds = %cond.end.if.end13_crit_edge, %if.end.i, %if.end
@@ -4066,7 +4062,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %description, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %description, i64 %conv.i, i1 false)
   br label %if.end13
 
 if.end13:                                         ; preds = %cond.end.if.end13_crit_edge, %if.end.i, %if.end
@@ -4107,7 +4103,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull readonly align 1 %data, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %data, i64 %conv.i, i1 false)
   br label %if.end9
 
 if.end9:                                          ; preds = %entry, %if.end.i, %if.then

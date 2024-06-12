@@ -48,7 +48,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   store ptr %15, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae65ad28ecd54f3bE.exit"
 
 17:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i
@@ -80,7 +80,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
   br label %29
 
 29:                                               ; preds = %28, %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i: ; preds = %29, %27
@@ -183,7 +183,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
   br label %30
 
 30:                                               ; preds = %29, %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2: ; preds = %28, %30

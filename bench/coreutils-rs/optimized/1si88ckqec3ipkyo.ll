@@ -156,7 +156,7 @@ define void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher
   %12 = load i8, ptr %5, align 1, !noundef !7
   %13 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h6f0ee636a2b58da7E monotonic, align 8, !noalias !10
   %.0.i.i.us = inttoptr i64 %13 to ptr
-  %14 = tail call { i64, ptr } %.0.i.i.us(i8 noundef %12, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %8), !noalias !10
+  %14 = tail call { i64, ptr } %.0.i.i.us(i8 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %8), !noalias !10
   %15 = extractvalue { i64, ptr } %14, 0
   %switch8.i.not.us = icmp eq i64 %15, 0
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split.split.preheader
@@ -220,7 +220,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.t
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.i": ; preds = %34
   %36 = getelementptr inbounds i8, ptr %2, i64 %29
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %36, i64 %10), !alias.scope !13
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %11, ptr nonnull %36, i64 %10), !alias.scope !13
   %37 = icmp eq i32 %bcmp.i.i, 0
   br i1 %37, label %.split48, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge"
 
@@ -229,7 +229,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.t
   %39 = getelementptr inbounds i8, ptr %2, i64 %29
   %40 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h6f0ee636a2b58da7E monotonic, align 8, !noalias !10
   %.0.i.i = inttoptr i64 %40 to ptr
-  %41 = tail call { i64, ptr } %.0.i.i(i8 noundef %38, ptr noundef nonnull readonly %39, ptr noundef nonnull readonly %8), !noalias !10
+  %41 = tail call { i64, ptr } %.0.i.i(i8 noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %8), !noalias !10
   %42 = extractvalue { i64, ptr } %41, 0
   %switch8.i.not = icmp eq i64 %42, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph79
@@ -240,7 +240,7 @@ define void @"_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..ma
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %6 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr11memchr2_raw2FN17h3bc5962f83072267E monotonic, align 8, !noalias !20
   %.0.i.i = inttoptr i64 %6 to ptr
-  %7 = tail call { i64, ptr } %.0.i.i(i8 noundef 32, i8 noundef 9, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %5), !noalias !20
+  %7 = tail call { i64, ptr } %.0.i.i(i8 noundef 32, i8 noundef 9, ptr noundef nonnull %2, ptr noundef nonnull %5), !noalias !20
   %8 = extractvalue { i64, ptr } %7, 0
   %switch8.i.not = icmp eq i64 %8, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.thread, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit

@@ -1003,13 +1003,13 @@ index_get_field_name.exit:                        ; preds = %138, %146
 
 158:                                              ; preds = %._crit_edge230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %159 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef readonly %2, ptr noundef %14, i32 noundef -1, ptr noundef nonnull %8)
+  %159 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef %2, ptr noundef %14, i32 noundef -1, ptr noundef nonnull %8)
   %160 = load i32, ptr %8, align 4
   %161 = icmp sgt i32 %160, 0
   br i1 %161, label %162, label %.preheader.i.thread
 
 .preheader.i.thread:                              ; preds = %158
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %dissect_oer_bit_string_unconstr.exit
 
 162:                                              ; preds = %158
@@ -1033,7 +1033,7 @@ index_get_field_name.exit:                        ; preds = %138, %146
   %174 = add i32 %173, -1
   store i32 %174, ptr %8, align 4
   %175 = zext nneg i8 %163 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %176 = icmp sgt i32 %174, 16
   br i1 %176, label %180, label %.preheader.i
 

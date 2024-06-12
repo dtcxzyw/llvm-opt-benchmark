@@ -120,7 +120,7 @@ for.body.i:                                       ; preds = %if.end5, %for.inc.i
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %if.end5 ]
   %id1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 8
   %5 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then9, label %for.inc.i
 
@@ -705,7 +705,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %entry ]
   %id1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 8
   %0 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %0) #8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %0) #8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end5, label %for.inc.i
 

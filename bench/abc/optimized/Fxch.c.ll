@@ -1148,7 +1148,7 @@ Hsh_VecManStop.exit:                              ; preds = %Vec_IntFree.exit6.i
   %indvars.iv35.i = phi i64 [ %474, %.lr.ph31.i ], [ %indvars.iv.next36.i, %.critedge.i105 ]
   %.val23.i = load ptr, ptr %473, align 8
   %490 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val23.i, i64 %indvars.iv35.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %490, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %490, i8 0, i64 16, i1 false)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %.val.i106 = load i32, ptr %469, align 4
   %491 = sext i32 %.val.i106 to i64
@@ -1940,7 +1940,7 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %148
   %indvars.iv35.i = phi i64 [ %175, %.lr.ph31.i ], [ %indvars.iv.next36.i, %.critedge.i ]
   %.val23.i = load ptr, ptr %174, align 8
   %191 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val23.i, i64 %indvars.iv35.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %191, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, i8 0, i64 16, i1 false)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %.val.i48 = load i32, ptr %170, align 4
   %192 = sext i32 %.val.i48 to i64

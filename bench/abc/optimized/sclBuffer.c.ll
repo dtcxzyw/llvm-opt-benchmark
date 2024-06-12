@@ -3512,7 +3512,7 @@ Abc_BufCollectTfoCone.exit:                       ; preds = %2, %Vec_IntFill.exi
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 8
   %28 = load ptr, ptr %3, align 8
-  tail call void @Abc_BufCollectTfoCone_rec(ptr noundef readonly %1, ptr noundef %28)
+  tail call void @Abc_BufCollectTfoCone_rec(ptr noundef %1, ptr noundef %28)
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -3946,7 +3946,7 @@ Abc_BufCollectTfiCone.exit:                       ; preds = %2, %Vec_IntFill.exi
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 8
   %28 = load ptr, ptr %3, align 8
-  tail call void @Abc_BufCollectTfiCone_rec(ptr noundef readonly %1, ptr noundef %28)
+  tail call void @Abc_BufCollectTfiCone_rec(ptr noundef %1, ptr noundef %28)
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4

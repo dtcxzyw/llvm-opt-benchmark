@@ -1813,7 +1813,7 @@ Gia_ObjIsMux.exit.i:                              ; preds = %403
   br i1 %.not45.i, label %Gia_ObjIsMux.exit.thread.i, label %406
 
 406:                                              ; preds = %Gia_ObjIsMux.exit.i
-  call fastcc void @Gia_ObjSetMuxLevel(ptr noundef nonnull readonly %0, ptr noundef %370)
+  call fastcc void @Gia_ObjSetMuxLevel(ptr noundef nonnull %0, ptr noundef %370)
   br label %Gia_ObjSetGateLevel.exit
 
 Gia_ObjIsMux.exit.thread.i:                       ; preds = %Gia_ObjIsMux.exit.i, %403
@@ -2341,10 +2341,10 @@ define ptr @Dsm_ManDeriveGia(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #18
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #19
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %8) #17
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %8) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %9
@@ -2356,10 +2356,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %9
   br i1 %.not.i122, label %Abc_UtilStrsav.exit123, label %17
 
 17:                                               ; preds = %Abc_UtilStrsav.exit
-  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #18
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #18
   %19 = add i64 %18, 1
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #19
-  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %16) #17
+  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %16) #17
   br label %Abc_UtilStrsav.exit123
 
 Abc_UtilStrsav.exit123:                           ; preds = %Abc_UtilStrsav.exit, %17

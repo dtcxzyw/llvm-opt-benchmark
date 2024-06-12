@@ -857,7 +857,7 @@ evaluate_sdnv.exit144.i:                          ; preds = %214, %213, %138
 
 222:                                              ; preds = %evaluate_sdnv.exit144.i
   %223 = add i32 %208, %207
-  %224 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %223, ptr noundef nonnull %68, i8 noundef zeroext %88, ptr noundef nonnull writeonly %70, i32 noundef 0, i32 noundef 0)
+  %224 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %223, ptr noundef nonnull %68, i8 noundef zeroext %88, ptr noundef nonnull %70, i32 noundef 0, i32 noundef 0)
   br label %dissect_version_4_primary_header.exit
 
 dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
@@ -1448,7 +1448,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
   br label %515
 
 515:                                              ; preds = %513, %510
-  %516 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %460, ptr noundef nonnull %65, i8 noundef zeroext %230, ptr noundef nonnull writeonly %70, i32 noundef %.0.i214.i, i32 noundef %.0.i216256.i)
+  %516 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %460, ptr noundef nonnull %65, i8 noundef zeroext %230, ptr noundef nonnull %70, i32 noundef %.0.i214.i, i32 noundef %.0.i216256.i)
   br label %dissect_version_5_and_6_primary_header.exit
 
 dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdnv_time_to_tree.exit.thread.i, %456, %515

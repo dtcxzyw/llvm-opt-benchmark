@@ -1418,7 +1418,7 @@ if.then.i25.thread:                               ; preds = %if.end7
   br label %unsafe_yyjson_str_pool_release.exit.i
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %if.end7
-  %call.i23 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %call.i, ptr noundef nonnull readonly %3)
+  %call.i23 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %3)
   %tobool10.not = icmp eq ptr %call.i23, null
   br i1 %tobool10.not, label %if.then.i25, label %if.then.i
 
@@ -5941,7 +5941,7 @@ if.end670:                                        ; preds = %if.end18.i1225, %yy
   br i1 %cmp671, label %sw.epilog848, label %yyjson_mut_val_mut_copy.exit
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %if.end670
-  %call.i = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %retval.i1210.01098)
+  %call.i = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %retval.i1210.01098)
   %tobool682.not = icmp eq ptr %call.i, null
   br i1 %tobool682.not, label %do.body692, label %if.end715
 
@@ -6224,7 +6224,7 @@ if.else37:                                        ; preds = %do.body28
   br label %return
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %cond.true.i
-  %call.i1017 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %orig)
+  %call.i1017 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %orig)
   %tobool53.not = icmp eq ptr %call.i1017, null
   br i1 %tobool53.not, label %do.body63, label %yyjson_mut_is_arr.exit.i
 
@@ -6522,7 +6522,7 @@ if.else276:                                       ; preds = %do.body267
   br label %return
 
 yyjson_mut_val_mut_copy.exit1024:                 ; preds = %yyjson_mut_obj_getn.exit1391
-  %call.i1023 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %26)
+  %call.i1023 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %26)
   %tobool292.not = icmp eq ptr %call.i1023, null
   br i1 %tobool292.not, label %do.body302, label %sw.epilog
 
@@ -6935,7 +6935,7 @@ if.end662:                                        ; preds = %if.end18.i1129, %yy
   br i1 %cmp663, label %sw.epilog840, label %yyjson_mut_val_mut_copy.exit1031
 
 yyjson_mut_val_mut_copy.exit1031:                 ; preds = %if.end662
-  %call.i1030 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %retval.i1114.01115)
+  %call.i1030 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %retval.i1114.01115)
   %tobool674.not = icmp eq ptr %call.i1030, null
   br i1 %tobool674.not, label %do.body684, label %if.end707
 
@@ -7474,7 +7474,7 @@ if.then:                                          ; preds = %yyjson_mut_is_obj.e
   br i1 %tobool.i.not, label %return, label %if.then.i133
 
 if.then.i133:                                     ; preds = %if.then
-  %call.i = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %patch)
+  %call.i = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %patch)
   br label %return
 
 if.end:                                           ; preds = %yyjson_mut_is_obj.exit181
@@ -7629,12 +7629,12 @@ yyjson_mut_obj_getn.exit348:                      ; preds = %land.rhs.i355
   br i1 %tobool38.not, label %yyjson_mut_val_mut_copy.exit142, label %for.inc
 
 yyjson_mut_val_mut_copy.exit142:                  ; preds = %if.end.i331, %yyjson_mut_obj_getn.exit348, %yyjson_mut_obj_size.exit.i313, %for.body
-  %call.i141 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %key.0263)
+  %call.i141 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %key.0263)
   %tobool1.i144.not = icmp eq ptr %orig_val.0264, null
   br i1 %tobool1.i144.not, label %yyjson_mut_is_obj.exit, label %if.then.i147
 
 if.then.i147:                                     ; preds = %yyjson_mut_val_mut_copy.exit142
-  %call.i148 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %orig_val.0264)
+  %call.i148 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %orig_val.0264)
   br label %yyjson_mut_is_obj.exit
 
 yyjson_mut_is_obj.exit:                           ; preds = %yyjson_mut_val_mut_copy.exit142, %if.then.i147
@@ -7738,7 +7738,7 @@ if.end70:                                         ; preds = %for.body67
   br i1 %tobool1.i151.not, label %yyjson_mut_val_mut_copy.exit156, label %if.then.i154
 
 if.then.i154:                                     ; preds = %if.end70
-  %call.i155 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull readonly %key.1276)
+  %call.i155 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %key.1276)
   br label %yyjson_mut_val_mut_copy.exit156
 
 yyjson_mut_val_mut_copy.exit156:                  ; preds = %if.end70, %if.then.i154
@@ -47340,7 +47340,7 @@ if.end:                                           ; preds = %lor.rhs
 
 if.end21:                                         ; preds = %if.end
   %1 = load i64, ptr %dat_len, align 8
-  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.97) #26
+  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull %path, ptr noundef nonnull @.str.97) #26
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %do.body.i, label %if.end3.i
 
@@ -58018,7 +58018,7 @@ if.end:                                           ; preds = %lor.rhs
 
 if.end21:                                         ; preds = %if.end
   %1 = load i64, ptr %dat_len, align 8
-  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.97) #26
+  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull %path, ptr noundef nonnull @.str.97) #26
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %do.body.i, label %if.end3.i
 

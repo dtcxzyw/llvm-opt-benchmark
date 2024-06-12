@@ -104,13 +104,13 @@ define internal zeroext i1 @pango_textlayout(ptr nocapture noundef %0, ptr nound
   tail call void @free(ptr noundef %19) #14
   %33 = load ptr, ptr %28, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noalias ptr @strdup(ptr noundef readonly %34) #14
+  %35 = tail call noalias ptr @strdup(ptr noundef %34) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %gv_strdup.exit
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #15
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #15
   %40 = add i64 %39, 1
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.19, i64 noundef %40) #16
   tail call fastcc void @graphviz_exit() #17
@@ -269,7 +269,7 @@ agxbput.exit:                                     ; preds = %101
   %107 = getelementptr inbounds i8, ptr %7, i64 8
   %108 = getelementptr inbounds i8, ptr %7, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %108, i8 0, i64 26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %7, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
   store i8 5, ptr %105, align 1
   %109 = and i32 %103, 1
   %.not85 = icmp eq i32 %109, 0
@@ -277,7 +277,7 @@ agxbput.exit:                                     ; preds = %101
 
 agxblen.exit.i.i98:                               ; preds = %agxbput.exit
   %110 = getelementptr inbounds i8, ptr %7, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %110, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %110, ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
   %111 = load i8, ptr %105, align 1
   %112 = add i8 %111, 14
   store i8 %112, ptr %105, align 1
@@ -314,7 +314,7 @@ agxblen.exit.i.i108:                              ; preds = %agxbput.exit104
 120:                                              ; preds = %119
   %121 = zext i8 %.val.i25.i.i111 to i64
   %122 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %122, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.8, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %122, ptr noundef nonnull align 1 dereferenceable(15) @.str.8, i64 15, i1 false)
   %123 = load i8, ptr %105, align 1
   %124 = add i8 %123, 15
   store i8 %124, ptr %105, align 1
@@ -325,7 +325,7 @@ agxblen.exit.i.i108:                              ; preds = %agxbput.exit104
   %126 = load i64, ptr %107, align 8
   %127 = load ptr, ptr %7, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 %126
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %128, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.8, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %128, ptr noundef nonnull align 1 dereferenceable(15) @.str.8, i64 15, i1 false)
   %129 = add i64 %126, 15
   store i64 %129, ptr %107, align 8
   br label %agxbput.exit114
@@ -360,7 +360,7 @@ agxblen.exit.i.i118:                              ; preds = %agxbput.exit114
 137:                                              ; preds = %136
   %138 = zext i8 %.val.i25.i.i121 to i64
   %139 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %139, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.9, i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %139, ptr noundef nonnull align 1 dereferenceable(19) @.str.9, i64 19, i1 false)
   %140 = load i8, ptr %105, align 1
   %141 = add i8 %140, 19
   store i8 %141, ptr %105, align 1
@@ -371,7 +371,7 @@ agxblen.exit.i.i118:                              ; preds = %agxbput.exit114
   %143 = load i64, ptr %107, align 8
   %144 = load ptr, ptr %7, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 %143
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %145, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.9, i64 19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %145, ptr noundef nonnull align 1 dereferenceable(19) @.str.9, i64 19, i1 false)
   %146 = add i64 %143, 19
   store i64 %146, ptr %107, align 8
   br label %agxbput.exit124
@@ -406,7 +406,7 @@ agxblen.exit.i.i128:                              ; preds = %agxbput.exit124
 154:                                              ; preds = %153
   %155 = zext i8 %.val.i25.i.i131 to i64
   %156 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %156, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.10, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %156, ptr noundef nonnull align 1 dereferenceable(21) @.str.10, i64 21, i1 false)
   %157 = load i8, ptr %105, align 1
   %158 = add i8 %157, 21
   store i8 %158, ptr %105, align 1
@@ -417,7 +417,7 @@ agxblen.exit.i.i128:                              ; preds = %agxbput.exit124
   %160 = load i64, ptr %107, align 8
   %161 = load ptr, ptr %7, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 %160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %162, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.10, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %162, ptr noundef nonnull align 1 dereferenceable(21) @.str.10, i64 21, i1 false)
   %163 = add i64 %160, 21
   store i64 %163, ptr %107, align 8
   br label %agxblen.exit.i.i138
@@ -492,7 +492,7 @@ agxblen.exit.i.i148:                              ; preds = %agxbput.exit144
 189:                                              ; preds = %188
   %190 = zext i8 %.val.i25.i.i151 to i64
   %191 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %190
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %191, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %191, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %192 = load i8, ptr %105, align 1
   %193 = add i8 %192, 5
   store i8 %193, ptr %105, align 1
@@ -502,7 +502,7 @@ agxblen.exit.i.i148:                              ; preds = %agxbput.exit144
   %195 = load i64, ptr %107, align 8
   %196 = load ptr, ptr %7, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 %195
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %197, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %197, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %198 = add i64 %195, 5
   store i64 %198, ptr %107, align 8
   br label %agxbput.exit154
@@ -537,7 +537,7 @@ agxblen.exit.i.i158:                              ; preds = %agxbput.exit154
 207:                                              ; preds = %206
   %208 = zext i8 %.val.i25.i.i161 to i64
   %209 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %209, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %209, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %210 = load i8, ptr %105, align 1
   %211 = add i8 %210, 5
   store i8 %211, ptr %105, align 1
@@ -547,7 +547,7 @@ agxblen.exit.i.i158:                              ; preds = %agxbput.exit154
   %213 = load i64, ptr %107, align 8
   %214 = load ptr, ptr %7, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 %213
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %215, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %215, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %216 = add i64 %213, 5
   store i64 %216, ptr %107, align 8
   br label %agxbput.exit164
@@ -579,7 +579,7 @@ agxbput.exit164:                                  ; preds = %207, %212
 226:                                              ; preds = %225
   %227 = zext i8 %.val.i25.i.i171 to i64
   %228 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %227
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %228, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.14, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %228, ptr noundef nonnull align 1 dereferenceable(6) @.str.14, i64 6, i1 false)
   %229 = load i8, ptr %105, align 1
   %230 = add i8 %229, 6
   store i8 %230, ptr %105, align 1
@@ -589,7 +589,7 @@ agxbput.exit164:                                  ; preds = %207, %212
   %232 = load i64, ptr %107, align 8
   %233 = load ptr, ptr %7, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 %232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %234, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.14, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %234, ptr noundef nonnull align 1 dereferenceable(6) @.str.14, i64 6, i1 false)
   %235 = load i64, ptr %107, align 8
   %236 = add i64 %235, 6
   store i64 %236, ptr %107, align 8
@@ -628,7 +628,7 @@ agxblen.exit.i.i178:                              ; preds = %agxbput.exit174
 245:                                              ; preds = %244
   %246 = zext i8 %.val.i25.i.i181 to i64
   %247 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %246
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %247, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %247, ptr noundef nonnull align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
   %248 = load i8, ptr %105, align 1
   %249 = add i8 %248, 6
   store i8 %249, ptr %105, align 1
@@ -639,7 +639,7 @@ agxblen.exit.i.i178:                              ; preds = %agxbput.exit174
   %251 = load i64, ptr %107, align 8
   %252 = load ptr, ptr %7, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 %251
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %253, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %253, ptr noundef nonnull align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
   %254 = load i64, ptr %107, align 8
   %255 = add i64 %254, 6
   store i64 %255, ptr %107, align 8
@@ -671,7 +671,7 @@ agxblen.exit.i.i188:                              ; preds = %agxbput.exit174, %2
 263:                                              ; preds = %262
   %264 = zext i8 %.val.i25.i.i191 to i64
   %265 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %265, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.16, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %265, ptr noundef nonnull align 1 dereferenceable(7) @.str.16, i64 7, i1 false)
   %266 = load i8, ptr %105, align 1
   %267 = add i8 %266, 7
   store i8 %267, ptr %105, align 1
@@ -682,7 +682,7 @@ agxblen.exit.i.i188:                              ; preds = %agxbput.exit174, %2
   %269 = load i64, ptr %107, align 8
   %270 = load ptr, ptr %7, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 %269
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %271, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.16, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %271, ptr noundef nonnull align 1 dereferenceable(7) @.str.16, i64 7, i1 false)
   %272 = load i64, ptr %107, align 8
   %273 = add i64 %272, 7
   store i64 %273, ptr %107, align 8
@@ -907,7 +907,7 @@ declare i32 @xml_escape(ptr noundef, i32, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @agxbput_int(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %agxbput.exit, label %5
 
@@ -948,7 +948,7 @@ agxblen.exit.i.i:                                 ; preds = %8, %agxbsizeof.exit
 17:                                               ; preds = %16
   %18 = zext i8 %.val.i25.i.i to i64
   %19 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %1, i64 %3, i1 false)
   %20 = trunc i64 %3 to i8
   %21 = load i8, ptr %6, align 1
   %22 = add i8 %21, %20
@@ -960,7 +960,7 @@ agxblen.exit.i.i:                                 ; preds = %8, %agxbsizeof.exit
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %1, i64 %3, i1 false)
   %28 = load i64, ptr %24, align 8
   %29 = add i64 %28, %3
   store i64 %29, ptr %24, align 8

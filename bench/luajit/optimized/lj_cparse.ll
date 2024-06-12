@@ -4356,7 +4356,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %cmp.i87, label %land.lhs.true.i91, label %for.inc.i
 
 land.lhs.true.i91:                                ; preds = %for.body.i
-  %bcmp.i92 = tail call i32 @bcmp(ptr nonnull %incdec.ptr11.i, ptr nonnull readonly %add.ptr.i86, i64 %conv3.i)
+  %bcmp.i92 = tail call i32 @bcmp(ptr nonnull %incdec.ptr11.i, ptr nonnull %add.ptr.i86, i64 %conv3.i)
   %tobool4.not.i = icmp eq i32 %bcmp.i92, 0
   br i1 %tobool4.not.i, label %lj_cparse_case.exit, label %for.inc.i
 

@@ -57,7 +57,7 @@ entry:
   %call.i.i = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call.i.i, align 4
   store i32 0, ptr %call.i.i, align 4
-  %call.i.i.i = call noundef i32 @vsnprintf(ptr noundef nonnull %stack_buf.i, i64 noundef 1024, ptr noundef readonly %format, ptr noundef nonnull %ap_copy.i) #12
+  %call.i.i.i = call noundef i32 @vsnprintf(ptr noundef nonnull %stack_buf.i, i64 noundef 1024, ptr noundef %format, ptr noundef nonnull %ap_copy.i) #12
   call void @llvm.va_end.p0(ptr nonnull %ap_copy.i)
   %or.cond.i = icmp ult i32 %call.i.i.i, 1024
   br i1 %or.cond.i, label %if.then.i, label %while.cond.i
@@ -108,7 +108,7 @@ invoke.cont29.i:                                  ; preds = %if.end20.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
   call void @llvm.va_copy.p0(ptr nonnull %ap_copy.i, ptr %ap)
   %3 = load ptr, ptr %mem_buf.i, align 8
-  %call.i.i17.i = call noundef i32 @vsnprintf(ptr noundef %3, i64 noundef %conv21.i, ptr noundef readonly %format, ptr noundef nonnull %ap_copy.i) #12
+  %call.i.i17.i = call noundef i32 @vsnprintf(ptr noundef %3, i64 noundef %conv21.i, ptr noundef %format, ptr noundef nonnull %ap_copy.i) #12
   call void @llvm.va_end.p0(ptr nonnull %ap_copy.i)
   %cmp32.i = icmp sgt i32 %call.i.i17.i, -1
   %cmp34.i = icmp slt i32 %call.i.i17.i, %mem_length.1.i

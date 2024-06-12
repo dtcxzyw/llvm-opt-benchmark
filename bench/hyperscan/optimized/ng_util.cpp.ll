@@ -1328,7 +1328,7 @@ invoke.cont:
   %agg.tmp1 = alloca %"class.ue2::small_color_map", align 8
   %startDs.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %startDs2.i = getelementptr inbounds i8, ptr %g, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %startDs.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %startDs2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %startDs.i, ptr noundef nonnull align 8 dereferenceable(16) %startDs2.i, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %g, i64 8
   %0 = load i64, ptr %add.ptr.i.i, align 8, !noalias !89
@@ -1449,7 +1449,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp.i.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1, i64 16, i1 false)
   %data.i.i7 = getelementptr inbounds i8, ptr %agg.tmp14.i, i64 16
   %12 = load ptr, ptr %data.i.i, align 8
   store ptr %12, ptr %data.i.i7, align 8
@@ -1476,7 +1476,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i
-  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp6, ptr noundef nonnull %agg.tmp14.i)
+  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp6, ptr noundef nonnull %agg.tmp14.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
@@ -1590,7 +1590,7 @@ for.body21.i:                                     ; preds = %for.inc37.i, %for.b
   br i1 %cmp.i, label %if.then29.i, label %for.inc37.i
 
 if.then29.i:                                      ; preds = %for.body21.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1, i64 16, i1 false)
   store ptr %32, ptr %data.i37.i, align 8
   %38 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
   store ptr %38, ptr %_M_refcount.i.i.i39.i, align 8
@@ -1614,7 +1614,7 @@ if.else.i.i.i.i.i.i47.i:                          ; preds = %if.then.i.i.i.i42.i
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit48.i
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit48.i: ; preds = %if.else.i.i.i.i.i.i47.i, %if.then.i.i.i.i.i.i45.i, %if.then29.i
-  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr nonnull %ui.sroa.0.193.i, i64 %29, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp6, ptr noundef nonnull %agg.tmp32.i)
+  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr nonnull %ui.sroa.0.193.i, i64 %29, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp6, ptr noundef nonnull %agg.tmp32.i)
           to label %invoke.cont35.i unwind label %lpad34.i
 
 invoke.cont35.i:                                  ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit48.i
@@ -1898,7 +1898,7 @@ invoke.cont:
   %agg.tmp2 = alloca %"class.ue2::small_color_map", align 8
   %startDs.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   %startDs2.i = getelementptr inbounds i8, ptr %g, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %startDs.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %startDs2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %startDs.i, ptr noundef nonnull align 8 dereferenceable(16) %startDs2.i, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %g, i64 8
   %0 = load i64, ptr %add.ptr.i.i, align 8, !noalias !106
@@ -1975,7 +1975,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i64 16, i1 false)
   %data.i.i6 = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %data.i.i6, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 24
@@ -1993,7 +1993,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp15, ptr noundef nonnull %agg.tmp2.i)
+  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp15, ptr noundef nonnull %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
@@ -4989,7 +4989,7 @@ invoke.cont45.i:                                  ; preds = %invoke.cont7.loopex
   %agg.tmp42.sroa.0.0.copyload.i = load ptr, ptr %start.i, align 8
   %agg.tmp42.sroa.2.0.start.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp42.sroa.2.0.copyload.i = load i64, ptr %agg.tmp42.sroa.2.0.start.sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp46.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp46.i, ptr noundef nonnull align 8 dereferenceable(16) %colors, i64 16, i1 false)
   %data.i.i46 = getelementptr inbounds i8, ptr %agg.tmp46.i, i64 16
   %34 = load ptr, ptr %data.i.i, align 8
   store ptr %34, ptr %data.i.i46, align 8

@@ -6637,7 +6637,7 @@ lor.lhs.false.i:                                  ; preds = %invoke.cont3
   br i1 %tobool.i.i.i, label %invoke.cont42, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call3.i19 = invoke noundef ptr @_ZN7rocksdb8MemTable33NewRangeTombstoneIteratorInternalERKNS_11ReadOptionsEmb(ptr noundef nonnull align 16 dereferenceable(3528) %this, ptr noundef nonnull readonly align 8 dereferenceable(154) %read_opts, i64 noundef %shr.i, i1 noundef zeroext %immutable_memtable)
+  %call3.i19 = invoke noundef ptr @_ZN7rocksdb8MemTable33NewRangeTombstoneIteratorInternalERKNS_11ReadOptionsEmb(ptr noundef nonnull align 16 dereferenceable(3528) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, i64 noundef %shr.i, i1 noundef zeroext %immutable_memtable)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.end.i

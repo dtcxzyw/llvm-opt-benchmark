@@ -72,7 +72,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h0ebd7c016e805ba0E(ptr
           to label %11 unwind label %15
 
 6:                                                ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !range !5, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775800
@@ -137,7 +137,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h1330aabd60c721ffE(ptr
           to label %11 unwind label %15
 
 6:                                                ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775807
@@ -202,7 +202,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17ha6d24344efe80715E(ptr
           to label %11 unwind label %15
 
 6:                                                ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775808
@@ -267,7 +267,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf68aba33098dc390E(ptr
           to label %11 unwind label %15
 
 6:                                                ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775799
@@ -336,7 +336,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h021b6d063f486ecaE
           to label %12 unwind label %15
 
 7:                                                ; preds = %9, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   %8 = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775808
@@ -407,7 +407,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h3beb70458733c8aaE
           to label %12 unwind label %15
 
 7:                                                ; preds = %9, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   %8 = load i64, ptr %4, align 8, !range !5, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775800
@@ -478,7 +478,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf1f6ab5a5411cc45E
           to label %12 unwind label %15
 
 7:                                                ; preds = %9, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
   %8 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775799
@@ -549,7 +549,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfef36e3de4d67ab0E
           to label %12 unwind label %15
 
 7:                                                ; preds = %9, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775807

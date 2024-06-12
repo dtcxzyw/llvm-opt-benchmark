@@ -749,7 +749,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   br i1 %or.cond, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %vars.sroa.0.0, ptr nonnull align 4 %3, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %vars.sroa.0.0, ptr nonnull align 4 %3, i64 %sub.ptr.sub.i.i, i1 false)
   br label %if.end
 
 lpad3.thread.loopexit:                            ; preds = %invoke.cont30
@@ -944,7 +944,7 @@ invoke.cont5:                                     ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i, label %if.end, label %if.then.i14
 
 if.then.i14:                                      ; preds = %invoke.cont5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %call5.i.i.i.i36, ptr nonnull align 4 %4, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i36, ptr nonnull align 4 %4, i64 %sub.ptr.sub.i.i, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %if.then.i.i, %if.end

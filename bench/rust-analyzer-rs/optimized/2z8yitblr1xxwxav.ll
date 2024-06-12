@@ -10884,7 +10884,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %119 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1, ptr %119, align 8, !noalias !3098
   %120 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %120, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !3095
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %120, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !3095
   store ptr %3, ptr %5, align 8, !noalias !3098
   %121 = icmp eq i64 %118, %117
   br i1 %121, label %122, label %136
@@ -12825,7 +12825,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !3408, !noundef !4
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = tail call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h999f85b8992746d3E.llvm.13303928990630075718"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3, i64 noundef %22, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(12) %23, ptr noundef nonnull %19)
+  %24 = tail call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h999f85b8992746d3E.llvm.13303928990630075718"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3, i64 noundef %22, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull %19)
   %25 = getelementptr inbounds i8, ptr %3, i64 16
   %26 = load i64, ptr %25, align 8, !noalias !3408, !noundef !4
   %27 = icmp ult i64 %24, %26

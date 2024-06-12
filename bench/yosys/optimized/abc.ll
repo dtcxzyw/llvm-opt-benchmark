@@ -44853,7 +44853,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1838:            ; preds = %3615, %3608, %3600,
   %3689 = and i8 %3688, 1
   store i8 %3689, ptr %3687, align 8, !alias.scope !329
   %3690 = getelementptr inbounds i8, ptr %194, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %194, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %194, i8 0, i64 32, i1 false)
   %3691 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
           to label %3692 unwind label %3723
 
@@ -82933,7 +82933,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i: ; p
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i ], [ %68, %_ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i ]
   %.092.i.i.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i ], [ %53, %_ZNSt12_Vector_baseIN12_GLOBAL__N_16gate_tESaIS1_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %.092.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !667
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.092.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !667
   %70 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 56
   %71 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i21 = icmp eq ptr %70, %48

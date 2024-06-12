@@ -9454,7 +9454,7 @@ if.else97.i:                                      ; preds = %if.else84.i
   br i1 %cmp.i350.i, label %if.then99.i, label %if.else112.i
 
 if.then99.i:                                      ; preds = %if.else97.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %kv.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %kv.i, i8 0, i64 24, i1 false)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr nonnull sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %ref.tmp100.i, ptr noundef nonnull align 8 dereferenceable(48) %iter.i)
           to label %invoke.cont102.i unwind label %lpad101.i
 
@@ -12364,7 +12364,7 @@ if.else110.i:                                     ; preds = %if.else77.i
   br i1 %cmp.i437.i, label %if.then112.i, label %if.else125.i
 
 if.then112.i:                                     ; preds = %if.else110.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %kv.i2047, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %kv.i2047, i8 0, i64 24, i1 false)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr nonnull sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %ref.tmp113.i2048, ptr noundef nonnull align 8 dereferenceable(48) %iter.i2038)
           to label %invoke.cont115.i unwind label %lpad114.i
 

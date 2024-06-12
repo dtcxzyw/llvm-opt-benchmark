@@ -189,7 +189,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 90:                                               ; preds = %89, %86
   store ptr @pmix_list_t_class, ptr %74, align 8
   store i32 1, ptr %75, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %76, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %76, i8 0, i64 64, i1 false)
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %92 = load ptr, ptr %91, align 8
   %.not6.i = icmp eq ptr %92, null

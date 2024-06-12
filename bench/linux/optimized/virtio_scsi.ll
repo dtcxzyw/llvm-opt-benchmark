@@ -1495,7 +1495,7 @@ define internal fastcc void @virtscsi_vq_done(ptr noundef %0) unnamed_addr #2 al
   %59 = getelementptr inbounds i8, ptr %9, i64 87
   %60 = call i32 @llvm.umin.i32(i32 %54, i32 96)
   %61 = zext nneg i32 %60 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr readonly align 1 %59, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %59, i64 %61, i1 false)
   br label %virtscsi_complete_cmd.exit
 
 virtscsi_complete_cmd.exit:                       ; preds = %53, %56

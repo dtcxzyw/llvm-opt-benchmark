@@ -268,7 +268,7 @@ if.then:                                          ; preds = %entry
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   tail call void @free(ptr noundef %1) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -333,7 +333,7 @@ if.then:                                          ; preds = %strbuf_grow.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %strbuf_grow.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   ret ptr %4
 }
 
@@ -788,7 +788,7 @@ if.end9:                                          ; preds = %while.body, %if.the
   %call10 = tail call ptr @xmalloc(i64 noundef 24) #23
   %sext = shl i64 %len.0, 32
   %conv11 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call10, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call10, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   switch i64 %conv11, label %if.then35.i.i [
     i64 0, label %strbuf_init.exit
     i64 -1, label %if.then.i.i
@@ -986,14 +986,14 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %if
   br i1 %tobool2.not1013, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %sep) #24
-  tail call void @strbuf_add(ptr noundef %str, ptr noundef readonly %sep, i64 noundef %call.i)
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sep) #24
+  tail call void @strbuf_add(ptr noundef %str, ptr noundef %sep, i64 noundef %call.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   %3 = load ptr, ptr %item.0914, align 8
-  %call.i7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #24
-  tail call void @strbuf_add(ptr noundef %str, ptr noundef readonly %3, i64 noundef %call.i7)
+  %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
+  tail call void @strbuf_add(ptr noundef %str, ptr noundef %3, i64 noundef %call.i7)
   %incdec.ptr = getelementptr inbounds i8, ptr %item.0914, i64 16
   %4 = load ptr, ptr %slist, align 8
   %5 = load i64, ptr %nr, align 8
@@ -1027,7 +1027,7 @@ if.then.i:                                        ; preds = %while.body
   %buf.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   tail call void @free(ptr noundef %3) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   %.pre = load ptr, ptr %s.06, align 8
   br label %strbuf_release.exit
 
@@ -1466,8 +1466,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %argv, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef readonly %0, i64 noundef %call.i)
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef %0, i64 noundef %call.i)
   %dec8 = add nsw i32 %argc, -1
   %tobool2.not9 = icmp eq i32 %dec8, 0
   br i1 %tobool2.not9, label %return, label %while.body.lr.ph
@@ -1539,8 +1539,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.010, i64 8
   %9 = load ptr, ptr %incdec.ptr, align 8
-  %call.i7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #24
-  tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef readonly %9, i64 noundef %call.i7)
+  %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
+  tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %9, i64 noundef %call.i7)
   %dec = add nsw i32 %dec11, -1
   %tobool2.not = icmp eq i32 %dec, 0
   br i1 %tobool2.not, label %return, label %while.body, !llvm.loop !13
@@ -1880,8 +1880,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %add.ptr.us = getelementptr inbounds i8, ptr %call.us, i64 1
   %add.ptr2.us = getelementptr inbounds i8, ptr %buf.addr.019.us, i64 %size.addr.018.us
   %cond.us = select i1 %tobool1.not.us, ptr %add.ptr2.us, ptr %add.ptr.us
-  %call.i.us = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %prefix1) #24
-  tail call void @strbuf_add(ptr noundef %out, ptr noundef readonly %prefix1, i64 noundef %call.i.us)
+  %call.i.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix1) #24
+  tail call void @strbuf_add(ptr noundef %out, ptr noundef %prefix1, i64 noundef %call.i.us)
   %sub.ptr.lhs.cast.us = ptrtoint ptr %cond.us to i64
   %sub.ptr.rhs.cast.us = ptrtoint ptr %buf.addr.019.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast.us
@@ -1902,8 +1902,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %.off = add i8 %0, -9
   %switch = icmp ult i8 %.off, 2
   %spec.select = select i1 %switch, ptr %prefix2, ptr %prefix1
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select) #24
-  tail call void @strbuf_add(ptr noundef %out, ptr noundef readonly %spec.select, i64 noundef %call.i)
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #24
+  tail call void @strbuf_add(ptr noundef %out, ptr noundef %spec.select, i64 noundef %call.i)
   %sub.ptr.lhs.cast = ptrtoint ptr %cond to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.019 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -2628,7 +2628,7 @@ if.then3:                                         ; preds = %if.else
 if.then.i16:                                      ; preds = %if.then3
   %12 = load ptr, ptr %buf, align 8
   tail call void @free(ptr noundef %12) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then.i16, %if.then3, %if.then4.i13, %if.end.i11, %if.else
@@ -2715,7 +2715,7 @@ if.then6:                                         ; preds = %if.then
 if.then.i20:                                      ; preds = %if.then6
   %11 = load ptr, ptr %buf, align 8
   tail call void @free(ptr noundef %11) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -2917,7 +2917,7 @@ if.then6:                                         ; preds = %if.else
 if.then.i18:                                      ; preds = %if.then6
   %14 = load ptr, ptr %buf, align 8
   tail call void @free(ptr noundef %14) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i18, %if.then6, %if.then4.i15, %if.end.i13, %if.else
@@ -3073,7 +3073,7 @@ if.then.i18:                                      ; preds = %if.then13
   %buf.i19 = getelementptr inbounds i8, ptr %sb, i64 16
   %13 = load ptr, ptr %buf.i19, align 8
   tail call void @free(ptr noundef %13) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then.i18, %if.then13, %if.then4.i15, %if.end.i13, %while.end
@@ -3204,7 +3204,7 @@ if.then13:                                        ; preds = %for.end
 if.then.i16:                                      ; preds = %if.then13
   %13 = load ptr, ptr %buf.i, align 8
   tail call void @free(ptr noundef %13) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %return
 
 if.else:                                          ; preds = %for.end
@@ -3279,7 +3279,7 @@ if.end13:                                         ; preds = %if.end9
   br i1 %tobool15.not, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end13
@@ -3407,7 +3407,7 @@ if.end13.i:                                       ; preds = %if.end9.i
   br i1 %tobool15.not.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.end13.i
@@ -3553,7 +3553,7 @@ if.end13.i:                                       ; preds = %if.end9.i
   br i1 %tobool15.not.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.end13.i
@@ -3756,19 +3756,19 @@ while.body:                                       ; preds = %entry, %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.14, i64 noundef 6)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.14, i64 noundef 6)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.15, i64 noundef 4)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.15, i64 noundef 4)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.16, i64 noundef 4)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.16, i64 noundef 4)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %while.body
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull readonly @.str.17, i64 noundef 5)
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull @.str.17, i64 noundef 5)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb, %while.body
@@ -4240,7 +4240,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
-  call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
+  call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef %fmt, ptr noundef nonnull %ap)
   %0 = load i64, ptr %buf.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %0, 0
   %len.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
@@ -4375,7 +4375,7 @@ if.then35.i.i130:                                 ; preds = %do.end.i.i127
 
 strbuf_grow.exit.i:                               ; preds = %if.then35.i.i130, %do.end.i.i127
   %add.ptr.i129 = getelementptr inbounds i8, ptr %.pre, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i129, ptr readonly align 1 %fmt.addr.0220, i64 %sub.ptr.sub.i222, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i129, ptr align 1 %fmt.addr.0220, i64 %sub.ptr.sub.i222, i1 false)
   %add.i = add i64 %2, %sub.ptr.sub.i222
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
   %cmp.i7.i = icmp ult i64 %spec.select.i.i, %add.i
@@ -5063,7 +5063,7 @@ define dso_local void @strbuf_strip_file_from_path(ptr nocapture noundef %sb) lo
 entry:
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf, align 8
-  %call.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 47) #24
+  %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #24
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end.i, label %cond.end
 

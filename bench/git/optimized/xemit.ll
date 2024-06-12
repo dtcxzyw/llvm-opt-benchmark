@@ -932,7 +932,7 @@ while.body.i.i.i374:                              ; preds = %land.rhs.i.i.i368
 
 match_func_rec.exit.i349.thread:                  ; preds = %land.rhs.i.i.i368, %while.body.i.i.i374
   %len.addr.1.lcssa.i.i.i378 = phi i64 [ %len.addr.115.i.i.i369, %land.rhs.i.i.i368 ], [ 0, %while.body.i.i.i374 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %buf1.i, ptr nonnull readonly align 1 %115, i64 %len.addr.1.lcssa.i.i.i378, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buf1.i, ptr nonnull align 1 %115, i64 %len.addr.1.lcssa.i.i.i378, i1 false)
   br label %if.then.i357
 
 match_func_rec.exit.i349:                         ; preds = %for.body.i341

@@ -7253,7 +7253,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   store i32 %143, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %1, i64 264
   %146 = getelementptr inbounds i8, ptr %1, i64 300
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %145, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %145, i8 0, i64 32, i1 false)
   store i32 -1, ptr %146, align 4
   %147 = getelementptr inbounds i8, ptr %1, i64 296
   store i32 -1, ptr %147, align 8
@@ -7263,7 +7263,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %1, i64 336
   %151 = getelementptr inbounds i8, ptr %1, i64 388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %150, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %150, i8 0, i64 48, i1 false)
   store i32 -1, ptr %151, align 4
   %152 = getelementptr inbounds i8, ptr %1, i64 384
   store i32 -1, ptr %152, align 8
@@ -7272,7 +7272,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   %154 = getelementptr inbounds i8, ptr %1, i64 392
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %1, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %155, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %155, i8 0, i64 64, i1 false)
   br label %156
 
 156:                                              ; preds = %2, %140
@@ -7324,7 +7324,7 @@ define void @_ZNK6casadi17SundialsInterface11reset_statsEPNS_14SundialsMemoryE(p
 define void @_ZNK6casadi17SundialsInterface5resetEPNS_16IntegratorMemoryEPKdS4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2120) %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 264
   %7 = getelementptr inbounds i8, ptr %1, i64 300
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store i32 -1, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 296
   store i32 -1, ptr %8, align 8
@@ -7334,7 +7334,7 @@ define void @_ZNK6casadi17SundialsInterface5resetEPNS_16IntegratorMemoryEPKdS4_S
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 336
   %12 = getelementptr inbounds i8, ptr %1, i64 388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   store i32 -1, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 384
   store i32 -1, ptr %13, align 8
@@ -7343,7 +7343,7 @@ define void @_ZNK6casadi17SundialsInterface5resetEPNS_16IntegratorMemoryEPKdS4_S
   %15 = getelementptr inbounds i8, ptr %1, i64 392
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 1712
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 200

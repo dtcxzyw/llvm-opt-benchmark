@@ -678,7 +678,7 @@ define hidden void @ipmi_fmt_500ms_0based(ptr nocapture noundef writeonly %0, i3
   %4 = lshr i32 %3, 1
   %5 = trunc i32 %3 to i1
   %6 = select i1 %5, i32 500, i32 0
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.12, i32 noundef %4, i32 noundef %6) #13
+  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.12, i32 noundef %4, i32 noundef %6) #13
   ret void
 }
 
@@ -694,7 +694,7 @@ define hidden void @ipmi_fmt_500ms_1based(ptr nocapture noundef writeonly %0, i3
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @ipmi_fmt_1s_0based(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = add i32 %1, 1
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.13, i32 noundef %3) #13
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.13, i32 noundef %3) #13
   ret void
 }
 
@@ -1504,7 +1504,7 @@ get_frame_data.exit.i289:                         ; preds = %159, %153
   store ptr %191, ptr %194, align 8
   %195 = call ptr @wmem_file_scope() #13
   %196 = call noalias ptr @wmem_alloc0(ptr noundef %195, i64 noundef 20) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %196, ptr noundef nonnull readonly align 1 dereferenceable(11) %5, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %196, ptr noundef nonnull align 1 dereferenceable(11) %5, i64 11, i1 false)
   store i8 0, ptr %196, align 4
   %197 = getelementptr inbounds i8, ptr %18, i64 34
   %198 = load i8, ptr %197, align 2
@@ -1561,7 +1561,7 @@ match_request_response.exit:                      ; preds = %189, %183, %179, %9
   %227 = getelementptr inbounds i8, ptr %.018.i, i64 24
   %228 = load ptr, ptr %227, align 8
   %229 = zext i32 %225 to i64
-  %bcmp.i = call i32 @bcmp(ptr readonly %213, ptr %228, i64 %229)
+  %bcmp.i = call i32 @bcmp(ptr %213, ptr %228, i64 %229)
   %.not15.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not15.i, label %232, label %230
 

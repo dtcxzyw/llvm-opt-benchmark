@@ -1216,12 +1216,12 @@ Abc_Clock.exit:                                   ; preds = %Csw_CutFindFree.exi
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %Abc_Clock.exit
-  %166 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef readonly %0, ptr noundef nonnull readonly %.094180, ptr noundef nonnull readonly %.093182, ptr noundef nonnull writeonly %.016.i)
+  %166 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef %0, ptr noundef nonnull %.094180, ptr noundef nonnull %.093182, ptr noundef nonnull %.016.i)
   %.not13.i = icmp eq i32 %166, 0
   br i1 %.not13.i, label %Csw_CutMerge.exit.thread, label %169
 
 167:                                              ; preds = %Abc_Clock.exit
-  %168 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef readonly %0, ptr noundef nonnull readonly %.093182, ptr noundef nonnull readonly %.094180, ptr noundef nonnull writeonly %.016.i)
+  %168 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef %0, ptr noundef nonnull %.093182, ptr noundef nonnull %.094180, ptr noundef nonnull %.016.i)
   %.not.i125 = icmp eq i32 %168, 0
   br i1 %.not.i125, label %Csw_CutMerge.exit.thread, label %169
 

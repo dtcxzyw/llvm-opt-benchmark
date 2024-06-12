@@ -343,7 +343,7 @@ entry:
   store ptr %name, ptr %u.i, align 8
   %update_index1.i = getelementptr inbounds i8, ptr %rec.i, i64 16
   store i64 -1, ptr %update_index1.i, align 8
-  %call.i = call fastcc range(i32 -2147483648, 1) i32 @merged_table_seek_record(ptr noundef readonly %mt, ptr noundef writeonly %it, ptr noundef nonnull %rec.i)
+  %call.i = call fastcc range(i32 -2147483648, 1) i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rec.i)
   ret i32 %call.i
 }

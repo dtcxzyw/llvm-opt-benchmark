@@ -6873,7 +6873,7 @@ if.end:                                           ; preds = %entry
   store ptr %addrbuf, ptr %addrbuf2, align 8
   %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %1 = load i64, ptr %sock_timeout.i, align 8
-  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull readonly @sock_accept_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %1)
+  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_accept_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %1)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end6
 
@@ -7415,7 +7415,7 @@ if.end.i6:                                        ; preds = %if.end6
   store i32 %3, ptr %flags3.i, align 8
   %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load i64, ptr %sock_timeout.i.i, align 8
-  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull readonly @sock_recv_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %4)
+  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recv_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %4)
   %cmp4.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp4.i, label %sock_recv_guts.exit.thread, label %sock_recv_guts.exit
 
@@ -7528,7 +7528,7 @@ if.end.i:                                         ; preds = %if.end9.thread, %if
   store i32 %7, ptr %flags3.i, align 8
   %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %9 = load i64, ptr %sock_timeout.i.i, align 8
-  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull readonly @sock_recv_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %9)
+  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recv_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %9)
   %cmp4.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp4.i, label %sock_recv_guts.exit.thread, label %sock_recv_guts.exit
 
@@ -7611,7 +7611,7 @@ if.end.i:                                         ; preds = %if.end6
   store ptr %addrlen.i, ptr %addrlen5.i, align 8
   %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load i64, ptr %sock_timeout.i.i, align 8
-  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull readonly @sock_recvfrom_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %4)
+  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recvfrom_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %4)
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %sock_recvfrom_guts.exit.thread, label %if.end8.i
 
@@ -7779,7 +7779,7 @@ if.end.i:                                         ; preds = %if.end9
   store ptr %addrlen.i, ptr %addrlen5.i, align 8
   %sock_timeout.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %7 = load i64, ptr %sock_timeout.i.i, align 8
-  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull readonly @sock_recvfrom_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %7)
+  %call.i.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recvfrom_impl, ptr noundef nonnull %ctx.i, i32 noundef 0, ptr noundef null, i64 noundef %7)
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %if.then12.thread, label %if.end8.i
 
@@ -7859,7 +7859,7 @@ if.end:                                           ; preds = %entry
   store i32 %2, ptr %flags3, align 8
   %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %3 = load i64, ptr %sock_timeout.i, align 8
-  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull readonly @sock_send_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %3)
+  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull @sock_send_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %3)
   %cmp = icmp slt i32 %call.i, 0
   call void @PyBuffer_Release(ptr noundef nonnull %pbuf) #12
   br i1 %cmp, label %return, label %if.end6
@@ -8051,7 +8051,7 @@ if.end14:                                         ; preds = %if.end11
   store ptr %addrbuf, ptr %addrbuf19, align 8
   %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %7 = load i64, ptr %sock_timeout.i, align 8
-  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull readonly @sock_sendto_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %7)
+  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull @sock_sendto_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %7)
   %cmp21 = icmp slt i32 %call.i, 0
   call void @PyBuffer_Release(ptr noundef nonnull %pbuf) #12
   br i1 %cmp21, label %return, label %if.end23
@@ -8811,7 +8811,7 @@ if.end127:                                        ; preds = %if.end119, %while.e
   store i32 %24, ptr %flags129, align 8
   %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %25 = load i64, ptr %sock_timeout.i, align 8
-  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull readonly @sock_sendmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %25)
+  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 1, ptr noundef nonnull @sock_sendmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %25)
   %cmp131 = icmp slt i32 %call.i, 0
   br i1 %cmp131, label %finally, label %if.end134
 
@@ -9093,7 +9093,7 @@ if.end88:                                         ; preds = %if.end82, %if.end74
   store i32 %19, ptr %flags90, align 8
   %sock_timeout.i = getelementptr inbounds i8, ptr %self, i64 40
   %20 = load i64, ptr %sock_timeout.i, align 8
-  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef nonnull %self, i32 noundef 1, ptr noundef nonnull readonly @sock_sendmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %20)
+  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef nonnull %self, i32 noundef 1, ptr noundef nonnull @sock_sendmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %20)
   %cmp92 = icmp slt i32 %call.i, 0
   br i1 %cmp92, label %finally, label %if.end95
 
@@ -11290,7 +11290,7 @@ if.end14:                                         ; preds = %land.lhs.true, %if.
   store i32 %flags, ptr %flags17, align 8
   %sock_timeout.i = getelementptr inbounds i8, ptr %s, i64 40
   %3 = load i64, ptr %sock_timeout.i, align 8
-  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull readonly @sock_recvmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %3)
+  %call.i = call fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef 0, ptr noundef nonnull @sock_recvmsg_impl, ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null, i64 noundef %3)
   %cmp19 = icmp slt i32 %call.i, 0
   br i1 %cmp19, label %Py_XDECREF.exit, label %if.end22
 

@@ -284,7 +284,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msgctl(i
   br i1 %20, label %21, label %msgctl_info.exit
 
 21:                                               ; preds = %18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %22 = getelementptr inbounds i8, ptr %17, i64 676
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %5, i64 16
@@ -492,7 +492,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_msgct
   br i1 %21, label %22, label %msgctl_info.exit
 
 22:                                               ; preds = %19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %23 = getelementptr inbounds i8, ptr %14, i64 676
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %8, i64 16

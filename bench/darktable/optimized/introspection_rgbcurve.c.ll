@@ -638,7 +638,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %224 = fmul reassoc nsz arcp contract afn <4 x float> %221, %223
   %225 = fadd reassoc nsz arcp contract afn <4 x float> %220, %224
   store <4 x float> %225, ptr %6, align 16, !tbaa !13
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly %181, ptr noundef nonnull readonly %180, i32 noundef %211)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %181, ptr noundef nonnull %180, i32 noundef %211)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
   %226 = load float, ptr %7, align 16, !tbaa !13
   br label %dt_ioppr_uncompensate_middle_grey.exit
@@ -692,7 +692,7 @@ dt_ioppr_uncompensate_middle_grey.exit:           ; preds = %210, %227
   %263 = fmul reassoc nsz arcp contract afn <4 x float> %260, %262
   %264 = fadd reassoc nsz arcp contract afn <4 x float> %259, %263
   store <4 x float> %264, ptr %4, align 16, !tbaa !13
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly %181, ptr noundef nonnull readonly %180, i32 noundef %250)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %181, ptr noundef nonnull %180, i32 noundef %250)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #24
   %265 = load float, ptr %5, align 16, !tbaa !13
   br label %dt_ioppr_uncompensate_middle_grey.exit12

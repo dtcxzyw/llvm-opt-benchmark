@@ -540,7 +540,7 @@ _load_config.exit:                                ; preds = %52, %55
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 56
   %91 = load i32, ptr %90, align 8
-  %92 = call fastcc ptr @_generate_pattern(ptr noundef nonnull %85, ptr noundef nonnull readonly %0, i32 noundef %91, ptr noundef null)
+  %92 = call fastcc ptr @_generate_pattern(ptr noundef nonnull %85, ptr noundef nonnull %0, i32 noundef %91, ptr noundef null)
   br label %95
 
 93:                                               ; preds = %82
@@ -553,7 +553,7 @@ _load_config.exit:                                ; preds = %52, %55
   store ptr %.sink.i, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %59, i64 40
   call void @slurm_xfree(ptr noundef nonnull %97) #9
-  %98 = call fastcc ptr @_generate_spooldir(ptr noundef nonnull readonly %0, ptr noundef null)
+  %98 = call fastcc ptr @_generate_spooldir(ptr noundef nonnull %0, ptr noundef null)
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 368
   %100 = load i32, ptr %99, align 8
@@ -1032,7 +1032,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br label %.thread.i
 
 279:                                              ; preds = %272
-  %280 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %274) #11
+  %280 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #11
   %281 = trunc i64 %280 to i32
   %282 = icmp sgt i32 %281, 0
   br i1 %282, label %.lr.ph.split.us.i, label %.outer._crit_edge.i
@@ -1069,7 +1069,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br i1 %295, label %296, label %327
 
 296:                                              ; preds = %.split45.us.i
-  %297 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %274) #11
+  %297 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #11
   %298 = trunc i64 %297 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef 317, ptr noundef nonnull @__func__._write_config, i32 noundef %.032.ph52.i, i32 noundef %298) #9
   br label %327
@@ -1089,7 +1089,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br i1 %305, label %306, label %.lr.ph.split.us.i.backedge
 
 306:                                              ; preds = %303
-  %307 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %274) #11
+  %307 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #11
   %308 = trunc i64 %307 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.64, i32 noundef 317, ptr noundef nonnull @__func__._write_config, i32 noundef %301, i32 noundef %308) #9
   br label %.lr.ph.split.us.i.backedge

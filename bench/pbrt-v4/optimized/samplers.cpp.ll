@@ -450,7 +450,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 40, i64 noundef 8), !noalias !11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !11
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb1.i.i:                                       ; preds = %entry
@@ -458,7 +458,7 @@ sw.bb1.i.i:                                       ; preds = %entry
   %vfn.i.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i25.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i.i26.i.i, align 8, !noalias !16
   %call.i.i.i.i.i.i27.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 24, i64 noundef 8), !noalias !16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i.i.i.i27.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i.i.i.i27.i.i, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !16
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
@@ -466,7 +466,7 @@ sw.bb2.i.i:                                       ; preds = %entry
   %vfn.i.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i29.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i30.i.i, align 8, !noalias !21
   %call.i.i.i.i.i.i31.i.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 48, i64 noundef 8), !noalias !21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i.i.i.i.i31.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i.i.i.i.i31.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !21
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
@@ -474,7 +474,7 @@ sw.bb3.i.i:                                       ; preds = %entry
   %vfn.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i33.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i34.i.i, align 8, !noalias !26
   %call.i.i.i.i.i.i35.i.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 56, i64 noundef 8), !noalias !26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i.i.i.i35.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false), !noalias !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i.i.i.i35.i.i, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false), !noalias !26
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
@@ -482,7 +482,7 @@ sw.bb4.i.i:                                       ; preds = %entry
   %vfn.i.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i37.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i38.i.i, align 8, !noalias !31
   %call.i.i.i.i.i.i39.i.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 28, i64 noundef 4), !noalias !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i.i39.i.i, ptr noundef nonnull readonly align 4 dereferenceable(28) %0, i64 28, i1 false), !noalias !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i.i39.i.i, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !noalias !31
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
@@ -490,7 +490,7 @@ sw.bb5.i.i:                                       ; preds = %entry
   %vfn.i.i.i.i.i.i42.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i41.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i42.i.i, align 8, !noalias !36
   %call.i.i.i.i.i.i43.i.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 40, i64 noundef 8), !noalias !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i43.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i43.i.i, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !36
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
@@ -498,7 +498,7 @@ sw.bb6.i.i:                                       ; preds = %entry
   %vfn.i.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i45.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i46.i.i, align 8, !noalias !41
   %call.i.i.i.i.i.i47.i.i = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 32, i64 noundef 8), !noalias !41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.i.i47.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.i.i47.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !41
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb7.i.i:                                       ; preds = %entry

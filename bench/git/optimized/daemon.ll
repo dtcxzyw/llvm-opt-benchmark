@@ -1100,7 +1100,7 @@ if.then10.i.i.i:                                  ; preds = %if.then17.i.i.i.i, 
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i.i, %if.else14.i.i.i.i, %if.end.i.i.i.i
   %host.120.i.i.i = phi ptr [ %host.1.i.i.i, %if.then10.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr4.i.i.i, %if.else14.i.i.i.i ]
-  call fastcc void @sanitize_client(ptr noundef nonnull %hi.i, ptr noundef nonnull readonly %host.120.i.i.i)
+  call fastcc void @sanitize_client(ptr noundef nonnull %hi.i, ptr noundef nonnull %host.120.i.i.i)
   call void @strbuf_tolower(ptr noundef nonnull %hi.i) #19
   %bf.load11.i.i.i = load i8, ptr %saw_extended_args.i.i.i, align 8
   %bf.clear12.i.i.i = and i8 %bf.load11.i.i.i, -2
@@ -2209,13 +2209,13 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 if.then12.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   %sin_addr.i.i.i.i.i = getelementptr inbounds i8, ptr %blanket.0.i.i.i.i, i64 132
   %sin_addr13.i.i.i.i.i = getelementptr inbounds i8, ptr %187, i64 132
-  %call.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %sin_addr.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(4) %sin_addr13.i.i.i.i.i, i64 noundef 4) #20
+  %call.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %sin_addr.i.i.i.i.i, ptr noundef nonnull dereferenceable(4) %sin_addr13.i.i.i.i.i, i64 noundef 4) #20
   br label %addrcmp.exit.i.i.i.i
 
 if.then19.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   %sin6_addr.i.i.i.i.i = getelementptr inbounds i8, ptr %blanket.0.i.i.i.i, i64 136
   %sin6_addr20.i.i.i.i.i = getelementptr inbounds i8, ptr %187, i64 136
-  %call21.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr20.i.i.i.i.i, i64 noundef 16) #20
+  %call21.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i.i.i.i.i, ptr noundef nonnull dereferenceable(16) %sin6_addr20.i.i.i.i.i, i64 noundef 16) #20
   br label %addrcmp.exit.i.i.i.i
 
 addrcmp.exit.i.i.i.i:                             ; preds = %if.then19.i.i.i.i.i, %if.then12.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -2325,10 +2325,10 @@ if.else40.i.i.i:                                  ; preds = %if.end35.i.i.i
   %inc.i.i.i.i = add i32 %203, 1
   store i32 %inc.i.i.i.i, ptr @live_children, align 4
   %cld1.i.i.i.i = getelementptr inbounds i8, ptr %call.i13.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cld1.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(120) %cld.i17.i.i, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cld1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %cld.i17.i.i, i64 120, i1 false)
   %address.i14.i.i.i = getelementptr inbounds i8, ptr %call.i13.i.i.i, i64 128
   %conv.i15.i.i.i = zext i32 %181 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address.i14.i.i.i, ptr nonnull readonly align 4 %ss.i.i, i64 %conv.i15.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address.i14.i.i.i, ptr nonnull align 4 %ss.i.i, i64 %conv.i15.i.i.i, i1 false)
   %sin6_addr20.i.i16.i.i.i = getelementptr inbounds i8, ptr %call.i13.i.i.i, i64 136
   %sin_addr13.i.i17.i.i.i = getelementptr inbounds i8, ptr %call.i13.i.i.i, i64 132
   br label %for.cond.i18.i.i.i
@@ -2360,12 +2360,12 @@ if.end.i.i28.i.i.i:                               ; preds = %for.body.i20.i.i.i
 
 if.then12.i.i32.i.i.i:                            ; preds = %if.end.i.i28.i.i.i
   %sin_addr.i.i33.i.i.i = getelementptr inbounds i8, ptr %204, i64 132
-  %call.i.i34.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %sin_addr.i.i33.i.i.i, ptr noundef nonnull readonly dereferenceable(4) %sin_addr13.i.i17.i.i.i, i64 noundef 4) #20
+  %call.i.i34.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %sin_addr.i.i33.i.i.i, ptr noundef nonnull dereferenceable(4) %sin_addr13.i.i17.i.i.i, i64 noundef 4) #20
   br label %addrcmp.exit.i26.i.i.i
 
 if.then19.i.i29.i.i.i:                            ; preds = %if.end.i.i28.i.i.i
   %sin6_addr.i.i30.i.i.i = getelementptr inbounds i8, ptr %204, i64 136
-  %call21.i.i31.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i30.i.i.i, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr20.i.i16.i.i.i, i64 noundef 16) #20
+  %call21.i.i31.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %sin6_addr.i.i30.i.i.i, ptr noundef nonnull dereferenceable(16) %sin6_addr20.i.i16.i.i.i, i64 noundef 16) #20
   br label %addrcmp.exit.i26.i.i.i
 
 addrcmp.exit.i26.i.i.i:                           ; preds = %if.then19.i.i29.i.i.i, %if.then12.i.i32.i.i.i, %if.then.i.i22.i.i.i

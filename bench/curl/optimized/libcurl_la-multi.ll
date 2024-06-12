@@ -6024,7 +6024,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call { i64, i32 } @Curl_now() #19
-  %call1.i = tail call i32 @curl_multi_perform(ptr noundef nonnull %multi, ptr noundef writeonly %running_handles)
+  %call1.i = tail call i32 @curl_multi_perform(ptr noundef nonnull %multi, ptr noundef %running_handles)
   %cmp.not.i = icmp eq i32 %call1.i, 1
   br i1 %cmp.not.i, label %return, label %if.then2.i
 

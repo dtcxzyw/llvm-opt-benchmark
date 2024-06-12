@@ -495,7 +495,7 @@ _ZNK3sat6solver11end_clausesEv.exit:              ; preds = %entry
 for.body.i:                                       ; preds = %_ZNK3sat6solver11end_clausesEv.exit, %for.body.i
   %it.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %1, %_ZNK3sat6solver11end_clausesEv.exit ]
   %4 = load ptr, ptr %it.04.i, align 8
-  %call.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %4)
+  %call.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %4)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZNK3sat17integrity_checker13check_clausesEPKPNS_6clauseES4_.exit, label %for.body.i, !llvm.loop !8
@@ -563,7 +563,7 @@ _ZNK3sat6solver11end_learnedEv.exit:              ; preds = %if.end8
 for.body.i:                                       ; preds = %_ZNK3sat6solver11end_learnedEv.exit, %for.body.i
   %it.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %8, %_ZNK3sat6solver11end_learnedEv.exit ]
   %11 = load ptr, ptr %it.04.i, align 8
-  %call.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %11)
+  %call.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %11)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i10
   br i1 %cmp.not.i, label %_ZNK3sat17integrity_checker13check_clausesEPKPNS_6clauseES4_.exit, label %for.body.i, !llvm.loop !8
@@ -1490,7 +1490,7 @@ _ZNK3sat6solver11end_clausesEv.exit.i:            ; preds = %if.end
 for.body.i.i:                                     ; preds = %_ZNK3sat6solver11end_clausesEv.exit.i, %for.body.i.i
   %it.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %2, %_ZNK3sat6solver11end_clausesEv.exit.i ]
   %5 = load ptr, ptr %it.04.i.i, align 8
-  %call.i.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %5)
+  %call.i.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %5)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZNK3sat17integrity_checker13check_clausesEv.exit, label %for.body.i.i, !llvm.loop !8
@@ -1555,7 +1555,7 @@ _ZNK3sat6solver11end_learnedEv.exit.i:            ; preds = %if.end8.i
 for.body.i.i7:                                    ; preds = %_ZNK3sat6solver11end_learnedEv.exit.i, %for.body.i.i7
   %it.04.i.i8 = phi ptr [ %incdec.ptr.i.i10, %for.body.i.i7 ], [ %15, %_ZNK3sat6solver11end_learnedEv.exit.i ]
   %18 = load ptr, ptr %it.04.i.i8, align 8
-  %call.i.i9 = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %18)
+  %call.i.i9 = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker12check_clauseERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(20) %18)
   %incdec.ptr.i.i10 = getelementptr inbounds i8, ptr %it.04.i.i8, i64 8
   %cmp.not.i.i11 = icmp eq ptr %incdec.ptr.i.i10, %add.ptr.i.i10.i
   br i1 %cmp.not.i.i11, label %_ZNK3sat17integrity_checker21check_learned_clausesEv.exit.loopexit, label %for.body.i.i7, !llvm.loop !8
@@ -1611,7 +1611,7 @@ if.then.i:                                        ; preds = %_ZNK6vectorIN3sat7w
   unreachable
 
 if.end.i:                                         ; preds = %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.i, %lor.lhs.false.i, %for.body.i12
-  %call13.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker13check_watchesENS_7literalERK6vectorINS_7watchedELb1EjE(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, i32 %xor.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__begin1.08.i)
+  %call13.i = tail call noundef zeroext i1 @_ZNK3sat17integrity_checker13check_watchesENS_7literalERK6vectorINS_7watchedELb1EjE(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 %xor.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__begin1.08.i)
   %incdec.ptr.i13 = getelementptr inbounds i8, ptr %__begin1.08.i, i64 8
   %cmp.not.i14 = icmp eq ptr %incdec.ptr.i13, %add.ptr.i.i
   br i1 %cmp.not.i14, label %_ZNK3sat17integrity_checker13check_watchesEv.exit, label %for.body.i12

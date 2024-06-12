@@ -100,7 +100,7 @@ cleanup_part_content.exit:                        ; preds = %if.then, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %part, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %part, i64 16
   store i32 0, ptr %kind.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %part, i64 20
@@ -143,7 +143,7 @@ do.body:                                          ; preds = %cleanup_part_conten
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(432) %part, i8 0, i64 432, i1 false)
   store i64 1, ptr %lastreadstatus.i, align 8
   %ptr2.i.i = getelementptr inbounds i8, ptr %part, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ptr2.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr2.i.i, i8 0, i64 16, i1 false)
   br label %if.end10
 
 if.end10:                                         ; preds = %do.body, %entry
@@ -201,7 +201,7 @@ cleanup_part_content.exit.i:                      ; preds = %if.then.i.i, %if.th
   %datasize.i.i = getelementptr inbounds i8, ptr %1, i64 112
   store i64 0, ptr %datasize.i.i, align 8
   %encstate.i.i = getelementptr inbounds i8, ptr %1, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i.i, i8 0, i64 24, i1 false)
   %kind.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %kind.i.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %1, i64 20
@@ -249,7 +249,7 @@ cleanup_part_content.exit.i14:                    ; preds = %if.then.i.i12, %if.
   %datasize.i.i19 = getelementptr inbounds i8, ptr %6, i64 112
   store i64 0, ptr %datasize.i.i19, align 8
   %encstate.i.i20 = getelementptr inbounds i8, ptr %6, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i.i20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i.i20, i8 0, i64 24, i1 false)
   %kind.i.i21 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 0, ptr %kind.i.i21, align 8
   %flags.i.i22 = getelementptr inbounds i8, ptr %6, i64 20
@@ -292,7 +292,7 @@ Curl_mime_cleanpart.exit:                         ; preds = %cleanup_part_conten
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(432) %6, i8 0, i64 432, i1 false)
   store i64 1, ptr %lastreadstatus.i.i24, align 8
   %ptr2.i.i.i = getelementptr inbounds i8, ptr %6, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ptr2.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr2.i.i.i, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr @Curl_cfree, align 8
   tail call void %20(ptr noundef nonnull %6) #16
   %21 = load ptr, ptr %firstpart, align 8
@@ -346,7 +346,7 @@ cleanup_part_content.exit:                        ; preds = %if.then, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %1, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %1, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %kind.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %1, i64 20
@@ -409,7 +409,7 @@ cleanup_part_content.exit.i:                      ; preds = %if.then.i.i, %if.en
   %datasize.i.i = getelementptr inbounds i8, ptr %dst, i64 112
   store i64 0, ptr %datasize.i.i, align 8
   %encstate.i.i = getelementptr inbounds i8, ptr %dst, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i.i, i8 0, i64 24, i1 false)
   %kind.i.i = getelementptr inbounds i8, ptr %dst, i64 16
   store i32 0, ptr %kind.i.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %dst, i64 20
@@ -493,7 +493,7 @@ cleanup_part_content.exit.i47:                    ; preds = %if.then.i.i45, %if.
   %datasize.i.i52 = getelementptr inbounds i8, ptr %dst, i64 112
   store i64 0, ptr %datasize.i.i52, align 8
   %encstate.i.i53 = getelementptr inbounds i8, ptr %dst, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i.i53, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i.i53, i8 0, i64 24, i1 false)
   %kind.i.i54 = getelementptr inbounds i8, ptr %dst, i64 16
   store i32 0, ptr %kind.i.i54, align 8
   %flags.i.i55 = getelementptr inbounds i8, ptr %dst, i64 20
@@ -580,7 +580,7 @@ if.then5.i.i:                                     ; preds = %if.end3.i.i, %if.th
   %datasize.i.i.i = getelementptr inbounds i8, ptr %dst, i64 112
   store i64 0, ptr %datasize.i.i.i, align 8
   %encstate.i.i.i = getelementptr inbounds i8, ptr %dst, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i.i.i, i8 0, i64 24, i1 false)
   store i32 0, ptr %kind.i.i67, align 8
   %flags.i.i.i = getelementptr inbounds i8, ptr %dst, i64 20
   %21 = load i32, ptr %flags.i.i.i, align 4
@@ -645,11 +645,11 @@ for.body:                                         ; preds = %for.body.preheader,
 
 cond.end20:                                       ; preds = %for.body
   %28 = getelementptr inbounds i8, ptr %call.i71, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(440) %28, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %28, i8 0, i64 424, i1 false)
   %lastreadstatus.i.i74 = getelementptr inbounds i8, ptr %call.i71, i64 432
   store i64 1, ptr %lastreadstatus.i.i74, align 8
   %ptr2.i.i.i = getelementptr inbounds i8, ptr %call.i71, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ptr2.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr2.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i62, ptr %call.i71, align 8
   %29 = load ptr, ptr %lastpart.i, align 8
   %tobool3.not.i75 = icmp eq ptr %29, null
@@ -818,7 +818,7 @@ cleanup_part_content.exit:                        ; preds = %if.end, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %part, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %part, i64 16
   store i32 0, ptr %kind.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %part, i64 20
@@ -895,7 +895,7 @@ cleanup_part_content.exit:                        ; preds = %if.end, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %part, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %part, i64 16
   store i32 0, ptr %kind.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %part, i64 20
@@ -1016,7 +1016,7 @@ cleanup_part_content.exit:                        ; preds = %if.end, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %part, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %part, i64 16
   store i32 0, ptr %kind.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %part, i64 20
@@ -1121,7 +1121,7 @@ cleanup_part_content.exit.i:                      ; preds = %if.then.i.i, %if.en
   %datasize.i.i = getelementptr inbounds i8, ptr %part, i64 112
   store i64 0, ptr %datasize.i.i, align 8
   %encstate.i.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i.i, i8 0, i64 24, i1 false)
   store i32 0, ptr %kind.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %part, i64 20
   %4 = load i32, ptr %flags.i.i, align 4
@@ -1188,11 +1188,11 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %1 = getelementptr inbounds i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(440) %1, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %1, i8 0, i64 424, i1 false)
   %lastreadstatus.i = getelementptr inbounds i8, ptr %call, i64 432
   store i64 1, ptr %lastreadstatus.i, align 8
   %ptr2.i.i = getelementptr inbounds i8, ptr %call, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ptr2.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr2.i.i, i8 0, i64 16, i1 false)
   store ptr %mime, ptr %call, align 8
   %lastpart = getelementptr inbounds i8, ptr %mime, i64 16
   %2 = load ptr, ptr %lastpart, align 8
@@ -1616,7 +1616,7 @@ cleanup_part_content.exit:                        ; preds = %if.end3, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %part, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   store i32 0, ptr %kind, align 8
   %flags.i = getelementptr inbounds i8, ptr %part, i64 20
   %4 = load i32, ptr %flags.i, align 4
@@ -1699,7 +1699,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %and.i = shl i32 %1, 1
   %spec.store.select.i = and i32 %and.i, 4
   %encstate.i = getelementptr inbounds i8, ptr %part.014, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %state.i = getelementptr inbounds i8, ptr %part.014, i64 120
   %2 = load i32, ptr %state.i, align 8
   %cmp.i = icmp ugt i32 %2, %spec.store.select.i
@@ -1796,7 +1796,7 @@ cleanup_part_content.exit:                        ; preds = %if.then, %if.then.i
   %datasize.i = getelementptr inbounds i8, ptr %1, i64 112
   store i64 0, ptr %datasize.i, align 8
   %encstate.i = getelementptr inbounds i8, ptr %1, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %kind.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %1, i64 20
@@ -1949,7 +1949,7 @@ readback_bytes.exit:                              ; preds = %if.then.i, %if.end.
   %bytes.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr5.i, %if.end.i ]
   %sz.0.i = phi i64 [ %sub.i, %if.then.i ], [ %sub6.i, %if.end.i ]
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 %bufsize.addr.0120)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buffer.addr.0122, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0122, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
   %10 = load i64, ptr %offset.i83, align 8
   %add.i = add i64 %10, %spec.select.i
   store i64 %add.i, ptr %offset.i83, align 8
@@ -1973,7 +1973,7 @@ readback_bytes.exit79:                            ; preds = %sw.bb28
   %sub.i77 = sub nuw nsw i64 2, %call.i62
   %add.ptr.i78 = getelementptr inbounds i8, ptr @.str.41, i64 %call.i62
   %spec.select.i74 = tail call i64 @llvm.umin.i64(i64 %sub.i77, i64 %bufsize.addr.0120)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buffer.addr.0122, ptr nonnull align 1 %add.ptr.i78, i64 %spec.select.i74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0122, ptr nonnull align 1 %add.ptr.i78, i64 %spec.select.i74, i1 false)
   %13 = load i64, ptr %offset.i83, align 8
   %add.i75 = add i64 %13, %spec.select.i74
   store i64 %add.i75, ptr %offset.i83, align 8
@@ -1985,7 +1985,7 @@ if.then32:                                        ; preds = %sw.bb28
   br label %sw.epilog56
 
 sw.bb35:                                          ; preds = %while.body
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate, i8 0, i64 24, i1 false)
   store i32 7, ptr %state, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr, i8 0, i64 16, i1 false)
   br label %sw.epilog56
@@ -2158,7 +2158,7 @@ entry:
   %and.i = shl i32 %0, 1
   %spec.store.select.i = and i32 %and.i, 4
   %encstate.i = getelementptr inbounds i8, ptr %part, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %encstate.i, i8 0, i64 24, i1 false)
   %state.i = getelementptr inbounds i8, ptr %part, i64 120
   %1 = load i32, ptr %state.i, align 8
   %cmp.i = icmp ugt i32 %1, %spec.store.select.i
@@ -3648,7 +3648,7 @@ readback_bytes.exit77:                            ; preds = %sw.bb5.i
   %sub.i75 = sub nuw nsw i64 4, %call.i60
   %add.ptr.i76 = getelementptr inbounds i8, ptr @.str.42, i64 %call.i60
   %spec.select.i72 = tail call i64 @llvm.umin.i64(i64 %sub.i75, i64 %nitems.addr.0.i89)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buffer.addr.0.i91, ptr nonnull align 1 %add.ptr.i76, i64 %spec.select.i72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0.i91, ptr nonnull align 1 %add.ptr.i76, i64 %spec.select.i72, i1 false)
   %9 = load i64, ptr %offset.i25, align 8
   %add.i73 = add i64 %9, %spec.select.i72
   store i64 %add.i73, ptr %offset.i25, align 8
@@ -3688,7 +3688,7 @@ if.end7.i48:                                      ; preds = %if.end.i45, %if.the
   %.pn = phi i64 [ 46, %if.then.i53 ], [ 48, %if.end.i45 ]
   %sz.0.i50 = sub nuw nsw i64 %.pn, %call.i30
   %spec.select.i51 = tail call i64 @llvm.umin.i64(i64 %sz.0.i50, i64 %nitems.addr.0.i89)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buffer.addr.0.i91, ptr nonnull align 1 %bytes.addr.0.i49, i64 %spec.select.i51, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0.i91, ptr nonnull align 1 %bytes.addr.0.i49, i64 %spec.select.i51, i1 false)
   %11 = load i64, ptr %offset.i25, align 8
   %add.i52 = add i64 %11, %spec.select.i51
   store i64 %add.i52, ptr %offset.i25, align 8
@@ -3715,7 +3715,7 @@ if.end7.i:                                        ; preds = %if.end.i, %if.then.
   %.pn86 = phi i64 [ 46, %if.then.i35 ], [ 50, %if.end.i ]
   %sz.0.i33 = sub nsw i64 %.pn86, %call.i30
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i33, i64 %nitems.addr.0.i89)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buffer.addr.0.i91, ptr nonnull align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0.i91, ptr nonnull align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
   %12 = load i64, ptr %offset.i25, align 8
   %add.i34 = add i64 %12, %spec.select.i
   store i64 %add.i34, ptr %offset.i25, align 8

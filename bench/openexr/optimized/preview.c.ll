@@ -106,7 +106,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %exr_attr_preview_init.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
   %cmp10.not.i = icmp eq i64 %mul2.i, 0
   br i1 %cmp10.not.i, label %if.then, label %if.then12.i
 

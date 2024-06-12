@@ -4171,7 +4171,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 arraydestroy.done128:                             ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit845
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp155, i32 noundef 10)
           to label %invoke.cont157 unwind label %lpad156
 
@@ -5054,7 +5054,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 arraydestroy.done425:                             ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit931
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l453, align 8
   %events.i932 = getelementptr inbounds i8, ptr %l453, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i932, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i932, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp456, i32 noundef 10)
           to label %invoke.cont458 unwind label %lpad457
 
@@ -6026,7 +6026,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 arraydestroy.done730:                             ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1061
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l758, align 8
   %events.i1062 = getelementptr inbounds i8, ptr %l758, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1062, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1062, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp761, i32 noundef 10)
           to label %invoke.cont763 unwind label %lpad762
 
@@ -8120,7 +8120,7 @@ invoke.cont1484:                                  ; preds = %invoke.cont1482
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1331) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l1487, align 8
   %events.i1332 = getelementptr inbounds i8, ptr %l1487, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1332, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1332, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1490, i32 noundef 10)
           to label %invoke.cont1492 unwind label %lpad1491
 
@@ -9059,7 +9059,7 @@ invoke.cont1757:                                  ; preds = %invoke.cont1755
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1453) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l1760, align 8
   %events.i1454 = getelementptr inbounds i8, ptr %l1760, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1454, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1454, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1763, i32 noundef 10)
           to label %invoke.cont1765 unwind label %lpad1764
 
@@ -10320,7 +10320,7 @@ invoke.cont2172:                                  ; preds = %invoke.cont2170
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1585) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2175, align 8
   %events.i1586 = getelementptr inbounds i8, ptr %l2175, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1586, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1586, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2178, i32 noundef 10)
           to label %invoke.cont2180 unwind label %lpad2179
 
@@ -10800,7 +10800,7 @@ invoke.cont2310:                                  ; preds = %invoke.cont2308
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1685) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2313, align 8
   %events.i1686 = getelementptr inbounds i8, ptr %l2313, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1686, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1686, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2316, i32 noundef 10)
           to label %invoke.cont2318 unwind label %lpad2317
 
@@ -11355,7 +11355,7 @@ invoke.cont2447:                                  ; preds = %invoke.cont2445
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1818) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2450, align 8
   %events.i1819 = getelementptr inbounds i8, ptr %l2450, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1819, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1819, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2453, i32 noundef 10)
           to label %invoke.cont2455 unwind label %lpad2454
 
@@ -11917,7 +11917,7 @@ invoke.cont2590:                                  ; preds = %invoke.cont2588
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1952) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2593, align 8
   %events.i1953 = getelementptr inbounds i8, ptr %l2593, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i1953, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i1953, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2596, i32 noundef 10)
           to label %invoke.cont2598 unwind label %lpad2597
 
@@ -12490,7 +12490,7 @@ invoke.cont2741:                                  ; preds = %invoke.cont2739
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2089) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2744, align 8
   %events.i2090 = getelementptr inbounds i8, ptr %l2744, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2090, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2090, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2747, i32 noundef 10)
           to label %invoke.cont2749 unwind label %lpad2748
 
@@ -12945,7 +12945,7 @@ invoke.cont2887:                                  ; preds = %invoke.cont2885
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2180) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2890, align 8
   %events.i2181 = getelementptr inbounds i8, ptr %l2890, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2181, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2181, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2893, i32 noundef 10)
           to label %invoke.cont2895 unwind label %lpad2894
 
@@ -13600,7 +13600,7 @@ invoke.cont3053:                                  ; preds = %invoke.cont3051
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2317) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l3056, align 8
   %events.i2318 = getelementptr inbounds i8, ptr %l3056, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2318, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2318, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3059, i32 noundef 10)
           to label %invoke.cont3061 unwind label %lpad3060
 
@@ -14045,7 +14045,7 @@ invoke.cont3238:                                  ; preds = %invoke.cont3236
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2427) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l3241, align 8
   %events.i2428 = getelementptr inbounds i8, ptr %l3241, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2428, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2428, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3244, i32 noundef 10)
           to label %invoke.cont3246 unwind label %lpad3245
 
@@ -14503,7 +14503,7 @@ invoke.cont3394:                                  ; preds = %invoke.cont3392
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2531) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l3397, align 8
   %events.i2532 = getelementptr inbounds i8, ptr %l3397, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2532, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2532, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3400, i32 noundef 10)
           to label %invoke.cont3402 unwind label %lpad3401
 
@@ -14936,7 +14936,7 @@ invoke.cont3539:                                  ; preds = %invoke.cont3537
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2624) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l3542, align 8
   %events.i2625 = getelementptr inbounds i8, ptr %l3542, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2625, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2625, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3545, i32 noundef 10)
           to label %invoke.cont3547 unwind label %lpad3546
 
@@ -15378,7 +15378,7 @@ invoke.cont3712:                                  ; preds = %invoke.cont3710
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2719) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l3715, align 8
   %events.i2720 = getelementptr inbounds i8, ptr %l3715, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2720, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2720, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3718, i32 noundef 10)
           to label %invoke.cont3720 unwind label %lpad3719
 
@@ -17866,7 +17866,7 @@ invoke.cont3876:                                  ; preds = %invoke.cont3874
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2845) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l3879, align 8
   %events.i2846 = getelementptr inbounds i8, ptr %l3879, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2846, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2846, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3882, i32 noundef 10)
           to label %invoke.cont3884 unwind label %lpad3883
 
@@ -18425,7 +18425,7 @@ invoke.cont4032:                                  ; preds = %invoke.cont4030
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i2995) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l4035, align 8
   %events.i2996 = getelementptr inbounds i8, ptr %l4035, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i2996, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i2996, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4038, i32 noundef 10)
           to label %invoke.cont4040 unwind label %lpad4039
 
@@ -18968,7 +18968,7 @@ invoke.cont4222:                                  ; preds = %invoke.cont4220
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i3098) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l4225, align 8
   %events.i3099 = getelementptr inbounds i8, ptr %l4225, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i3099, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i3099, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4228, i32 noundef 10)
           to label %invoke.cont4230 unwind label %lpad4229
 
@@ -19575,7 +19575,7 @@ for.inc.i132.i.i:                                 ; preds = %if.else.i130.i.i, %
 
 invoke.cont23.i.i.i:                              ; preds = %for.inc.i132.i.i, %if.then19.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i123.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp25.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i.i.i3179, ptr noundef nonnull @.str.268, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i.i.i)
           to label %invoke.cont31.i.i.i unwind label %lpad30.i.i.i
@@ -19722,7 +19722,7 @@ for.inc.i105.i.i:                                 ; preds = %if.else.i103.i.i, %
 
 invoke.cont64.i.i.i:                              ; preds = %for.inc.i105.i.i, %if.then58.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i96.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp66.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp66.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i.i.i, ptr noundef nonnull @.str.269, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70.i.i.i)
           to label %invoke.cont72.i.i.i unwind label %lpad71.i.i.i
@@ -20090,7 +20090,7 @@ for.inc.i78.i.i:                                  ; preds = %if.else.i76.i.i, %i
 
 invoke.cont213.i.i.i:                             ; preds = %for.inc.i78.i.i, %sw.bb207.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i69.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp215.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp215.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218.i.i.i, ptr noundef nonnull @.str.266, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219.i.i.i)
           to label %invoke.cont221.i.i.i unwind label %lpad220.i.i.i
@@ -20224,7 +20224,7 @@ for.inc.i51.i.i:                                  ; preds = %if.else.i49.i.i, %i
 
 invoke.cont246.i.i.i:                             ; preds = %for.inc.i51.i.i, %if.then240.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i42.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp248.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp248.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp251.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp250.i.i.i, ptr noundef nonnull @.str.271, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp251.i.i.i)
           to label %invoke.cont253.i.i.i unwind label %lpad252.i.i.i
@@ -20337,7 +20337,7 @@ for.inc.i24.i.i:                                  ; preds = %if.else.i22.i.i, %i
 
 invoke.cont269.i.i.i:                             ; preds = %for.inc.i24.i.i, %if.end263.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i15.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp271.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp271.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274.i.i.i, ptr noundef nonnull @.str.266, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275.i.i.i)
           to label %invoke.cont277.i.i.i unwind label %lpad276.i.i.i
@@ -20466,7 +20466,7 @@ for.inc.i.i.i3355:                                ; preds = %if.else.i.i.i3354, 
 
 invoke.cont296.i.i.i:                             ; preds = %for.inc.i.i.i3355, %sw.default.i.i.i3349
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i.i.i3174)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp298.i.i.i3183, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp298.i.i.i3183, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp302.i.i.i3185) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp301.i.i.i3184, ptr noundef nonnull @.str.266, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp302.i.i.i3185)
           to label %invoke.cont304.i.i.i unwind label %lpad303.i.i.i
@@ -20652,7 +20652,7 @@ for.inc.i.i.i.i3275:                              ; preds = %if.else.i144.i.i.i,
 
 invoke.cont351.i.i.i:                             ; preds = %for.inc.i.i.i.i3275, %if.end345.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i.i.i.i3175)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp353.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp353.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp356.i.i.i, ptr noundef nonnull @.str.272, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp357.i.i.i)
           to label %invoke.cont359.i.i.i unwind label %lpad358.i.i.i
@@ -20797,7 +20797,7 @@ for.inc.i162.i.i.i:                               ; preds = %if.else.i160.i.i.i,
 
 invoke.cont388.i.i.i:                             ; preds = %for.inc.i162.i.i.i, %if.then382.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i153.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp390.i.i.i3186, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp390.i.i.i3186, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp394.i.i.i3188) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp393.i.i.i3187, ptr noundef nonnull @.str.268, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp394.i.i.i3188)
           to label %invoke.cont396.i.i.i unwind label %lpad395.i.i.i
@@ -20944,7 +20944,7 @@ for.inc.i199.i.i.i:                               ; preds = %if.else.i197.i.i.i,
 
 invoke.cont431.i.i.i:                             ; preds = %for.inc.i199.i.i.i, %if.then425.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i190.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp433.i.i.i3191, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp433.i.i.i3191, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp437.i.i.i) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp436.i.i.i, ptr noundef nonnull @.str.269, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp437.i.i.i)
           to label %invoke.cont439.i.i.i unwind label %lpad438.i.i.i
@@ -21095,7 +21095,7 @@ for.inc.i238.i.i.i:                               ; preds = %if.else.i236.i.i.i,
 
 invoke.cont474.i.i.i3289:                         ; preds = %for.inc.i238.i.i.i, %if.end468.i.i.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %cs.i229.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %ref.tmp476.i.i.i3194, ptr noundef nonnull readonly align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp476.i.i.i3194, ptr noundef nonnull align 8 dereferenceable(24) %position.i.i.i.i3203, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp480.i.i.i3197) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp479.i.i.i3196, ptr noundef nonnull @.str.273, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp480.i.i.i3197)
           to label %invoke.cont482.i.i.i3293 unwind label %lpad481.i.i.i3290
@@ -22011,7 +22011,7 @@ invoke.cont4568:                                  ; preds = %invoke.cont4566
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i3461) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l4571, align 8
   %events.i3462 = getelementptr inbounds i8, ptr %l4571, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i3462, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i3462, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4574, i32 noundef 10)
           to label %invoke.cont4576 unwind label %lpad4575
 
@@ -22680,7 +22680,7 @@ invoke.cont4801:                                  ; preds = %invoke.cont4799
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i3587) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l4804, align 8
   %events.i3588 = getelementptr inbounds i8, ptr %l4804, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i3588, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i3588, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4807, i32 noundef 10)
           to label %invoke.cont4809 unwind label %lpad4808
 
@@ -23349,7 +23349,7 @@ invoke.cont5034:                                  ; preds = %invoke.cont5032
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i3713) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l5037, align 8
   %events.i3714 = getelementptr inbounds i8, ptr %l5037, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i3714, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i3714, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5040, i32 noundef 10)
           to label %invoke.cont5042 unwind label %lpad5041
 
@@ -24018,7 +24018,7 @@ invoke.cont5267:                                  ; preds = %invoke.cont5265
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i3839) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l5270, align 8
   %events.i3840 = getelementptr inbounds i8, ptr %l5270, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i3840, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i3840, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5273, i32 noundef 10)
           to label %invoke.cont5275 unwind label %lpad5274
 
@@ -24687,7 +24687,7 @@ invoke.cont5500:                                  ; preds = %invoke.cont5498
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i3965) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l5503, align 8
   %events.i3966 = getelementptr inbounds i8, ptr %l5503, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i3966, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i3966, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5506, i32 noundef 10)
           to label %invoke.cont5508 unwind label %lpad5507
 
@@ -25356,7 +25356,7 @@ invoke.cont5733:                                  ; preds = %invoke.cont5731
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4091) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l5736, align 8
   %events.i4092 = getelementptr inbounds i8, ptr %l5736, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4092, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4092, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5739, i32 noundef 10)
           to label %invoke.cont5741 unwind label %lpad5740
 
@@ -26025,7 +26025,7 @@ invoke.cont5966:                                  ; preds = %invoke.cont5964
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4217) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l5969, align 8
   %events.i4218 = getelementptr inbounds i8, ptr %l5969, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4218, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4218, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5972, i32 noundef 10)
           to label %invoke.cont5974 unwind label %lpad5973
 
@@ -26694,7 +26694,7 @@ invoke.cont6199:                                  ; preds = %invoke.cont6197
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4343) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l6202, align 8
   %events.i4344 = getelementptr inbounds i8, ptr %l6202, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4344, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4344, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6205, i32 noundef 10)
           to label %invoke.cont6207 unwind label %lpad6206
 
@@ -27363,7 +27363,7 @@ invoke.cont6432:                                  ; preds = %invoke.cont6430
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4469) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l6435, align 8
   %events.i4470 = getelementptr inbounds i8, ptr %l6435, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4470, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4470, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6438, i32 noundef 10)
           to label %invoke.cont6440 unwind label %lpad6439
 
@@ -28032,7 +28032,7 @@ invoke.cont6665:                                  ; preds = %invoke.cont6663
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4595) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l6668, align 8
   %events.i4596 = getelementptr inbounds i8, ptr %l6668, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4596, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4596, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6671, i32 noundef 10)
           to label %invoke.cont6673 unwind label %lpad6672
 
@@ -28701,7 +28701,7 @@ invoke.cont6898:                                  ; preds = %invoke.cont6896
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4721) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l6901, align 8
   %events.i4722 = getelementptr inbounds i8, ptr %l6901, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4722, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4722, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6904, i32 noundef 10)
           to label %invoke.cont6906 unwind label %lpad6905
 
@@ -29370,7 +29370,7 @@ invoke.cont7131:                                  ; preds = %invoke.cont7129
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4847) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l7134, align 8
   %events.i4848 = getelementptr inbounds i8, ptr %l7134, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4848, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4848, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7137, i32 noundef 10)
           to label %invoke.cont7139 unwind label %lpad7138
 
@@ -30039,7 +30039,7 @@ invoke.cont7364:                                  ; preds = %invoke.cont7362
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i4973) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l7367, align 8
   %events.i4974 = getelementptr inbounds i8, ptr %l7367, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i4974, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i4974, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7370, i32 noundef 10)
           to label %invoke.cont7372 unwind label %lpad7371
 
@@ -30708,7 +30708,7 @@ invoke.cont7597:                                  ; preds = %invoke.cont7595
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i5099) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l7600, align 8
   %events.i5100 = getelementptr inbounds i8, ptr %l7600, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5100, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5100, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7603, i32 noundef 10)
           to label %invoke.cont7605 unwind label %lpad7604
 
@@ -31377,7 +31377,7 @@ invoke.cont7830:                                  ; preds = %invoke.cont7828
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i5225) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l7833, align 8
   %events.i5226 = getelementptr inbounds i8, ptr %l7833, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5226, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5226, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7836, i32 noundef 10)
           to label %invoke.cont7838 unwind label %lpad7837
 
@@ -32046,7 +32046,7 @@ invoke.cont8063:                                  ; preds = %invoke.cont8061
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i5351) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l8066, align 8
   %events.i5352 = getelementptr inbounds i8, ptr %l8066, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5352, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5352, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8069, i32 noundef 10)
           to label %invoke.cont8071 unwind label %lpad8070
 
@@ -32867,7 +32867,7 @@ ehcleanup8302:                                    ; preds = %lpad8290, %lpad8282
 do.end8306:                                       ; preds = %invoke.cont8256, %invoke.cont8301
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l8307, align 8
   %events.i5459 = getelementptr inbounds i8, ptr %l8307, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5459, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5459, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8310, i32 noundef 10)
           to label %invoke.cont8312 unwind label %lpad8311
 
@@ -33442,10 +33442,10 @@ _ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8437) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l1, align 8
   %events.i5589 = getelementptr inbounds i8, ptr %l1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5589, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5589, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l2, align 8
   %events.i5590 = getelementptr inbounds i8, ptr %l2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5590, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5590, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8460, i32 noundef 10)
           to label %invoke.cont8462 unwind label %lpad8461
 
@@ -34505,10 +34505,10 @@ ehcleanup8758:                                    ; preds = %lpad8746, %lpad8738
 do.end8762:                                       ; preds = %invoke.cont8708, %invoke.cont8757
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l18763, align 8
   %events.i5768 = getelementptr inbounds i8, ptr %l18763, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5768, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5768, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l28764, align 8
   %events.i5769 = getelementptr inbounds i8, ptr %l28764, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5769, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5769, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8767, i32 noundef 10)
           to label %invoke.cont8769 unwind label %lpad8768
 
@@ -35451,10 +35451,10 @@ ehcleanup9068:                                    ; preds = %lpad9056, %lpad9048
 do.end9072:                                       ; preds = %invoke.cont9018, %invoke.cont9067
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l19073, align 8
   %events.i5925 = getelementptr inbounds i8, ptr %l19073, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5925, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5925, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l29074, align 8
   %events.i5926 = getelementptr inbounds i8, ptr %l29074, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i5926, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i5926, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9077, i32 noundef 10)
           to label %invoke.cont9079 unwind label %lpad9078
 
@@ -36423,7 +36423,7 @@ _ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basi
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp9339) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9340) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l9362, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i6122, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i6122, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9365, i32 noundef 10)
           to label %invoke.cont9367 unwind label %lpad9366
 
@@ -37498,7 +37498,7 @@ ehcleanup9559:                                    ; preds = %lpad9547, %lpad9539
 
 do.end9563:                                       ; preds = %invoke.cont9509, %invoke.cont9558
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l9564, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i6313, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i6313, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9567, i32 noundef 10)
           to label %invoke.cont9569 unwind label %lpad9568
 
@@ -38931,15 +38931,15 @@ invoke.cont9851:                                  ; preds = %if.then9847
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9849) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %default_logger, align 8
   %events.i6603 = getelementptr inbounds i8, ptr %default_logger, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i6603, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i6603, i8 0, i64 24, i1 false)
   %events.i.i = getelementptr inbounds i8, ptr %exit_after_start_object, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_134SaxEventLoggerExitAfterStartObjectE, i64 16), ptr %exit_after_start_object, align 8
   %events.i.i6604 = getelementptr inbounds i8, ptr %exit_after_key, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i.i6604, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i.i6604, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126SaxEventLoggerExitAfterKeyE, i64 16), ptr %exit_after_key, align 8
   %events.i.i6605 = getelementptr inbounds i8, ptr %exit_after_start_array, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i.i6605, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i.i6605, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_133SaxEventLoggerExitAfterStartArrayE, i64 16), ptr %exit_after_start_array, align 8
   %3756 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9sax_parseIRKS9_N12_GLOBAL__N_114SaxEventLoggerEEEbOT_PT0_NS0_6detail14input_format_tEbb(ptr noundef nonnull align 8 dereferenceable(32) %s9848, ptr noundef %default_logger)
           to label %invoke.cont9854 unwind label %lpad9853
@@ -149425,7 +149425,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -157706,7 +157706,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -158257,7 +158257,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -168545,7 +168545,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -178528,7 +178528,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -188996,7 +188996,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -199119,7 +199119,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -209559,7 +209559,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -220116,7 +220116,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -230055,7 +230055,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i18) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp40, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -240081,7 +240081,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i11) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, i32 noundef 10)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -240536,7 +240536,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i11) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, i32 noundef 10)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -240843,7 +240843,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i11) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, i32 noundef 10)
           to label %invoke.cont43 unwind label %lpad42
 
@@ -241150,7 +241150,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i11) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, i32 noundef 10)
           to label %invoke.cont43 unwind label %lpad42
 
@@ -241457,7 +241457,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i11) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, i32 noundef 10)
           to label %invoke.cont43 unwind label %lpad42
 
@@ -241764,7 +241764,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i11) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SaxEventLoggerE, i64 16), ptr %l, align 8
   %events.i = getelementptr inbounds i8, ptr %l, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events.i, i8 0, i64 24, i1 false)
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41, i32 noundef 10)
           to label %invoke.cont43 unwind label %lpad42
 

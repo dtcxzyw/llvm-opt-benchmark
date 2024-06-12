@@ -226,7 +226,7 @@ define noundef i32 @trav_info_visit_obj(ptr nocapture noundef readonly %0, ptr n
   %20 = phi i64 [ %.pre.i, %12 ], [ %9, %._crit_edge.i ]
   %21 = add i64 %20, 1
   store i64 %21, ptr %8, align 8
-  %22 = tail call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %22 = tail call noalias ptr @strdup(ptr noundef %0) #18
   %23 = getelementptr inbounds i8, ptr %3, i64 32
   %24 = getelementptr inbounds %struct.trav_path_t, ptr %19, i64 %20
   store ptr %22, ptr %24, align 8
@@ -295,7 +295,7 @@ define noundef i32 @trav_info_visit_lnk(ptr nocapture noundef readonly %0, ptr n
   %20 = phi i64 [ %.pre.i, %12 ], [ %9, %._crit_edge.i ]
   %21 = add i64 %20, 1
   store i64 %21, ptr %8, align 8
-  %22 = tail call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %22 = tail call noalias ptr @strdup(ptr noundef %0) #18
   %23 = getelementptr inbounds i8, ptr %2, i64 32
   %24 = getelementptr inbounds %struct.trav_path_t, ptr %19, i64 %20
   store ptr %22, ptr %24, align 8
@@ -428,8 +428,8 @@ trav_token_add.exit:                              ; preds = %39
   %malloc = call dereferenceable_or_null(24) ptr @malloc(i64 24)
   store ptr %malloc, ptr %41, align 8
   store i64 1, ptr %40, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %malloc, ptr noundef nonnull readonly align 8 dereferenceable(16) %45, i64 16, i1 false)
-  %46 = call noalias ptr @strdup(ptr noundef readonly %1) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %malloc, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
+  %46 = call noalias ptr @strdup(ptr noundef %1) #18
   %47 = getelementptr inbounds i8, ptr %malloc, i64 16
   store ptr %46, ptr %47, align 8
   br label %48
@@ -770,7 +770,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr nocapture noundef readonly
   %23 = getelementptr inbounds %struct.trav_obj_t, ptr %22, i64 %.036.i
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %0) #20
+  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %0) #20
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %trav_table_addlink.exit, label %28
 
@@ -808,7 +808,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr nocapture noundef readonly
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, 1
   store i64 %52, ptr %50, align 8
-  %53 = call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %53 = call noalias ptr @strdup(ptr noundef %0) #18
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr inbounds %struct.trav_obj_t, ptr %54, i64 %.036.i, i32 5
   %56 = load ptr, ptr %55, align 8
@@ -1647,8 +1647,8 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %68
   store i64 %76, ptr %46, align 8
   %77 = getelementptr inbounds i8, ptr %44, i64 16
   %78 = getelementptr inbounds %struct.trav_addr_path_t, ptr %74, i64 %75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull readonly align 8 dereferenceable(16) %45, i64 16, i1 false)
-  %79 = call noalias ptr @strdup(ptr noundef readonly %.048) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
+  %79 = call noalias ptr @strdup(ptr noundef %.048) #18
   %80 = load ptr, ptr %77, align 8
   %81 = getelementptr inbounds %struct.trav_addr_path_t, ptr %80, i64 %75, i32 1
   store ptr %79, ptr %81, align 8

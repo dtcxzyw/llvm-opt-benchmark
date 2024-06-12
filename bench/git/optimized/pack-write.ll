@@ -303,11 +303,11 @@ if.end.i81:                                       ; preds = %if.else.i80, %if.th
   br i1 %cmp.i.i, label %if.then.i.i82, label %if.end.i.i
 
 if.then.i.i82:                                    ; preds = %if.end.i81
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %18, ptr noundef nonnull readonly dereferenceable(32) %11, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %18, ptr noundef nonnull dereferenceable(32) %11, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i81
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %18, ptr noundef nonnull readonly dereferenceable(20) %11, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %18, ptr noundef nonnull dereferenceable(20) %11, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i82, %if.end.i.i
@@ -527,11 +527,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %0, ptr noundef nonnull readonly dereferenceable(32) %1, i64 noundef 32) #22
+  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %0, ptr noundef nonnull dereferenceable(32) %1, i64 noundef 32) #22
   br label %oidcmp.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %0, ptr noundef nonnull readonly dereferenceable(20) %1, i64 noundef 20) #22
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) %1, i64 noundef 20) #22
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
@@ -983,11 +983,11 @@ if.then50:                                        ; preds = %if.end33
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then50
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %hash, ptr noundef nonnull readonly dereferenceable(32) %partial_pack_hash, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %partial_pack_hash, i64 32)
   br label %hasheq.exit
 
 if.end.i.i:                                       ; preds = %if.then50
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %hash, ptr noundef nonnull readonly dereferenceable(20) %partial_pack_hash, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash, ptr noundef nonnull dereferenceable(20) %partial_pack_hash, i64 20)
   br label %hasheq.exit
 
 hasheq.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
@@ -1209,7 +1209,7 @@ entry:
   tail call void @strbuf_add(ptr noundef %name_buffer, ptr noundef nonnull @.str.18, i64 noundef 3) #19
   %buf.i = getelementptr inbounds i8, ptr %name_buffer, i64 16
   %2 = load ptr, ptr %buf.i, align 8
-  %call.i = tail call i32 @rename(ptr noundef readonly %0, ptr noundef %2) #19
+  %call.i = tail call i32 @rename(ptr noundef %0, ptr noundef %2) #19
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -1413,7 +1413,7 @@ if.end11:                                         ; preds = %write_mtimes_file.e
   call void @strbuf_add(ptr noundef %name_buffer, ptr noundef nonnull @.str.21, i64 noundef 4) #19
   %buf.i = getelementptr inbounds i8, ptr %name_buffer, i64 16
   %16 = load ptr, ptr %buf.i, align 8
-  %call.i20 = call i32 @rename(ptr noundef readonly %pack_tmp_name, ptr noundef %16) #19
+  %call.i20 = call i32 @rename(ptr noundef %pack_tmp_name, ptr noundef %16) #19
   %tobool.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool.not.i21, label %if.end.i23, label %if.then.i22
 
@@ -1451,7 +1451,7 @@ if.then13:                                        ; preds = %rename_tmp_packfile
   %20 = load i64, ptr %len.i, align 8
   call void @strbuf_add(ptr noundef nonnull %name_buffer, ptr noundef nonnull @.str.22, i64 noundef 3) #19
   %21 = load ptr, ptr %buf.i, align 8
-  %call.i29 = call i32 @rename(ptr noundef nonnull readonly %retval.0.i, ptr noundef %21) #19
+  %call.i29 = call i32 @rename(ptr noundef nonnull %retval.0.i, ptr noundef %21) #19
   %tobool.not.i30 = icmp eq i32 %call.i29, 0
   br i1 %tobool.not.i30, label %if.end.i32, label %if.then.i31
 
@@ -1489,7 +1489,7 @@ if.then16:                                        ; preds = %if.end14
   %25 = load i64, ptr %len.i, align 8
   call void @strbuf_add(ptr noundef nonnull %name_buffer, ptr noundef nonnull @.str.23, i64 noundef 6) #19
   %26 = load ptr, ptr %buf.i, align 8
-  %call.i44 = call i32 @rename(ptr noundef nonnull readonly %mtimes_tmp_name.0, ptr noundef %26) #19
+  %call.i44 = call i32 @rename(ptr noundef nonnull %mtimes_tmp_name.0, ptr noundef %26) #19
   %tobool.not.i45 = icmp eq i32 %call.i44, 0
   br i1 %tobool.not.i45, label %if.end.i47, label %if.then.i46
 

@@ -194,7 +194,7 @@ entry:
   ]
 
 if.then6.i:                                       ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %tobool.not.sroa.gep30, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %tobool.not.sroa.gep30, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread, label %for.body
 
@@ -254,7 +254,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _Z28grpc_sockaddr_make_wildcard6iP21grpc_resolved_address.exit: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %wild4_out, i8 0, i64 132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %wild4_out, i8 0, i64 132, i1 false)
   store i16 2, ptr %wild4_out, align 4
   %conv.i = trunc nuw i32 %port to i16
   %call.i = tail call noundef zeroext i16 @_Z10grpc_htonst(i16 noundef zeroext %conv.i)
@@ -262,7 +262,7 @@ _Z28grpc_sockaddr_make_wildcard6iP21grpc_resolved_address.exit: ; preds = %entry
   store i16 %call.i, ptr %sin_port.i, align 2
   %len.i = getelementptr inbounds i8, ptr %wild4_out, i64 128
   store i32 16, ptr %len.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %wild6_out, i8 0, i64 132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %wild6_out, i8 0, i64 132, i1 false)
   store i16 10, ptr %wild6_out, align 4
   %call.i3 = tail call noundef zeroext i16 @_Z10grpc_htonst(i16 noundef zeroext %conv.i)
   %sin6_port.i = getelementptr inbounds i8, ptr %wild6_out, i64 2
@@ -363,13 +363,13 @@ do.end.i:                                         ; preds = %land.lhs.true
 
 if.then6.i:                                       ; preds = %do.end.i
   %sin6_addr.i = getelementptr inbounds i8, ptr %resolved_addr, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %2, label %if.end
 
 2:                                                ; preds = %if.then6.i
   %3 = getelementptr inbounds i8, ptr %addr_normalized, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %3, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, i8 0, i64 120, i1 false)
   store i16 2, ptr %addr_normalized, align 4
   %sin_addr.i = getelementptr inbounds i8, ptr %addr_normalized, i64 4
   %arrayidx.i = getelementptr inbounds i8, ptr %resolved_addr, i64 20
@@ -930,13 +930,13 @@ do.end.i:                                         ; preds = %if.end
 
 if.then6.i:                                       ; preds = %do.end.i
   %sin6_addr.i = getelementptr inbounds i8, ptr %resolved_addr, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %sin6_addr.i, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp ne i32 %bcmp.i, 0
   br i1 %cmp8.i, label %thread-pre-split, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit
 
 _Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit: ; preds = %if.then6.i
   %6 = getelementptr inbounds i8, ptr %addr_normalized, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(132) %6, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %6, i8 0, i64 120, i1 false)
   store i16 2, ptr %addr_normalized, align 4
   %sin_addr.i = getelementptr inbounds i8, ptr %addr_normalized, i64 4
   %arrayidx.i = getelementptr inbounds i8, ptr %resolved_addr, i64 20

@@ -407,7 +407,7 @@ DES_set_key.exit:                                 ; preds = %for.body.i3.i
   %and.i.i = and i32 %or.i.i, 1
   %tobool2.not.i = icmp eq i32 %and.i.i, 0
   %ret.1.i = select i1 %tobool2.not.i, i32 %spec.select.i, i32 -2
-  tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef writeonly %schedule)
+  tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef %schedule)
   ret i32 %ret.1.i
 }
 

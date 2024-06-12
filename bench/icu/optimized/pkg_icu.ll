@@ -56,24 +56,22 @@ if.end9:                                          ; preds = %if.then3, %if.end
   %listPkg.0 = phi ptr [ %listPkgIn, %if.end ], [ %call4, %if.then3 ]
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %listname)
   %strchr = getelementptr inbounds i8, ptr %listname, i64 %strlen
-  %strlen.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %listname)
-  %strchr.i = getelementptr inbounds i8, ptr %listname, i64 %strlen.i
-  %cmp5.i = icmp sgt i64 %strlen.i, 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %strchr.i, i64 -4
-  br i1 %cmp5.i, label %for.body.us.i, label %if.else76
+  %cmp5.i = icmp sgt i64 %strlen, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %strchr, i64 -4
+  br i1 %cmp5.i, label %for.body.us.i, label %if.else83
 
 for.body.us.i:                                    ; preds = %if.end9, %for.inc.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.us.i ], [ 0, %if.end9 ]
   %arrayidx.us.i = getelementptr inbounds [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.us.i, align 16
-  %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) %4, i64 4)
+  %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) %4, i64 4)
   %cmp8.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %cmp8.us.i, label %if.then12, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %if.else76, label %for.body.us.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %land.lhs.true78, label %for.body.us.i, !llvm.loop !4
 
 if.then12:                                        ; preds = %for.body.us.i
   %call13 = tail call noalias ptr @fopen(ptr noundef nonnull %listname, ptr noundef nonnull @.str.2)
@@ -263,13 +261,8 @@ while.end74:                                      ; preds = %while.cond.backedge
   %call75 = call i32 @fclose(ptr noundef nonnull %call13)
   br label %return
 
-if.else76:                                        ; preds = %for.inc.us.i, %if.end9
-  %cmp77 = icmp sgt i64 %strlen, 4
-  br i1 %cmp77, label %land.lhs.true78, label %if.else83
-
-land.lhs.true78:                                  ; preds = %if.else76
-  %add.ptr79 = getelementptr inbounds i8, ptr %strchr, i64 -4
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr79, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
+land.lhs.true78:                                  ; preds = %for.inc.us.i
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %cmp81 = icmp eq i32 %bcmp, 0
   br i1 %cmp81, label %if.then82, label %if.else83
 
@@ -279,7 +272,7 @@ if.then82:                                        ; preds = %land.lhs.true78
   tail call void @_ZN6icu_757Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %listPkg.0, ptr noundef nonnull %listname)
   br label %return
 
-if.else83:                                        ; preds = %land.lhs.true78, %if.else76
+if.else83:                                        ; preds = %if.end9, %land.lhs.true78
   %tobool84.not = icmp eq i8 %readContents, 0
   br i1 %tobool84.not, label %if.else86, label %if.then85
 

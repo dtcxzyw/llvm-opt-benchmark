@@ -1571,7 +1571,7 @@ opal_obj_run_constructors.exit44:                 ; preds = %.lr.ph.i41, %99
   br i1 %116, label %117, label %ompi_comm_extended_cid_block_new.exit
 
 117:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 184), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 184), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 184), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 184), i64 16, i1 false)
   %118 = add nuw i8 %114, 1
   store i8 %118, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 208), align 8
   %narrow = sub nuw nsw i8 3, %112

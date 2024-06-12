@@ -109,7 +109,7 @@ define dso_local i32 @pg_regexec(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %scevgep.i = getelementptr i8, ptr %.sink223227, i64 16
   %54 = shl i64 %44, 4
   %55 = add i64 %54, -16
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 -1, i64 %55, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 -1, i64 %55, i1 false)
   %.pre = load ptr, ptr %26, align 8
   br label %zapallsubs.exit
 
@@ -123,7 +123,7 @@ define dso_local i32 @pg_regexec(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %scevgep.i187 = getelementptr i8, ptr %6, i64 16
   %58 = shl i64 %5, 4
   %59 = add i64 %58, -16
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i187, i8 -1, i64 %59, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i187, i8 -1, i64 %59, i1 false)
   br label %zapallsubs.exit188
 
 zapallsubs.exit188:                               ; preds = %56, %.lr.ph.preheader.i186, %.thread
@@ -280,7 +280,7 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
   %scevgep.i191 = getelementptr i8, ptr %6, i64 16
   %132 = shl i64 %.1144, 4
   %133 = add i64 %132, -16
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i191, i8 -1, i64 %133, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i191, i8 -1, i64 %133, i1 false)
   br label %zapallsubs.exit192
 
 zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i190, %99, %92, %80, %119, %127

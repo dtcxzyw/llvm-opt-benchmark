@@ -454,7 +454,7 @@ if.end7:                                          ; preds = %if.end3
   %buffer.sroa.2.0.buffer_.sroa_idx.i = getelementptr inbounds i8, ptr %bounded_reader, i64 8
   store i64 %2, ptr %buffer.sroa.2.0.buffer_.sroa_idx.i, align 8
   %bit_offset_.i = getelementptr inbounds i8, ptr %bounded_reader, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %bit_offset_.i, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bit_offset_.i, i8 0, i64 17, i1 false)
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %conv)
   %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %parsed_bytes_current_, align 4

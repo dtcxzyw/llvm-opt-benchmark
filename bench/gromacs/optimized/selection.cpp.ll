@@ -1951,7 +1951,7 @@ define void @_ZN3gmx8internal13SelectionData24restoreOriginalPositionsEPK10gmx_m
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = getelementptr inbounds i8, ptr %0, i64 216
   %25 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(148) %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(148) %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
   br label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
 
 _ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit: ; preds = %22, %19, %16, %6, %2

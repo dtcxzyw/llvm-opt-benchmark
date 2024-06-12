@@ -5232,7 +5232,7 @@ define internal fastcc noundef i32 @e1000_phy_igp_get_info(ptr nocapture noundef
   ]
 
 15:                                               ; preds = %2
-  %16 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
+  %16 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %e1000_check_polarity.exit
 
@@ -5244,7 +5244,7 @@ define internal fastcc noundef i32 @e1000_phy_igp_get_info(ptr nocapture noundef
   br label %43
 
 23:                                               ; preds = %2
-  %24 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
+  %24 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %e1000_check_polarity.exit
 
@@ -5256,7 +5256,7 @@ define internal fastcc noundef i32 @e1000_phy_igp_get_info(ptr nocapture noundef
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %26
-  %32 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 180, ptr noundef nonnull %3)
+  %32 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 180, ptr noundef nonnull %3)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %e1000_check_polarity.exit
 
@@ -5392,7 +5392,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @e1000_phy_m88_get_info(ptr 
   ]
 
 23:                                               ; preds = %11
-  %24 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
+  %24 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %e1000_check_polarity.exit
 
@@ -5404,7 +5404,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @e1000_phy_m88_get_info(ptr 
   br label %51
 
 31:                                               ; preds = %11
-  %32 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
+  %32 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %e1000_check_polarity.exit
 
@@ -5416,7 +5416,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @e1000_phy_m88_get_info(ptr 
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34
-  %40 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 180, ptr noundef nonnull %3)
+  %40 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 180, ptr noundef nonnull %3)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %e1000_check_polarity.exit
 

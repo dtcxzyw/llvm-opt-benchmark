@@ -370,13 +370,13 @@ if.end25.i:                                       ; preds = %ecx_pubkey.exit46.i
   %pubkey.i43.i = getelementptr inbounds i8, ptr %17, i64 17
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %18 = load ptr, ptr %sender_authkey.i, align 8
-  %call28.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef %retval.0.i49.i, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %17, ptr noundef nonnull %retval.0.i35.i, ptr noundef nonnull %pubkey.i43.i)
+  %call28.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef %secret, ptr noundef %retval.0.i49.i, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %17, ptr noundef nonnull %retval.0.i35.i, ptr noundef nonnull %pubkey.i43.i)
   %tobool.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.end25.i
   %19 = load i64, ptr %Nenc16.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %out, ptr nonnull align 1 %retval.0.i35.i, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %retval.0.i35.i, i64 %19, i1 false)
   %20 = load i64, ptr %Nenc16.i, align 8
   store i64 %20, ptr %outlen, align 8
   %21 = load i64, ptr %Nsecret12.i, align 8
@@ -554,7 +554,7 @@ if.end15.i:                                       ; preds = %lor.lhs.false.i.i
   %11 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %12 = load ptr, ptr %sender_authkey.i, align 8
-  %call18.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %in, ptr noundef nonnull %pubkey.i.i)
+  %call18.i = call fastcc i32 @derive_secret(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %in, ptr noundef nonnull %pubkey.i.i)
   %tobool.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end20.i
 

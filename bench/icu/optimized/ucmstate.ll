@@ -1925,7 +1925,7 @@ for.body.i23:                                     ; preds = %for.inc.i26, %for.b
 
 if.then.i:                                        ; preds = %for.body.i23
   %82 = trunc nuw nsw i64 %indvars.iv.i24 to i32
-  %call.i = tail call fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUFallbackiiij(ptr noundef nonnull readonly %states, ptr noundef readonly %80, ptr noundef readonly %toUFallbacks, i32 noundef %countToUFallbacks, i32 noundef %82, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUFallbackiiij(ptr noundef nonnull %states, ptr noundef %80, ptr noundef %toUFallbacks, i32 noundef %countToUFallbacks, i32 noundef %82, i32 noundef 0, i32 noundef 0)
   %cmp2.i = icmp sgt i32 %call.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %for.inc.i26
 

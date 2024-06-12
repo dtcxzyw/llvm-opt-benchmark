@@ -924,7 +924,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
 _ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit: ; preds = %.critedge.i, %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %21 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, i64 noundef 32)
+  %21 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 32)
   %.not23 = icmp eq i32 %21, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br i1 %.not23, label %22, label %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit.thread

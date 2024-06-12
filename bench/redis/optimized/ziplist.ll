@@ -1861,7 +1861,7 @@ if.else24.i115:                                   ; preds = %if.else.i113
 
 if.then141:                                       ; preds = %if.then4.i118, %if.then10.i117, %if.else24.i115
   %len.0.i.ph = phi i64 [ 5, %if.else24.i115 ], [ 2, %if.then10.i117 ], [ 1, %if.then4.i118 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %add.ptr134, ptr noundef nonnull align 1 dereferenceable(1) %buf.i, i64 %len.0.i.ph, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr134, ptr noundef nonnull align 1 dereferenceable(1) %buf.i, i64 %len.0.i.ph, i1 false)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
   %add.ptr137199 = getelementptr inbounds i8, ptr %add.ptr134, i64 %len.0.i.ph
   %conv142 = zext i32 %slen to i64
@@ -2646,7 +2646,7 @@ zipStoreEntryEncoding.exit28.thread:              ; preds = %if.then4.i24, %if.t
 
 zipStoreEntryEncoding.exit28.thread95:            ; preds = %if.end.i26, %if.end16.i, %if.end31.i
   %len.0.i.ph = phi i64 [ 5, %if.end31.i ], [ 2, %if.end16.i ], [ 1, %if.end.i26 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %buf.i, i64 %len.0.i.ph, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %buf.i, i64 %len.0.i.ph, i1 false)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
   br label %if.then11
 

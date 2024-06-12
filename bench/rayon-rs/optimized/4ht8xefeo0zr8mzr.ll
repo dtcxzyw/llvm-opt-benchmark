@@ -773,7 +773,7 @@ common.resume:                                    ; preds = %23, %19
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr null, ptr %26, align 8, !alias.scope !86, !noalias !91
   %27 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !91
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !89
   %28 = getelementptr inbounds i8, ptr %.0.val.i, i64 520

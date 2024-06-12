@@ -188,7 +188,7 @@ define hidden void @plpgsql_ns_init() local_unnamed_addr #0 {
 define hidden void @plpgsql_ns_push(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %spec.store.select = select i1 %3, ptr @.str, ptr %0
-  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #15
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #15
   %5 = add i64 %4, 17
   %6 = tail call ptr @palloc(i64 noundef %5) #16
   store i32 0, ptr %6, align 8
@@ -198,7 +198,7 @@ define hidden void @plpgsql_ns_push(ptr noundef readonly %0, i32 noundef %1) loc
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #16
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %spec.store.select) #16
   store ptr %6, ptr @ns_top, align 8
   ret void
 }
@@ -4498,7 +4498,7 @@ dump_ind.exit.i131:                               ; preds = %.lr.ph.i.i134, %100
 
 1016:                                             ; preds = %dump_ind.exit.i131
   %1017 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.148, i32 noundef %1015) #16
-  tail call fastcc void @dump_cursor_direction(ptr noundef nonnull readonly %0)
+  tail call fastcc void @dump_cursor_direction(ptr noundef nonnull %0)
   %1018 = load i32, ptr @dump_indent, align 4
   %1019 = add i32 %1018, 2
   store i32 %1019, ptr @dump_indent, align 4
@@ -4541,7 +4541,7 @@ dump_ind.exit10.i:                                ; preds = %dump_ind.exit10.loo
 
 1037:                                             ; preds = %dump_ind.exit.i131
   %1038 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.150, i32 noundef %1015) #16
-  tail call fastcc void @dump_cursor_direction(ptr noundef nonnull readonly %0)
+  tail call fastcc void @dump_cursor_direction(ptr noundef nonnull %0)
   br label %dump_return_query.exit
 
 1039:                                             ; preds = %1

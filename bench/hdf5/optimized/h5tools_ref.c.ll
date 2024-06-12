@@ -205,8 +205,8 @@ init_ref_path_table.exit:                         ; preds = %27, %23, %20, %get_
   br i1 %33, label %ref_path_table_put.exit, label %34
 
 34:                                               ; preds = %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull readonly align 1 dereferenceable(16) %1, i64 16, i1 false)
-  %35 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
+  %35 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
   %36 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %35, ptr %36, align 8
   %37 = tail call i32 @H5SL_insert(ptr noundef nonnull %28, ptr noundef nonnull %32, ptr noundef nonnull %32) #10
@@ -344,8 +344,8 @@ define internal noundef i32 @init_ref_path_cb(ptr noundef readonly %0, ptr nocap
   br i1 %13, label %ref_path_table_put.exit, label %14
 
 14:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 1 dereferenceable(16) %7, i64 16, i1 false)
-  %15 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) %7, i64 16, i1 false)
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %15, ptr %16, align 8
   %17 = tail call i32 @H5SL_insert(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %12) #10

@@ -300,7 +300,7 @@ define dso_local void @ginEntryFillRoot(ptr nocapture readnone %0, ptr noundef %
   %36 = and i32 %narrow.i, -8
   %37 = zext i32 %36 to i64
   %38 = tail call ptr @palloc(i64 noundef %37) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %38, ptr nonnull readonly align 2 %19, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %38, ptr nonnull align 2 %19, i64 %37, i1 false)
   %39 = getelementptr inbounds i8, ptr %38, i64 6
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, -8192
@@ -318,7 +318,7 @@ define dso_local void @ginEntryFillRoot(ptr nocapture readnone %0, ptr noundef %
   %50 = load i16, ptr %45, align 2
   %51 = and i16 %50, 8191
   %52 = zext nneg i16 %51 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr readonly align 2 %19, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr align 2 %19, i64 %52, i1 false)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %49, i64 6
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   br label %GinFormInteriorTuple.exit
@@ -393,7 +393,7 @@ GinFormInteriorTuple.exit:                        ; preds = %30, %44
   %96 = and i32 %narrow.i21, -8
   %97 = zext i32 %96 to i64
   %98 = tail call ptr @palloc(i64 noundef %97) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %98, ptr nonnull readonly align 2 %79, i64 %97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %98, ptr nonnull align 2 %79, i64 %97, i1 false)
   %99 = getelementptr inbounds i8, ptr %98, i64 6
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, -8192
@@ -411,7 +411,7 @@ GinFormInteriorTuple.exit:                        ; preds = %30, %44
   %110 = load i16, ptr %105, align 2
   %111 = and i16 %110, 8191
   %112 = zext nneg i16 %111 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %109, ptr readonly align 2 %79, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %109, ptr align 2 %79, i64 %112, i1 false)
   %.phi.trans.insert24 = getelementptr inbounds i8, ptr %109, i64 6
   %.pre25 = load i16, ptr %.phi.trans.insert24, align 2
   br label %GinFormInteriorTuple.exit23
@@ -1418,7 +1418,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %47 = and i32 %narrow.i, -8
   %48 = zext i32 %47 to i64
   %49 = tail call ptr @palloc(i64 noundef %48) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr nonnull readonly align 2 %29, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr nonnull align 2 %29, i64 %48, i1 false)
   %50 = getelementptr inbounds i8, ptr %49, i64 6
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, -8192
@@ -1436,7 +1436,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %61 = load i16, ptr %56, align 2
   %62 = and i16 %61, 8191
   %63 = zext nneg i16 %62 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %60, ptr readonly align 2 %29, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %60, ptr align 2 %29, i64 %63, i1 false)
   br label %GinFormInteriorTuple.exit
 
 GinFormInteriorTuple.exit:                        ; preds = %41, %55

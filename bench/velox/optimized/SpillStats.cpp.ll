@@ -948,7 +948,7 @@ entry:
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common10SpillStatsleERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noundef zeroext i1 @_ZNK8facebook5velox6common10SpillStatsltERKS2_(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(104) %other)
+  %call.i = tail call noundef zeroext i1 @_ZNK8facebook5velox6common10SpillStatsltERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %other)
   br i1 %call.i, label %_ZNK8facebook5velox6common10SpillStatsgtERKS2_.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry

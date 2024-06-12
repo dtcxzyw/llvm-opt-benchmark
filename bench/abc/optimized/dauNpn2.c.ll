@@ -318,7 +318,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define void @Dau_ParseFormulaTest() local_unnamed_addr #1 {
-  %1 = tail call i64 @Dau_ParseFormula_rec(ptr noundef nonnull readonly @.str, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @.str, i64 37))
+  %1 = tail call i64 @Dau_ParseFormula_rec(ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 37))
   ret void
 }
 
@@ -810,9 +810,9 @@ define void @Dau_VerifyFile(ptr nocapture noundef readonly %0) local_unnamed_add
 
 21:                                               ; preds = %20, %14
   %22 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 5) #28
-  %23 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #27
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
   %24 = getelementptr inbounds i8, ptr %6, i64 %23
-  %25 = call i64 @Dau_ParseFormula_rec(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %24)
+  %25 = call i64 @Dau_ParseFormula_rec(ptr noundef nonnull %6, ptr noundef nonnull %24)
   %26 = trunc i64 %25 to i32
   %27 = load i32, ptr %3, align 4
   %.not9 = icmp eq i32 %27, %26
@@ -3732,7 +3732,7 @@ switch.lookup:                                    ; preds = %Dtt_ComposeNP.exit3
   %40 = zext nneg i32 %38 to i64
   %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load, ptr noundef %4, ptr noundef nonnull %9) #28
+  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load, ptr noundef %4, ptr noundef nonnull %9) #28
   br label %Dtt_FunImpl2Str.exit41.us
 
 Dtt_FunImpl2Str.exit41.us:                        ; preds = %Dtt_ComposeNP.exit38.us, %switch.lookup
@@ -3786,7 +3786,7 @@ Dtt_ComposeNP.exit:                               ; preds = %52, %74
 
 69:                                               ; preds = %67
   %70 = add nuw nsw i32 %.012.i, 97
-  %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %70) #28
+  %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %70) #28
   br label %Dtt_MakePI.exit
 
 72:                                               ; preds = %67
@@ -3812,7 +3812,7 @@ switch.lookup67:                                  ; preds = %Dtt_MakePI.exit
   %79 = zext nneg i32 %77 to i64
   %switch.gep68 = getelementptr inbounds [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %79
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
-  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load69, ptr noundef %4, ptr noundef nonnull %9) #28
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load69, ptr noundef %4, ptr noundef nonnull %9) #28
   br label %Dtt_FunImpl2Str.exit
 
 Dtt_FunImpl2Str.exit:                             ; preds = %Dtt_MakePI.exit, %switch.lookup67
@@ -3862,7 +3862,7 @@ switch.lookup70:                                  ; preds = %Dtt_ComposeNP.exit3
   %103 = zext nneg i32 %101 to i64
   %switch.gep71 = getelementptr inbounds [10 x ptr], ptr @switch.table.Dtt_MakeFormulaFI2.15, i64 0, i64 %103
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
-  %104 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load72, ptr noundef %4, ptr noundef nonnull %9) #28
+  %104 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %switch.load72, ptr noundef %4, ptr noundef nonnull %9) #28
   br label %Dtt_FunImpl2Str.exit41
 
 Dtt_FunImpl2Str.exit41:                           ; preds = %Dtt_ComposeNP.exit38, %switch.lookup70
@@ -3947,7 +3947,7 @@ Dtt_ComposeNP.exit:                               ; preds = %22, %44
 
 39:                                               ; preds = %37
   %40 = add nuw nsw i32 %.012.i, 97
-  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %40) #28
+  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %40) #28
   br label %Dtt_MakePI.exit
 
 42:                                               ; preds = %37

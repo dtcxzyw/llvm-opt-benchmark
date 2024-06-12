@@ -480,7 +480,7 @@ define noundef i32 @pmix_bfrops_base_copy_buf(ptr nocapture noundef writeonly %0
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %9, %10
   store ptr %5, ptr %0, align 8
-  %21 = tail call fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(ptr noundef %5, ptr noundef readonly %1)
+  %21 = tail call fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(ptr noundef %5, ptr noundef %1)
   ret i32 0
 }
 
@@ -797,14 +797,14 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_pinfo(ptr nocapture noundef 
   br i1 %4, label %pmix_bfrops_base_tma_copy_pinfo.exit, label %5
 
 5:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %calloc.i.i, ptr noundef nonnull readonly align 8 dereferenceable(260) %1, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %calloc.i.i, ptr noundef nonnull align 8 dereferenceable(260) %1, i64 260, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 264
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %7) #16
+  %9 = tail call noalias ptr @strdup(ptr noundef nonnull %7) #16
   %10 = getelementptr inbounds i8, ptr %calloc.i.i, i64 264
   store ptr %9, ptr %10, align 8
   br label %11
@@ -816,7 +816,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_pinfo(ptr nocapture noundef 
   br i1 %.not23.i, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %13) #16
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %13) #16
   %16 = getelementptr inbounds i8, ptr %calloc.i.i, i64 272
   store ptr %15, ptr %16, align 8
   br label %17
@@ -852,7 +852,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(pt
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %6) #16
+  %8 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #16
   %9 = getelementptr inbounds i8, ptr %calloc.i, i64 264
   store ptr %8, ptr %9, align 8
   br label %10
@@ -864,7 +864,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(pt
   br i1 %.not23, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %12) #16
+  %14 = tail call noalias ptr @strdup(ptr noundef nonnull %12) #16
   %15 = getelementptr inbounds i8, ptr %calloc.i, i64 272
   store ptr %14, ptr %15, align 8
   br label %16
@@ -1070,7 +1070,7 @@ define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr nocaptu
   br i1 %.not956, label %66, label %63
 
 63:                                               ; preds = %.lr.ph130
-  %64 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %62) #16
+  %64 = tail call noalias ptr @strdup(ptr noundef nonnull %62) #16
   %65 = getelementptr inbounds ptr, ptr %58, i64 %.0818129
   store ptr %64, ptr %65, align 8
   br label %66
@@ -1221,7 +1221,7 @@ pmix_bfrops_base_tma_app_create.exit:             ; preds = %15
   br i1 %.not949, label %138, label %135
 
 135:                                              ; preds = %.lr.ph126
-  %136 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %134) #16
+  %136 = tail call noalias ptr @strdup(ptr noundef nonnull %134) #16
   %137 = getelementptr inbounds %struct.pmix_app, ptr %calloc.i959, i64 %.0821125
   store ptr %136, ptr %137, align 8
   br label %138
@@ -1257,7 +1257,7 @@ pmix_bfrops_base_tma_app_create.exit:             ; preds = %15
   br i1 %.not952, label %156, label %153
 
 153:                                              ; preds = %150
-  %154 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %152) #16
+  %154 = tail call noalias ptr @strdup(ptr noundef nonnull %152) #16
   %155 = getelementptr inbounds %struct.pmix_app, ptr %calloc.i959, i64 %.0821125, i32 3
   store ptr %154, ptr %155, align 8
   br label %156
@@ -1289,8 +1289,8 @@ pmix_bfrops_base_tma_app_create.exit:             ; preds = %15
   %.01.i = phi i64 [ %172, %.preheader.i ], [ 0, %166 ]
   %170 = getelementptr inbounds %struct.pmix_info, ptr %168, i64 %.01.i
   %171 = getelementptr inbounds i8, ptr %170, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %171, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %170, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %170, i8 0, i64 516, i1 false)
   %172 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %172, %162
   br i1 %exitcond.not.i, label %176, label %.preheader.i, !llvm.loop !11
@@ -1323,7 +1323,7 @@ pmix_bfrops_base_tma_app_create.exit:             ; preds = %15
   br i1 %186, label %pmix_bfrops_base_tma_info_xfer.exit, label %187
 
 187:                                              ; preds = %.lr.ph124
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %181, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %181, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i1016
 
 .lr.ph.i.i1016:                                   ; preds = %187, %190
@@ -1399,7 +1399,7 @@ pmix_bfrops_base_tma_info_xfer.exit:              ; preds = %.lr.ph124, %200, %2
   br i1 %216, label %pmix_bfrops_base_tma_info_xfer.exit964, label %220
 
 220:                                              ; preds = %217
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %218, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %218, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i1025
 
 .lr.ph.i.i1025:                                   ; preds = %220, %223
@@ -1485,7 +1485,7 @@ pmix_bfrops_base_tma_load_nspace.exit1050:        ; preds = %.lr.ph.i.i1043, %24
   store i32 %251, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %242, i64 260
   %254 = getelementptr inbounds i8, ptr %243, i64 260
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %253, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %253, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i1034
 
 .lr.ph.i.i1034:                                   ; preds = %pmix_bfrops_base_tma_load_nspace.exit1050, %257
@@ -1541,7 +1541,7 @@ pmix_bfrops_base_tma_pdata_xfer.exit:             ; preds = %257, %.lr.ph.i.i103
   %278 = getelementptr inbounds i8, ptr %276, i64 48
   store i32 1, ptr %278, align 8
   %279 = getelementptr inbounds i8, ptr %276, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %279, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %279, i8 0, i64 64, i1 false)
   %280 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %281 = load ptr, ptr %280, align 8
   %.not6.i = icmp eq ptr %281, null
@@ -1621,7 +1621,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %275
   br i1 %.not943, label %319, label %316
 
 316:                                              ; preds = %.lr.ph111
-  %317 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %315) #16
+  %317 = tail call noalias ptr @strdup(ptr noundef nonnull %315) #16
   %318 = getelementptr inbounds %struct.pmix_kval_t, ptr %309, i64 %.0830110, i32 1
   store ptr %317, ptr %318, align 8
   br label %319
@@ -1751,7 +1751,7 @@ pmix_bfrops_base_tma_proc_info_create.exit:       ; preds = %15
   br i1 %.not941, label %375, label %373
 
 373:                                              ; preds = %.lr.ph106
-  %374 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %372) #16
+  %374 = tail call noalias ptr @strdup(ptr noundef nonnull %372) #16
   br label %375
 
 375:                                              ; preds = %.lr.ph106, %373
@@ -1764,7 +1764,7 @@ pmix_bfrops_base_tma_proc_info_create.exit:       ; preds = %15
   br i1 %.not942, label %381, label %379
 
 379:                                              ; preds = %375
-  %380 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %378) #16
+  %380 = tail call noalias ptr @strdup(ptr noundef nonnull %378) #16
   br label %381
 
 381:                                              ; preds = %375, %379
@@ -1839,8 +1839,8 @@ pmix_bfrops_base_tma_info_create.exit978.thread:  ; preds = %407
   %.01.i975 = phi i64 [ %414, %.preheader.i974 ], [ 0, %407 ]
   %412 = getelementptr inbounds %struct.pmix_info, ptr %409, i64 %.01.i975
   %413 = getelementptr inbounds i8, ptr %412, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %413, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %412, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %413, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %412, i8 0, i64 516, i1 false)
   %414 = add nuw i64 %.01.i975, 1
   %exitcond.not.i976 = icmp eq i64 %414, %406
   br i1 %exitcond.not.i976, label %.lr.ph101.preheader, label %.preheader.i974, !llvm.loop !11
@@ -1863,7 +1863,7 @@ pmix_bfrops_base_tma_info_create.exit978.thread:  ; preds = %407
   br i1 %423, label %pmix_bfrops_base_tma_info_xfer.exit981, label %424
 
 424:                                              ; preds = %.lr.ph101
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %418, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %418, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i1052
 
 .lr.ph.i.i1052:                                   ; preds = %424, %427
@@ -1946,7 +1946,7 @@ pmix_bfrops_base_tma_info_xfer.exit981:           ; preds = %.lr.ph101, %437, %4
   br i1 %.not936, label %461, label %458
 
 458:                                              ; preds = %.lr.ph99
-  %459 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %457) #16
+  %459 = tail call noalias ptr @strdup(ptr noundef nonnull %457) #16
   %460 = getelementptr inbounds %struct.pmix_envar_t, ptr %450, i64 %.083898
   store ptr %459, ptr %460, align 8
   br label %461
@@ -1958,7 +1958,7 @@ pmix_bfrops_base_tma_info_xfer.exit981:           ; preds = %.lr.ph101, %437, %4
   br i1 %.not937, label %467, label %464
 
 464:                                              ; preds = %461
-  %465 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %463) #16
+  %465 = tail call noalias ptr @strdup(ptr noundef nonnull %463) #16
   %466 = getelementptr inbounds %struct.pmix_envar_t, ptr %450, i64 %.083898, i32 1
   store ptr %465, ptr %466, align 8
   br label %467
@@ -2037,7 +2037,7 @@ pmix_bfrops_base_tma_fill_coord.exit:             ; preds = %483
   br i1 %.not934, label %505, label %502
 
 502:                                              ; preds = %.lr.ph95
-  %503 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %501) #16
+  %503 = tail call noalias ptr @strdup(ptr noundef nonnull %501) #16
   %504 = getelementptr inbounds %struct.pmix_regattr_t, ptr %494, i64 %.084294
   store ptr %503, ptr %504, align 8
   br label %505
@@ -2046,7 +2046,7 @@ pmix_bfrops_base_tma_fill_coord.exit:             ; preds = %483
   %506 = getelementptr inbounds %struct.pmix_regattr_t, ptr %494, i64 %.084294
   %507 = getelementptr inbounds i8, ptr %506, i64 8
   %508 = getelementptr inbounds i8, ptr %500, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %507, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %507, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %505, %511
@@ -2132,7 +2132,7 @@ pmix_bfrops_base_tma_geometry_create.exit:        ; preds = %15
   br i1 %.not928, label %550, label %547
 
 547:                                              ; preds = %.lr.ph91
-  %548 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %546) #16
+  %548 = tail call noalias ptr @strdup(ptr noundef nonnull %546) #16
   %549 = getelementptr inbounds i8, ptr %544, i64 8
   store ptr %548, ptr %549, align 8
   br label %550
@@ -2144,7 +2144,7 @@ pmix_bfrops_base_tma_geometry_create.exit:        ; preds = %15
   br i1 %.not929, label %556, label %553
 
 553:                                              ; preds = %550
-  %554 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %552) #16
+  %554 = tail call noalias ptr @strdup(ptr noundef nonnull %552) #16
   %555 = getelementptr inbounds i8, ptr %544, i64 16
   store ptr %554, ptr %555, align 8
   br label %556
@@ -2237,7 +2237,7 @@ pmix_bfrops_base_tma_device_create.exit:          ; preds = %15
   br i1 %.not926, label %600, label %597
 
 597:                                              ; preds = %.lr.ph87
-  %598 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %596) #16
+  %598 = tail call noalias ptr @strdup(ptr noundef nonnull %596) #16
   %599 = getelementptr inbounds %struct.pmix_device, ptr %calloc.i991, i64 %.083786
   store ptr %598, ptr %599, align 8
   br label %600
@@ -2249,7 +2249,7 @@ pmix_bfrops_base_tma_device_create.exit:          ; preds = %15
   br i1 %.not927, label %606, label %603
 
 603:                                              ; preds = %600
-  %604 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %602) #16
+  %604 = tail call noalias ptr @strdup(ptr noundef nonnull %602) #16
   %605 = getelementptr inbounds %struct.pmix_device, ptr %calloc.i991, i64 %.083786, i32 1
   store ptr %604, ptr %605, align 8
   br label %606
@@ -2301,7 +2301,7 @@ pmix_bfrops_base_tma_resource_unit_create.exit:   ; preds = %15
   br i1 %.not924, label %629, label %626
 
 626:                                              ; preds = %.lr.ph83
-  %627 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %625) #16
+  %627 = tail call noalias ptr @strdup(ptr noundef nonnull %625) #16
   %628 = getelementptr inbounds %struct.pmix_device_distance, ptr %618, i64 %.083182
   store ptr %627, ptr %628, align 8
   br label %629
@@ -2313,7 +2313,7 @@ pmix_bfrops_base_tma_resource_unit_create.exit:   ; preds = %15
   br i1 %.not925, label %635, label %632
 
 632:                                              ; preds = %629
-  %633 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %631) #16
+  %633 = tail call noalias ptr @strdup(ptr noundef nonnull %631) #16
   %634 = getelementptr inbounds %struct.pmix_device_distance, ptr %618, i64 %.083182, i32 1
   store ptr %633, ptr %634, align 8
   br label %635
@@ -2352,7 +2352,7 @@ pmix_bfrops_base_tma_endpoint_create.exit:        ; preds = %15
   br i1 %.not, label %655, label %652
 
 652:                                              ; preds = %.lr.ph81
-  %653 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %651) #16
+  %653 = tail call noalias ptr @strdup(ptr noundef nonnull %651) #16
   %654 = getelementptr inbounds %struct.pmix_endpoint, ptr %calloc.i995, i64 %.082880
   store ptr %653, ptr %654, align 8
   br label %655
@@ -2364,7 +2364,7 @@ pmix_bfrops_base_tma_endpoint_create.exit:        ; preds = %15
   br i1 %.not922, label %661, label %658
 
 658:                                              ; preds = %655
-  %659 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %657) #16
+  %659 = tail call noalias ptr @strdup(ptr noundef nonnull %657) #16
   %660 = getelementptr inbounds %struct.pmix_endpoint, ptr %calloc.i995, i64 %.082880, i32 1
   store ptr %659, ptr %660, align 8
   br label %661
@@ -2407,7 +2407,7 @@ pmix_bfrops_base_tma_endpoint_create.exit:        ; preds = %15
   %.082579 = phi i64 [ %685, %pmix_strncpy.exit.i ], [ 0, %.lr.ph.i.i998.preheader.preheader ]
   %677 = getelementptr inbounds [256 x i8], ptr %674, i64 %.082579
   %678 = getelementptr inbounds [256 x i8], ptr %13, i64 %.082579
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(256) %677, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %677, i8 0, i64 256, i1 false)
   br label %.lr.ph.i.i998
 
 .lr.ph.i.i998:                                    ; preds = %.lr.ph.i.i998.preheader, %681
@@ -2451,14 +2451,14 @@ pmix_bfrops_base_tma_proc_stats_create.exit:      ; preds = %15
   br i1 %.not.i1006, label %696, label %694
 
 694:                                              ; preds = %.lr.ph78
-  %695 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %693) #16
+  %695 = tail call noalias ptr @strdup(ptr noundef nonnull %693) #16
   store ptr %695, ptr %691, align 8
   br label %696
 
 696:                                              ; preds = %694, %.lr.ph78
   %697 = getelementptr inbounds i8, ptr %691, i64 8
   %698 = getelementptr inbounds i8, ptr %692, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(260) %697, ptr noundef nonnull readonly align 8 dereferenceable(260) %698, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %697, ptr noundef nonnull align 8 dereferenceable(260) %698, i64 260, i1 false)
   %699 = getelementptr inbounds i8, ptr %692, i64 268
   %700 = load i32, ptr %699, align 4
   %701 = getelementptr inbounds i8, ptr %691, i64 268
@@ -2469,7 +2469,7 @@ pmix_bfrops_base_tma_proc_stats_create.exit:      ; preds = %15
   br i1 %.not35.i, label %pmix_bfrops_base_tma_populate_pstats.exit, label %704
 
 704:                                              ; preds = %696
-  %705 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %703) #16
+  %705 = tail call noalias ptr @strdup(ptr noundef nonnull %703) #16
   %706 = getelementptr inbounds i8, ptr %691, i64 272
   store ptr %705, ptr %706, align 8
   br label %pmix_bfrops_base_tma_populate_pstats.exit
@@ -2481,7 +2481,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %696, %704
   store i8 %708, ptr %709, align 8
   %710 = getelementptr inbounds i8, ptr %691, i64 288
   %711 = getelementptr inbounds i8, ptr %692, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %710, ptr noundef nonnull readonly align 8 dereferenceable(16) %711, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %710, ptr noundef nonnull align 8 dereferenceable(16) %711, i64 16, i1 false)
   %712 = getelementptr inbounds i8, ptr %692, i64 308
   %713 = load i32, ptr %712, align 4
   %714 = getelementptr inbounds i8, ptr %691, i64 308
@@ -2539,7 +2539,7 @@ pmix_bfrops_base_tma_disk_stats_create.exit:      ; preds = %15
   br i1 %.not.i1009, label %pmix_bfrops_base_tma_populate_dkstats.exit, label %746
 
 746:                                              ; preds = %.lr.ph76
-  %747 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %745) #16
+  %747 = tail call noalias ptr @strdup(ptr noundef nonnull %745) #16
   store ptr %747, ptr %743, align 8
   br label %pmix_bfrops_base_tma_populate_dkstats.exit
 
@@ -2609,7 +2609,7 @@ pmix_bfrops_base_tma_net_stats_create.exit:       ; preds = %15
   br i1 %.not.i1012, label %pmix_bfrops_base_tma_populate_netstats.exit, label %788
 
 788:                                              ; preds = %.lr.ph74
-  %789 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %787) #16
+  %789 = tail call noalias ptr @strdup(ptr noundef nonnull %787) #16
   store ptr %789, ptr %785, align 8
   br label %pmix_bfrops_base_tma_populate_netstats.exit
 
@@ -2911,7 +2911,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_regattr(ptr nocapture nounde
 .preheader.i.preheader.i:                         ; preds = %3
   %5 = getelementptr inbounds i8, ptr %4, i64 528
   store ptr null, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(522) %4, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %4, i8 0, i64 522, i1 false)
   store ptr %4, ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %6, null
@@ -2922,14 +2922,14 @@ pmix_bfrops_base_tma_regattr_create.exit.thread.i: ; preds = %3
   br label %pmix_bfrops_base_tma_copy_regattr.exit
 
 7:                                                ; preds = %.preheader.i.preheader.i
-  %8 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %6) #16
+  %8 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #16
   store ptr %8, ptr %4, align 8
   br label %9
 
 9:                                                ; preds = %7, %.preheader.i.preheader.i
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %10, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %10, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %14, %9
@@ -2978,7 +2978,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(
 .preheader.i.preheader:                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %3, i64 528
   store ptr null, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(522) %3, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %3, i8 0, i64 522, i1 false)
   store ptr %3, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, null
@@ -2989,14 +2989,14 @@ pmix_bfrops_base_tma_regattr_create.exit.thread:  ; preds = %2
   br label %26
 
 6:                                                ; preds = %.preheader.i.preheader
-  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #16
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #16
   store ptr %7, ptr %3, align 8
   br label %8
 
 8:                                                ; preds = %6, %.preheader.i.preheader
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(512) %9, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %9, i8 0, i64 512, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %13
@@ -3113,7 +3113,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_geometry
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %7) #16
+  %9 = tail call noalias ptr @strdup(ptr noundef nonnull %7) #16
   %10 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store ptr %9, ptr %10, align 8
   br label %11
@@ -3125,7 +3125,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_geometry
   br i1 %.not36, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %13) #16
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %13) #16
   %16 = getelementptr inbounds i8, ptr %calloc.i, i64 16
   store ptr %15, ptr %16, align 8
   br label %17
@@ -3319,7 +3319,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_endpoint(ptr nocapture nound
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %6) #16
+  %8 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #16
   store ptr %8, ptr %calloc.i.i, align 8
   br label %9
 
@@ -3330,7 +3330,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_endpoint(ptr nocapture nound
   br i1 %.not24.i, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %11) #16
+  %13 = tail call noalias ptr @strdup(ptr noundef nonnull %11) #16
   %14 = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
   store ptr %13, ptr %14, align 8
   br label %15
@@ -3373,7 +3373,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_endpoint
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #16
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #16
   store ptr %7, ptr %calloc.i, align 8
   br label %8
 
@@ -3384,7 +3384,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_endpoint
   br i1 %.not24, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %10) #16
+  %12 = tail call noalias ptr @strdup(ptr noundef nonnull %10) #16
   %13 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store ptr %12, ptr %13, align 8
   br label %14
@@ -3556,14 +3556,14 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_pstats(ptr nocapture noundef
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %6) #16
+  %8 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #16
   store ptr %8, ptr %calloc.i.i, align 8
   br label %9
 
 9:                                                ; preds = %7, %5
   %10 = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(260) %10, ptr noundef nonnull readonly align 8 dereferenceable(260) %11, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %10, ptr noundef nonnull align 8 dereferenceable(260) %11, i64 260, i1 false)
   %12 = getelementptr inbounds i8, ptr %1, i64 268
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds i8, ptr %calloc.i.i, i64 268
@@ -3574,7 +3574,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_pstats(ptr nocapture noundef
   br i1 %.not35.i.i, label %pmix_bfrops_base_tma_populate_pstats.exit.i, label %17
 
 17:                                               ; preds = %9
-  %18 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %16) #16
+  %18 = tail call noalias ptr @strdup(ptr noundef nonnull %16) #16
   %19 = getelementptr inbounds i8, ptr %calloc.i.i, i64 272
   store ptr %18, ptr %19, align 8
   br label %pmix_bfrops_base_tma_populate_pstats.exit.i
@@ -3586,7 +3586,7 @@ pmix_bfrops_base_tma_populate_pstats.exit.i:      ; preds = %17, %9
   store i8 %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %calloc.i.i, i64 288
   %24 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %24, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %1, i64 308
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %calloc.i.i, i64 308
@@ -3627,14 +3627,14 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pstats(p
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #16
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #16
   store ptr %7, ptr %calloc.i, align 8
   br label %8
 
 8:                                                ; preds = %6, %4
   %9 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(260) %9, ptr noundef nonnull readonly align 8 dereferenceable(260) %10, i64 260, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %9, ptr noundef nonnull align 8 dereferenceable(260) %10, i64 260, i1 false)
   %11 = getelementptr inbounds i8, ptr %1, i64 268
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %calloc.i, i64 268
@@ -3645,7 +3645,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pstats(p
   br i1 %.not35.i, label %pmix_bfrops_base_tma_populate_pstats.exit, label %16
 
 16:                                               ; preds = %8
-  %17 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %15) #16
+  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #16
   %18 = getelementptr inbounds i8, ptr %calloc.i, i64 272
   store ptr %17, ptr %18, align 8
   br label %pmix_bfrops_base_tma_populate_pstats.exit
@@ -3657,7 +3657,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %8, %16
   store i8 %20, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %calloc.i, i64 288
   %23 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %22, ptr noundef nonnull readonly align 8 dereferenceable(16) %23, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %1, i64 308
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds i8, ptr %calloc.i, i64 308
@@ -3698,7 +3698,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_dkstats(ptr nocapture nounde
   br i1 %.not.i.i, label %pmix_bfrops_base_tma_populate_dkstats.exit.i, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %6) #16
+  %8 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #16
   store ptr %8, ptr %calloc.i.i, align 8
   br label %pmix_bfrops_base_tma_populate_dkstats.exit.i
 
@@ -3747,7 +3747,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_dkstats(
   br i1 %.not.i, label %pmix_bfrops_base_tma_populate_dkstats.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #16
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #16
   store ptr %7, ptr %calloc.i, align 8
   br label %pmix_bfrops_base_tma_populate_dkstats.exit
 
@@ -3796,7 +3796,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_netstats(ptr nocapture nound
   br i1 %.not.i.i, label %pmix_bfrops_base_tma_populate_netstats.exit.i, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %6) #16
+  %8 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #16
   store ptr %8, ptr %calloc.i.i, align 8
   br label %pmix_bfrops_base_tma_populate_netstats.exit.i
 
@@ -3833,7 +3833,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_netstats
   br i1 %.not.i, label %pmix_bfrops_base_tma_populate_netstats.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #16
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #16
   store ptr %7, ptr %calloc.i, align 8
   br label %pmix_bfrops_base_tma_populate_netstats.exit
 
@@ -3865,7 +3865,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_ndstats(ptr nocapture nounde
 
 5:                                                ; preds = %3
   store ptr %calloc.i.i, ptr %0, align 8
-  tail call fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef nonnull %calloc.i.i, ptr noundef readonly %1)
+  tail call fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef nonnull %calloc.i.i, ptr noundef %1)
   br label %pmix_bfrops_base_tma_copy_ndstats.exit
 
 pmix_bfrops_base_tma_copy_ndstats.exit:           ; preds = %3, %5
@@ -4016,7 +4016,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %0, ptr 
   br i1 %.not171, label %19, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %15) #16
+  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #16
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %17, ptr %18, align 8
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
@@ -4164,7 +4164,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %0, ptr 
   br i1 %.not.i, label %pmix_bfrops_base_tma_proc_create.exit.thread, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %97
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(260) %98, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %98, i8 0, i64 256, i1 false)
   %99 = getelementptr inbounds i8, ptr %98, i64 256
   store i32 -1, ptr %99, align 4
   %100 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4272,14 +4272,14 @@ pmix_bfrops_base_tma_proc_create.exit.thread:     ; preds = %97
 
 155:                                              ; preds = %2
   %156 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %156, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %156, i8 0, i64 17, i1 false)
   %157 = getelementptr inbounds i8, ptr %1, i64 8
   %158 = load ptr, ptr %157, align 8
   %.not = icmp eq ptr %158, null
   br i1 %.not, label %161, label %159
 
 159:                                              ; preds = %155
-  %160 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %158) #16
+  %160 = tail call noalias ptr @strdup(ptr noundef nonnull %158) #16
   store ptr %160, ptr %156, align 8
   br label %161
 
@@ -4290,7 +4290,7 @@ pmix_bfrops_base_tma_proc_create.exit.thread:     ; preds = %97
   br i1 %.not168, label %167, label %164
 
 164:                                              ; preds = %161
-  %165 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %163) #16
+  %165 = tail call noalias ptr @strdup(ptr noundef nonnull %163) #16
   %166 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %165, ptr %166, align 8
   br label %167
@@ -4390,7 +4390,7 @@ pmix_bfrops_base_tma_proc_create.exit.thread:     ; preds = %97
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %calloc.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %218, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %calloc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %218, i64 16, i1 false)
   store ptr %calloc.i.i, ptr %221, align 8
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
@@ -4474,7 +4474,7 @@ define internal fastcc noalias noundef ptr @pmix_bfrops_base_tma_proc_create(i64
 .preheader:                                       ; preds = %3, %.preheader
   %.01 = phi i64 [ %8, %.preheader ], [ 0, %3 ]
   %6 = getelementptr inbounds %struct.pmix_proc, ptr %5, i64 %.01
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(260) %6, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %6, i8 0, i64 256, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 256
   store i32 -1, ptr %7, align 4
   %8 = add nuw i64 %.01, 1
@@ -4498,7 +4498,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_device(p
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #16
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #16
   store ptr %7, ptr %calloc.i, align 8
   br label %8
 
@@ -4509,7 +4509,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_device(p
   br i1 %.not17, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %10) #16
+  %12 = tail call noalias ptr @strdup(ptr noundef nonnull %10) #16
   %13 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store ptr %12, ptr %13, align 8
   br label %14
@@ -4540,7 +4540,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_devdist(
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %.preheader.i.preheader
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %4) #16
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %4) #16
   store ptr %6, ptr %calloc, align 8
   br label %7
 
@@ -4551,7 +4551,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_devdist(
   br i1 %.not21, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %9) #16
+  %11 = tail call noalias ptr @strdup(ptr noundef nonnull %9) #16
   %12 = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %11, ptr %12, align 8
   br label %13
@@ -4587,7 +4587,7 @@ define internal fastcc noalias noundef ptr @pmix_bfrops_base_tma_device_distance
   %.01 = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %6 = getelementptr inbounds %struct.pmix_device_distance, ptr %5, i64 %.01
   %7 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store i16 -1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 26
   store i16 -1, ptr %8, align 2
@@ -4673,7 +4673,7 @@ pmix_bfrops_base_tma_argv_count.exit.i:           ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %15, label %pmix_bfrops_base_tma_argv_free.exit, label %16
 
 16:                                               ; preds = %pmix_bfrops_base_tma_argv_count.exit.i
-  %17 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %7) #16
+  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %7) #16
   %18 = sext i32 %.0.lcssa.i.i to i64
   %19 = getelementptr inbounds ptr, ptr %14, i64 %18
   store ptr %17, ptr %19, align 8
@@ -4726,8 +4726,8 @@ define internal fastcc noalias noundef ptr @pmix_bfrops_base_tma_info_create(i64
   %.01 = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %7 = getelementptr inbounds %struct.pmix_info, ptr %5, i64 %.01
   %8 = getelementptr inbounds i8, ptr %7, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(516) %7, i8 0, i64 516, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %7, i8 0, i64 516, i1 false)
   %9 = add nuw i64 %.01, 1
   %exitcond.not = icmp eq i64 %9, %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
@@ -4776,7 +4776,7 @@ define internal fastcc noalias noundef ptr @pmix_bfrops_base_tma_envar_create(i6
 .preheader:                                       ; preds = %3, %.preheader
   %.01 = phi i64 [ %7, %.preheader ], [ 0, %3 ]
   %6 = getelementptr inbounds %struct.pmix_envar_t, ptr %5, i64 %.01
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %6, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %6, i8 0, i64 17, i1 false)
   %7 = add nuw i64 %.01, 1
   %exitcond.not = icmp eq i64 %7, %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !46
@@ -4838,7 +4838,7 @@ define internal fastcc noalias noundef ptr @pmix_bfrops_base_tma_regattr_create(
   %6 = getelementptr inbounds %struct.pmix_regattr_t, ptr %5, i64 %.01
   %7 = getelementptr inbounds i8, ptr %6, i64 528
   store ptr null, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(522) %6, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %6, i8 0, i64 522, i1 false)
   %8 = add nuw i64 %.01, 1
   %exitcond.not = icmp eq i64 %8, %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !48
@@ -4940,7 +4940,7 @@ define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %3) #16
+  %5 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
   store ptr %5, ptr %0, align 8
   br label %6
 
@@ -5023,7 +5023,7 @@ define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture
   br i1 %.not.i, label %pmix_bfrops_base_tma_populate_dkstats.exit, label %58
 
 58:                                               ; preds = %52
-  %59 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %57) #16
+  %59 = tail call noalias ptr @strdup(ptr noundef nonnull %57) #16
   store ptr %59, ptr %54, align 8
   br label %pmix_bfrops_base_tma_populate_dkstats.exit
 
@@ -5104,7 +5104,7 @@ pmix_bfrops_base_tma_populate_dkstats.exit:       ; preds = %52, %58
   br i1 %.not.i65, label %pmix_bfrops_base_tma_populate_netstats.exit, label %108
 
 108:                                              ; preds = %102
-  %109 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %107) #16
+  %109 = tail call noalias ptr @strdup(ptr noundef nonnull %107) #16
   store ptr %109, ptr %104, align 8
   br label %pmix_bfrops_base_tma_populate_netstats.exit
 
@@ -6030,7 +6030,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   br label %pmix_bfrops_base_tma_proc_info_destruct.exit.i
 
 pmix_bfrops_base_tma_proc_info_destruct.exit.i:   ; preds = %111, %108
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %104, i8 0, i64 296, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %104, i8 0, i64 296, i1 false)
   %112 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %112, %103
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i158, !llvm.loop !62

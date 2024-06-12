@@ -13438,7 +13438,7 @@ sw.bb3.i.i.i.i.i.i.i.i2841:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i2843, label %if.then.i.i.i.i.i.i.i.i.i2842
 
 if.then.i.i.i.i.i.i.i.i.i2842:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2841
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2818, !noalias !350
 
 if.end.i.i.i.i.i.i.i.i.i2843:                     ; preds = %sw.bb3.i.i.i.i.i.i.i.i2841
@@ -13699,7 +13699,7 @@ sw.bb4.i.i.i.i.i.i.i.i2816:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %spec.select.i.i11.i.i.i.i.i.i.i.i, label %if.end.i13.i.i.i.i.i.i.i.i2838, label %if.then.i12.i.i.i.i.i.i.i.i2817
 
 if.then.i12.i.i.i.i.i.i.i.i2817:                  ; preds = %sw.bb4.i.i.i.i.i.i.i.i2816
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2818, !noalias !350
 
 if.end.i13.i.i.i.i.i.i.i.i2838:                   ; preds = %sw.bb4.i.i.i.i.i.i.i.i2816
@@ -14209,7 +14209,7 @@ sw.epilog.i.i.i.i.i.i.i.i2913:                    ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %spec.select.i.i343.i.i.i.i.i.i.i.i, label %if.end.i345.i.i.i.i.i.i.i.i, label %if.then.i344.i.i.i.i.i.i.i.i
 
 if.then.i344.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2913
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2818, !noalias !350
 
 if.end.i345.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i2913
@@ -14927,7 +14927,7 @@ sw.bb3.i.i.i.i.i.i.i.i2552:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i2553, label %if.end.i.i.i.i.i.i.i.i.i2555, label %if.then.i.i.i.i.i.i.i.i.i2554
 
 if.then.i.i.i.i.i.i.i.i.i2554:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2552
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i.i.i.i.i.i.i.i.i2555:                     ; preds = %sw.bb3.i.i.i.i.i.i.i.i2552
@@ -15057,7 +15057,7 @@ sw.bb4.i.i.i.i.i.i.i.i2481:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i2482, label %if.end.i13.i.i.i.i.i.i.i.i2521, label %if.then.i12.i.i.i.i.i.i.i.i2483
 
 if.then.i12.i.i.i.i.i.i.i.i2483:                  ; preds = %sw.bb4.i.i.i.i.i.i.i.i2481
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i13.i.i.i.i.i.i.i.i2521:                   ; preds = %sw.bb4.i.i.i.i.i.i.i.i2481
@@ -15178,7 +15178,7 @@ sw.bb7.i.i.i.i.i.i.i.i2626:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i80.i.i.i.i.i.i.i.i, label %if.end.i82.i.i.i.i.i.i.i.i, label %if.then.i81.i.i.i.i.i.i.i.i
 
 if.then.i81.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb7.i.i.i.i.i.i.i.i2626
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i82.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb7.i.i.i.i.i.i.i.i2626
@@ -15289,7 +15289,7 @@ sw.epilog.i.i.i.i.i.i.i.i2630:                    ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i142.i.i.i.i.i.i.i.i, label %if.end.i144.i.i.i.i.i.i.i.i, label %if.then.i143.i.i.i.i.i.i.i.i
 
 if.then.i143.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2630
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i144.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i2630
@@ -15885,7 +15885,7 @@ sw.bb3.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i2267
 
 if.then.i.i.i.i.i.i.i.i.i2267:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb3.i.i.i.i.i.i.i.i
@@ -16015,7 +16015,7 @@ sw.bb4.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, label %if.end.i13.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i
 
 if.then.i12.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb4.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i13.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb4.i.i.i.i.i.i.i.i
@@ -16140,7 +16140,7 @@ sw.bb7.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i83.i.i.i.i.i.i.i.i, label %if.end.i85.i.i.i.i.i.i.i.i, label %if.then.i84.i.i.i.i.i.i.i.i
 
 if.then.i84.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb7.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i85.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb7.i.i.i.i.i.i.i.i
@@ -16265,7 +16265,7 @@ sw.epilog.i.i.i.i.i.i.i.i:                        ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i159.i.i.i.i.i.i.i.i, label %if.end.i161.i.i.i.i.i.i.i.i, label %if.then.i160.i.i.i.i.i.i.i.i
 
 if.then.i160.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i161.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i
@@ -22188,7 +22188,7 @@ entry:
   store i32 %0, ptr %indent_.i.i.i, align 8, !noalias !655
   %sink_.i.i.i = getelementptr inbounds i8, ptr %printer.i, i64 16
   store ptr %sink, ptr %sink_.i.i.i, align 8, !noalias !655
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull writeonly align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %arr)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %arr)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -22931,7 +22931,7 @@ invoke.cont6:                                     ; preds = %do.body
   %3 = load i32, ptr %column_options, align 8, !noalias !688
   store i32 %3, ptr %indent_.i.i.i, align 8, !noalias !688
   store ptr %sink, ptr %sink_.i.i.i, align 8, !noalias !688
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull writeonly align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad8
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont6

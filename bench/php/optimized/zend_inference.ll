@@ -49617,7 +49617,7 @@ define internal fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1,
   %17 = phi ptr [ %15, %14 ], [ %13, %12 ]
   %18 = getelementptr inbounds i64, ptr %17, i64 %9
   %19 = shl nuw nsw i64 %9, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %18, i8 0, i64 %19, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %19, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = load i32, ptr %5, align 8
@@ -49708,7 +49708,7 @@ define internal fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1,
 
 78:                                               ; preds = %72, %67
   %79 = phi ptr [ %71, %67 ], [ %77, %72 ]
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %17, i8 0, i64 %19, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %19, i1 false)
   %80 = trunc nsw i64 %indvars.iv131 to i32
   %81 = call fastcc zeroext i1 @can_convert_to_double(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %80, ptr noundef %79, ptr noundef %17)
   br i1 %81, label %82, label %zend_bitset_union.exit

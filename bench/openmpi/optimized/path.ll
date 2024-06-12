@@ -131,7 +131,7 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
   br i1 %.not.i39, label %.loopexit.i, label %46
 
 46:                                               ; preds = %43
-  %47 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #15
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #15
   %48 = load ptr, ptr %3, align 8
   %.not1517.i = icmp eq ptr %48, null
   br i1 %.not1517.i, label %.loopexit.i, label %.lr.ph.i
@@ -139,7 +139,7 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
 .lr.ph.i:                                         ; preds = %46, %59
   %49 = phi ptr [ %61, %59 ], [ %48, %46 ]
   %.01218.i = phi ptr [ %60, %59 ], [ %3, %46 ]
-  %50 = call i32 @strncmp(ptr noundef nonnull readonly %45, ptr noundef nonnull %49, i64 noundef %47) #15
+  %50 = call i32 @strncmp(ptr noundef nonnull %45, ptr noundef nonnull %49, i64 noundef %47) #15
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %59
 
@@ -161,7 +161,7 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 .loopexit.i:                                      ; preds = %59, %46, %43
-  %62 = call ptr @getenv(ptr noundef nonnull readonly %45) #14
+  %62 = call ptr @getenv(ptr noundef nonnull %45) #14
   br label %list_env_get.exit
 
 list_env_get.exit:                                ; preds = %56, %.loopexit.i
@@ -385,7 +385,7 @@ define noalias ptr @opal_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph.i:                                         ; preds = %7, %17
   %9 = phi ptr [ %19, %17 ], [ %8, %7 ]
   %.01218.i = phi ptr [ %18, %17 ], [ %2, %7 ]
-  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #15
+  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
@@ -406,7 +406,7 @@ list_env_get.exit.thread:                         ; preds = %12
   br i1 %.not15.i, label %list_env_get.exit, label %.lr.ph.i, !llvm.loop !4
 
 list_env_get.exit:                                ; preds = %17, %4, %7
-  %20 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.2) #14
+  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #14
   %.not24 = icmp eq ptr %20, null
   br i1 %.not24, label %path_env_load.exit, label %21
 
@@ -757,7 +757,7 @@ define noundef zeroext i1 @opal_path_nfs(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not13.i, label %62, label %59
 
 59:                                               ; preds = %56
-  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull readonly dereferenceable(1) %0) #15
+  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %0) #15
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %opal_check_mtab.exit, label %62
 

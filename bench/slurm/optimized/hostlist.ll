@@ -143,7 +143,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
   br i1 %10, label %_hostlist_create.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #22
+  %12 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #22
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %15, label %.preheader.i.i
 
@@ -2039,7 +2039,7 @@ _is_bracket_needed.exit.i:                        ; preds = %242, %240, %hostran
   %245 = getelementptr inbounds ptr, ptr %206, i64 %.pre-phi68.i
   %246 = load ptr, ptr %245, align 8
   %247 = load ptr, ptr %246, align 8
-  %248 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %205, i64 noundef %204, ptr noundef nonnull @.str.11, ptr noundef %247) #22
+  %248 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %205, i64 noundef %204, ptr noundef nonnull @.str.11, ptr noundef %247) #22
   %249 = icmp sgt i32 %248, -1
   %250 = add nuw nsw i32 %248, 4
   %251 = zext nneg i32 %250 to i64
@@ -2087,7 +2087,7 @@ _is_bracket_needed.exit.i:                        ; preds = %242, %240, %hostran
   %271 = zext nneg i32 %.2.i to i64
   %272 = sub i64 %204, %271
   %273 = getelementptr inbounds i8, ptr %205, i64 %271
-  %274 = tail call fastcc i64 @hostrange_numstr(ptr noundef %270, i64 noundef %272, ptr noundef writeonly %273)
+  %274 = tail call fastcc i64 @hostrange_numstr(ptr noundef %270, i64 noundef %272, ptr noundef %273)
   %275 = icmp slt i64 %274, 0
   br i1 %275, label %280, label %276
 
@@ -4205,7 +4205,7 @@ define internal fastcc ptr @hostname_create_dims(ptr noundef %0, i32 noundef %1)
   %16 = phi i1 [ %9, %6 ], [ %9, %11 ], [ %4, %.thread ]
   %.03041 = phi i32 [ %8, %6 ], [ 0, %11 ], [ %1, %.thread ]
   %.017.i = phi i32 [ %8, %6 ], [ %13, %11 ], [ %1, %.thread ]
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #23
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %18 = trunc i64 %17 to i32
   %19 = add i32 %18, -1
   %20 = icmp sgt i32 %.017.i, 1
@@ -5875,7 +5875,7 @@ define noalias noundef nonnull ptr @hostlist_ranged_string_malloc(ptr noundef %0
   %3 = zext nneg i32 %.0912 to i64
   %4 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %5 = zext i16 %4 to i32
-  %6 = tail call range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr noundef %0, i64 noundef %3, ptr noundef nonnull writeonly %.013, i32 noundef %5, i32 noundef 1)
+  %6 = tail call range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr noundef %0, i64 noundef %3, ptr noundef nonnull %.013, i32 noundef %5, i32 noundef 1)
   %7 = icmp slt i64 %6, 0
   br i1 %7, label %8, label %.critedge
 
@@ -6547,7 +6547,7 @@ define range(i64 -2147483648, 2147483648) i64 @hostset_ranged_string(ptr nocaptu
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %6 = zext i16 %5 to i32
-  %7 = tail call range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %6, i32 noundef 1)
+  %7 = tail call range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 1)
   ret i64 %7
 }
 
@@ -6556,7 +6556,7 @@ define range(i64 -1, 2147483648) i64 @hostset_deranged_string(ptr nocapture noun
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %6 = zext i16 %5 to i32
-  %7 = tail call range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %6)
+  %7 = tail call range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef %2, i32 noundef %6)
   ret i64 %7
 }
 

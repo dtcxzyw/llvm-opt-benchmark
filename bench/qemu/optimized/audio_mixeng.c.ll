@@ -2111,7 +2111,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %conv.i = sext i32 %len to i64
   %mul.i = shl nsw i64 %conv.i, 4
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %buf, i8 0, i64 %mul.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %buf, i8 0, i64 %mul.i, i1 false)
   br label %while.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body

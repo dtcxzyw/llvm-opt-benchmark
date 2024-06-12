@@ -76,7 +76,7 @@ define i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapture noundef %1) l
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.Ivy_FraigParams_t_, align 8
   %12 = load ptr, ptr %0, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store i32 32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   store double 5.000000e-03, ptr %13, align 8

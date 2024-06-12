@@ -139,7 +139,7 @@ if.end3:                                          ; preds = %sub_1, %if.end, %if
 for.body.i5:                                      ; preds = %if.end3, %for.inc.i
   %ptr.05.i = phi ptr [ %incdec.ptr.i8, %for.inc.i ], [ @git_vars, %if.end3 ]
   %19 = load ptr, ptr %ptr.05.i, align 8
-  %call.i6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #12
+  %call.i6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #12
   %cmp.i7 = icmp eq i32 %call.i6, 0
   br i1 %cmp.i7, label %if.end7, label %for.inc.i
 

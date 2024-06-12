@@ -1499,7 +1499,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not13.i, label %260, label %258
 
 258:                                              ; preds = %.lr.ph.i
-  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %257, ptr noundef nonnull readonly dereferenceable(1) %.1288) #16
+  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %257, ptr noundef nonnull dereferenceable(1) %.1288) #16
   %.not14.i = icmp eq i32 %259, 0
   br i1 %.not14.i, label %optget_i.exit, label %260
 
@@ -1510,7 +1510,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not15.i, label %265, label %263
 
 263:                                              ; preds = %260
-  %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull readonly dereferenceable(1) %.1288) #16
+  %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(1) %.1288) #16
   %.not16.i = icmp eq i32 %264, 0
   br i1 %.not16.i, label %optget_i.exit, label %265
 
@@ -2187,7 +2187,7 @@ define internal fastcc range(i32 -1, 1) i32 @optaddarg(ptr noundef %0, ptr nound
   br i1 %.not13.i, label %8, label %6
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %1) #16
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #16
   %.not14.i = icmp eq i32 %7, 0
   br i1 %.not14.i, label %optget_i.exit, label %8
 
@@ -2198,7 +2198,7 @@ define internal fastcc range(i32 -1, 1) i32 @optaddarg(ptr noundef %0, ptr nound
   br i1 %.not15.i, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %1) #16
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #16
   %.not16.i = icmp eq i32 %12, 0
   br i1 %.not16.i, label %optget_i.exit, label %13
 
@@ -2556,7 +2556,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not13.i, label %85, label %83
 
 83:                                               ; preds = %.lr.ph.i
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %0) #16
   %.not14.i = icmp eq i32 %84, 0
   br i1 %.not14.i, label %optget_i.exit, label %85
 
@@ -2567,7 +2567,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not15.i, label %90, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) %0) #16
   %.not16.i = icmp eq i32 %89, 0
   br i1 %.not16.i, label %optget_i.exit, label %90
 

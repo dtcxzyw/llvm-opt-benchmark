@@ -3412,7 +3412,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %162 = load i32, ptr %161, align 4
   %163 = getelementptr inbounds i8, ptr %7, i64 16
   %164 = load ptr, ptr %163, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
   store i32 %160, ptr %158, align 8
   %165 = icmp eq i32 %162, 0
   br i1 %165, label %copy_address_wmem.exit, label %166
@@ -3431,7 +3431,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds i8, ptr %7, i64 16
   %177 = load ptr, ptr %176, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %171, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %171, i8 0, i64 24, i1 false)
   store i32 %173, ptr %171, align 8
   %178 = icmp eq i32 %175, 0
   br i1 %178, label %copy_address_wmem.exit, label %179
@@ -3450,7 +3450,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %188 = load i32, ptr %187, align 4
   %189 = getelementptr inbounds i8, ptr %7, i64 16
   %190 = load ptr, ptr %189, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %184, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, i8 0, i64 24, i1 false)
   store i32 %186, ptr %184, align 8
   %191 = icmp eq i32 %188, 0
   br i1 %191, label %copy_address_wmem.exit, label %192
@@ -3469,7 +3469,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %201 = load i32, ptr %200, align 4
   %202 = getelementptr inbounds i8, ptr %7, i64 16
   %203 = load ptr, ptr %202, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %197, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %197, i8 0, i64 24, i1 false)
   store i32 %199, ptr %197, align 8
   %204 = icmp eq i32 %201, 0
   br i1 %204, label %copy_address_wmem.exit, label %205
@@ -3488,7 +3488,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %214 = load i32, ptr %213, align 4
   %215 = getelementptr inbounds i8, ptr %7, i64 16
   %216 = load ptr, ptr %215, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
   store i32 %212, ptr %210, align 8
   %217 = icmp eq i32 %214, 0
   br i1 %217, label %copy_address_wmem.exit, label %218
@@ -3507,7 +3507,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %227 = load i32, ptr %226, align 4
   %228 = getelementptr inbounds i8, ptr %7, i64 16
   %229 = load ptr, ptr %228, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %223, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, i8 0, i64 24, i1 false)
   store i32 %225, ptr %223, align 8
   %230 = icmp eq i32 %227, 0
   br i1 %230, label %copy_address_wmem.exit, label %231
@@ -3526,7 +3526,7 @@ define internal fastcc void @dissect_rsvp_common(ptr noundef %0, ptr noundef %1,
   %240 = load i32, ptr %239, align 4
   %241 = getelementptr inbounds i8, ptr %7, i64 16
   %242 = load ptr, ptr %241, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
   store i32 %238, ptr %236, align 8
   %243 = icmp eq i32 %240, 0
   br i1 %243, label %copy_address_wmem.exit, label %244
@@ -3553,7 +3553,7 @@ copy_address_wmem.exit:                           ; preds = %copy_address_wmem.e
   %252 = load i32, ptr %14, align 8
   %253 = load i32, ptr %18, align 4
   %254 = load ptr, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %251, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %251, i8 0, i64 24, i1 false)
   store i32 %252, ptr %251, align 8
   %255 = icmp eq i32 %253, 0
   br i1 %255, label %copy_address_wmem.exit102, label %256

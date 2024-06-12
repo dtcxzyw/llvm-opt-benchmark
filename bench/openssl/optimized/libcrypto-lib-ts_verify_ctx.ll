@@ -68,7 +68,7 @@ TS_VERIFY_CTX_cleanup.exit:                       ; preds = %entry
   %tsa_name.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %7 = load ptr, ptr %tsa_name.i, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %7) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 34) #7
   br label %return
 
@@ -107,7 +107,7 @@ TS_VERIFY_CTX_init.exit:                          ; preds = %entry
   %tsa_name = getelementptr inbounds i8, ptr %ctx, i64 72
   %7 = load ptr, ptr %tsa_name, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %7) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %TS_VERIFY_CTX_init.exit
@@ -222,7 +222,7 @@ TS_VERIFY_CTX_cleanup.exit:                       ; preds = %cond.end
   %tsa_name.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %7 = load ptr, ptr %tsa_name.i, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %7) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
   br label %if.end3
 
 if.else:                                          ; preds = %cond.end
@@ -327,7 +327,7 @@ TS_VERIFY_CTX_cleanup.exit34:                     ; preds = %err
   %tsa_name.i33 = getelementptr inbounds i8, ptr %ctx, i64 72
   %22 = load ptr, ptr %tsa_name.i33, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %22) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ctx, i8 0, i64 80, i1 false)
   br label %return
 
 TS_VERIFY_CTX_free.exit:                          ; preds = %err
@@ -355,7 +355,7 @@ TS_VERIFY_CTX_free.exit:                          ; preds = %err
   %tsa_name.i.i = getelementptr inbounds i8, ptr %ret.0, i64 72
   %30 = load ptr, ptr %tsa_name.i.i, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %30) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %ret.0, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ret.0, i8 0, i64 80, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %ret.0, ptr noundef nonnull @.str, i32 noundef 34) #7
   br label %return
 

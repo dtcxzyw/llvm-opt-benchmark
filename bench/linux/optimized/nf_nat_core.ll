@@ -245,7 +245,7 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_setup_info(ptr noundef %0, 
   %53 = getelementptr inbounds i8, ptr %4, i64 20
   %54 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 0, ptr %54, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull readonly align 4 dereferenceable(20) %11, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %11, i64 20, i1 false)
   %55 = getelementptr inbounds i8, ptr %34, i64 336
   %56 = load i32, ptr %55, align 16
   store i32 %56, ptr %53, align 4

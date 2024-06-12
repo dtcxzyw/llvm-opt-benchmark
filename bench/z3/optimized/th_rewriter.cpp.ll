@@ -16485,7 +16485,7 @@ if.then.i51:                                      ; preds = %if.else23
   %m_num_args.i.i52 = getelementptr inbounds i8, ptr %101, i64 24
   %103 = load i32, ptr %m_num_args.i.i52, align 8
   %m_args.i.i53 = getelementptr inbounds i8, ptr %101, i64 32
-  %call9.i54 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(2585) %this, ptr noundef %102, i32 noundef %103, ptr noundef nonnull %m_args.i.i53, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call9.i54 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef %102, i32 noundef %103, ptr noundef nonnull %m_args.i.i53, ptr noundef nonnull align 8 dereferenceable(16) %result)
   %cmp.not.i = icmp eq i32 %call9.i54, 5
   br i1 %cmp.not.i, label %if.end11.i, label %return
 
@@ -16601,7 +16601,7 @@ _ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit.i: ; preds = %l
   br i1 %tobool7.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit.i, %land.lhs.true.i.i
-  %call5.i18 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg10unify_coreEP3appP4exprR7obj_refIS3_11ast_managerES8_S8_Rb(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %new_t, ptr noundef nonnull align 8 dereferenceable(16) %new_e, ptr noundef nonnull align 8 dereferenceable(16) %common, ptr noundef nonnull writeonly align 1 dereferenceable(1) %first)
+  %call5.i18 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg10unify_coreEP3appP4exprR7obj_refIS3_11ast_managerES8_S8_Rb(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %new_t, ptr noundef nonnull align 8 dereferenceable(16) %new_e, ptr noundef nonnull align 8 dereferenceable(16) %common, ptr noundef nonnull align 1 dereferenceable(1) %first)
           to label %invoke.cont13 unwind label %lpad12
 
 if.else.i:                                        ; preds = %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit.i, %lor.rhs.i.i, %invoke.cont9
@@ -16644,7 +16644,7 @@ _ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit33.i: ; preds = 
   br i1 %tobool7.i29.i, label %if.then7.i, label %cleanup
 
 if.then7.i:                                       ; preds = %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit33.i, %land.lhs.true.i30.i
-  %call11.i19 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg10unify_coreEP3appP4exprR7obj_refIS3_11ast_managerES8_S8_Rb(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %new_e, ptr noundef nonnull align 8 dereferenceable(16) %new_t, ptr noundef nonnull align 8 dereferenceable(16) %common, ptr noundef nonnull writeonly align 1 dereferenceable(1) %first)
+  %call11.i19 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg10unify_coreEP3appP4exprR7obj_refIS3_11ast_managerES8_S8_Rb(ptr noundef nonnull align 8 dereferenceable(2585) %this, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %new_e, ptr noundef nonnull align 8 dereferenceable(16) %new_t, ptr noundef nonnull align 8 dereferenceable(16) %common, ptr noundef nonnull align 1 dereferenceable(1) %first)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then.i, %if.then7.i

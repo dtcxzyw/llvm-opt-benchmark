@@ -2558,7 +2558,7 @@ tcp_v6_timewait_ack.exit:                         ; preds = %.thread53, %560, %5
   %598 = load i32, ptr %597, align 8
   %599 = getelementptr inbounds i8, ptr %404, i64 148
   %600 = load i32, ptr %599, align 4
-  call fastcc void @tcp_v6_send_response(ptr noundef nonnull %404, ptr noundef readonly %0, i32 noundef %567, i32 noundef %569, i32 noundef %582, i32 noundef %586, i32 noundef %588, i32 noundef %590, i32 noundef 0, i8 noundef zeroext %593, i32 noundef %596, i32 noundef %598, i32 noundef %600, ptr noundef nonnull %2)
+  call fastcc void @tcp_v6_send_response(ptr noundef nonnull %404, ptr noundef %0, i32 noundef %567, i32 noundef %569, i32 noundef %582, i32 noundef %586, i32 noundef %588, i32 noundef %590, i32 noundef 0, i8 noundef zeroext %593, i32 noundef %596, i32 noundef %598, i32 noundef %600, ptr noundef nonnull %2)
   call void @inet_twsk_put(ptr noundef nonnull %404) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
   br label %.loopexit

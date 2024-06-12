@@ -496,7 +496,7 @@ if.end9.i:                                        ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %data.i, align 8
   %conv11.i = zext nneg i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %session_id, ptr align 1 %12, i64 %conv11.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id, ptr align 1 %12, i64 %conv11.i, i1 false)
   %13 = load i32, ptr %10, align 8
   %conv13.i = sext i32 %13 to i64
   br label %if.end45
@@ -523,7 +523,7 @@ if.end9.i124:                                     ; preds = %if.end.i120
   %data.i125 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %data.i125, align 8
   %conv11.i126 = zext nneg i32 %15 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %master_key, ptr align 1 %16, i64 %conv11.i126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %master_key, ptr align 1 %16, i64 %conv11.i126, i1 false)
   %17 = load i32, ptr %14, align 8
   %conv13.i127 = sext i32 %17 to i64
   br label %if.end51
@@ -605,7 +605,7 @@ if.end9.i139:                                     ; preds = %if.end.i135
   %data.i140 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %data.i140, align 8
   %conv11.i141 = zext nneg i32 %29 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %sid_ctx, ptr align 1 %30, i64 %conv11.i141, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %sid_ctx, ptr align 1 %30, i64 %conv11.i141, i1 false)
   %31 = load i32, ptr %28, align 8
   %conv13.i142 = sext i32 %31 to i64
   br label %if.end104

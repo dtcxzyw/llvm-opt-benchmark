@@ -2727,7 +2727,7 @@ _ZN5osgeo4proj9operation13FilterResults7andSortEv.exit.i: ; preds = %.noexc8.i
   %246 = ptrtoint ptr %244 to i64
   %247 = ptrtoint ptr %245 to i64
   %248 = sub i64 %246, %247
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !36
   %.not.i.i.i.i.i80 = icmp eq ptr %244, %245
   br i1 %.not.i.i.i.i.i80, label %.noexc11.thread.i, label %252
 
@@ -2735,7 +2735,7 @@ _ZN5osgeo4proj9operation13FilterResults7andSortEv.exit.i: ; preds = %.noexc8.i
   %249 = getelementptr inbounds i8, ptr %15, i64 8
   %250 = getelementptr inbounds i8, ptr null, i64 %248
   %251 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !36
   store ptr %250, ptr %251, align 8, !alias.scope !36
   br label %.loopexit161
 
@@ -21174,7 +21174,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameE
   %148 = getelementptr inbounds i8, ptr %14, i64 56
   store ptr %0, ptr %148, align 8
   %.val = load ptr, ptr %1, align 8
-  %149 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %.val) #29
+  %149 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %.val) #29
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %149, i64 8
   %152 = load ptr, ptr %151, align 8
@@ -21191,7 +21191,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameE
 
 159:                                              ; preds = %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_0clESK_.exit"
   %.val118 = load ptr, ptr %3, align 8
-  %160 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %.val118) #29
+  %160 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %.val118) #29
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %160, i64 8
   %163 = load ptr, ptr %162, align 8
@@ -21276,7 +21276,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %203, label %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_1clERKNS7_IS8_ISS_EEE.exit", label %204
 
 204:                                              ; preds = %202
-  %205 = call ptr @__dynamic_cast(ptr nonnull readonly %.val119, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #26
+  %205 = call ptr @__dynamic_cast(ptr nonnull %.val119, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #26
   %.not.i = icmp eq ptr %205, null
   br i1 %.not.i, label %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_1clERKNS7_IS8_ISS_EEE.exit", label %206
 
@@ -21399,7 +21399,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %266, label %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_1clERKNS7_IS8_ISS_EEE.exit143", label %267
 
 267:                                              ; preds = %265
-  %268 = call ptr @__dynamic_cast(ptr nonnull readonly %.val120, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #26
+  %268 = call ptr @__dynamic_cast(ptr nonnull %.val120, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #26
   %.not.i140 = icmp eq ptr %268, null
   br i1 %.not.i140, label %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_1clERKNS7_IS8_ISS_EEE.exit143", label %269
 
@@ -21461,7 +21461,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %293, label %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_1clERKNS7_IS8_ISS_EEE.exit147", label %294
 
 294:                                              ; preds = %292
-  %295 = call ptr @__dynamic_cast(ptr nonnull readonly %.val121, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #26
+  %295 = call ptr @__dynamic_cast(ptr nonnull %.val121, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs13GeographicCRSE, i64 0) #26
   %.not.i144 = icmp eq ptr %295, null
   br i1 %.not.i144, label %"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextEENK3$_1clERKNS7_IS8_ISS_EEE.exit147", label %296
 

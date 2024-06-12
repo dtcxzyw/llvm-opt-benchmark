@@ -2459,7 +2459,7 @@ ractor_queue_empty_p.exit:                        ; preds = %ractor_sleep_with_c
 
 ractor_take_will_lock.exit.thread:                ; preds = %181
   %190 = getelementptr i8, ptr %186, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %190, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %190, i64 32, i1 false)
   store i32 0, ptr %190, align 8
   call void @rb_native_mutex_unlock(ptr noundef nonnull %187) #20
   br label %.loopexit
@@ -3718,7 +3718,7 @@ ractor_alloc.exit:                                ; preds = %6, %16
   br i1 %.not.i.i13, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %40
-  %45 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %43) #38
+  %45 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %43) #38
   %.not3.i.i = icmp eq i32 %45, 0
   br i1 %.not3.i.i, label %48, label %rb_enc_asciicompat.exit.thread.i
 
@@ -5236,7 +5236,7 @@ define internal fastcc noundef zeroext i1 @ractor_try_yield(ptr noundef %0, ptr 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
   %.lcssa44.i = phi i1 [ true, %.lr.ph.i.i ], [ %37, %._crit_edge.loopexit.i ]
   %.lcssa42.i = phi ptr [ %28, %.lr.ph.i.i ], [ %35, %._crit_edge.loopexit.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa42.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa42.i, i64 32, i1 false)
   store i32 5, ptr %.lcssa42.i, align 8
   %38 = load i32, ptr %14, align 4
   %39 = icmp sgt i32 %38, 0
@@ -5354,7 +5354,7 @@ ractor_queue_enq.exit.i:                          ; preds = %._crit_edge.i.i, %6
   %99 = srem i32 %98, %93
   %100 = sext i32 %99 to i64
   %101 = getelementptr %struct.rb_ractor_basket, ptr %95, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %102 = icmp eq ptr %.054.i, null
   %spec.select.i = select i1 %102, ptr %63, ptr %.054.i
   %103 = load ptr, ptr %2, align 8
@@ -5449,7 +5449,7 @@ ractor_queue_enq.exit38.i:                        ; preds = %._crit_edge.i31.i, 
   %155 = srem i32 %154, %149
   %156 = sext i32 %155 to i64
   %157 = getelementptr %struct.rb_ractor_basket, ptr %151, i64 %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   br label %158
 
 ractor_deq_take_basket.exit.thread:               ; preds = %112, %ractor_queue_deq.exit.i, %108, %.lr.ph.i, %7
@@ -6934,7 +6934,7 @@ ractor_recursive_receive_if.exit:                 ; preds = %2, %5
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.i
   %.lcssa3 = phi i1 [ true, %.lr.ph.i ], [ %29, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %20, %.lr.ph.i ], [ %27, %._crit_edge.loopexit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, i64 32, i1 false)
   store i32 5, ptr %.lcssa, align 8
   %30 = load i32, ptr %10, align 4
   %31 = icmp sgt i32 %30, 0
@@ -7481,7 +7481,7 @@ define internal fastcc noundef zeroext i1 @ractor_register_take(i64 %.0.val, ptr
   br i1 %8, label %ractor_take_will.exit.thread, label %ractor_take_will.exit
 
 ractor_take_will.exit.thread:                     ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   store i32 0, ptr %7, align 8
   br label %ractor_wakeup.exit.thread
 
@@ -7653,7 +7653,7 @@ define internal range(i32 0, 2) i32 @ractor_selector_wait_i(i64 noundef %0, i64 
   br i1 %15, label %16, label %ractor_take_will.exit
 
 16:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   store i32 0, ptr %9, align 8
   br label %ractor_take_will.exit
 

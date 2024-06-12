@@ -971,7 +971,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %428, %Maj_ManMarkup
   %441 = zext nneg i32 %423 to i64
   %442 = getelementptr inbounds i64, ptr %432, i64 %441
   %443 = shl nuw nsw i64 %441, 3
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %442, i8 -1, i64 %443, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %442, i8 -1, i64 %443, i1 false)
   br label %Abc_TtFill.exit.i.i
 
 Abc_TtFill.exit.i.i:                              ; preds = %.lr.ph.preheader.i.i.i, %Vec_WrdStart.exit.i.i
@@ -3311,7 +3311,7 @@ Exa_ManFindFanin.exit.loopexit.us.i:              ; preds = %579
   %588 = mul nsw i64 %indvars.iv110.i, %587
   %589 = getelementptr inbounds i64, ptr %.val48.val.i, i64 %588
   %590 = shl nuw nsw i64 %587, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %589, i8 0, i64 %590, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %589, i8 0, i64 %590, i1 false)
   br label %Abc_TtConst0.exit.i
 
 Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i.i, %.split91.us.i
@@ -5300,7 +5300,7 @@ Exa3_ManFindFanin.exit.i:                         ; preds = %Exa3_ManFindFanin.e
   %626 = mul nsw i64 %indvars.iv132.i, %625
   %627 = getelementptr inbounds i64, ptr %.val63.val.i, i64 %626
   %628 = shl nuw nsw i64 %625, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %627, i8 0, i64 %628, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %627, i8 0, i64 %628, i1 false)
   %.pre135.i = load i32, ptr %31, align 4
   br label %Abc_TtConst0.exit.i
 
@@ -5337,7 +5337,7 @@ Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i.
   %643 = getelementptr inbounds i64, ptr %.val65.val.i, i64 %642
   %644 = zext nneg i32 %.val64.i to i64
   %645 = shl nuw nsw i64 %644, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %643, i8 -1, i64 %645, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %643, i8 -1, i64 %645, i1 false)
   br label %Abc_TtConst1.exit.i
 
 Abc_TtConst1.exit.i:                              ; preds = %.lr.ph.preheader.i78.i, %637

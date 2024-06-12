@@ -721,7 +721,7 @@ genericPickSplit.exit:                            ; preds = %84, %63
   %99 = getelementptr i8, ptr %1, i64 40
   %100 = sext i32 %97 to i64
   %101 = shl nsw i64 %100, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr readonly align 8 %99, i64 %101, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %99, i64 %101, i1 false)
   %102 = getelementptr inbounds i8, ptr %5, i64 1576
   %103 = getelementptr [32 x %struct.FmgrInfo], ptr %102, i64 0, i64 %18
   %104 = load i32, ptr %41, align 4
@@ -736,7 +736,7 @@ genericPickSplit.exit:                            ; preds = %84, %63
   %111 = getelementptr %struct.GISTENTRY, ptr %99, i64 %110
   %112 = sext i32 %108 to i64
   %113 = shl nsw i64 %112, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr readonly align 8 %111, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %111, i64 %113, i1 false)
   %114 = load i32, ptr %41, align 4
   %115 = call i64 @FunctionCall2Coll(ptr noundef %103, i32 noundef %114, i64 noundef %105, i64 noundef %106) #7
   store i64 %115, ptr %37, align 8

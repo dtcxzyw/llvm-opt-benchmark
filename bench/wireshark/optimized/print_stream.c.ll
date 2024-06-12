@@ -158,11 +158,11 @@ define noalias noundef ptr @print_stream_text_new(i32 noundef %0, ptr nocapture 
   br i1 %.not.i, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
+  %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @popen(ptr noundef readonly %1, ptr noundef nonnull @.str)
+  %6 = tail call noalias ptr @popen(ptr noundef %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 open_print_dest.exit:                             ; preds = %3, %5
@@ -245,11 +245,11 @@ define noalias noundef ptr @print_stream_ps_new(i32 noundef %0, ptr nocapture no
   br i1 %.not.i, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
+  %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @popen(ptr noundef readonly %1, ptr noundef nonnull @.str)
+  %6 = tail call noalias ptr @popen(ptr noundef %1, ptr noundef nonnull @.str)
   br label %open_print_dest.exit
 
 open_print_dest.exit:                             ; preds = %3, %5

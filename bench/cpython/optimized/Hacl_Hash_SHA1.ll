@@ -222,7 +222,7 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %3 = sub i64 55, %add
   %4 = and i64 %3, 63
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %4, i1 false)
   br label %legacy_pad.exit
 
 legacy_pad.exit:                                  ; preds = %entry, %for.body.preheader.i
@@ -267,7 +267,7 @@ entry:
   %mul.i = and i32 %sub2, -64
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr, i64 %idx.ext.i
-  call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %s, ptr noundef readonly %add.ptr, i32 noundef %div13.i)
+  call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %s, ptr noundef %add.ptr, i32 noundef %div13.i)
   %conv.i = zext i32 %sub2 to i64
   %sub3.i = sub i32 55, %input_len
   %rem4.i = and i32 %sub3.i, 63
@@ -275,7 +275,7 @@ entry:
   %add.ptr9.i = getelementptr i8, ptr %tmp_twoblocks.i, i64 %idx.ext8.i
   %0 = sub nuw nsw i64 128, %idx.ext8.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr9.i, i8 0, i64 %0, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr readonly align 1 %add.ptr.i, i64 %idx.ext8.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr align 1 %add.ptr.i, i64 %idx.ext8.i, i1 false)
   store i8 -128, ptr %add.ptr9.i, align 1
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr9.i, i64 1
   %cmp7.not.i.i = icmp eq i32 %rem4.i, 0
@@ -284,7 +284,7 @@ entry:
 for.body.preheader.i.i:                           ; preds = %entry
   %1 = sub nsw i64 55, %conv.i
   %2 = and i64 %1, 63
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %2, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %2, i1 false)
   br label %Hacl_Hash_SHA1_legacy_update_last.exit
 
 Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.preheader.i.i
@@ -499,14 +499,14 @@ entry:
   %mul.i = and i32 %r.0, 64
   %idx.ext.i = zext nneg i32 %mul.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr16, i64 %idx.ext.i
-  call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef readonly %add.ptr16, i32 noundef %div13.i)
+  call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef %add.ptr16, i32 noundef %div13.i)
   %1 = trunc i64 %scrut.sroa.3.0.copyload to i32
   %sub3.i = sub i32 55, %1
   %rem4.i = and i32 %sub3.i, 63
   %add.ptr9.i = getelementptr i8, ptr %tmp_twoblocks.i, i64 %0
   %2 = sub nuw nsw i64 128, %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr9.i, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr readonly align 1 %add.ptr.i, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr align 1 %add.ptr.i, i64 %0, i1 false)
   store i8 -128, ptr %add.ptr9.i, align 1
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr9.i, i64 1
   %cmp7.not.i.i = icmp eq i32 %rem4.i, 0
@@ -515,7 +515,7 @@ entry:
 for.body.preheader.i.i:                           ; preds = %entry
   %3 = sub i64 55, %scrut.sroa.3.0.copyload
   %4 = and i64 %3, 63
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %4, i1 false)
   br label %Hacl_Hash_SHA1_legacy_update_last.exit
 
 Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.preheader.i.i

@@ -268,7 +268,7 @@ define ptr @conversation_filter_from_packet(ptr noundef %0) local_unnamed_addr #
   %.0912.i.i = phi ptr [ %9, %7 ], [ %2, %.lr.ph.i.preheader.i ]
   %4 = load ptr, ptr %.0912.i.i, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #4
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %3) #4
   %.not10.i.i = icmp eq i32 %6, 0
   br i1 %.not10.i.i, label %find_conversation_filter.exit.i, label %7
 
@@ -324,7 +324,7 @@ define ptr @conversation_filter_from_log(ptr noundef %0) local_unnamed_addr #0 {
   %.0912.i.i = phi ptr [ %9, %7 ], [ %2, %.lr.ph.i.preheader.i ]
   %4 = load ptr, ptr %.0912.i.i, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #4
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %3) #4
   %.not10.i.i = icmp eq i32 %6, 0
   br i1 %.not10.i.i, label %find_conversation_filter.exit.i, label %7
 

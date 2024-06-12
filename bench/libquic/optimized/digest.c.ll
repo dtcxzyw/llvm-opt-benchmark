@@ -100,7 +100,7 @@ if.then10:                                        ; preds = %if.end
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
   ret i32 1
 }
 
@@ -224,7 +224,7 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %EVP_MD_CTX_cleanup.exit
 
 EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then10.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %in, align 8
   store ptr %9, ptr %out, align 8
   %md_data10 = getelementptr inbounds i8, ptr %in, i64 8
@@ -325,7 +325,7 @@ if.then10.i42:                                    ; preds = %if.end.i39
   br label %EVP_MD_CTX_cleanup.exit44
 
 EVP_MD_CTX_cleanup.exit44:                        ; preds = %if.end.i39, %if.then10.i42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end31, %if.then37, %EVP_MD_CTX_cleanup.exit44, %if.then23, %if.then
@@ -341,7 +341,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy(ptr nocapture noundef %out, ptr noundef %in) local_unnamed_addr #5 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %out, ptr noundef %in)
   ret i32 %call
 }
@@ -405,7 +405,7 @@ return:                                           ; preds = %if.end18, %if.then1
 define hidden range(i32 0, 2) i32 @EVP_DigestInit(ptr noundef %ctx, ptr noundef %type) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %ctx, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp ne ptr %type, null
   tail call void @llvm.assume(i1 %cmp.not.i)
   store ptr %type, ptr %ctx, align 8
@@ -536,7 +536,7 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %EVP_MD_CTX_cleanup.exit
 
 EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then10.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
   ret i32 1
 }
 
@@ -545,7 +545,7 @@ define hidden range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %co
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %0 = getelementptr inbounds i8, ptr %ctx, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp ne ptr %type, null
   tail call void @llvm.assume(i1 %cmp.not.i)
   store ptr %type, ptr %ctx, align 8

@@ -170,7 +170,7 @@ clist_append.exit:                                ; preds = %5
 .lr.ph:                                           ; preds = %11, %45
   %.01833 = phi ptr [ %46, %45 ], [ %12, %11 ]
   %13 = call ptr @agnameof(ptr noundef nonnull %.01833) #15
-  %14 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #18
+  %14 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #18
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %44
 

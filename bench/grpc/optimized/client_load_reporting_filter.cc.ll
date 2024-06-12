@@ -615,7 +615,7 @@ if.else.i.i.i.i.i28:                              ; preds = %_ZN9grpc_core10GetC
 
 "_ZZN9grpc_core25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_1D2Ev.exit.i": ; preds = %if.else.i.i.i.i.i28, %if.then.i.i.i.i.i23
   %retval.0.i.i.i.i.i26 = phi ptr [ %add.ptr3.i.i.i.i.i25, %if.then.i.i.i.i.i23 ], [ %call4.i.i.i.i.i32, %if.else.i.i.i.i.i28 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %retval.0.i.i.i.i.i26, ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp16, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %retval.0.i.i.i.i.i26, ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp16, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %ref.tmp16, align 16
   %fn_.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i26, i64 32
   store ptr %9, ptr %fn_.i.i.i.i.i.i27, align 8

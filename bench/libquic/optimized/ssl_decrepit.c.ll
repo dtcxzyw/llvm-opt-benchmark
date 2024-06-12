@@ -38,7 +38,7 @@ if.then4.i:                                       ; preds = %while.cond
   br i1 %cmp6.i, label %while.end.thread, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then4.i
-  %call10.i = call ptr @opendir(ptr noundef nonnull readonly %dir)
+  %call10.i = call ptr @opendir(ptr noundef nonnull %dir)
   store ptr %call10.i, ptr %calloc.i, align 8
   %cmp12.i = icmp eq ptr %call10.i, null
   br i1 %cmp12.i, label %if.then13.i, label %if.end17.i

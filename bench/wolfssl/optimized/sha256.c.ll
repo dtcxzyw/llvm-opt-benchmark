@@ -708,7 +708,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i5
 
 if.end.i5:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha224, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull align 16 dereferenceable(128) %sha224, i64 128, i1 false)
   %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha224)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
@@ -724,7 +724,7 @@ for.body.i.i:                                     ; preds = %if.end.i5, %for.bod
   br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha224, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha224, i64 28, i1 false)
   br label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i5
@@ -772,7 +772,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i5
 
 if.end.i5:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha256, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull align 16 dereferenceable(128) %sha256, i64 128, i1 false)
   %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha256)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
@@ -788,7 +788,7 @@ for.body.i.i:                                     ; preds = %if.end.i5, %for.bod
   br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha256, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha256, i64 32, i1 false)
   br label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i5

@@ -545,7 +545,7 @@ if.end.i.i.i.i:                                   ; preds = %while.end.i.i.i.i
 
 call.i.i.i.noexc.i.i:                             ; preds = %if.end.i.i.i.i
   %sub.i.i.i.i = add i64 %sub.ptr.lhs.cast.i.i.i.i, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i.i11.i.i, ptr nonnull readonly align 1 %invariant.gep, i64 %sub.i.i.i.i, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i.i11.i.i, ptr nonnull align 1 %invariant.gep, i64 %sub.i.i.i.i, i1 false), !noalias !22
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i11.i.i, i64 %sub.i.i.i.i
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !22
   %30 = load ptr, ptr %http112.i.i, align 8, !noalias !22
@@ -628,7 +628,7 @@ if.end20.i.i.i.i:                                 ; preds = %while.end12.i.i.i.i
 call.i67.i.i.noexc.i.i:                           ; preds = %if.end20.i.i.i.i
   %39 = xor i64 %sub.ptr.lhs.cast.i.i.i.i, -1
   %sub24.i.i.i.i = add i64 %sub.ptr.lhs.cast21.i.i.i.i, %39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i67.i.i12.i.i, ptr nonnull readonly align 1 %incdec.ptr.i.i.i.i, i64 %sub24.i.i.i.i, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i67.i.i12.i.i, ptr nonnull align 1 %incdec.ptr.i.i.i.i, i64 %sub24.i.i.i.i, i1 false), !noalias !22
   %arrayidx.i68.i.i.i.i = getelementptr inbounds i8, ptr %call.i67.i.i12.i.i, i64 %sub24.i.i.i.i
   store i8 0, ptr %arrayidx.i68.i.i.i.i, align 1, !noalias !22
   %40 = load ptr, ptr %http112.i.i, align 8, !noalias !22
@@ -1714,7 +1714,7 @@ do.end39.i.i.i:                                   ; preds = %do.end39.i.i.i.loop
 
 _ZL7buf2strPvm.exit.i.i.i:                        ; preds = %do.end39.i.i.i
   %gepdiff.i.i.i = add nsw i64 %cur.0.idx102.i.lcssa56.i.i, -32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i90.i.i.i, ptr nonnull readonly align 1 %invariant.gep, i64 %gepdiff.i.i.i, i1 false), !noalias !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i90.i.i.i, ptr nonnull align 1 %invariant.gep, i64 %gepdiff.i.i.i, i1 false), !noalias !38
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call.i90.i.i.i, i64 %gepdiff.i.i.i
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !38
   %cur.1104.i.i.i = getelementptr inbounds i8, ptr %cur.0.ptr103.i.lcssa55.i.i, i64 1
@@ -1776,7 +1776,7 @@ if.end75.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
           to label %invoke.cont76.i.i.i unwind label %lpad.i.i.i.loopexit, !noalias !38
 
 invoke.cont76.i.i.i:                              ; preds = %if.end75.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i93.i.i.i, ptr nonnull readonly align 1 %cur.1.lcssa.i.i.i, i64 %size.0.i.i.i, i1 false), !noalias !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i93.i.i.i, ptr nonnull align 1 %cur.1.lcssa.i.i.i, i64 %size.0.i.i.i, i1 false), !noalias !38
   %arrayidx.i92.i.i.i = getelementptr inbounds i8, ptr %call.i93.i.i.i, i64 %size.0.i.i.i
   store i8 0, ptr %arrayidx.i92.i.i.i, align 1, !noalias !38
   %154 = load i32, ptr %type.i.i, align 4, !noalias !38

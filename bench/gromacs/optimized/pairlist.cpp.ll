@@ -5383,7 +5383,7 @@ _ZL27effective_buffer_1x1_vs_MxNRKN5Nbnxm4GridES2_.exit.i: ; preds = %320, %315
   br i1 %.not406.i, label %358, label %.critedge.i
 
 358:                                              ; preds = %.noexc64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %359 = getelementptr inbounds [3 x i8], ptr %112, i64 0, i64 %indvars.iv.i
   %360 = load i8, ptr %359, align 1
   %361 = trunc i8 %360 to i1
@@ -6602,7 +6602,7 @@ _ZL22makeClusterListWrapperP16NbnxnPairlistCpuRKN5Nbnxm4GridEiS4_iibPK16nbnxn_at
 999:                                              ; preds = %999, %.lr.ph.i459.i
   %indvars.iv.i.i = phi i64 [ %997, %.lr.ph.i459.i ], [ %indvars.iv.next.i.i, %999 ]
   %1000 = getelementptr inbounds %"struct.std::array.167", ptr %.0350.i, i64 %indvars.iv.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1000, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1000, i8 0, i64 16, i1 false)
   %1001 = getelementptr inbounds [2 x i64], ptr %1000, i64 0, i64 %417
   store i64 %415, ptr %1001, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
@@ -8579,7 +8579,7 @@ _ZL11closeIEntryP16NbnxnPairlistCpuibfii.exit.i:  ; preds = %1974, %1969, %1967,
   %1995 = sext i32 %1994 to i64
   %1996 = load ptr, ptr %444, align 8
   %1997 = getelementptr inbounds %"struct.std::array.167", ptr %1996, i64 %1995
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1997, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1997, i8 0, i64 16, i1 false)
   %1998 = getelementptr inbounds [2 x i64], ptr %1997, i64 0, i64 %417
   store i64 %415, ptr %1998, align 8
   br label %.backedge.i
@@ -8905,7 +8905,7 @@ _ZL27effective_buffer_1x1_vs_MxNRKN5Nbnxm4GridES2_.exit.i232: ; preds = %2107, %
   br i1 %.not406.i106, label %2147, label %.critedge.i107
 
 2147:                                             ; preds = %.noexc241
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %2148 = getelementptr inbounds [3 x i8], ptr %70, i64 0, i64 %indvars.iv.i105
   %2149 = load i8, ptr %2148, align 1
   %2150 = trunc i8 %2149 to i1
@@ -14253,7 +14253,7 @@ _ZL18getBufferFlagShifti.exit63.preheader:        ; preds = %_ZL18getBufferFlagS
   br i1 %.not.i.i67.us, label %105, label %103
 
 103:                                              ; preds = %100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %101, ptr noundef nonnull readonly align 4 dereferenceable(16) %94, i64 16, i1 false), !noalias !198
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(16) %94, i64 16, i1 false), !noalias !198
   %104 = getelementptr inbounds i8, ptr %101, i64 16
   store ptr %104, ptr %20, align 8, !alias.scope !198, !noalias !201
   br label %_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE9push_backERKS0_.exit.i68.us
@@ -14284,7 +14284,7 @@ _ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_
 .noexc93.us:                                      ; preds = %116, %_ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i.i.i80.us
   %119 = phi ptr [ null, %_ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i.i.i80.us ], [ %118, %116 ]
   %120 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %119, i64 %111
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %120, ptr noundef nonnull readonly align 4 dereferenceable(16) %94, i64 16, i1 false), !noalias !198
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %120, ptr noundef nonnull align 4 dereferenceable(16) %94, i64 16, i1 false), !noalias !198
   %.not13.i.i.i.i.i83.us = icmp eq ptr %106, %101
   br i1 %.not13.i.i.i.i.i83.us, label %_ZSt34__uninitialized_move_if_noexcept_aIP10nbnxn_ci_tS1_N3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEET0_T_S7_S6_RT1_.exit34.i.i.i88.us, label %.lr.ph.i.i.i.i.i84.us
 
@@ -14464,7 +14464,7 @@ _ZL21copySelectedListRangeILb1EEvPK10nbnxn_ci_tPK16NbnxnPairlistCpuPS3_PSt5array
   br i1 %.not.i.i, label %194, label %192
 
 192:                                              ; preds = %189
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %190, ptr noundef nonnull readonly align 4 dereferenceable(16) %183, i64 16, i1 false), !noalias !209
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %190, ptr noundef nonnull align 4 dereferenceable(16) %183, i64 16, i1 false), !noalias !209
   %193 = getelementptr inbounds i8, ptr %190, i64 16
   store ptr %193, ptr %20, align 8, !alias.scope !209, !noalias !206
   br label %_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE9push_backERKS0_.exit.i
@@ -14502,7 +14502,7 @@ _ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_
 .noexc64:                                         ; preds = %205, %_ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i.i.i
   %208 = phi ptr [ null, %_ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i.i.i ], [ %207, %205 ]
   %209 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %208, i64 %200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %209, ptr noundef nonnull readonly align 4 dereferenceable(16) %183, i64 16, i1 false), !noalias !209
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %209, ptr noundef nonnull align 4 dereferenceable(16) %183, i64 16, i1 false), !noalias !209
   %.not13.i.i.i.i.i = icmp eq ptr %195, %190
   br i1 %.not13.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIP10nbnxn_ci_tS1_N3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEET0_T_S7_S6_RT1_.exit34.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -14550,7 +14550,7 @@ _ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE9pus
   %227 = ashr i32 %226, %.0.i
   %228 = sext i32 %227 to i64
   %229 = getelementptr inbounds %"struct.std::array.167", ptr %52, i64 %228
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %229, i8 0, i64 16, i1 false), !noalias !211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, i8 0, i64 16, i1 false), !noalias !211
   %230 = getelementptr inbounds [2 x i64], ptr %229, i64 0, i64 %71
   store i64 %69, ptr %230, align 8, !noalias !211
   %231 = icmp slt i32 %187, %185
@@ -14641,7 +14641,7 @@ _ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE9pus
   %266 = ashr i32 %265, %.0.i62
   %267 = sext i32 %266 to i64
   %268 = getelementptr inbounds %"struct.std::array.167", ptr %52, i64 %267
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %268, i8 0, i64 16, i1 false), !noalias !211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %268, i8 0, i64 16, i1 false), !noalias !211
   %269 = getelementptr inbounds [2 x i64], ptr %268, i64 0, i64 %71
   store i64 %69, ptr %269, align 8, !noalias !211
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1

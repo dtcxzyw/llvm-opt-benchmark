@@ -2725,7 +2725,7 @@ define noundef ptr @Abc_NtkBddDecInt(ptr nocapture noundef readnone %0, ptr noun
   %6 = sub nsw i32 32, %4
   %7 = shl nuw i32 1, %6
   %8 = xor i32 %7, -1
-  %9 = tail call ptr @Abc_NtkBddDecCharFunc(ptr noundef %1, ptr noundef readonly %2, i32 noundef %4, i32 noundef %8, i32 poison)
+  %9 = tail call ptr @Abc_NtkBddDecCharFunc(ptr noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef %8, i32 poison)
   tail call void @Cudd_Ref(ptr noundef %9) #17
   tail call void @Cudd_Deref(ptr noundef %9) #17
   ret ptr %9
@@ -2986,7 +2986,7 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   %71 = sub nsw i32 32, %.val41.val
   %72 = shl nuw i32 1, %71
   %73 = xor i32 %72, -1
-  %74 = call ptr @Abc_NtkBddDecCharFunc(ptr noundef nonnull %4, ptr noundef nonnull readonly %3, i32 noundef %.val41.val, i32 noundef %73, i32 poison)
+  %74 = call ptr @Abc_NtkBddDecCharFunc(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %.val41.val, i32 noundef %73, i32 poison)
   tail call void @Cudd_Ref(ptr noundef %74) #17
   tail call void @Cudd_Deref(ptr noundef %74) #17
   tail call void @Cudd_Ref(ptr noundef %74) #17

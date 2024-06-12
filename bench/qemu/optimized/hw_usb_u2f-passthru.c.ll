@@ -473,7 +473,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %nonce8.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %data.i, ptr noundef nonnull readonly dereferenceable(8) %nonce8.i.i, i64 8)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %data.i, ptr noundef nonnull dereferenceable(8) %nonce8.i.i, i64 8)
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i, label %for.inc.i.i
 

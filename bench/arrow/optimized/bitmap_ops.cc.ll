@@ -2355,19 +2355,19 @@ if.else.i:                                        ; preds = %cond.end8
   br i1 %or.cond1.i, label %if.then5.i, label %if.else6.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %call.i = tail call noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr noundef nonnull readonly %cond, i64 noundef %left_offset, ptr noundef nonnull readonly %cond9, i64 noundef %right_offset, i64 noundef %length)
+  %call.i = tail call noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr noundef nonnull %cond, i64 noundef %left_offset, ptr noundef nonnull %cond9, i64 noundef %right_offset, i64 noundef %length)
   br label %_ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit
 
 if.else6.i:                                       ; preds = %if.else.i
   br i1 %cmp2.i, label %if.then8.i, label %if.else11.i
 
 if.then8.i:                                       ; preds = %if.else6.i
-  %call9.i = tail call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef nonnull readonly %cond, i64 noundef %left_offset, i64 noundef %length)
+  %call9.i = tail call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef nonnull %cond, i64 noundef %left_offset, i64 noundef %length)
   %cmp10.i = icmp eq i64 %call9.i, %length
   br label %_ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit
 
 if.else11.i:                                      ; preds = %if.else6.i
-  %call12.i = tail call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef readonly %cond9, i64 noundef %right_offset, i64 noundef %length)
+  %call12.i = tail call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %cond9, i64 noundef %right_offset, i64 noundef %length)
   %cmp13.i = icmp eq i64 %call12.i, %length
   br label %_ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit
 
@@ -2408,7 +2408,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !47
   %cond.i.i = select i1 %5, ptr %6, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !47
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !47
   store ptr null, ptr %agg.result, align 8, !alias.scope !47
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !47
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
@@ -2963,7 +2963,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !58
   %cond.i.i = select i1 %5, ptr %6, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !58
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !58
   store ptr null, ptr %agg.result, align 8, !alias.scope !58
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !58
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
@@ -3518,7 +3518,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !69
   %cond.i.i = select i1 %5, ptr %6, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !69
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !69
   store ptr null, ptr %agg.result, align 8, !alias.scope !69
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !69
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
@@ -4073,7 +4073,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !80
   %cond.i.i = select i1 %5, ptr %6, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !80
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !80
   store ptr null, ptr %agg.result, align 8, !alias.scope !80
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !80
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
@@ -4632,7 +4632,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !91
   %cond.i.i = select i1 %5, ptr %6, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !91
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !91
   store ptr null, ptr %agg.result, align 8, !alias.scope !91
   store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !91
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit

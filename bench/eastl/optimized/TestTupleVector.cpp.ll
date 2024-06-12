@@ -899,7 +899,7 @@ invoke.cont212:                                   ; preds = %invoke.cont207
 _ZN5eastl12tuple_vectorIJiEED2Ev.exit:            ; preds = %invoke.cont212
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i.i563) #11
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i538) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %alignElementVec, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec, i8 0, i64 64, i1 false)
   invoke fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull align 8 %tmp217, ptr noundef nonnull align 8 dereferenceable(64) %alignElementVec)
           to label %invoke.cont219 unwind label %lpad218
 
@@ -19354,15 +19354,15 @@ if.end.i.i.i.i.i.i.i.i11.i.i:                     ; preds = %_ZN5eastl16TupleVec
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.val.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr3.idx.i.i.i = shl nsw i64 %0, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 16 %5, ptr readonly align 16 %add.ptr.val.i.i, i64 %add.ptr3.idx.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %5, ptr align 16 %add.ptr.val.i.i, i64 %add.ptr3.idx.i.i.i, i1 false)
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr4.val.i.i = load ptr, ptr %add.ptr4.i.i, align 8
   %add.ptr3.idx.i9.i.i = mul nsw i64 %0, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %4, ptr readonly align 1 %add.ptr4.val.i.i, i64 %add.ptr3.idx.i9.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %add.ptr4.val.i.i, i64 %add.ptr3.idx.i9.i.i, i1 false)
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr7.val.i.i = load ptr, ptr %add.ptr7.i.i, align 8
   %add.ptr3.idx.i12.i.i = mul nsw i64 %0, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %3, ptr readonly align 8 %add.ptr7.val.i.i, i64 %add.ptr3.idx.i12.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %add.ptr7.val.i.i, i64 %add.ptr3.idx.i12.i.i, i1 false)
   br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i
 
 _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i11.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i
@@ -19408,7 +19408,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJ
   %add.ptr12 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %add.ptr12, align 8
   %add.ptr14 = getelementptr inbounds %struct.AlignTestFourByte, ptr %11, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %add.ptr14, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr14, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !687)
   %this.val.i = load i64, ptr %mNumElements, align 8, !noalias !687
   %sub.i = add i64 %this.val.i, -1

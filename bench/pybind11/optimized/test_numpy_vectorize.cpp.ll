@@ -45730,7 +45730,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeINS_6detail16vector
   store i64 0, ptr %3, align 8
   call void @_ZN8pybind115arrayC2IdEElPKT_NS_6handleE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0, ptr noundef null, ptr null)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ30test_submodule_numpy_vectorizeRN8pybind117module_EE11NonPODClass, ptr %2, align 8
   %7 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -46011,7 +46011,7 @@ _ZN8pybind116objectD2Ev.exit27.i:                 ; preds = %109, %107, %105, %_
   unreachable
 
 "_ZZN8pybind1112cpp_function10initializeINS_6detail16vectorize_helperIZ30test_submodule_numpy_vectorizeRNS_7module_EE3$_2dJPKddNS_7array_tIdLi16EEERKiRiZ30test_submodule_numpy_vectorizeS5_E11NonPODClassdEEENS_6objectEJS8_SA_SA_NS9_IiLi16EEESD_SE_SA_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clESX_.exit": ; preds = %_ZN8pybind116objectD2Ev.exit27.i, %114, %117
-  call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %3) #25
+  call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #25
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -47019,7 +47019,7 @@ define internal fastcc void @_ZN8pybind116detail15argument_loaderIJPKdNS_7array_
   unreachable
 
 _ZNSt5tupleIJN8pybind116detail11type_casterIdvEENS2_INS0_7array_tIdLi16EEEvEES6_NS2_INS4_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES6_EED2Ev.exit: ; preds = %1, %4, %7
-  tail call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) #25
+  tail call fastcc void @_ZNSt11_Tuple_implILm2EJN8pybind116detail11type_casterINS0_7array_tIdLi16EEEvEENS2_INS3_IiLi16EEEvEENS2_IivEENS2_IZ30test_submodule_numpy_vectorizeRNS0_7module_EE11NonPODClassvEES5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #25
   ret void
 }
 
@@ -48695,7 +48695,7 @@ common.resume.i:                                  ; preds = %45, %17, %7
 
 _ZNSt11_Tuple_implILm1EJN8pybind116detail11type_casterINS0_7array_tIiLi16EEEvEENS2_INS3_IfLi16EEEvEEEEC2Ev.exit.i.i.i.i: ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ30test_submodule_numpy_vectorizeRN8pybind117module_EE18VectorizeTestClass, ptr %2, align 8
   %10 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -66343,7 +66343,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeINS_6detail16vector
   store i64 0, ptr %3, align 8
   call void @_ZN8pybind115arrayC2IiEElPKT_NS_6handleE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0, ptr noundef null, ptr null)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ30test_submodule_numpy_vectorizeRN8pybind117module_EE11NonPODClass, ptr %2, align 8
   %7 = invoke noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)

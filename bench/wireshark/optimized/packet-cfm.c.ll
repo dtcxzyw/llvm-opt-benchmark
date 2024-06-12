@@ -2561,7 +2561,7 @@ sender_id_tlv_chassis_id.exit:                    ; preds = %1030, %1034, %1038,
   br i1 %1117, label %1118, label %1127
 
 1118:                                             ; preds = %1114
-  %bcmp.i = call i32 @bcmp(ptr readonly %.0435, ptr nonnull %1108, i64 %1105)
+  %bcmp.i = call i32 @bcmp(ptr %.0435, ptr nonnull %1108, i64 %1105)
   %.not.i512 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i512, label %1119, label %1127
 

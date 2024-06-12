@@ -722,7 +722,7 @@ for.body.i.i320.i:                                ; preds = %for.body.i.i320.i, 
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i332.i: ; preds = %for.body.i.i320.i
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %output, i64 %120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %arrayidx4.i.i, ptr noundef nonnull align 1 dereferenceable(3) %RGB.i.i, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %arrayidx4.i.i, ptr noundef nonnull align 1 dereferenceable(3) %RGB.i.i, i64 3, i1 false)
   %indvars.iv.next.i333.i = add nuw nsw i64 %indvars.iv.i313.i, 1
   %exitcond.not.i334.i = icmp eq i64 %indvars.iv.next.i333.i, %wide.trip.count.i311.i
   br i1 %exitcond.not.i334.i, label %_ZN3dpxL17ConvertCbYCrToRGBIhLj255EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i312.i, !llvm.loop !20
@@ -788,7 +788,7 @@ for.body.i.i353.i:                                ; preds = %for.body.i.i353.i, 
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i365.i: ; preds = %for.body.i.i353.i
   %arrayidx4.i366.i = getelementptr inbounds i16, ptr %output, i64 %133
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %arrayidx4.i366.i, ptr noundef nonnull align 2 dereferenceable(6) %RGB.i335.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %arrayidx4.i366.i, ptr noundef nonnull align 2 dereferenceable(6) %RGB.i335.i, i64 6, i1 false)
   %indvars.iv.next.i367.i = add nuw nsw i64 %indvars.iv.i344.i, 1
   %exitcond.not.i368.i = icmp eq i64 %indvars.iv.next.i367.i, %wide.trip.count.i342.i
   br i1 %exitcond.not.i368.i, label %_ZN3dpxL17ConvertCbYCrToRGBItLj65535EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i343.i, !llvm.loop !21
@@ -854,7 +854,7 @@ for.body.i.i387.i:                                ; preds = %for.body.i.i387.i, 
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i399.i: ; preds = %for.body.i.i387.i
   %arrayidx4.i400.i = getelementptr inbounds i32, ptr %output, i64 %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %arrayidx4.i400.i, ptr noundef nonnull align 4 dereferenceable(12) %RGB.i369.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx4.i400.i, ptr noundef nonnull align 4 dereferenceable(12) %RGB.i369.i, i64 12, i1 false)
   %indvars.iv.next.i401.i = add nuw nsw i64 %indvars.iv.i378.i, 1
   %exitcond.not.i402.i = icmp eq i64 %indvars.iv.next.i401.i, %wide.trip.count.i376.i
   br i1 %exitcond.not.i402.i, label %_ZN3dpxL17ConvertCbYCrToRGBIjLj4294967295EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i377.i, !llvm.loop !22
@@ -918,7 +918,7 @@ for.body.i.i418.i:                                ; preds = %for.body.i.i418.i, 
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i431.i: ; preds = %for.body.i.i418.i
   %arrayidx4.i432.i = getelementptr inbounds float, ptr %output, i64 %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %arrayidx4.i432.i, ptr noundef nonnull align 4 dereferenceable(12) %RGB.i403.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx4.i432.i, ptr noundef nonnull align 4 dereferenceable(12) %RGB.i403.i, i64 12, i1 false)
   %indvars.iv.next.i433.i = add nuw nsw i64 %indvars.iv.i412.i, 1
   %exitcond.not.i434.i = icmp eq i64 %indvars.iv.next.i433.i, %wide.trip.count.i410.i
   br i1 %exitcond.not.i434.i, label %_ZN3dpxL17ConvertCbYCrToRGBIfLj1EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i411.i, !llvm.loop !23
@@ -990,7 +990,7 @@ for.body.i.i452.i:                                ; preds = %for.body.i.i452.i, 
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i472.i: ; preds = %for.body.i.i452.i
   %arrayidx4.i473.i = getelementptr inbounds double, ptr %output, i64 %172
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %arrayidx4.i473.i, ptr noundef nonnull align 16 dereferenceable(24) %RGB.i435.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx4.i473.i, ptr noundef nonnull align 16 dereferenceable(24) %RGB.i435.i, i64 24, i1 false)
   %indvars.iv.next.i474.i = add nuw nsw i64 %indvars.iv.i444.i, 1
   %exitcond.not.i475.i = icmp eq i64 %indvars.iv.next.i474.i, %wide.trip.count.i442.i
   br i1 %exitcond.not.i475.i, label %_ZN3dpxL17ConvertCbYCrToRGBIdLj1EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i443.i, !llvm.loop !24
@@ -1592,7 +1592,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i778.i: ; pre
   %312 = load i32, ptr %arrayidx4.i779.i, align 4
   store i32 %312, ptr %arrayidx5.i754.i, align 4
   %arrayidx8.i780.i = getelementptr inbounds i32, ptr %output, i64 %300
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx8.i780.i, ptr noundef nonnull align 16 dereferenceable(16) %RGBA.i747.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i780.i, ptr noundef nonnull align 16 dereferenceable(16) %RGBA.i747.i, i64 16, i1 false)
   %indvars.iv.next.i781.i = add nuw nsw i64 %indvars.iv.i757.i, 1
   %exitcond.not.i782.i = icmp eq i64 %indvars.iv.next.i781.i, %wide.trip.count.i755.i
   br i1 %exitcond.not.i782.i, label %_ZN3dpxL19ConvertCbYCrAToRGBAIjLj4294967295EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i756.i, !llvm.loop !32
@@ -1661,7 +1661,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i812.i: ; preds = %for
   %327 = load float, ptr %arrayidx4.i813.i, align 4
   store float %327, ptr %arrayidx5.i790.i, align 4
   %arrayidx8.i814.i = getelementptr inbounds float, ptr %output, i64 %315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %arrayidx8.i814.i, ptr noundef nonnull align 16 dereferenceable(16) %RGBA.i783.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i814.i, ptr noundef nonnull align 16 dereferenceable(16) %RGBA.i783.i, i64 16, i1 false)
   %indvars.iv.next.i815.i = add nuw nsw i64 %indvars.iv.i793.i, 1
   %exitcond.not.i816.i = icmp eq i64 %indvars.iv.next.i815.i, %wide.trip.count.i791.i
   br i1 %exitcond.not.i816.i, label %_ZN3dpxL19ConvertCbYCrAToRGBAIfLj1EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i792.i, !llvm.loop !33
@@ -1738,7 +1738,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i855.i: ; preds = %for
   %341 = load double, ptr %arrayidx4.i856.i, align 8
   store double %341, ptr %arrayidx5.i824.i, align 8
   %arrayidx8.i857.i = getelementptr inbounds double, ptr %output, i64 %330
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx8.i857.i, ptr noundef nonnull align 16 dereferenceable(32) %RGBA.i817.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx8.i857.i, ptr noundef nonnull align 16 dereferenceable(32) %RGBA.i817.i, i64 32, i1 false)
   %indvars.iv.next.i858.i = add nuw nsw i64 %indvars.iv.i827.i, 1
   %exitcond.not.i859.i = icmp eq i64 %indvars.iv.next.i858.i, %wide.trip.count.i825.i
   br i1 %exitcond.not.i859.i, label %_ZN3dpxL19ConvertCbYCrAToRGBAIdLj1EEEbNS_14CharacteristicEPKT_PS2_i.exit.i, label %for.body.i826.i, !llvm.loop !34

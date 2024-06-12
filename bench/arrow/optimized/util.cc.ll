@@ -4218,7 +4218,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_10DoubleTypeEEENSt9enab
 sw.bb26.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1080)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1080, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !143
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1080, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   %315 = load ptr, ptr %ref.tmp.i1080, align 8, !noalias !149
   store ptr %315, ptr %ref.tmp, align 8, !alias.scope !149
@@ -4362,7 +4362,7 @@ sw.bb28.i:                                        ; preds = %entry
 sw.bb30.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1025)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1025, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !153
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i1025, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !153
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %338 = load ptr, ptr %ref.tmp.i1025, align 8, !noalias !159
   store ptr %338, ptr %ref.tmp, align 8, !alias.scope !159
@@ -4506,7 +4506,7 @@ sw.bb32.i:                                        ; preds = %entry
 sw.bb34.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i970)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i970, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !163
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i970, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %361 = load ptr, ptr %ref.tmp.i970, align 8, !noalias !169
   store ptr %361, ptr %ref.tmp, align 8, !alias.scope !169
@@ -4646,7 +4646,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_15LargeStringTypeEEENSt
 sw.bb36.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i950)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i950, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !173
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i950, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !173
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %384 = load ptr, ptr %ref.tmp.i950, align 8, !noalias !179
   store ptr %384, ptr %ref.tmp, align 8, !alias.scope !179
@@ -6852,14 +6852,14 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_14Decimal256TypeE.exi
 
 sw.bb62.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i214)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i214, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !292
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i214, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !292
   %775 = load ptr, ptr %ref.tmp.i214, align 8, !noalias !295
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i214)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb64.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i212)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i212, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !298
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i212, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !298
   %776 = load ptr, ptr %ref.tmp.i212, align 8, !noalias !301
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i212)
   br label %_ZN5arrow6StatusD2Ev.exit
@@ -6868,7 +6868,7 @@ sw.bb66.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i207)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i208)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i207, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !304
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i207, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !304
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %777 = load ptr, ptr %ref.tmp.i207, align 8, !noalias !310
   store ptr %777, ptr %ref.tmp, align 8, !alias.scope !310
@@ -6876,7 +6876,7 @@ sw.bb66.i:                                        ; preds = %entry
   br i1 %cmp.i.i209, label %_ZN5arrow6StatusD2Ev.exit74.i210, label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_12ListViewTypeE.exit
 
 _ZN5arrow6StatusD2Ev.exit74.i210:                 ; preds = %sw.bb66.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i208, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !304
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i208, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !304
   %778 = load ptr, ptr %ref.tmp9.i208, align 8, !noalias !311
   store ptr %778, ptr %ref.tmp, align 8, !alias.scope !304
   br label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_12ListViewTypeE.exit
@@ -6890,7 +6890,7 @@ sw.bb68.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i204)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i204, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !314
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i204, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !314
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
   %779 = load ptr, ptr %ref.tmp.i204, align 8, !noalias !320
   store ptr %779, ptr %ref.tmp, align 8, !alias.scope !320
@@ -6898,7 +6898,7 @@ sw.bb68.i:                                        ; preds = %entry
   br i1 %cmp.i.i205, label %_ZN5arrow6StatusD2Ev.exit74.i, label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_17LargeListViewTypeE.exit
 
 _ZN5arrow6StatusD2Ev.exit74.i:                    ; preds = %sw.bb68.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !314
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIlEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 2), !noalias !314
   %780 = load ptr, ptr %ref.tmp9.i, align 8, !noalias !321
   store ptr %780, ptr %ref.tmp, align 8, !alias.scope !314
   br label %_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_17LargeListViewTypeE.exit
@@ -6910,7 +6910,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_17LargeListViewTypeE.
 
 sw.bb70.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i202)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i202, ptr noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !324
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper11SwapOffsetsIiEENS_6StatusEi(ptr noalias nonnull align 8 %ref.tmp.i202, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 1), !noalias !324
   %781 = load ptr, ptr %ref.tmp.i202, align 8, !noalias !327
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i202)
   br label %_ZN5arrow6StatusD2Ev.exit
@@ -12656,7 +12656,7 @@ entry:
   %length_.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store i64 %length, ptr %length_.i, align 8
   %out_.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out_.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out_.i, i8 0, i64 32, i1 false)
   invoke fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory6CreateEv(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
@@ -15041,7 +15041,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %length_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %length, ptr %length_.i, align 8
   %out_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %out_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out_.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__s.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_120RepeatedArrayFactoryEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %.pre, ptr noundef nonnull %ref.tmp)
@@ -25855,7 +25855,7 @@ entry:
   %length_.i = getelementptr inbounds i8, ptr %child_factory, i64 16
   store i64 %length, ptr %length_.i, align 8
   %out_.i = getelementptr inbounds i8, ptr %child_factory, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out_.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out_.i, i8 0, i64 32, i1 false)
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 40
   %buffer_4 = getelementptr inbounds i8, ptr %child_factory, i64 40
   %3 = load ptr, ptr %buffer_, align 8
@@ -29229,7 +29229,7 @@ sw.bb4:                                           ; preds = %entry
   %value2.i = getelementptr inbounds i8, ptr %this.val.i, i64 41
   %46 = load i8, ptr %value2.i, align 1, !noalias !1585
   store i8 %46, ptr %value.i86, align 1, !noalias !1585
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i86, i64 noundef 1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i86, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.i86)
   br label %return
 
@@ -29240,7 +29240,7 @@ sw.bb6:                                           ; preds = %entry
   %value2.i89 = getelementptr inbounds i8, ptr %this.val.i88, i64 41
   %48 = load i8, ptr %value2.i89, align 1, !noalias !1588
   store i8 %48, ptr %value.i87, align 1, !noalias !1588
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i87, i64 noundef 1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i87, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.i87)
   br label %return
 
@@ -29251,7 +29251,7 @@ sw.bb8:                                           ; preds = %entry
   %value2.i92 = getelementptr inbounds i8, ptr %this.val.i91, i64 42
   %50 = load i16, ptr %value2.i92, align 2, !noalias !1591
   store i16 %50, ptr %value.i90, align 2, !noalias !1591
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i90, i64 noundef 2)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i90, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.i90)
   br label %return
 
@@ -29262,7 +29262,7 @@ sw.bb10:                                          ; preds = %entry
   %value2.i95 = getelementptr inbounds i8, ptr %this.val.i94, i64 42
   %52 = load i16, ptr %value2.i95, align 2, !noalias !1594
   store i16 %52, ptr %value.i93, align 2, !noalias !1594
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i93, i64 noundef 2)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i93, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.i93)
   br label %return
 
@@ -29273,7 +29273,7 @@ sw.bb12:                                          ; preds = %entry
   %value2.i98 = getelementptr inbounds i8, ptr %this.val.i97, i64 44
   %54 = load i32, ptr %value2.i98, align 4, !noalias !1597
   store i32 %54, ptr %value.i96, align 4, !noalias !1597
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i96, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i96, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i96)
   br label %return
 
@@ -29284,7 +29284,7 @@ sw.bb14:                                          ; preds = %entry
   %value2.i101 = getelementptr inbounds i8, ptr %this.val.i100, i64 44
   %56 = load i32, ptr %value2.i101, align 4, !noalias !1600
   store i32 %56, ptr %value.i99, align 4, !noalias !1600
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i99, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i99, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i99)
   br label %return
 
@@ -29295,7 +29295,7 @@ sw.bb16:                                          ; preds = %entry
   %value2.i104 = getelementptr inbounds i8, ptr %this.val.i103, i64 48
   %58 = load i64, ptr %value2.i104, align 8, !noalias !1603
   store i64 %58, ptr %value.i102, align 8, !noalias !1603
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i102, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i102, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i102)
   br label %return
 
@@ -29306,7 +29306,7 @@ sw.bb18:                                          ; preds = %entry
   %value2.i107 = getelementptr inbounds i8, ptr %this.val.i106, i64 48
   %60 = load i64, ptr %value2.i107, align 8, !noalias !1606
   store i64 %60, ptr %value.i105, align 8, !noalias !1606
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i105, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i105, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i105)
   br label %return
 
@@ -29317,7 +29317,7 @@ sw.bb20:                                          ; preds = %entry
   %value2.i110 = getelementptr inbounds i8, ptr %this.val.i109, i64 42
   %62 = load i16, ptr %value2.i110, align 2, !noalias !1609
   store i16 %62, ptr %value.i108, align 2, !noalias !1609
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i108, i64 noundef 2)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i108, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.i108)
   br label %return
 
@@ -29328,7 +29328,7 @@ sw.bb22:                                          ; preds = %entry
   %value2.i113 = getelementptr inbounds i8, ptr %this.val.i112, i64 44
   %64 = load float, ptr %value2.i113, align 4, !noalias !1612
   store float %64, ptr %value.i111, align 4, !noalias !1612
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i111, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i111, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i111)
   br label %return
 
@@ -29339,7 +29339,7 @@ sw.bb24:                                          ; preds = %entry
   %value2.i116 = getelementptr inbounds i8, ptr %this.val.i115, i64 48
   %66 = load double, ptr %value2.i116, align 8, !noalias !1615
   store double %66, ptr %value.i114, align 8, !noalias !1615
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i114, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i114, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i114)
   br label %return
 
@@ -30896,7 +30896,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt10shared_ptrIN
   %tobool.i.i591 = trunc i8 %292 to i1
   %cond.i.i592 = select i1 %tobool.i.i591, ptr %293, ptr null
   %conv.i593 = sext i32 %call5.i to i64
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef %cond.i.i592, i64 noundef %conv.i593)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef %cond.i.i592, i64 noundef %conv.i593)
           to label %invoke.cont6.i594 unwind label %lpad.i590
 
 invoke.cont6.i594:                                ; preds = %invoke.cont.i
@@ -30989,7 +30989,7 @@ sw.bb40:                                          ; preds = %entry
   %value2.i603 = getelementptr inbounds i8, ptr %this.val.i602, i64 48
   %308 = load i64, ptr %value2.i603, align 8, !noalias !1709
   store i64 %308, ptr %value.i601, align 8, !noalias !1709
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i601, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i601, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i601)
   br label %return
 
@@ -31000,7 +31000,7 @@ sw.bb42:                                          ; preds = %entry
   %value2.i606 = getelementptr inbounds i8, ptr %this.val.i605, i64 44
   %310 = load i32, ptr %value2.i606, align 4, !noalias !1712
   store i32 %310, ptr %value.i604, align 4, !noalias !1712
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i604, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i604, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i604)
   br label %return
 
@@ -31011,7 +31011,7 @@ sw.bb44:                                          ; preds = %entry
   %value2.i609 = getelementptr inbounds i8, ptr %this.val.i608, i64 48
   %312 = load i64, ptr %value2.i609, align 8, !noalias !1715
   store i64 %312, ptr %value.i607, align 8, !noalias !1715
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i607, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i607, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i607)
   br label %return
 
@@ -31022,7 +31022,7 @@ sw.bb46:                                          ; preds = %entry
   %value2.i612 = getelementptr inbounds i8, ptr %this.val.i611, i64 48
   %314 = load i64, ptr %value2.i612, align 8, !noalias !1718
   store i64 %314, ptr %value.i610, align 8, !noalias !1718
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i610, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i610, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i610)
   br label %return
 
@@ -31033,7 +31033,7 @@ sw.bb48:                                          ; preds = %entry
   %value2.i615 = getelementptr inbounds i8, ptr %this.val.i614, i64 44
   %316 = load i32, ptr %value2.i615, align 4, !noalias !1721
   store i32 %316, ptr %value.i613, align 4, !noalias !1721
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i613, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i613, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i613)
   br label %return
 
@@ -31044,7 +31044,7 @@ sw.bb50:                                          ; preds = %entry
   %value2.i618 = getelementptr inbounds i8, ptr %this.val.i617, i64 48
   %318 = load i64, ptr %value2.i618, align 8, !noalias !1724
   store i64 %318, ptr %value.i616, align 8, !noalias !1724
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i616, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i616, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i616)
   br label %return
 
@@ -31054,7 +31054,7 @@ sw.bb52:                                          ; preds = %entry
   %this.val.i620 = load ptr, ptr %319, align 8, !noalias !1727
   %value2.i621 = getelementptr inbounds i8, ptr %this.val.i620, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i619, ptr noundef nonnull align 8 dereferenceable(16) %value2.i621, i64 16, i1 false), !noalias !1727
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i619, i64 noundef 16)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i619, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i619)
   br label %return
 
@@ -31065,7 +31065,7 @@ sw.bb54:                                          ; preds = %entry
   %value2.i624 = getelementptr inbounds i8, ptr %this.val.i623, i64 44
   %321 = load i32, ptr %value2.i624, align 4, !noalias !1730
   store i32 %321, ptr %value.i622, align 4, !noalias !1730
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i622, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i622, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i622)
   br label %return
 
@@ -31076,7 +31076,7 @@ sw.bb56:                                          ; preds = %entry
   %value2.i627 = getelementptr inbounds i8, ptr %this.val.i626, i64 44
   %323 = load i64, ptr %value2.i627, align 4, !noalias !1733
   store i64 %323, ptr %value.i625, align 8, !noalias !1733
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i625, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i625, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i625)
   br label %return
 
@@ -31087,7 +31087,7 @@ sw.bb58:                                          ; preds = %entry
   %value2.i630 = getelementptr inbounds i8, ptr %this.val.i629, i64 48
   %325 = load <2 x i64>, ptr %value2.i630, align 8, !noalias !1736
   store <2 x i64> %325, ptr %value.i628, align 16, !noalias !1736
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i628, i64 noundef 16)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i628, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i628)
   br label %return
 
@@ -31097,7 +31097,7 @@ sw.bb60:                                          ; preds = %entry
   %326 = load ptr, ptr %scalar_.i632, align 8, !noalias !1739
   %value2.i633 = getelementptr inbounds i8, ptr %326, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %value.i631, ptr noundef nonnull align 8 dereferenceable(32) %value2.i633, i64 32, i1 false), !noalias !1739
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i631, i64 noundef 32)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i631, i64 noundef 32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i631)
   br label %return
 

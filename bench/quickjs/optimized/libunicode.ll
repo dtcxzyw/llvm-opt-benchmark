@@ -1885,7 +1885,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef %0, ptr nocapture noundef re
 unicode_decomp_char.exit:                         ; preds = %42
   %46 = lshr i32 %31, 1
   %47 = and i32 %46, 63
-  %48 = call fastcc i32 @unicode_decomp_entry(ptr noundef nonnull writeonly %9, i32 noundef %12, i32 noundef %28, i32 noundef %32, i32 noundef %38, i32 noundef %47)
+  %48 = call fastcc i32 @unicode_decomp_entry(ptr noundef nonnull %9, i32 noundef %12, i32 noundef %28, i32 noundef %32, i32 noundef %38, i32 noundef %47)
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %unicode_decomp_char.exit.thread, label %49
 
@@ -2061,7 +2061,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_script(ptr nocapture noundef %0, 
   %.sroa.3 = alloca ptr, align 8
   %.sroa.9 = alloca ptr, align 8
   %.sroa.13 = alloca ptr, align 8
-  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %.094.sroa.gep189 = getelementptr inbounds i8, ptr %0, i64 8
   %.094.sroa.gep192 = getelementptr inbounds i8, ptr %0, i64 4
   %.094.sroa.gep201 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2095,7 +2095,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_script(ptr nocapture noundef %0, 
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
-  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr readonly %1, i64 %4)
+  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr %1, i64 %4)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %unicode_find_name.exit, label %16
 
@@ -2650,24 +2650,24 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %9, ptr %12, align 8
   %.not.i = icmp eq ptr %11, null
   %13 = select i1 %.not.i, ptr @cr_default_realloc, ptr %11
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %9, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %13, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %9, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %13, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %9, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %13, ptr %20, align 8
@@ -3430,7 +3430,7 @@ define internal fastcc void @cr_sort_and_remove_overlap(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2, 1) i32 @unicode_general_category(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %18, %2
@@ -3460,7 +3460,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_general_category(ptr nocapture no
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr readonly %1, i64 %3)
+  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr %1, i64 %3)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %unicode_find_name.exit, label %15
 
@@ -3697,7 +3697,7 @@ cr_add_interval.exit:                             ; preds = %83, %.loopexit, %53
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2, 1) i32 @unicode_prop(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %18, %2
@@ -3727,7 +3727,7 @@ define dso_local range(i32 -2, 1) i32 @unicode_prop(ptr nocapture noundef %0, pt
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr readonly %1, i64 %3)
+  %bcmp.i = tail call i32 @bcmp(ptr %.1.i, ptr %1, i64 %3)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %unicode_find_name.exit, label %15
 
@@ -4036,7 +4036,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr nocapture noundef %0,
   %42 = load ptr, ptr %6, align 8
   %43 = load ptr, ptr %7, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store ptr %42, ptr %44, align 16
   %.not.i = icmp eq ptr %43, null
   %45 = select i1 %.not.i, ptr @cr_default_realloc, ptr %43
@@ -4073,7 +4073,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr nocapture noundef %0,
   %64 = load ptr, ptr %6, align 8
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds i8, ptr %63, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store ptr %64, ptr %66, align 16
   %.not.i50 = icmp eq ptr %65, null
   %67 = select i1 %.not.i50, ptr @cr_default_realloc, ptr %65
@@ -4110,7 +4110,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr nocapture noundef %0,
   %86 = load ptr, ptr %6, align 8
   %87 = load ptr, ptr %7, align 8
   %88 = getelementptr inbounds i8, ptr %85, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %85, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   store ptr %86, ptr %88, align 16
   %.not.i51 = icmp eq ptr %87, null
   %89 = select i1 %.not.i51, ptr @cr_default_realloc, ptr %87
@@ -4132,7 +4132,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr nocapture noundef %0,
   %101 = load ptr, ptr %6, align 8
   %102 = load ptr, ptr %7, align 8
   %103 = getelementptr inbounds i8, ptr %100, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %100, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %100, i8 0, i64 16, i1 false)
   store ptr %101, ptr %103, align 16
   %.not.i52 = icmp eq ptr %102, null
   %104 = select i1 %.not.i52, ptr @cr_default_realloc, ptr %102

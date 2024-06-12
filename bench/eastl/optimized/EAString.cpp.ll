@@ -2150,12 +2150,12 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.end.thread
 
 cond.end:                                         ; preds = %entry
-  %call.i15 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSource) #29
+  %call.i15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSource) #29
   br label %if.end9
 
 cond.end.thread:                                  ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pDestination) #29
-  %call.i1517 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSource) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pDestination) #29
+  %call.i1517 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSource) #29
   %add18 = add i64 %call.i1517, %call.i
   %cmp19 = icmp ult i64 %add18, %nDestCapacity
   %add.ptr = getelementptr inbounds i8, ptr %pDestination, i64 %call.i
@@ -3224,7 +3224,7 @@ while.end:                                        ; preds = %while.cond
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN2EA4StdC7StrxfrmEPcPKcm(ptr nocapture noundef writeonly %pDest, ptr nocapture noundef readonly %pSource, i64 noundef %n) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSource) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSource) #29
   %cmp.not = icmp eq i64 %n, 0
   br i1 %cmp.not, label %if.end5, label %while.cond.i
 
@@ -3446,7 +3446,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
   %add = add i64 %call.i, 1
   %call1 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %while.cond.i
@@ -5073,7 +5073,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s1) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s1) #29
   %cmp.not9 = icmp eq i64 %call.i, 0
   br i1 %cmp.not9, label %return, label %while.body.preheader
 
@@ -5265,7 +5265,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s1) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s1) #29
   %cmp.not11 = icmp eq i64 %call.i, 0
   br i1 %cmp.not11, label %return, label %while.body.preheader
 
@@ -5702,7 +5702,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5711,7 +5711,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call.i8 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSuffix) #29
+  %call.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSuffix) #29
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -5933,7 +5933,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5942,7 +5942,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call.i7 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSuffix) #29
+  %call.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSuffix) #29
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -5954,7 +5954,7 @@ if.then6:                                         ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %stringLength.addr.0
   %idx.neg = sub i64 0, %suffixLength.addr.0
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call.i8 = tail call noundef i32 @strcasecmp(ptr noundef readonly %add.ptr7, ptr noundef readonly %pSuffix) #31
+  %call.i8 = tail call noundef i32 @strcasecmp(ptr noundef %add.ptr7, ptr noundef %pSuffix) #31
   %cmp9 = icmp eq i32 %call.i8, 0
   br label %return
 
@@ -7146,7 +7146,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC6StrrevEPc(ptr noundef returned %pString) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
   %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %call.i
   %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
   %cmp11 = icmp ugt ptr %p2.010, %pString
@@ -7302,7 +7302,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString.addr.0) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString.addr.0) #29
   %add.ptr = getelementptr inbounds i8, ptr %pString.addr.0, i64 %call.i
   br label %while.cond4
 
@@ -8945,7 +8945,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC7StrcollEPKcS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %pString1, ptr noundef nonnull readonly dereferenceable(1) %pString2) #31
+  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %pString1, ptr noundef nonnull dereferenceable(1) %pString2) #31
   ret i32 %call.i
 }
 
@@ -9065,7 +9065,7 @@ _ZN2EA4StdC6StrcmpEPKDiS2_.exit:                  ; preds = %while.body.i, %whil
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC8StrncollEPKcS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call noundef i32 @strncmp(ptr noundef readonly %pString1, ptr noundef readonly %pString2, i64 noundef %n) #31
+  %call.i = tail call noundef i32 @strncmp(ptr noundef %pString1, ptr noundef %pString2, i64 noundef %n) #31
   ret i32 %call.i
 }
 
@@ -9145,7 +9145,7 @@ _ZN2EA4StdC7StrncmpEPKDiS2_m.exit:                ; preds = %while.cond.i, %if.e
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC8StricollEPKcS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #15 {
 entry:
-  %call.i = tail call noundef i32 @strcasecmp(ptr noundef readonly %pString1, ptr noundef readonly %pString2) #31
+  %call.i = tail call noundef i32 @strcasecmp(ptr noundef %pString1, ptr noundef %pString2) #31
   ret i32 %call.i
 }
 
@@ -12172,7 +12172,7 @@ while.end:                                        ; preds = %if.end4.thread, %wh
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %while.end
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pResult) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pResult) #29
   %add.ptr = getelementptr inbounds i8, ptr %pResult, i64 %call.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 101, ptr %add.ptr, align 1

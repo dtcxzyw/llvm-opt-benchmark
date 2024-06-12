@@ -597,8 +597,8 @@ define void @_Z9done_atomP7t_atoms(ptr nocapture noundef %0) local_unnamed_addr 
   %13 = load ptr, ptr %12, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef %13)
   store i32 0, ptr %0, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(21) %4, i8 0, i64 21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, i8 0, i64 21, i1 false)
   ret void
 }
 
@@ -858,7 +858,7 @@ define noundef ptr @_Z12copy_t_atomsPK7t_atoms(ptr nocapture noundef readonly %0
   store ptr %11, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 24
   %13 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.6, i32 noundef 300, i64 noundef %10, i64 noundef 32)
   store ptr %14, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8

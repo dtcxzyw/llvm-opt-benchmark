@@ -605,7 +605,7 @@ if.end20:                                         ; preds = %if.end8, %if.then18
   br i1 %tobool22.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_status.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_status.s, i64 1016), ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %39 = load i32, ptr %algo.i, align 4
   store i32 %39, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 1048), align 8
@@ -1947,7 +1947,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br i1 %tobool9.not.i.i, label %run_status.exit.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end4.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
   %algo.i.i.i = getelementptr inbounds i8, ptr %oid.i.i, i64 32
   %96 = load i32, ptr %algo.i.i.i, align 4
   store i32 %96, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1048), align 8
@@ -3057,7 +3057,7 @@ if.end4.i.i73:                                    ; preds = %if.then3.i.i72, %if
   br i1 %tobool9.not.i.i74, label %run_status.exit.i77, label %if.then12.i163.i
 
 if.then12.i163.i:                                 ; preds = %if.end4.i.i73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i43, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i43, i64 32, i1 false)
   %algo.i.i.i76 = getelementptr inbounds i8, ptr %oid.i.i43, i64 32
   %247 = load i32, ptr %algo.i.i.i76, align 4
   store i32 %247, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1048), align 8
@@ -3259,7 +3259,7 @@ if.end4.i172.i:                                   ; preds = %if.then3.i171.i, %i
   br i1 %tobool9.not.i174.i, label %run_status.exit180.i, label %if.then12.i176.i
 
 if.then12.i176.i:                                 ; preds = %if.end4.i172.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i166.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull align 4 dereferenceable(32) %oid.i166.i, i64 32, i1 false)
   %algo.i.i177.i = getelementptr inbounds i8, ptr %oid.i166.i, i64 32
   %276 = load i32, ptr %algo.i.i177.i, align 4
   store i32 %276, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1048), align 8

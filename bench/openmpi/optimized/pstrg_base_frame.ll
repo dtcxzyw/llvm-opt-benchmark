@@ -56,7 +56,7 @@ define internal i32 @pmix_pstrg_base_open(i32 noundef %0) #1 {
 8:                                                ; preds = %7, %4
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 56), i8 0, i64 64, i1 false)
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
@@ -237,7 +237,7 @@ define internal void @qcon(ptr noundef %0) #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 704
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 712
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null

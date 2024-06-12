@@ -4818,7 +4818,7 @@ dynamic_cast.bad_cast.i.i:                        ; preds = %_ZNK6Assimp4STEP10L
   unreachable
 
 _ZNK6Assimp4STEP4LazyINS_3IFC10Schema_2x317IfcCartesianPointEEcvRKS4_Ev.exit: ; preds = %_ZNK6Assimp4STEP10LazyObjectdeEv.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %pos, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pos, i8 0, i64 24, i1 false)
   %Coordinates.i = getelementptr inbounds i8, ptr %3, i64 64
   %_M_finish.i.i = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load ptr, ptr %_M_finish.i.i, align 8

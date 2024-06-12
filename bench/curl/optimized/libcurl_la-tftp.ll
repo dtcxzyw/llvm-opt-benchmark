@@ -138,7 +138,7 @@ if.end8:                                          ; preds = %entry, %if.end4
   br i1 %or.cond.i, label %tftp_perform.exit, label %tftp_perform.exit.thread
 
 tftp_perform.exit.thread:                         ; preds = %if.end8
-  %call3.i = tail call i32 @tftp_multi_statemach(ptr noundef nonnull %data, ptr noundef nonnull writeonly %done)
+  %call3.i = tail call i32 @tftp_multi_statemach(ptr noundef nonnull %data, ptr noundef nonnull %done)
   br label %if.then11
 
 tftp_perform.exit:                                ; preds = %if.end8

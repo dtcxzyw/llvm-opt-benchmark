@@ -29330,7 +29330,7 @@ if.then119.i:                                     ; preds = %for.end116.i
 land.lhs.true.i:                                  ; preds = %if.then119.i
   %func_qualname122.i = getelementptr inbounds i8, ptr %func, i64 40
   %38 = load ptr, ptr %func_qualname122.i, align 8
-  %call123.i = tail call fastcc i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr noundef nonnull %9, i64 noundef %kwnames.val201.i, ptr noundef nonnull readonly %kwnames, ptr noundef %38)
+  %call123.i = tail call fastcc i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr noundef nonnull %9, i64 noundef %kwnames.val201.i, ptr noundef nonnull %kwnames, ptr noundef %38)
   %tobool124.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool124.not.i, label %land.lhs.true.if.end126_crit_edge.i, label %kw_fail.i
 

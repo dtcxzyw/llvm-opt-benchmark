@@ -2362,7 +2362,7 @@ if.then.i.i.i213:                                 ; preds = %if.then.i.i178
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i178
   %mul.i.i.i179 = shl nuw nsw i64 %conv.pre-phi.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %237, ptr readonly align 1 %238, i64 %mul.i.i.i179, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %237, ptr align 1 %238, i64 %mul.i.i.i179, i1 false)
   %.pre.i180 = load ptr, ptr %mapping.i175, align 8
   %.pre125.i = load i32, ptr %mapping_size.i, align 4
   br label %copy_array.exit.i

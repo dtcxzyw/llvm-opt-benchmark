@@ -4298,7 +4298,7 @@ define void @_ZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferReque
 
 _ZNSt10shared_ptrISt7promiseIN3nix18FileTransferResultEEEC2ERKS4_.exit: ; preds = %3, %14, %17
   %19 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
           to label %21 unwind label %110
 
@@ -5215,7 +5215,7 @@ _ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferReq
   br label %_ZNSt8functionIFvN3nix18FileTransferResultEEEC2EOS3_.exit
 
 _ZNSt8functionIFvN3nix18FileTransferResultEEEC2EOS3_.exit: ; preds = %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEEC2ERKSE_.exit40, %60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %62 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36
           to label %.noexc41 unwind label %174
 
@@ -5226,7 +5226,7 @@ _ZNSt8functionIFvN3nix18FileTransferResultEEEC2EOS3_.exit: ; preds = %_ZNSt10sha
   store ptr null, ptr %10, align 16
   %64 = getelementptr inbounds i8, ptr %62, i64 16
   %65 = getelementptr inbounds i8, ptr %62, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store ptr %57, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %10, i64 32
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %59, null
@@ -5234,7 +5234,7 @@ _ZNSt8functionIFvN3nix18FileTransferResultEEEC2EOS3_.exit: ; preds = %_ZNSt10sha
 
 67:                                               ; preds = %.noexc41
   %68 = getelementptr inbounds i8, ptr %62, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %64, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false)
   store ptr %59, ptr %68, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   br label %69

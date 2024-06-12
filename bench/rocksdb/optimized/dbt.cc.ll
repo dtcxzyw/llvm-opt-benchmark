@@ -28,7 +28,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef ptr @_Z19toku_init_dbt_flagsP10__toku_dbtj(ptr noundef returned writeonly %dbt, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   %flags1 = getelementptr inbounds i8, ptr %dbt, i64 24
   store i32 %flags, ptr %flags1, align 8
   ret ptr %dbt
@@ -47,7 +47,7 @@ entry:
 sw.bb:                                            ; preds = %entry, %entry
   %1 = load ptr, ptr %dbt, align 8
   tail call void @_Z9toku_freePv(ptr noundef %1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb, %entry
@@ -60,7 +60,7 @@ declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #3
 define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %dbt, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   %size = getelementptr inbounds i8, ptr %dbt, i64 8
   store i64 %len, ptr %size, align 8
   store ptr %k, ptr %dbt, align 8
@@ -70,7 +70,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z15toku_memdup_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   %flags1.i = getelementptr inbounds i8, ptr %dbt, i64 24
   store i32 8, ptr %flags1.i, align 8
   %size = getelementptr inbounds i8, ptr %dbt, i64 8
@@ -104,7 +104,7 @@ entry:
   %0 = load ptr, ptr %src, align 8
   %size = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i64, ptr %size, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %dst, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst, i8 0, i64 32, i1 false)
   %flags1.i.i = getelementptr inbounds i8, ptr %dst, i64 24
   store i32 8, ptr %flags1.i.i, align 8
   %size.i = getelementptr inbounds i8, ptr %dst, i64 8

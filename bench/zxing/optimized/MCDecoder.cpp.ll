@@ -1139,7 +1139,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL12GetPostCode3B5cxx11ERKNS_9ByteArray
           to label %419 unwind label %446, !noalias !4
 
 419:                                              ; preds = %418
-  invoke fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMessageERKNS_9ByteArrayEiiRNS_7ContentERNS_20StructuredAppendInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %27, i32 noundef 10, i32 noundef 84, ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMessageERKNS_9ByteArrayEiiRNS_7ContentERNS_20StructuredAppendInfoE(ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 10, i32 noundef 84, ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %420 unwind label %448, !noalias !4
 
 420:                                              ; preds = %419
@@ -1388,7 +1388,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
 
 .invoke.i:                                        ; preds = %492, %.noexc26, %.noexc26
   %493 = phi i32 [ 77, %492 ], [ 93, %.noexc26 ], [ 93, %.noexc26 ]
-  invoke fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMessageERKNS_9ByteArrayEiiRNS_7ContentERNS_20StructuredAppendInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %27, i32 noundef 1, i32 noundef %493, ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMessageERKNS_9ByteArrayEiiRNS_7ContentERNS_20StructuredAppendInfoE(ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 1, i32 noundef %493, ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %494 unwind label %442, !noalias !4
 
 494:                                              ; preds = %.invoke.i, %489, %.noexc26

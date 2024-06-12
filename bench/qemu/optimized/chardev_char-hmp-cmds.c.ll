@@ -359,7 +359,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %str) #4
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #4
   %conv.i = trunc i64 %call.i to i32
   tail call void @readline_set_completion_index(ptr noundef %rs, i32 noundef %conv.i) #3
   %call1.i = tail call ptr @qmp_query_chardev(ptr noundef null) #3
@@ -371,7 +371,7 @@ while.body.i:                                     ; preds = %if.end, %if.end11.i
   %value.i = getelementptr inbounds i8, ptr %list.010.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %call2.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef readonly %str, i64 noundef %call.i) #4
+  %call2.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef %str, i64 noundef %call.i) #4
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %if.then.i, label %if.end11.i
 

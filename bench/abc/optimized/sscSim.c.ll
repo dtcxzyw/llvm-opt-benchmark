@@ -1072,7 +1072,7 @@ Ssc_GiaResetSimInfo.exit:                         ; preds = %32, %Vec_WrdGrow.ex
   %.val.i89 = load ptr, ptr %38, align 8
   %39 = zext nneg i32 %9 to i64
   %40 = shl nuw nsw i64 %39, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %.val.i89, i8 0, i64 %40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.val.i89, i8 0, i64 %40, i1 false)
   br label %Ssc_SimConst.exit
 
 Ssc_SimConst.exit:                                ; preds = %Ssc_GiaResetSimInfo.exit, %.lr.ph.preheader.i

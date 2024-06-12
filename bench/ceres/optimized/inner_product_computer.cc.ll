@@ -526,7 +526,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %.critedge, %_ZN6go
   %40 = getelementptr inbounds i8, ptr %38, i64 12
   store i32 %3, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %38, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   store ptr %38, ptr %0, align 8
   invoke void @_ZN5ceres8internal20InnerProductComputer4InitENS0_25CompressedRowSparseMatrix11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(48) %38, i32 noundef %4)
           to label %44 unwind label %42

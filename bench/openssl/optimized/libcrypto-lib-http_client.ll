@@ -2391,12 +2391,12 @@ if.end.i:                                         ; preds = %if.then25
   br i1 %cmp1.i, label %land.lhs.true28, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %current_url.1, ptr noundef nonnull dereferenceable(7) @.str.56, i64 noundef 6) #10
+  %call.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %current_url.1, ptr noundef nonnull dereferenceable(7) @.str.56, i64 noundef 6) #10
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %land.lhs.true28
 
 land.lhs.true.i:                                  ; preds = %if.end4.i
-  %call7.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.56, i64 noundef 6) #10
+  %call7.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.56, i64 noundef 6) #10
   %cmp8.i = icmp eq i32 %call7.i, 0
   br i1 %cmp8.i, label %land.lhs.true28, label %redirection_ok.exit
 

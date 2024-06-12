@@ -67,7 +67,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
   %aux_data.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %data_prd, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, ptr noundef nonnull align 8 dereferenceable(16) %data_prd, i64 16, i1 false)
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then4.i, %land.lhs.true.i, %if.end.i

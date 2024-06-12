@@ -1263,7 +1263,7 @@ Abc_Clock.exit:                                   ; preds = %7, %14
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %.05.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %24 ]
-  call fastcc void @Fx_PrintDiv(ptr noundef nonnull readonly %21, i32 noundef %.05.i)
+  call fastcc void @Fx_PrintDiv(ptr noundef nonnull %21, i32 noundef %.05.i)
   %29 = add nuw nsw i32 %.05.i, 1
   %30 = load ptr, ptr %25, align 8
   %31 = getelementptr i8, ptr %30, i64 4
@@ -1606,7 +1606,7 @@ Abc_Clock.exit38:                                 ; preds = %163, %166
   %indvars.iv35.i = phi i64 [ %180, %.lr.ph31.i ], [ %indvars.iv.next36.i, %.critedge.i ]
   %.val24.i = load ptr, ptr %179, align 8
   %196 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv35.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %.val22.i = load i32, ptr %175, align 4
   %197 = sext i32 %.val22.i to i64

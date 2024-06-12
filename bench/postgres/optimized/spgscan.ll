@@ -452,7 +452,7 @@ spgPrepareScanKeys.exit:                          ; preds = %79, %104, %._crit_e
   %148 = getelementptr inbounds i8, ptr %143, i64 64
   %149 = zext nneg i32 %145 to i64
   %150 = shl nuw nsw i64 %149, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %148, ptr readonly align 8 %137, i64 %150, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %148, ptr align 8 %137, i64 %150, i1 false)
   br label %spgAddStartItem.exit.i
 
 spgAddStartItem.exit.i:                           ; preds = %147, %135
@@ -1115,13 +1115,13 @@ ItemPointerIsValid.exit.i:                        ; preds = %212
   %238 = getelementptr inbounds i8, ptr %233, i64 64
   %239 = zext nneg i32 %235 to i64
   %240 = shl nuw nsw i64 %239, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %238, ptr readonly align 8 %225, i64 %240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %238, ptr align 8 %225, i64 %240, i1 false)
   br label %spgAllocSearchItem.exit.i.i
 
 spgAllocSearchItem.exit.i.i:                      ; preds = %237, %228, %.thread.i.i.i
   %241 = phi ptr [ %226, %.thread.i.i.i ], [ %233, %237 ], [ %233, %228 ]
   %242 = getelementptr inbounds i8, ptr %241, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %242, ptr noundef nonnull readonly align 2 dereferenceable(6) %219, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %242, ptr noundef nonnull align 2 dereferenceable(6) %219, i64 6, i1 false)
   %243 = load ptr, ptr %36, align 8
   %.not.i54.i = icmp eq ptr %243, null
   %244 = load i32, ptr %211, align 8
@@ -1855,7 +1855,7 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   %118 = getelementptr inbounds i8, ptr %113, i64 64
   %119 = zext nneg i32 %115 to i64
   %120 = shl nuw nsw i64 %119, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr readonly align 8 %.03952.i, i64 %120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr align 8 %.03952.i, i64 %120, i1 false)
   br label %spgAllocSearchItem.exit.i.i
 
 spgAllocSearchItem.exit.i.i:                      ; preds = %117, %109
@@ -1863,7 +1863,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %117, %109
   store i32 %107, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %113, i64 52
   %123 = getelementptr inbounds i8, ptr %17, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %122, ptr noundef nonnull readonly align 2 dereferenceable(6) %123, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %122, ptr noundef nonnull align 2 dereferenceable(6) %123, i64 6, i1 false)
   %124 = getelementptr inbounds i8, ptr %0, i64 304
   %125 = load i8, ptr %124, align 8
   %126 = trunc i8 %125 to i1
@@ -1877,7 +1877,7 @@ spgAllocSearchItem.exit.thread.i.i:               ; preds = %102
   store i32 %107, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %127, i64 52
   %131 = getelementptr inbounds i8, ptr %17, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %130, ptr noundef nonnull readonly align 2 dereferenceable(6) %131, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %130, ptr noundef nonnull align 2 dereferenceable(6) %131, i64 6, i1 false)
   %132 = getelementptr inbounds i8, ptr %0, i64 304
   %133 = load i8, ptr %132, align 8
   %134 = trunc i8 %133 to i1
@@ -1914,7 +1914,7 @@ spgAllocSearchItem.exit.thread.i.i:               ; preds = %102
   %156 = load i32, ptr %17, align 4
   %157 = lshr i32 %156, 2
   %158 = zext nneg i32 %157 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %154, ptr nonnull readonly align 4 %17, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %154, ptr nonnull align 4 %17, i64 %158, i1 false)
   br label %spgNewHeapItem.exit.i
 
 159:                                              ; preds = %.thread.i.i

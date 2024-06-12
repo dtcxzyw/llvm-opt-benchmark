@@ -2248,7 +2248,7 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %29, %27
   %56 = load i32, ptr %7, align 8
   %57 = load i32, ptr %52, align 4
   %58 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store i32 %56, ptr %54, align 8
   %59 = icmp eq i32 %57, 0
   br i1 %59, label %copy_address_wmem.exit, label %60
@@ -2270,7 +2270,7 @@ copy_address_wmem.exit:                           ; preds = %51, %60
   %68 = load i32, ptr %36, align 8
   %69 = load i32, ptr %37, align 4
   %70 = load ptr, ptr %38, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
   store i32 %68, ptr %67, align 8
   %71 = icmp eq i32 %69, 0
   br i1 %71, label %copy_address_wmem.exit48, label %72
@@ -7508,8 +7508,8 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
   %156 = getelementptr inbounds i8, ptr %.06392, i64 312
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %156, i8 0, i64 16, i1 false)
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %155, ptr noundef nonnull dereferenceable(16) %7, i64 16)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %156, i8 0, i64 16, i1 false)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %155, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not.i84 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i84, label %162, label %.preheader.i
 

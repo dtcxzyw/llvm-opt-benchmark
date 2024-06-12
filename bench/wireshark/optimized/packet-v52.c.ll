@@ -808,7 +808,7 @@ dissect_v52_message.exit:                         ; preds = %.thread106.i, %90, 
   %140 = zext i8 %139 to i32
   %141 = tail call ptr @val_to_str_ext_const(i32 noundef %140, ptr noundef nonnull @msg_type_values_short_ext, ptr noundef nonnull @.str.367) #3
   tail call void @col_append_str(ptr noundef %138, i32 noundef 25, ptr noundef %141) #3
-  tail call fastcc void @dissect_v52_info(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %.0.i)
+  tail call fastcc void @dissect_v52_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i)
   %142 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %142
 }

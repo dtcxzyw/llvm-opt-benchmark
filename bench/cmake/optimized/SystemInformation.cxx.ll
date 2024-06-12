@@ -1601,7 +1601,7 @@ define dso_local void @_ZN5cmsys17SystemInformation20GetMemoryDescriptionB5cxx11
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr null, ptr %12, align 8
   store i64 0, ptr %8, align 8
-  %13 = invoke fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %13 = invoke fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %7, ptr noundef nonnull %8)
           to label %14 unwind label %40
 
 14:                                               ; preds = %11
@@ -1624,7 +1624,7 @@ define dso_local void @_ZN5cmsys17SystemInformation20GetMemoryDescriptionB5cxx11
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %20, align 8
   store i64 0, ptr %6, align 8
-  %21 = invoke fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %21 = invoke fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %19
@@ -1637,7 +1637,7 @@ define dso_local void @_ZN5cmsys17SystemInformation20GetMemoryDescriptionB5cxx11
   br i1 %.not.i.i, label %_ZN5cmsys17SystemInformation22GetHostMemoryAvailableEPKc.exit, label %23
 
 23:                                               ; preds = %.noexc
-  %24 = call ptr @getenv(ptr noundef nonnull readonly %2) #29
+  %24 = call ptr @getenv(ptr noundef nonnull %2) #29
   %.not11.i.i = icmp eq ptr %24, null
   br i1 %.not11.i.i, label %_ZN5cmsys17SystemInformation22GetHostMemoryAvailableEPKc.exit, label %25
 
@@ -1698,7 +1698,7 @@ define dso_local noundef i64 @_ZN5cmsys17SystemInformation18GetHostMemoryTotalEv
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %4, align 8
   store i64 0, ptr %3, align 8
-  %5 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %5 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not.i.i = icmp eq i32 %5, 0
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -1717,7 +1717,7 @@ define dso_local noundef i64 @_ZN5cmsys17SystemInformation22GetHostMemoryAvailab
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   store i64 0, ptr %4, align 8
-  %6 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %6 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not.i.i.i = icmp eq i32 %6, 0
   %7 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -1727,7 +1727,7 @@ define dso_local noundef i64 @_ZN5cmsys17SystemInformation22GetHostMemoryAvailab
   br i1 %.not.i, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = call ptr @getenv(ptr noundef nonnull readonly %1) #29
+  %9 = call ptr @getenv(ptr noundef nonnull %1) #29
   %.not11.i = icmp eq ptr %9, null
   br i1 %.not11.i, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit, label %10
 
@@ -1762,7 +1762,7 @@ _ZN5cmsys12_GLOBAL__N_116GetFieldFromFileIxEEiPKcS3_RT_.exit:
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %2, align 8
-  %4 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %4 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %4, 0
   %5 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
@@ -1781,7 +1781,7 @@ define dso_local noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetHos
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   store i64 0, ptr %4, align 8
-  %6 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %6 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not.i.i = icmp eq i32 %6, 0
   %7 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -1912,7 +1912,7 @@ define dso_local noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetPro
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
   store i64 0, ptr %5, align 8
-  %8 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.176, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %8 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.176, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not.i.i.i = icmp eq i32 %8, 0
   %9 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1922,7 +1922,7 @@ define dso_local noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetPro
   br i1 %.not.i, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = call ptr @getenv(ptr noundef nonnull readonly %1) #29
+  %11 = call ptr @getenv(ptr noundef nonnull %1) #29
   %.not11.i = icmp eq ptr %11, null
   br i1 %.not11.i, label %_ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit, label %12
 
@@ -1997,7 +1997,7 @@ define dso_local noundef i64 @_ZN5cmsys17SystemInformation17GetProcMemoryUsedEv(
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %4, align 8
   store i64 0, ptr %3, align 8
-  %5 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.182, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %5 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.182, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not.i.i = icmp eq i32 %5, 0
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -2017,7 +2017,7 @@ _ZN5cmsys12_GLOBAL__N_116GetFieldFromFileIxEEiPKcS3_RT_.exit:
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %2, align 8
-  %4 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull readonly @.str.182, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %4 = call fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIxEEiPKcPS3_PT_(ptr noundef nonnull @.str.182, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %4, 0
   %5 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
@@ -2548,7 +2548,7 @@ define dso_local void @_ZN5cmsys31SystemInformationImplementation10RunOSCheckEv(
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5cmsys17SystemInformation14RunMemoryCheckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation16QueryLinuxMemoryEv(ptr noundef nonnull writeonly align 8 dereferenceable(457) %2)
+  %3 = tail call noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation16QueryLinuxMemoryEv(ptr noundef nonnull align 8 dereferenceable(457) %2)
   ret void
 }
 
@@ -5154,7 +5154,7 @@ define internal fastcc noundef i32 @_ZN5cmsys12_GLOBAL__N_117GetFieldsFromFileIx
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %10 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.141)
+  %10 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.141)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN5cmsys12_GLOBAL__N_19LoadLinesEPKcRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE.exit.thread, label %12
 

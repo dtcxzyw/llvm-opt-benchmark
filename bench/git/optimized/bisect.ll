@@ -947,7 +947,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_bisect_run.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %call.i = call fastcc i32 @bisect_next_check(ptr noundef nonnull readonly %terms, ptr noundef null)
+  %call.i = call fastcc i32 @bisect_next_check(ptr noundef nonnull %terms, ptr noundef null)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %bisect_visualize.exit
 
@@ -1834,11 +1834,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %arrayidx71, ptr noundef nonnull readonly dereferenceable(32) %expected, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %arrayidx71, ptr noundef nonnull dereferenceable(32) %expected, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %arrayidx71, ptr noundef nonnull readonly dereferenceable(20) %expected, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %arrayidx71, ptr noundef nonnull dereferenceable(20) %expected, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -3344,7 +3344,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 land.lhs.true8.i:                                 ; preds = %if.end4.i
   %5 = load ptr, ptr %terms, align 8
-  %call.i2 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %current_term, ptr noundef nonnull dereferenceable(1) %5) #19
+  %call.i2 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %current_term, ptr noundef nonnull dereferenceable(1) %5) #19
   %tobool9.not.i = icmp eq i32 %call.i2, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end24.i
 
@@ -3968,7 +3968,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @get_first_good(ptr nocapture readnone %refname, ptr nocapture noundef readonly %oid, i32 %flag, ptr nocapture noundef writeonly %cb_data) #10 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %cb_data, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cb_data, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %cb_data, i64 32

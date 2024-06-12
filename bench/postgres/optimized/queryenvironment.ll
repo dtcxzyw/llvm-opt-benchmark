@@ -45,7 +45,7 @@ define dso_local noundef ptr @get_visible_ENR_metadata(ptr noundef readonly %0, 
   %13 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #5
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %1) #5
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %get_ENR.exit, label %11
 
@@ -137,7 +137,7 @@ define dso_local void @unregister_ENR(ptr noundef %0, ptr nocapture noundef read
   %13 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #5
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %1) #5
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %get_ENR.exit, label %11
 

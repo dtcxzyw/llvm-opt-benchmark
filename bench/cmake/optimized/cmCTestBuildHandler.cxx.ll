@@ -5942,13 +5942,13 @@ define dso_local void @_ZN19cmCTestBuildHandler19GenerateXMLLaunchedER11cmXMLWri
           to label %33 unwind label %.loopexit.split-lp.loopexit
 
 33:                                               ; preds = %31
-  %34 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %32) #21
+  %34 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #21
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZN19cmCTestBuildHandler21IsLaunchedWarningFileEPKc.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %33
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %34, i64 6)
-  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %32, ptr nonnull @.str.66, i64 %.sroa.speculated.i.i.i.i.i)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %32, ptr nonnull @.str.66, i64 %.sroa.speculated.i.i.i.i.i)
   %36 = icmp eq i32 %bcmp.i.i.i, 0
   %37 = icmp ugt i64 %34, 5
   %or.cond.i = and i1 %37, %36
@@ -5957,7 +5957,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %33
 _ZN19cmCTestBuildHandler19IsLaunchedErrorFileEPKc.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %38 = getelementptr i8, ptr %32, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -4
-  %bcmp.i.i3.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %39, ptr noundef nonnull dereferenceable(4) @.str.67, i64 4)
+  %bcmp.i.i3.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %39, ptr noundef nonnull dereferenceable(4) @.str.67, i64 4)
   %40 = icmp eq i32 %bcmp.i.i3.i, 0
   %41 = icmp ne i32 %.02975, 0
   %or.cond = select i1 %40, i1 %41, i1 false
@@ -6046,7 +6046,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i43: ; preds = %_ZN19cmCTestBuildHandler19IsLaunchedErrorFileEPKc.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i44 = call i64 @llvm.umin.i64(i64 %34, i64 8)
-  %bcmp.i.i.i45 = call i32 @bcmp(ptr readonly %32, ptr nonnull @.str.68, i64 %.sroa.speculated.i.i.i.i.i44)
+  %bcmp.i.i.i45 = call i32 @bcmp(ptr %32, ptr nonnull @.str.68, i64 %.sroa.speculated.i.i.i.i.i44)
   %64 = icmp eq i32 %bcmp.i.i.i45, 0
   %65 = icmp ugt i64 %34, 7
   %or.cond.i46 = and i1 %65, %64
@@ -6055,7 +6055,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i43: ; preds = %_ZN19cmCTestB
 _ZN19cmCTestBuildHandler21IsLaunchedWarningFileEPKc.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i43
   %66 = getelementptr i8, ptr %32, i64 %34
   %67 = getelementptr i8, ptr %66, i64 -4
-  %bcmp.i.i3.i48 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %67, ptr noundef nonnull dereferenceable(4) @.str.67, i64 4)
+  %bcmp.i.i3.i48 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %67, ptr noundef nonnull dereferenceable(4) @.str.67, i64 4)
   %68 = icmp eq i32 %bcmp.i.i3.i48, 0
   %69 = icmp ne i32 %.03174, 0
   %or.cond3 = select i1 %68, i1 %69, i1 false
@@ -10929,7 +10929,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS6_ERbiEUlSt6vectorIcS6_EE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit"
 
@@ -11033,7 +11033,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN19cmCTestBu
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS6_ERbiEUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 

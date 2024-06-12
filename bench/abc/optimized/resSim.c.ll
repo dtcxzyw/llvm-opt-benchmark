@@ -418,7 +418,7 @@ Vec_PtrAllocSimInfo.exit72:                       ; preds = %.lr.ph.i68, %Vec_Pt
   %116 = mul nsw i32 %115, %2
   %117 = sext i32 %116 to i64
   %118 = shl nsw i64 %117, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %113, i8 0, i64 %118, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %113, i8 0, i64 %118, i1 false)
   %119 = load ptr, ptr %58, align 8
   %120 = getelementptr i8, ptr %119, i64 8
   %.val45 = load ptr, ptr %120, align 8
@@ -427,7 +427,7 @@ Vec_PtrAllocSimInfo.exit72:                       ; preds = %.lr.ph.i68, %Vec_Pt
   %123 = mul nsw i32 %122, %2
   %124 = sext i32 %123 to i64
   %125 = shl nsw i64 %124, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %121, i8 0, i64 %125, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %121, i8 0, i64 %125, i1 false)
   %126 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %0, i64 84
@@ -1484,7 +1484,7 @@ define void @Res_SimPerformRound(ptr nocapture noundef readonly %0, i32 noundef 
   %6 = load ptr, ptr %.val23, align 8
   %7 = sext i32 %1 to i64
   %8 = shl nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %6, i8 -1, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 -1, i64 %8, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8

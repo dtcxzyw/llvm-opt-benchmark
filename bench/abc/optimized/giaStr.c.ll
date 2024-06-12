@@ -41,10 +41,10 @@ define ptr @Str_NtkToGia(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #28
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #29
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #27
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #27
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %8
@@ -56,10 +56,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %8
   br i1 %.not.i78, label %Abc_UtilStrsav.exit79, label %16
 
 16:                                               ; preds = %Abc_UtilStrsav.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #28
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #28
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #29
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %15) #27
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #27
   br label %Abc_UtilStrsav.exit79
 
 Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit, %16
@@ -585,10 +585,10 @@ define ptr @Gia_ManDupMuxesNoHash(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i154, label %Abc_UtilStrsav.exit, label %51
 
 51:                                               ; preds = %.critedge
-  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #28
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #28
   %53 = add i64 %52, 1
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #29
-  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull readonly dereferenceable(1) %50) #27
+  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %50) #27
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge, %51
@@ -600,10 +600,10 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %51
   br i1 %.not.i155, label %Abc_UtilStrsav.exit156, label %59
 
 59:                                               ; preds = %Abc_UtilStrsav.exit
-  %60 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %58) #28
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #28
   %61 = add i64 %60, 1
   %62 = tail call noalias ptr @malloc(i64 noundef %61) #29
-  %63 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(1) %58) #27
+  %63 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %58) #27
   br label %Abc_UtilStrsav.exit156
 
 Abc_UtilStrsav.exit156:                           ; preds = %Abc_UtilStrsav.exit, %59
@@ -3321,7 +3321,7 @@ Gia_ObjFanin2Copy.exit:                           ; preds = %Gia_ObjFanin2.exit,
   store i64 %102, ptr %99, align 4
   %103 = getelementptr inbounds i8, ptr %100, i64 4
   store i32 0, ptr %103, align 4
-  tail call void @Str_MuxInputsCollect_rec(ptr noundef nonnull readonly %1, ptr noundef nonnull %99, ptr noundef %100)
+  tail call void @Str_MuxInputsCollect_rec(ptr noundef nonnull %1, ptr noundef nonnull %99, ptr noundef %100)
   %104 = load i64, ptr %99, align 4
   %105 = and i64 %104, -1073741825
   store i64 %105, ptr %99, align 4
@@ -6372,10 +6372,10 @@ define ptr @Str_NtkBalance(ptr nocapture noundef readonly %0, ptr noundef %1, i3
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #28
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #28
   %13 = add i64 %12, 1
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #29
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %10) #27
+  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %10) #27
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %7, %11
@@ -6387,10 +6387,10 @@ Abc_UtilStrsav.exit:                              ; preds = %7, %11
   br i1 %.not.i138, label %Abc_UtilStrsav.exit139, label %19
 
 19:                                               ; preds = %Abc_UtilStrsav.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #28
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #28
   %21 = add i64 %20, 1
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #29
-  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %18) #27
+  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %18) #27
   br label %Abc_UtilStrsav.exit139
 
 Abc_UtilStrsav.exit139:                           ; preds = %Abc_UtilStrsav.exit, %19
@@ -7918,7 +7918,7 @@ define i32 @Str_MuxRestructure2(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %11 = add nsw i32 %3, 1
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 6
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 16 %8, i8 0, i64 %13, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %13, i1 false)
   %14 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 %5, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %8, i64 16
@@ -8049,7 +8049,7 @@ define i32 @Str_MuxRestructure1(ptr noundef %0, ptr nocapture noundef %1, i32 no
   %11 = add nsw i32 %3, 1
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 6
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 16 %8, i8 0, i64 %13, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %13, i1 false)
   %14 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 %5, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %8, i64 16
@@ -8180,7 +8180,7 @@ define i32 @Str_MuxRestructureArea(ptr noundef %0, ptr nocapture noundef readonl
   %11 = add nsw i32 %3, 1
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 6
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 16 %8, i8 0, i64 %13, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %13, i1 false)
   %14 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 %5, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %8, i64 16

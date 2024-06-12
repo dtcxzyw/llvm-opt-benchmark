@@ -91,7 +91,7 @@ define noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  %8 = tail call i32 @strncasecmp(ptr noundef readonly %6, ptr noundef readonly %7, i64 noundef %3) #16
+  %8 = tail call i32 @strncasecmp(ptr noundef %6, ptr noundef %7, i64 noundef %3) #16
   %9 = icmp eq i32 %8, 0
   br label %10
 
@@ -112,7 +112,7 @@ define noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic
 
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  %7 = tail call i32 @strncasecmp(ptr noundef readonly %6, ptr noundef readonly %1, i64 noundef %3) #16
+  %7 = tail call i32 @strncasecmp(ptr noundef %6, ptr noundef %1, i64 noundef %3) #16
   %8 = icmp eq i32 %7, 0
   br label %9
 
@@ -132,7 +132,7 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalEPKcS3_(ptr no
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %3) #16
+  %6 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #16
   %7 = icmp eq i32 %6, 0
   br label %8
 
@@ -286,7 +286,7 @@ define noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_stringI
   %.012 = phi i64 [ %10, %9 ], [ 0, %2 ]
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %6 = getelementptr inbounds i8, ptr %5, i64 %.012
-  %7 = tail call i32 @strncasecmp(ptr noundef readonly %6, ptr noundef readonly %1, i64 noundef %3) #16
+  %7 = tail call i32 @strncasecmp(ptr noundef %6, ptr noundef %1, i64 noundef %3) #16
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
@@ -315,7 +315,7 @@ define hidden noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %8 = getelementptr inbounds i8, ptr %7, i64 %.013
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  %10 = tail call i32 @strncasecmp(ptr noundef readonly %8, ptr noundef readonly %9, i64 noundef %4) #16
+  %10 = tail call i32 @strncasecmp(ptr noundef %8, ptr noundef %9, i64 noundef %4) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %._crit_edge, label %12
 
@@ -339,7 +339,7 @@ define noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr no
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %4) #16
+  %7 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #16
   %8 = icmp eq i32 %7, 0
   br label %9
 
@@ -359,7 +359,7 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withERKNSt7
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  %10 = tail call i32 @strncasecmp(ptr noundef readonly %7, ptr noundef readonly %8, i64 noundef %9) #16
+  %10 = tail call i32 @strncasecmp(ptr noundef %7, ptr noundef %8, i64 noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br label %12
 

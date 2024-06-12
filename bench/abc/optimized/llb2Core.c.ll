@@ -2847,7 +2847,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %77
   %83 = call ptr @Llb_CoreStart(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %1)
   %84 = getelementptr inbounds i8, ptr %83, i64 80
   %85 = load ptr, ptr %84, align 8
-  %86 = call ptr @Llb_CoreConstructAll(ptr noundef %31, ptr noundef readonly %41, ptr noundef %85, i64 noundef %82)
+  %86 = call ptr @Llb_CoreConstructAll(ptr noundef %31, ptr noundef %41, ptr noundef %85, i64 noundef %82)
   %87 = getelementptr inbounds i8, ptr %83, i64 48
   store ptr %86, ptr %87, align 8
   %88 = icmp eq ptr %86, null

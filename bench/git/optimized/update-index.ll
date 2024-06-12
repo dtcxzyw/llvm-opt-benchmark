@@ -2796,7 +2796,7 @@ if.end14.i.us.us.i:                               ; preds = %if.end5.i.us.us.i
   %conv15.i.us.us.i = sext i32 %12 to i64
   %call16.i.us.us.i = call ptr @make_empty_cache_entry(ptr noundef nonnull @the_index, i64 noundef %conv15.i.us.us.i) #18
   %oid17.i.us.us.i = getelementptr inbounds i8, ptr %call16.i.us.us.i, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid17.i.us.us.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid17.i.us.us.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
   %16 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i.us.us.i = getelementptr inbounds i8, ptr %call16.i.us.us.i, i64 104
   store i32 %16, ptr %algo3.i.i.us.us.i, align 4
@@ -2865,11 +2865,11 @@ if.end.i.us.us.i:                                 ; preds = %if.then.i.us.us.i, 
   br i1 %cmp.i.i21.us.us.i, label %if.then.i.i.us.us.i, label %if.end.i.i22.us.us.i
 
 if.end.i.i22.us.us.i:                             ; preds = %if.end.i.us.us.i
-  %bcmp.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.us.us.i, ptr noundef nonnull readonly dereferenceable(20) %oid17.i.us.us.i, i64 20)
+  %bcmp.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.us.us.i, ptr noundef nonnull dereferenceable(20) %oid17.i.us.us.i, i64 20)
   br label %oideq.exit.us.us.i
 
 if.then.i.i.us.us.i:                              ; preds = %if.end.i.us.us.i
-  %bcmp3.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.us.us.i, ptr noundef nonnull readonly dereferenceable(32) %oid17.i.us.us.i, i64 32)
+  %bcmp3.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.us.us.i, ptr noundef nonnull dereferenceable(32) %oid17.i.us.us.i, i64 32)
   br label %oideq.exit.us.us.i
 
 oideq.exit.us.us.i:                               ; preds = %if.then.i.i.us.us.i, %if.end.i.i22.us.us.i
@@ -3313,7 +3313,7 @@ if.end:                                           ; preds = %entry
   %conv4 = ashr exact i64 %sext, 32
   %call5 = tail call ptr @make_empty_cache_entry(ptr noundef nonnull @the_index, i64 noundef %conv4) #18
   %oid6 = getelementptr inbounds i8, ptr %call5, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid6, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid6, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %call5, i64 104

@@ -322,7 +322,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
 
 131:                                              ; preds = %zend_merge_blocks.exit, %115
   %.0321565 = phi i32 [ 0, %115 ], [ %2960, %zend_merge_blocks.exit ]
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %.0320, i8 0, i64 %71, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.0320, i8 0, i64 %71, i1 false)
   %132 = load i32, ptr %16, align 8
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %zend_t_usage.exit, label %134
@@ -368,7 +368,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
 
 160:                                              ; preds = %150, %148
   %.0207.i = phi ptr [ %136, %148 ], [ %155, %150 ]
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %.0207.i, i8 0, i64 %142, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.0207.i, i8 0, i64 %142, i1 false)
   %161 = load i32, ptr %10, align 8
   %162 = icmp sgt i32 %161, 1
   br i1 %162, label %.lr.ph249.i, label %._crit_edge.i
@@ -397,7 +397,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %or.cond.i, label %179, label %178
 
 178:                                              ; preds = %167
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %.0207.i, i8 0, i64 %142, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.0207.i, i8 0, i64 %142, i1 false)
   br label %179
 
 179:                                              ; preds = %178, %167
@@ -703,7 +703,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %or.cond236.i, label %351, label %350
 
 350:                                              ; preds = %346, %337
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %.0207.i, ptr readonly align 8 %.0320, i64 %142, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0207.i, ptr align 8 %.0320, i64 %142, i1 false)
   br label %zend_bitset_union.exit.i
 
 351:                                              ; preds = %346

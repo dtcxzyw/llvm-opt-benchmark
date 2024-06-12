@@ -47,7 +47,7 @@ define dso_local void @_ZN2EA6Thread5MutexC2EPKNS0_15MutexParametersEb(ptr nound
 entry:
   %attr.i6 = alloca %union.pthread_mutexattr_t, align 4
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(44) %this, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %this, i8 0, i64 44, i1 false)
   %tobool.not = icmp eq ptr %pMutexParameters, null
   br i1 %tobool.not, label %land.lhs.true, label %_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE.exit
 
@@ -248,7 +248,7 @@ if.then:                                          ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 48, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(44) %call, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %call, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6.i)
   %mnLockCount.i9.i = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %mnLockCount.i9.i, align 8
@@ -262,7 +262,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(44) %call1, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %call1, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6.i1)
   %mnLockCount.i9.i2 = getelementptr inbounds i8, ptr %call1, i64 40
   store i32 0, ptr %mnLockCount.i9.i2, align 8
@@ -326,7 +326,7 @@ entry:
 define dso_local noundef ptr @_ZN2EA6Thread12MutexFactory14ConstructMutexEPv(ptr noundef returned %pMemory) local_unnamed_addr #3 align 2 {
 entry:
   %attr.i6.i = alloca %union.pthread_mutexattr_t, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(44) %pMemory, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %pMemory, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6.i)
   %mnLockCount.i9.i = getelementptr inbounds i8, ptr %pMemory, i64 40
   store i32 0, ptr %mnLockCount.i9.i, align 8

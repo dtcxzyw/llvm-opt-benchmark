@@ -35,7 +35,7 @@ define noundef i32 @LZ4_sizeofState() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @LZ4_compress_fast_extState(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %7 = icmp ugt i32 %3, 2113929216
   br i1 %7, label %LZ4_compressBound.exit, label %8
@@ -938,7 +938,7 @@ define noundef i32 @LZ4_compress_default(ptr noundef %0, ptr noundef %1, i32 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_Z23LZ4_compress_fast_forcePKcPciii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.LZ4_stream_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %6, i8 0, i64 16416, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %6, i8 0, i64 16416, i1 false)
   %7 = icmp slt i32 %2, 65547
   %. = select i1 %7, i32 2, i32 1
   %8 = call fastcc noundef i32 @_ZL20LZ4_compress_genericPvPKcPcii23limitedOutput_directive11tableType_t14dict_directive19dictIssue_directivej(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %., i32 noundef 0, i32 noundef 0, i32 noundef %4)
@@ -948,7 +948,7 @@ define noundef i32 @_Z23LZ4_compress_fast_forcePKcPciii(ptr noundef %0, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @LZ4_compress_destSize(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LZ4_stream_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %5, i8 0, i64 16416, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %5, i8 0, i64 16416, i1 false)
   %6 = load i32, ptr %2, align 4
   %7 = icmp ugt i32 %6, 2113929216
   br i1 %7, label %LZ4_compressBound.exit.i, label %8
@@ -1022,7 +1022,7 @@ define i32 @LZ4_loadDict(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -1995,7 +1995,7 @@ define range(i32 0, 2) i32 @LZ4_resetStreamState(ptr noundef %0, ptr noundef %1)
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 16400
   store ptr %1, ptr %6, align 8
   br label %7

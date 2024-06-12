@@ -904,7 +904,7 @@ for.inc21.i:                                      ; preds = %for.body9.i
 
 for.end23.i:                                      ; preds = %for.inc21.i
   call void @_Z7cie_labPd(ptr noundef nonnull %out.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r0, ptr noundef nonnull readonly align 8 dereferenceable(24) %rgb, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r0, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %r0)
   br label %for.body27.i
 
@@ -978,7 +978,7 @@ for.inc21.i40:                                    ; preds = %for.body9.i32
 
 for.end23.i43:                                    ; preds = %for.inc21.i40
   call void @_Z7cie_labPd(ptr noundef nonnull %out.i11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r1, ptr noundef nonnull readonly align 8 dereferenceable(24) %rgb, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %r1, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %r1)
   br label %for.body27.i44
 
@@ -1102,7 +1102,7 @@ for.inc21.i:                                      ; preds = %for.body9.i
 
 for.end23.i:                                      ; preds = %for.inc21.i
   call void @_Z7cie_labPd(ptr noundef nonnull %out.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %residual, ptr noundef nonnull readonly align 8 dereferenceable(24) %rgb, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %residual, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
   call void @_Z7cie_labPd(ptr noundef nonnull %residual)
   br label %for.body27.i
 
@@ -2355,37 +2355,37 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 24
   %0 = load ptr, ptr %arrayidx, align 8
-  %call.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.24) #36
+  %call.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.24) #36
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end9, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %call1.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.25) #36
+  %call1.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.25) #36
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end9, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.26) #36
+  %call5.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.26) #36
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end9, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %call9.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.27) #36
+  %call9.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.27) #36
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end9, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %call13.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.28) #36
+  %call13.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.28) #36
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %if.end9, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %call17.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.29) #36
+  %call17.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.29) #36
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %if.end9, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %call21.i = tail call i32 @strcasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.30) #36
+  %call21.i = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.30) #36
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.end9, label %if.then6
 
@@ -3210,7 +3210,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

@@ -1044,7 +1044,7 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readon
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr i8, ptr %13, i64 %30
   %32 = zext nneg i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %31, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %31, i64 %32, i1 false)
   %33 = getelementptr i8, ptr %27, i64 %32
   store i8 0, ptr %33, align 1
   %34 = add i32 %.02225.i, 1
@@ -1097,7 +1097,7 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr i8, ptr %47, i64 %64
   %66 = zext nneg i32 %58 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %65, i64 %66, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %65, i64 %66, i1 false)
   %67 = getelementptr i8, ptr %61, i64 %66
   store i8 0, ptr %67, align 1
   %68 = add i32 %.02225.i22, 1

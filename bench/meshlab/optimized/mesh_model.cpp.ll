@@ -591,7 +591,7 @@ define void @_ZN9MeshModelC2EiRK7QStringS2_(ptr noundef nonnull align 8 derefere
   store i8 1, ptr %5, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 1132
   %17 = getelementptr inbounds i8, ptr %0, i64 1136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %17, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 1152
   store float 1.000000e+00, ptr %18, align 8

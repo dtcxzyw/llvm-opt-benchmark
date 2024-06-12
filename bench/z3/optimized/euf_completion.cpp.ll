@@ -5327,7 +5327,7 @@ _ZZN3euf10completion13set_canonicalEPNS_5enodeEP4exprEN6vtrailC2ER10ref_vectorIS
 call.i.i.noexc:                                   ; preds = %_ZZN3euf10completion13set_canonicalEPNS_5enodeEP4exprEN6vtrailC2ER10ref_vectorIS3_11ast_managerEj.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN3euf10completion13set_canonicalEPNS_5enodeEP4exprE6vtrail, i64 16), ptr %call.i.i7, align 8
   %c.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %c.i.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %c2.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %c.i.i, ptr noundef nonnull align 8 dereferenceable(12) %c2.i, i64 12, i1 false)
   %old_value.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 24
   store ptr %7, ptr %old_value.i.i, align 8
   %m_manager.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 32

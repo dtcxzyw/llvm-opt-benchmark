@@ -370,7 +370,7 @@ format_number.exit.thread.i:                      ; preds = %110, %._crit_edge.i
 
 .preheader.i.i.i:                                 ; preds = %format_number.exit.thread.i
   %113 = getelementptr inbounds i8, ptr %6, i64 108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %113, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %113, i8 48, i64 6, i1 false)
   br label %124
 
 114:                                              ; preds = %format_number.exit.thread.i
@@ -411,7 +411,7 @@ format_number.exit88.i:                           ; preds = %124, %._crit_edge.i
 
 .preheader.i.i96.i:                               ; preds = %format_number.exit88.i
   %127 = getelementptr inbounds i8, ptr %6, i64 116
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %127, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %127, i8 48, i64 6, i1 false)
   br label %138
 
 128:                                              ; preds = %format_number.exit88.i
@@ -452,7 +452,7 @@ format_number.exit97.i:                           ; preds = %138, %._crit_edge.i
 
 .preheader.i.i105.i:                              ; preds = %format_number.exit97.i
   %141 = getelementptr inbounds i8, ptr %6, i64 124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(11) %141, i8 48, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %141, i8 48, i64 11, i1 false)
   br label %152
 
 142:                                              ; preds = %format_number.exit97.i
@@ -493,7 +493,7 @@ format_number.exit106.i:                          ; preds = %152, %._crit_edge.i
 
 .preheader.i.i114.i:                              ; preds = %format_number.exit106.i
   %155 = getelementptr inbounds i8, ptr %6, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(11) %155, i8 48, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %155, i8 48, i64 11, i1 false)
   br label %166
 
 156:                                              ; preds = %format_number.exit106.i

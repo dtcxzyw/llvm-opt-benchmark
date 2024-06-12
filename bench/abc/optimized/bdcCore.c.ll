@@ -732,7 +732,7 @@ Vec_IntFetch.exit:                                ; preds = %Bdc_FunNew.exit, %2
 select.unfold.preheader.i:                        ; preds = %Vec_IntFetch.exit
   %49 = zext nneg i32 %spec.select.i to i64
   %50 = shl nuw nsw i64 %49, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %.0.i50, i8 -1, i64 %50, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.0.i50, i8 -1, i64 %50, i1 false)
   br label %Kit_TruthFill.exit
 
 Kit_TruthFill.exit:                               ; preds = %Vec_IntFetch.exit, %select.unfold.preheader.i

@@ -4351,7 +4351,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
 183:                                              ; preds = %75
   store i8 1, ptr %6, align 16
   %184 = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %184, ptr noundef nonnull readonly align 1 dereferenceable(13) %7, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %184, ptr noundef nonnull align 1 dereferenceable(13) %7, i64 13, i1 false)
   br label %ccm_init_block.exit
 
 ccm_init_block.exit:                              ; preds = %183, %143, %118
@@ -4572,7 +4572,7 @@ ccm_init_block.exit138:                           ; preds = %229
 
 316:                                              ; preds = %274
   %317 = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(13) %317, ptr noundef nonnull readonly align 1 dereferenceable(13) %.0118144, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %317, ptr noundef nonnull align 1 dereferenceable(13) %.0118144, i64 13, i1 false)
   br label %ccm_init_block.exit141
 
 ccm_init_block.exit141:                           ; preds = %316, %279, %ccm_init_block.exit138

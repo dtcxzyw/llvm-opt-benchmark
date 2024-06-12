@@ -3580,7 +3580,7 @@ sw.bb11:                                          ; preds = %entry
 
 sw.bb13:                                          ; preds = %entry
   %add.ptr.i38 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i39 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i38, i32 noundef 13) #16
+  %call.i39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i38, i32 noundef 13) #16
   %9 = load ptr, ptr %o, align 8
   %call1.i40 = tail call ptr @sdscatlen(ptr noundef %9, ptr noundef nonnull @.str.97, i64 noundef 6) #17
   store ptr %call1.i40, ptr %o, align 8
@@ -3589,7 +3589,7 @@ sw.bb13:                                          ; preds = %entry
 
 sw.bb15:                                          ; preds = %entry
   %add.ptr.i42 = getelementptr inbounds i8, ptr %reply, i64 1
-  %call.i43 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i42, i32 noundef 13) #16
+  %call.i43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i42, i32 noundef 13) #16
   %10 = load i8, ptr %add.ptr.i42, align 1
   %cmp.i44 = icmp eq i8 %10, 116
   %11 = load ptr, ptr %o, align 8

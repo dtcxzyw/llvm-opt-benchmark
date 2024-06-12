@@ -431,7 +431,7 @@ define internal void @_GLOBAL__sub_I_flags.cc() #10 section ".text.startup" {
   br i1 %.not.i, label %2, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #11
+  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #11
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
@@ -454,7 +454,7 @@ __cxx_global_var_init.exit:                       ; preds = %2, %_ZN12_GLOBAL__N
   br i1 %.not.i1, label %11, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
 11:                                               ; preds = %__cxx_global_var_init.exit
-  %12 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.10) #11
+  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #11
   %.not.i.i4 = icmp eq ptr %12, null
   br i1 %.not.i.i4, label %__cxx_global_var_init.8.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
@@ -477,7 +477,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %11, %_ZN12_GLOBAL__
   br i1 %.not.i5, label %20, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
 20:                                               ; preds = %__cxx_global_var_init.8.exit
-  %21 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.17) #11
+  %21 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #11
   %.not.i.i8 = icmp eq ptr %21, null
   br i1 %.not.i.i8, label %__cxx_global_var_init.15.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
@@ -534,7 +534,7 @@ __cxx_global_var_init.28.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i11, label %45, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 
 45:                                               ; preds = %__cxx_global_var_init.28.exit
-  %46 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.36) #11
+  %46 = tail call ptr @getenv(ptr noundef nonnull @.str.36) #11
   %.not.i.i14 = icmp eq ptr %46, null
   br i1 %.not.i.i14, label %__cxx_global_var_init.34.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 

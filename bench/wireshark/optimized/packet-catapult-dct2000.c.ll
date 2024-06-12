@@ -1032,7 +1032,7 @@ parse_outhdr_string.exit:                         ; preds = %215, %._crit_edge.t
 225:                                              ; preds = %220
   %226 = call ptr @wmem_file_scope() #9
   %227 = call noalias ptr @wmem_alloc0(ptr noundef %226, i64 noundef 792) #9
-  %228 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(9) @.str.301) #10
+  %228 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(9) @.str.301) #10
   %229 = icmp eq i32 %228, 0
   %230 = icmp ult i32 %.025.lcssa.i, 5
   %or.cond3.i = or i1 %230, %229
@@ -1065,27 +1065,27 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %242, label %276, label %243
 
 243:                                              ; preds = %.tail.i
-  %244 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.382) #10
+  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.382) #10
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %276, label %246
 
 246:                                              ; preds = %243
-  %247 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.383) #10
+  %247 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.383) #10
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %276, label %249
 
 249:                                              ; preds = %246
-  %250 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.384) #10
+  %250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.384) #10
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %259, label %252
 
 252:                                              ; preds = %249
-  %253 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.385) #10
+  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.385) #10
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %268, label %255
 
 255:                                              ; preds = %252
-  %256 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.386) #10
+  %256 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.386) #10
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %272, label %258
 
@@ -1366,7 +1366,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 ._crit_edge180.i:                                 ; preds = %382, %355
   %.4.lcssa.i = phi i32 [ %356, %355 ], [ %.5.i, %382 ]
-  %387 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.386) #10
+  %387 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.386) #10
   %388 = icmp eq i32 %387, 0
   %389 = icmp ult i32 %.4.lcssa.i, %.025.lcssa.i
   %or.cond.i = select i1 %388, i1 %389, i1 false

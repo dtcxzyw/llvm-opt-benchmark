@@ -969,7 +969,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %or.cond.i.i, label %if.end, label %for.body.i.i, !llvm.loop !14
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit: ; preds = %cond.end
-  %call2.i = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationMaxEv(ptr noundef nonnull readonly align 8 dereferenceable(168) %this)
+  %call2.i = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationMaxEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   br i1 %call2.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end.i.i, %cond.true.i, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit

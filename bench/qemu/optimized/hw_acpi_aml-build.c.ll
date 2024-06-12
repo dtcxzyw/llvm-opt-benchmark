@@ -1202,8 +1202,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 121, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %arg1)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %count)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %arg1)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %count)
   %1 = load ptr, ptr %call.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 0, ptr %val.addr.i.i, align 1
@@ -1299,8 +1299,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -120, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %arg1)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %idx)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %arg1)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %idx)
   %1 = load ptr, ptr %call.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 0, ptr %val.addr.i.i, align 1
@@ -2472,8 +2472,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -118, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %srcbuf)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %index)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %srcbuf)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %index)
   %1 = load ptr, ptr %call.i.i.i, align 8
   tail call void (ptr, ptr, ...) @build_append_namestring(ptr noundef %1, ptr nonnull poison, ptr noundef %name)
   ret ptr %call.i.i.i
@@ -2492,8 +2492,8 @@ entry:
   %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -113, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %srcbuf)
-  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef readonly %index)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %srcbuf)
+  tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %index)
   %1 = load ptr, ptr %call.i.i.i, align 8
   tail call void (ptr, ptr, ...) @build_append_namestring(ptr noundef %1, ptr nonnull poison, ptr noundef %name)
   ret ptr %call.i.i.i

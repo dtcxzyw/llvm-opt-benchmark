@@ -3205,7 +3205,7 @@ _ZNSt3__18functionIFvRKN7nanogui5ColorEEEC2ERKS6_.exit.i.i: ; preds = %.sink.spl
   store ptr %30, ptr %718, align 16
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %30, align 16
   %719 = getelementptr inbounds i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %719, ptr noundef nonnull readonly align 8 dereferenceable(16) %716, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %719, ptr noundef nonnull align 8 dereferenceable(16) %716, i64 16, i1 false)
   call void @_ZNSt3__110__function12__value_funcIFvRKN7nanogui5ColorEEE4swapB8ne190000ERS7_(ptr noundef nonnull align 16 dereferenceable(40) %30, ptr noundef nonnull align 16 dereferenceable(40) %717) #39
   %720 = load ptr, ptr %718, align 16
   %721 = icmp eq ptr %720, %30
@@ -8357,7 +8357,7 @@ _ZN3tev11ImageViewer9groupNameEm.exit:            ; preds = %222, %_ZNKSt3__16ve
   %246 = load ptr, ptr %6, align 8
   store ptr %246, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %243, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(24) %218, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(24) %218, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   %248 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #41
@@ -11979,7 +11979,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit309: ; preds = %649, %
   br i1 %681, label %682, label %.lr.ph.i.i.i.i
 
 682:                                              ; preds = %676
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !137
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !137
   br label %_ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %676
@@ -12093,7 +12093,7 @@ _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirection
   br i1 %746, label %747, label %.lr.ph.i.i.i.i315
 
 747:                                              ; preds = %741
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false), !alias.scope !141
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false), !alias.scope !141
   br label %_ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit325
 
 .lr.ph.i.i.i.i315:                                ; preds = %741
@@ -15013,7 +15013,7 @@ _ZNK3tev11ImageViewer7imageIdERKNSt3__110shared_ptrINS_5ImageEEE.exit: ; preds =
   br i1 %.not7.i.i.i, label %_ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit.thread, label %.lr.ph.i.i.i.i
 
 _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit.thread: ; preds = %40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !171
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !171
   br label %.thread
 
 .lr.ph.i.i.i.i:                                   ; preds = %40
@@ -15895,7 +15895,7 @@ _ZN3tev11ImageViewer18sizeToFitAllImagesEv.exit:  ; preds = %_ZN3tev11ImageViewe
   br i1 %127, label %128, label %.lr.ph.i.i.i.i
 
 128:                                              ; preds = %122
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !181
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !181
   br label %_ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %122
@@ -16010,7 +16010,7 @@ _ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirection
   br i1 %191, label %192, label %.lr.ph.i.i.i.i96
 
 192:                                              ; preds = %187
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !184
   br label %_ZN3tev11ImageViewer9nextImageERKNSt3__110shared_ptrINS_5ImageEEENS_10EDirectionE.exit106
 
 .lr.ph.i.i.i.i96:                                 ; preds = %187
@@ -21078,7 +21078,7 @@ define dso_local void @_ZN3tev11ImageViewer11updateImageERKNSt3__112basic_string
   %11 = alloca %"class.std::__1::shared_ptr.24", align 8
   %12 = alloca %"class.tlog::Stream", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  %13 = tail call noundef i32 @_ZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull readonly align 16 dereferenceable(972) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !277
+  %13 = tail call noundef i32 @_ZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(972) %0, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !277
   %.not.i = icmp eq i32 %13, -1
   br i1 %.not.i, label %_ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.thread, label %14
 
@@ -21102,7 +21102,7 @@ define dso_local void @_ZN3tev11ImageViewer11updateImageERKNSt3__112basic_string
   br label %_ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 _ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.thread: ; preds = %9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !alias.scope !277
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !alias.scope !277
   br label %27
 
 _ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %14, %23
@@ -21356,7 +21356,7 @@ define dso_local void @_ZN3tev11ImageViewer25updateImageVectorGraphicsERKNSt3__1
   %6 = alloca %"class.std::__1::shared_ptr.24", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
-  %8 = tail call noundef i32 @_ZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull readonly align 16 dereferenceable(972) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !287
+  %8 = tail call noundef i32 @_ZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(972) %0, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !287
   %.not.i = icmp eq i32 %8, -1
   br i1 %.not.i, label %_ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.thread, label %9
 
@@ -21380,7 +21380,7 @@ define dso_local void @_ZN3tev11ImageViewer25updateImageVectorGraphicsERKNSt3__1
   br label %_ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
 _ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.thread: ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !287
   br label %22
 
 _ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %9, %18
@@ -21997,7 +21997,7 @@ define dso_local noundef i32 @_ZNK3tev11ImageViewer7imageIdERKNSt3__112basic_str
 "_ZZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clERKNS1_10shared_ptrINS_5ImageEEE.exit.us.i": ; preds = %25
   %26 = getelementptr inbounds i8, ptr %.val1.us.i, i64 88
   %27 = load ptr, ptr %26, align 8
-  %bcmp.i.i.us.i = tail call i32 @bcmp(ptr %27, ptr nonnull readonly %14, i64 %21)
+  %bcmp.i.i.us.i = tail call i32 @bcmp(ptr %27, ptr nonnull %14, i64 %21)
   %28 = icmp eq i32 %bcmp.i.i.us.i, 0
   br i1 %28, label %"_ZNSt3__17find_ifB8ne190000INS_11__wrap_iterIPKNS_10shared_ptrIN3tev5ImageEEEEEZNKS3_11ImageViewer7imageIdERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEE3$_0EET_SJ_SJ_T0_.exit", label %"_ZZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEENK3$_0clERKNS1_10shared_ptrINS_5ImageEEE.exit.thread8.us.i"
 
@@ -28894,7 +28894,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load float, ptr %1, align 4
-  tail call void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val, float noundef %.val2)
+  tail call void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull align 16 dereferenceable(972) %.val, float noundef %.val2)
   ret void
 }
 
@@ -28962,7 +28962,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load float, ptr %1, align 4
-  tail call void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val, float noundef %.val2)
+  tail call void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull align 16 dereferenceable(972) %.val, float noundef %.val2)
   ret void
 }
 
@@ -29030,7 +29030,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load float, ptr %1, align 4
-  tail call void @_ZN3tev11ImageViewer8setGammaEf(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val, float noundef %.val2)
+  tail call void @_ZN3tev11ImageViewer8setGammaEf(ptr noundef nonnull align 16 dereferenceable(972) %.val, float noundef %.val2)
   ret void
 }
 
@@ -29164,9 +29164,9 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEclEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val, float noundef 0.000000e+00)
-  tail call void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val, float noundef 0.000000e+00)
-  tail call void @_ZN3tev11ImageViewer8setGammaEf(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val, float noundef 0x40019999A0000000)
+  tail call void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull align 16 dereferenceable(972) %.val, float noundef 0.000000e+00)
+  tail call void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull align 16 dereferenceable(972) %.val, float noundef 0.000000e+00)
+  tail call void @_ZN3tev11ImageViewer8setGammaEf(ptr noundef nonnull align 16 dereferenceable(972) %.val, float noundef 0x40019999A0000000)
   %3 = getelementptr inbounds i8, ptr %.val, i64 872
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN3tev11ImageCanvas14resetTransformEv(ptr noundef nonnull align 8 dereferenceable(376) %4)
@@ -29358,7 +29358,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret ptr %2
 }
 
@@ -29367,7 +29367,7 @@ define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   ret void
 }
 
@@ -65373,7 +65373,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEclEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call void @_ZN3tev11ImageViewer15openImageDialogEv(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val)
+  tail call void @_ZN3tev11ImageViewer15openImageDialogEv(ptr noundef nonnull align 16 dereferenceable(972) %.val)
   ret void
 }
 
@@ -65661,7 +65661,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
 define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEclEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  tail call void @_ZN3tev11ImageViewer15reloadAllImagesEv(ptr noundef nonnull readonly align 16 dereferenceable(972) %.val)
+  tail call void @_ZN3tev11ImageViewer15reloadAllImagesEv(ptr noundef nonnull align 16 dereferenceable(972) %.val)
   ret void
 }
 
@@ -66966,7 +66966,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrINS_5ImageEEEb(ptr noundef nonnull align 16 dereferenceable(972) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i1 noundef zeroext true)
+  tail call void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrINS_5ImageEEEb(ptr noundef nonnull align 16 dereferenceable(972) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true)
   ret void
 }
 
@@ -67163,7 +67163,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_ptrINS_5ImageEEE(ptr noundef nonnull align 16 dereferenceable(972) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %11)
+  tail call void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_ptrINS_5ImageEEE(ptr noundef nonnull align 16 dereferenceable(972) %6, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEclB8ne190000EOb.exit"
 
 "_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEclB8ne190000EOb.exit": ; preds = %7, %10

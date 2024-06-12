@@ -601,7 +601,7 @@ define void @mca_base_component_repository_release(ptr noundef %0) local_unnamed
 .lr.ph.i:                                         ; preds = %7, %14
   %.0812.i = phi ptr [ %.08.i, %14 ], [ %.0810.i, %7 ]
   %11 = getelementptr inbounds i8, ptr %.0812.i, i64 72
-  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %4) #14
+  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %4) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %find_component.exit, label %14
 
@@ -673,7 +673,7 @@ define range(i32 -13, 1) i32 @mca_base_component_repository_retain_component(ptr
 .lr.ph.i:                                         ; preds = %6, %13
   %.0812.i = phi ptr [ %.08.i, %13 ], [ %.0810.i, %6 ]
   %10 = getelementptr inbounds i8, ptr %.0812.i, i64 72
-  %11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %find_component.exit, label %13
 

@@ -1151,7 +1151,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %m.addr.0188 = phi ptr [ %m, %for.body.lr.ph ], [ %m.addr.1, %invoke.cont110 ]
   %10 = load ptr, ptr %m_data.i.i70, align 8
   %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 %indvars.iv
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %arrayidx.i, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %arrayidx.i, i8 0, i64 256, i1 false)
   %tobool.not = icmp eq ptr %x.addr.0189, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
@@ -1485,7 +1485,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -6118,7 +6118,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
   %12 = sext i32 %10 to i64
   %13 = getelementptr %"struct.btSoftBody::Node", ptr %11, i64 %12
   %arrayidx.i = getelementptr i8, ptr %13, i64 -256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(256) %arrayidx.i, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %arrayidx.i, i8 0, i64 256, i1 false)
   %m_x = getelementptr i8, ptr %13, i64 -240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_x, ptr noundef nonnull align 4 dereferenceable(16) %x, i64 16, i1 false)
   %m_q = getelementptr i8, ptr %13, i64 -224
@@ -7368,7 +7368,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(288) %t, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %t, i8 0, i64 288, i1 false)
   %tobool.not = icmp eq ptr %mat, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
@@ -7529,7 +7529,7 @@ define dso_local void @_ZN10btSoftBody11appendTetraEiiiiPNS_8MaterialE(ptr nound
 entry:
   %t.i = alloca %"struct.btSoftBody::Tetra", align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %t.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(288) %t.i, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %t.i, i8 0, i64 288, i1 false)
   %tobool.not.i = icmp eq ptr %mat, null
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN10btSoftBody11appendTetraEiPNS_8MaterialE.exit
 
@@ -8711,11 +8711,11 @@ entry:
   store float %ima, ptr %ref.tmp3, align 4, !alias.scope !79
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   %ref.tmp3.sroa.2.0.arrayidx.i.sroa_idx.i2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %ref.tmp.sroa.2.0.agg.result.sroa_idx.i1, i8 0, i64 16, i1 false), !alias.scope !79
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.0.agg.result.sroa_idx.i1, i8 0, i64 16, i1 false), !alias.scope !79
   store float %ima, ptr %ref.tmp3.sroa.2.0.arrayidx.i.sroa_idx.i2, align 4, !alias.scope !79
   %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   %ref.tmp7.sroa.3.0.arrayidx.i7.sroa_idx.i4 = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i3, i8 0, i64 16, i1 false), !alias.scope !79
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i3, i8 0, i64 16, i1 false), !alias.scope !79
   store float %ima, ptr %ref.tmp7.sroa.3.0.arrayidx.i7.sroa_idx.i4, align 4, !alias.scope !79
   call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp4, float noundef %imb, ptr noundef nonnull align 4 dereferenceable(48) %iwi, ptr noundef nonnull align 4 dereferenceable(16) %r)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
@@ -15165,7 +15165,7 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %for
   br i1 %exitcond.not.i11.i, label %_ZN10btSoftBody15updateConstantsEv.exit, label %for.body.i5.i, !llvm.loop !176
 
 _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %for.body.i5.i, %for.end, %_ZN10btSoftBody20resetLinkRestLengthsEv.exit.i
-  call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull readonly align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
+  call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
   ret void
 }
 
@@ -15702,7 +15702,7 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %for
   br i1 %exitcond.not.i11.i, label %_ZN10btSoftBody15updateConstantsEv.exit, label %for.body.i5.i, !llvm.loop !176
 
 _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %for.body.i5.i, %for.end, %_ZN10btSoftBody20resetLinkRestLengthsEv.exit.i
-  call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull readonly align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
+  call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
   call void @_ZN10btSoftBody19initializeDmInverseEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   ret void
 }
@@ -16760,7 +16760,7 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %for
   br i1 %exitcond.not.i11.i, label %_ZN10btSoftBody15updateConstantsEv.exit, label %for.body.i5.i, !llvm.loop !176
 
 _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %for.body.i5.i, %for.end119, %_ZN10btSoftBody20resetLinkRestLengthsEv.exit.i
-  tail call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull readonly align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
+  tail call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
   ret void
 }
 
@@ -25461,11 +25461,11 @@ if.else:                                          ; preds = %lor.lhs.false
   %m_rayFrom.i = getelementptr inbounds i8, ptr %collider, i64 8
   %m_rayTo.i = getelementptr inbounds i8, ptr %collider, i64 24
   %m_rayNormalizedDirection.i = getelementptr inbounds i8, ptr %collider, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_rayFrom.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayFrom.i, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, i64 16, i1 false)
   store <2 x float> %2, ptr %m_rayNormalizedDirection.i, align 8
   %ref.tmp.sroa.2.0.m_rayNormalizedDirection6.sroa_idx.i = getelementptr inbounds i8, ptr %collider, i64 48
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.m_rayNormalizedDirection6.sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_rayTo.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %rayTo, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayTo.i, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, i64 16, i1 false)
   %m_mint.i = getelementptr inbounds i8, ptr %collider, i64 56
   store float %22, ptr %m_mint.i, align 8
   %m_face.i = getelementptr inbounds i8, ptr %collider, i64 64
@@ -25722,7 +25722,7 @@ if.end4:                                          ; preds = %if.else, %if.then3
   %m_rayFrom.i.i = getelementptr inbounds i8, ptr %collider.i, i64 8
   %m_rayTo.i.i = getelementptr inbounds i8, ptr %collider.i, i64 24
   %m_rayNormalizedDirection.i.i = getelementptr inbounds i8, ptr %collider.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_rayFrom.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayFrom.i.i, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, i64 16, i1 false)
   %2 = load <2 x float>, ptr %rayTo, align 4
   %3 = load <2 x float>, ptr %rayFrom, align 4
   %4 = fsub <2 x float> %2, %3
@@ -25735,7 +25735,7 @@ if.end4:                                          ; preds = %if.else, %if.then3
   store <2 x float> %4, ptr %m_rayNormalizedDirection.i.i, align 8
   %ref.tmp.sroa.2.0.m_rayNormalizedDirection6.sroa_idx.i.i = getelementptr inbounds i8, ptr %collider.i, i64 48
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, ptr %ref.tmp.sroa.2.0.m_rayNormalizedDirection6.sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_rayTo.i.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %rayTo, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayTo.i.i, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, i64 16, i1 false)
   %m_mint.i.i = getelementptr inbounds i8, ptr %collider.i, i64 56
   store float 1.000000e+00, ptr %m_mint.i.i, align 8
   %m_face.i.i = getelementptr inbounds i8, ptr %collider.i, i64 64
@@ -25779,7 +25779,7 @@ entry:
   %m_rayFrom.i = getelementptr inbounds i8, ptr %collider, i64 8
   %m_rayTo.i = getelementptr inbounds i8, ptr %collider, i64 24
   %m_rayNormalizedDirection.i = getelementptr inbounds i8, ptr %collider, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_rayFrom.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayFrom.i, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, i64 16, i1 false)
   %1 = load <2 x float>, ptr %rayTo, align 4
   %2 = load <2 x float>, ptr %rayFrom, align 4
   %3 = fsub <2 x float> %1, %2
@@ -25792,7 +25792,7 @@ entry:
   store <2 x float> %3, ptr %m_rayNormalizedDirection.i, align 8
   %ref.tmp.sroa.2.0.m_rayNormalizedDirection6.sroa_idx.i = getelementptr inbounds i8, ptr %collider, i64 48
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %ref.tmp.sroa.2.0.m_rayNormalizedDirection6.sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_rayTo.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %rayTo, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayTo.i, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, i64 16, i1 false)
   %m_mint.i = getelementptr inbounds i8, ptr %collider, i64 56
   store float %0, ptr %m_mint.i, align 8
   %m_face.i = getelementptr inbounds i8, ptr %collider, i64 64
@@ -25920,7 +25920,7 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %for
   br i1 %exitcond.not.i11.i, label %_ZN10btSoftBody15updateConstantsEv.exit, label %for.body.i5.i, !llvm.loop !176
 
 _ZN10btSoftBody15updateConstantsEv.exit:          ; preds = %for.body.i5.i, %if.then, %_ZN10btSoftBody20resetLinkRestLengthsEv.exit.i
-  tail call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull readonly align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
+  tail call void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull align 8 dereferenceable(2064) %this, i1 noundef zeroext true)
   %m_fdbvt = getelementptr inbounds i8, ptr %this, i64 1608
   tail call void @_ZN6btDbvt5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt)
   %collisions = getelementptr inbounds i8, ptr %this, i64 516
@@ -42933,11 +42933,11 @@ entry:
   store float %im, ptr %ref.tmp, align 4, !alias.scope !498
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %ref.tmp3.sroa.2.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %ref.tmp.sroa.2.0.agg.result.sroa_idx.i1, i8 0, i64 16, i1 false), !alias.scope !498
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.0.agg.result.sroa_idx.i1, i8 0, i64 16, i1 false), !alias.scope !498
   store float %im, ptr %ref.tmp3.sroa.2.0.arrayidx.i.sroa_idx.i, align 4, !alias.scope !498
   %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %ref.tmp7.sroa.3.0.arrayidx.i7.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !498
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp3.sroa.3.0.arrayidx.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !498
   store float %im, ptr %ref.tmp7.sroa.3.0.arrayidx.i7.sroa_idx.i, align 4, !alias.scope !498
   %3 = load float, ptr %iwi, align 4, !noalias !501
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %iwi, i64 16
@@ -48374,7 +48374,7 @@ lpad:                                             ; preds = %if.then12, %if.end1
 if.else:                                          ; preds = %init.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp3.i, float noundef %cond10, ptr noundef nonnull readonly align 4 dereferenceable(48) %spec.select, ptr noundef nonnull readonly align 4 dereferenceable(16) %ra), !noalias !532
+  call fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nonnull align 4 %ref.tmp3.i, float noundef %cond10, ptr noundef nonnull align 4 dereferenceable(48) %spec.select, ptr noundef nonnull align 4 dereferenceable(16) %ra), !noalias !532
   call void @llvm.experimental.noalias.scope.decl(metadata !535)
   br label %for.body.i.i
 

@@ -28228,7 +28228,7 @@ if.else.i.i200:                                   ; preds = %if.else.i188
 invoke.cont113:                                   ; preds = %call.i.i.i.i.i.noexc214, %call.i.i.noexc212, %if.else.i.i200
   %_M_manager.i.i = getelementptr inbounds i8, ptr %iter_deref_lambda, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %iter_deref_lambda, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %iter_deref_lambda, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter_deref_lambda, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERNS0_10autovectorIS2_Lm32EE13iterator_implIS5_S2_EEEZNS1_14MultiGetCommonERKNS0_11ReadOptionsEmPPNS0_18ColumnFamilyHandleEPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_19PinnableWideColumnsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_6StatusEbE3$_0E9_M_invokeERKSt9_Any_dataS8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERNS0_10autovectorIS2_Lm32EE13iterator_implIS5_S2_EEEZNS1_14MultiGetCommonERKNS0_11ReadOptionsEmPPNS0_18ColumnFamilyHandleEPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_19PinnableWideColumnsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_6StatusEbE3$_0E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN7rocksdb6DBImpl15MultiCFSnapshotINS_10autovectorINS0_24MultiGetColumnFamilyDataELm32EEEEENS_6StatusERKNS_11ReadOptionsEPNS_12ReadCallbackERSt8functionIFPS3_RNT_8iteratorEEEPSD_PmPb(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %iter_deref_lambda, ptr noundef nonnull %multiget_cf_data, ptr noundef nonnull %consistent_seqnum, ptr noundef nonnull %sv_from_thread_local)
@@ -33142,7 +33142,7 @@ for.inc143:                                       ; preds = %for.cond.i.i.i.i, %
 for.end145:                                       ; preds = %for.inc143, %invoke.cont106
   %_M_manager.i.i = getelementptr inbounds i8, ptr %iter_deref_lambda, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %iter_deref_lambda, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %iter_deref_lambda, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter_deref_lambda, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERNSt8__detail14_Node_iteratorISt4pairIKjS2_ELb0ELb0EEEEZNS1_8MultiGetERKNS0_11ReadOptionsERKSt6vectorIPNS0_18ColumnFamilyHandleESaISH_EERKSF_INS0_5SliceESaISM_EEPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISW_EESZ_E3$_0E9_M_invokeERKSt9_Any_dataSA_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERNSt8__detail14_Node_iteratorISt4pairIKjS2_ELb0ELb0EEEEZNS1_8MultiGetERKNS0_11ReadOptionsERKSt6vectorIPNS0_18ColumnFamilyHandleESaISH_EERKSF_INS0_5SliceESaISM_EEPSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISW_EESZ_E3$_0E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN7rocksdb6DBImpl15MultiCFSnapshotISt13unordered_mapIjNS0_24MultiGetColumnFamilyDataESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEEEENS_6StatusERKNS_11ReadOptionsEPNS_12ReadCallbackERSt8functionIFPS3_RNT_8iteratorEEEPSL_PmPb(ptr nonnull sret(%"class.rocksdb::Status") align 8 %status, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %iter_deref_lambda, ptr noundef nonnull %multiget_cf_data, ptr noundef nonnull %consistent_seqnum, ptr noundef nonnull %sv_from_thread_local)
@@ -38307,7 +38307,7 @@ entry:
   store ptr null, ptr %ref.tmp.sroa.4.0.multiget_cf_data.sroa_idx, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %iter_deref_lambda, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %iter_deref_lambda, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %iter_deref_lambda, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter_deref_lambda, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERS3_EZNS1_24MultiGetWithCallbackImplERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEPNS0_12ReadCallbackEPNS0_10autovectorIPNS0_10KeyContextELm32EEEE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb6DBImpl24MultiGetColumnFamilyDataERS3_EZNS1_24MultiGetWithCallbackImplERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEPNS0_12ReadCallbackEPNS0_10autovectorIPNS0_10KeyContextELm32EEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %1 = load i64, ptr %sorted_keys, align 8

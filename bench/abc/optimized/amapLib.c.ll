@@ -1019,10 +1019,10 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %21
 
 21:                                               ; preds = %20
-  %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %23 = add i64 %22, 1
   %24 = call noalias ptr @malloc(i64 noundef %23) #21
-  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %0) #22
+  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %0) #22
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %20, %21

@@ -208,7 +208,7 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
   br i1 %27, label %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread, label %if.end16.i
 
 if.end16.i:                                       ; preds = %for.end.i
-  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly %17)
+  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull %17)
   %28 = load ptr, ptr %ref.tmp.i, align 8
   %29 = load i32, ptr %Size.i17.i, align 8
   %conv.i18.i = zext i32 %29 to i64

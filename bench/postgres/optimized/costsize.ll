@@ -4014,7 +4014,7 @@ list_length.exit51:                               ; preds = %list_length.exit, %
   store ptr %1, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %40 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %39, ptr noundef nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %41 = load double, ptr %10, align 8
   %42 = fadd double %36, %41
@@ -4026,7 +4026,7 @@ list_length.exit51:                               ; preds = %list_length.exit, %
   store ptr %1, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %47 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %46, ptr noundef nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %48 = load double, ptr %10, align 8
   %49 = fadd double %42, %48
@@ -6965,7 +6965,7 @@ clamp_row_est.exit:                               ; preds = %2, %12, %14
 
 cost_qual_eval.exit:                              ; preds = %.lr.ph16.i, %clamp_row_est.exit, %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -7905,7 +7905,7 @@ clamp_row_est.exit.i:                             ; preds = %84, %82, %._crit_ed
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %100 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8037,7 +8037,7 @@ clamp_row_est.exit.i:                             ; preds = %54, %52, %._crit_ed
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %70 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8100,7 +8100,7 @@ clamp_row_est.exit.i:                             ; preds = %13, %11, %2
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8203,7 +8203,7 @@ clamp_row_est.exit.i:                             ; preds = %40, %38, %list_leng
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %56 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8316,7 +8316,7 @@ clamp_row_est.exit.i:                             ; preds = %46, %44, %clamp_row
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %62 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8410,7 +8410,7 @@ clamp_row_est.exit.i:                             ; preds = %36, %34, %22
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %52 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8470,7 +8470,7 @@ clamp_row_est.exit.i:                             ; preds = %12, %10, %2
 
 set_baserel_size_estimates.exit:                  ; preds = %.lr.ph16.i.i, %clamp_row_est.exit.i, %.lr.ph.i.i
   %28 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void
@@ -8511,7 +8511,7 @@ define dso_local void @set_foreign_size_estimates(ptr noundef %0, ptr nocapture 
 
 cost_qual_eval.exit:                              ; preds = %.lr.ph16.i, %2, %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %1, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call fastcc void @set_rel_width(ptr noundef %0, ptr noundef %1)
   ret void

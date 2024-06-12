@@ -282,7 +282,7 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   %26 = srem i32 %25, 100
   %27 = sdiv i32 %.sroa.2.0.extract.trunc.i, 100
   %28 = srem i32 %27, 100
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %22, i64 noundef 9, ptr noundef nonnull @.str.100, i32 noundef %.sext.i, i32 noundef %26, i32 noundef %28) #7
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 9, ptr noundef nonnull @.str.100, i32 noundef %.sext.i, i32 noundef %26, i32 noundef %28) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   %30 = load i32, ptr @hf_elasticsearch_version, align 4
   %31 = load i32, ptr %6, align 4
@@ -461,7 +461,7 @@ elasticsearch_partial_dissect_address.exit:       ; preds = %107, %145
   %162 = srem i32 %161, 100
   %163 = sdiv i32 %.sroa.2.0.extract.trunc.i110, 100
   %164 = srem i32 %163, 100
-  %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %158, i64 noundef 9, ptr noundef nonnull @.str.100, i32 noundef %.sext.i112, i32 noundef %162, i32 noundef %164) #7
+  %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %158, i64 noundef 9, ptr noundef nonnull @.str.100, i32 noundef %.sext.i112, i32 noundef %162, i32 noundef %164) #7
   %.sroa.013.0.copyload = load i32, ptr %9, align 4
   %.sroa.3.0.copyload = load i32, ptr %157, align 4
   %166 = load i32, ptr @hf_elasticsearch_version, align 4

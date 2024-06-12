@@ -1044,7 +1044,7 @@ read_data_stored.exit:                            ; preds = %57, %58, %64, %65
 
 254:                                              ; preds = %249
   %255 = zext nneg i32 %247 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %239, ptr align 1 %253, i64 %255, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %239, ptr align 1 %253, i64 %255, i1 false)
   %256 = load ptr, ptr %242, align 8
   %257 = sub nsw i32 %237, %247
   br label %258
@@ -1057,7 +1057,7 @@ copy_from_lzss_window.exit:                       ; preds = %236
   %.sink430 = phi i32 [ %257, %254 ], [ %237, %249 ]
   %.sink = phi ptr [ %256, %254 ], [ %253, %249 ]
   %259 = sext i32 %.sink430 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %239, ptr align 1 %.sink, i64 %259, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %239, ptr align 1 %.sink, i64 %259, i1 false)
   %260 = load ptr, ptr %210, align 8
   %261 = getelementptr inbounds i8, ptr %209, i64 184
   %262 = load i64, ptr %261, align 8
@@ -5091,12 +5091,12 @@ membr_bits.exit163.i.i:                           ; preds = %390, %membr_fill.ex
 
 419:                                              ; preds = %418
   %420 = zext nneg i32 %.0108.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %415, ptr nonnull readonly align 1 %.0107.i.i, i64 %420, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %415, ptr nonnull align 1 %.0107.i.i, i64 %420, i1 false)
   br label %create_filter.exit.i.i
 
 create_filter.exit.i.i:                           ; preds = %419, %418
   %421 = getelementptr inbounds i8, ptr %410, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull readonly align 16 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   %422 = getelementptr inbounds i8, ptr %410, i64 56
   store i64 %spec.select.i.i, ptr %422, align 8
   %423 = getelementptr inbounds i8, ptr %410, i64 64

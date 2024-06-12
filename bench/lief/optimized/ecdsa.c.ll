@@ -439,7 +439,7 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %4, ptr align 1 %40, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %40, i64 %37, i1 false)
   store i64 %37, ptr %6, align 8
   br label %ecdsa_signature_to_asn1.exit
 

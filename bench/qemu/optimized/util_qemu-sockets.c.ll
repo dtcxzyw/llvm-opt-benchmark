@@ -1375,7 +1375,7 @@ sw.bb7:                                           ; preds = %entry
   %u8 = getelementptr inbounds i8, ptr %addr, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %svm.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %svm.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %svm.i, i8 0, i64 16, i1 false)
   store i16 40, ptr %svm.i, align 4
   %2 = load ptr, ptr %u8, align 8
   %call.i.i = call i32 @parse_uint_full(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %val.i.i) #13
@@ -1974,7 +1974,7 @@ sw.bb13:                                          ; preds = %trace_socket_listen
   %u14 = getelementptr inbounds i8, ptr %addr, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %svm.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %svm.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %svm.i, i8 0, i64 16, i1 false)
   store i16 40, ptr %svm.i, align 4
   %65 = load ptr, ptr %u14, align 8
   %call.i.i20 = call i32 @parse_uint_full(ptr noundef %65, i32 noundef 10, ptr noundef nonnull %val.i.i) #13

@@ -1609,7 +1609,7 @@ lor.lhs.false4.i.i.i:                             ; preds = %if.end55.i
   br i1 %cmp5.not.i.i.i, label %_validate_outer.exit.i.i, label %if.then58.i
 
 _validate_outer.exit.i.i:                         ; preds = %lor.lhs.false4.i.i.i
-  %call.i.i.i = call fastcc i32 @_validate_inner(ptr noundef nonnull readonly %code.i.i, ptr noundef nonnull readonly %arrayidx.i.i.i, i64 noundef %34)
+  %call.i.i.i = call fastcc i32 @_validate_inner(ptr noundef nonnull %code.i.i, ptr noundef nonnull %arrayidx.i.i.i, i64 noundef %34)
   %tobool.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i, label %_sre_compile_impl.exit, label %if.then58.i
 
@@ -7190,7 +7190,7 @@ lor.lhs.false571:                                 ; preds = %TARGET_SRE_OP_IN_LO
   %134 = load i8, ptr %ptr.15, align 1
   %conv573 = zext i8 %134 to i32
   %call.i.i.i1456 = tail call i32 @tolower(i32 noundef %conv573) #16
-  %call1.i = tail call fastcc i32 @sre_ucs1_charset(ptr noundef readonly %add.ptr572, i32 noundef %call.i.i.i1456)
+  %call1.i = tail call fastcc i32 @sre_ucs1_charset(ptr noundef %add.ptr572, i32 noundef %call.i.i.i1456)
   %tobool.not.i1457 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i1457, label %sre_upper_locale.exit.i, label %if.end579
 
@@ -7200,7 +7200,7 @@ sre_upper_locale.exit.i:                          ; preds = %lor.lhs.false571
   br i1 %cmp.not.i, label %exit, label %sre_ucs1_charset_loc_ignore.exit
 
 sre_ucs1_charset_loc_ignore.exit:                 ; preds = %sre_upper_locale.exit.i
-  %call12.i = tail call fastcc i32 @sre_ucs1_charset(ptr noundef readonly %add.ptr572, i32 noundef %call.i.i9.i)
+  %call12.i = tail call fastcc i32 @sre_ucs1_charset(ptr noundef %add.ptr572, i32 noundef %call.i.i9.i)
   %tobool575.not = icmp eq i32 %call12.i, 0
   br i1 %tobool575.not, label %exit, label %if.end579
 
@@ -11605,7 +11605,7 @@ lor.lhs.false571:                                 ; preds = %TARGET_SRE_OP_IN_LO
 
 sre_lower_locale.exit.i1460:                      ; preds = %lor.lhs.false571
   %call.i.i.i1461 = tail call i32 @tolower(i32 noundef %conv573) #16
-  %call1.i = tail call fastcc i32 @sre_ucs2_charset(ptr noundef readonly %add.ptr572, i32 noundef %call.i.i.i1461)
+  %call1.i = tail call fastcc i32 @sre_ucs2_charset(ptr noundef %add.ptr572, i32 noundef %call.i.i.i1461)
   %tobool.not.i1462 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i1462, label %sre_upper_locale.exit.i1463, label %if.end579
 
@@ -11616,7 +11616,7 @@ sre_upper_locale.exit.i1463:                      ; preds = %sre_lower_locale.ex
 
 sre_ucs2_charset_loc_ignore.exit:                 ; preds = %lor.lhs.false571, %sre_upper_locale.exit.i1463
   %ch.sink.i = phi i32 [ %conv573, %lor.lhs.false571 ], [ %call.i.i9.i, %sre_upper_locale.exit.i1463 ]
-  %call12.i = tail call fastcc i32 @sre_ucs2_charset(ptr noundef readonly %add.ptr572, i32 noundef %ch.sink.i)
+  %call12.i = tail call fastcc i32 @sre_ucs2_charset(ptr noundef %add.ptr572, i32 noundef %ch.sink.i)
   %tobool575.not = icmp eq i32 %call12.i, 0
   br i1 %tobool575.not, label %exit, label %if.end579
 
@@ -15937,7 +15937,7 @@ lor.lhs.false558:                                 ; preds = %TARGET_SRE_OP_IN_LO
 
 sre_lower_locale.exit.i1460:                      ; preds = %lor.lhs.false558
   %call.i.i.i1461 = tail call i32 @tolower(i32 noundef %138) #16
-  %call1.i = tail call fastcc i32 @sre_ucs4_charset(ptr noundef readonly %add.ptr559, i32 noundef %call.i.i.i1461)
+  %call1.i = tail call fastcc i32 @sre_ucs4_charset(ptr noundef %add.ptr559, i32 noundef %call.i.i.i1461)
   %tobool.not.i1462 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i1462, label %sre_upper_locale.exit.i1463, label %if.end565
 
@@ -15948,7 +15948,7 @@ sre_upper_locale.exit.i1463:                      ; preds = %sre_lower_locale.ex
 
 sre_ucs4_charset_loc_ignore.exit:                 ; preds = %lor.lhs.false558, %sre_upper_locale.exit.i1463
   %ch.sink.i = phi i32 [ %138, %lor.lhs.false558 ], [ %call.i.i9.i, %sre_upper_locale.exit.i1463 ]
-  %call12.i = tail call fastcc i32 @sre_ucs4_charset(ptr noundef readonly %add.ptr559, i32 noundef %ch.sink.i)
+  %call12.i = tail call fastcc i32 @sre_ucs4_charset(ptr noundef %add.ptr559, i32 noundef %ch.sink.i)
   %tobool561.not = icmp eq i32 %call12.i, 0
   br i1 %tobool561.not, label %exit, label %if.end565
 
@@ -24108,12 +24108,12 @@ do.end14:                                         ; preds = %do.body8, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @match_getitem(ptr nocapture noundef readonly %self, ptr noundef %name) #0 {
 entry:
-  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef %name)
+  %call.i = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef %name)
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %match_getslice.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call fastcc ptr @match_getslice_by_index(ptr noundef readonly %self, i64 noundef %call.i, ptr noundef nonnull @_Py_NoneStruct)
+  %call1.i = tail call fastcc ptr @match_getslice_by_index(ptr noundef %self, i64 noundef %call.i, ptr noundef nonnull @_Py_NoneStruct)
   br label %match_getslice.exit
 
 match_getslice.exit:                              ; preds = %entry, %if.end.i
@@ -24132,23 +24132,23 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816))
+  %call.i = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816))
   %cmp.i16 = icmp slt i64 %call.i, 0
   br i1 %cmp.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %sw.bb
-  %call1.i = tail call fastcc ptr @match_getslice_by_index(ptr noundef readonly %self, i64 noundef %call.i, ptr noundef nonnull @_Py_NoneStruct)
+  %call1.i = tail call fastcc ptr @match_getslice_by_index(ptr noundef %self, i64 noundef %call.i, ptr noundef nonnull @_Py_NoneStruct)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %1 = load ptr, ptr %ob_item, align 8
-  %call.i18 = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef %1)
+  %call.i18 = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef %1)
   %cmp.i19 = icmp slt i64 %call.i18, 0
   br i1 %cmp.i19, label %return, label %if.end.i20
 
 if.end.i20:                                       ; preds = %sw.bb3
-  %call1.i21 = tail call fastcc ptr @match_getslice_by_index(ptr noundef readonly %self, i64 noundef %call.i18, ptr noundef nonnull @_Py_NoneStruct)
+  %call1.i21 = tail call fastcc ptr @match_getslice_by_index(ptr noundef %self, i64 noundef %call.i18, ptr noundef nonnull @_Py_NoneStruct)
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -24169,12 +24169,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %i.033 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end11 ]
   %arrayidx7 = getelementptr [1 x ptr], ptr %ob_item6, i64 0, i64 %i.033
   %2 = load ptr, ptr %arrayidx7, align 8
-  %call.i24 = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef %2)
+  %call.i24 = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef %2)
   %cmp.i25 = icmp slt i64 %call.i24, 0
   br i1 %cmp.i25, label %if.then10, label %match_getslice.exit29
 
 match_getslice.exit29:                            ; preds = %for.body
-  %call1.i27 = tail call fastcc ptr @match_getslice_by_index(ptr noundef readonly %self, i64 noundef %call.i24, ptr noundef nonnull @_Py_NoneStruct)
+  %call1.i27 = tail call fastcc ptr @match_getslice_by_index(ptr noundef %self, i64 noundef %call.i24, ptr noundef nonnull @_Py_NoneStruct)
   %tobool9.not = icmp eq ptr %call1.i27, null
   br i1 %tobool9.not, label %if.then10, label %if.end11
 
@@ -24227,7 +24227,7 @@ if.end4:                                          ; preds = %if.end
 
 skip_optional:                                    ; preds = %if.end, %if.end4
   %group.0 = phi ptr [ null, %if.end ], [ %0, %if.end4 ]
-  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef %group.0)
+  %call.i = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef %group.0)
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true7, label %_sre_SRE_Match_start_impl.exit
 
@@ -24275,7 +24275,7 @@ if.end4:                                          ; preds = %if.end
 
 skip_optional:                                    ; preds = %if.end, %if.end4
   %group.0 = phi ptr [ null, %if.end ], [ %0, %if.end4 ]
-  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef %group.0)
+  %call.i = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef %group.0)
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true7, label %_sre_SRE_Match_end_impl.exit
 
@@ -24324,7 +24324,7 @@ if.end4:                                          ; preds = %if.end
 
 skip_optional:                                    ; preds = %if.end, %if.end4
   %group.0 = phi ptr [ null, %if.end ], [ %0, %if.end4 ]
-  %call.i = tail call fastcc i64 @match_getindex(ptr noundef readonly %self, ptr noundef %group.0)
+  %call.i = tail call fastcc i64 @match_getindex(ptr noundef %self, ptr noundef %group.0)
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %exit, label %if.end.i
 
@@ -24433,7 +24433,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %if.end5.i, %for.body.lr.ph.i
   %index.013.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %inc.i, %if.end5.i ]
-  %call2.i = call fastcc ptr @match_getslice_by_index(ptr noundef nonnull readonly %self, i64 noundef %index.013.i, ptr noundef %default_value.0)
+  %call2.i = call fastcc ptr @match_getslice_by_index(ptr noundef nonnull %self, i64 noundef %index.013.i, ptr noundef %default_value.0)
   %tobool3.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
 
@@ -24547,7 +24547,7 @@ if.end.i56.i:                                     ; preds = %while.body.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i56.i, %while.body.i
   %10 = phi ptr [ %8, %while.body.i ], [ %.pre.i, %if.end.i56.i ]
-  %call.i.i = call fastcc i64 @match_getindex(ptr noundef nonnull readonly %self, ptr noundef %10)
+  %call.i.i = call fastcc i64 @match_getindex(ptr noundef nonnull %self, ptr noundef %10)
   %cmp.i17.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp.i17.i, label %match_getslice.exit.thread.i, label %match_getslice.exit.i
 
@@ -24556,7 +24556,7 @@ match_getslice.exit.thread.i:                     ; preds = %Py_INCREF.exit.i
   br label %if.then8.i
 
 match_getslice.exit.i:                            ; preds = %Py_INCREF.exit.i
-  %call1.i.i = call fastcc ptr @match_getslice_by_index(ptr noundef nonnull readonly %self, i64 noundef %call.i.i, ptr noundef %default_value.0)
+  %call1.i.i = call fastcc ptr @match_getslice_by_index(ptr noundef nonnull %self, i64 noundef %call.i.i, ptr noundef %default_value.0)
   store ptr %call1.i.i, ptr %value.i, align 8
   %tobool7.not.i = icmp eq ptr %call1.i.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end9.i
@@ -24679,7 +24679,7 @@ if.end:                                           ; preds = %entry, %cond.end
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call4.i = call fastcc ptr @expand_template(ptr noundef nonnull %call3.i, ptr noundef nonnull readonly %self)
+  %call4.i = call fastcc ptr @expand_template(ptr noundef nonnull %call3.i, ptr noundef nonnull %self)
   %5 = load i64, ptr %call3.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i6.not.i = icmp eq i64 %6, 0

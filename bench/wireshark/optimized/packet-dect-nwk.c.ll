@@ -1840,13 +1840,13 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
 
 270:                                              ; preds = %75
   %271 = load i32, ptr @hf_dect_nwk_s_ie_multi_display_information, align 4
-  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %82, ptr noundef readonly %2, i32 noundef %271, ptr noundef %0, i32 noundef %92, i32 noundef %79)
+  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %82, ptr noundef %2, i32 noundef %271, ptr noundef %0, i32 noundef %92, i32 noundef %79)
   %272 = add i32 %92, %79
   br label %dissect_dect_nwk_s_ie_auth_type.exit
 
 273:                                              ; preds = %75
   %274 = load i32, ptr @hf_dect_nwk_s_ie_multi_keypad_information, align 4
-  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %82, ptr noundef readonly %2, i32 noundef %274, ptr noundef %0, i32 noundef %92, i32 noundef %79)
+  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %82, ptr noundef %2, i32 noundef %274, ptr noundef %0, i32 noundef %92, i32 noundef %79)
   %275 = add i32 %92, %79
   br label %dissect_dect_nwk_s_ie_auth_type.exit
 

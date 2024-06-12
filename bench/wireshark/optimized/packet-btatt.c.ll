@@ -4704,7 +4704,7 @@ define internal void @base_signed_one_tenth_unitless(ptr nocapture noundef write
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 10
   %5 = sdiv i32 %1, 10
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.2132) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.2132) #13
   ret void
 }
 
@@ -4721,7 +4721,7 @@ define internal void @base_signed_one_tenth_percentage(ptr nocapture noundef wri
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 10
   %5 = sdiv i32 %1, 10
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
   ret void
 }
 
@@ -4762,7 +4762,7 @@ define internal void @base_signed_one_thousandth_meters_per_seconds(ptr nocaptur
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 1000
   %5 = sdiv i32 %1, 1000
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3058) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3058) #13
   ret void
 }
 
@@ -4771,7 +4771,7 @@ define internal void @base_signed_one_hundredth_percentage(ptr nocapture noundef
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 100
   %5 = sdiv i32 %1, 100
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3008, i32 noundef %5, i32 noundef %4, ptr noundef nonnull @.str.3028) #13
   ret void
 }
 
@@ -7743,7 +7743,7 @@ get_service_uuid_from_handle.exit.thread86:       ; preds = %37
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %18, ptr noundef nonnull align 4 dereferenceable(20) %51, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %18, ptr noundef nonnull align 4 dereferenceable(20) %51, i64 20, i1 false)
   br label %get_service_uuid_from_handle.exit
 
 .thread.i:                                        ; preds = %52, %50, %.lr.ph.i
@@ -7815,7 +7815,7 @@ get_characteristic_uuid_from_handle.exit.thread87: ; preds = %59
   ]
 
 75:                                               ; preds = %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %71, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %71, i64 20, i1 false)
   br label %get_characteristic_uuid_from_handle.exit
 
 .critedge.i:                                      ; preds = %72, %70, %.lr.ph.i72
@@ -7865,7 +7865,7 @@ get_characteristic_uuid_from_handle.exit:         ; preds = %72, %.critedge.i, %
   br i1 %.not11.i75, label %get_bluetooth_uuid_from_handle.exit, label %91
 
 91:                                               ; preds = %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %90, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %90, i64 20, i1 false)
   br label %get_bluetooth_uuid_from_handle.exit
 
 get_bluetooth_uuid_from_handle.exit:              ; preds = %get_service_uuid_from_handle.exit.thread, %78, %89, %91
@@ -8175,7 +8175,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br i1 %35, label %36, label %.thread.i
 
 36:                                               ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %31, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %31, i64 20, i1 false)
   br label %.loopexit30
 
 .thread.i:                                        ; preds = %32, %30, %.lr.ph.i
@@ -8232,7 +8232,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   ]
 
 54:                                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %14, ptr noundef nonnull align 4 dereferenceable(20) %50, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %14, ptr noundef nonnull align 4 dereferenceable(20) %50, i64 20, i1 false)
   br label %.loopexit
 
 .critedge.i:                                      ; preds = %51, %49, %.lr.ph.i25
@@ -8278,7 +8278,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br i1 %.not11.i28, label %get_bluetooth_uuid_from_handle.exit, label %69
 
 69:                                               ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %68, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %68, i64 20, i1 false)
   br label %get_bluetooth_uuid_from_handle.exit
 
 get_bluetooth_uuid_from_handle.exit:              ; preds = %.loopexit, %67, %69

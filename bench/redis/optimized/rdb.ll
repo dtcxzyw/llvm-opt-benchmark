@@ -13536,7 +13536,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2136), align 8
   %inc = add nsw i64 %1, 1
   store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 2136), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool.not.i = icmp ne ptr %2, null
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
@@ -13687,7 +13687,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %if.end26
 
 if.end4:                                          ; preds = %land.lhs.true, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool.not.i = icmp ne ptr %5, null
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8

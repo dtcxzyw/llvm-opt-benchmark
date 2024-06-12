@@ -255,7 +255,7 @@ define hidden void @tvb_add_to_chain(ptr noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tvb_check_offset_length(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %check_offset_length.exit, label %7
 

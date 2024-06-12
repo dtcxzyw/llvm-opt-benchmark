@@ -12888,7 +12888,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %100, %101, %102, %1
   br i1 %316, label %dissect_transaction2_request_parameters.exit, label %317
 
 317:                                              ; preds = %312
-  %318 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %235, i32 noundef %315, ptr noundef nonnull %5)
+  %318 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef %1, ptr noundef %235, i32 noundef %315, ptr noundef nonnull %5)
   %319 = icmp eq i16 %310, 6
   br i1 %319, label %dissect_transaction2_request_parameters.exit, label %320
 
@@ -13035,7 +13035,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %100, %101, %102, %1
   br i1 %406, label %dissect_transaction2_request_parameters.exit, label %407
 
 407:                                              ; preds = %402
-  %408 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %235, i32 noundef %405, ptr noundef nonnull %5)
+  %408 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef %1, ptr noundef %235, i32 noundef %405, ptr noundef nonnull %5)
   store i32 %408, ptr %11, align 4
   %409 = add i16 %.0272, -12
   store i16 %409, ptr %12, align 2
@@ -13312,7 +13312,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %100, %101, %102, %1
 
 578:                                              ; preds = %576
   %579 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %215) #15
-  %580 = call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %235, i32 noundef %215, i32 noundef 2, i16 noundef zeroext %579, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
+  %580 = call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %235, i32 noundef %215, i32 noundef 2, i16 noundef zeroext %579, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
   %581 = add i32 %215, 2
   %582 = and i16 %.0272, -2
   %583 = icmp eq i16 %582, 2
@@ -13362,7 +13362,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %100, %101, %102, %1
 
 608:                                              ; preds = %606
   %609 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %215) #15
-  %610 = call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef readonly %1, ptr noundef %235, i32 noundef %215, i32 noundef 2, i16 noundef zeroext %609, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
+  %610 = call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %235, i32 noundef %215, i32 noundef 2, i16 noundef zeroext %609, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
   %611 = add i32 %215, 2
   %612 = and i16 %.0272, -2
   %613 = icmp eq i16 %612, 2
@@ -13554,7 +13554,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %100, %101, %102, %1
 731:                                              ; preds = %232
   %732 = getelementptr inbounds i8, ptr %5, i64 24
   %733 = load i32, ptr %732, align 8
-  %734 = call i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr noundef readonly %1, ptr noundef %235, i32 noundef %215, ptr noundef nonnull %12, i32 noundef %733)
+  %734 = call i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr noundef %1, ptr noundef %235, i32 noundef %215, ptr noundef nonnull %12, i32 noundef %733)
   store i32 %734, ptr %11, align 4
   %.pr.i.pre = load i16, ptr %12, align 2
   br label %thread-pre-split.i
@@ -13701,12 +13701,12 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %791
 
 808:                                              ; preds = %787
   %809 = load ptr, ptr %10, align 8
-  %810 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %790, ptr noundef %809, i32 noundef %780, ptr noundef nonnull %9, ptr noundef nonnull readonly %5)
+  %810 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %790, ptr noundef %809, i32 noundef %780, ptr noundef nonnull %9, ptr noundef nonnull %5)
   br label %dissect_sfsi_request.exit.i
 
 811:                                              ; preds = %787
   %812 = load ptr, ptr %10, align 8
-  %813 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %790, ptr noundef %812, i32 noundef %780, ptr noundef nonnull %9, ptr noundef nonnull readonly %5)
+  %813 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %790, ptr noundef %812, i32 noundef %780, ptr noundef nonnull %9, ptr noundef nonnull %5)
   br label %dissect_sfsi_request.exit.i
 
 814:                                              ; preds = %787
@@ -14676,7 +14676,7 @@ proto_item_set_generated.exit473:                 ; preds = %proto_item_set_gene
 
 337:                                              ; preds = %335
   %338 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.2395, i32 noundef 0) #15
-  %339 = call ptr @dissect_smb_fid(ptr noundef nonnull %.2395, ptr noundef nonnull readonly %1, ptr noundef %.0187198.i, i32 noundef 0, i32 noundef 2, i16 noundef zeroext %338, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
+  %339 = call ptr @dissect_smb_fid(ptr noundef nonnull %.2395, ptr noundef nonnull %1, ptr noundef %.0187198.i, i32 noundef 0, i32 noundef 2, i16 noundef zeroext %338, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
   %340 = load i32, ptr @hf_smb_file_attr_16bit, align 4
   %341 = load i32, ptr @ett_smb_file_attributes, align 4
   %342 = call ptr @proto_tree_add_bitmask(ptr noundef %.0187198.i, ptr noundef nonnull %.2395, i32 noundef 2, i32 noundef %340, i32 noundef %341, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15

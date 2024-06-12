@@ -1747,7 +1747,7 @@ sw.bb6:                                           ; preds = %entry
 
 sw.default:                                       ; preds = %entry
   %bounds.i.i = getelementptr inbounds i8, ptr %ptr, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %bounds.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %bounds.i.i, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb
@@ -1776,7 +1776,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @_ZNK4pbrt15SimplePrimitive9IntersectERKNS_3RayEf(ptr writeonly sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(16) %ptr, ptr noundef nonnull align 8 dereferenceable(40) %func.val16, float noundef %func.val17.val)
+  tail call void @_ZNK4pbrt15SimplePrimitive9IntersectERKNS_3RayEf(ptr sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ptr, ptr noundef nonnull align 8 dereferenceable(40) %func.val16, float noundef %func.val17.val)
   br label %return
 
 sw.bb3:                                           ; preds = %entry

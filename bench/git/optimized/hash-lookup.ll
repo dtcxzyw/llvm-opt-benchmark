@@ -144,11 +144,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %call34, ptr noundef nonnull readonly dereferenceable(32) %oid, i64 noundef 32) #6
+  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %call34, ptr noundef nonnull dereferenceable(32) %oid, i64 noundef 32) #6
   br label %oidcmp.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %call34, ptr noundef nonnull readonly dereferenceable(20) %oid, i64 noundef 20) #6
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %call34, ptr noundef nonnull dereferenceable(20) %oid, i64 noundef 20) #6
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
@@ -234,7 +234,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %conv10.us = zext i32 %add.us to i64
   %mul.us = mul i64 %conv10.us, %stride
   %add.ptr.us = getelementptr inbounds i8, ptr %table, i64 %mul.us
-  %call.i.i.us = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %add.ptr.us, ptr noundef nonnull readonly dereferenceable(32) %hash, i64 noundef 32) #6
+  %call.i.i.us = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %add.ptr.us, ptr noundef nonnull dereferenceable(32) %hash, i64 noundef 32) #6
   %tobool.not.us = icmp eq i32 %call.i.i.us, 0
   br i1 %tobool.not.us, label %if.then, label %if.end14.us
 
@@ -255,7 +255,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv10 = zext i32 %add to i64
   %mul = mul i64 %conv10, %stride
   %add.ptr = getelementptr inbounds i8, ptr %table, i64 %mul
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %add.ptr, ptr noundef nonnull readonly dereferenceable(20) %hash, i64 noundef 20) #6
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %add.ptr, ptr noundef nonnull dereferenceable(20) %hash, i64 noundef 20) #6
   %tobool.not = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not, label %if.then, label %if.end14
 

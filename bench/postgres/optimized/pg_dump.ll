@@ -3177,7 +3177,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   br i1 %.not.i388, label %829, label %828
 
 828:                                              ; preds = %825
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %814, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %814, ptr noundef nonnull %799, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null)
   br label %829
 
 829:                                              ; preds = %828, %825
@@ -3267,7 +3267,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   %875 = getelementptr inbounds i8, ptr %799, i64 104
   %876 = load ptr, ptr %875, align 8
   %877 = getelementptr inbounds i8, ptr %799, i64 64
-  %878 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %874, i32 noundef 0, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null, ptr noundef null, ptr noundef %876, ptr noundef nonnull readonly %877)
+  %878 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %874, i32 noundef 0, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null, ptr noundef null, ptr noundef %876, ptr noundef nonnull %877)
   br label %879
 
 879:                                              ; preds = %872, %869
@@ -3790,7 +3790,7 @@ dumpShellType.exit:                               ; preds = %993, %1032
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.991, ptr noundef %1083) #14
   %1153 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %1154 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull readonly %799, i1 noundef zeroext false)
+  %1154 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull %799, i1 noundef zeroext false)
   %1155 = getelementptr inbounds i8, ptr %799, i64 24
   %1156 = load ptr, ptr %1155, align 8
   %1157 = getelementptr inbounds i8, ptr %1156, i64 16
@@ -4137,7 +4137,7 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
 ._crit_edge.i367:                                 ; preds = %1291, %1260
   %1295 = load ptr, ptr %1042, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1040, ptr noundef nonnull @.str.988, ptr noundef %1295) #14
-  call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %1040, ptr noundef readonly %799, ptr noundef nonnull @.str.989, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1160)
+  call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %1040, ptr noundef %799, ptr noundef nonnull @.str.989, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1160)
   %1296 = getelementptr inbounds i8, ptr %1034, i64 48
   %1297 = load i32, ptr %1296, align 8
   %.not284.i = icmp eq i32 %1297, 0
@@ -4147,7 +4147,7 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
   %1299 = load ptr, ptr %1155, align 8
   %1300 = getelementptr inbounds i8, ptr %1299, i64 16
   %1301 = load ptr, ptr %1300, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %1040, ptr noundef readonly %799, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1153, ptr noundef %1301)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %1040, ptr noundef %799, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1153, ptr noundef %1301)
   br label %1302
 
 1302:                                             ; preds = %1298, %._crit_edge.i367
@@ -4238,7 +4238,7 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
   %1354 = getelementptr inbounds i8, ptr %799, i64 96
   %1355 = load ptr, ptr %1354, align 8
   %1356 = getelementptr inbounds i8, ptr %799, i64 64
-  %1357 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %1350, i32 noundef 0, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1153, ptr noundef null, ptr noundef %1353, ptr noundef %1355, ptr noundef nonnull readonly %1356)
+  %1357 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %1350, i32 noundef 0, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1153, ptr noundef null, ptr noundef %1353, ptr noundef %1355, ptr noundef nonnull %1356)
   br label %1358
 
 1358:                                             ; preds = %1348, %1345
@@ -4813,7 +4813,7 @@ getFormattedOperatorName.exit.thread.i350:        ; preds = %1587, %getFormatted
   %1610 = load ptr, ptr %1596, align 8
   %1611 = getelementptr inbounds i8, ptr %1610, i64 16
   %1612 = load ptr, ptr %1611, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %1367, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1052, ptr noundef %1456, ptr noundef %1612)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %1367, ptr noundef nonnull %799, ptr noundef nonnull @.str.1052, ptr noundef %1456, ptr noundef %1612)
   br label %1613
 
 1613:                                             ; preds = %1609, %1595
@@ -4886,7 +4886,7 @@ getFormattedOperatorName.exit.thread.i350:        ; preds = %1587, %getFormatted
 
 1652:                                             ; preds = %1643, %1640
   call void @free(ptr noundef %1456) #14
-  %1653 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull readonly %799, i1 noundef zeroext true)
+  %1653 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull %799, i1 noundef zeroext true)
   %1654 = load i32, ptr %802, align 8
   %1655 = and i32 %1654, 16
   %.not233.i = icmp eq i32 %1655, 0
@@ -4901,7 +4901,7 @@ getFormattedOperatorName.exit.thread.i350:        ; preds = %1587, %getFormatted
   %1662 = getelementptr inbounds i8, ptr %799, i64 96
   %1663 = load ptr, ptr %1662, align 8
   %1664 = getelementptr inbounds i8, ptr %799, i64 64
-  %1665 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %1658, i32 noundef 0, ptr noundef nonnull @.str.960, ptr noundef %1653, ptr noundef null, ptr noundef %1661, ptr noundef %1663, ptr noundef nonnull readonly %1664)
+  %1665 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %1658, i32 noundef 0, ptr noundef nonnull @.str.960, ptr noundef %1653, ptr noundef null, ptr noundef %1661, ptr noundef %1663, ptr noundef nonnull %1664)
   br label %1666
 
 1666:                                             ; preds = %1656, %1652
@@ -5362,7 +5362,7 @@ convertRegProcReference.exit158.thread.i:         ; preds = %1843, %convertRegPr
   %1860 = load ptr, ptr %1844, align 8
   %1861 = getelementptr inbounds i8, ptr %1860, i64 16
   %1862 = load ptr, ptr %1861, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %1677, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1084, ptr noundef %1859, ptr noundef %1862)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %1677, ptr noundef nonnull %799, ptr noundef nonnull @.str.1084, ptr noundef %1859, ptr noundef %1862)
   br label %1863
 
 1863:                                             ; preds = %1858, %convertRegProcReference.exit158.thread.i
@@ -5473,7 +5473,7 @@ dumpOpr.exit:                                     ; preds = %1667, %1672, %1892
   br i1 %.not.i327, label %1916, label %1915
 
 1915:                                             ; preds = %1910
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %1899, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1091, ptr noundef %1904, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %1899, ptr noundef nonnull %799, ptr noundef nonnull @.str.1091, ptr noundef %1904, ptr noundef null)
   br label %1916
 
 1916:                                             ; preds = %1915, %1910
@@ -5750,7 +5750,7 @@ sub_0172.i:                                       ; preds = %1986, %.tail.thread
   %2043 = load ptr, ptr %1967, align 8
   %2044 = getelementptr inbounds i8, ptr %2043, i64 16
   %2045 = load ptr, ptr %2044, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %1942, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1123, ptr noundef %2042, ptr noundef %2045)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %1942, ptr noundef nonnull %799, ptr noundef nonnull @.str.1123, ptr noundef %2042, ptr noundef %2045)
   br label %2046
 
 2046:                                             ; preds = %2041, %2035
@@ -5975,7 +5975,7 @@ dumpOpclass.exit:                                 ; preds = %1936, %2075
   %2164 = load ptr, ptr %2100, align 8
   %2165 = getelementptr inbounds i8, ptr %2164, i64 16
   %2166 = load ptr, ptr %2165, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %2083, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1132, ptr noundef %2163, ptr noundef %2166)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %2083, ptr noundef nonnull %799, ptr noundef nonnull @.str.1132, ptr noundef %2163, ptr noundef %2166)
   br label %2167
 
 2167:                                             ; preds = %2162, %2156
@@ -6365,7 +6365,7 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   %2351 = load ptr, ptr %2254, align 8
   %2352 = getelementptr inbounds i8, ptr %2351, i64 16
   %2353 = load ptr, ptr %2352, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %2204, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1162, ptr noundef %2209, ptr noundef %2353)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %2204, ptr noundef nonnull %799, ptr noundef nonnull @.str.1162, ptr noundef %2209, ptr noundef %2353)
   br label %2354
 
 2354:                                             ; preds = %2350, %2348
@@ -6495,7 +6495,7 @@ dumpCollation.exit:                               ; preds = %2197, %2382
   %2432 = load ptr, ptr %2411, align 8
   %2433 = getelementptr inbounds i8, ptr %2432, i64 16
   %2434 = load ptr, ptr %2433, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %2390, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1172, ptr noundef %2395, ptr noundef %2434)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %2390, ptr noundef nonnull %799, ptr noundef nonnull @.str.1172, ptr noundef %2395, ptr noundef %2434)
   br label %2435
 
 2435:                                             ; preds = %2431, %2388
@@ -6879,7 +6879,7 @@ dumpAttrDef.exit:                                 ; preds = %2520, %2529, %2581
   br i1 %2650, label %.lr.ph.i295, label %.loopexit.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %.lr.ph.i295, %.preheader.i, %2630
-  call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %2592, ptr noundef readonly %799, ptr noundef nonnull @.str.1245, ptr noundef nonnull @.str.1322, ptr noundef %2604)
+  call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %2592, ptr noundef %799, ptr noundef nonnull @.str.1245, ptr noundef nonnull @.str.1322, ptr noundef %2604)
   %2651 = getelementptr inbounds i8, ptr %799, i64 129
   %2652 = load i8, ptr %2651, align 1
   %2653 = trunc i8 %2652 to i1
@@ -7274,7 +7274,7 @@ refreshMatViewData.exit:                          ; preds = %2812, %2846
   br i1 %.not.i.i282, label %nonemptyReloptions.exit.thread.i, label %nonemptyReloptions.exit.i
 
 nonemptyReloptions.exit.i:                        ; preds = %2876
-  %2885 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2884) #15
+  %2885 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2884) #15
   %2886 = icmp ugt i64 %2885, 2
   br i1 %2886, label %2887, label %nonemptyReloptions.exit.thread.i
 
@@ -7513,7 +7513,7 @@ dumpRule.exit:                                    ; preds = %2847, %2854, %2984
   %3012 = load ptr, ptr %2996, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2994, ptr noundef nonnull @.str.1349, ptr noundef %3012) #14
   %3013 = load ptr, ptr %2996, align 8
-  call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %2993, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1350, ptr noundef nonnull @.str.1351, ptr noundef %3013)
+  call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %2993, ptr noundef nonnull %799, ptr noundef nonnull @.str.1350, ptr noundef nonnull @.str.1351, ptr noundef %3013)
   %3014 = getelementptr inbounds i8, ptr %799, i64 73
   %3015 = load i8, ptr %3014, align 1
   %3016 = trunc i8 %3015 to i1
@@ -7748,7 +7748,7 @@ dumpTrigger.exit:                                 ; preds = %2985, %3086
   br i1 %.not51.i271, label %3121, label %3120
 
 3120:                                             ; preds = %3117
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3093, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1366, ptr noundef %3098, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3093, ptr noundef nonnull %799, ptr noundef nonnull @.str.1366, ptr noundef %3098, ptr noundef null)
   br label %3121
 
 3121:                                             ; preds = %3120, %3117
@@ -7965,7 +7965,7 @@ dumpEventTrigger.exit:                            ; preds = %3087, %3145
   br i1 %.not97.i261, label %3227, label %3226
 
 3226:                                             ; preds = %3223
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3185, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1399, ptr noundef %3190, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3185, ptr noundef nonnull %799, ptr noundef nonnull @.str.1399, ptr noundef %3190, ptr noundef null)
   br label %3227
 
 3227:                                             ; preds = %3226, %3223
@@ -8048,7 +8048,7 @@ dumpEventTrigger.exit:                            ; preds = %3087, %3145
   %3271 = getelementptr inbounds i8, ptr %799, i64 112
   %3272 = load ptr, ptr %3271, align 8
   %3273 = getelementptr inbounds i8, ptr %799, i64 64
-  %3274 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %3270, i32 noundef 0, ptr noundef nonnull @.str.1399, ptr noundef %3190, ptr noundef null, ptr noundef null, ptr noundef %3272, ptr noundef nonnull readonly %3273)
+  %3274 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %3270, i32 noundef 0, ptr noundef nonnull @.str.1399, ptr noundef %3190, ptr noundef null, ptr noundef null, ptr noundef %3272, ptr noundef nonnull %3273)
   br label %3275
 
 3275:                                             ; preds = %3268, %3265, %3261
@@ -8167,7 +8167,7 @@ dumpProcLang.exit:                                ; preds = %3148, %3275
 
 3322:                                             ; preds = %3319
   %3323 = load ptr, ptr %3294, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3291, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1413, ptr noundef %3323, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3291, ptr noundef nonnull %799, ptr noundef nonnull @.str.1413, ptr noundef %3323, ptr noundef null)
   br label %3324
 
 3324:                                             ; preds = %3322, %3319
@@ -8365,7 +8365,7 @@ dumpCast.exit:                                    ; preds = %3276, %3345
 
 3408:                                             ; preds = %3405
   %3409 = load ptr, ptr %3371, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3368, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1423, ptr noundef %3409, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3368, ptr noundef nonnull %799, ptr noundef nonnull @.str.1423, ptr noundef %3409, ptr noundef null)
   br label %3410
 
 3410:                                             ; preds = %3408, %3405
@@ -8822,7 +8822,7 @@ dumpTableData.exit:                               ; preds = %3563, %3566
   %3647 = load ptr, ptr %3601, align 8
   %3648 = getelementptr inbounds i8, ptr %3647, i64 16
   %3649 = load ptr, ptr %3648, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3595, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1468, ptr noundef %3600, ptr noundef %3649)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3595, ptr noundef nonnull %799, ptr noundef nonnull @.str.1468, ptr noundef %3600, ptr noundef %3649)
   br label %3650
 
 3650:                                             ; preds = %3646, %3632
@@ -8944,7 +8944,7 @@ dumpTSParser.exit:                                ; preds = %3589, %3676
   %3716 = load ptr, ptr %3696, align 8
   %3717 = getelementptr inbounds i8, ptr %3716, i64 16
   %3718 = load ptr, ptr %3717, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3683, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1476, ptr noundef %3689, ptr noundef %3718)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3683, ptr noundef nonnull %799, ptr noundef nonnull @.str.1476, ptr noundef %3689, ptr noundef %3718)
   br label %3719
 
 3719:                                             ; preds = %3715, %3707
@@ -9074,7 +9074,7 @@ dumpTSDictionary.exit:                            ; preds = %3677, %3749
   %3790 = load ptr, ptr %3762, align 8
   %3791 = getelementptr inbounds i8, ptr %3790, i64 16
   %3792 = load ptr, ptr %3791, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3756, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1481, ptr noundef %3761, ptr noundef %3792)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3756, ptr noundef nonnull %799, ptr noundef nonnull @.str.1481, ptr noundef %3761, ptr noundef %3792)
   br label %3793
 
 3793:                                             ; preds = %3789, %3775
@@ -9242,7 +9242,7 @@ dumpTSTemplate.exit:                              ; preds = %3750, %3819
   %3882 = load ptr, ptr %3839, align 8
   %3883 = getelementptr inbounds i8, ptr %3882, i64 16
   %3884 = load ptr, ptr %3883, align 8
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3826, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1491, ptr noundef %3832, ptr noundef %3884)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3826, ptr noundef nonnull %799, ptr noundef nonnull @.str.1491, ptr noundef %3832, ptr noundef %3884)
   br label %3885
 
 3885:                                             ; preds = %3881, %._crit_edge.thread.i
@@ -9375,7 +9375,7 @@ sub_051.i:                                        ; preds = %.tail.thread.i, %.t
   br i1 %.not46.i, label %3945, label %3944
 
 3944:                                             ; preds = %3941
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3919, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1495, ptr noundef %3924, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3919, ptr noundef nonnull %799, ptr noundef nonnull @.str.1495, ptr noundef %3924, ptr noundef null)
   br label %3945
 
 3945:                                             ; preds = %3944, %3941
@@ -9436,7 +9436,7 @@ sub_051.i:                                        ; preds = %.tail.thread.i, %.t
   %3975 = getelementptr inbounds i8, ptr %799, i64 96
   %3976 = load ptr, ptr %3975, align 8
   %3977 = getelementptr inbounds i8, ptr %799, i64 64
-  %3978 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %3974, i32 noundef 0, ptr noundef nonnull @.str.1495, ptr noundef %3924, ptr noundef null, ptr noundef null, ptr noundef %3976, ptr noundef nonnull readonly %3977)
+  %3978 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %3974, i32 noundef 0, ptr noundef nonnull @.str.1495, ptr noundef %3924, ptr noundef null, ptr noundef null, ptr noundef %3976, ptr noundef nonnull %3977)
   br label %3979
 
 3979:                                             ; preds = %3972, %3969
@@ -9538,7 +9538,7 @@ dumpForeignDataWrapper.exit:                      ; preds = %3914, %3979
   br i1 %.not78.i203, label %4025, label %4024
 
 4024:                                             ; preds = %4021
-  call fastcc void @binary_upgrade_extension_member(ptr noundef %3986, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.1502, ptr noundef %3992, ptr noundef null)
+  call fastcc void @binary_upgrade_extension_member(ptr noundef %3986, ptr noundef nonnull %799, ptr noundef nonnull @.str.1502, ptr noundef %3992, ptr noundef null)
   br label %4025
 
 4025:                                             ; preds = %4024, %4021
@@ -9599,7 +9599,7 @@ dumpForeignDataWrapper.exit:                      ; preds = %3914, %3979
   %4055 = getelementptr inbounds i8, ptr %799, i64 96
   %4056 = load ptr, ptr %4055, align 8
   %4057 = getelementptr inbounds i8, ptr %799, i64 64
-  %4058 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %4054, i32 noundef 0, ptr noundef nonnull @.str.1503, ptr noundef %3992, ptr noundef null, ptr noundef null, ptr noundef %4056, ptr noundef nonnull readonly %4057)
+  %4058 = call fastcc i32 @dumpACL(ptr noundef nonnull %338, i32 noundef %4054, i32 noundef 0, ptr noundef nonnull @.str.1503, ptr noundef %3992, ptr noundef null, ptr noundef null, ptr noundef %4056, ptr noundef nonnull %4057)
   %.pre84.i = load i32, ptr %802, align 8
   br label %4059
 
@@ -9909,7 +9909,7 @@ dumpDefaultACL.exit:                              ; preds = %4094, %4099, %4151
   %4200 = getelementptr inbounds i8, ptr %799, i64 96
   %4201 = load ptr, ptr %4200, align 8
   %4202 = getelementptr inbounds i8, ptr %799, i64 64
-  %4203 = call fastcc i32 @dumpACL(ptr noundef %338, i32 noundef %4198, i32 noundef 0, ptr noundef nonnull @.str.708, ptr noundef %4199, ptr noundef null, ptr noundef null, ptr noundef %4201, ptr noundef nonnull readonly %4202)
+  %4203 = call fastcc i32 @dumpACL(ptr noundef %338, i32 noundef %4198, i32 noundef 0, ptr noundef nonnull @.str.708, ptr noundef %4199, ptr noundef null, ptr noundef null, ptr noundef %4201, ptr noundef nonnull %4202)
   br label %dumpLO.exit
 
 dumpLO.exit:                                      ; preds = %4193, %4196
@@ -11636,7 +11636,7 @@ define internal fastcc void @expand_schema_name_patterns(ptr noundef %0, ptr noc
   unreachable
 
 25:                                               ; preds = %19
-  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %21) #15
+  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %21) #15
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %prohibit_crossdb_refs.exit, label %27
 
@@ -11746,7 +11746,7 @@ define internal fastcc void @expand_table_name_patterns(ptr noundef %0, ptr noca
   unreachable
 
 28:                                               ; preds = %22
-  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %24) #15
+  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %24) #15
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %prohibit_crossdb_refs.exit, label %30
 
@@ -12253,7 +12253,7 @@ define internal fastcc void @getLOs(ptr noundef %0) unnamed_addr #4 {
   %34 = getelementptr inbounds i8, ptr %17, i64 88
   store ptr null, ptr %34, align 8
   %35 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %7) #14
-  %36 = tail call i64 @strtoul(ptr nocapture noundef readonly %35, ptr noundef null, i32 noundef 10) #14
+  %36 = tail call i64 @strtoul(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #14
   %37 = trunc i64 %36 to i32
   %38 = load i32, ptr @nrolenames, align 4
   %39 = icmp sgt i32 %38, 0
@@ -13188,7 +13188,7 @@ define internal fastcc void @dumpDatabase(ptr noundef %0) unnamed_addr #4 {
   %46 = trunc i64 %45 to i32
   %47 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %26) #14
   %48 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %27) #14
-  %49 = tail call i64 @strtoul(ptr nocapture noundef readonly %48, ptr noundef null, i32 noundef 10) #14
+  %49 = tail call i64 @strtoul(ptr nocapture noundef %48, ptr noundef null, i32 noundef 10) #14
   %50 = trunc i64 %49 to i32
   %51 = load i32, ptr @nrolenames, align 4
   %52 = icmp sgt i32 %51, 0
@@ -14217,7 +14217,7 @@ define dso_local ptr @getPublications(ptr noundef %0, ptr nocapture noundef writ
   %44 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %43, ptr %44, align 8
   %45 = tail call ptr @PQgetvalue(ptr noundef %16, i32 noundef %33, i32 noundef %21) #14
-  %46 = tail call i64 @strtoul(ptr nocapture noundef readonly %45, ptr noundef null, i32 noundef 10) #14
+  %46 = tail call i64 @strtoul(ptr nocapture noundef %45, ptr noundef null, i32 noundef 10) #14
   %47 = trunc i64 %46 to i32
   %48 = load i32, ptr @nrolenames, align 4
   %49 = icmp sgt i32 %48, 0
@@ -15000,7 +15000,7 @@ is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, 
   %90 = getelementptr inbounds i8, ptr %78, i64 16
   store ptr %89, ptr %90, align 8
   %91 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %79, i32 noundef %59) #14
-  %92 = tail call i64 @strtoul(ptr nocapture noundef readonly %91, ptr noundef null, i32 noundef 10) #14
+  %92 = tail call i64 @strtoul(ptr nocapture noundef %91, ptr noundef null, i32 noundef 10) #14
   %93 = trunc i64 %92 to i32
   %94 = load i32, ptr @nrolenames, align 4
   %95 = icmp sgt i32 %94, 0
@@ -15443,7 +15443,7 @@ define dso_local ptr @getNamespaces(ptr noundef %0, ptr nocapture noundef writeo
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds i8, ptr %19, i64 100
   store i32 %42, ptr %43, align 4
-  %44 = tail call i64 @strtoul(ptr nocapture noundef readonly %40, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr @nrolenames, align 4
   %47 = icmp sgt i32 %46, 0
@@ -15892,7 +15892,7 @@ findNamespace.exit:                               ; preds = %26
   %54 = getelementptr inbounds i8, ptr %27, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %55 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %16) #14
-  %56 = tail call i64 @strtoul(ptr nocapture noundef readonly %55, ptr noundef null, i32 noundef 10) #14
+  %56 = tail call i64 @strtoul(ptr nocapture noundef %55, ptr noundef null, i32 noundef 10) #14
   %57 = trunc i64 %56 to i32
   %58 = load i32, ptr @nrolenames, align 4
   %59 = icmp sgt i32 %58, 0
@@ -16316,7 +16316,7 @@ findNamespace.exit:                               ; preds = %19
   %39 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %36, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %14) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef readonly %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr @nrolenames, align 4
   %44 = icmp sgt i32 %43, 0
@@ -16505,7 +16505,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -16685,7 +16685,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -16994,7 +16994,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -17174,7 +17174,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -17396,7 +17396,7 @@ findNamespace.exit:                               ; preds = %.lr.ph
   %60 = getelementptr inbounds i8, ptr %33, i64 88
   store ptr null, ptr %60, align 8
   %61 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef %34, i32 noundef %29) #14
-  %62 = tail call i64 @strtoul(ptr nocapture noundef readonly %61, ptr noundef null, i32 noundef 10) #14
+  %62 = tail call i64 @strtoul(ptr nocapture noundef %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
   %64 = load i32, ptr @nrolenames, align 4
   %65 = icmp sgt i32 %64, 0
@@ -17685,7 +17685,7 @@ findNamespace.exit:                               ; preds = %.lr.ph
   %70 = getelementptr inbounds i8, ptr %43, i64 88
   store ptr null, ptr %70, align 8
   %71 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %35) #14
-  %72 = tail call i64 @strtoul(ptr nocapture noundef readonly %71, ptr noundef null, i32 noundef 10) #14
+  %72 = tail call i64 @strtoul(ptr nocapture noundef %71, ptr noundef null, i32 noundef 10) #14
   %73 = trunc i64 %72 to i32
   %74 = load i32, ptr @nrolenames, align 4
   %75 = icmp sgt i32 %74, 0
@@ -18036,7 +18036,7 @@ findNamespace.exit:                               ; preds = %80
   %115 = getelementptr inbounds i8, ptr %81, i64 176
   store i32 %114, ptr %115, align 8
   %116 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %40) #14
-  %117 = tail call i64 @strtoul(ptr nocapture noundef readonly %116, ptr noundef null, i32 noundef 10) #14
+  %117 = tail call i64 @strtoul(ptr nocapture noundef %116, ptr noundef null, i32 noundef 10) #14
   %118 = trunc i64 %117 to i32
   %119 = load i32, ptr @nrolenames, align 4
   %120 = icmp sgt i32 %119, 0
@@ -19192,7 +19192,7 @@ findNamespace.exit:                               ; preds = %.lr.ph
   %42 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %39, ptr %42, align 8
   %43 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %16) #14
-  %44 = tail call i64 @strtoul(ptr nocapture noundef readonly %43, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr nocapture noundef %43, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr @nrolenames, align 4
   %47 = icmp sgt i32 %46, 0
@@ -20015,7 +20015,7 @@ define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef wri
   %42 = getelementptr inbounds i8, ptr %24, i64 72
   store ptr %41, ptr %42, align 8
   %43 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %25, i32 noundef %19) #14
-  %44 = tail call i64 @strtoul(ptr nocapture noundef readonly %43, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr nocapture noundef %43, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr @nrolenames, align 4
   %47 = icmp sgt i32 %46, 0
@@ -20235,7 +20235,7 @@ define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeon
   %60 = getelementptr inbounds i8, ptr %23, i64 108
   store i32 %59, ptr %60, align 4
   %61 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %19) #14
-  %62 = tail call i64 @strtoul(ptr nocapture noundef readonly %61, ptr noundef null, i32 noundef 10) #14
+  %62 = tail call i64 @strtoul(ptr nocapture noundef %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
   %64 = load i32, ptr @nrolenames, align 4
   %65 = icmp sgt i32 %64, 0
@@ -21923,7 +21923,7 @@ findNamespace.exit:                               ; preds = %19
   %39 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %36, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %14) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef readonly %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr @nrolenames, align 4
   %44 = icmp sgt i32 %43, 0
@@ -22257,7 +22257,7 @@ findNamespace.exit:                               ; preds = %18
   %38 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr %35, ptr %38, align 8
   %39 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %14) #14
-  %40 = tail call i64 @strtoul(ptr nocapture noundef readonly %39, ptr noundef null, i32 noundef 10) #14
+  %40 = tail call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 10) #14
   %41 = trunc i64 %40 to i32
   %42 = load i32, ptr @nrolenames, align 4
   %43 = icmp sgt i32 %42, 0
@@ -22445,7 +22445,7 @@ define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture nound
   %43 = getelementptr inbounds i8, ptr %22, i64 88
   store ptr null, ptr %43, align 8
   %44 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %13) #14
-  %45 = tail call i64 @strtoul(ptr nocapture noundef readonly %44, ptr noundef null, i32 noundef 10) #14
+  %45 = tail call i64 @strtoul(ptr nocapture noundef %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr @nrolenames, align 4
   %48 = icmp sgt i32 %47, 0
@@ -22653,7 +22653,7 @@ define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef wr
   %44 = getelementptr inbounds i8, ptr %23, i64 88
   store ptr null, ptr %44, align 8
   %45 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %13) #14
-  %46 = tail call i64 @strtoul(ptr nocapture noundef readonly %45, ptr noundef null, i32 noundef 10) #14
+  %46 = tail call i64 @strtoul(ptr nocapture noundef %45, ptr noundef null, i32 noundef 10) #14
   %47 = trunc i64 %46 to i32
   %48 = load i32, ptr @nrolenames, align 4
   %49 = icmp sgt i32 %48, 0
@@ -22885,7 +22885,7 @@ findNamespace.exit:                               ; preds = %20, %37
   %49 = getelementptr inbounds i8, ptr %25, i64 88
   store ptr null, ptr %49, align 8
   %50 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %21, i32 noundef %13) #14
-  %51 = tail call i64 @strtoul(ptr nocapture noundef readonly %50, ptr noundef null, i32 noundef 10) #14
+  %51 = tail call i64 @strtoul(ptr nocapture noundef %50, ptr noundef null, i32 noundef 10) #14
   %52 = trunc i64 %51 to i32
   %53 = load i32, ptr @nrolenames, align 4
   %54 = icmp sgt i32 %53, 0
@@ -24125,7 +24125,7 @@ sub_0230.i:                                       ; preds = %sub_0230.sink.split
   %209 = load ptr, ptr %101, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 16
   %211 = load ptr, ptr %210, align 8
-  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %18, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef %211)
+  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef %211)
   br label %212
 
 212:                                              ; preds = %208, %.tail229.thread.i
@@ -24223,7 +24223,7 @@ sub_0230.i:                                       ; preds = %sub_0230.sink.split
   %271 = getelementptr inbounds i8, ptr %1, i64 104
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr inbounds i8, ptr %1, i64 64
-  %274 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %267, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef null, ptr noundef %270, ptr noundef %272, ptr noundef nonnull readonly %273)
+  %274 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %267, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef null, ptr noundef %270, ptr noundef %272, ptr noundef nonnull %273)
   br label %dumpBaseType.exit
 
 dumpBaseType.exit:                                ; preds = %262, %265
@@ -24414,7 +24414,7 @@ dumpBaseType.exit:                                ; preds = %262, %265
   %373 = load ptr, ptr %319, align 8
   %374 = getelementptr inbounds i8, ptr %373, i64 16
   %375 = load ptr, ptr %374, align 8
-  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %276, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.866, ptr noundef %318, ptr noundef %375)
+  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %276, ptr noundef nonnull %1, ptr noundef nonnull @.str.866, ptr noundef %318, ptr noundef %375)
   br label %376
 
 376:                                              ; preds = %372, %._crit_edge.i
@@ -24512,7 +24512,7 @@ dumpBaseType.exit:                                ; preds = %262, %265
   %435 = getelementptr inbounds i8, ptr %1, i64 104
   %436 = load ptr, ptr %435, align 8
   %437 = getelementptr inbounds i8, ptr %1, i64 64
-  %438 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %431, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %318, ptr noundef null, ptr noundef %434, ptr noundef %436, ptr noundef nonnull readonly %437)
+  %438 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %431, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %318, ptr noundef null, ptr noundef %434, ptr noundef %436, ptr noundef nonnull %437)
   br label %439
 
 439:                                              ; preds = %429, %426
@@ -25227,7 +25227,7 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   %815 = load ptr, ptr %769, align 8
   %816 = getelementptr inbounds i8, ptr %815, i64 16
   %817 = load ptr, ptr %816, align 8
-  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %746, ptr noundef readonly %1, ptr noundef nonnull @.str.838, ptr noundef %768, ptr noundef %817)
+  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %746, ptr noundef %1, ptr noundef nonnull @.str.838, ptr noundef %768, ptr noundef %817)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %814, %._crit_edge.i31, %.loopexit.i
@@ -25325,7 +25325,7 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   %876 = getelementptr inbounds i8, ptr %1, i64 104
   %877 = load ptr, ptr %876, align 8
   %878 = getelementptr inbounds i8, ptr %1, i64 64
-  %879 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %872, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %768, ptr noundef null, ptr noundef %875, ptr noundef %877, ptr noundef nonnull readonly %878)
+  %879 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %872, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %768, ptr noundef null, ptr noundef %875, ptr noundef %877, ptr noundef nonnull %878)
   br label %dumpEnumType.exit
 
 dumpEnumType.exit:                                ; preds = %867, %870
@@ -25497,7 +25497,7 @@ sub_0116.i:                                       ; preds = %.tail.thread.i, %.t
   %966 = load ptr, ptr %906, align 8
   %967 = getelementptr inbounds i8, ptr %966, i64 16
   %968 = load ptr, ptr %967, align 8
-  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %881, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.838, ptr noundef %905, ptr noundef %968)
+  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %881, ptr noundef nonnull %1, ptr noundef nonnull @.str.838, ptr noundef %905, ptr noundef %968)
   br label %969
 
 969:                                              ; preds = %965, %963
@@ -25595,7 +25595,7 @@ sub_0116.i:                                       ; preds = %.tail.thread.i, %.t
   %1028 = getelementptr inbounds i8, ptr %1, i64 104
   %1029 = load ptr, ptr %1028, align 8
   %1030 = getelementptr inbounds i8, ptr %1, i64 64
-  %1031 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %1024, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %905, ptr noundef null, ptr noundef %1027, ptr noundef %1029, ptr noundef nonnull readonly %1030)
+  %1031 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %1024, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %905, ptr noundef null, ptr noundef %1027, ptr noundef %1029, ptr noundef nonnull %1030)
   br label %dumpRangeType.exit
 
 dumpRangeType.exit:                               ; preds = %1019, %1022
@@ -25651,7 +25651,7 @@ dumpRangeType.exit:                               ; preds = %1019, %1022
   %1058 = load ptr, ptr %1043, align 8
   %1059 = getelementptr inbounds i8, ptr %1058, i64 16
   %1060 = load ptr, ptr %1059, align 8
-  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %1037, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.838, ptr noundef %1042, ptr noundef %1060)
+  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %1037, ptr noundef nonnull %1, ptr noundef nonnull @.str.838, ptr noundef %1042, ptr noundef %1060)
   br label %1061
 
 1061:                                             ; preds = %1057, %1055
@@ -25752,7 +25752,7 @@ dumpRangeType.exit:                               ; preds = %1019, %1022
   %1123 = getelementptr inbounds i8, ptr %1, i64 104
   %1124 = load ptr, ptr %1123, align 8
   %1125 = getelementptr inbounds i8, ptr %1, i64 64
-  %1126 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %1119, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %1042, ptr noundef null, ptr noundef %1122, ptr noundef %1124, ptr noundef nonnull readonly %1125)
+  %1126 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %1119, i32 noundef 0, ptr noundef nonnull @.str.838, ptr noundef %1042, ptr noundef null, ptr noundef %1122, ptr noundef %1124, ptr noundef nonnull %1125)
   br label %dumpUndefinedType.exit
 
 dumpUndefinedType.exit:                           ; preds = %1114, %1117
@@ -26357,7 +26357,7 @@ binary_upgrade_set_type_oids_by_rel.exit.i:       ; preds = %329, %327, %324
   br i1 %.not.i616.i, label %nonemptyReloptions.exit.thread.i, label %nonemptyReloptions.exit.i
 
 nonemptyReloptions.exit.i:                        ; preds = %342
-  %345 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %344) #15
+  %345 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %344) #15
   %346 = icmp ugt i64 %345, 2
   br i1 %346, label %347, label %nonemptyReloptions.exit.thread.i
 
@@ -26860,7 +26860,7 @@ shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %4
   br i1 %.not.i618.i, label %nonemptyReloptions.exit619.thread.i, label %nonemptyReloptions.exit619.i
 
 nonemptyReloptions.exit619.i:                     ; preds = %591
-  %594 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %593) #15
+  %594 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %593) #15
   %595 = icmp ugt i64 %594, 2
   br i1 %595, label %600, label %nonemptyReloptions.exit619.thread.i
 
@@ -26871,7 +26871,7 @@ nonemptyReloptions.exit619.thread.i:              ; preds = %nonemptyReloptions.
   br i1 %.not.i620.i, label %nonemptyReloptions.exit621.thread.i, label %nonemptyReloptions.exit621.i
 
 nonemptyReloptions.exit621.i:                     ; preds = %nonemptyReloptions.exit619.thread.i
-  %598 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %597) #15
+  %598 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %597) #15
   %599 = icmp ugt i64 %598, 2
   br i1 %599, label %600, label %nonemptyReloptions.exit621.thread.i
 
@@ -26882,7 +26882,7 @@ nonemptyReloptions.exit621.i:                     ; preds = %nonemptyReloptions.
   br i1 %.not.i622.i, label %appendReloptionsArrayAH.exit624.i, label %nonemptyReloptions.exit623.i
 
 nonemptyReloptions.exit623.i:                     ; preds = %600
-  %602 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %601) #15
+  %602 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %601) #15
   %603 = icmp ugt i64 %602, 2
   br i1 %603, label %604, label %appendReloptionsArrayAH.exit624.i
 
@@ -26907,7 +26907,7 @@ appendReloptionsArrayAH.exit624.i:                ; preds = %609, %604, %nonempt
   br i1 %.not.i625.i, label %appendReloptionsArrayAH.exit627.i, label %nonemptyReloptions.exit626.i
 
 nonemptyReloptions.exit626.i:                     ; preds = %appendReloptionsArrayAH.exit624.i
-  %613 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %612) #15
+  %613 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %612) #15
   %614 = icmp ugt i64 %613, 2
   br i1 %614, label %615, label %appendReloptionsArrayAH.exit627.i
 
@@ -28733,7 +28733,7 @@ getAttrName.exit229:                              ; preds = %switch.lookup267, %
   br i1 %.not.i230, label %nonemptyReloptions.exit.thread, label %nonemptyReloptions.exit
 
 nonemptyReloptions.exit:                          ; preds = %._crit_edge244
-  %145 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %144) #15
+  %145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %144) #15
   %146 = icmp ugt i64 %145, 2
   br i1 %146, label %147, label %nonemptyReloptions.exit.thread
 

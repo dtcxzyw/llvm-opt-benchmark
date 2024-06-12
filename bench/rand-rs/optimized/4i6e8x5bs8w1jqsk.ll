@@ -41,7 +41,7 @@ define { i64, i64 } @_ZN9rand_core5impls19fill_via_u32_chunks17hb2508e2e34411336
   unreachable
 
 _ZN9rand_core5impls15fill_via_chunks17h227660b9829fe39bE.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb420a04f746e510aE.llvm.8950959336182019511.exit.i"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 4 %0, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !15, !noalias !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 4 %0, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !15, !noalias !19
   %13 = insertvalue { i64, i64 } poison, i64 %7, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.0.sroa.speculated.i.i, 1
   ret { i64, i64 } %14
@@ -72,7 +72,7 @@ define { i64, i64 } @_ZN9rand_core5impls19fill_via_u64_chunks17hb1e6064dcd75b106
   unreachable
 
 _ZN9rand_core5impls15fill_via_chunks17h46b4e1b4df1e0c3eE.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b9ce95e7209bc53E.llvm.8950959336182019511.exit.i"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 8 %0, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !32, !noalias !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 8 %0, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !32, !noalias !36
   %13 = insertvalue { i64, i64 } poison, i64 %7, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.0.sroa.speculated.i.i, 1
   ret { i64, i64 } %14

@@ -1522,7 +1522,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_e
   br i1 %.not.i.i, label %19, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  tail call void @Gia_ManArePrintCube(ptr noundef nonnull readonly %0, ptr noundef nonnull %.018.i)
+  tail call void @Gia_ManArePrintCube(ptr noundef nonnull %0, ptr noundef nonnull %.018.i)
   %.val11.pre.i = load ptr, ptr %7, align 8
   %.val12.pre.i = load i32, ptr %8, align 8
   %.val10.val.pre.i = load ptr, ptr %.val11.pre.i, align 8
@@ -1776,7 +1776,7 @@ define i32 @Gia_ManAreFindBestVar(ptr nocapture noundef readonly %0, i32 %1) loc
   br i1 %.not.i.i, label %73, label %72
 
 72:                                               ; preds = %.lr.ph.i
-  tail call void @Gia_ManArePrintCube(ptr noundef nonnull readonly %0, ptr noundef nonnull %.018.i)
+  tail call void @Gia_ManArePrintCube(ptr noundef nonnull %0, ptr noundef nonnull %.018.i)
   %.val11.pre.i = load ptr, ptr %61, align 8
   %.val12.pre.i = load i32, ptr %62, align 8
   %.val10.val.pre.i = load ptr, ptr %.val11.pre.i, align 8
@@ -2015,7 +2015,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr nocaptur
 .thread:                                          ; preds = %21, %35
   %41 = shl i32 %18, 2
   %42 = sext i32 %41 to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %1, i8 0, i64 %42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %42, i1 false)
   %43 = getelementptr inbounds i8, ptr %0, i64 64
   %44 = load i32, ptr %43, align 8
   %45 = add nsw i32 %44, -1
@@ -3266,7 +3266,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .thread:                                          ; preds = %43, %57
   %63 = shl i32 %.val88, 2
   %64 = sext i32 %63 to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %1, i8 0, i64 %64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %64, i1 false)
   %65 = getelementptr inbounds i8, ptr %0, i64 64
   %66 = load i32, ptr %65, align 8
   %67 = add nsw i32 %66, -1
@@ -3481,7 +3481,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %103, %Gia_StaA
 .thread167:                                       ; preds = %150, %164
   %170 = shl i32 %.val86, 2
   %171 = sext i32 %170 to i64
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %1, i8 0, i64 %171, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %171, i1 false)
   %172 = getelementptr inbounds i8, ptr %0, i64 64
   %173 = load i32, ptr %172, align 8
   %174 = add nsw i32 %173, -1
@@ -5386,7 +5386,7 @@ Gia_ManAreCreateStaInit.exit:                     ; preds = %.lr.ph.i, %47, %38
   %102 = getelementptr inbounds i8, ptr %40, i64 40
   %103 = load i32, ptr %102, align 8
   %104 = load i32, ptr %101, align 8
-  %105 = call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull readonly %40, i32 %104, i32 noundef %103)
+  %105 = call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull %40, i32 %104, i32 noundef %103)
   %106 = load i32, ptr %63, align 4
   %107 = add nsw i32 %106, -1
   %108 = getelementptr i8, ptr %40, i64 24

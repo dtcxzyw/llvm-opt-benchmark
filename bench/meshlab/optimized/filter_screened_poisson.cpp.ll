@@ -67920,7 +67920,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %117, %_Z
   %173 = load i32, ptr %32, align 8
   %174 = add nsw i32 %173, %172
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
-  %175 = invoke noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef readonly %113, i32 noundef %170, i32 noundef %174, ptr noundef nonnull %18)
+  %175 = invoke noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef %113, i32 noundef %170, i32 noundef %174, ptr noundef nonnull %18)
           to label %176 unwind label %.loopexit.split-lp.loopexit
 
 176:                                              ; preds = %171

@@ -367,7 +367,7 @@ RSTRING_PTR.exit114:                              ; preds = %RSTRING_PTR.exit, %
   br i1 %.not.i115, label %ruby_nonempty_memcpy.exit, label %119
 
 119:                                              ; preds = %RSTRING_PTR.exit114
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %110, ptr readonly align 1 %.sroa.2.0.i113, i64 %118, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr align 1 %.sroa.2.0.i113, i64 %118, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit114, %119
@@ -1954,7 +1954,7 @@ inspect_timeval_as_abstime.exit:                  ; preds = %120, %RSTRING_PTR.e
 
 RSTRING_PTR.exit.i117:                            ; preds = %142, %138
   %.sroa.2.0.i.i118 = phi ptr [ %.sroa.2.0.copyload.i.i116, %142 ], [ %141, %138 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 1 dereferenceable(16) %.sroa.2.0.i.i118, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.0.i.i118, i64 16, i1 false)
   %143 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %144 = call i64 @strftime(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.44, ptr noundef nonnull %8) #11
   %145 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2065,7 +2065,7 @@ RSTRING_PTR.exit.i126:                            ; preds = %174, %170
 
 RSTRING_PTR.exit.i134:                            ; preds = %188, %184
   %.sroa.2.0.i.i135 = phi ptr [ %.sroa.2.0.copyload.i.i133, %188 ], [ %187, %184 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %5, ptr noundef nonnull readonly align 1 dereferenceable(12) %.sroa.2.0.i.i135, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.2.0.i.i135, i64 12, i1 false)
   %189 = getelementptr inbounds i8, ptr %5, i64 8
   %190 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %189, ptr noundef nonnull %6, i32 noundef 16) #11
   %191 = icmp eq ptr %190, null
@@ -2141,7 +2141,7 @@ anc_inspect_ip_pktinfo.exit:                      ; preds = %179, %209, %211
 
 RSTRING_PTR.exit.i139:                            ; preds = %223, %219
   %.sroa.2.0.i.i140 = phi ptr [ %.sroa.2.0.copyload.i.i138, %223 ], [ %222, %219 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %2, ptr noundef nonnull readonly align 1 dereferenceable(16) %.sroa.2.0.i.i140, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.0.i.i140, i64 16, i1 false)
   %224 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i140, i64 16
   %.0.copyload.i141 = load i32, ptr %224, align 1
   %225 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 46) #11
@@ -3531,12 +3531,12 @@ ancillary_data.exit:                              ; preds = %.lr.ph.i.i31, %anci
 
 RSTRING_PTR.exit:                                 ; preds = %33, %37
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %37 ], [ %36, %33 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(20) %1, ptr noundef nonnull readonly align 1 dereferenceable(20) %.sroa.2.0.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 1 dereferenceable(20) %.sroa.2.0.i, i64 20, i1 false)
   %38 = getelementptr inbounds i8, ptr %2, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %38, i8 0, i64 26, i1 false)
   store i16 10, ptr %2, align 2
   %39 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %39, ptr noundef nonnull readonly align 1 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %39, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @htonl(i32 noundef -4194304) #15
   %42 = and i32 %41, %40

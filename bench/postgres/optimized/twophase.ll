@@ -485,7 +485,7 @@ define internal fastcc void @MarkAsPreparingGuts(ptr noundef %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %17, %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %31 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 0, ptr %31, align 8
   %32 = load ptr, ptr @MyProc, align 8
@@ -1043,7 +1043,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %53
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
   %68 = getelementptr i8, ptr %64, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %68, ptr noundef nonnull readonly align 8 dereferenceable(72) %2, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %68, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   %69 = load i32, ptr %65, align 8
   %70 = add i32 %69, 72
   store i32 %70, ptr %65, align 8
@@ -1098,7 +1098,7 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %7
   %96 = getelementptr inbounds i8, ptr %.pre.i19, i64 8
   %97 = zext i32 %92 to i64
   %98 = getelementptr i8, ptr %94, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr nonnull readonly align 1 %45, i64 %95, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr nonnull align 1 %45, i64 %95, i1 false)
   %99 = load i32, ptr %96, align 8
   %100 = add i32 %99, %77
   store i32 %100, ptr %96, align 8
@@ -1155,7 +1155,7 @@ save_state_data.exit22:                           ; preds = %._crit_edge.i18, %1
   %128 = getelementptr inbounds i8, ptr %126, i64 8
   %129 = zext i32 %123 to i64
   %130 = getelementptr i8, ptr %125, i64 %129
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %130, ptr readonly align 1 %106, i64 %127, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %130, ptr align 1 %106, i64 %127, i1 false)
   %131 = load i32, ptr %128, align 8
   %132 = add i32 %131, %109
   store i32 %132, ptr %128, align 8
@@ -1188,7 +1188,7 @@ save_state_data.exit22:                           ; preds = %._crit_edge.i18, %1
   %147 = getelementptr inbounds i8, ptr %141, i64 444
   %148 = zext nneg i32 %.02.i to i64
   %149 = shl nuw nsw i64 %148, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %147, ptr noundef nonnull readonly align 4 dereferenceable(1) %137, i64 %149, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %147, ptr noundef nonnull align 4 dereferenceable(1) %137, i64 %149, i1 false)
   %150 = trunc nuw nsw i32 %.02.i to i8
   %151 = getelementptr inbounds i8, ptr %141, i64 440
   store i8 %150, ptr %151, align 8
@@ -1247,7 +1247,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   %180 = load i32, ptr %179, align 8
   %181 = zext i32 %180 to i64
   %182 = getelementptr i8, ptr %176, i64 %181
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr readonly align 1 %157, i64 %178, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %157, i64 %178, i1 false)
   %183 = load i32, ptr %179, align 8
   %184 = add i32 %183, %160
   store i32 %184, ptr %179, align 8
@@ -1309,7 +1309,7 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   %215 = load i32, ptr %214, align 8
   %216 = zext i32 %215 to i64
   %217 = getelementptr i8, ptr %211, i64 %216
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %217, ptr readonly align 1 %192, i64 %213, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %217, ptr align 1 %192, i64 %213, i1 false)
   %218 = load i32, ptr %214, align 8
   %219 = add i32 %218, %195
   store i32 %219, ptr %214, align 8
@@ -1372,7 +1372,7 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   %251 = load i32, ptr %250, align 8
   %252 = zext i32 %251 to i64
   %253 = getelementptr i8, ptr %247, i64 %252
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %253, ptr readonly align 1 %228, i64 %249, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %253, ptr align 1 %228, i64 %249, i1 false)
   %254 = load i32, ptr %250, align 8
   %255 = add i32 %254, %231
   store i32 %255, ptr %250, align 8
@@ -1435,7 +1435,7 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
   %287 = load i32, ptr %286, align 8
   %288 = zext i32 %287 to i64
   %289 = getelementptr i8, ptr %283, i64 %288
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %289, ptr readonly align 1 %264, i64 %285, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %289, ptr align 1 %264, i64 %285, i1 false)
   %290 = load i32, ptr %286, align 8
   %291 = add i32 %290, %267
   store i32 %291, ptr %286, align 8
@@ -1496,7 +1496,7 @@ save_state_data.exit47:                           ; preds = %._crit_edge.i43, %3
   %321 = load i32, ptr %320, align 8
   %322 = zext i32 %321 to i64
   %323 = getelementptr i8, ptr %317, i64 %322
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %323, ptr readonly align 1 %300, i64 %319, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %323, ptr align 1 %300, i64 %319, i1 false)
   %324 = load i32, ptr %320, align 8
   %325 = add i32 %324, %301
   store i32 %325, ptr %320, align 8
@@ -1786,7 +1786,7 @@ save_state_data.exit9:                            ; preds = %._crit_edge.i5, %32
   %50 = getelementptr inbounds i8, ptr %48, i64 8
   %51 = zext i32 %45 to i64
   %52 = getelementptr i8, ptr %47, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr readonly align 1 %2, i64 %49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %2, i64 %49, i1 false)
   %53 = load i32, ptr %50, align 8
   %54 = add i32 %53, %30
   store i32 %54, ptr %50, align 8
@@ -3555,7 +3555,7 @@ define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
   %91 = getelementptr inbounds i8, ptr %85, i64 444
   %92 = zext nneg i32 %.02.i to i64
   %93 = shl nuw nsw i64 %92, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %91, ptr noundef nonnull readonly align 4 dereferenceable(1) %32, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %91, ptr noundef nonnull align 4 dereferenceable(1) %32, i64 %93, i1 false)
   %94 = trunc nuw nsw i32 %.02.i to i8
   %95 = getelementptr inbounds i8, ptr %85, i64 440
   store i8 %94, ptr %95, align 8

@@ -2617,7 +2617,7 @@ define dso_local void @_ZNK16cmListFileParser12CheckNestingEv(ptr dead_on_unwind
   %65 = alloca %"class.std::__cxx11::basic_string", align 8
   %66 = alloca %"class.std::allocator", align 1
   %67 = alloca %"class.std::optional", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %68 = load ptr, ptr %1, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %68, i64 8

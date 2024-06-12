@@ -268,7 +268,7 @@ sw.bb.i:                                          ; preds = %sw.bb
   %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   %length.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %4 = load i64, ptr %length.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i.i, ptr align 1 %add.ptr.i.i5.i.i, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %add.ptr.i.i5.i.i, i64 %4, i1 false)
   br label %sw.epilog
 
 sw.bb1.i:                                         ; preds = %sw.bb
@@ -628,7 +628,7 @@ sw.bb1.i163:                                      ; preds = %sw.bb1
   %length.i39.i = getelementptr inbounds i8, ptr %input, i64 8
   %79 = load i64, ptr %length.i39.i, align 8
   %mul.i.i = shl i64 %79, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i.i38.i, ptr align 2 %add.ptr.i.i5.i.i168, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i.i38.i, ptr align 2 %add.ptr.i.i5.i.i168, i64 %mul.i.i, i1 false)
   br label %sw.epilog
 
 sw.bb2.i144:                                      ; preds = %sw.bb1
@@ -988,7 +988,7 @@ sw.bb2.i304:                                      ; preds = %sw.bb2
   %length.i55.i = getelementptr inbounds i8, ptr %input, i64 8
   %154 = load i64, ptr %length.i55.i, align 8
   %mul.i.i310 = shl i64 %154, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i54.i, ptr align 4 %add.ptr.i.i5.i.i309, i64 %mul.i.i310, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i.i.i54.i, ptr align 4 %add.ptr.i.i5.i.i309, i64 %mul.i.i310, i1 false)
   br label %sw.epilog
 
 sw.bb3.i285:                                      ; preds = %sw.bb2
@@ -1348,7 +1348,7 @@ sw.bb3.i431:                                      ; preds = %sw.bb3
   %length.i71.i = getelementptr inbounds i8, ptr %input, i64 8
   %229 = load i64, ptr %length.i71.i, align 8
   %mul.i.i437 = shl i64 %229, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i70.i, ptr align 8 %add.ptr.i.i5.i.i436, i64 %mul.i.i437, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i.i.i70.i, ptr align 8 %add.ptr.i.i5.i.i436, i64 %mul.i.i437, i1 false)
   br label %sw.epilog
 
 sw.bb4.i412:                                      ; preds = %sw.bb3
@@ -1706,7 +1706,7 @@ sw.bb4.i574:                                      ; preds = %sw.bb4
   %add.ptr.i.i5.i.i579 = getelementptr inbounds i8, ptr %303, i64 %302
   %length.i86.i = getelementptr inbounds i8, ptr %input, i64 8
   %304 = load i64, ptr %length.i86.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i.i.i85.i, ptr align 1 %add.ptr.i.i5.i.i579, i64 %304, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i85.i, ptr align 1 %add.ptr.i.i5.i.i579, i64 %304, i1 false)
   br label %sw.epilog
 
 sw.bb5.i555:                                      ; preds = %sw.bb4
@@ -2066,7 +2066,7 @@ sw.bb5.i696:                                      ; preds = %sw.bb5
   %length.i102.i = getelementptr inbounds i8, ptr %input, i64 8
   %379 = load i64, ptr %length.i102.i, align 8
   %mul.i.i702 = shl i64 %379, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %add.ptr.i.i.i101.i, ptr align 2 %add.ptr.i.i5.i.i701, i64 %mul.i.i702, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i.i101.i, ptr align 2 %add.ptr.i.i5.i.i701, i64 %mul.i.i702, i1 false)
   br label %sw.epilog
 
 sw.bb6.i677:                                      ; preds = %sw.bb5
@@ -2426,7 +2426,7 @@ sw.bb6.i838:                                      ; preds = %sw.bb6
   %length.i118.i = getelementptr inbounds i8, ptr %input, i64 8
   %454 = load i64, ptr %length.i118.i, align 8
   %mul.i.i844 = shl i64 %454, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i117.i, ptr align 4 %add.ptr.i.i5.i.i843, i64 %mul.i.i844, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i.i.i117.i, ptr align 4 %add.ptr.i.i5.i.i843, i64 %mul.i.i844, i1 false)
   br label %sw.epilog
 
 sw.bb7.i819:                                      ; preds = %sw.bb6
@@ -2786,7 +2786,7 @@ sw.bb7.i980:                                      ; preds = %sw.bb7
   %length.i134.i = getelementptr inbounds i8, ptr %input, i64 8
   %529 = load i64, ptr %length.i134.i, align 8
   %mul.i.i986 = shl i64 %529, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i133.i, ptr align 8 %add.ptr.i.i5.i.i985, i64 %mul.i.i986, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i.i.i133.i, ptr align 8 %add.ptr.i.i5.i.i985, i64 %mul.i.i986, i1 false)
   br label %sw.epilog
 
 sw.bb8.i961:                                      ; preds = %sw.bb7
@@ -3147,7 +3147,7 @@ sw.bb8.i1094:                                     ; preds = %sw.bb8
   %length.i151.i1100 = getelementptr inbounds i8, ptr %input, i64 8
   %604 = load i64, ptr %length.i151.i1100, align 8
   %mul.i.i1101 = shl i64 %604, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 4 %add.ptr.i.i.i150.i, ptr align 4 %add.ptr.i.i5.i.i1099, i64 %mul.i.i1101, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i.i.i150.i, ptr align 4 %add.ptr.i.i5.i.i1099, i64 %mul.i.i1101, i1 false)
   br label %sw.epilog
 
 sw.bb9.i1091:                                     ; preds = %sw.bb8
@@ -3508,7 +3508,7 @@ sw.bb9.i1190:                                     ; preds = %sw.bb9
   %length.i167.i = getelementptr inbounds i8, ptr %input, i64 8
   %679 = load i64, ptr %length.i167.i, align 8
   %mul.i.i1196 = shl i64 %679, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i166.i, ptr align 8 %add.ptr.i.i5.i.i1195, i64 %mul.i.i1196, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i.i.i166.i, ptr align 8 %add.ptr.i.i5.i.i1195, i64 %mul.i.i1196, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body.i157.i, %for.body.i141.i1210, %for.body.i125.i1229, %for.body.i109.i1248, %for.body.i93.i1267, %for.body.i77.i1286, %for.body.i61.i1305, %for.body.i45.i1324, %for.body.i.i1343, %for.body.i159.i, %for.body.i141.i, %for.body.i125.i, %for.body.i109.i, %for.body.i93.i, %for.body.i77.i1128, %for.body.i61.i1143, %for.body.i45.i1162, %for.body.i.i1181, %for.body.i158.i952, %for.body.i142.i971, %for.body.i124.i, %for.body.i108.i1000, %for.body.i92.i1019, %for.body.i77.i, %for.body.i61.i1044, %for.body.i45.i1063, %for.body.i.i1082, %for.body.i158.i791, %for.body.i142.i810, %for.body.i126.i829, %for.body.i108.i, %for.body.i92.i858, %for.body.i76.i877, %for.body.i61.i896, %for.body.i45.i914, %for.body.i.i933, %for.body.i158.i630, %for.body.i142.i649, %for.body.i126.i668, %for.body.i110.i687, %for.body.i92.i, %for.body.i76.i716, %for.body.i60.i735, %for.body.i45.i754, %for.body.i.i772, %for.body.i158.i489, %for.body.i142.i508, %for.body.i126.i527, %for.body.i110.i546, %for.body.i94.i565, %for.body.i76.i, %for.body.i60.i, %for.body.i45.i596, %for.body.i.i612, %for.body.i158.i344, %for.body.i142.i363, %for.body.i127.i, %for.body.i111.i388, %for.body.i95.i403, %for.body.i79.i422, %for.body.i61.i, %for.body.i45.i451, %for.body.i.i470, %for.body.i158.i198, %for.body.i142.i217, %for.body.i126.i236, %for.body.i111.i, %for.body.i95.i261, %for.body.i79.i276, %for.body.i63.i295, %for.body.i45.i, %for.body.i.i325, %for.body.i158.i38, %for.body.i142.i57, %for.body.i126.i76, %for.body.i110.i95, %for.body.i95.i, %for.body.i79.i120, %for.body.i63.i135, %for.body.i47.i154, %for.body.i.i179, %for.body.i158.i, %for.body.i142.i, %for.body.i126.i, %for.body.i110.i, %for.body.i94.i, %for.body.i79.i, %for.body.i63.i, %for.body.i47.i, %for.body.i.i, %sw.bb9.i1190, %sw.bb8.i1197, %sw.bb7.i1200, %sw.bb6.i1219, %sw.bb5.i1238, %sw.bb4.i1257, %sw.bb3.i1276, %sw.bb2.i1295, %sw.bb1.i1314, %sw.bb.i1333, %sw.bb9, %sw.bb9.i1091, %sw.bb8.i1094, %sw.bb7.i1102, %sw.bb6.i1106, %sw.bb5.i1110, %sw.bb4.i1114, %sw.bb3.i1118, %sw.bb2.i1133, %sw.bb1.i1152, %sw.bb.i1171, %sw.bb8, %sw.bb9.i942, %sw.bb8.i961, %sw.bb7.i980, %sw.bb6.i987, %sw.bb5.i990, %sw.bb4.i1009, %sw.bb3.i1028, %sw.bb2.i1034, %sw.bb1.i1053, %sw.bb.i1072, %sw.bb7, %sw.bb9.i781, %sw.bb8.i800, %sw.bb7.i819, %sw.bb6.i838, %sw.bb5.i845, %sw.bb4.i848, %sw.bb3.i867, %sw.bb2.i886, %sw.bb1.i904, %sw.bb.i923, %sw.bb6, %sw.bb9.i620, %sw.bb8.i639, %sw.bb7.i658, %sw.bb6.i677, %sw.bb5.i696, %sw.bb4.i703, %sw.bb3.i706, %sw.bb2.i725, %sw.bb1.i744, %sw.bb.i762, %sw.bb5, %sw.bb9.i479, %sw.bb8.i498, %sw.bb7.i517, %sw.bb6.i536, %sw.bb5.i555, %sw.bb4.i574, %sw.bb3.i580, %sw.bb2.i583, %sw.bb1.i586, %sw.bb.i602, %sw.bb4, %sw.bb9.i334, %sw.bb8.i353, %sw.bb7.i372, %sw.bb6.i378, %sw.bb5.i393, %sw.bb4.i412, %sw.bb3.i431, %sw.bb2.i438, %sw.bb1.i441, %sw.bb.i460, %sw.bb3, %sw.bb9.i188, %sw.bb8.i207, %sw.bb7.i226, %sw.bb6.i245, %sw.bb5.i251, %sw.bb4.i266, %sw.bb3.i285, %sw.bb2.i304, %sw.bb1.i311, %sw.bb.i315, %sw.bb2, %sw.bb9.i28, %sw.bb8.i47, %sw.bb7.i66, %sw.bb6.i85, %sw.bb5.i104, %sw.bb4.i110, %sw.bb3.i125, %sw.bb2.i144, %sw.bb1.i163, %sw.bb.i169, %sw.bb1, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %sw.bb, %entry

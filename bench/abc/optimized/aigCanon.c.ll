@@ -989,7 +989,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %12 = shl nuw nsw i64 %indvars.iv.next104, 1
   %13 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %12
-  %14 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %11, ptr noundef nonnull readonly dereferenceable(4) %13, i64 noundef 4) #18
+  %14 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %11, ptr noundef nonnull dereferenceable(4) %13, i64 noundef 4) #18
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %27, label %16
 
@@ -1039,7 +1039,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %29 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %28
   %30 = or disjoint i64 %28, 1
   %31 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %30
-  %32 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %29, ptr noundef nonnull readonly dereferenceable(4) %31, i64 noundef 4) #18
+  %32 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %29, ptr noundef nonnull dereferenceable(4) %31, i64 noundef 4) #18
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %38, label %34
 
@@ -1363,7 +1363,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %4
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %86 = shl nuw nsw i64 %indvars.iv.next.i51, 1
   %87 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %80, i64 %86
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %85, ptr noundef nonnull readonly dereferenceable(4) %87, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %85, ptr noundef nonnull dereferenceable(4) %87, i64 4)
   %88 = icmp eq i32 %bcmp.i, 0
   br i1 %88, label %Aig_RManVarsAreUnique.exit, label %82, !llvm.loop !21
 

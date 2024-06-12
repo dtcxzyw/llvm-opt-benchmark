@@ -519,7 +519,7 @@ if.end30.i:                                       ; preds = %if.end24.i
   %index32.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %conv31.i, ptr %index32.i, align 8
   %state39.i = getelementptr inbounds i8, ptr %self, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(2496) %state39.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2496) %state39.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
   br label %_random_Random_setstate_impl.exit
 
 _random_Random_setstate_impl.exit:                ; preds = %land.lhs.true.i, %if.then.i, %if.then3.i, %land.lhs.true20.i, %if.then29.i, %if.end30.i

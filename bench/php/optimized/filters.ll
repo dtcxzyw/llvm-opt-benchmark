@@ -1044,7 +1044,7 @@ php_conv_base64_encode_ctor.exit.i:               ; preds = %98, %92
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   store ptr @php_conv_base64_decode_dtor, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %122, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   br label %282
 
 125:                                              ; preds = %41

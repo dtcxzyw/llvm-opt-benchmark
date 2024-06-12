@@ -384,7 +384,7 @@ define hidden void @"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$17extend_from_slice1
 "_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit": ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 2
   %26 = getelementptr inbounds i8, ptr %25, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !70, !noalias !77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %1, i64 %2, i1 false), !alias.scope !70, !noalias !77
   %27 = trunc nuw nsw i64 %11 to i16
   store i16 %27, ptr %0, align 2, !alias.scope !80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1970,7 +1970,7 @@ define hidden void @_ZN15ockam_multiaddr9split_off17hbc66e5754c724a50E(ptr noali
   store i16 %37, ptr %8, align 2, !noalias !551
   %38 = trunc i64 %23 to i16
   store i16 %38, ptr %15, align 2, !alias.scope !548, !noalias !553
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(30) %12, ptr noundef nonnull align 2 dereferenceable(30) %8, i64 30, i1 false), !noalias !548
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %12, ptr noundef nonnull align 2 dereferenceable(30) %8, i64 30, i1 false), !noalias !548
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %8), !noalias !551
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %39 = getelementptr inbounds i8, ptr %0, i64 2
@@ -2092,7 +2092,7 @@ define hidden void @_ZN15ockam_multiaddr9split_off17hbc66e5754c724a50E(ptr noali
   unreachable
 
 "_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit.i": ; preds = %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.sroa.5, ptr nonnull readonly align 1 %72, i64 %71, i1 false), !alias.scope !602
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.sroa.5, ptr nonnull align 1 %72, i64 %71, i1 false), !alias.scope !602
   %84 = trunc nuw nsw i64 %71 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !595
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc8e541a34f6506c0E.exit"

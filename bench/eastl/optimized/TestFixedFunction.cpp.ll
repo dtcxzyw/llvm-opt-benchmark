@@ -4610,7 +4610,7 @@ sw.default:                                       ; preds = %entry
   br i1 %switch.i, label %sw.epilog.sink.split.i, label %return
 
 sw.epilog.sink.split.i:                           ; preds = %sw.default
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %to, ptr noundef nonnull readonly align 8 dereferenceable(48) %from, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %to, ptr noundef nonnull align 8 dereferenceable(48) %from, i64 48, i1 false)
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1

@@ -319,7 +319,7 @@ define internal fastcc range(i32 0, 23) i32 @cli_elf_fileheader(ptr noundef %0, 
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr nonnull align 1 %11, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %11, i64 %spec.select.i, i1 false)
   %.not = icmp ugt i64 %7, 51
   br i1 %.not, label %12, label %fmap_readn.exit.thread
 
@@ -432,7 +432,7 @@ fmap_readn.exit.thread:                           ; preds = %8, %5, %fmap_readn.
   br i1 %.not26.i234, label %fmap_readn.exit236.thread, label %fmap_readn.exit236
 
 fmap_readn.exit236:                               ; preds = %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %47, ptr nonnull align 1 %52, i64 %spec.select.i233, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %52, i64 %spec.select.i233, i1 false)
   %.not198 = icmp ugt i64 %50, 11
   br i1 %.not198, label %53, label %fmap_readn.exit236.thread
 
@@ -626,7 +626,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr no
   br i1 %.not26.i.us, label %fmap_readn.exit.thread.loopexit, label %fmap_readn.exit.us
 
 fmap_readn.exit.us:                               ; preds = %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %53, ptr nonnull align 1 %58, i64 %spec.select.i.us, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %58, i64 %spec.select.i.us, i1 false)
   %.not155.us = icmp ugt i64 %56, 55
   br i1 %.not155.us, label %59, label %fmap_readn.exit.thread.loopexit
 
@@ -654,7 +654,7 @@ fmap_readn.exit.us:                               ; preds = %55
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %61, ptr nonnull align 1 %67, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %67, i64 %spec.select.i, i1 false)
   %.not155 = icmp ugt i64 %65, 55
   br i1 %.not155, label %80, label %fmap_readn.exit.thread
 
@@ -980,7 +980,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
   br i1 %.not26.i.us, label %fmap_readn.exit.thread.loopexit, label %fmap_readn.exit.us
 
 fmap_readn.exit.us:                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %53, ptr nonnull align 1 %59, i64 %spec.select.i.us, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %59, i64 %spec.select.i.us, i1 false)
   %.not123.us = icmp ugt i64 %57, 31
   br i1 %.not123.us, label %60, label %fmap_readn.exit.thread.loopexit
 
@@ -1009,7 +1009,7 @@ fmap_readn.exit.us:                               ; preds = %56
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %62, ptr nonnull align 1 %69, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %69, i64 %spec.select.i, i1 false)
   %.not123 = icmp ugt i64 %67, 31
   br i1 %.not123, label %82, label %fmap_readn.exit.thread
 
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %55, ptr nonnull align 1 %60, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %60, i64 %spec.select.i, i1 false)
   %.not196 = icmp ugt i64 %58, 63
   br i1 %.not196, label %71, label %fmap_readn.exit.thread
 
@@ -1617,7 +1617,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %55, ptr nonnull align 1 %61, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %61, i64 %spec.select.i, i1 false)
   %.not148 = icmp ugt i64 %59, 39
   br i1 %.not148, label %72, label %fmap_readn.exit.thread
 

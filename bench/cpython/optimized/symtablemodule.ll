@@ -125,17 +125,17 @@ if.end22:                                         ; preds = %if.end18
   br i1 %cmp.i, label %_symtable_symtable_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end22
-  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(5) @.str.6) #5
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(5) @.str.6) #5
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.end14.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %call4.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(5) @.str.7) #5
+  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(5) @.str.7) #5
   %cmp5.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.i, label %if.end14.i, label %if.else7.i
 
 if.else7.i:                                       ; preds = %if.else.i
-  %call8.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(7) @.str.8) #5
+  %call8.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(7) @.str.8) #5
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %if.end14.i, label %if.else11.i
 

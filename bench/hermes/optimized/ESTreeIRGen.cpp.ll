@@ -1322,7 +1322,7 @@ _ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11Prog
   %22 = load <2 x ptr>, ptr %sourceRange_.i.i, align 8, !noalias !18
   store <2 x ptr> %22, ptr %agg.tmp5.i, align 16, !noalias !18
   %call7.i = tail call noundef ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Function14DefinitionKindEbNS_16SourceVisibilityENS3_7SMRangeEbPS5_(ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef nonnull %call.i.i, ptr nonnull @.str.31, i64 0, i32 noundef 0, i1 noundef zeroext %cmp.i.i, i32 noundef %21, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp5.i, i1 noundef zeroext true, ptr noundef null) #15, !noalias !18
-  call fastcc void @_ZN6hermes5irgenL21materializeScopeChainERNS_9IRBuilderEPNS_8FunctionERKSt10shared_ptrIKNS_15SerializedScopeEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %call7.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lexicalScopeChain), !noalias !18
+  call fastcc void @_ZN6hermes5irgenL21materializeScopeChainERNS_9IRBuilderEPNS_8FunctionERKSt10shared_ptrIKNS_15SerializedScopeEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %Builder9, ptr noundef %call7.i, ptr noundef nonnull align 8 dereferenceable(16) %lexicalScopeChain), !noalias !18
   %23 = load ptr, ptr %ref.tmp.i, align 8, !noalias !21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -2404,7 +2404,7 @@ _ZN6hermes5irgenL36materializeScopeChainForLazyFunctionERNS_9IRBuilderEPNS_3hbc1
   %23 = load i8, ptr %strictMode.i, align 4, !noalias !41
   %tobool.i = trunc i8 %23 to i1
   %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createTopLevelFunctionEPNS_9ScopeDescEbNS_16SourceVisibilityEN4llvh7SMRangeE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef nonnull %call.i.i, i1 noundef zeroext %tobool.i, i32 noundef 0, ptr null, ptr null) #15, !noalias !41
-  call fastcc void @_ZN6hermes5irgenL21materializeScopeChainERNS_9IRBuilderEPNS_8FunctionERKSt10shared_ptrIKNS_15SerializedScopeEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call3.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %lexicalScopeChain), !noalias !41
+  call fastcc void @_ZN6hermes5irgenL21materializeScopeChainERNS_9IRBuilderEPNS_8FunctionERKSt10shared_ptrIKNS_15SerializedScopeEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(16) %lexicalScopeChain), !noalias !41
   %24 = load ptr, ptr %ref.tmp.i, align 8, !noalias !44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) %topLevelFunctionContext, ptr noundef nonnull %this, ptr noundef %call3.i, ptr noundef null) #15

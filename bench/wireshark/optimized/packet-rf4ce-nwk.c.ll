@@ -819,7 +819,7 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %14 = getelementptr i8, ptr %11, i64 1
   %15 = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %15, 34
@@ -940,7 +940,7 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
   br i1 %4, label %rf4ce_security_parse_sec_str.exit.thread, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %6 = getelementptr i8, ptr %3, i64 1
   %7 = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %7, 34
@@ -1073,7 +1073,7 @@ define internal void @uat_sec_record_post_update() #0 {
   br i1 %12, label %rf4ce_security_parse_sec_str.exit.thread, label %13
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %14 = getelementptr i8, ptr %11, i64 1
   %15 = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %15, 34

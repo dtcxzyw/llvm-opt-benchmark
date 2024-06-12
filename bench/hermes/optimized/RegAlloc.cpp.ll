@@ -8933,7 +8933,7 @@ land.rhs.i.i.i.i.i147:                            ; preds = %while.body.i.i.i.i.
   %add.ptr.i.i.i.i.i150 = getelementptr inbounds i32, ptr %intervals.val30, i64 %__parent.015.i.i45.i.i.i
   %add.ptr.val.i.i.i.i.i151 = load i32, ptr %add.ptr.i.i.i.i.i150, align 4
   %__comp.val.val.i.i.i.i.i152 = load ptr, ptr %76, align 8
-  %call.i.i.i.i.i.i153 = call fastcc noundef zeroext i1 @"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj"(ptr readonly %__comp.val.val.i.i.i.i.i152, i32 noundef %add.ptr.val.i.i.i.i.i151, i32 noundef %52)
+  %call.i.i.i.i.i.i153 = call fastcc noundef zeroext i1 @"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj"(ptr %__comp.val.val.i.i.i.i.i152, i32 noundef %add.ptr.val.i.i.i.i.i151, i32 noundef %52)
   br i1 %call.i.i.i.i.i.i153, label %while.body.i.i.i.i.i154, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_0EEEvT_SD_SD_RT0_.exit.i.i"
 
 while.body.i.i.i.i.i154:                          ; preds = %land.rhs.i.i.i.i.i147
@@ -9062,7 +9062,7 @@ if.then.i.i202:                                   ; preds = %if.end103
   %sub.ptr.lhs.cast.i.i.i209 = ptrtoint ptr %incdec.ptr.i.i208 to i64
   %sub.ptr.sub.i.i.i210 = sub i64 %sub.ptr.lhs.cast.i.i.i209, %sub.ptr.rhs.cast.i.i204
   %sub.ptr.div.i.i.i211 = ashr exact i64 %sub.ptr.sub.i.i.i210, 2
-  call fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_T2_"(ptr noundef nonnull %liveIntervalsQueue.val32, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i211, i32 noundef %94, ptr readonly %agg.tmp.sroa.0.0.copyload.i207)
+  call fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_T2_"(ptr noundef nonnull %liveIntervalsQueue.val32, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i211, i32 noundef %94, ptr %agg.tmp.sroa.0.0.copyload.i207)
   %.pre.i212 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
   br label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E3popEv.exit"
 
@@ -9770,7 +9770,7 @@ if.then.i.i370:                                   ; preds = %_ZN6hermes17Registe
   %sub.ptr.lhs.cast.i.i.i377 = ptrtoint ptr %incdec.ptr.i.i376 to i64
   %sub.ptr.sub.i.i.i378 = sub i64 %sub.ptr.lhs.cast.i.i.i377, %sub.ptr.rhs.cast.i.i372
   %sub.ptr.div.i.i.i379 = ashr exact i64 %sub.ptr.sub.i.i.i378, 2
-  call fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_T2_"(ptr noundef nonnull %192, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i379, i32 noundef %193, ptr readonly %agg.tmp.sroa.0.0.copyload.i375)
+  call fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_T2_"(ptr noundef nonnull %192, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i379, i32 noundef %193, ptr %agg.tmp.sroa.0.0.copyload.i375)
   %.pre.i380 = load i32, ptr %Size.i.i.i.i.i.i104, align 8
   br label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E3popEv.exit381"
 

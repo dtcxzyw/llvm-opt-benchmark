@@ -1711,7 +1711,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_17extractINS0_6ICCTagEEEbNS_4spanIKhLln1EEER
 
 if.end125:                                        ; preds = %for.body
   %add.ptr.i215 = getelementptr inbounds i8, ptr %iccdata.coerce0, i64 %offset.1477
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %tag, ptr noundef nonnull readonly align 4 dereferenceable(12) %add.ptr.i215, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %tag, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i215, i64 12, i1 false)
   %80 = load i32, ptr %offset.i.i, align 4
   %81 = call i32 @llvm.bswap.i32(i32 %80)
   store i32 %81, ptr %offset.i.i, align 4

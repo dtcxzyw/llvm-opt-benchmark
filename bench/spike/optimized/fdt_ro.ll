@@ -237,7 +237,7 @@ define i32 @fdt_get_phandle(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %6 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly @.str, i32 noundef 7, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %6 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %fdt_getprop.exit.thread, label %7
 
@@ -308,7 +308,7 @@ fdt_getprop.exit:                                 ; preds = %30, %50
 
 53:                                               ; preds = %fdt_getprop.exit.thread, %fdt_getprop.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %54 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly @.str.1, i32 noundef 13, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %54 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 13, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %.not.i.i15 = icmp eq ptr %54, null
   br i1 %.not.i.i15, label %fdt_getprop.exit18.thread, label %55
 
@@ -749,7 +749,7 @@ define i32 @fdt_subnode_offset_namelen(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %or.cond.i, label %fdt_nodename_eq_.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %bcmp.i = call i32 @bcmp(ptr nonnull %16, ptr readonly %2, i64 %11)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %16, ptr %2, i64 %11)
   %.not16.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not16.i, label %20, label %fdt_nodename_eq_.exit.thread
 
@@ -768,7 +768,7 @@ fdt_nodename_eq_.exit.thread:                     ; preds = %15, %19
   br label %26
 
 fdt_nodename_eq_.exit:                            ; preds = %20
-  %24 = call ptr @memchr(ptr noundef readonly %2, i32 noundef 64, i64 noundef %11) #10
+  %24 = call ptr @memchr(ptr noundef %2, i32 noundef 64, i64 noundef %11) #10
   %.not17.i = icmp ne ptr %24, null
   %25 = icmp ne i8 %22, 64
   %or.cond19.i.not = or i1 %25, %.not17.i
@@ -832,7 +832,7 @@ define i32 @fdt_path_offset_namelen(ptr noundef %0, ptr noundef %1, i32 noundef 
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %20 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %13, ptr noundef nonnull readonly %1, i32 noundef %19, ptr noundef null, ptr noundef nonnull %4)
+  %20 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %1, i32 noundef %19, ptr noundef null, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %fdt_get_alias_namelen.exit, label %21
 
@@ -952,7 +952,7 @@ define ptr @fdt_get_alias_namelen(ptr noundef %0, ptr nocapture noundef readonly
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %5, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %4)
+  %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %fdt_getprop_namelen.exit, label %9
 
@@ -1476,7 +1476,7 @@ fdt_string_eq_.exit.thread:                       ; preds = %fdt_get_property_by
   br label %90
 
 fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by_offset_.exit.thread35
-  %bcmp.i = call i32 @bcmp(ptr nonnull %85, ptr readonly %2, i64 %26)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %85, ptr %2, i64 %26)
   %.not = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br i1 %.not, label %88, label %90
@@ -1576,7 +1576,7 @@ define ptr @fdt_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture nound
 26:                                               ; preds = %4
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %28 = trunc i64 %27 to i32
-  %29 = tail call fastcc ptr @fdt_get_property_namelen_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %28, ptr noundef %3, ptr noundef null)
+  %29 = tail call fastcc ptr @fdt_get_property_namelen_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %28, ptr noundef %3, ptr noundef null)
   br label %fdt_get_property_namelen.exit
 
 fdt_get_property_namelen.exit:                    ; preds = %24, %25, %26
@@ -1821,7 +1821,7 @@ define ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef re
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %7 = trunc i64 %6 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %7, ptr noundef %3, ptr noundef nonnull %5)
+  %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef %3, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %fdt_getprop_namelen.exit, label %9
 
@@ -1900,7 +1900,7 @@ define ptr @fdt_get_alias(ptr noundef %0, ptr nocapture noundef readonly %1) loc
 7:                                                ; preds = %2
   %8 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %9 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %5, ptr noundef readonly %1, i32 noundef %8, ptr noundef null, ptr noundef nonnull %3)
+  %9 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %8, ptr noundef null, ptr noundef nonnull %3)
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %fdt_getprop_namelen.exit.i, label %10
 
@@ -2367,10 +2367,10 @@ define i32 @fdt_node_offset_by_prop_value(ptr noundef %0, i32 noundef %1, ptr no
 
 18:                                               ; preds = %.lr.ph, %68
   %.01623 = phi i32 [ %11, %.lr.ph ], [ %69, %68 ]
-  %19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %21 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %.01623, ptr noundef readonly %2, i32 noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %21 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %.01623, ptr noundef %2, i32 noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %fdt_getprop.exit, label %22
 
@@ -2525,10 +2525,10 @@ define range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i32 noundef 
 define i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %7 = trunc i64 %6 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %8 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %53, label %9
 
@@ -2632,10 +2632,10 @@ declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %8 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %9 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %9 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %54, label %10
 
@@ -2747,10 +2747,10 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture 
 define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %9 = trunc i64 %8 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %10 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %10 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %55, label %11
 
@@ -2881,7 +2881,7 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %6 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly @.str.3, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %6 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %51, label %7
 
@@ -2947,7 +2947,7 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   %.sink = phi i64 [ 12, %50 ], [ 16, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %54 = load i32, ptr %5, align 4
-  %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %56 = trunc i64 %55 to i32
   %57 = shl i64 %55, 32
   %sext.i = add i64 %57, 4294967296
@@ -2962,7 +2962,7 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %64
   %.01320.i = phi ptr [ %70, %64 ], [ %59, %.lr.ph.i.preheader ]
   %.01419.i = phi i32 [ %69, %64 ], [ %54, %.lr.ph.i.preheader ]
-  %bcmp.i = call i32 @bcmp(ptr readonly %2, ptr nonnull %.01320.i, i64 %58)
+  %bcmp.i = call i32 @bcmp(ptr %2, ptr nonnull %.01320.i, i64 %58)
   %60 = icmp eq i32 %bcmp.i, 0
   br i1 %60, label %fdt_stringlist_contains.exit, label %61
 

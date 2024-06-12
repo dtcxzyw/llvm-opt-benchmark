@@ -245,12 +245,12 @@ define noundef range(i8 0, 4) i8 @_ZN12uu_dircolors12guess_syntax17hd83973f4f50b
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a67473704a9c6a7E.exit": ; preds = %19
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %18, ptr noundef nonnull readonly dereferenceable(3) @anon.0e465fe6be52864fcdae16bb4d6a5c56.30, i64 3), !alias.scope !30
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %18, ptr noundef nonnull dereferenceable(3) @anon.0e465fe6be52864fcdae16bb4d6a5c56.30, i64 3), !alias.scope !30
   %21 = icmp eq i32 %bcmp.i, 0
   br i1 %21, label %23, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a67473704a9c6a7E.exit16.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a67473704a9c6a7E.exit16": ; preds = %19
-  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %18, ptr noundef nonnull readonly dereferenceable(4) @anon.0e465fe6be52864fcdae16bb4d6a5c56.32, i64 4), !alias.scope !34
+  %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %18, ptr noundef nonnull dereferenceable(4) @anon.0e465fe6be52864fcdae16bb4d6a5c56.32, i64 4), !alias.scope !34
   %22 = icmp eq i32 %bcmp.i15, 0
   br i1 %22, label %23, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a67473704a9c6a7E.exit16.thread"
 
@@ -1817,7 +1817,7 @@ define void @_ZN12uu_dircolors6uu_app17h4561972d28636de1E(ptr noalias nocapture 
   store ptr @anon.0e465fe6be52864fcdae16bb4d6a5c56.65, ptr %209, align 8, !alias.scope !410, !noalias !412
   %210 = getelementptr inbounds i8, ptr %17, i64 552
   store i64 15, ptr %210, align 8, !alias.scope !410, !noalias !412
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %18, ptr noundef nonnull align 8 dereferenceable(592) %17, i64 592, i1 false), !alias.scope !414, !noalias !415
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %18, ptr noundef nonnull align 8 dereferenceable(592) %17, i64 592, i1 false), !alias.scope !414, !noalias !415
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !416)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i87)
@@ -2892,7 +2892,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %78
   %142 = phi i64 [ %131, %127 ], [ %.pre.i.i20, %.noexc22 ]
   %143 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !585, !noalias !590, !nonnull !4, !noundef !4
   %144 = getelementptr inbounds i8, ptr %143, i64 %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %144, ptr noundef nonnull readonly align 1 dereferenceable(1) %129, i64 %93, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %144, ptr noundef nonnull align 1 dereferenceable(1) %129, i64 %93, i1 false)
   %145 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !585, !noalias !590, !noundef !4
   %146 = add i64 %145, %93
   store i64 %146, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !585, !noalias !590
@@ -2997,7 +2997,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %.pre.i.i = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !604, !noalias !609
   %27 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !noalias !4, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds i8, ptr %27, i64 %.pre.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(484) %28, ptr noundef nonnull readonly align 1 dereferenceable(484) @anon.0e465fe6be52864fcdae16bb4d6a5c56.78, i64 484, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(484) %28, ptr noundef nonnull align 1 dereferenceable(484) @anon.0e465fe6be52864fcdae16bb4d6a5c56.78, i64 484, i1 false)
   %29 = add i64 %.pre.i.i, 484
   store i64 %29, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !604, !noalias !609
   %30 = load i64, ptr %22, align 8, !alias.scope !611, !noalias !618, !noundef !4
@@ -3024,7 +3024,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %38 = phi ptr [ %27, %26 ], [ %.pre, %.noexc42 ]
   %39 = phi i64 [ %29, %26 ], [ %.pre.i.i40, %.noexc42 ]
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %40, ptr noundef nonnull readonly align 1 dereferenceable(13) @anon.0e465fe6be52864fcdae16bb4d6a5c56.79, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %40, ptr noundef nonnull align 1 dereferenceable(13) @anon.0e465fe6be52864fcdae16bb4d6a5c56.79, i64 13, i1 false)
   %41 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !620, !noalias !618, !noundef !4
   %42 = add i64 %41, 13
   store i64 %42, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !620, !noalias !618
@@ -3065,7 +3065,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %59 = phi i64 [ %50, %49 ], [ %.pre.i.i44, %.noexc46 ]
   %60 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !621, !noalias !626, !nonnull !4, !noundef !4
   %61 = getelementptr inbounds i8, ptr %60, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(622) %61, ptr noundef nonnull readonly align 1 dereferenceable(622) @anon.0e465fe6be52864fcdae16bb4d6a5c56.80, i64 622, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(622) %61, ptr noundef nonnull align 1 dereferenceable(622) @anon.0e465fe6be52864fcdae16bb4d6a5c56.80, i64 622, i1 false)
   %62 = add i64 %59, 622
   store i64 %62, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !621, !noalias !626
   %63 = load ptr, ptr @_ZN6uucore8features6colors10FILE_TYPES17h875f13b7b8b93687E, align 8, !nonnull !4, !align !66, !noundef !4
@@ -3109,7 +3109,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %82 = phi i64 [ %72, %71 ], [ %.pre.i.i49, %.noexc51 ]
   %83 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !noalias !4, !nonnull !4, !noundef !4
   %84 = getelementptr inbounds i8, ptr %83, i64 %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %84, ptr noundef nonnull readonly align 1 dereferenceable(71) @anon.0e465fe6be52864fcdae16bb4d6a5c56.81, i64 71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %84, ptr noundef nonnull align 1 dereferenceable(71) @anon.0e465fe6be52864fcdae16bb4d6a5c56.81, i64 71, i1 false)
   %85 = add i64 %82, 71
   store i64 %85, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !631, !noalias !636
   %86 = sub i64 %81, %85
@@ -3135,7 +3135,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %93 = phi ptr [ %83, %80 ], [ %.pre134, %.noexc55 ]
   %94 = phi i64 [ %85, %80 ], [ %.pre.i.i53, %.noexc55 ]
   %95 = getelementptr inbounds i8, ptr %93, i64 %94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(73) %95, ptr noundef nonnull readonly align 1 dereferenceable(73) @anon.0e465fe6be52864fcdae16bb4d6a5c56.82, i64 73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(73) %95, ptr noundef nonnull align 1 dereferenceable(73) @anon.0e465fe6be52864fcdae16bb4d6a5c56.82, i64 73, i1 false)
   %96 = add i64 %94, 73
   store i64 %96, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !647, !noalias !645
   %97 = load ptr, ptr @_ZN6uucore8features6colors11FILE_COLORS17h3e8b7faf008b8feeE, align 8, !nonnull !4, !align !66, !noundef !4
@@ -3179,7 +3179,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %116 = phi i64 [ %106, %105 ], [ %.pre.i.i58, %.noexc60 ]
   %117 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !noalias !4, !nonnull !4, !noundef !4
   %118 = getelementptr inbounds i8, ptr %117, i64 %116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(70) %118, ptr noundef nonnull readonly align 1 dereferenceable(70) @anon.0e465fe6be52864fcdae16bb4d6a5c56.83, i64 70, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(70) %118, ptr noundef nonnull align 1 dereferenceable(70) @anon.0e465fe6be52864fcdae16bb4d6a5c56.83, i64 70, i1 false)
   %119 = add i64 %116, 70
   store i64 %119, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !648, !noalias !653
   %120 = sub i64 %115, %119
@@ -3205,7 +3205,7 @@ define void @_ZN12uu_dircolors25generate_dircolors_config17h6185b941d62b8580E(pt
   %127 = phi ptr [ %117, %114 ], [ %.pre136, %.noexc64 ]
   %128 = phi i64 [ %119, %114 ], [ %.pre.i.i62, %.noexc64 ]
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %129, ptr noundef nonnull readonly align 1 dereferenceable(58) @anon.0e465fe6be52864fcdae16bb4d6a5c56.84, i64 58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %129, ptr noundef nonnull align 1 dereferenceable(58) @anon.0e465fe6be52864fcdae16bb4d6a5c56.84, i64 58, i1 false)
   %130 = add i64 %128, 58
   store i64 %130, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !664, !noalias !662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
@@ -3274,7 +3274,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %131
   %146 = phi i64 [ %135, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %.pre.i.i68, %.noexc70 ]
   %147 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !677, !noalias !682, !nonnull !4, !noundef !4
   %148 = getelementptr inbounds i8, ptr %147, i64 %146
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull readonly align 1 %133, i64 %134, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull align 1 %133, i64 %134, i1 false)
   %149 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !677, !noalias !682, !noundef !4
   %150 = add i64 %149, %134
   store i64 %150, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !677, !noalias !682
@@ -3373,7 +3373,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit79:  ; preds = %161
   %176 = phi i64 [ %165, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit79 ], [ %.pre.i.i80, %.noexc82 ]
   %177 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !708, !noalias !713, !nonnull !4, !noundef !4
   %178 = getelementptr inbounds i8, ptr %177, i64 %176
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %178, ptr nonnull readonly align 1 %163, i64 %164, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %178, ptr nonnull align 1 %163, i64 %164, i1 false)
   %179 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !708, !noalias !713, !noundef !4
   %180 = add i64 %179, %164
   store i64 %180, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !708, !noalias !713
@@ -3461,7 +3461,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit93:  ; preds = %189
   %203 = phi i64 [ %192, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit93 ], [ %.pre.i.i94, %.noexc96 ]
   %204 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !739, !noalias !744, !nonnull !4, !noundef !4
   %205 = getelementptr inbounds i8, ptr %204, i64 %203
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %205, ptr nonnull readonly align 1 %190, i64 %191, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %205, ptr nonnull align 1 %190, i64 %191, i1 false)
   %206 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !739, !noalias !744, !noundef !4
   %207 = add i64 %206, %191
   store i64 %207, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !739, !noalias !744

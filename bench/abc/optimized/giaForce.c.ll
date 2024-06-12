@@ -1221,7 +1221,7 @@ define void @Frc_ManTransformRefs(ptr noundef %0, ptr nocapture noundef writeonl
   store i32 0, ptr %87, align 4
   %100 = and i64 %.val122, -3221225473
   store i64 %100, ptr %93, align 4
-  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %93, ptr noundef nonnull %82, ptr noundef nonnull %86)
+  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef nonnull %82, ptr noundef nonnull %86)
   %101 = load i64, ptr %93, align 4
   %102 = or i64 %101, 1073741824
   store i64 %102, ptr %93, align 4
@@ -1637,7 +1637,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 0, ptr %124, align 4
   %138 = and i64 %.val190, -3221225473
   store i64 %138, ptr %131, align 4
-  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %131, ptr noundef nonnull %119, ptr noundef nonnull %123)
+  tail call void @Frc_ManCollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %131, ptr noundef nonnull %119, ptr noundef nonnull %123)
   %139 = load i64, ptr %131, align 4
   %140 = or i64 %139, 1073741824
   store i64 %140, ptr %131, align 4
@@ -3347,7 +3347,7 @@ Vec_IntReverseOrder.exit43:                       ; preds = %.lr.ph.i40, %94
   %144 = sext i32 %143 to i64
   %145 = sub nsw i64 0, %144
   %146 = getelementptr inbounds i32, ptr %141, i64 %145
-  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %146, ptr noundef nonnull %5)
+  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull %0, ptr noundef nonnull %146, ptr noundef nonnull %5)
   %147 = load i32, ptr %5, align 4
   %148 = add nsw i32 %147, 1
   store i32 %148, ptr %5, align 4
@@ -3445,7 +3445,7 @@ Frc_ManPlaceDfs.exit68.thread:                    ; preds = %.critedge.i50
   %181 = sext i32 %180 to i64
   %182 = sub nsw i64 0, %181
   %183 = getelementptr inbounds i32, ptr %178, i64 %182
-  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull readonly %0, ptr noundef nonnull %183, ptr noundef nonnull %4)
+  call void @Frc_ManPlaceDfs_rec(ptr noundef nonnull %0, ptr noundef nonnull %183, ptr noundef nonnull %4)
   %184 = load i32, ptr %4, align 4
   %185 = add nsw i32 %184, 1
   store i32 %185, ptr %4, align 4

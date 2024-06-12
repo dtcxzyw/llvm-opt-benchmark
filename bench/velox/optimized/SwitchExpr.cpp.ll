@@ -4318,7 +4318,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void @_ZN8facebook5velox4exec10SwitchExpr11resolveTypeERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS7_EE(ptr writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %argTypes)
+  tail call void @_ZN8facebook5velox4exec10SwitchExpr11resolveTypeERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS7_EE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %argTypes)
   ret void
 }
 

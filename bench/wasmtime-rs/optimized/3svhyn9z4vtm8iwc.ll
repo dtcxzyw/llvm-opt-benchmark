@@ -2138,7 +2138,7 @@ define void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..col
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull readonly align 8 %6)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull align 8 %6)
   br label %4
 }
 
@@ -2341,7 +2341,7 @@ define void @"_ZN4core3ptr135drop_in_place$LT$core..slice..sort..InsertionHole$L
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr136drop_in_place$LT$$LP$cranelift_isle..sema..TermId$C$alloc..collections..btree..set..BTreeSet$LT$cranelift_isle..sema..TermId$GT$$RP$$GT$17h1fd9c35b802bdc37E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull readonly align 8 %2)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull align 8 %2)
   ret void
 }
 
@@ -4072,7 +4072,7 @@ define void @"_ZN4core3ptr224drop_in_place$LT$core..iter..adapters..map..Map$LT$
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr228drop_in_place$LT$alloc..collections..btree..node..SplitResult$LT$cranelift_isle..sema..TermId$C$alloc..collections..btree..set..BTreeSet$LT$cranelift_isle..sema..TermId$GT$$C$alloc..collections..btree..node..marker..Leaf$GT$$GT$17hfce7ac1f91191c70E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull readonly align 8 %2)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull align 8 %2)
   ret void
 }
 
@@ -4112,7 +4112,7 @@ define void @"_ZN4core3ptr230drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIte
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr232drop_in_place$LT$alloc..collections..btree..node..SplitResult$LT$cranelift_isle..sema..TermId$C$alloc..collections..btree..set..BTreeSet$LT$cranelift_isle..sema..TermId$GT$$C$alloc..collections..btree..node..marker..Internal$GT$$GT$17h6dfa3cdd9310d7e4E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull readonly align 8 %2)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr nonnull align 8 %2)
   ret void
 }
 
@@ -14766,7 +14766,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$$LP$cranelift_isle..sema..Va
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr97drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$cranelift_isle..sema..TermId$GT$$GT$17h6f47bf38b90bac0cE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr readonly align 8 %0)
+  tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2580c0834d60be41E"(ptr align 8 %0)
   ret void
 }
 

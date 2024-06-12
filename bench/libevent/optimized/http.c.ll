@@ -1080,7 +1080,7 @@ if.then6:                                         ; preds = %do.body4
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false
-  %call5.i = tail call ptr @strpbrk(ptr noundef readonly %value, ptr noundef nonnull @.str.19) #18
+  %call5.i = tail call ptr @strpbrk(ptr noundef %value, ptr noundef nonnull @.str.19) #18
   %cmp.not6.i = icmp eq ptr %call5.i, null
   br i1 %cmp.not6.i, label %if.end18, label %while.body.i
 
@@ -2595,9 +2595,9 @@ entry:
 evhttp_set_timeout_tv_.exit19:                    ; preds = %entry
   %or = or i32 %0, 4194304
   store i32 %or, ptr %flags1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read10, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read10, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   %timeout_write11 = getelementptr inbounds i8, ptr %evcon, i64 240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write11, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write11, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -2632,11 +2632,11 @@ entry:
   br i1 %cmp.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_connect, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_connect, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_connect, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_connect, i8 0, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 evhttp_set_timeout_tv_.exit:                      ; preds = %if.then2.i, %if.else.i
@@ -2667,11 +2667,11 @@ entry:
   br i1 %cmp.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read, i8 0, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 evhttp_set_timeout_tv_.exit:                      ; preds = %if.then2.i, %if.else.i
@@ -2703,11 +2703,11 @@ entry:
   br i1 %cmp.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write, i8 0, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 evhttp_set_timeout_tv_.exit:                      ; preds = %if.then2.i, %if.else.i
@@ -4352,7 +4352,7 @@ do.body.i.i:                                      ; preds = %for.body.i.i
 evhttp_remove_header.exit.i:                      ; preds = %for.cond.i.i, %do.body.i.i
   %type.i = getelementptr inbounds i8, ptr %req, i64 76
   %9 = load i32, ptr %type.i, align 4
-  %call1.i = call fastcc ptr @evhttp_method_(ptr noundef readonly %evcon, i32 noundef %9, ptr noundef nonnull %flags.i)
+  %call1.i = call fastcc ptr @evhttp_method_(ptr noundef %evcon, i32 noundef %9, ptr noundef nonnull %flags.i)
   %tobool.not.i = icmp eq ptr %call1.i, null
   %spec.store.select.i = select i1 %tobool.not.i, ptr @.str.101, ptr %call1.i
   %10 = load ptr, ptr %bufev, align 8
@@ -6572,7 +6572,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   %or.i.i = or i32 %27, 4194304
   store i32 %or.i.i, ptr %flags59.phi.trans.insert.i.i, align 8
   %timeout_read.i.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %timeout_read.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read.i.i, ptr noundef nonnull align 8 dereferenceable(16) %timeout_read.i, i64 16, i1 false)
   %28 = load i32, ptr %state.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %28, 1
   br i1 %cmp.not.i.i, label %if.end6.i, label %if.then.i.i
@@ -6600,7 +6600,7 @@ if.then13.i:                                      ; preds = %lor.lhs.false9.i, %
   %or.i51.i = or i32 %32, 4194304
   store i32 %or.i51.i, ptr %flags59.phi.trans.insert.i.i, align 8
   %timeout_write.i52.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write.i52.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %timeout_write.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write.i52.i, ptr noundef nonnull align 8 dereferenceable(16) %timeout_write.i, i64 16, i1 false)
   %33 = load i32, ptr %state.i.i, align 8
   %cmp.not.i55.i = icmp eq i32 %33, 1
   br i1 %cmp.not.i55.i, label %if.end15.i, label %if.then.i56.i
@@ -7161,9 +7161,9 @@ entry:
   br i1 %cmp.i, label %if.else.i5, label %if.then2.i4
 
 if.then2.i4:                                      ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   %timeout_write = getelementptr inbounds i8, ptr %http, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit6
 
 if.else.i5:                                       ; preds = %entry
@@ -7182,11 +7182,11 @@ entry:
   br i1 %cmp.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_read, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_read, i8 0, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 evhttp_set_timeout_tv_.exit:                      ; preds = %if.then2.i, %if.else.i
@@ -7201,11 +7201,11 @@ entry:
   br i1 %cmp.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout_write, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write, i8 0, i64 16, i1 false)
   br label %evhttp_set_timeout_tv_.exit
 
 evhttp_set_timeout_tv_.exit:                      ; preds = %if.then2.i, %if.else.i
@@ -10162,7 +10162,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %flags.i)
   store i16 0, ptr %flags.i, align 2
-  %call.i = call fastcc ptr @evhttp_method_(ptr noundef readonly %evcon, i32 noundef %1, ptr noundef nonnull %flags.i)
+  %call.i = call fastcc ptr @evhttp_method_(ptr noundef %evcon, i32 noundef %1, ptr noundef nonnull %flags.i)
   %2 = load i16, ptr %flags.i, align 2
   %3 = and i16 %2, 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %flags.i)
@@ -11059,7 +11059,7 @@ if.end12:                                         ; preds = %if.then10.if.end12_
   %req.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %req.val, i64 48
   %req.val.val = load ptr, ptr %10, align 8
-  %call1.i15 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %req.val.val) #18
+  %call1.i15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %req.val.val) #18
   %add.i = add i64 %call1.i15, 1
   %call2.i = call ptr @event_mm_malloc_(i64 noundef %add.i) #19
   %cmp.i = icmp eq ptr %call2.i, null

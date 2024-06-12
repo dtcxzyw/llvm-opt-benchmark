@@ -2623,7 +2623,7 @@ rb_obj_write.exit21.i:                            ; preds = %40, %rb_obj_write.e
   %45 = getelementptr inbounds i8, ptr %33, i64 92
   store i32 %6, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %33, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   br label %iseq_location_setup.exit
 
 47:                                               ; preds = %rb_obj_write.exit21.i

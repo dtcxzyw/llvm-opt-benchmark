@@ -2028,7 +2028,7 @@ e1000e_write_lgcy_rx_descr.exit.i.i:              ; preds = %if.end.i231.i
   store i16 %209, ptr %middle.i.i.i, align 8
   store i16 0, ptr %csum.i.i.i, align 2
   %cmp.i.i.i126 = icmp ne ptr %cond95.i, null
-  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i.i.i126, ptr noundef nonnull readonly %rss_info, ptr noundef nonnull %rss.i.i.i, ptr noundef nonnull %mrq.i.i.i, ptr noundef nonnull %status_flags.i.i.i, ptr noundef nonnull %ip_id.i.i.i, ptr noundef nonnull writeonly %vlan.i.i.i)
+  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i.i.i126, ptr noundef nonnull %rss_info, ptr noundef nonnull %rss.i.i.i, ptr noundef nonnull %mrq.i.i.i, ptr noundef nonnull %status_flags.i.i.i, ptr noundef nonnull %ip_id.i.i.i, ptr noundef nonnull %vlan.i.i.i)
   %211 = load i32, ptr %status_flags.i.i.i, align 4
   %shr.i.i.i = lshr i32 %211, 24
   %conv.i.i233.i = trunc nuw i32 %shr.i.i.i to i8
@@ -2053,7 +2053,7 @@ if.then4.i.i:                                     ; preds = %if.else2.i.i
   store i16 %213, ptr %length0.i.i.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %length.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx15.i.i.i, i64 6, i1 false)
   %cmp5.i.i.i = icmp ne ptr %cond95.i, null
-  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp5.i.i.i, ptr noundef nonnull readonly %rss_info, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %desc.i, ptr noundef nonnull %middle.i.i.i, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %vlan.i.i.i)
+  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp5.i.i.i, ptr noundef nonnull %rss_info, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %desc.i, ptr noundef nonnull %middle.i.i.i, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %vlan.i.i.i)
   store i16 %conv11.i.i214.i, ptr %upper13.i.i.i, align 8
   %214 = load i16, ptr %arrayidx15.i.i.i, align 2
   %215 = load i16, ptr %arrayidx16.i.i.i, align 2
@@ -2113,7 +2113,7 @@ if.end9.i.i:                                      ; preds = %if.else5.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc.i, i8 0, i64 16, i1 false)
   store i16 %223, ptr %length0.i.i.i, align 4
   %cmp.i17.i.i = icmp ne ptr %cond95.i, null
-  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull readonly %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i17.i.i, ptr noundef nonnull readonly %rss_info, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %desc.i, ptr noundef nonnull %middle.i.i.i, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %vlan.i.i.i)
+  call fastcc void @e1000e_build_rx_metadata(ptr noundef nonnull %core, ptr noundef %cond95.i, i1 noundef zeroext %cmp.i17.i.i, ptr noundef nonnull %rss_info, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %desc.i, ptr noundef nonnull %middle.i.i.i, ptr noundef nonnull %hi_dword.i.i.i, ptr noundef nonnull %vlan.i.i.i)
   br label %e1000e_write_rx_descr.exit.i
 
 e1000e_write_rx_descr.exit.i:                     ; preds = %if.end9.i.i, %e1000e_write_ps_rx_descr.exit.i.i, %e1000e_write_lgcy_rx_descr.exit.i.i
@@ -2255,7 +2255,7 @@ if.then60:                                        ; preds = %if.end.i165, %e1000
 
 if.end62:                                         ; preds = %land.lhs.true, %if.then60, %e1000e_is_tcp_ack.exit, %e1000e_write_packet_to_guest.exit
   %causes.1 = phi i32 [ %or61, %if.then60 ], [ %spec.select, %e1000e_is_tcp_ack.exit ], [ %spec.select, %e1000e_write_packet_to_guest.exit ], [ %spec.select, %land.lhs.true ]
-  %call.i170 = call fastcc i32 @e1000e_ring_free_descr_num(ptr noundef nonnull readonly %core, ptr noundef readonly %arrayidx.i94)
+  %call.i170 = call fastcc i32 @e1000e_ring_free_descr_num(ptr noundef nonnull %core, ptr noundef %arrayidx.i94)
   %rxi.val.i = load i32, ptr %dlen.i291.i, align 8
   %idxprom.i.i171 = sext i32 %rxi.val.i to i64
   %arrayidx.i.i172 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom.i.i171
@@ -6641,7 +6641,7 @@ if.then:                                          ; preds = %land.lhs.true4
 if.then.i:                                        ; preds = %if.then
   %arrayidx.i = getelementptr i8, ptr %core, i64 228
   %2 = load i32, ptr %arrayidx.i, align 4
-  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull readonly %core, i32 noundef 1048576, i32 noundef %2)
+  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull %core, i32 noundef 1048576, i32 noundef %2)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -6653,7 +6653,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %arrayidx5.i = getelementptr i8, ptr %core, i64 228
   %3 = load i32, ptr %arrayidx5.i, align 4
   %shr6.i = lshr i32 %3, 4
-  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull readonly %core, i32 noundef 2097152, i32 noundef %shr6.i)
+  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull %core, i32 noundef 2097152, i32 noundef %shr6.i)
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then3.i, %if.end.i
@@ -6665,7 +6665,7 @@ if.then10.i:                                      ; preds = %if.end7.i
   %arrayidx12.i = getelementptr i8, ptr %core, i64 228
   %4 = load i32, ptr %arrayidx12.i, align 4
   %shr13.i = lshr i32 %4, 8
-  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull readonly %core, i32 noundef 4194304, i32 noundef %shr13.i)
+  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull %core, i32 noundef 4194304, i32 noundef %shr13.i)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then10.i, %if.end7.i
@@ -6677,7 +6677,7 @@ if.then17.i:                                      ; preds = %if.end14.i
   %arrayidx19.i = getelementptr i8, ptr %core, i64 228
   %5 = load i32, ptr %arrayidx19.i, align 4
   %shr20.i = lshr i32 %5, 12
-  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull readonly %core, i32 noundef 8388608, i32 noundef %shr20.i)
+  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull %core, i32 noundef 8388608, i32 noundef %shr20.i)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
@@ -6689,7 +6689,7 @@ if.then24.i:                                      ; preds = %if.end21.i
   %arrayidx26.i = getelementptr i8, ptr %core, i64 228
   %6 = load i32, ptr %arrayidx26.i, align 4
   %shr27.i = lshr i32 %6, 16
-  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull readonly %core, i32 noundef 16777216, i32 noundef %shr27.i)
+  tail call fastcc void @e1000e_msix_clear_one(ptr noundef nonnull %core, i32 noundef 16777216, i32 noundef %shr27.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then24.i, %if.end21.i, %land.lhs.true4, %land.lhs.true, %entry

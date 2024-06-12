@@ -35998,7 +35998,7 @@ _ZN8pybind113setC2Ev.exit.i.i:                    ; preds = %1
 .noexc14.i.i:                                     ; preds = %39
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZ25test_submodule_gil_scopedRN8pybind117module_EENK4$_17clEjEUlvE_EEEEEE", i64 16), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %41, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   store ptr %40, ptr %2, align 8, !noalias !886
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %2, ptr noundef null)
           to label %42 unwind label %47
@@ -36540,7 +36540,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZ25test
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZ25test_submodule_gil_scopedRN8pybind117module_EENK4$_17clEjEUlvE_EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZZZ25test_submodule_gil_scopedRN8pybind117module_EENK4$_17clEjENKUlvE_clEv"(ptr noundef nonnull readonly align 8 dereferenceable(16) %2)
+  tail call fastcc void @"_ZZZ25test_submodule_gil_scopedRN8pybind117module_EENK4$_17clEjENKUlvE_clEv"(ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 

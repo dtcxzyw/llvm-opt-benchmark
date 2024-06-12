@@ -7807,7 +7807,7 @@ _ZN6id_gen2mkEv.exit:                             ; preds = %if.then.i, %_ZN6vec
   %7 = load i64, ptr %s, align 8
   store i64 %7, ptr %m_name.i, align 8
   %m_type.i = getelementptr inbounds i8, ptr %call2, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_type.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %p, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_type.i, ptr noundef nonnull align 8 dereferenceable(24) %p, i64 24, i1 false)
   %8 = load i32, ptr %m_type.i, align 8
   %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %if.then.i1, label %_ZN14paccessor_declC2EjjR13pdecl_managerRK6symbolRK5ptype.exit

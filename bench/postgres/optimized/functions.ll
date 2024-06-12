@@ -279,7 +279,7 @@ list_length.exit.thread:                          ; preds = %.list_length.exit.t
   br i1 %.not.i55, label %66, label %45
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %.042) #12
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %.042) #12
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %66
 
@@ -362,7 +362,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   br i1 %.not.i62, label %107, label %86
 
 86:                                               ; preds = %.lr.ph.i60
-  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull readonly dereferenceable(1) %.042) #12
+  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %.042) #12
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %107
 
@@ -434,7 +434,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   br i1 %.not.i75, label %141, label %120
 
 120:                                              ; preds = %.lr.ph.i73
-  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull readonly dereferenceable(1) %23) #12
+  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull dereferenceable(1) %23) #12
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %141
 

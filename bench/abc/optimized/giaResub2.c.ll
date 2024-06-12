@@ -2982,7 +2982,7 @@ Abc_ResubNodeToTry.exit.thread:                   ; preds = %Abc_ResubNodeToTry.
   %116 = getelementptr inbounds i8, ptr %13, i64 64
   %117 = load ptr, ptr %116, align 8
   store ptr %117, ptr %8, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   br label %Abc_ResubNodeToTry.exit.thread.thread
 
 Abc_ResubNodeToTry.exit.thread.thread:            ; preds = %10, %112, %Abc_ResubNodeToTry.exit.thread
@@ -3770,10 +3770,10 @@ Gia_ManToResub.exit:                              ; preds = %40, %1
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %48
 
 48:                                               ; preds = %42
-  %49 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %47) #33
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #33
   %50 = add i64 %49, 1
   %51 = call noalias ptr @malloc(i64 noundef %50) #32
-  %52 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %47) #30
+  %52 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %47) #30
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %42, %48
@@ -5064,7 +5064,7 @@ Vec_IntPush.exit:                                 ; preds = %35, %38, %Vec_WecSt
   br i1 %.not27.i, label %63, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call i32 @Gia_WinTryAddingNode(ptr noundef nonnull readonly %0, i32 noundef %55, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null)
+  %61 = tail call i32 @Gia_WinTryAddingNode(ptr noundef nonnull %0, i32 noundef %55, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null)
   %62 = icmp slt i32 %.01530.i, %61
   %spec.select.i38 = tail call i32 @llvm.smax.i32(i32 %.01530.i, i32 %61)
   %spec.select21.i39 = select i1 %62, i32 %55, i32 %.031.i
@@ -6776,7 +6776,7 @@ define void @Gia_RsbWindowGrow(ptr nocapture noundef readonly %0, ptr nocapture 
   %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 536870911
   %26 = sub nsw i32 %12, %25
-  %27 = tail call i32 @Gia_WinTryAddingNode(ptr noundef nonnull readonly %0, i32 noundef %22, i32 noundef %26, ptr noundef %1, ptr noundef null)
+  %27 = tail call i32 @Gia_WinTryAddingNode(ptr noundef nonnull %0, i32 noundef %22, i32 noundef %26, ptr noundef %1, ptr noundef null)
   %28 = icmp slt i32 %.02135.i, %27
   br i1 %28, label %29, label %35
 
@@ -9070,10 +9070,10 @@ define ptr @Gia_RsbDeriveGiaFromWindows(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #33
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #33
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #32
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #30
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #30
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %4, %8
@@ -9085,10 +9085,10 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %8
   br i1 %.not.i56, label %Abc_UtilStrsav.exit57, label %16
 
 16:                                               ; preds = %Abc_UtilStrsav.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #33
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #33
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #32
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %15) #30
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %15) #30
   br label %Abc_UtilStrsav.exit57
 
 Abc_UtilStrsav.exit57:                            ; preds = %Abc_UtilStrsav.exit, %16

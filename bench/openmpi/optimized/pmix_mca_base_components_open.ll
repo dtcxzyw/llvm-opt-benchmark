@@ -80,7 +80,7 @@ define range(i32 -29, 1) i32 @pmix_mca_base_show_load_errors_init() local_unname
 5:                                                ; preds = %4, %0
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @show_load_errors_include, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @show_load_errors_include, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @show_load_errors_include, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @show_load_errors_include, i64 56), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
@@ -108,7 +108,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 14:                                               ; preds = %13, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @show_load_errors_exclude, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @show_load_errors_exclude, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @show_load_errors_exclude, i64 56), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @show_load_errors_exclude, i64 56), i8 0, i64 64, i1 false)
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i46 = icmp eq ptr %16, null
@@ -559,14 +559,14 @@ define i32 @pmix_mca_base_framework_components_open(ptr noundef %0, i32 noundef 
   %.021.i.i = phi ptr [ %.0.i.i, %62 ], [ %.019.i.i, %50 ]
   %53 = getelementptr inbounds i8, ptr %.021.i.i, i64 144
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %54) #15
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %54) #15
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %.lr.ph.split.i.i
   %58 = getelementptr inbounds i8, ptr %.021.i.i, i64 152
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %59) #15
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %59) #15
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %pmix_mca_base_show_load_errors.exit.i, label %62
 

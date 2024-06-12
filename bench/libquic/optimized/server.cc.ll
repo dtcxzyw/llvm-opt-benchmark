@@ -448,7 +448,7 @@ invoke.cont101:                                   ; preds = %land.rhs96
 
 invoke.cont104:                                   ; preds = %invoke.cont101
   %call106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call105) #13
-  %call.i = call noalias ptr @fopen(ptr noundef readonly %call106, ptr noundef nonnull @.str.16)
+  %call.i = call noalias ptr @fopen(ptr noundef %call106, ptr noundef nonnull @.str.16)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then127.sink.split, label %lor.lhs.false.i
 

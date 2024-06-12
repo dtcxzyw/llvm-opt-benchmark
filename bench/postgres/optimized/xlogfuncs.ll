@@ -588,12 +588,12 @@ define dso_local i64 @pg_split_walfile_name(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #11
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #11
   %21 = icmp eq i64 %20, 24
   br i1 %21, label %IsXLogFileName.exit, label %IsXLogFileName.exit.thread
 
 IsXLogFileName.exit:                              ; preds = %._crit_edge
-  %22 = tail call i64 @strspn(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.40) #11
+  %22 = tail call i64 @strspn(ptr noundef nonnull %14, ptr noundef nonnull @.str.40) #11
   %23 = icmp eq i64 %22, 24
   br i1 %23, label %27, label %IsXLogFileName.exit.thread
 
@@ -609,7 +609,7 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   %28 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.39, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.39, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %30 = load i32, ptr %2, align 4
   %31 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)

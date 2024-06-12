@@ -7131,7 +7131,7 @@ define noundef range(i32 -1, 1) i32 @slurmdb_add_cluster_accounting_to_tres_list
 8:                                                ; preds = %5, %.thread
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #20
@@ -8364,7 +8364,7 @@ define ptr @slurmdb_copy_tres_list(ptr noundef %0) local_unnamed_addr #0 {
 slurmdb_copy_tres_rec.exit:                       ; preds = %2, %slurmdb_copy_tres_rec.exit
   %6 = phi ptr [ %16, %slurmdb_copy_tres_rec.exit ], [ %5, %2 ]
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @xstrdup(ptr noundef %9) #20
@@ -9884,7 +9884,7 @@ define noundef range(i32 -1, 1) i32 @slurmdb_add_accounting_to_tres_list(ptr nou
 8:                                                ; preds = %5, %.thread
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #20
@@ -9939,7 +9939,7 @@ define range(i32 -1, 1) i32 @slurmdb_add_time_from_count_to_tres_list(ptr nounde
 
 13:                                               ; preds = %10
   %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @xstrdup(ptr noundef %16) #20

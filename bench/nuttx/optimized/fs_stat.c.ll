@@ -60,7 +60,7 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
 
 33:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %34 = load i16, ptr %20, align 2
   %35 = and i16 %34, 15
   %36 = icmp eq i16 %35, 5

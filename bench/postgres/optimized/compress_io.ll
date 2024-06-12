@@ -138,7 +138,7 @@ define dso_local noundef ptr @InitDiscoverCompressFileHandle(ptr noundef %0, ptr
   %5 = alloca ptr, align 8
   %6 = tail call ptr @pg_strdup(ptr noundef %0) #9
   store ptr %6, ptr %5, align 8
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #10
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = icmp slt i32 %8, 3
   br i1 %9, label %hasSuffix.exit21.thread, label %hasSuffix.exit
@@ -148,7 +148,7 @@ hasSuffix.exit:                                   ; preds = %2
   %sext.i = add nsw i64 %10, -12884901888
   %11 = ashr exact i64 %sext.i, 32
   %12 = getelementptr i8, ptr %6, i64 %11
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %12, ptr noundef nonnull readonly dereferenceable(3) @.str.1, i64 3)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %12, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %.not = icmp eq i32 %bcmp.i, 0
   br i1 %.not, label %34, label %hasSuffix.exit.thread
 
@@ -161,7 +161,7 @@ hasSuffix.exit16:                                 ; preds = %hasSuffix.exit.thre
   %sext.i12 = add nsw i64 %14, -17179869184
   %15 = ashr exact i64 %sext.i12, 32
   %16 = getelementptr i8, ptr %6, i64 %15
-  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %16, ptr noundef nonnull readonly dereferenceable(4) @.str.2, i64 4)
+  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %16, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %.not28 = icmp eq i32 %bcmp.i14, 0
   br i1 %.not28, label %36, label %hasSuffix.exit21
 
@@ -170,7 +170,7 @@ hasSuffix.exit21:                                 ; preds = %hasSuffix.exit16
   %sext.i17 = add nsw i64 %17, -17179869184
   %18 = ashr exact i64 %sext.i17, 32
   %19 = getelementptr i8, ptr %6, i64 %18
-  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %19, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 4)
+  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
   %.not29 = icmp eq i32 %bcmp.i19, 0
   br i1 %.not29, label %select.unfold, label %hasSuffix.exit21.thread
 

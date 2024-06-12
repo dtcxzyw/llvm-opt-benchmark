@@ -1741,7 +1741,7 @@ land.lhs.true73.i215:                             ; preds = %land.lhs.true70.i21
   br i1 %tobool74.i216, label %if.then81.i220, label %if.then
 
 if.then81.i220:                                   ; preds = %land.lhs.true73.i215
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %retval.i441.0, i8 -91, i64 %37, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i441.0, i8 -91, i64 %37, i1 false)
   br label %if.then
 
 if.then113.i239:                                  ; preds = %if.then.i159.i, %if.end27.i.i, %if.then.i105.i, %arena_get_from_ind.exit.i, %if.end.i157.i322, %sz_size2index.exit.i324, %imalloc_no_sample.exit
@@ -2235,7 +2235,7 @@ land.lhs.true73.i218:                             ; preds = %land.lhs.true70.i21
   br i1 %tobool74.i219, label %if.then81.i223, label %if.end82.i210
 
 if.then81.i223:                                   ; preds = %land.lhs.true73.i218
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call12.i, i8 -91, i64 %retval.i1322.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %call12.i, i8 -91, i64 %retval.i1322.0, i1 false)
   br label %if.end82.i210
 
 if.end82.i210:                                    ; preds = %if.then81.i223, %land.lhs.true73.i218, %land.lhs.true70.i215
@@ -2653,7 +2653,7 @@ land.lhs.true73.i218:                             ; preds = %land.lhs.true70.i21
   br i1 %tobool74.i219, label %if.then81.i223, label %if.then
 
 if.then81.i223:                                   ; preds = %land.lhs.true73.i218
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call12.i, i8 -91, i64 %retval.i1322.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %call12.i, i8 -91, i64 %retval.i1322.0, i1 false)
   br label %if.then
 
 if.then113.i242:                                  ; preds = %arena_get_from_ind.exit.i, %if.end.i.i1336, %if.end.i34.i, %sz_s2u.exit.i1337, %if.end5.i, %imalloc_no_sample.exit, %if.end26.i.i182
@@ -3521,7 +3521,7 @@ tsdn_rtree_ctx.exit1815:                          ; preds = %lor.lhs.false.i, %i
   br i1 %tobool22.i, label %if.then24.i, label %if.end25.i
 
 if.then24.i:                                      ; preds = %tsdn_rtree_ctx.exit1815
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %ptr, i8 90, i64 %33, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %ptr, i8 90, i64 %33, i1 false)
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then24.i, %tsdn_rtree_ctx.exit1815
@@ -4293,7 +4293,7 @@ land.lhs.true73.i218:                             ; preds = %land.lhs.true70.i21
   br i1 %tobool74.i219, label %if.then81.i223, label %if.then
 
 if.then81.i223:                                   ; preds = %land.lhs.true73.i218
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call12.i, i8 -91, i64 %retval.i1322.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %call12.i, i8 -91, i64 %retval.i1322.0, i1 false)
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1337, %if.end5.i, %if.end.i146, %lor.rhs.i150, %if.end26.i.i182, %imalloc_no_sample.exit, %land.lhs.true70.i215, %land.lhs.true73.i218, %if.then81.i223
@@ -4649,7 +4649,7 @@ land.lhs.true73.i217:                             ; preds = %land.lhs.true70.i21
   br i1 %tobool74.i218, label %if.then81.i222, label %if.then
 
 if.then81.i222:                                   ; preds = %land.lhs.true73.i217
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call12.i, i8 -91, i64 %retval.i1321.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %call12.i, i8 -91, i64 %retval.i1321.0, i1 false)
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1336, %if.end26.i.i181, %imalloc_no_sample.exit, %land.lhs.true70.i214, %land.lhs.true73.i217, %if.then81.i222
@@ -4993,7 +4993,7 @@ land.lhs.true73.i217:                             ; preds = %land.lhs.true70.i21
   br i1 %tobool74.i218, label %if.then81.i222, label %if.then
 
 if.then81.i222:                                   ; preds = %land.lhs.true73.i217
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call12.i, i8 -91, i64 %retval.i1321.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %call12.i, i8 -91, i64 %retval.i1321.0, i1 false)
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1336, %if.end26.i.i181, %imalloc_no_sample.exit, %land.lhs.true70.i214, %land.lhs.true73.i217, %if.then81.i222
@@ -5908,7 +5908,7 @@ land.lhs.true73.i248:                             ; preds = %land.lhs.true70.i24
   br i1 %tobool74.i249, label %if.then81.i253, label %if.then8
 
 if.then81.i253:                                   ; preds = %land.lhs.true73.i248
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %retval.i474.0, i8 -91, i64 %usize.i169.1857, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i474.0, i8 -91, i64 %usize.i169.1857, i1 false)
   br label %if.then8
 
 if.then8:                                         ; preds = %if.then.i159.i, %if.end27.i.i, %if.then.i105.i, %arena_get_from_ind.exit.i, %sz_s2u.exit.i1367, %if.end5.i, %if.end.i157.i355, %sz_size2index.exit.i357, %imalloc_no_sample.exit, %aligned_usize_get.exit.i221, %land.lhs.true70.i245, %land.lhs.true73.i248, %if.then81.i253
@@ -6500,7 +6500,7 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
 if.then53:                                        ; preds = %te_event_advance.exit
   %sub = sub nsw i64 %usize.0, %10
   %add.ptr = getelementptr inbounds i8, ptr %retval.i256.0410, i64 %10
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %add.ptr, i8 -91, i64 %sub, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 -91, i64 %sub, i1 false)
   br label %return
 
 return:                                           ; preds = %sz_s2u.exit.i, %if.end.i314, %sz_sa2u.exit, %sz_s2u.exit.i442, %if.end5.i404, %if.end.i138, %arena_get_from_ind.exit, %iralloct_explicit_slab.exit, %if.end26.i, %if.then53, %te_event_advance.exit
@@ -6596,7 +6596,7 @@ tsdn_rtree_ctx.exit774.i:                         ; preds = %if.then18.i.i777, %
   br i1 %tobool22.i.i, label %if.then24.i.i, label %if.end25.i.i
 
 if.then24.i.i:                                    ; preds = %tsdn_rtree_ctx.exit774.i
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %ptr, i8 90, i64 %9, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %ptr, i8 90, i64 %9, i1 false)
   br label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.then24.i.i, %tsdn_rtree_ctx.exit774.i
@@ -7350,7 +7350,7 @@ land.lhs.true73.i235:                             ; preds = %land.lhs.true70.i23
   br i1 %tobool74.i236, label %if.then81.i240, label %if.then18
 
 if.then81.i240:                                   ; preds = %land.lhs.true73.i235
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %retval.i461.0, i8 -91, i64 %74, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i461.0, i8 -91, i64 %74, i1 false)
   br label %if.then18
 
 if.then113.i259:                                  ; preds = %if.then.i159.i, %if.end27.i.i, %if.then.i105.i, %arena_get_from_ind.exit.i, %if.end.i157.i342, %sz_size2index.exit.i344, %imalloc_no_sample.exit
@@ -7519,7 +7519,7 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
 if.then60:                                        ; preds = %te_event_advance.exit
   %sub61 = sub i64 %spec.select118, %6
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %6
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr, i8 -91, i64 %sub61, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -91, i64 %sub61, i1 false)
   br label %label_not_resized
 
 label_not_resized:                                ; preds = %ixallocx_helper.exit.thread, %te_event_advance.exit, %tsdn_rtree_ctx.exit, %if.then60, %ixallocx_helper.exit
@@ -7842,7 +7842,7 @@ tsdn_rtree_ctx.exit1734:                          ; preds = %if.then18.i, %lor.l
   br i1 %tobool22.i, label %if.then24.i, label %if.end25.i
 
 if.then24.i:                                      ; preds = %tsdn_rtree_ctx.exit1734
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %ptr, i8 90, i64 %36, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %ptr, i8 90, i64 %36, i1 false)
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then24.i, %tsdn_rtree_ctx.exit1734
@@ -8381,7 +8381,7 @@ if.else:                                          ; preds = %if.then18.i, %lor.l
   br i1 %tobool29.i, label %if.then31.i, label %if.end32.i
 
 if.then31.i:                                      ; preds = %if.else
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %ptr, i8 90, i64 %usize.i.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %ptr, i8 90, i64 %usize.i.0, i1 false)
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then31.i, %if.else

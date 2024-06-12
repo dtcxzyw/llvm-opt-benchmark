@@ -513,7 +513,7 @@ fiber_storage_validate.exit:                      ; preds = %4, %25
   store i8 %51, ptr %45, align 8
   %.val.i17.i = load ptr, ptr %36, align 8
   %52 = getelementptr inbounds i8, ptr %43, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(376) %52, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val.i17.i, i64 376, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %52, ptr noundef nonnull align 8 dereferenceable(376) %.val.i17.i, i64 376, i1 false)
   %53 = getelementptr inbounds i8, ptr %43, i64 240
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %43, i64 128
@@ -1566,7 +1566,7 @@ fiber_store.exit:                                 ; preds = %207, %212
   %230 = load i64, ptr @pagesize, align 8
   %231 = sub i64 %229, %230
   %232 = getelementptr i8, ptr %224, i64 %231
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %232, ptr noundef nonnull readonly align 8 dereferenceable(48) %223, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %232, ptr noundef nonnull align 8 dereferenceable(48) %223, i64 48, i1 false)
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %232, i64 16
   %235 = load i64, ptr %234, align 8
@@ -3477,7 +3477,7 @@ RTYPEDDATA_GET_DATA.exit.i.i:                     ; preds = %34, %27
   store i64 %.0..0..0..0..0..0..0..0.4.i.i, ptr %37, align 8
   %.val.i9.i.i = load ptr, ptr %21, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(376) %38, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val.i9.i.i, i64 376, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %38, ptr noundef nonnull align 8 dereferenceable(376) %.val.i9.i.i, i64 376, i1 false)
   %39 = getelementptr inbounds i8, ptr %36, i64 240
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 128
@@ -3576,7 +3576,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %cont_new.exit.i
 
 90:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
   %91 = shl nuw i64 %87, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %84, ptr readonly align 1 %85, i64 %91, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %85, i64 %91, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %90, %rbimpl_size_mul_or_raise.exit.i
@@ -3604,7 +3604,7 @@ rbimpl_size_mul_or_raise.exit56.i:                ; preds = %ruby_nonempty_memcp
 
 102:                                              ; preds = %rbimpl_size_mul_or_raise.exit56.i
   %103 = shl nuw i64 %99, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %96, ptr readonly align 1 %97, i64 %103, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %97, i64 %103, i1 false)
   br label %ruby_nonempty_memcpy.exit58.i
 
 ruby_nonempty_memcpy.exit58.i:                    ; preds = %102, %rbimpl_size_mul_or_raise.exit56.i
@@ -3665,7 +3665,7 @@ rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %128
   br i1 %.not.i.i60.i, label %cont_save_machine_stack.exit.i, label %132
 
 132:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %storemerge.i.i, ptr readonly align 1 %129, i64 %.sink29.i.v.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storemerge.i.i, ptr align 1 %129, i64 %.sink29.i.v.i, i1 false)
   br label %cont_save_machine_stack.exit.i
 
 cont_save_machine_stack.exit.i:                   ; preds = %132, %rbimpl_size_mul_or_raise.exit.i.i
@@ -4156,7 +4156,7 @@ define internal void @cont_free(ptr noundef %0) #0 {
   %21 = load i64, ptr @pagesize, align 8
   %22 = sub i64 %20, %21
   %23 = getelementptr i8, ptr %15, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull readonly align 8 dereferenceable(48) %14, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 8
@@ -4926,7 +4926,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %39
 
 47:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
   %48 = shl nuw i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %40, ptr readonly align 1 %42, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %42, i64 %48, i1 false)
   %.pre.i = load ptr, ptr %31, align 8
   %.pre50.i = load ptr, ptr %.pre.i, align 8
   %.pre51.i = load ptr, ptr %41, align 8
@@ -4959,7 +4959,7 @@ rbimpl_size_mul_or_raise.exit44.i:                ; preds = %ruby_nonempty_memcp
 
 63:                                               ; preds = %rbimpl_size_mul_or_raise.exit44.i
   %64 = shl nuw i64 %57, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %59, ptr readonly align 1 %60, i64 %64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %60, i64 %64, i1 false)
   %.pre53.i = load ptr, ptr %31, align 8
   br label %ruby_nonempty_memcpy.exit46.i
 
@@ -5051,7 +5051,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %112
 
 119:                                              ; preds = %rbimpl_size_mul_or_raise.exit
   %120 = shl nuw i64 %116, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %111, ptr readonly align 1 %114, i64 %120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %114, i64 %120, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %119, %rbimpl_size_mul_or_raise.exit, %cont_restore_thread.exit

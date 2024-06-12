@@ -40,7 +40,7 @@ define internal range(i32 -1, 1) i32 @segment_create(ptr noundef %0, ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr inttoptr (i64 -1 to ptr), ptr %9, align 8
   %10 = tail call i32 @opal_shmem_posix_shm_open(ptr noundef nonnull %8, i64 noundef 15) #8
@@ -162,7 +162,7 @@ opal_gethostname.exit45:                          ; preds = %46, %51
   store i8 0, ptr %5, align 4
   store i32 -1, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %8, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %9, align 8
   br label %63
 
@@ -313,7 +313,7 @@ opal_gethostname.exit:                            ; preds = %7, %12
   store i32 -1, ptr %20, align 8
   store i64 0, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4097) %21, i8 0, i64 4097, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %21, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret i32 %.0
 }

@@ -65,7 +65,7 @@ entry:
   %m_z.i = getelementptr inbounds i8, ptr %this, i64 5
   store i8 0, ptr %m_z.i, align 1
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %m_params.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i, i8 0, i64 24, i1 false)
   ret void
 }
 

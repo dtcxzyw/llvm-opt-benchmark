@@ -1120,12 +1120,12 @@ php_is_stream_path.exit:                          ; preds = %16
   br i1 %22, label %23, label %php_is_stream_path.exit.thread
 
 23:                                               ; preds = %php_is_stream_path.exit
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.ptr, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.ptr, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
   %24 = icmp eq i32 %bcmp.i, 0
   br i1 %24, label %is_cacheable_stream_path.exit.thread, label %is_cacheable_stream_path.exit
 
 is_cacheable_stream_path.exit:                    ; preds = %23
-  %bcmp2.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.ptr, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
+  %bcmp2.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.ptr, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
   %25 = icmp eq i32 %bcmp2.i, 0
   br i1 %25, label %is_cacheable_stream_path.exit.thread, label %331
 
@@ -2185,12 +2185,12 @@ php_is_stream_path.exit:                          ; preds = %15
   br i1 %21, label %22, label %php_is_stream_path.exit.thread
 
 22:                                               ; preds = %php_is_stream_path.exit
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.ptr89, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.ptr89, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
   %23 = icmp eq i32 %bcmp.i, 0
   br i1 %23, label %php_is_stream_path.exit.thread, label %is_cacheable_stream_path.exit
 
 is_cacheable_stream_path.exit:                    ; preds = %22
-  %bcmp2.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.ptr89, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
+  %bcmp2.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.ptr89, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
   %24 = icmp eq i32 %bcmp2.i, 0
   br i1 %24, label %php_is_stream_path.exit.thread, label %25
 
@@ -3022,12 +3022,12 @@ php_is_stream_path.exit:                          ; preds = %99
   br i1 %105, label %106, label %.critedge.thread
 
 106:                                              ; preds = %php_is_stream_path.exit
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.ptr218, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.ptr218, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
   %107 = icmp eq i32 %bcmp.i, 0
   br i1 %107, label %.critedge.thread, label %is_cacheable_stream_path.exit
 
 is_cacheable_stream_path.exit:                    ; preds = %106
-  %bcmp2.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.ptr218, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
+  %bcmp2.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.ptr218, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
   %.not219 = icmp eq i32 %bcmp2.i, 0
   br i1 %.not219, label %.critedge.thread, label %108
 
@@ -3989,7 +3989,7 @@ zend_accel_schedule_restart_if_necessary.exit104: ; preds = %62, %72
   br label %.sink.split
 
 76:                                               ; preds = %53
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 64 %61, i8 0, i64 %55, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %61, i8 0, i64 %55, i1 false)
   tail call void @zend_shared_alloc_clear_xlat_table() #23
   %77 = tail call ptr @zend_accel_script_persist(ptr noundef nonnull %0, i32 noundef 1) #23
   tail call void @zend_shared_alloc_destroy_xlat_table() #23
@@ -12383,7 +12383,7 @@ define internal fastcc noundef ptr @preload_script_in_shared_memory(ptr noundef 
   unreachable
 
 18:                                               ; preds = %7
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 64 %16, i8 0, i64 %10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %16, i8 0, i64 %10, i1 false)
   tail call void @zend_shared_alloc_restore_xlat_table(i32 noundef %8) #23
   %19 = tail call ptr @zend_accel_script_persist(ptr noundef %0, i32 noundef 1) #23
   %20 = load ptr, ptr %19, align 8

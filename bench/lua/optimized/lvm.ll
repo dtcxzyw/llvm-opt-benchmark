@@ -709,7 +709,7 @@ cond.false13.i:                                   ; preds = %cond.end.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %cond.true10.i
   %cond16.i = phi i64 [ %conv12.i, %cond.true10.i ], [ %9, %cond.false13.i ]
-  %call23.i = tail call i32 @strcoll(ptr noundef nonnull readonly %contents.i, ptr noundef nonnull readonly %contents4.i) #15
+  %call23.i = tail call i32 @strcoll(ptr noundef nonnull %contents.i, ptr noundef nonnull %contents4.i) #15
   %cmp17.not24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp17.not24.i, label %if.else.i, label %l_strcmp.exit
 
@@ -916,7 +916,7 @@ cond.false13.i:                                   ; preds = %cond.end.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %cond.true10.i
   %cond16.i = phi i64 [ %conv12.i, %cond.true10.i ], [ %9, %cond.false13.i ]
-  %call23.i = tail call i32 @strcoll(ptr noundef nonnull readonly %contents.i, ptr noundef nonnull readonly %contents4.i) #15
+  %call23.i = tail call i32 @strcoll(ptr noundef nonnull %contents.i, ptr noundef nonnull %contents4.i) #15
   %cmp17.not24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp17.not24.i, label %if.else.i, label %l_strcmp.exit
 
@@ -1444,7 +1444,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %cond.i = phi i64 [ %conv3.i, %cond.true.i ], [ %26, %cond.false.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %buff, i64 %tl.0.i
   %contents.i = getelementptr inbounds i8, ptr %24, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr4.i, ptr nonnull align 8 %contents.i, i64 %cond.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i, ptr nonnull align 8 %contents.i, i64 %cond.i, i1 false)
   %add.i = add i64 %cond.i, %tl.0.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp5.i = icmp sgt i64 %indvars.iv.i, 1
@@ -1484,7 +1484,7 @@ cond.end.i72:                                     ; preds = %cond.false.i79, %co
   %cond.i73 = phi i64 [ %conv3.i71, %cond.true.i70 ], [ %30, %cond.false.i79 ]
   %add.ptr4.i74 = getelementptr inbounds i8, ptr %contents, i64 %tl.0.i65
   %contents.i75 = getelementptr inbounds i8, ptr %28, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr4.i74, ptr nonnull align 8 %contents.i75, i64 %cond.i73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i74, ptr nonnull align 8 %contents.i75, i64 %cond.i73, i1 false)
   %add.i76 = add i64 %cond.i73, %tl.0.i65
   %indvars.iv.next.i77 = add nsw i64 %indvars.iv.i64, -1
   %cmp5.i78 = icmp sgt i64 %indvars.iv.i64, 1
@@ -6621,7 +6621,7 @@ cond.false13.i.i:                                 ; preds = %cond.end.i.i
 
 cond.end15.i.i:                                   ; preds = %cond.false13.i.i, %cond.true10.i.i
   %cond16.i.i = phi i64 [ %conv12.i.i, %cond.true10.i.i ], [ %562, %cond.false13.i.i ]
-  %call23.i.i = call i32 @strcoll(ptr noundef nonnull readonly %contents.i.i, ptr noundef nonnull readonly %contents4.i.i) #15
+  %call23.i.i = call i32 @strcoll(ptr noundef nonnull %contents.i.i, ptr noundef nonnull %contents4.i.i) #15
   %cmp17.not24.i.i = icmp eq i32 %call23.i.i, 0
   br i1 %cmp17.not24.i.i, label %if.else.i.i2321, label %l_strcmp.exit.i
 
@@ -6873,7 +6873,7 @@ cond.false13.i.i2415:                             ; preds = %cond.end.i.i2382
 
 cond.end15.i.i2389:                               ; preds = %cond.false13.i.i2415, %cond.true10.i.i2387
   %cond16.i.i2390 = phi i64 [ %conv12.i.i2388, %cond.true10.i.i2387 ], [ %592, %cond.false13.i.i2415 ]
-  %call23.i.i2391 = call i32 @strcoll(ptr noundef nonnull readonly %contents.i.i2377, ptr noundef nonnull readonly %contents4.i.i2384) #15
+  %call23.i.i2391 = call i32 @strcoll(ptr noundef nonnull %contents.i.i2377, ptr noundef nonnull %contents4.i.i2384) #15
   %cmp17.not24.i.i2392 = icmp eq i32 %call23.i.i2391, 0
   br i1 %cmp17.not24.i.i2392, label %if.else.i.i2396, label %l_strcmp.exit.i2393
 

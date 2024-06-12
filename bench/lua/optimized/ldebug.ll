@@ -921,7 +921,7 @@ land.lhs.true.i.i:                                ; preds = %sw.bb31.i
 
 getfuncname.exit.i:                               ; preds = %land.lhs.true.i.i
   %45 = load ptr, ptr %previous.i.i, align 8
-  %call.i.i = tail call fastcc ptr @funcnamefromcall(ptr noundef readonly %L, ptr noundef %45, ptr noundef nonnull writeonly %name.i)
+  %call.i.i = tail call fastcc ptr @funcnamefromcall(ptr noundef %L, ptr noundef %45, ptr noundef nonnull %name.i)
   store ptr %call.i.i, ptr %namewhat.i, align 8
   %cmp34.i = icmp eq ptr %call.i.i, null
   br i1 %cmp34.i, label %if.then36.i, label %for.inc.i
@@ -1437,7 +1437,7 @@ if.then11:                                        ; preds = %if.else6
 sw.bb.i:                                          ; preds = %if.then11, %if.then11
   %shr1.i = lshr i32 %6, 7
   %and2.i = and i32 %shr1.i, 255
-  %call.i = tail call fastcc ptr @getobjname(ptr noundef nonnull %3, i32 noundef %sub.i, i32 noundef %and2.i, ptr noundef writeonly %name)
+  %call.i = tail call fastcc ptr @getobjname(ptr noundef nonnull %3, i32 noundef %sub.i, i32 noundef %and2.i, ptr noundef %name)
   br label %return
 
 sw.bb3.i:                                         ; preds = %if.then11
@@ -2347,7 +2347,7 @@ sw.bb7:                                           ; preds = %if.then2
   %shr9 = lshr i32 %2, 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i24)
   store i32 %0, ptr %pc.addr.i24, align 4
-  %call.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i24, i32 noundef %shr9, ptr noundef writeonly %name)
+  %call.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i24, i32 noundef %shr9, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i26, label %land.lhs.true.i
 
@@ -2460,7 +2460,7 @@ kname.exit.i:                                     ; preds = %if.then.i.i, %if.th
 if.else.i:                                        ; preds = %sw.bb19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i.i)
   store i32 %0, ptr %pc.addr.i.i, align 4
-  %call.i.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i.i, i32 noundef %shr.i53, ptr noundef writeonly %name)
+  %call.i.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i.i, i32 noundef %shr.i53, ptr noundef %name)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i6.i, label %land.lhs.true.i.i
 

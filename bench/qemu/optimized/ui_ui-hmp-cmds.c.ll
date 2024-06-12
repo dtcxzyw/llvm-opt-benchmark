@@ -526,7 +526,7 @@ entry:
 while.body:                                       ; preds = %if.end43, %entry
   %tail.0 = phi ptr [ %head, %entry ], [ %4, %if.end43 ]
   %keys.0 = phi ptr [ %call, %entry ], [ %add.ptr44, %if.end43 ]
-  %call.i = call ptr @strchrnul(ptr noundef readonly %keys.0, i32 noundef 45) #8
+  %call.i = call ptr @strchrnul(ptr noundef %keys.0, i32 noundef 45) #8
   %sub.ptr.lhs.cast = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %keys.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

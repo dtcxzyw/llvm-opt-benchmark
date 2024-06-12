@@ -3315,7 +3315,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_PyDict_GetItem_KnownHash.exit
 
 if.end.i:                                         ; preds = %if.end
-  %call2.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %dp, ptr noundef nonnull %kv, i64 noundef %call, ptr noundef nonnull %value.i)
+  %call2.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %dp, ptr noundef nonnull %kv, i64 noundef %call, ptr noundef nonnull %value.i)
   %5 = load ptr, ptr %value.i, align 8
   br label %_PyDict_GetItem_KnownHash.exit
 
@@ -3354,7 +3354,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_PyDict_GetItem_KnownHash.exit
 
 if.end.i:                                         ; preds = %if.end
-  %call2.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %dp, ptr noundef nonnull %call, i64 noundef %call.val, ptr noundef nonnull %value.i)
+  %call2.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %dp, ptr noundef nonnull %call, i64 noundef %call.val, ptr noundef nonnull %value.i)
   %4 = load ptr, ptr %value.i, align 8
   br label %_PyDict_GetItem_KnownHash.exit
 
@@ -3411,7 +3411,7 @@ if.then5.i:                                       ; preds = %lor.lhs.false.i, %i
 
 if.end10.i:                                       ; preds = %if.then5.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call6.i, %if.then5.i ], [ %key.val6.i, %lor.lhs.false.i ]
-  %call11.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %v, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call11.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %v, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %5 = load ptr, ptr %value.i, align 8
   br label %PyDict_GetItemWithError.exit
 
@@ -8399,7 +8399,7 @@ _Py_NewRef.exit129:                               ; preds = %_Py_NewRef.exit, %i
 
 if.else:                                          ; preds = %Py_INCREF.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
-  %call.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %a, ptr noundef nonnull %key.0.i, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %a, ptr noundef nonnull %key.0.i, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %cmp.i130 = icmp eq i64 %call.i, -3
   br i1 %cmp.i130, label %if.else100.thread, label %_PyDict_Contains_KnownHash.exit
 
@@ -8584,7 +8584,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i145,
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i145
   %hash.0.i142 = phi i64 [ %call2.i, %if.then.i ], [ %key.val6.i, %lor.lhs.false.i145 ]
-  %call6.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %a, ptr noundef nonnull %key124.0201, i64 noundef %hash.0.i142, ptr noundef nonnull %value.i141)
+  %call6.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %a, ptr noundef nonnull %key124.0201, i64 noundef %hash.0.i142, ptr noundef nonnull %value.i141)
   %cmp7.i = icmp eq i64 %call6.i, -3
   br i1 %cmp7.i, label %if.then143.thread, label %PyDict_Contains.exit
 
@@ -10113,7 +10113,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %key.val6.i, %lor.lhs.false.i ]
-  %call6.i = call i64 @_Py_dict_lookup(ptr noundef readonly %op, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call6.i = call i64 @_Py_dict_lookup(ptr noundef %op, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %cmp7.i = icmp eq i64 %call6.i, -3
   br i1 %cmp7.i, label %PyDict_Contains.exit, label %if.end9.i
 
@@ -10197,7 +10197,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %key.val6.i, %lor.lhs.false.i ]
-  %call6.i = call i64 @_Py_dict_lookup(ptr noundef readonly %op, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call6.i = call i64 @_Py_dict_lookup(ptr noundef %op, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %cmp7.i = icmp eq i64 %call6.i, -3
   br i1 %cmp7.i, label %PyDict_Contains.exit, label %if.end9.i
 
@@ -10994,7 +10994,7 @@ if.end.i89.i:                                     ; preds = %Py_INCREF.exit99.i
   br label %Py_INCREF.exit91.i
 
 Py_INCREF.exit91.i:                               ; preds = %if.end.i89.i, %Py_INCREF.exit99.i
-  %call29.i = call i64 @_Py_dict_lookup(ptr noundef readonly %w, ptr noundef nonnull %key.0.i, i64 noundef %hash.0.i, ptr noundef nonnull %bval.i)
+  %call29.i = call i64 @_Py_dict_lookup(ptr noundef %w, ptr noundef nonnull %key.0.i, i64 noundef %hash.0.i, ptr noundef nonnull %bval.i)
   %21 = load ptr, ptr %bval.i, align 8
   %cmp30.i = icmp eq ptr %21, null
   br i1 %cmp30.i, label %if.then32.i, label %if.end37.i
@@ -11520,7 +11520,7 @@ if.then5.i:                                       ; preds = %lor.lhs.false.i, %i
 
 if.end10.i:                                       ; preds = %if.then5.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call6.i, %if.then5.i ], [ %key.val10.i, %lor.lhs.false.i ]
-  %call11.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %v, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call11.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %v, ptr noundef nonnull %call, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %cmp12.i = icmp eq i64 %call11.i, -3
   br i1 %cmp12.i, label %PyDict_GetItemRef.exit, label %if.end14.i
 
@@ -13209,7 +13209,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %key.val6.i, %lor.lhs.false.i ]
-  %call6.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %0, ptr noundef nonnull %obj, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call6.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %0, ptr noundef nonnull %obj, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %cmp7.i = icmp eq i64 %call6.i, -3
   br i1 %cmp7.i, label %PyDict_Contains.exit, label %if.end9.i
 
@@ -13292,7 +13292,7 @@ if.then5.i:                                       ; preds = %lor.lhs.false.i, %i
 
 if.end10.i:                                       ; preds = %if.then5.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call6.i, %if.then5.i ], [ %key.val10.i, %lor.lhs.false.i ]
-  %call11.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %0, ptr noundef nonnull %5, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
+  %call11.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %hash.0.i, ptr noundef nonnull %value.i)
   %cmp12.i = icmp eq i64 %call11.i, -3
   br i1 %cmp12.i, label %PyDict_GetItemRef.exit.thread, label %if.end14.i
 
@@ -14835,7 +14835,7 @@ if.then9.i:                                       ; preds = %if.then5.i
 
 _PyDictKeys_StringLookup.exit:                    ; preds = %if.end.i, %if.then5.i
   %hash.0.i = phi i64 [ %call6.i, %if.then5.i ], [ %key.val7.i, %if.end.i ]
-  %call12.i = tail call fastcc i64 @unicodekeys_lookup_unicode(ptr noundef nonnull readonly %1, ptr noundef nonnull %name, i64 noundef %hash.0.i)
+  %call12.i = tail call fastcc i64 @unicodekeys_lookup_unicode(ptr noundef nonnull %1, ptr noundef nonnull %name, i64 noundef %hash.0.i)
   %cmp = icmp eq i64 %call12.i, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -16736,7 +16736,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %s
 
 if.end5.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %key.val6.i, %lor.lhs.false.i ]
-  %call6.i = call i64 @_Py_dict_lookup(ptr noundef readonly %self, ptr noundef nonnull %1, i64 noundef %hash.0.i, ptr noundef nonnull %val.i)
+  %call6.i = call i64 @_Py_dict_lookup(ptr noundef %self, ptr noundef nonnull %1, i64 noundef %hash.0.i, ptr noundef nonnull %val.i)
   %cmp7.i = icmp eq i64 %call6.i, -3
   br i1 %cmp7.i, label %dict_get_impl.exit, label %if.end9.i
 
@@ -17975,7 +17975,7 @@ _PyDict_GetItem_KnownHash.exit.thread.i:          ; preds = %Py_INCREF.exit120.i
   br label %if.then12.i
 
 _PyDict_GetItem_KnownHash.exit.i:                 ; preds = %Py_INCREF.exit120.i
-  %call2.i.i = call i64 @_Py_dict_lookup(ptr noundef nonnull readonly %call.i, ptr noundef nonnull %key.0.i.i, i64 noundef %hash.0.i.i, ptr noundef nonnull %value.i.i)
+  %call2.i.i = call i64 @_Py_dict_lookup(ptr noundef nonnull %call.i, ptr noundef nonnull %key.0.i.i, i64 noundef %hash.0.i.i, ptr noundef nonnull %value.i.i)
   %30 = load ptr, ptr %value.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
   %cmp11.i = icmp eq ptr %30, null

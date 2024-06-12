@@ -3844,7 +3844,7 @@ lpad.i:                                           ; preds = %_ZN8facebook5velox1
 _ZN8facebook5velox12_GLOBAL__N_117copyIndicesBufferEPKiiPNS0_6memory10MemoryPoolE.exit: ; preds = %call.i.noexc.i
   %data_.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load ptr, ptr %data_.i.i, align 8, !noalias !26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr readonly align 4 %3, i64 %6, i1 false), !noalias !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %3, i64 %6, i1 false), !noalias !26
   %hasExtraNulls_ = getelementptr inbounds i8, ptr %this, i64 57
   %16 = load i8, ptr %hasExtraNulls_, align 1
   %tobool11 = trunc i8 %16 to i1
@@ -3937,7 +3937,7 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i8
           to label %invoke.cont2.i unwind label %lpad.i7, !noalias !33
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull readonly align 8 %17, i64 %call3.i, i1 false), !noalias !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %17, i64 %call3.i, i1 false), !noalias !33
   %.pre = load ptr, ptr %indices, align 8
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit36
 

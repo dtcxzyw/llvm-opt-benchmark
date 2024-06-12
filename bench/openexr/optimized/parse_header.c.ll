@@ -997,7 +997,7 @@ if.end3:                                          ; preds = %read_magic_and_flag
   %flags.0119 = phi i32 [ %6, %read_magic_and_flags.exit.thread ], [ undef, %read_magic_and_flags.exit ]
   %curpos.i = getelementptr inbounds i8, ptr %scratch, i64 8
   %fileoff.i72 = getelementptr inbounds i8, ptr %scratch, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %curpos.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curpos.i, i8 0, i64 16, i1 false)
   store i64 8, ptr %fileoff.i72, align 8
   %sequential_read.i = getelementptr inbounds i8, ptr %scratch, i64 32
   store ptr @scratch_seq_read, ptr %sequential_read.i, align 8

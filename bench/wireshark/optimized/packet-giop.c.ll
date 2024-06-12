@@ -2577,7 +2577,7 @@ define i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %22 = add i32 %21, %.016
   store i32 %22, ptr %3, align 4
   %23 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %16) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %17, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %17, i64 %19, i1 false)
   %24 = load ptr, ptr @g_ascii_table, align 8
   br label %25
 
@@ -2683,7 +2683,7 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
   %39 = add i32 %38, %.2
   store i32 %39, ptr %3, align 4
   %40 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %33) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr readonly align 1 %34, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %34, i64 %36, i1 false)
   %41 = load ptr, ptr @g_ascii_table, align 8
   br label %42
 
@@ -4584,7 +4584,7 @@ get_CDR_ulong.exit158:                            ; preds = %115, %117
   %137 = load i32, ptr @hf_giop_req_principal, align 4
   %138 = load ptr, ptr %129, align 8
   %139 = call noalias ptr @wmem_alloc0(ptr noundef %138, i64 noundef %132) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr readonly align 1 %133, i64 %134, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr align 1 %133, i64 %134, i1 false)
   %140 = load ptr, ptr @g_ascii_table, align 8
   br label %141
 
@@ -6203,7 +6203,7 @@ get_CDR_ulong.exit148.i:                          ; preds = %182, %180
   %206 = load i32, ptr @hf_giop_component_data, align 4
   %207 = load ptr, ptr %160, align 8
   %208 = call noalias ptr @wmem_alloc0(ptr noundef %207, i64 noundef %199) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %208, ptr readonly align 1 %200, i64 %202, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %208, ptr align 1 %200, i64 %202, i1 false)
   br label %209
 
 209:                                              ; preds = %217, %.lr.ph.i.i
@@ -6267,7 +6267,7 @@ make_printable_string.exit.i:                     ; preds = %217
   %242 = load i32, ptr @hf_giop_profile_data, align 4
   %243 = load ptr, ptr %232, align 8
   %244 = tail call noalias ptr @wmem_alloc0(ptr noundef %243, i64 noundef %235) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr readonly align 1 %236, i64 %238, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr align 1 %236, i64 %238, i1 false)
   %.not13.i = icmp eq i32 %224, 0
   br i1 %.not13.i, label %make_printable_string.exit, label %.lr.ph.i36
 
@@ -6329,7 +6329,7 @@ define internal fastcc ptr @insert_in_comp_req_list(ptr noundef %0, i32 noundef 
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %18, ptr %17, align 8
   %23 = icmp eq i32 %20, 0
   br i1 %23, label %copy_address_wmem.exit, label %24
@@ -6617,7 +6617,7 @@ define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr no
   %18 = load i32, ptr @hf_giop_context_data, align 4
   %19 = load ptr, ptr %7, align 8
   %20 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef %11) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr readonly align 1 %12, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %12, i64 %14, i1 false)
   %21 = load ptr, ptr @g_ascii_table, align 8
   br label %22
 
@@ -6778,7 +6778,7 @@ get_CDR_ulong.exit:                               ; preds = %24, %26
   %51 = load i32, ptr @hf_giop_target_address_key_addr, align 4
   %52 = load ptr, ptr %40, align 8
   %53 = tail call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef %44) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr readonly align 1 %45, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %45, i64 %47, i1 false)
   %54 = load ptr, ptr @g_ascii_table, align 8
   br label %55
 

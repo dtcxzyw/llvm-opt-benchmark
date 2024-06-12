@@ -308,7 +308,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #15
           to label %call.i.i2.i.i.i.i.i.noexc unwind label %lpad1
 
@@ -669,7 +669,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #15
           to label %call.i.i2.i.i.i.i.i.noexc unwind label %lpad1
 
@@ -864,7 +864,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #15
           to label %call.i.i2.i.i.i.i.i.noexc unwind label %lpad1
 

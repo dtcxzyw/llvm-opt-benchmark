@@ -1064,7 +1064,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end11
 
 if.then2:                                         ; preds = %if.then
-  %call.i = tail call fastcc i32 @debug_framepc(ptr noundef readonly %L, ptr noundef nonnull readonly %1, ptr noundef %nextframe)
+  %call.i = tail call fastcc i32 @debug_framepc(ptr noundef %L, ptr noundef nonnull %1, ptr noundef %nextframe)
   %cmp.not.i = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
 
@@ -1801,7 +1801,7 @@ if.then56:                                        ; preds = %for.cond
   br i1 %tobool92.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then56
-  %call.i = tail call fastcc i32 @debug_framepc(ptr noundef readonly %L, ptr noundef readonly %fn.0, ptr noundef %nextframe.1)
+  %call.i = tail call fastcc i32 @debug_framepc(ptr noundef %L, ptr noundef %fn.0, ptr noundef %nextframe.1)
   %cmp.not.i = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i, label %cond.end, label %if.then.i
 
@@ -2575,7 +2575,7 @@ lj_debug_funcname.exit:                           ; preds = %if.then17.i
   %cmp33.i = icmp eq i32 %and23.i, 69
   %sub.i = add nsw i32 %and31.i, -3
   %spec.select.i85 = select i1 %cmp33.i, i32 %sub.i, i32 %and31.i
-  %call37.i = call ptr @lj_debug_slotname(ptr noundef nonnull %add.ptr20.i, ptr noundef nonnull %arrayidx22.i, i32 noundef %spec.select.i85, ptr noundef nonnull writeonly %name)
+  %call37.i = call ptr @lj_debug_slotname(ptr noundef nonnull %add.ptr20.i, ptr noundef nonnull %arrayidx22.i, i32 noundef %spec.select.i85, ptr noundef nonnull %name)
   %tobool10.not = icmp eq ptr %call37.i, null
   br i1 %tobool10.not, label %sw.bb29, label %if.then11
 
@@ -3498,7 +3498,7 @@ if.end10:                                         ; preds = %lua_getstack.exit94
   br i1 %cmp21.i.i193, label %for.body.i.preheader.i.lr.ph, label %while.end, !llvm.loop !20
 
 if.end11:                                         ; preds = %while.body
-  %call.i = call range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %L1, ptr noundef nonnull readonly @.str.26, ptr noundef nonnull %ar, i32 noundef 0)
+  %call.i = call range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %L1, ptr noundef nonnull @.str.26, ptr noundef nonnull %ar, i32 noundef 0)
   %41 = load ptr, ptr %top13, align 8
   %add.ptr = getelementptr inbounds i8, ptr %41, i64 -8
   %42 = load i64, ptr %add.ptr, align 8

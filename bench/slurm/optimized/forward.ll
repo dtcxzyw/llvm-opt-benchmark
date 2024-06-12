@@ -318,7 +318,7 @@ define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef r
 41:                                               ; preds = %38, %33
   %.045 = phi ptr [ %36, %33 ], [ %40, %38 ]
   %42 = getelementptr inbounds i8, ptr %20, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %42, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 64, i1 false)
   %43 = getelementptr inbounds i8, ptr %20, i64 66
   store i16 -2, ptr %43, align 2
   %44 = getelementptr inbounds i8, ptr %20, i64 72
@@ -1361,7 +1361,7 @@ _forward_get_addr.exit.thread:                    ; preds = %22
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %27 to i64
   %33 = getelementptr inbounds %struct.sockaddr_storage, ptr %31, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %33, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %33, i64 128, i1 false)
   br label %.loopexit270
 
 _forward_get_addr.exit:                           ; preds = %._forward_get_addr.exit_crit_edge, %17

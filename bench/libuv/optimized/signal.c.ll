@@ -268,7 +268,7 @@ if.end34.i:                                       ; preds = %if.then22.i, %if.en
   %10 = load ptr, ptr %rbe_parent.i, align 8
   %cmp37.i = icmp eq ptr %10, %handle
   %spec.select.i = select i1 %cmp37.i, ptr %elm.addr.0.i, ptr %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tree_entry11.i.le, ptr noundef nonnull readonly align 8 dereferenceable(32) %tree_entry.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tree_entry11.i.le, ptr noundef nonnull align 8 dereferenceable(32) %tree_entry.i, i64 32, i1 false)
   %rbe_parent43.i = getelementptr inbounds i8, ptr %handle, i64 128
   %11 = load ptr, ptr %rbe_parent43.i, align 8
   %tobool44.not.i = icmp eq ptr %11, null
@@ -887,7 +887,7 @@ if.end.i22:                                       ; preds = %if.then9
 if.end9.i:                                        ; preds = %if.end.i22
   %idxprom.i.i = sext i32 %74 to i64
   %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
   %arrayidx2.i.i = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx2.i.i, align 1
   br label %uv__signal_register_handler.exit
@@ -1150,7 +1150,7 @@ if.end.i23:                                       ; preds = %if.end9.split
 if.then12.thread76:                               ; preds = %if.end.i23
   %idxprom.i.i = sext i32 %signum to i64
   %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
   %arrayidx2.i.i = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i
   store i8 1, ptr %arrayidx2.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
@@ -1201,7 +1201,7 @@ if.end.i31:                                       ; preds = %land.lhs.true.split
 if.then12.thread.thread:                          ; preds = %if.end.i31
   %idxprom.i.i40 = sext i32 %signum to i64
   %arrayidx.i.i41 = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i41, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i26, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i41, ptr noundef nonnull align 8 dereferenceable(152) %sa_old.i26, i64 152, i1 false)
   %arrayidx2.i.i42 = getelementptr inbounds [128 x i8], ptr getelementptr inbounds (i8, ptr @uv__sigactions, i64 19456), i64 0, i64 %idxprom.i.i40
   store i8 1, ptr %arrayidx2.i.i42, align 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i25)

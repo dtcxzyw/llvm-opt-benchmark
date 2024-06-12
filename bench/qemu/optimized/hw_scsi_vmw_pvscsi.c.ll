@@ -438,8 +438,8 @@ if.end15:                                         ; preds = %if.then13, %land.lh
   store i64 0, ptr %reg_interrupt_status.i, align 8
   %rings.i = getelementptr inbounds i8, ptr %call.i, i64 3632
   %req_ring_pages_pa.i.i = getelementptr inbounds i8, ptr %call.i, i64 3656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %rings.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(664) %req_ring_pages_pa.i.i, i8 0, i64 664, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i, i8 0, i64 664, i1 false)
   %rings_info_valid.i = getelementptr inbounds i8, ptr %call.i, i64 3628
   store i8 0, ptr %rings_info_valid.i, align 4
   %msg_ring_info_valid.i = getelementptr inbounds i8, ptr %call.i, i64 3629
@@ -598,8 +598,8 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_state.
   store i64 0, ptr %reg_interrupt_status.i.i, align 8
   %rings.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3632
   %req_ring_pages_pa.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
   %rings_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3628
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3629
@@ -1605,7 +1605,7 @@ trace_pvscsi_process_io.exit:                     ; preds = %while.body, %land.l
   %dev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %s, ptr %dev.i.i, align 8
   %req.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %descr, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull align 8 dereferenceable(128) %descr, i64 128, i1 false)
   %15 = load i64, ptr %req.i.i, align 8
   %cmp.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 216
   store i64 %15, ptr %cmp.i.i, align 8
@@ -2149,8 +2149,8 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd
   store i64 0, ptr %reg_interrupt_status.i.i, align 8
   %rings.i.i = getelementptr inbounds i8, ptr %s, i64 3632
   %req_ring_pages_pa.i.i.i = getelementptr inbounds i8, ptr %s, i64 3656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
   %rings_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3628
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3629

@@ -425,7 +425,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   br i1 %170, label %171, label %181
 
 171:                                              ; preds = %167
-  %172 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.073.i)
+  %172 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.073.i)
   br i1 %172, label %173, label %HandleCopyStream.exit.thread
 
 173:                                              ; preds = %171
@@ -707,7 +707,7 @@ CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit
   ]
 
 284:                                              ; preds = %CopyStreamReceive.exit.thread117
-  %285 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.1.i.ph1095)
+  %285 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.1.i.ph1095)
   br i1 %285, label %287, label %286
 
 286:                                              ; preds = %284
@@ -1069,7 +1069,7 @@ open_walfile.exit.i.i:                            ; preds = %447, %424
   br i1 %473, label %474, label %488
 
 474:                                              ; preds = %464
-  %475 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %467)
+  %475 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %467)
   br i1 %475, label %476, label %HandleCopyStream.exit.thread
 
 476:                                              ; preds = %474
@@ -1114,7 +1114,7 @@ ProcessXLogDataMsg.exit.i:                        ; preds = %488, %353
   br i1 %492, label %493, label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge
 
 493:                                              ; preds = %489
-  %494 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.3.ph.i)
+  %494 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.3.ph.i)
   br i1 %494, label %495, label %HandleCopyStream.exit.thread
 
 495:                                              ; preds = %493

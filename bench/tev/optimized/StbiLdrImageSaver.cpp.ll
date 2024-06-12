@@ -665,14 +665,14 @@ define dso_local noundef range(i32 0, 2) i32 @stbi_write_bmp_to_func(ptr noundef
   %11 = add nsw i32 %10, %9
   %12 = mul nsw i32 %11, %3
   %13 = add nsw i32 %12, 54
-  %14 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %7, i32 poison, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %14 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull %7, i32 poison, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret i32 %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__write_context, align 8
-  %7 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
+  %7 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
@@ -685,7 +685,7 @@ define dso_local range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef reado
   %12 = add nsw i32 %11, %10
   %13 = mul nsw i32 %12, %2
   %14 = add nsw i32 %13, 54
-  %15 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %15 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull %6, i32 poison, i32 poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %16 = tail call i32 @fclose(ptr noundef nonnull %7)
   br label %17
 
@@ -979,7 +979,7 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit124.us: ; preds = %_ZL18
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i32 0, 2) i32 @stbi_write_tga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__write_context, align 8
-  %7 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
+  %7 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
@@ -1505,7 +1505,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_hdr_coreP19s
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i32 0, 2) i32 @stbi_write_hdr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__write_context, align 8
-  %7 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
+  %7 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
@@ -4057,7 +4057,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %222, %.
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i32 0, 2) i32 @stbi_write_jpg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__write_context, align 8
-  %8 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
+  %8 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8
@@ -4179,7 +4179,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %54 = load i32, ptr %53, align 4
   %55 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %56 = call noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef readonly %55, i32 noundef 0, i32 noundef %52, i32 noundef %54, i32 noundef %5, ptr noundef nonnull %9)
+  %56 = call noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr noundef %55, i32 noundef 0, i32 noundef %52, i32 noundef %54, i32 noundef %5, ptr noundef nonnull %9)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %stbi_write_png_to_func.exit, label %58
 
@@ -4216,7 +4216,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %71 = add nsw i32 %70, %69
   %72 = mul nsw i32 %71, %66
   %73 = add nsw i32 %72, 54
-  %74 = invoke noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %8, i32 poison, i32 poison, i32 noundef %64, i32 noundef %66, i32 noundef %5, i32 noundef 1, ptr noundef %67, i32 noundef 0, i32 noundef %69, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %73, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %64, i32 noundef %66, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %74 = invoke noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull %8, i32 poison, i32 poison, i32 noundef %64, i32 noundef %66, i32 noundef %5, i32 noundef 1, ptr noundef %67, i32 noundef 0, i32 noundef %69, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %73, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %64, i32 noundef %66, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
           to label %stbi_write_bmp_to_func.exit unwind label %48
 
 stbi_write_bmp_to_func.exit:                      ; preds = %63

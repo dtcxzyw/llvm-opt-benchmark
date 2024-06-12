@@ -78,7 +78,7 @@ define range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unna
 
 _valid_shared_gres_bind.exit:                     ; preds = %27
   %29 = getelementptr inbounds i8, ptr %spec.select.i, i64 9
-  %30 = call i64 @strtol(ptr nocapture noundef nonnull readonly %29, ptr noundef null, i32 noundef 0) #6
+  %30 = call i64 @strtol(ptr nocapture noundef nonnull %29, ptr noundef null, i32 noundef 0) #6
   %or.cond.i.i = icmp ult i64 %30, 9223372036854775807
   br i1 %or.cond.i.i, label %_valid_shared_gres_bind.exit.thread, label %_valid_shared_gres_bind.exit.thread28
 
@@ -287,7 +287,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds i8, ptr %spec.select.i, i64 9
-  %96 = call i64 @strtol(ptr nocapture noundef nonnull readonly %95, ptr noundef null, i32 noundef 0) #6
+  %96 = call i64 @strtol(ptr nocapture noundef nonnull %95, ptr noundef null, i32 noundef 0) #6
   %or.cond.i30.i = icmp ugt i64 %96, 9223372036854775806
   %..i.i24 = sext i1 %or.cond.i30.i to i32
   br label %_valid_gres_bind.exit
@@ -299,7 +299,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds i8, ptr %spec.select.i, i64 7
-  %101 = call i64 @strtol(ptr nocapture noundef nonnull readonly %100, ptr noundef null, i32 noundef 0) #6
+  %101 = call i64 @strtol(ptr nocapture noundef nonnull %100, ptr noundef null, i32 noundef 0) #6
   %or.cond.i31.i = icmp ugt i64 %101, 9223372036854775806
   %..i32.i = sext i1 %or.cond.i31.i to i32
   br label %_valid_gres_bind.exit

@@ -97,32 +97,32 @@ sys_uname.exit:                                   ; preds = %if.else
   br label %return
 
 if.end6:                                          ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf.i, i64 64, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 64
   store i8 0, ptr %arrayidx.i, align 1
   %nodename.i = getelementptr inbounds i8, ptr %buf, i64 65
   %nodename7.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %nodename.i, ptr noundef nonnull align 1 dereferenceable(65) %nodename7.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %nodename.i, ptr noundef nonnull align 1 dereferenceable(65) %nodename7.i, i64 64, i1 false)
   %arrayidx16.i = getelementptr inbounds i8, ptr %buf, i64 129
   store i8 0, ptr %arrayidx16.i, align 1
   %release.i = getelementptr inbounds i8, ptr %buf, i64 130
   %release20.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %release.i, ptr noundef nonnull align 1 dereferenceable(65) %release20.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %release.i, ptr noundef nonnull align 1 dereferenceable(65) %release20.i, i64 64, i1 false)
   %arrayidx29.i = getelementptr inbounds i8, ptr %buf, i64 194
   store i8 0, ptr %arrayidx29.i, align 1
   %version.i = getelementptr inbounds i8, ptr %buf, i64 195
   %version33.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 195
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %version.i, ptr noundef nonnull align 1 dereferenceable(65) %version33.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %version.i, ptr noundef nonnull align 1 dereferenceable(65) %version33.i, i64 64, i1 false)
   %arrayidx42.i = getelementptr inbounds i8, ptr %buf, i64 259
   store i8 0, ptr %arrayidx42.i, align 1
   %machine.i = getelementptr inbounds i8, ptr %buf, i64 260
   %machine46.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 260
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %machine.i, ptr noundef nonnull align 1 dereferenceable(65) %machine46.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %machine.i, ptr noundef nonnull align 1 dereferenceable(65) %machine46.i, i64 64, i1 false)
   %arrayidx55.i = getelementptr inbounds i8, ptr %buf, i64 324
   store i8 0, ptr %arrayidx55.i, align 1
   %domainname.i = getelementptr inbounds i8, ptr %buf, i64 325
   %domainname59.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 325
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %domainname.i, ptr noundef nonnull align 1 dereferenceable(65) %domainname59.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %domainname.i, ptr noundef nonnull align 1 dereferenceable(65) %domainname59.i, i64 64, i1 false)
   %arrayidx68.i = getelementptr inbounds i8, ptr %buf, i64 389
   store i8 0, ptr %arrayidx68.i, align 1
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts_buf.i)
@@ -202,32 +202,32 @@ sys_uname.exit:                                   ; preds = %if.end
   br label %if.end9
 
 if.end4:                                          ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf.i, i64 64, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 64
   store i8 0, ptr %arrayidx.i, align 1
   %nodename.i = getelementptr inbounds i8, ptr %buf, i64 65
   %nodename7.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %nodename.i, ptr noundef nonnull align 1 dereferenceable(65) %nodename7.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %nodename.i, ptr noundef nonnull align 1 dereferenceable(65) %nodename7.i, i64 64, i1 false)
   %arrayidx16.i = getelementptr inbounds i8, ptr %buf, i64 129
   store i8 0, ptr %arrayidx16.i, align 1
   %release.i = getelementptr inbounds i8, ptr %buf, i64 130
   %release20.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %release.i, ptr noundef nonnull align 1 dereferenceable(65) %release20.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %release.i, ptr noundef nonnull align 1 dereferenceable(65) %release20.i, i64 64, i1 false)
   %arrayidx29.i = getelementptr inbounds i8, ptr %buf, i64 194
   store i8 0, ptr %arrayidx29.i, align 1
   %version.i = getelementptr inbounds i8, ptr %buf, i64 195
   %version33.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 195
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %version.i, ptr noundef nonnull align 1 dereferenceable(65) %version33.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %version.i, ptr noundef nonnull align 1 dereferenceable(65) %version33.i, i64 64, i1 false)
   %arrayidx42.i = getelementptr inbounds i8, ptr %buf, i64 259
   store i8 0, ptr %arrayidx42.i, align 1
   %machine.i = getelementptr inbounds i8, ptr %buf, i64 260
   %machine46.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 260
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %machine.i, ptr noundef nonnull align 1 dereferenceable(65) %machine46.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %machine.i, ptr noundef nonnull align 1 dereferenceable(65) %machine46.i, i64 64, i1 false)
   %arrayidx55.i = getelementptr inbounds i8, ptr %buf, i64 324
   store i8 0, ptr %arrayidx55.i, align 1
   %domainname.i = getelementptr inbounds i8, ptr %buf, i64 325
   %domainname59.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 325
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(65) %domainname.i, ptr noundef nonnull align 1 dereferenceable(65) %domainname59.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %domainname.i, ptr noundef nonnull align 1 dereferenceable(65) %domainname59.i, i64 64, i1 false)
   %arrayidx68.i = getelementptr inbounds i8, ptr %buf, i64 389
   store i8 0, ptr %arrayidx68.i, align 1
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts_buf.i)

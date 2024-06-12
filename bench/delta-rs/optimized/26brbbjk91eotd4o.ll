@@ -1961,7 +1961,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5c1caf1c86e040b
   store <2 x i64> %10, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !321, !noalias !324
   store <2 x i64> %6, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !321, !noalias !324
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !321, !noalias !324
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !321, !noalias !324
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   %11 = load i8, ptr %1, align 1, !range !329, !alias.scope !326, !noalias !330, !noundef !4
   %12 = add nsw i8 %11, -16
@@ -4248,10 +4248,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %trunc6.i = trunc nuw i32 %162 to i1
   %163 = load i32, ptr %61, align 4, !alias.scope !486, !noalias !483
   %.sroa.54.0.i = select i1 %trunc6.i, i32 %163, i32 undef
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !486
   %164 = load <4 x i32>, ptr %53, align 4, !alias.scope !486, !noalias !483
   store <4 x i32> %164, ptr %62, align 4, !alias.scope !483, !noalias !486
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %63, ptr noundef nonnull readonly align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !488
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %63, ptr noundef nonnull align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !488
   store i16 %157, ptr %64, align 8, !alias.scope !483, !noalias !486
   store i16 %.sroa.5.0.i, ptr %65, align 2, !alias.scope !483, !noalias !486
   store i32 %159, ptr %66, align 4, !alias.scope !483, !noalias !486
@@ -4292,7 +4292,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %175 = xor <2 x i64> %174, <i64 7237128888997146477, i64 8387220255154660723>
   store <2 x i64> %175, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i, align 16, !alias.scope !509, !noalias !512
   store <2 x i64> %171, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i, align 16, !alias.scope !509, !noalias !512
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !509, !noalias !512
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !509, !noalias !512
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E.llvm.956944259081774161"(ptr noalias noundef nonnull align 8 dereferenceable(72) %17, ptr noalias noundef nonnull readonly align 1 %.val10.i, i64 noundef %.val11.i), !noalias !503
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !514
   store i8 -1, ptr %16, align 1, !noalias !514
@@ -4407,7 +4407,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %256 = xor <2 x i64> %255, <i64 7237128888997146477, i64 8387220255154660723>
   store <2 x i64> %256, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 16, !alias.scope !540, !noalias !543
   store <2 x i64> %252, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i, align 16, !alias.scope !540, !noalias !543
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !540, !noalias !543
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !540, !noalias !543
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E.llvm.956944259081774161"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14, ptr noalias noundef nonnull readonly align 1 %.val8.i.i, i64 noundef %.val9.i.i), !noalias !545
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !546
   store i8 -1, ptr %13, align 1, !noalias !546
@@ -4543,7 +4543,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 343:                                              ; preds = %.lr.ph.i.i.i
   %344 = getelementptr inbounds i8, ptr %340, i64 -96
   %345 = load ptr, ptr %344, align 8, !alias.scope !582, !noalias !583, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %345, i64 %.val9.i.i), !alias.scope !589, !noalias !593
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %.val8.i.i, ptr nonnull %345, i64 %.val9.i.i), !alias.scope !589, !noalias !593
   %346 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %346, label %389, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i"
 
@@ -4811,10 +4811,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %trunc6.i44 = trunc nuw i32 %447 to i1
   %448 = load i32, ptr %61, align 4, !alias.scope !642, !noalias !639
   %.sroa.54.0.i45 = select i1 %trunc6.i44, i32 %448, i32 undef
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !642
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !642
   %449 = load <4 x i32>, ptr %53, align 4, !alias.scope !642, !noalias !639
   store <4 x i32> %449, ptr %82, align 4, !alias.scope !639, !noalias !642
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %83, ptr noundef nonnull readonly align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !644
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %83, ptr noundef nonnull align 8 dereferenceable(17) %54, i64 17, i1 false), !alias.scope !644
   store i16 %442, ptr %84, align 8, !alias.scope !639, !noalias !642
   store i16 %.sroa.5.0.i41, ptr %85, align 2, !alias.scope !639, !noalias !642
   store i32 %444, ptr %86, align 4, !alias.scope !639, !noalias !642
@@ -4855,7 +4855,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %460 = xor <2 x i64> %459, <i64 7237128888997146477, i64 8387220255154660723>
   store <2 x i64> %460, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i56, align 16, !alias.scope !663, !noalias !666
   store <2 x i64> %456, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i58, align 16, !alias.scope !663, !noalias !666
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i60, i8 0, i64 24, i1 false), !alias.scope !663, !noalias !666
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i60, i8 0, i64 24, i1 false), !alias.scope !663, !noalias !666
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E.llvm.956944259081774161"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 1 %.val10.i53, i64 noundef %.val11.i54), !noalias !657
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !668
   store i8 -1, ptr %7, align 1, !noalias !668
@@ -4970,7 +4970,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %541 = xor <2 x i64> %540, <i64 7237128888997146477, i64 8387220255154660723>
   store <2 x i64> %541, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i76, align 16, !alias.scope !694, !noalias !697
   store <2 x i64> %537, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i78, align 16, !alias.scope !694, !noalias !697
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i80, i8 0, i64 24, i1 false), !alias.scope !694, !noalias !697
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i80, i8 0, i64 24, i1 false), !alias.scope !694, !noalias !697
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E.llvm.956944259081774161"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %.val8.i.i73, i64 noundef %.val9.i.i74), !noalias !699
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !700
   store i8 -1, ptr %4, align 1, !noalias !700
@@ -5106,7 +5106,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 628:                                              ; preds = %.lr.ph.i.i.i96
   %629 = getelementptr inbounds i8, ptr %625, i64 -96
   %630 = load ptr, ptr %629, align 8, !alias.scope !736, !noalias !737, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i.i117 = call i32 @bcmp(ptr nonnull readonly %.val8.i.i73, ptr nonnull readonly %630, i64 %.val9.i.i74), !alias.scope !743, !noalias !747
+  %bcmp.i.i.i.i.i.i.i.i.i117 = call i32 @bcmp(ptr nonnull %.val8.i.i73, ptr nonnull %630, i64 %.val9.i.i74), !alias.scope !743, !noalias !747
   %631 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i117, 0
   br i1 %631, label %674, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i99"
 

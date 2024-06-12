@@ -9698,7 +9698,7 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1
 23:                                               ; preds = %18, %21
   %24 = phi ptr [ %19, %18 ], [ %.pre, %21 ]
   %25 = call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.74, i64 6, i1 false) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, ptr noundef nonnull align 1 dereferenceable(6) @.str.74, i64 6, i1 false) #19
   store ptr %25, ptr %24, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load ptr, ptr %26, align 8
@@ -9715,7 +9715,7 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1
 30:                                               ; preds = %23, %28
   %31 = phi ptr [ %26, %23 ], [ %.pre19, %28 ]
   %32 = call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.75, i64 6, i1 false) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull align 1 dereferenceable(6) @.str.75, i64 6, i1 false) #19
   store ptr %32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8

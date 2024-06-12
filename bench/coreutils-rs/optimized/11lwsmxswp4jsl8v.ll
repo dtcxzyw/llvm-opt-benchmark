@@ -76,7 +76,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
 
 "_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13sample_single17h32301a844973421eE.llvm.7035662188962510802.exit": ; preds = %3
   %6 = add i64 %1, -1
-  %7 = tail call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h99b1db1fc325b346E.llvm.7035662188962510802"(i64 noundef %0, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
+  %7 = tail call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h99b1db1fc325b346E.llvm.7035662188962510802"(i64 noundef %0, i64 noundef %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   ret i64 %7
 }
 
@@ -91,7 +91,7 @@ define hidden noundef i32 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
 
 "_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13sample_single17h0af1b30e530e0398E.llvm.7035662188962510802.exit": ; preds = %3
   %6 = add i32 %1, -1
-  %7 = tail call noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h11df38e9fb7d7d92E.llvm.7035662188962510802"(i32 noundef %0, i32 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
+  %7 = tail call noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h11df38e9fb7d7d92E.llvm.7035662188962510802"(i32 noundef %0, i32 noundef %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   ret i32 %7
 }
 
@@ -1151,7 +1151,7 @@ define hidden noundef i32 @_ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E(ptr no
 
 "_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distributions..uniform..SampleRange$LT$T$GT$$GT$13sample_single17hf9e5fce43ead3abaE.llvm.7035662188962510802.exit": ; preds = %3
   %4 = add i32 %2, -1
-  %5 = tail call noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h11df38e9fb7d7d92E.llvm.7035662188962510802"(i32 noundef %1, i32 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %5 = tail call noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h11df38e9fb7d7d92E.llvm.7035662188962510802"(i32 noundef %1, i32 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   ret i32 %5
 
 6:                                                ; preds = %3
@@ -1166,7 +1166,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17hcb986ca300b6c164E(ptr no
 
 "_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distributions..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h7b1b16c60b80e17bE.llvm.7035662188962510802.exit": ; preds = %3
   %4 = add i64 %2, -1
-  %5 = tail call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h99b1db1fc325b346E.llvm.7035662188962510802"(i64 noundef %1, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %5 = tail call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h99b1db1fc325b346E.llvm.7035662188962510802"(i64 noundef %1, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   ret i64 %5
 
 6:                                                ; preds = %3

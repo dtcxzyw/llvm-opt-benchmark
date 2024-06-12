@@ -500,7 +500,7 @@ define hidden void @"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !53, !noalias !57, !nonnull !21, !noundef !21
   %19 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %18, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false), !noalias !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %4, i64 %.idx.i.i.i.i, i1 false), !noalias !58
   %20 = load i64, ptr %15, align 8, !alias.scope !53, !noalias !57, !noundef !21
   %21 = add i64 %20, %6
   store i64 %21, ptr %15, align 8, !alias.scope !53, !noalias !57
@@ -1368,7 +1368,7 @@ define void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf
   unreachable
 
 28:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !235
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !235
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)

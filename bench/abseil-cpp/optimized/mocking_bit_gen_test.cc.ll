@@ -95852,7 +95852,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
 
 invoke.cont13:                                    ; preds = %invoke.cont8
   %_M_manager3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFidEZN12_GLOBAL__N_139BasicMocking_WillByDefaultWithArgs_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager3.i.i.i.i, align 8
   %_M_invoker4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
   store ptr @"_ZNSt17_Function_handlerIFidEZN12_GLOBAL__N_139BasicMocking_WillByDefaultWithArgs_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker4.i.i.i.i, align 8

@@ -5944,7 +5944,7 @@ Zyx_ManCollectFanins.exit.i:                      ; preds = %96, %93
   %165 = mul nsw i64 %indvars.iv177.i, %164
   %166 = getelementptr inbounds i64, ptr %.val107.val.i, i64 %165
   %167 = shl nuw nsw i64 %164, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %166, i8 0, i64 %167, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %166, i8 0, i64 %167, i1 false)
   br label %Abc_TtConst0.exit.i
 
 Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i116.i, %161
@@ -5985,7 +5985,7 @@ Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i1
   %183 = getelementptr inbounds i64, ptr %.val105.val.i, i64 %182
   %184 = zext nneg i32 %.val104.i to i64
   %185 = shl nuw nsw i64 %184, 3
-  call void @llvm.memset.p0.i64(ptr writeonly align 8 %183, i8 -1, i64 %185, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %183, i8 -1, i64 %185, i1 false)
   br label %Abc_TtConst1.exit.i
 
 Abc_TtConst1.exit.i:                              ; preds = %.lr.ph.preheader.i117.i, %177
@@ -7089,10 +7089,10 @@ define range(i32 0, 2) i32 @Zyx_TestGetTruthTablePars(ptr noundef readonly %0, p
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %0) #21
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %0) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %5, %6
@@ -7430,7 +7430,7 @@ define range(i32 0, 2) i32 @Zyx_TestReadNode(ptr noundef %0, ptr nocapture nound
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %69 = zext nneg i32 %10 to i64
   %70 = shl nuw nsw i64 %69, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %67, i8 0, i64 %70, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, i8 0, i64 %70, i1 false)
   br label %Abc_TtConst0.exit
 
 Abc_TtConst0.exit:                                ; preds = %._crit_edge, %.lr.ph.preheader.i
@@ -7463,7 +7463,7 @@ Abc_TtConst0.exit:                                ; preds = %._crit_edge, %.lr.p
   br i1 %79, label %Abc_TtOr.exit.us.us, label %.lr.ph.preheader.i77.us.us
 
 .lr.ph.preheader.i77.us.us:                       ; preds = %.lr.ph93.split.us.split.us
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %18, i8 -1, i64 %72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, i8 -1, i64 %72, i1 false)
   %80 = trunc nuw nsw i64 %indvars.iv128 to i32
   br label %86
 
@@ -7544,7 +7544,7 @@ Abc_TtAndCompl.exit.us.us.us:                     ; preds = %.lr.ph42.i.us.us.us
   br i1 %109, label %Abc_TtOr.exit.us109, label %.lr.ph.preheader.i77.us102
 
 .lr.ph.preheader.i77.us102:                       ; preds = %.lr.ph93.split.split.us
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %18, i8 -1, i64 %72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, i8 -1, i64 %72, i1 false)
   br label %.lr.ph.i81.us105
 
 .lr.ph.i81.us105:                                 ; preds = %.lr.ph.i81.us105, %.lr.ph.preheader.i77.us102

@@ -539,7 +539,7 @@ sub_1172:                                         ; preds = %sub_0171
 130:                                              ; preds = %45
   store i32 1, ptr %34, align 8
   %131 = load ptr, ptr @H5_optarg, align 8
-  %132 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %131) #13
+  %132 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %131) #13
   %133 = icmp ugt i64 %132, 2
   br i1 %133, label %134, label %141
 
@@ -555,7 +555,7 @@ sub_1172:                                         ; preds = %sub_0171
   br i1 %140, label %select.unfold, label %141
 
 141:                                              ; preds = %137, %134, %130
-  %142 = tail call double @atof(ptr noundef readonly %131) #13
+  %142 = tail call double @atof(ptr noundef %131) #13
   %143 = fcmp olt double %142, 0.000000e+00
   br i1 %143, label %select.unfold, label %check_d_input.exit
 
@@ -575,7 +575,7 @@ check_d_input.exit:                               ; preds = %141, %select.unfold
 147:                                              ; preds = %45
   store i32 1, ptr %32, align 4
   %148 = load ptr, ptr @H5_optarg, align 8
-  %149 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %148) #13
+  %149 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %148) #13
   %150 = icmp ugt i64 %149, 2
   br i1 %150, label %151, label %158
 
@@ -591,7 +591,7 @@ check_d_input.exit:                               ; preds = %141, %select.unfold
   br i1 %157, label %select.unfold167, label %158
 
 158:                                              ; preds = %154, %151, %147
-  %159 = tail call double @atof(ptr noundef readonly %148) #13
+  %159 = tail call double @atof(ptr noundef %148) #13
   %160 = fcmp olt double %159, 0.000000e+00
   br i1 %160, label %select.unfold167, label %check_p_input.exit
 
@@ -617,7 +617,7 @@ check_p_input.exit:                               ; preds = %158, %select.unfold
 167:                                              ; preds = %45
   store i32 1, ptr %30, align 8
   %168 = load ptr, ptr @H5_optarg, align 8
-  %169 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %168) #13
+  %169 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %168) #13
   %.not.i = icmp eq i64 %169, 0
   br i1 %.not.i, label %check_n_input.exit, label %.lr.ph.i
 

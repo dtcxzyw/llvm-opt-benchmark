@@ -1197,7 +1197,7 @@ _ZN4node4heap22GetHeapSnapshotOptionsEN2v85LocalINS1_5ValueEEE.exit: ; preds = %
   %call18.i = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call13.i) #22, !noalias !13
   %call20.i = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #22, !noalias !13
   %add.ptr.i = getelementptr inbounds i8, ptr %call18.i, i64 %call20.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %options, i8 0, i64 28, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %options, i8 0, i64 28, i1 false), !alias.scope !13
   %snapshot_mode.i = getelementptr inbounds i8, ptr %options, i64 16
   %14 = load <2 x i8>, ptr %add.ptr.i, align 1, !noalias !13
   %15 = icmp ne <2 x i8> %14, zeroinitializer

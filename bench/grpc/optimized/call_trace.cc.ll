@@ -290,7 +290,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::unique_ptr", align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E)
   %.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8
-  tail call void @llvm.prefetch.p0(ptr readonly %.val.i, i32 0, i32 1, i32 1)
+  tail call void @llvm.prefetch.p0(ptr %.val.i, i32 0, i32 1, i32 1)
   %0 = ptrtoint ptr %filter to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %0, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i.i.i to i128
@@ -455,7 +455,7 @@ invoke.cont13:                                    ; preds = %_ZN4absl12lts_20230
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp17.i.i), !noalias !9
   store ptr %call.i11, ptr %ref.tmp12, align 8, !alias.scope !9
   %this.val6.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 8), align 8, !noalias !12
-  call void @llvm.prefetch.p0(ptr readonly %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !12
+  call void @llvm.prefetch.p0(ptr %this.val6.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !12
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 24), align 8, !noalias !25
   %17 = ptrtoint ptr %this.val6.i.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %17, 12
@@ -855,7 +855,7 @@ invoke.cont13.i:                                  ; preds = %if.else.i.i.i.i.i.i
   %18 = load ptr, ptr %ref.tmp9.i, align 16, !noalias !29
   store ptr %18, ptr %retval.0.i.i.i.i.i.i, align 16, !noalias !29
   %19 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %19, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false), !noalias !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %19, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false), !noalias !29
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %7, align 16, !noalias !29
   store ptr %retval.0.i.i.i.i.i.i, ptr %arg.i.i, align 16, !alias.scope !29
   %20 = load ptr, ptr %client_initial_metadata_outstanding.i.i, align 8, !noalias !29

@@ -808,7 +808,7 @@ if.end15:                                         ; preds = %do.end4
   %3 = load i32, ptr %ai_addrlen, align 8
   %conv = sext i32 %3 to i64
   %conn_address.i = getelementptr inbounds i8, ptr %arg, i64 480
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %conn_address.i, ptr readonly align 2 %2, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %conn_address.i, ptr align 2 %2, i64 %conv, i1 false)
   %4 = load ptr, ptr %ai_addr, align 8
   %5 = load i32, ptr %ai_addrlen, align 8
   %call18 = tail call i32 @bufferevent_socket_connect(ptr noundef nonnull %arg, ptr noundef %4, i32 noundef %5)

@@ -149,7 +149,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_input_path, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fin, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %argv, align 8
-  %call.i.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 47) #18
+  %call.i.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #18
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1
   %spec.select.i.i.i = select i1 %tobool.not.i.i.i, ptr %0, ptr %add.ptr.i.i.i
@@ -1145,7 +1145,7 @@ if.then3.i:                                       ; preds = %if.end.i17
   br label %sw.epilog
 
 if.end9.i:                                        ; preds = %if.end.i17
-  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %132, ptr noundef nonnull @.str.45)
+  %call.i.i = tail call noalias ptr @fopen(ptr noundef nonnull %132, ptr noundef nonnull @.str.45)
   %cmp.i.i18 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i18, label %if.then13.i, label %if.end.i.i19
 
@@ -1893,7 +1893,7 @@ sw.default:                                       ; preds = %if.else346.i, %if.e
   %retval.0.i185.ph202 = phi i32 [ %command.0.lcssa.i, %if.else ], [ 3, %if.then9.i ], [ 3, %if.then57.i ], [ 3, %if.then66.i ], [ 3, %if.then75.i ], [ 3, %if.then84.i ], [ 3, %if.then103.i ], [ 3, %if.then117.i ], [ 3, %if.then127.i ], [ 3, %if.then136.i ], [ 3, %if.then146.i ], [ 3, %if.then161.i ], [ 3, %if.then196.i ], [ 3, %if.then202.i ], [ 3, %if.then220.i ], [ 3, %if.then233.i ], [ 3, %if.then244.i ], [ 3, %if.then252.i ], [ 3, %if.then263.i ], [ 3, %if.then282.i ], [ 3, %if.then270.i ], [ 3, %if.then292.i ], [ 3, %if.then304.i ], [ 3, %if.then322.i ], [ 3, %if.then332.i ], [ 3, %if.then342.i ], [ 3, %if.then357.i ], [ 3, %if.then368.i ], [ 3, %if.then378.i ], [ 3, %if.then388.i ], [ 3, %if.then398.i ], [ 3, %if.then408.i ], [ 3, %if.then419.i ], [ 3, %if.then436.i ], [ 3, %if.then445.i ], [ 3, %if.then455.i ], [ 3, %if.then471.i ], [ 3, %if.then461.i ], [ 3, %if.then481.i ], [ 3, %if.then497.i ], [ 3, %if.then487.i ], [ 3, %if.then507.i ], [ 3, %if.then517.i ], [ 3, %if.then523.i ], [ 3, %if.then532.i ], [ 3, %if.else536.i ], [ 3, %for.end559.i ], [ 3, %if.then574.i ], [ 3, %if.end590.i ], [ 3, %lor.lhs.false594.i ], [ 3, %if.end583.i ], [ %command.0.lcssa.i, %ParseParams.exit ], [ 2, %if.else.i ], [ 2, %if.else346.i ]
   %cmp40 = icmp ne i32 %retval.0.i185.ph202, 2
   %261 = load ptr, ptr %argv, align 8
-  %call.i134 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %261, i32 noundef 47) #18
+  %call.i134 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %261, i32 noundef 47) #18
   %tobool.not.i135 = icmp eq ptr %call.i134, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i134, i64 1
   %spec.select.i136 = select i1 %tobool.not.i135, ptr %261, ptr %add.ptr.i
@@ -2140,7 +2140,7 @@ if.then22:                                        ; preds = %land.lhs.true
 if.end26:                                         ; preds = %land.lhs.true, %if.end14
   %current_input_path27 = getelementptr inbounds i8, ptr %context, i64 256
   store ptr %9, ptr %current_input_path27, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %9, ptr noundef nonnull @.str.45)
+  %call.i = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.45)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %FileSize.exit, label %if.end.i
 
@@ -2191,7 +2191,7 @@ if.then42:                                        ; preds = %if.end37
   %suffix = getelementptr inbounds i8, ptr %context, i64 64
   %17 = load ptr, ptr %suffix, align 8
   %call43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
-  %call.i47 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %15, i32 noundef 47) #18
+  %call.i47 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #18
   %tobool.not.i = icmp eq ptr %call.i47, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i47, i64 1
   %spec.select.i = select i1 %tobool.not.i, ptr %15, ptr %add.ptr.i
@@ -2412,7 +2412,7 @@ if.then24:                                        ; preds = %land.lhs.true22
   br i1 %or.cond.i, label %CopyStat.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then24
-  %call.i = call i32 @stat(ptr noundef nonnull readonly %8, ptr noundef nonnull %statbuf.i) #21
+  %call.i = call i32 @stat(ptr noundef nonnull %8, ptr noundef nonnull %statbuf.i) #21
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %CopyStat.exit
 

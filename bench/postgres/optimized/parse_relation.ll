@@ -1839,7 +1839,7 @@ define dso_local noundef ptr @addRangeTableEntry(ptr noundef %0, ptr noundef %1,
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %50) #11
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %50) #11
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %isLockedRefname.exit, label %45
 
@@ -4315,7 +4315,7 @@ define dso_local void @expandRTE(ptr nocapture noundef readonly %0, i32 noundef 
   %22 = getelementptr inbounds i8, ptr %21, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 8
-  tail call fastcc void @expandTupleDesc(ptr noundef nonnull %23, ptr noundef readonly %20, i32 noundef %24, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @expandTupleDesc(ptr noundef nonnull %23, ptr noundef %20, i32 noundef %24, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6)
   tail call void @relation_close(ptr noundef %21, i32 noundef 1) #10
   br label %.critedge7
 
@@ -6053,7 +6053,7 @@ define dso_local void @errorMissingRTE(ptr noundef %0, ptr noundef %1) local_unn
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %5) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %5) #11
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.lr.ph108.split.us.i, label %16
 

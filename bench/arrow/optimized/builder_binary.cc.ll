@@ -6060,7 +6060,7 @@ entry:
   %builder_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i, ptr %builder_.i, align 8
   %chunks_.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %chunks_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunks_.i, i8 0, i64 24, i1 false)
   %conv = sext i32 %max_chunk_length to i64
   store i64 %conv, ptr %max_chunk_length_.i, align 8
   ret void

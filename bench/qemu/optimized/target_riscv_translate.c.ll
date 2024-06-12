@@ -5321,7 +5321,7 @@ if.end5.i.i:                                      ; preds = %sw.bb.i.i
   %add.i.i.i.i = or disjoint i32 %and.i22.i.i.i, 8
   %rd.i.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %add.i.i.i.i, ptr %rd.i.i.i, align 4
-  %call.i.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull readonly %dcbase, ptr noundef nonnull readonly %u.i.i, ptr noundef nonnull @gen_addi2_i128)
+  %call.i.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, ptr noundef nonnull @gen_addi2_i128)
   br i1 %call.i.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb9.i.i:                                       ; preds = %land.lhs.true.i
@@ -5338,7 +5338,7 @@ sw.bb9.i.i:                                       ; preds = %land.lhs.true.i
   store i32 %and.i9.i.i.i, ptr %rs1.i230.i.i, align 4
   %rd.i231.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %and.i9.i.i.i, ptr %rd.i231.i.i, align 4
-  %call.i232.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull readonly %dcbase, ptr noundef nonnull readonly %u.i.i, ptr noundef nonnull @gen_addi2_i128)
+  %call.i232.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, ptr noundef nonnull @gen_addi2_i128)
   br i1 %call.i232.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb13.i.i:                                      ; preds = %land.lhs.true.i
@@ -5404,7 +5404,7 @@ if.end33.i.i:                                     ; preds = %sw.bb24.i.i
   %rd.i268.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %and.i9.i266.i.i, ptr %rd.i268.i.i, align 4
   store i32 1, ptr %ol, align 8
-  %call.i269.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, ptr noundef null)
+  %call.i269.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, ptr noundef null)
   br i1 %call.i269.i.i, label %decode_insn16.exit.thread.i, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %if.end33.i.i
@@ -5454,7 +5454,7 @@ sw.bb47.i.i:                                      ; preds = %land.lhs.true.i
   %add.i21.i304.i.i = or disjoint i32 %and.i20.i303.i.i, 8
   %rd.i305.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %add.i21.i304.i.i, ptr %rd.i305.i.i, align 4
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 10)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 10)
   br label %decode_insn16.exit.thread.i
 
 sw.bb51.i.i:                                      ; preds = %land.lhs.true.i
@@ -5471,7 +5471,7 @@ sw.bb51.i.i:                                      ; preds = %land.lhs.true.i
   %and.i8.i.i.i = and i32 %shr.i7.i.i.i, 31
   %rd.i315.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %and.i8.i.i.i, ptr %rd.i315.i.i, align 4
-  %call.i316.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull readonly %dcbase, ptr noundef nonnull readonly %u.i.i, ptr noundef nonnull @gen_addi2_i128)
+  %call.i316.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, ptr noundef nonnull @gen_addi2_i128)
   br i1 %call.i316.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb55.i.i:                                      ; preds = %land.lhs.true.i
@@ -5500,7 +5500,7 @@ if.end64.i.i:                                     ; preds = %sw.bb55.i.i
   %and.i15.i327.i.i = and i32 %shr.i14.i326.i.i, 31
   %rd.i328.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %and.i15.i327.i.i, ptr %rd.i328.i.i, align 4
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 10)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 10)
   br label %decode_insn16.exit.thread.i
 
 sw.bb68.i.i:                                      ; preds = %land.lhs.true.i
@@ -5520,7 +5520,7 @@ sw.bb68.i.i:                                      ; preds = %land.lhs.true.i
   %add.i15.i341.i.i = or disjoint i32 %and.i14.i340.i.i, 8
   %rd.i342.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %add.i15.i341.i.i, ptr %rd.i342.i.i, align 4
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 11)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 11)
   br label %decode_insn16.exit.thread.i
 
 sw.bb75.i.i:                                      ; preds = %land.lhs.true.i
@@ -5562,7 +5562,7 @@ if.then89.i.i:                                    ; preds = %if.end84.i.i
   store i32 2, ptr %rs1.i352.i.i, align 4
   %rd.i353.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 2, ptr %rd.i353.i.i, align 4
-  %call.i354.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull readonly %dcbase, ptr noundef nonnull readonly %u.i.i, ptr noundef nonnull @gen_addi2_i128)
+  %call.i354.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, ptr noundef nonnull @gen_addi2_i128)
   br i1 %call.i354.i.i, label %decode_insn16.exit.thread.i, label %if.end93.i.i
 
 if.end93.i.i:                                     ; preds = %if.then89.i.i, %if.end84.if.end93_crit_edge.i.i
@@ -5604,7 +5604,7 @@ if.end106.i.i:                                    ; preds = %sw.bb97.i.i
   %and.i15.i375.i.i = and i32 %shr.i14.i374.i.i, 31
   %rd.i376.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %and.i15.i375.i.i, ptr %rd.i376.i.i, align 4
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 11)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 11)
   br label %decode_insn16.exit.thread.i
 
 sw.bb113.i.i:                                     ; preds = %land.lhs.true.i
@@ -5642,7 +5642,7 @@ sw.bb116.i.i:                                     ; preds = %sw.bb113.i.i
   br i1 %tobool.i.i.i, label %trans_c_lbu.exit.thread.i.i, label %decode_insn16.exit.i
 
 trans_c_lbu.exit.thread.i.i:                      ; preds = %sw.bb116.i.i
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 0)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 0)
   br label %decode_insn16.exit.thread.i
 
 sw.bb120.i.i:                                     ; preds = %sw.bb113.i.i
@@ -5672,14 +5672,14 @@ sw.bb124.i.i:                                     ; preds = %sw.bb120.i.i
   br i1 %tobool.i397.i.i, label %trans_c_lhu.exit.thread.i.i, label %decode_insn16.exit.i
 
 trans_c_lhu.exit.thread.i.i:                      ; preds = %sw.bb124.i.i
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 1)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 1)
   br label %decode_insn16.exit.thread.i
 
 sw.bb128.i.i:                                     ; preds = %sw.bb120.i.i
   br i1 %tobool.i397.i.i, label %trans_c_lh.exit.thread.i.i, label %decode_insn16.exit.i
 
 trans_c_lh.exit.thread.i.i:                       ; preds = %sw.bb128.i.i
-  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 9)
+  call fastcc void @gen_load(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 9)
   br label %decode_insn16.exit.thread.i
 
 default.unreachable:                              ; preds = %sw.bb146.i.i
@@ -5710,7 +5710,7 @@ sw.bb132.i.i:                                     ; preds = %sw.bb113.i.i
   br i1 %tobool.i419.i.i, label %trans_c_sb.exit.thread.i.i, label %decode_insn16.exit.i
 
 trans_c_sb.exit.thread.i.i:                       ; preds = %sw.bb132.i.i
-  call fastcc void @gen_store(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 0)
+  call fastcc void @gen_store(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 0)
   br label %decode_insn16.exit.thread.i
 
 sw.bb136.i.i:                                     ; preds = %sw.bb113.i.i
@@ -5740,7 +5740,7 @@ sw.bb140.i.i:                                     ; preds = %sw.bb136.i.i
   br i1 %tobool.i434.i.i, label %trans_c_sh.exit.thread.i.i, label %decode_insn16.exit.i
 
 trans_c_sh.exit.thread.i.i:                       ; preds = %sw.bb140.i.i
-  call fastcc void @gen_store(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 1)
+  call fastcc void @gen_store(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 1)
   br label %decode_insn16.exit.thread.i
 
 sw.bb146.i.i:                                     ; preds = %land.lhs.true.i
@@ -6033,7 +6033,7 @@ if.end247.i.i:                                    ; preds = %if.end237.i.i
   %and.i5.i.i.i = and i32 %shr.i4.i.i.i, 31
   %rd.i551.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %and.i5.i.i.i, ptr %rd.i551.i.i, align 4
-  %call.i552.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull readonly %dcbase, ptr noundef nonnull readonly %u.i.i, ptr noundef nonnull @gen_addi2_i128)
+  %call.i552.i.i = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, ptr noundef nonnull @gen_addi2_i128)
   br i1 %call.i552.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb251.i.i:                                     ; preds = %sw.bb224.i.i
@@ -6196,7 +6196,7 @@ sw.bb318.i.i:                                     ; preds = %sw.bb314.i.i
   br i1 %call319.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb322.i.i:                                     ; preds = %sw.bb314.i.i
-  %call.i632.i.i = call fastcc noundef zeroext i1 @gen_pop(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i1 noundef zeroext false, i1 noundef zeroext false)
+  %call.i632.i.i = call fastcc noundef zeroext i1 @gen_pop(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i1 noundef zeroext false, i1 noundef zeroext false)
   br i1 %call.i632.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb327.i.i:                                     ; preds = %if.end293.i.i
@@ -6213,11 +6213,11 @@ sw.bb327.i.i:                                     ; preds = %if.end293.i.i
   ]
 
 sw.bb331.i.i:                                     ; preds = %sw.bb327.i.i
-  %call.i638.i.i = call fastcc noundef zeroext i1 @gen_pop(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i1 noundef zeroext true, i1 noundef zeroext true)
+  %call.i638.i.i = call fastcc noundef zeroext i1 @gen_pop(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i1 noundef zeroext true, i1 noundef zeroext true)
   br i1 %call.i638.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb335.i.i:                                     ; preds = %sw.bb327.i.i
-  %call.i639.i.i = call fastcc noundef zeroext i1 @gen_pop(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i1 noundef zeroext true, i1 noundef zeroext false)
+  %call.i639.i.i = call fastcc noundef zeroext i1 @gen_pop(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %call.i639.i.i, label %decode_insn16.exit.thread.i, label %decode_insn16.exit.i
 
 sw.bb341.i.i:                                     ; preds = %land.lhs.true.i
@@ -6257,7 +6257,7 @@ decode_save_opc.exit.i.i.i:                       ; preds = %sw.bb341.i.i
   store ptr null, ptr %insn_start.i.i.i.i, align 8
   %60 = load i32, ptr %rs1.i655.i.i, align 4
   %61 = load i32, ptr %u.i.i, align 4
-  %call.i.i.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull readonly %dcbase, i32 noundef %60, i32 noundef %61)
+  %call.i.i.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull %dcbase, i32 noundef %60, i32 noundef %61)
   %62 = load i32, ptr %rs2.i644.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %62, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -6318,7 +6318,7 @@ sw.bb345.i.i:                                     ; preds = %land.lhs.true.i
   %add.i.i669.i.i = or disjoint i32 %and.i28.i.i.i, 8
   %rs1.i670.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %add.i.i669.i.i, ptr %rs1.i670.i.i, align 4
-  call fastcc void @gen_branch(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 8)
+  call fastcc void @gen_branch(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 8)
   br label %decode_insn16.exit.thread.i
 
 sw.bb349.i.i:                                     ; preds = %land.lhs.true.i
@@ -6351,7 +6351,7 @@ decode_save_opc.exit.i731.i.i:                    ; preds = %sw.bb349.i.i
   store ptr null, ptr %insn_start.i.i729.i.i, align 8
   %72 = load i32, ptr %rs1.i681.i.i, align 4
   %73 = load i32, ptr %u.i.i, align 4
-  %call.i.i736.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull readonly %dcbase, i32 noundef %72, i32 noundef %73)
+  %call.i.i736.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull %dcbase, i32 noundef %72, i32 noundef %73)
   %74 = load i32, ptr %rs2.i675.i.i, align 4
   %cmp.i.i.i738.i.i = icmp eq i32 %74, 0
   br i1 %cmp.i.i.i738.i.i, label %if.then.i.i.i752.i.i, label %if.end.i.i.i739.i.i
@@ -6421,7 +6421,7 @@ decode_save_opc.exit.i758.i.i:                    ; preds = %sw.bb353.i.i
   store ptr null, ptr %insn_start.i.i756.i.i, align 8
   %81 = load i32, ptr %rs1.i696.i.i, align 4
   %82 = load i32, ptr %u.i.i, align 4
-  %call.i.i763.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull readonly %dcbase, i32 noundef %81, i32 noundef %82)
+  %call.i.i763.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull %dcbase, i32 noundef %81, i32 noundef %82)
   %83 = load i32, ptr %rs2.i687.i.i, align 4
   %cmp.i.i.i765.i.i = icmp eq i32 %83, 0
   br i1 %cmp.i.i.i765.i.i, label %if.then.i.i.i779.i.i, label %if.end.i.i.i766.i.i
@@ -6482,7 +6482,7 @@ sw.bb360.i.i:                                     ; preds = %land.lhs.true.i
   %add.i.i715.i.i = or disjoint i32 %and.i28.i714.i.i, 8
   %rs1.i716.i.i = getelementptr inbounds i8, ptr %u.i.i, i64 8
   store i32 %add.i.i715.i.i, ptr %rs1.i716.i.i, align 4
-  call fastcc void @gen_branch(ptr noundef nonnull %dcbase, ptr noundef nonnull readonly %u.i.i, i32 noundef 9)
+  call fastcc void @gen_branch(ptr noundef nonnull %dcbase, ptr noundef nonnull %u.i.i, i32 noundef 9)
   br label %decode_insn16.exit.thread.i
 
 sw.bb364.i.i:                                     ; preds = %land.lhs.true.i
@@ -6515,7 +6515,7 @@ decode_save_opc.exit.i785.i.i:                    ; preds = %sw.bb364.i.i
   store ptr null, ptr %insn_start.i.i783.i.i, align 8
   %93 = load i32, ptr %rs1.i727.i.i, align 4
   %94 = load i32, ptr %u.i.i, align 4
-  %call.i.i790.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull readonly %dcbase, i32 noundef %93, i32 noundef %94)
+  %call.i.i790.i.i = tail call fastcc ptr @get_address(ptr noundef nonnull %dcbase, i32 noundef %93, i32 noundef %94)
   %95 = load i32, ptr %rs2.i721.i.i, align 4
   %cmp.i.i.i792.i.i = icmp eq i32 %95, 0
   br i1 %cmp.i.i.i792.i.i, label %if.then.i.i.i806.i.i, label %if.end.i.i.i793.i.i
@@ -6773,31 +6773,31 @@ sw.bb:                                            ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 8)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 8)
   br label %return
 
 sw.bb3:                                           ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 9)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 9)
   br label %return
 
 sw.bb7:                                           ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 10)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 10)
   br label %return
 
 sw.bb11:                                          ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 11)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 11)
   br label %return
 
 sw.bb15:                                          ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 0)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 0)
   br label %return
 
 sw.bb19:                                          ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 1)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1)
   br label %return
 
 sw.bb23:                                          ; preds = %sw.bb
-  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 2)
+  call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 2)
   br label %return
 
 default.unreachable6576:                          ; preds = %sw.bb3519, %sw.bb1360, %sw.bb1344, %sw.bb1328, %sw.bb1312, %sw.bb559, %sw.bb283, %sw.bb31, %sw.bb
@@ -6880,7 +6880,7 @@ sw.bb48:                                          ; preds = %sw.bb46
   br i1 %cmp.i.i.not, label %sw.epilog3868, label %trans_vl1re8_v.exit.thread
 
 trans_vl1re8_v.exit.thread:                       ; preds = %sw.bb48
-  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2044, i32 noundef %and.i4.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @gen_helper_vl1re8_v, ptr noundef nonnull readonly %ctx)
+  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2044, i32 noundef %and.i4.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @gen_helper_vl1re8_v, ptr noundef nonnull %ctx)
   br label %return
 
 sw.bb52:                                          ; preds = %sw.bb46
@@ -7077,7 +7077,7 @@ sw.bb113:                                         ; preds = %sw.bb111
   br i1 %cmp.i.i2123.not, label %sw.epilog3868, label %trans_vl1re16_v.exit.thread
 
 trans_vl1re16_v.exit.thread:                      ; preds = %sw.bb113
-  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2118, i32 noundef %and.i4.i2120, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @gen_helper_vl1re16_v, ptr noundef nonnull readonly %ctx)
+  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2118, i32 noundef %and.i4.i2120, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @gen_helper_vl1re16_v, ptr noundef nonnull %ctx)
   br label %return
 
 sw.bb117:                                         ; preds = %sw.bb111
@@ -7219,7 +7219,7 @@ sw.bb159:                                         ; preds = %sw.bb157
   br i1 %cmp.i.i2182.not, label %sw.epilog3868, label %trans_vl1re32_v.exit.thread
 
 trans_vl1re32_v.exit.thread:                      ; preds = %sw.bb159
-  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2177, i32 noundef %and.i4.i2179, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @gen_helper_vl1re32_v, ptr noundef nonnull readonly %ctx)
+  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2177, i32 noundef %and.i4.i2179, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @gen_helper_vl1re32_v, ptr noundef nonnull %ctx)
   br label %return
 
 sw.bb163:                                         ; preds = %sw.bb157
@@ -7361,7 +7361,7 @@ sw.bb205:                                         ; preds = %sw.bb203
   br i1 %cmp.i.i2241.not, label %sw.epilog3868, label %trans_vl1re64_v.exit.thread
 
 trans_vl1re64_v.exit.thread:                      ; preds = %sw.bb205
-  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2236, i32 noundef %and.i4.i2238, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @gen_helper_vl1re64_v, ptr noundef nonnull readonly %ctx)
+  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2236, i32 noundef %and.i4.i2238, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @gen_helper_vl1re64_v, ptr noundef nonnull %ctx)
   br label %return
 
 sw.bb209:                                         ; preds = %sw.bb203
@@ -7597,7 +7597,7 @@ sw.bb286:                                         ; preds = %sw.bb283
   %and.i7.i2319 = and i32 %shr.i6.i2318, 31
   %rs1.i2320 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i7.i2319, ptr %rs1.i2320, align 4
-  %call.i2321 = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_addi2_i128)
+  %call.i2321 = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_addi2_i128)
   br i1 %call.i2321, label %return, label %sw.epilog3868
 
 sw.bb290:                                         ; preds = %sw.bb283
@@ -7659,7 +7659,7 @@ sw.bb308:                                         ; preds = %sw.bb305
   br i1 %tobool.i2339, label %trans_sha256sum0.exit.thread, label %sw.epilog3868
 
 trans_sha256sum0.exit.thread:                     ; preds = %sw.bb308
-  call fastcc void @gen_sha256(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_rotri_i32, i32 noundef 2, i32 noundef 13, i32 noundef 22)
+  call fastcc void @gen_sha256(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_rotri_i32, i32 noundef 2, i32 noundef 13, i32 noundef 22)
   br label %return
 
 sw.bb312:                                         ; preds = %sw.bb305
@@ -7671,7 +7671,7 @@ sw.bb312:                                         ; preds = %sw.bb305
   br i1 %tobool.i2344, label %trans_sha256sum1.exit.thread, label %sw.epilog3868
 
 trans_sha256sum1.exit.thread:                     ; preds = %sw.bb312
-  call fastcc void @gen_sha256(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_rotri_i32, i32 noundef 6, i32 noundef 11, i32 noundef 25)
+  call fastcc void @gen_sha256(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_rotri_i32, i32 noundef 6, i32 noundef 11, i32 noundef 25)
   br label %return
 
 sw.bb316:                                         ; preds = %sw.bb305
@@ -7683,7 +7683,7 @@ sw.bb316:                                         ; preds = %sw.bb305
   br i1 %tobool.i2349, label %trans_sha256sig0.exit.thread, label %sw.epilog3868
 
 trans_sha256sig0.exit.thread:                     ; preds = %sw.bb316
-  call fastcc void @gen_sha256(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_shri_i32, i32 noundef 7, i32 noundef 18, i32 noundef 3)
+  call fastcc void @gen_sha256(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_shri_i32, i32 noundef 7, i32 noundef 18, i32 noundef 3)
   br label %return
 
 sw.bb320:                                         ; preds = %sw.bb305
@@ -7695,7 +7695,7 @@ sw.bb320:                                         ; preds = %sw.bb305
   br i1 %tobool.i2354, label %trans_sha256sig1.exit.thread, label %sw.epilog3868
 
 trans_sha256sig1.exit.thread:                     ; preds = %sw.bb320
-  call fastcc void @gen_sha256(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_shri_i32, i32 noundef 17, i32 noundef 19, i32 noundef 10)
+  call fastcc void @gen_sha256(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_shri_i32, i32 noundef 17, i32 noundef 19, i32 noundef 10)
   br label %return
 
 sw.bb324:                                         ; preds = %sw.bb305
@@ -7707,7 +7707,7 @@ sw.bb324:                                         ; preds = %sw.bb305
   br i1 %tobool.i2359, label %trans_sha512sum0.exit.thread, label %sw.epilog3868
 
 trans_sha512sum0.exit.thread:                     ; preds = %sw.bb324
-  call fastcc void @gen_sha512_rv64(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_rotri_i64, i64 noundef 28, i64 noundef 34, i64 noundef 39)
+  call fastcc void @gen_sha512_rv64(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_rotri_i64, i64 noundef 28, i64 noundef 34, i64 noundef 39)
   br label %return
 
 sw.bb328:                                         ; preds = %sw.bb305
@@ -7719,7 +7719,7 @@ sw.bb328:                                         ; preds = %sw.bb305
   br i1 %tobool.i2363, label %trans_sha512sum1.exit.thread, label %sw.epilog3868
 
 trans_sha512sum1.exit.thread:                     ; preds = %sw.bb328
-  call fastcc void @gen_sha512_rv64(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_rotri_i64, i64 noundef 14, i64 noundef 18, i64 noundef 41)
+  call fastcc void @gen_sha512_rv64(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_rotri_i64, i64 noundef 14, i64 noundef 18, i64 noundef 41)
   br label %return
 
 sw.bb332:                                         ; preds = %sw.bb305
@@ -7731,7 +7731,7 @@ sw.bb332:                                         ; preds = %sw.bb305
   br i1 %tobool.i2368, label %trans_sha512sig0.exit.thread, label %sw.epilog3868
 
 trans_sha512sig0.exit.thread:                     ; preds = %sw.bb332
-  call fastcc void @gen_sha512_rv64(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_shri_i64, i64 noundef 1, i64 noundef 8, i64 noundef 7)
+  call fastcc void @gen_sha512_rv64(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_shri_i64, i64 noundef 1, i64 noundef 8, i64 noundef 7)
   br label %return
 
 sw.bb336:                                         ; preds = %sw.bb305
@@ -7743,7 +7743,7 @@ sw.bb336:                                         ; preds = %sw.bb305
   br i1 %tobool.i2373, label %trans_sha512sig1.exit.thread, label %sw.epilog3868
 
 trans_sha512sig1.exit.thread:                     ; preds = %sw.bb336
-  call fastcc void @gen_sha512_rv64(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_shri_i64, i64 noundef 19, i64 noundef 61, i64 noundef 6)
+  call fastcc void @gen_sha512_rv64(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_shri_i64, i64 noundef 19, i64 noundef 61, i64 noundef 6)
   br label %return
 
 sw.bb340:                                         ; preds = %sw.bb305
@@ -7755,7 +7755,7 @@ sw.bb340:                                         ; preds = %sw.bb305
   br i1 %tobool.i2377, label %trans_sm3p0.exit.thread, label %sw.epilog3868
 
 trans_sm3p0.exit.thread:                          ; preds = %sw.bb340
-  call fastcc void @gen_sm3(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i32 noundef 17)
+  call fastcc void @gen_sm3(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i32 noundef 17)
   br label %return
 
 sw.bb344:                                         ; preds = %sw.bb305
@@ -7767,7 +7767,7 @@ sw.bb344:                                         ; preds = %sw.bb305
   br i1 %tobool.i2382, label %trans_sm3p1.exit.thread, label %sw.epilog3868
 
 trans_sm3p1.exit.thread:                          ; preds = %sw.bb344
-  call fastcc void @gen_sm3(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 15, i32 noundef 23)
+  call fastcc void @gen_sm3(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 15, i32 noundef 23)
   br label %return
 
 sw.bb349:                                         ; preds = %sw.bb290
@@ -7790,7 +7790,7 @@ sw.bb349:                                         ; preds = %sw.bb290
   br i1 %tobool.i2394, label %trans_bseti.exit, label %sw.epilog3868
 
 trans_bseti.exit:                                 ; preds = %sw.bb349
-  %call.i2396 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_bset)
+  %call.i2396 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_bset)
   br i1 %call.i2396, label %return, label %sw.epilog3868
 
 sw.bb353:                                         ; preds = %sw.bb290
@@ -7852,7 +7852,7 @@ sw.bb369:                                         ; preds = %sw.bb290
   br i1 %tobool.i2420, label %trans_bclri.exit, label %sw.epilog3868
 
 trans_bclri.exit:                                 ; preds = %sw.bb369
-  %call.i2423 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_bclr)
+  %call.i2423 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_bclr)
   br i1 %call.i2423, label %return, label %sw.epilog3868
 
 sw.bb373:                                         ; preds = %sw.bb290
@@ -7913,7 +7913,7 @@ sw.bb397:                                         ; preds = %sw.bb290
   br i1 %tobool.i2439, label %trans_binvi.exit, label %sw.epilog3868
 
 trans_binvi.exit:                                 ; preds = %sw.bb397
-  %call.i2442 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_binv)
+  %call.i2442 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_binv)
   br i1 %call.i2442, label %return, label %sw.epilog3868
 
 sw.bb402:                                         ; preds = %sw.bb283
@@ -7927,7 +7927,7 @@ sw.bb402:                                         ; preds = %sw.bb283
   %and.i7.i2448 = and i32 %shr.i6.i2447, 31
   %rs1.i2449 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i7.i2448, ptr %rs1.i2449, align 4
-  %call.i2450 = call fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_slt, ptr noundef nonnull @gen_slt_i128)
+  %call.i2450 = call fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_slt, ptr noundef nonnull @gen_slt_i128)
   br i1 %call.i2450, label %return, label %sw.epilog3868
 
 sw.bb406:                                         ; preds = %sw.bb283
@@ -7941,7 +7941,7 @@ sw.bb406:                                         ; preds = %sw.bb283
   %and.i7.i2456 = and i32 %shr.i6.i2455, 31
   %rs1.i2457 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i7.i2456, ptr %rs1.i2457, align 4
-  %call.i2458 = call fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_sltu, ptr noundef nonnull @gen_sltu_i128)
+  %call.i2458 = call fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_sltu, ptr noundef nonnull @gen_sltu_i128)
   br i1 %call.i2458, label %return, label %sw.epilog3868
 
 sw.bb410:                                         ; preds = %sw.bb283
@@ -8005,7 +8005,7 @@ sw.bb432:                                         ; preds = %sw.bb429
   br i1 %tobool.i2485, label %trans_orc_b.exit.thread, label %sw.epilog3868
 
 trans_orc_b.exit.thread:                          ; preds = %sw.bb432
-  call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @gen_orc_b)
+  call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @gen_orc_b)
   br label %return
 
 sw.bb437:                                         ; preds = %sw.bb414
@@ -8043,7 +8043,7 @@ sw.bb441:                                         ; preds = %sw.bb414
   br i1 %tobool.i2506, label %trans_bexti.exit, label %sw.epilog3868
 
 trans_bexti.exit:                                 ; preds = %sw.bb441
-  %call.i2509 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_bext)
+  %call.i2509 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_bext)
   br i1 %call.i2509, label %return, label %sw.epilog3868
 
 sw.bb445:                                         ; preds = %sw.bb414
@@ -8239,7 +8239,7 @@ sw.bb482:                                         ; preds = %sw.bb479
   store i32 %and.i7.i2549, ptr %rs1.i2550, align 4
   %ol.i = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i, align 8
-  %call.i2551 = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef null)
+  %call.i2551 = call fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef null)
   br i1 %call.i2551, label %return, label %sw.epilog3868
 
 sw.bb486:                                         ; preds = %sw.bb479
@@ -8289,7 +8289,7 @@ sw.bb497:                                         ; preds = %sw.bb486
   br i1 %tobool.i2569, label %trans_slli_uw.exit, label %sw.epilog3868
 
 trans_slli_uw.exit:                               ; preds = %sw.bb497
-  %call.i2572 = call fastcc zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_slli_uw)
+  %call.i2572 = call fastcc zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_slli_uw)
   br i1 %call.i2572, label %return, label %sw.epilog3868
 
 sw.bb501:                                         ; preds = %sw.bb486
@@ -8317,7 +8317,7 @@ sw.bb504:                                         ; preds = %sw.bb501
   br i1 %tobool.i2580, label %trans_clzw.exit.thread, label %sw.epilog3868
 
 trans_clzw.exit.thread:                           ; preds = %sw.bb504
-  call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_clzw)
+  call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_clzw)
   br label %return
 
 sw.bb508:                                         ; preds = %sw.bb501
@@ -8350,13 +8350,13 @@ sw.bb518:                                         ; preds = %sw.bb479
 sw.bb521:                                         ; preds = %sw.bb518
   %ol.i2591 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i2591, align 8
-  %call.i2592 = call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_srliw)
+  %call.i2592 = call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_srliw)
   br i1 %call.i2592, label %return, label %sw.epilog3868
 
 sw.bb525:                                         ; preds = %sw.bb518
   %ol.i2593 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i2593, align 8
-  %call.i2594 = call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_sraiw)
+  %call.i2594 = call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_sraiw)
   br i1 %call.i2594, label %return, label %sw.epilog3868
 
 sw.bb529:                                         ; preds = %sw.bb518
@@ -8388,19 +8388,19 @@ sw.bb535:                                         ; preds = %entry
   ]
 
 sw.bb538:                                         ; preds = %sw.bb535
-  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 8)
+  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 8)
   br label %return
 
 sw.bb542:                                         ; preds = %sw.bb535
-  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 9)
+  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 9)
   br label %return
 
 sw.bb546:                                         ; preds = %sw.bb535
-  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 10)
+  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 10)
   br label %return
 
 sw.bb550:                                         ; preds = %sw.bb535
-  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 3)
+  call fastcc void @gen_store(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 3)
   br label %return
 
 sw.bb559:                                         ; preds = %entry
@@ -8479,7 +8479,7 @@ sw.bb576:                                         ; preds = %sw.bb574
   br i1 %cmp.i.i2622.not, label %sw.epilog3868, label %trans_vs1r_v.exit.thread
 
 trans_vs1r_v.exit.thread:                         ; preds = %sw.bb576
-  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2617, i32 noundef %and.i4.i2619, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @gen_helper_vs1r_v, ptr noundef nonnull readonly %ctx)
+  tail call fastcc void @ldst_whole_trans(i32 noundef %and.i.i2617, i32 noundef %and.i4.i2619, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @gen_helper_vs1r_v, ptr noundef nonnull %ctx)
   br label %return
 
 sw.bb580:                                         ; preds = %sw.bb574
@@ -8516,7 +8516,7 @@ st_us_mask_check.exit.i:                          ; preds = %sw.bb595
   br i1 %tobool.i.i.i, label %sw.epilog3868, label %trans_vsm_v.exit
 
 trans_vsm_v.exit:                                 ; preds = %st_us_mask_check.exit.i
-  tail call fastcc void @ldst_us_trans(i32 noundef %and.i.i2626, i32 noundef %and.i4.i2628, i32 noundef 128, ptr noundef nonnull @gen_helper_vsm_v, ptr noundef nonnull readonly %ctx)
+  tail call fastcc void @ldst_us_trans(i32 noundef %and.i.i2626, i32 noundef %and.i4.i2628, i32 noundef 128, ptr noundef nonnull @gen_helper_vsm_v, ptr noundef nonnull %ctx)
   br label %return
 
 sw.bb601:                                         ; preds = %sw.bb564
@@ -8913,7 +8913,7 @@ sw.bb695:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i.not, label %sw.epilog3868, label %trans_amoadd_w.exit.thread
 
 trans_amoadd_w.exit.thread:                       ; preds = %sw.bb695
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_add_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_add_i64, i32 noundef 234)
   br label %return
 
 sw.bb699:                                         ; preds = %sw.bb693
@@ -8936,7 +8936,7 @@ sw.bb699:                                         ; preds = %sw.bb693
   %and.i16.i2832 = and i32 %shr.i15.i2831, 1
   %rl.i2833 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i2832, ptr %rl.i2833, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_add_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_add_i64, i32 noundef 227)
   br label %return
 
 sw.bb703:                                         ; preds = %sw.bb693
@@ -8966,7 +8966,7 @@ sw.bb703:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i2851.not, label %sw.epilog3868, label %trans_amoswap_w.exit.thread
 
 trans_amoswap_w.exit.thread:                      ; preds = %sw.bb703
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_xchg_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_xchg_i64, i32 noundef 234)
   br label %return
 
 sw.bb707:                                         ; preds = %sw.bb693
@@ -8989,7 +8989,7 @@ sw.bb707:                                         ; preds = %sw.bb693
   %and.i16.i2866 = and i32 %shr.i15.i2865, 1
   %rl.i2867 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i2866, ptr %rl.i2867, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_xchg_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_xchg_i64, i32 noundef 227)
   br label %return
 
 sw.bb711:                                         ; preds = %sw.bb693
@@ -9022,7 +9022,7 @@ sw.bb714:                                         ; preds = %sw.bb711
   br i1 %tobool.i.i2879.not, label %sw.epilog3868, label %trans_lr_w.exit.thread
 
 trans_lr_w.exit.thread:                           ; preds = %sw.bb714
-  call fastcc void @gen_lr(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, i32 noundef 234)
+  call fastcc void @gen_lr(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 234)
   br label %return
 
 sw.bb719:                                         ; preds = %sw.bb693
@@ -9048,7 +9048,7 @@ sw.bb719:                                         ; preds = %sw.bb693
   br i1 %cond74, label %sw.bb722, label %sw.epilog3868
 
 sw.bb722:                                         ; preds = %sw.bb719
-  call fastcc void @gen_lr(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 227)
+  call fastcc void @gen_lr(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 227)
   br label %return
 
 sw.bb727:                                         ; preds = %sw.bb693
@@ -9078,7 +9078,7 @@ sw.bb727:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i2911.not, label %sw.epilog3868, label %trans_sc_w.exit.thread
 
 trans_sc_w.exit.thread:                           ; preds = %sw.bb727
-  call fastcc void @gen_sc(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, i32 noundef 234)
+  call fastcc void @gen_sc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 234)
   br label %return
 
 sw.bb731:                                         ; preds = %sw.bb693
@@ -9101,7 +9101,7 @@ sw.bb731:                                         ; preds = %sw.bb693
   %and.i16.i2926 = and i32 %shr.i15.i2925, 1
   %rl.i2927 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i2926, ptr %rl.i2927, align 4
-  call fastcc void @gen_sc(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 227)
+  call fastcc void @gen_sc(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 227)
   br label %return
 
 sw.bb735:                                         ; preds = %sw.bb693
@@ -9131,7 +9131,7 @@ sw.bb735:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i2945.not, label %sw.epilog3868, label %trans_amoxor_w.exit.thread
 
 trans_amoxor_w.exit.thread:                       ; preds = %sw.bb735
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_xor_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_xor_i64, i32 noundef 234)
   br label %return
 
 sw.bb739:                                         ; preds = %sw.bb693
@@ -9154,7 +9154,7 @@ sw.bb739:                                         ; preds = %sw.bb693
   %and.i16.i2960 = and i32 %shr.i15.i2959, 1
   %rl.i2961 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i2960, ptr %rl.i2961, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_xor_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_xor_i64, i32 noundef 227)
   br label %return
 
 sw.bb743:                                         ; preds = %sw.bb693
@@ -9184,7 +9184,7 @@ sw.bb743:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i2979.not, label %sw.epilog3868, label %trans_amoor_w.exit.thread
 
 trans_amoor_w.exit.thread:                        ; preds = %sw.bb743
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_or_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_or_i64, i32 noundef 234)
   br label %return
 
 sw.bb747:                                         ; preds = %sw.bb693
@@ -9207,7 +9207,7 @@ sw.bb747:                                         ; preds = %sw.bb693
   %and.i16.i2994 = and i32 %shr.i15.i2993, 1
   %rl.i2995 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i2994, ptr %rl.i2995, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_or_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_or_i64, i32 noundef 227)
   br label %return
 
 sw.bb751:                                         ; preds = %sw.bb693
@@ -9237,7 +9237,7 @@ sw.bb751:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i3013.not, label %sw.epilog3868, label %trans_amoand_w.exit.thread
 
 trans_amoand_w.exit.thread:                       ; preds = %sw.bb751
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_and_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_and_i64, i32 noundef 234)
   br label %return
 
 sw.bb755:                                         ; preds = %sw.bb693
@@ -9260,7 +9260,7 @@ sw.bb755:                                         ; preds = %sw.bb693
   %and.i16.i3028 = and i32 %shr.i15.i3027, 1
   %rl.i3029 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i3028, ptr %rl.i3029, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_and_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_and_i64, i32 noundef 227)
   br label %return
 
 sw.bb759:                                         ; preds = %sw.bb693
@@ -9290,7 +9290,7 @@ sw.bb759:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i3047.not, label %sw.epilog3868, label %trans_amomin_w.exit.thread
 
 trans_amomin_w.exit.thread:                       ; preds = %sw.bb759
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smin_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smin_i64, i32 noundef 234)
   br label %return
 
 sw.bb763:                                         ; preds = %sw.bb693
@@ -9313,7 +9313,7 @@ sw.bb763:                                         ; preds = %sw.bb693
   %and.i16.i3062 = and i32 %shr.i15.i3061, 1
   %rl.i3063 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i3062, ptr %rl.i3063, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smin_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smin_i64, i32 noundef 227)
   br label %return
 
 sw.bb767:                                         ; preds = %sw.bb693
@@ -9343,7 +9343,7 @@ sw.bb767:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i3081.not, label %sw.epilog3868, label %trans_amomax_w.exit.thread
 
 trans_amomax_w.exit.thread:                       ; preds = %sw.bb767
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smax_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smax_i64, i32 noundef 234)
   br label %return
 
 sw.bb771:                                         ; preds = %sw.bb693
@@ -9366,7 +9366,7 @@ sw.bb771:                                         ; preds = %sw.bb693
   %and.i16.i3096 = and i32 %shr.i15.i3095, 1
   %rl.i3097 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i3096, ptr %rl.i3097, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smax_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_smax_i64, i32 noundef 227)
   br label %return
 
 sw.bb775:                                         ; preds = %sw.bb693
@@ -9396,7 +9396,7 @@ sw.bb775:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i3115.not, label %sw.epilog3868, label %trans_amominu_w.exit.thread
 
 trans_amominu_w.exit.thread:                      ; preds = %sw.bb775
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umin_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umin_i64, i32 noundef 234)
   br label %return
 
 sw.bb779:                                         ; preds = %sw.bb693
@@ -9419,7 +9419,7 @@ sw.bb779:                                         ; preds = %sw.bb693
   %and.i16.i3130 = and i32 %shr.i15.i3129, 1
   %rl.i3131 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i3130, ptr %rl.i3131, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umin_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umin_i64, i32 noundef 227)
   br label %return
 
 sw.bb783:                                         ; preds = %sw.bb693
@@ -9449,7 +9449,7 @@ sw.bb783:                                         ; preds = %sw.bb693
   br i1 %tobool.i.i3149.not, label %sw.epilog3868, label %trans_amomaxu_w.exit.thread
 
 trans_amomaxu_w.exit.thread:                      ; preds = %sw.bb783
-  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umax_i64, i32 noundef 234)
+  call fastcc void @gen_amo(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umax_i64, i32 noundef 234)
   br label %return
 
 sw.bb787:                                         ; preds = %sw.bb693
@@ -9472,7 +9472,7 @@ sw.bb787:                                         ; preds = %sw.bb693
   %and.i16.i3164 = and i32 %shr.i15.i3163, 1
   %rl.i3165 = getelementptr inbounds i8, ptr %u, i64 4
   store i32 %and.i16.i3164, ptr %rl.i3165, align 4
-  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umax_i64, i32 noundef 227)
+  call fastcc void @gen_amo(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_atomic_fetch_umax_i64, i32 noundef 227)
   br label %return
 
 sw.bb792:                                         ; preds = %entry
@@ -9565,7 +9565,7 @@ sw.bb806:                                         ; preds = %sw.bb792
   br i1 %cond73, label %sw.bb809, label %sw.epilog3868
 
 sw.bb809:                                         ; preds = %sw.bb806
-  %call.i3183 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @tcg_gen_shl_i64)
+  %call.i3183 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @tcg_gen_shl_i64)
   br i1 %call.i3183, label %return, label %sw.epilog3868
 
 sw.bb814:                                         ; preds = %sw.bb792
@@ -9584,7 +9584,7 @@ sw.bb814:                                         ; preds = %sw.bb792
   br i1 %cond72, label %sw.bb817, label %sw.epilog3868
 
 sw.bb817:                                         ; preds = %sw.bb814
-  %call.i3192 = call fastcc noundef zeroext i1 @gen_arith(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_slt, ptr noundef nonnull @gen_slt_i128)
+  %call.i3192 = call fastcc noundef zeroext i1 @gen_arith(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_slt, ptr noundef nonnull @gen_slt_i128)
   br i1 %call.i3192, label %return, label %sw.epilog3868
 
 sw.bb822:                                         ; preds = %sw.bb792
@@ -9603,7 +9603,7 @@ sw.bb822:                                         ; preds = %sw.bb792
   br i1 %cond71, label %sw.bb825, label %sw.epilog3868
 
 sw.bb825:                                         ; preds = %sw.bb822
-  %call.i3201 = call fastcc noundef zeroext i1 @gen_arith(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_sltu, ptr noundef nonnull @gen_sltu_i128)
+  %call.i3201 = call fastcc noundef zeroext i1 @gen_arith(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_sltu, ptr noundef nonnull @gen_sltu_i128)
   br i1 %call.i3201, label %return, label %sw.epilog3868
 
 sw.bb830:                                         ; preds = %sw.bb792
@@ -9651,11 +9651,11 @@ sw.bb842:                                         ; preds = %sw.bb792
   ]
 
 sw.bb845:                                         ; preds = %sw.bb842
-  %call.i3218 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @tcg_gen_shr_i64)
+  %call.i3218 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @tcg_gen_shr_i64)
   br i1 %call.i3218, label %return, label %sw.epilog3868
 
 sw.bb849:                                         ; preds = %sw.bb842
-  %call.i3219 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @tcg_gen_sar_i64)
+  %call.i3219 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @tcg_gen_sar_i64)
   br i1 %call.i3219, label %return, label %sw.epilog3868
 
 sw.bb854:                                         ; preds = %sw.bb792
@@ -9809,7 +9809,7 @@ sw.bb913:                                         ; preds = %sw.bb910
   br i1 %tobool.i.not.i, label %sw.epilog3868, label %trans_div.exit
 
 trans_div.exit:                                   ; preds = %sw.bb913
-  %call1.i3279 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_div, ptr noundef nonnull @gen_div_i128)
+  %call1.i3279 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_div, ptr noundef nonnull @gen_div_i128)
   br i1 %call1.i3279, label %return, label %sw.epilog3868
 
 sw.bb918:                                         ; preds = %sw.bb792
@@ -9835,7 +9835,7 @@ sw.bb921:                                         ; preds = %sw.bb918
   br i1 %tobool.i.not.i3291, label %sw.epilog3868, label %trans_divu.exit
 
 trans_divu.exit:                                  ; preds = %sw.bb921
-  %call1.i3293 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @gen_divu, ptr noundef nonnull @gen_divu_i128)
+  %call1.i3293 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @gen_divu, ptr noundef nonnull @gen_divu_i128)
   br i1 %call1.i3293, label %return, label %sw.epilog3868
 
 sw.bb926:                                         ; preds = %sw.bb792
@@ -9861,7 +9861,7 @@ sw.bb929:                                         ; preds = %sw.bb926
   br i1 %tobool.i.not.i3305, label %sw.epilog3868, label %trans_rem.exit
 
 trans_rem.exit:                                   ; preds = %sw.bb929
-  %call1.i3307 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_rem, ptr noundef nonnull @gen_rem_i128)
+  %call1.i3307 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_rem, ptr noundef nonnull @gen_rem_i128)
   br i1 %call1.i3307, label %return, label %sw.epilog3868
 
 sw.bb934:                                         ; preds = %sw.bb792
@@ -9887,7 +9887,7 @@ sw.bb937:                                         ; preds = %sw.bb934
   br i1 %tobool.i.not.i3319, label %sw.epilog3868, label %trans_remu.exit
 
 trans_remu.exit:                                  ; preds = %sw.bb937
-  %call1.i3321 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @gen_remu, ptr noundef nonnull @gen_remu_i128)
+  %call1.i3321 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @gen_remu, ptr noundef nonnull @gen_remu_i128)
   br i1 %call1.i3321, label %return, label %sw.epilog3868
 
 sw.bb942:                                         ; preds = %sw.bb792
@@ -9915,7 +9915,7 @@ sw.bb945:                                         ; preds = %sw.bb942
   br i1 %tobool.i3333, label %trans_bclr.exit, label %sw.epilog3868
 
 trans_bclr.exit:                                  ; preds = %sw.bb945
-  %call.i3336 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_bclr)
+  %call.i3336 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_bclr)
   br i1 %call.i3336, label %return, label %sw.epilog3868
 
 sw.bb950:                                         ; preds = %sw.bb792
@@ -9942,7 +9942,7 @@ sw.bb953:                                         ; preds = %sw.bb950
   br i1 %tobool.i3351, label %trans_pack.exit, label %sw.epilog3868
 
 trans_pack.exit:                                  ; preds = %sw.bb953
-  %call.i3354 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_pack, ptr noundef null)
+  %call.i3354 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_pack, ptr noundef null)
   br i1 %call.i3354, label %return, label %sw.epilog3868
 
 sw.bb965:                                         ; preds = %sw.bb792
@@ -9970,7 +9970,7 @@ sw.bb968:                                         ; preds = %sw.bb965
   br i1 %tobool.i3365, label %trans_bext.exit, label %sw.epilog3868
 
 trans_bext.exit:                                  ; preds = %sw.bb968
-  %call.i3368 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_bext)
+  %call.i3368 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_bext)
   br i1 %call.i3368, label %return, label %sw.epilog3868
 
 sw.bb973:                                         ; preds = %sw.bb792
@@ -9997,7 +9997,7 @@ sw.bb976:                                         ; preds = %sw.bb973
   br i1 %tobool.i3379, label %trans_packh.exit, label %sw.epilog3868
 
 trans_packh.exit:                                 ; preds = %sw.bb976
-  %call.i3382 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_packh, ptr noundef null)
+  %call.i3382 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_packh, ptr noundef null)
   br i1 %call.i3382, label %return, label %sw.epilog3868
 
 sw.bb981:                                         ; preds = %sw.bb792
@@ -10030,7 +10030,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb984
   br i1 %tobool2.i, label %trans_clmul.exit, label %sw.epilog3868
 
 trans_clmul.exit:                                 ; preds = %sw.bb984, %land.lhs.true.i
-  %call.i3395 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_clmul, ptr noundef null)
+  %call.i3395 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_clmul, ptr noundef null)
   br i1 %call.i3395, label %return, label %sw.epilog3868
 
 sw.bb989:                                         ; preds = %sw.bb792
@@ -10057,7 +10057,7 @@ sw.bb992:                                         ; preds = %sw.bb989
   br i1 %tobool.i3406, label %trans_clmulr.exit, label %sw.epilog3868
 
 trans_clmulr.exit:                                ; preds = %sw.bb992
-  %call.i3409 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_clmulr, ptr noundef null)
+  %call.i3409 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_clmulr, ptr noundef null)
   br i1 %call.i3409, label %return, label %sw.epilog3868
 
 sw.bb997:                                         ; preds = %sw.bb792
@@ -10090,7 +10090,7 @@ land.lhs.true.i3421:                              ; preds = %sw.bb1000
   br i1 %tobool2.i3423, label %trans_clmulh.exit, label %sw.epilog3868
 
 trans_clmulh.exit:                                ; preds = %sw.bb1000, %land.lhs.true.i3421
-  %call.i3426 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_clmulh, ptr noundef null)
+  %call.i3426 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_clmulh, ptr noundef null)
   br i1 %call.i3426, label %return, label %sw.epilog3868
 
 sw.bb1005:                                        ; preds = %sw.bb792
@@ -10193,7 +10193,7 @@ sw.bb1040:                                        ; preds = %sw.bb1037
   br i1 %tobool.i3468, label %trans_czero_eqz.exit.thread, label %sw.epilog3868
 
 trans_czero_eqz.exit.thread:                      ; preds = %sw.bb1040
-  call fastcc void @gen_logic(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_czero_eqz)
+  call fastcc void @gen_logic(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_czero_eqz)
   br label %return
 
 sw.bb1045:                                        ; preds = %sw.bb792
@@ -10220,7 +10220,7 @@ sw.bb1048:                                        ; preds = %sw.bb1045
   br i1 %tobool.i3481, label %trans_czero_nez.exit.thread, label %sw.epilog3868
 
 trans_czero_nez.exit.thread:                      ; preds = %sw.bb1048
-  call fastcc void @gen_logic(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_czero_nez)
+  call fastcc void @gen_logic(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_czero_nez)
   br label %return
 
 sw.bb1101:                                        ; preds = %sw.bb792
@@ -10266,7 +10266,7 @@ sw.bb1112:                                        ; preds = %sw.bb1109
   br i1 %tobool.i3549, label %trans_sh1add.exit, label %sw.epilog3868
 
 trans_sh1add.exit:                                ; preds = %sw.bb1112
-  %call.i3552 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_sh1add, ptr noundef null)
+  %call.i3552 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_sh1add, ptr noundef null)
   br i1 %call.i3552, label %return, label %sw.epilog3868
 
 sw.bb1117:                                        ; preds = %sw.bb792
@@ -10292,7 +10292,7 @@ sw.bb1120:                                        ; preds = %sw.bb1117
   br i1 %tobool.i3562, label %trans_sh2add.exit, label %sw.epilog3868
 
 trans_sh2add.exit:                                ; preds = %sw.bb1120
-  %call.i3565 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_sh2add, ptr noundef null)
+  %call.i3565 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_sh2add, ptr noundef null)
   br i1 %call.i3565, label %return, label %sw.epilog3868
 
 sw.bb1125:                                        ; preds = %sw.bb792
@@ -10338,7 +10338,7 @@ sw.bb1136:                                        ; preds = %sw.bb1133
   br i1 %tobool.i3583, label %trans_sh3add.exit, label %sw.epilog3868
 
 trans_sh3add.exit:                                ; preds = %sw.bb1136
-  %call.i3586 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_sh3add, ptr noundef null)
+  %call.i3586 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_sh3add, ptr noundef null)
   br i1 %call.i3586, label %return, label %sw.epilog3868
 
 sw.bb1149:                                        ; preds = %sw.bb792
@@ -10368,7 +10368,7 @@ sw.bb1152:                                        ; preds = %sw.bb1149
   br i1 %tobool.i3617, label %trans_bset.exit, label %sw.epilog3868
 
 trans_bset.exit:                                  ; preds = %sw.bb1152
-  %call.i3620 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_bset)
+  %call.i3620 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_bset)
   br i1 %call.i3620, label %return, label %sw.epilog3868
 
 sw.bb1156:                                        ; preds = %sw.bb1149
@@ -10380,7 +10380,7 @@ sw.bb1156:                                        ; preds = %sw.bb1149
   br i1 %tobool.i3623, label %trans_binv.exit, label %sw.epilog3868
 
 trans_binv.exit:                                  ; preds = %sw.bb1156
-  %call.i3626 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_binv)
+  %call.i3626 = call fastcc zeroext i1 @gen_shift(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_binv)
   br i1 %call.i3626, label %return, label %sw.epilog3868
 
 sw.bb1161:                                        ; preds = %sw.bb792
@@ -10407,7 +10407,7 @@ sw.bb1164:                                        ; preds = %sw.bb1161
   br i1 %tobool.i3636, label %trans_xperm4.exit, label %sw.epilog3868
 
 trans_xperm4.exit:                                ; preds = %sw.bb1164
-  %call.i3639 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_xperm4, ptr noundef null)
+  %call.i3639 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_xperm4, ptr noundef null)
   br i1 %call.i3639, label %return, label %sw.epilog3868
 
 sw.bb1169:                                        ; preds = %sw.bb792
@@ -10434,7 +10434,7 @@ sw.bb1172:                                        ; preds = %sw.bb1169
   br i1 %tobool.i3650, label %trans_xperm8.exit, label %sw.epilog3868
 
 trans_xperm8.exit:                                ; preds = %sw.bb1172
-  %call.i3653 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_xperm8, ptr noundef null)
+  %call.i3653 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_xperm8, ptr noundef null)
   br i1 %call.i3653, label %return, label %sw.epilog3868
 
 sw.bb1185:                                        ; preds = %sw.bb792
@@ -10461,7 +10461,7 @@ sw.bb1185:                                        ; preds = %sw.bb792
   br i1 %tobool.i3685, label %trans_sm4ed.exit.thread, label %sw.epilog3868
 
 trans_sm4ed.exit.thread:                          ; preds = %sw.bb1185
-  call fastcc void @gen_aes32_sm4(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_helper_sm4ed)
+  call fastcc void @gen_aes32_sm4(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_helper_sm4ed)
   br label %return
 
 sw.bb1189:                                        ; preds = %sw.bb792
@@ -10488,7 +10488,7 @@ sw.bb1192:                                        ; preds = %sw.bb1189
   br i1 %tobool.i3697, label %trans_aes64es.exit, label %sw.epilog3868
 
 trans_aes64es.exit:                               ; preds = %sw.bb1192
-  %call.i3700 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64es, ptr noundef null)
+  %call.i3700 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64es, ptr noundef null)
   br i1 %call.i3700, label %return, label %sw.epilog3868
 
 sw.bb1197:                                        ; preds = %sw.bb792
@@ -10515,7 +10515,7 @@ sw.bb1197:                                        ; preds = %sw.bb792
   br i1 %tobool.i3713, label %trans_sm4ks.exit.thread, label %sw.epilog3868
 
 trans_sm4ks.exit.thread:                          ; preds = %sw.bb1197
-  call fastcc void @gen_aes32_sm4(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_helper_sm4ks)
+  call fastcc void @gen_aes32_sm4(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_helper_sm4ks)
   br label %return
 
 sw.bb1201:                                        ; preds = %sw.bb792
@@ -10542,7 +10542,7 @@ sw.bb1204:                                        ; preds = %sw.bb1201
   br i1 %tobool.i3726, label %trans_aes64esm.exit, label %sw.epilog3868
 
 trans_aes64esm.exit:                              ; preds = %sw.bb1204
-  %call.i3729 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64esm, ptr noundef null)
+  %call.i3729 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64esm, ptr noundef null)
   br i1 %call.i3729, label %return, label %sw.epilog3868
 
 sw.bb1209:                                        ; preds = %sw.bb792
@@ -10569,7 +10569,7 @@ sw.bb1212:                                        ; preds = %sw.bb1209
   br i1 %tobool.i3739, label %trans_aes64ds.exit, label %sw.epilog3868
 
 trans_aes64ds.exit:                               ; preds = %sw.bb1212
-  %call.i3742 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64ds, ptr noundef null)
+  %call.i3742 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64ds, ptr noundef null)
   br i1 %call.i3742, label %return, label %sw.epilog3868
 
 sw.bb1217:                                        ; preds = %sw.bb792
@@ -10599,7 +10599,7 @@ sw.bb1220:                                        ; preds = %sw.bb1217
   br i1 %tobool.i3753, label %trans_aes64dsm.exit, label %sw.epilog3868
 
 trans_aes64dsm.exit:                              ; preds = %sw.bb1220
-  %call.i3756 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64dsm, ptr noundef null)
+  %call.i3756 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64dsm, ptr noundef null)
   br i1 %call.i3756, label %return, label %sw.epilog3868
 
 sw.bb1224:                                        ; preds = %sw.bb1217
@@ -10617,7 +10617,7 @@ land.lhs.true.i3760:                              ; preds = %sw.bb1224
   br i1 %tobool3.i, label %trans_aes64ks2.exit, label %sw.epilog3868
 
 trans_aes64ks2.exit:                              ; preds = %sw.bb1224, %land.lhs.true.i3760
-  %call.i3763 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64ks2, ptr noundef null)
+  %call.i3763 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_helper_aes64ks2, ptr noundef null)
   br i1 %call.i3763, label %return, label %sw.epilog3868
 
 sw.bb1230:                                        ; preds = %entry
@@ -10707,7 +10707,7 @@ sw.bb1240:                                        ; preds = %sw.bb1234
   store i32 %and.i8.i3790, ptr %rs1.i3791, align 4
   %ol.i3792 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3792, align 8
-  %call.i3793 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @tcg_gen_shl_i64)
+  %call.i3793 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @tcg_gen_shl_i64)
   br i1 %call.i3793, label %return, label %sw.epilog3868
 
 sw.bb1244:                                        ; preds = %sw.bb1234
@@ -10724,7 +10724,7 @@ sw.bb1244:                                        ; preds = %sw.bb1234
   store i32 %and.i8.i3800, ptr %rs1.i3801, align 4
   %ol.i3802 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3802, align 8
-  %call.i3803 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @tcg_gen_shr_i64)
+  %call.i3803 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @tcg_gen_shr_i64)
   br i1 %call.i3803, label %return, label %sw.epilog3868
 
 sw.bb1248:                                        ; preds = %sw.bb1234
@@ -10763,7 +10763,7 @@ sw.bb1252:                                        ; preds = %sw.bb1234
 trans_divw.exit:                                  ; preds = %sw.bb1252
   %ol.i3824 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3824, align 8
-  %call3.i = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_div, ptr noundef null)
+  %call3.i = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_div, ptr noundef null)
   br i1 %call3.i, label %return, label %sw.epilog3868
 
 sw.bb1256:                                        ; preds = %sw.bb1234
@@ -10787,7 +10787,7 @@ sw.bb1256:                                        ; preds = %sw.bb1234
 trans_divuw.exit:                                 ; preds = %sw.bb1256
   %ol.i3838 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3838, align 8
-  %call3.i3839 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @gen_divu, ptr noundef null)
+  %call3.i3839 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @gen_divu, ptr noundef null)
   br i1 %call3.i3839, label %return, label %sw.epilog3868
 
 sw.bb1260:                                        ; preds = %sw.bb1234
@@ -10811,7 +10811,7 @@ sw.bb1260:                                        ; preds = %sw.bb1234
 trans_remw.exit:                                  ; preds = %sw.bb1260
   %ol.i3853 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3853, align 8
-  %call3.i3854 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @gen_rem, ptr noundef null)
+  %call3.i3854 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @gen_rem, ptr noundef null)
   br i1 %call3.i3854, label %return, label %sw.epilog3868
 
 sw.bb1264:                                        ; preds = %sw.bb1234
@@ -10835,7 +10835,7 @@ sw.bb1264:                                        ; preds = %sw.bb1234
 trans_remuw.exit:                                 ; preds = %sw.bb1264
   %ol.i3868 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3868, align 8
-  %call3.i3869 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @gen_remu, ptr noundef null)
+  %call3.i3869 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @gen_remu, ptr noundef null)
   br i1 %call3.i3869, label %return, label %sw.epilog3868
 
 sw.bb1268:                                        ; preds = %sw.bb1234
@@ -10857,7 +10857,7 @@ sw.bb1268:                                        ; preds = %sw.bb1234
   br i1 %tobool.i3880, label %trans_add_uw.exit, label %sw.epilog3868
 
 trans_add_uw.exit:                                ; preds = %sw.bb1268
-  %call.i3883 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_add_uw, ptr noundef null)
+  %call.i3883 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_add_uw, ptr noundef null)
   br i1 %call.i3883, label %return, label %sw.epilog3868
 
 sw.bb1272:                                        ; preds = %sw.bb1234
@@ -10898,7 +10898,7 @@ if.end1279:                                       ; preds = %sw.bb1272.if.end127
   br i1 %tobool.i3899, label %trans_packw.exit, label %sw.epilog3868
 
 trans_packw.exit:                                 ; preds = %if.end1279
-  %call.i3902 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_packw, ptr noundef null)
+  %call.i3902 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_packw, ptr noundef null)
   br i1 %call.i3902, label %return, label %sw.epilog3868
 
 sw.bb1283:                                        ; preds = %sw.bb1234
@@ -10920,7 +10920,7 @@ sw.bb1283:                                        ; preds = %sw.bb1234
   br i1 %tobool.i3912, label %trans_sh1add_uw.exit, label %sw.epilog3868
 
 trans_sh1add_uw.exit:                             ; preds = %sw.bb1283
-  %call.i3915 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_sh1add_uw, ptr noundef null)
+  %call.i3915 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_sh1add_uw, ptr noundef null)
   br i1 %call.i3915, label %return, label %sw.epilog3868
 
 sw.bb1287:                                        ; preds = %sw.bb1234
@@ -10942,7 +10942,7 @@ sw.bb1287:                                        ; preds = %sw.bb1234
   br i1 %tobool.i3925, label %trans_sh2add_uw.exit, label %sw.epilog3868
 
 trans_sh2add_uw.exit:                             ; preds = %sw.bb1287
-  %call.i3928 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_sh2add_uw, ptr noundef null)
+  %call.i3928 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_sh2add_uw, ptr noundef null)
   br i1 %call.i3928, label %return, label %sw.epilog3868
 
 sw.bb1291:                                        ; preds = %sw.bb1234
@@ -10964,7 +10964,7 @@ sw.bb1291:                                        ; preds = %sw.bb1234
   br i1 %tobool.i3938, label %trans_sh3add_uw.exit, label %sw.epilog3868
 
 trans_sh3add_uw.exit:                             ; preds = %sw.bb1291
-  %call.i3941 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_sh3add_uw, ptr noundef null)
+  %call.i3941 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_sh3add_uw, ptr noundef null)
   br i1 %call.i3941, label %return, label %sw.epilog3868
 
 sw.bb1295:                                        ; preds = %sw.bb1234
@@ -10996,7 +10996,7 @@ sw.bb1299:                                        ; preds = %sw.bb1234
   store i32 %and.i8.i3956, ptr %rs1.i3957, align 4
   %ol.i3958 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i3958, align 8
-  %call.i3959 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, ptr noundef nonnull @tcg_gen_sar_i64)
+  %call.i3959 = call fastcc noundef zeroext i1 @gen_shift(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 1, ptr noundef nonnull @tcg_gen_sar_i64)
   br i1 %call.i3959, label %return, label %sw.epilog3868
 
 sw.bb1303:                                        ; preds = %sw.bb1234
@@ -13258,7 +13258,7 @@ sw.bb2089:                                        ; preds = %sw.bb2086
   %sub.i = add nsw i64 %conv.i4816, -1
   %arrayidx.i4817 = getelementptr [3 x ptr], ptr @trans_vfcvt_rtz_xu_f_v.fns, i64 0, i64 %sub.i
   %216 = load ptr, ptr %arrayidx.i4817, align 8
-  %call.i4818 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %216, i32 noundef 7)
+  %call.i4818 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %216, i32 noundef 7)
   br i1 %call.i4818, label %return, label %sw.epilog3868
 
 sw.bb2093:                                        ; preds = %sw.bb2086
@@ -13268,7 +13268,7 @@ sw.bb2093:                                        ; preds = %sw.bb2086
   %sub.i4821 = add nsw i64 %conv.i4820, -1
   %arrayidx.i4822 = getelementptr [3 x ptr], ptr @trans_vfcvt_rtz_x_f_v.fns, i64 0, i64 %sub.i4821
   %218 = load ptr, ptr %arrayidx.i4822, align 8
-  %call.i4823 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %218, i32 noundef 7)
+  %call.i4823 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %218, i32 noundef 7)
   br i1 %call.i4823, label %return, label %sw.epilog3868
 
 sw.bb2097:                                        ; preds = %sw.bb2086
@@ -13278,7 +13278,7 @@ sw.bb2097:                                        ; preds = %sw.bb2086
   %sub.i4826 = add nsw i64 %conv.i4825, -1
   %arrayidx.i4827 = getelementptr [3 x ptr], ptr @trans_vfcvt_f_xu_v.fns, i64 0, i64 %sub.i4826
   %220 = load ptr, ptr %arrayidx.i4827, align 8
-  %call.i4828 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %220, i32 noundef 7)
+  %call.i4828 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %220, i32 noundef 7)
   br i1 %call.i4828, label %return, label %sw.epilog3868
 
 sw.bb2101:                                        ; preds = %sw.bb2086
@@ -13288,7 +13288,7 @@ sw.bb2101:                                        ; preds = %sw.bb2086
   %sub.i4831 = add nsw i64 %conv.i4830, -1
   %arrayidx.i4832 = getelementptr [3 x ptr], ptr @trans_vfcvt_f_x_v.fns, i64 0, i64 %sub.i4831
   %222 = load ptr, ptr %arrayidx.i4832, align 8
-  %call.i4833 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %222, i32 noundef 7)
+  %call.i4833 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %222, i32 noundef 7)
   br i1 %call.i4833, label %return, label %sw.epilog3868
 
 sw.bb2105:                                        ; preds = %sw.bb2086
@@ -13298,7 +13298,7 @@ sw.bb2105:                                        ; preds = %sw.bb2086
   %sub.i4836 = add nsw i64 %conv.i4835, -1
   %arrayidx.i4837 = getelementptr [3 x ptr], ptr @trans_vfcvt_rtz_xu_f_v.fns, i64 0, i64 %sub.i4836
   %224 = load ptr, ptr %arrayidx.i4837, align 8
-  %call.i4838 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %224, i32 noundef 1)
+  %call.i4838 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %224, i32 noundef 1)
   br i1 %call.i4838, label %return, label %sw.epilog3868
 
 sw.bb2109:                                        ; preds = %sw.bb2086
@@ -13308,7 +13308,7 @@ sw.bb2109:                                        ; preds = %sw.bb2086
   %sub.i4841 = add nsw i64 %conv.i4840, -1
   %arrayidx.i4842 = getelementptr [3 x ptr], ptr @trans_vfcvt_rtz_x_f_v.fns, i64 0, i64 %sub.i4841
   %226 = load ptr, ptr %arrayidx.i4842, align 8
-  %call.i4843 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %226, i32 noundef 1)
+  %call.i4843 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %226, i32 noundef 1)
   br i1 %call.i4843, label %return, label %sw.epilog3868
 
 sw.bb2113:                                        ; preds = %sw.bb2086
@@ -13407,7 +13407,7 @@ sw.bb2185:                                        ; preds = %sw.bb2182
   %sub.i4854 = add nsw i64 %conv.i4853, -1
   %arrayidx.i4855 = getelementptr [3 x ptr], ptr @trans_vfsqrt_v.fns, i64 0, i64 %sub.i4854
   %228 = load ptr, ptr %arrayidx.i4855, align 8
-  %call.i4856 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %228, i32 noundef 7)
+  %call.i4856 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %228, i32 noundef 7)
   br i1 %call.i4856, label %return, label %sw.epilog3868
 
 sw.bb2189:                                        ; preds = %sw.bb2182
@@ -13417,7 +13417,7 @@ sw.bb2189:                                        ; preds = %sw.bb2182
   %sub.i4859 = add nsw i64 %conv.i4858, -1
   %arrayidx.i4860 = getelementptr [3 x ptr], ptr @trans_vfrsqrt7_v.fns, i64 0, i64 %sub.i4859
   %230 = load ptr, ptr %arrayidx.i4860, align 8
-  %call.i4861 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %230, i32 noundef 7)
+  %call.i4861 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %230, i32 noundef 7)
   br i1 %call.i4861, label %return, label %sw.epilog3868
 
 sw.bb2193:                                        ; preds = %sw.bb2182
@@ -13427,7 +13427,7 @@ sw.bb2193:                                        ; preds = %sw.bb2182
   %sub.i4864 = add nsw i64 %conv.i4863, -1
   %arrayidx.i4865 = getelementptr [3 x ptr], ptr @trans_vfrec7_v.fns, i64 0, i64 %sub.i4864
   %232 = load ptr, ptr %arrayidx.i4865, align 8
-  %call.i4866 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %232, i32 noundef 7)
+  %call.i4866 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %232, i32 noundef 7)
   br i1 %call.i4866, label %return, label %sw.epilog3868
 
 sw.bb2197:                                        ; preds = %sw.bb2182
@@ -13437,7 +13437,7 @@ sw.bb2197:                                        ; preds = %sw.bb2182
   %sub.i4869 = add nsw i64 %conv.i4868, -1
   %arrayidx.i4870 = getelementptr [3 x ptr], ptr @trans_vfclass_v.fns, i64 0, i64 %sub.i4869
   %234 = load ptr, ptr %arrayidx.i4870, align 8
-  %call.i4871 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull readonly %u, ptr noundef %234, i32 noundef 7)
+  %call.i4871 = call fastcc noundef zeroext i1 @do_opfv(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %234, i32 noundef 7)
   br i1 %call.i4871, label %return, label %sw.epilog3868
 
 sw.bb2202:                                        ; preds = %sw.bb2032
@@ -16087,7 +16087,7 @@ sw.bb3054:                                        ; preds = %sw.bb2987
   %idxprom.i6018 = zext i8 %272 to i64
   %arrayidx.i6019 = getelementptr [3 x ptr], ptr @trans_vwaddu_wv.fns, i64 0, i64 %idxprom.i6018
   %273 = load ptr, ptr %arrayidx.i6019, align 8
-  %call.i6020 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef %273)
+  %call.i6020 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %273)
   br i1 %call.i6020, label %return, label %sw.epilog3868
 
 sw.bb3058:                                        ; preds = %sw.bb2987
@@ -16096,7 +16096,7 @@ sw.bb3058:                                        ; preds = %sw.bb2987
   %idxprom.i6022 = zext i8 %274 to i64
   %arrayidx.i6023 = getelementptr [3 x ptr], ptr @trans_vwadd_wv.fns, i64 0, i64 %idxprom.i6022
   %275 = load ptr, ptr %arrayidx.i6023, align 8
-  %call.i6024 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef %275)
+  %call.i6024 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %275)
   br i1 %call.i6024, label %return, label %sw.epilog3868
 
 sw.bb3062:                                        ; preds = %sw.bb2987
@@ -16105,7 +16105,7 @@ sw.bb3062:                                        ; preds = %sw.bb2987
   %idxprom.i6026 = zext i8 %276 to i64
   %arrayidx.i6027 = getelementptr [3 x ptr], ptr @trans_vwsubu_wv.fns, i64 0, i64 %idxprom.i6026
   %277 = load ptr, ptr %arrayidx.i6027, align 8
-  %call.i6028 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef %277)
+  %call.i6028 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %277)
   br i1 %call.i6028, label %return, label %sw.epilog3868
 
 sw.bb3066:                                        ; preds = %sw.bb2987
@@ -16114,7 +16114,7 @@ sw.bb3066:                                        ; preds = %sw.bb2987
   %idxprom.i6030 = zext i8 %278 to i64
   %arrayidx.i6031 = getelementptr [3 x ptr], ptr @trans_vwsub_wv.fns, i64 0, i64 %idxprom.i6030
   %279 = load ptr, ptr %arrayidx.i6031, align 8
-  %call.i6032 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef %279)
+  %call.i6032 = call fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef %279)
   br i1 %call.i6032, label %return, label %sw.epilog3868
 
 sw.bb3070:                                        ; preds = %sw.bb2987
@@ -16908,27 +16908,27 @@ sw.bb3479:                                        ; preds = %entry
   ]
 
 sw.bb3482:                                        ; preds = %sw.bb3479
-  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 8)
+  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 8)
   br label %return
 
 sw.bb3486:                                        ; preds = %sw.bb3479
-  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 9)
+  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 9)
   br label %return
 
 sw.bb3490:                                        ; preds = %sw.bb3479
-  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 2)
+  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 2)
   br label %return
 
 sw.bb3494:                                        ; preds = %sw.bb3479
-  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 3)
+  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 3)
   br label %return
 
 sw.bb3498:                                        ; preds = %sw.bb3479
-  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 4)
+  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 4)
   br label %return
 
 sw.bb3502:                                        ; preds = %sw.bb3479
-  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly %u, i32 noundef 5)
+  call fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 5)
   br label %return
 
 sw.bb3507:                                        ; preds = %entry
@@ -17872,7 +17872,7 @@ sw.bb120:                                         ; preds = %sw.bb113
   br i1 %tobool.i405, label %trans_th_addsl1.exit, label %sw.epilog502
 
 trans_th_addsl1.exit:                             ; preds = %sw.bb120
-  %call.i = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl1, ptr noundef null)
+  %call.i = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl1, ptr noundef null)
   br i1 %call.i, label %return, label %sw.epilog502
 
 default.unreachable1655:                          ; preds = %sw.bb258
@@ -17903,14 +17903,14 @@ sw.bb128:                                         ; preds = %sw.bb125
   br i1 %tobool.i417, label %trans_th_addsl2.exit, label %sw.epilog502
 
 trans_th_addsl2.exit:                             ; preds = %sw.bb128
-  %call.i420 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl2, ptr noundef null)
+  %call.i420 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl2, ptr noundef null)
   br i1 %call.i420, label %return, label %sw.epilog502
 
 sw.bb132:                                         ; preds = %sw.bb125
   br i1 %tobool.i417, label %trans_th_addsl3.exit, label %sw.epilog502
 
 trans_th_addsl3.exit:                             ; preds = %sw.bb132
-  %call.i426 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl3, ptr noundef null)
+  %call.i426 = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl3, ptr noundef null)
   br i1 %call.i426, label %return, label %sw.epilog502
 
 sw.bb137:                                         ; preds = %sw.bb110
@@ -17955,7 +17955,7 @@ sw.bb144:                                         ; preds = %sw.bb141
 trans_th_srriw.exit:                              ; preds = %sw.bb144
   %ol.i = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i, align 8
-  %call.i445 = call fastcc zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_roriw)
+  %call.i445 = call fastcc zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_roriw)
   br i1 %call.i445, label %return, label %sw.epilog502
 
 sw.bb149:                                         ; preds = %sw.bb110
@@ -17983,14 +17983,14 @@ sw.bb152:                                         ; preds = %sw.bb149
   br i1 %tobool.i455, label %trans_th_mula.exit.thread, label %sw.epilog502
 
 trans_th_mula.exit.thread:                        ; preds = %sw.bb152
-  call fastcc void @gen_th_mac(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_add_i64, ptr noundef null)
+  call fastcc void @gen_th_mac(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_add_i64, ptr noundef null)
   br label %return
 
 sw.bb156:                                         ; preds = %sw.bb149
   br i1 %tobool.i455, label %trans_th_muls.exit.thread, label %sw.epilog502
 
 trans_th_muls.exit.thread:                        ; preds = %sw.bb156
-  call fastcc void @gen_th_mac(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_sub_i64, ptr noundef null)
+  call fastcc void @gen_th_mac(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_sub_i64, ptr noundef null)
   br label %return
 
 sw.bb161:                                         ; preds = %sw.bb110
@@ -18020,7 +18020,7 @@ sw.bb164:                                         ; preds = %sw.bb161
 trans_th_mulaw.exit.thread:                       ; preds = %sw.bb164
   %ol.i475 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i475, align 8
-  call fastcc void @gen_th_mac(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_add_i64, ptr noundef null)
+  call fastcc void @gen_th_mac(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_add_i64, ptr noundef null)
   br label %return
 
 sw.bb168:                                         ; preds = %sw.bb161
@@ -18029,7 +18029,7 @@ sw.bb168:                                         ; preds = %sw.bb161
 trans_th_mulsw.exit.thread:                       ; preds = %sw.bb168
   %ol.i481 = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol.i481, align 8
-  call fastcc void @gen_th_mac(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @tcg_gen_sub_i64, ptr noundef null)
+  call fastcc void @gen_th_mac(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @tcg_gen_sub_i64, ptr noundef null)
   br label %return
 
 sw.bb173:                                         ; preds = %sw.bb110
@@ -18081,14 +18081,14 @@ sw.bb188:                                         ; preds = %sw.bb185
   br i1 %tobool.i500, label %trans_th_mveqz.exit.thread, label %sw.epilog502
 
 trans_th_mveqz.exit.thread:                       ; preds = %sw.bb188
-  call fastcc void @gen_th_condmove(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8)
+  call fastcc void @gen_th_condmove(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8)
   br label %return
 
 sw.bb192:                                         ; preds = %sw.bb185
   br i1 %tobool.i500, label %trans_th_mvnez.exit.thread, label %sw.epilog502
 
 trans_th_mvnez.exit.thread:                       ; preds = %sw.bb192
-  call fastcc void @gen_th_condmove(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9)
+  call fastcc void @gen_th_condmove(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9)
   br label %return
 
 sw.bb197:                                         ; preds = %sw.bb110
@@ -18115,7 +18115,7 @@ sw.bb200:                                         ; preds = %sw.bb197
   br i1 %tobool.i515, label %trans_th_tstnbz.exit.thread, label %sw.epilog502
 
 trans_th_tstnbz.exit.thread:                      ; preds = %sw.bb200
-  call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, ptr noundef nonnull @gen_th_tstnbz)
+  call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, ptr noundef nonnull @gen_th_tstnbz)
   br label %return
 
 sw.bb204:                                         ; preds = %sw.bb197
@@ -18165,7 +18165,7 @@ sw.bb221:                                         ; preds = %sw.bb110
   br i1 %tobool.i532, label %trans_th_tst.exit, label %sw.epilog502
 
 trans_th_tst.exit:                                ; preds = %sw.bb221
-  %call.i535 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull @gen_bext)
+  %call.i535 = call fastcc zeroext i1 @gen_shift_imm_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, ptr noundef nonnull @gen_bext)
   br i1 %call.i535, label %return, label %sw.epilog502
 
 sw.bb225:                                         ; preds = %sw.bb110
@@ -18497,7 +18497,7 @@ sw.bb261:                                         ; preds = %sw.bb258
   br i1 %tobool.i632, label %trans_th_lrb.exit.thread, label %sw.epilog502
 
 trans_th_lrb.exit.thread:                         ; preds = %sw.bb261
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8, i1 noundef zeroext false)
   br label %return
 
 sw.bb265:                                         ; preds = %sw.bb258
@@ -18524,7 +18524,7 @@ sw.bb265:                                         ; preds = %sw.bb258
   br i1 %tobool.i646, label %trans_th_lbib.exit, label %sw.epilog502
 
 trans_th_lbib.exit:                               ; preds = %sw.bb265
-  %call.i649 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8, i1 noundef zeroext true)
+  %call.i649 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8, i1 noundef zeroext true)
   br i1 %call.i649, label %return, label %sw.epilog502
 
 sw.bb269:                                         ; preds = %sw.bb258
@@ -18551,7 +18551,7 @@ sw.bb269:                                         ; preds = %sw.bb258
   br i1 %tobool.i663, label %trans_th_lurb.exit.thread, label %sw.epilog502
 
 trans_th_lurb.exit.thread:                        ; preds = %sw.bb269
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8, i1 noundef zeroext true)
   br label %return
 
 sw.bb273:                                         ; preds = %sw.bb258
@@ -18578,7 +18578,7 @@ sw.bb273:                                         ; preds = %sw.bb258
   br i1 %tobool.i679, label %trans_th_lbia.exit, label %sw.epilog502
 
 trans_th_lbia.exit:                               ; preds = %sw.bb273
-  %call.i682 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8, i1 noundef zeroext false)
+  %call.i682 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8, i1 noundef zeroext false)
   br i1 %call.i682, label %return, label %sw.epilog502
 
 sw.bb277:                                         ; preds = %sw.bb258
@@ -18605,7 +18605,7 @@ sw.bb277:                                         ; preds = %sw.bb258
   br i1 %tobool.i696, label %trans_th_lrh.exit.thread, label %sw.epilog502
 
 trans_th_lrh.exit.thread:                         ; preds = %sw.bb277
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i1 noundef zeroext false)
   br label %return
 
 sw.bb281:                                         ; preds = %sw.bb258
@@ -18632,7 +18632,7 @@ sw.bb281:                                         ; preds = %sw.bb258
   br i1 %tobool.i712, label %trans_th_lhib.exit, label %sw.epilog502
 
 trans_th_lhib.exit:                               ; preds = %sw.bb281
-  %call.i715 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i1 noundef zeroext true)
+  %call.i715 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i1 noundef zeroext true)
   br i1 %call.i715, label %return, label %sw.epilog502
 
 sw.bb285:                                         ; preds = %sw.bb258
@@ -18659,7 +18659,7 @@ sw.bb285:                                         ; preds = %sw.bb258
   br i1 %tobool.i729, label %trans_th_lurh.exit.thread, label %sw.epilog502
 
 trans_th_lurh.exit.thread:                        ; preds = %sw.bb285
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i1 noundef zeroext true)
   br label %return
 
 sw.bb289:                                         ; preds = %sw.bb258
@@ -18686,7 +18686,7 @@ sw.bb289:                                         ; preds = %sw.bb258
   br i1 %tobool.i745, label %trans_th_lhia.exit, label %sw.epilog502
 
 trans_th_lhia.exit:                               ; preds = %sw.bb289
-  %call.i748 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i1 noundef zeroext false)
+  %call.i748 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i1 noundef zeroext false)
   br i1 %call.i748, label %return, label %sw.epilog502
 
 sw.bb293:                                         ; preds = %sw.bb258
@@ -18713,7 +18713,7 @@ sw.bb293:                                         ; preds = %sw.bb258
   br i1 %tobool.i762, label %trans_th_lrw.exit.thread, label %sw.epilog502
 
 trans_th_lrw.exit.thread:                         ; preds = %sw.bb293
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i1 noundef zeroext false)
   br label %return
 
 sw.bb297:                                         ; preds = %sw.bb258
@@ -18740,7 +18740,7 @@ sw.bb297:                                         ; preds = %sw.bb258
   br i1 %tobool.i778, label %trans_th_lwib.exit, label %sw.epilog502
 
 trans_th_lwib.exit:                               ; preds = %sw.bb297
-  %call.i781 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i1 noundef zeroext true)
+  %call.i781 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i1 noundef zeroext true)
   br i1 %call.i781, label %return, label %sw.epilog502
 
 sw.bb301:                                         ; preds = %sw.bb258
@@ -18767,7 +18767,7 @@ sw.bb301:                                         ; preds = %sw.bb258
   br i1 %tobool.i795, label %trans_th_lurw.exit.thread, label %sw.epilog502
 
 trans_th_lurw.exit.thread:                        ; preds = %sw.bb301
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i1 noundef zeroext true)
   br label %return
 
 sw.bb305:                                         ; preds = %sw.bb258
@@ -18794,7 +18794,7 @@ sw.bb305:                                         ; preds = %sw.bb258
   br i1 %tobool.i811, label %trans_th_lwia.exit, label %sw.epilog502
 
 trans_th_lwia.exit:                               ; preds = %sw.bb305
-  %call.i814 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i1 noundef zeroext false)
+  %call.i814 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i1 noundef zeroext false)
   br i1 %call.i814, label %return, label %sw.epilog502
 
 sw.bb309:                                         ; preds = %sw.bb258
@@ -18821,7 +18821,7 @@ sw.bb309:                                         ; preds = %sw.bb258
   br i1 %tobool.i828, label %trans_th_lrd.exit.thread, label %sw.epilog502
 
 trans_th_lrd.exit.thread:                         ; preds = %sw.bb309
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i1 noundef zeroext false)
   br label %return
 
 sw.bb313:                                         ; preds = %sw.bb258
@@ -18848,7 +18848,7 @@ sw.bb313:                                         ; preds = %sw.bb258
   br i1 %tobool.i844, label %trans_th_ldib.exit, label %sw.epilog502
 
 trans_th_ldib.exit:                               ; preds = %sw.bb313
-  %call.i847 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i1 noundef zeroext true)
+  %call.i847 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i1 noundef zeroext true)
   br i1 %call.i847, label %return, label %sw.epilog502
 
 sw.bb317:                                         ; preds = %sw.bb258
@@ -18875,7 +18875,7 @@ sw.bb317:                                         ; preds = %sw.bb258
   br i1 %tobool.i861, label %trans_th_lurd.exit.thread, label %sw.epilog502
 
 trans_th_lurd.exit.thread:                        ; preds = %sw.bb317
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i1 noundef zeroext true)
   br label %return
 
 sw.bb321:                                         ; preds = %sw.bb258
@@ -18902,7 +18902,7 @@ sw.bb321:                                         ; preds = %sw.bb258
   br i1 %tobool.i877, label %trans_th_ldia.exit, label %sw.epilog502
 
 trans_th_ldia.exit:                               ; preds = %sw.bb321
-  %call.i880 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i1 noundef zeroext false)
+  %call.i880 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i1 noundef zeroext false)
   br i1 %call.i880, label %return, label %sw.epilog502
 
 sw.bb325:                                         ; preds = %sw.bb258
@@ -18929,7 +18929,7 @@ sw.bb325:                                         ; preds = %sw.bb258
   br i1 %tobool.i894, label %trans_th_lrbu.exit.thread, label %sw.epilog502
 
 trans_th_lrbu.exit.thread:                        ; preds = %sw.bb325
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, i1 noundef zeroext false)
   br label %return
 
 sw.bb329:                                         ; preds = %sw.bb258
@@ -18956,7 +18956,7 @@ sw.bb329:                                         ; preds = %sw.bb258
   br i1 %tobool.i910, label %trans_th_lbuib.exit, label %sw.epilog502
 
 trans_th_lbuib.exit:                              ; preds = %sw.bb329
-  %call.i913 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, i1 noundef zeroext true)
+  %call.i913 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, i1 noundef zeroext true)
   br i1 %call.i913, label %return, label %sw.epilog502
 
 sw.bb333:                                         ; preds = %sw.bb258
@@ -18983,7 +18983,7 @@ sw.bb333:                                         ; preds = %sw.bb258
   br i1 %tobool.i927, label %trans_th_lurbu.exit.thread, label %sw.epilog502
 
 trans_th_lurbu.exit.thread:                       ; preds = %sw.bb333
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, i1 noundef zeroext true)
   br label %return
 
 sw.bb337:                                         ; preds = %sw.bb258
@@ -19010,7 +19010,7 @@ sw.bb337:                                         ; preds = %sw.bb258
   br i1 %tobool.i943, label %trans_th_lbuia.exit, label %sw.epilog502
 
 trans_th_lbuia.exit:                              ; preds = %sw.bb337
-  %call.i946 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, i1 noundef zeroext false)
+  %call.i946 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, i1 noundef zeroext false)
   br i1 %call.i946, label %return, label %sw.epilog502
 
 sw.bb341:                                         ; preds = %sw.bb258
@@ -19037,7 +19037,7 @@ sw.bb341:                                         ; preds = %sw.bb258
   br i1 %tobool.i960, label %trans_th_lrhu.exit.thread, label %sw.epilog502
 
 trans_th_lrhu.exit.thread:                        ; preds = %sw.bb341
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, i1 noundef zeroext false)
   br label %return
 
 sw.bb345:                                         ; preds = %sw.bb258
@@ -19064,7 +19064,7 @@ sw.bb345:                                         ; preds = %sw.bb258
   br i1 %tobool.i976, label %trans_th_lhuib.exit, label %sw.epilog502
 
 trans_th_lhuib.exit:                              ; preds = %sw.bb345
-  %call.i979 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, i1 noundef zeroext true)
+  %call.i979 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, i1 noundef zeroext true)
   br i1 %call.i979, label %return, label %sw.epilog502
 
 sw.bb349:                                         ; preds = %sw.bb258
@@ -19091,7 +19091,7 @@ sw.bb349:                                         ; preds = %sw.bb258
   br i1 %tobool.i993, label %trans_th_lurhu.exit.thread, label %sw.epilog502
 
 trans_th_lurhu.exit.thread:                       ; preds = %sw.bb349
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, i1 noundef zeroext true)
   br label %return
 
 sw.bb353:                                         ; preds = %sw.bb258
@@ -19118,7 +19118,7 @@ sw.bb353:                                         ; preds = %sw.bb258
   br i1 %tobool.i1009, label %trans_th_lhuia.exit, label %sw.epilog502
 
 trans_th_lhuia.exit:                              ; preds = %sw.bb353
-  %call.i1012 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 1, i1 noundef zeroext false)
+  %call.i1012 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 1, i1 noundef zeroext false)
   br i1 %call.i1012, label %return, label %sw.epilog502
 
 sw.bb357:                                         ; preds = %sw.bb258
@@ -19145,7 +19145,7 @@ sw.bb357:                                         ; preds = %sw.bb258
   br i1 %tobool.i1026, label %trans_th_lrwu.exit.thread, label %sw.epilog502
 
 trans_th_lrwu.exit.thread:                        ; preds = %sw.bb357
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, i1 noundef zeroext false)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, i1 noundef zeroext false)
   br label %return
 
 sw.bb361:                                         ; preds = %sw.bb258
@@ -19172,7 +19172,7 @@ sw.bb361:                                         ; preds = %sw.bb258
   br i1 %tobool.i1042, label %trans_th_lwuib.exit, label %sw.epilog502
 
 trans_th_lwuib.exit:                              ; preds = %sw.bb361
-  %call.i1045 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, i1 noundef zeroext true)
+  %call.i1045 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, i1 noundef zeroext true)
   br i1 %call.i1045, label %return, label %sw.epilog502
 
 sw.bb365:                                         ; preds = %sw.bb258
@@ -19199,7 +19199,7 @@ sw.bb365:                                         ; preds = %sw.bb258
   br i1 %tobool.i1059, label %trans_th_lurwu.exit.thread, label %sw.epilog502
 
 trans_th_lurwu.exit.thread:                       ; preds = %sw.bb365
-  call fastcc void @gen_load_idx(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, i1 noundef zeroext true)
+  call fastcc void @gen_load_idx(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, i1 noundef zeroext true)
   br label %return
 
 sw.bb369:                                         ; preds = %sw.bb258
@@ -19226,7 +19226,7 @@ sw.bb369:                                         ; preds = %sw.bb258
   br i1 %tobool.i1075, label %trans_th_lwuia.exit, label %sw.epilog502
 
 trans_th_lwuia.exit:                              ; preds = %sw.bb369
-  %call.i1078 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, i1 noundef zeroext false)
+  %call.i1078 = call fastcc zeroext i1 @gen_load_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, i1 noundef zeroext false)
   br i1 %call.i1078, label %return, label %sw.epilog502
 
 sw.bb373:                                         ; preds = %sw.bb258
@@ -19253,7 +19253,7 @@ sw.bb373:                                         ; preds = %sw.bb258
   br i1 %tobool.i1088, label %trans_th_lwd.exit, label %sw.epilog502
 
 trans_th_lwd.exit:                                ; preds = %sw.bb373
-  %call.i1091 = call fastcc zeroext i1 @gen_loadpair_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i32 noundef 3)
+  %call.i1091 = call fastcc zeroext i1 @gen_loadpair_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i32 noundef 3)
   br i1 %call.i1091, label %return, label %sw.epilog502
 
 sw.bb377:                                         ; preds = %sw.bb258
@@ -19280,7 +19280,7 @@ sw.bb377:                                         ; preds = %sw.bb258
   br i1 %tobool.i1105, label %trans_th_lwud.exit, label %sw.epilog502
 
 trans_th_lwud.exit:                               ; preds = %sw.bb377
-  %call.i1108 = call fastcc zeroext i1 @gen_loadpair_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 2, i32 noundef 3)
+  %call.i1108 = call fastcc zeroext i1 @gen_loadpair_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 2, i32 noundef 3)
   br i1 %call.i1108, label %return, label %sw.epilog502
 
 sw.bb381:                                         ; preds = %sw.bb258
@@ -19307,7 +19307,7 @@ sw.bb381:                                         ; preds = %sw.bb258
   br i1 %tobool.i1122, label %trans_th_ldd.exit, label %sw.epilog502
 
 trans_th_ldd.exit:                                ; preds = %sw.bb381
-  %call.i1125 = call fastcc zeroext i1 @gen_loadpair_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i32 noundef 4)
+  %call.i1125 = call fastcc zeroext i1 @gen_loadpair_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i32 noundef 4)
   br i1 %call.i1125, label %return, label %sw.epilog502
 
 sw.bb386:                                         ; preds = %entry
@@ -19376,7 +19376,7 @@ sw.bb393:                                         ; preds = %sw.bb386
   br i1 %tobool.i1150, label %trans_th_sbib.exit.thread, label %sw.epilog502
 
 trans_th_sbib.exit.thread:                        ; preds = %sw.bb393
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8, i1 noundef zeroext true)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8, i1 noundef zeroext true)
   br label %return
 
 sw.bb397:                                         ; preds = %sw.bb386
@@ -19422,7 +19422,7 @@ sw.bb401:                                         ; preds = %sw.bb386
   br i1 %tobool.i1177, label %trans_th_sbia.exit.thread, label %sw.epilog502
 
 trans_th_sbia.exit.thread:                        ; preds = %sw.bb401
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 8, i1 noundef zeroext false)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 8, i1 noundef zeroext false)
   br label %return
 
 sw.bb405:                                         ; preds = %sw.bb386
@@ -19468,7 +19468,7 @@ sw.bb409:                                         ; preds = %sw.bb386
   br i1 %tobool.i1204, label %trans_th_shib.exit.thread, label %sw.epilog502
 
 trans_th_shib.exit.thread:                        ; preds = %sw.bb409
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i1 noundef zeroext true)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i1 noundef zeroext true)
   br label %return
 
 sw.bb413:                                         ; preds = %sw.bb386
@@ -19514,7 +19514,7 @@ sw.bb417:                                         ; preds = %sw.bb386
   br i1 %tobool.i1231, label %trans_th_shia.exit.thread, label %sw.epilog502
 
 trans_th_shia.exit.thread:                        ; preds = %sw.bb417
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 9, i1 noundef zeroext false)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 9, i1 noundef zeroext false)
   br label %return
 
 sw.bb421:                                         ; preds = %sw.bb386
@@ -19560,7 +19560,7 @@ sw.bb425:                                         ; preds = %sw.bb386
   br i1 %tobool.i1258, label %trans_th_swib.exit.thread, label %sw.epilog502
 
 trans_th_swib.exit.thread:                        ; preds = %sw.bb425
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i1 noundef zeroext true)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i1 noundef zeroext true)
   br label %return
 
 sw.bb429:                                         ; preds = %sw.bb386
@@ -19606,7 +19606,7 @@ sw.bb433:                                         ; preds = %sw.bb386
   br i1 %tobool.i1285, label %trans_th_swia.exit.thread, label %sw.epilog502
 
 trans_th_swia.exit.thread:                        ; preds = %sw.bb433
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i1 noundef zeroext false)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i1 noundef zeroext false)
   br label %return
 
 sw.bb437:                                         ; preds = %sw.bb386
@@ -19652,7 +19652,7 @@ sw.bb441:                                         ; preds = %sw.bb386
   br i1 %tobool.i1312, label %trans_th_sdib.exit.thread, label %sw.epilog502
 
 trans_th_sdib.exit.thread:                        ; preds = %sw.bb441
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i1 noundef zeroext true)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i1 noundef zeroext true)
   br label %return
 
 sw.bb445:                                         ; preds = %sw.bb386
@@ -19698,7 +19698,7 @@ sw.bb449:                                         ; preds = %sw.bb386
   br i1 %tobool.i1339, label %trans_th_sdia.exit.thread, label %sw.epilog502
 
 trans_th_sdia.exit.thread:                        ; preds = %sw.bb449
-  call fastcc void @gen_store_inc(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i1 noundef zeroext false)
+  call fastcc void @gen_store_inc(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i1 noundef zeroext false)
   br label %return
 
 sw.bb453:                                         ; preds = %sw.bb386
@@ -19725,7 +19725,7 @@ sw.bb453:                                         ; preds = %sw.bb386
   br i1 %tobool.i1355, label %trans_th_swd.exit.thread, label %sw.epilog502
 
 trans_th_swd.exit.thread:                         ; preds = %sw.bb453
-  call fastcc void @gen_storepair_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 10, i32 noundef 3)
+  call fastcc void @gen_storepair_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 10, i32 noundef 3)
   br label %return
 
 sw.bb457:                                         ; preds = %sw.bb386
@@ -19752,7 +19752,7 @@ sw.bb457:                                         ; preds = %sw.bb386
   br i1 %tobool.i1371, label %trans_th_sdd.exit.thread, label %sw.epilog502
 
 trans_th_sdd.exit.thread:                         ; preds = %sw.bb457
-  call fastcc void @gen_storepair_tl(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 11, i32 noundef 4)
+  call fastcc void @gen_storepair_tl(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 11, i32 noundef 4)
   br label %return
 
 sw.bb462:                                         ; preds = %entry
@@ -19803,7 +19803,7 @@ trans_th_flrw.exit:                               ; preds = %do.body8.i
   %idxprom.i.i = zext nneg i32 %and.i10.i1381 to i64
   %arrayidx.i.i = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i
   %202 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext false)
+  %call.i.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext false)
   %mem_idx.i.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %203 = load i32, ptr %mem_idx.i.i, align 4
   %conv.i.i = zext i32 %203 to i64
@@ -19846,7 +19846,7 @@ trans_th_flurw.exit:                              ; preds = %do.body8.i1399
   %idxprom.i.i1404 = zext nneg i32 %and.i10.i1381 to i64
   %arrayidx.i.i1405 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1404
   %212 = load ptr, ptr %arrayidx.i.i1405, align 8
-  %call.i.i1409 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext true)
+  %call.i.i1409 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext true)
   %mem_idx.i.i1410 = getelementptr inbounds i8, ptr %ctx, i64 108
   %213 = load i32, ptr %mem_idx.i.i1410, align 4
   %conv.i.i1411 = zext i32 %213 to i64
@@ -19889,7 +19889,7 @@ trans_th_flrd.exit:                               ; preds = %do.body8.i1428
   %idxprom.i.i1433 = zext nneg i32 %and.i10.i1381 to i64
   %arrayidx.i.i1434 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1433
   %222 = load ptr, ptr %arrayidx.i.i1434, align 8
-  %call.i.i1438 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext false)
+  %call.i.i1438 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext false)
   %mem_idx.i.i1439 = getelementptr inbounds i8, ptr %ctx, i64 108
   %223 = load i32, ptr %mem_idx.i.i1439, align 4
   %conv.i.i1440 = zext i32 %223 to i64
@@ -19931,7 +19931,7 @@ trans_th_flurd.exit:                              ; preds = %do.body8.i1457
   %idxprom.i.i1462 = zext nneg i32 %and.i10.i1381 to i64
   %arrayidx.i.i1463 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1462
   %232 = load ptr, ptr %arrayidx.i.i1463, align 8
-  %call.i.i1467 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext true)
+  %call.i.i1467 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1375, i32 noundef %and.i12.i1383, i32 noundef %and.i8.i1378, i1 noundef zeroext true)
   %mem_idx.i.i1468 = getelementptr inbounds i8, ptr %ctx, i64 108
   %233 = load i32, ptr %mem_idx.i.i1468, align 4
   %conv.i.i1469 = zext i32 %233 to i64
@@ -19990,7 +19990,7 @@ trans_th_fsrw.exit:                               ; preds = %do.body8.i1497
   %idxprom.i.i1502 = zext nneg i32 %and.i10.i1486 to i64
   %arrayidx.i.i1503 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1502
   %242 = load ptr, ptr %arrayidx.i.i1503, align 8
-  %call.i.i1507 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext false)
+  %call.i.i1507 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext false)
   %mem_idx.i.i1508 = getelementptr inbounds i8, ptr %ctx, i64 108
   %243 = load i32, ptr %mem_idx.i.i1508, align 4
   %conv.i.i1509 = zext i32 %243 to i64
@@ -20032,7 +20032,7 @@ trans_th_fsurw.exit:                              ; preds = %do.body8.i1526
   %idxprom.i.i1531 = zext nneg i32 %and.i10.i1486 to i64
   %arrayidx.i.i1532 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1531
   %252 = load ptr, ptr %arrayidx.i.i1532, align 8
-  %call.i.i1536 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext true)
+  %call.i.i1536 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext true)
   %mem_idx.i.i1537 = getelementptr inbounds i8, ptr %ctx, i64 108
   %253 = load i32, ptr %mem_idx.i.i1537, align 4
   %conv.i.i1538 = zext i32 %253 to i64
@@ -20074,7 +20074,7 @@ trans_th_fsrd.exit:                               ; preds = %do.body8.i1555
   %idxprom.i.i1560 = zext nneg i32 %and.i10.i1486 to i64
   %arrayidx.i.i1561 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1560
   %262 = load ptr, ptr %arrayidx.i.i1561, align 8
-  %call.i.i1565 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext false)
+  %call.i.i1565 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext false)
   %mem_idx.i.i1566 = getelementptr inbounds i8, ptr %ctx, i64 108
   %263 = load i32, ptr %mem_idx.i.i1566, align 4
   %conv.i.i1567 = zext i32 %263 to i64
@@ -20116,7 +20116,7 @@ trans_th_fsurd.exit:                              ; preds = %do.body8.i1584
   %idxprom.i.i1589 = zext nneg i32 %and.i10.i1486 to i64
   %arrayidx.i.i1590 = getelementptr [32 x ptr], ptr @cpu_fpr, i64 0, i64 %idxprom.i.i1589
   %272 = load ptr, ptr %arrayidx.i.i1590, align 8
-  %call.i.i1594 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext true)
+  %call.i.i1594 = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %and.i.i1480, i32 noundef %and.i12.i1488, i32 noundef %and.i8.i1483, i1 noundef zeroext true)
   %mem_idx.i.i1595 = getelementptr inbounds i8, ptr %ctx, i64 108
   %273 = load i32, ptr %mem_idx.i.i1595, align 4
   %conv.i.i1596 = zext i32 %273 to i64
@@ -20183,7 +20183,7 @@ sw.bb1:                                           ; preds = %entry
 
 return.sink.split:                                ; preds = %entry, %sw.bb1
   %gen_czero_nez.sink = phi ptr [ @gen_czero_nez, %sw.bb1 ], [ @gen_czero_eqz, %entry ]
-  call fastcc void @gen_logic(ptr noundef readonly %ctx, ptr noundef nonnull readonly %u, ptr noundef nonnull %gen_czero_nez.sink)
+  call fastcc void @gen_logic(ptr noundef %ctx, ptr noundef nonnull %u, ptr noundef nonnull %gen_czero_nez.sink)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -20273,7 +20273,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %or.i31.i = or disjoint i32 %or.i27.i, %and6.i30.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %21, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %21, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.end.i
@@ -20363,7 +20363,7 @@ if.then:                                          ; preds = %ld_us_mask_check.ex
   %7 = or disjoint i8 %4, %6
   %or.i121.i = or i8 %7, -128
   %or.i12.i = zext i8 %or.i121.i to i32
-  tail call fastcc void @ldst_us_trans(i32 noundef %a.0.val, i32 noundef %a.4.val, i32 noundef %or.i12.i, ptr noundef nonnull @gen_helper_vlm_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %a.0.val, i32 noundef %a.4.val, i32 noundef %or.i12.i, ptr noundef nonnull @gen_helper_vlm_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %entry, %ld_us_mask_check.exit, %if.then
@@ -20517,7 +20517,7 @@ if.then:                                          ; preds = %vext_check_store.ex
   %20 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %21 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %20, i32 noundef %21, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse8_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %20, i32 noundef %21, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse8_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.then
@@ -20569,7 +20569,7 @@ if.then:                                          ; preds = %entry
   %15 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %16 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef %s)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -20936,7 +20936,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %or.i31.i = or disjoint i32 %or.i27.i, %and6.i30.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %22 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.end.i
@@ -21152,7 +21152,7 @@ if.then:                                          ; preds = %vext_check_store.ex
   %21 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %22 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse16_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse16_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.then
@@ -21204,7 +21204,7 @@ if.then:                                          ; preds = %entry
   %15 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %16 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef %s)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -21297,7 +21297,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %or.i31.i = or disjoint i32 %or.i27.i, %and6.i30.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %22 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.end.i
@@ -21513,7 +21513,7 @@ if.then:                                          ; preds = %vext_check_store.ex
   %21 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %22 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse32_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse32_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.then
@@ -21565,7 +21565,7 @@ if.then:                                          ; preds = %entry
   %15 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %16 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef %s)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -21658,7 +21658,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %or.i31.i = or disjoint i32 %or.i27.i, %and6.i30.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %22 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull %12, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.end.i
@@ -21874,7 +21874,7 @@ if.then:                                          ; preds = %vext_check_store.ex
   %21 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %22 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse64_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %or.i31.i, ptr noundef nonnull @gen_helper_vlse64_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i.i, %vext_check_store.exit.i.i, %entry, %land.lhs.true.i, %if.then
@@ -21926,7 +21926,7 @@ if.then:                                          ; preds = %entry
   %15 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %16 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %or.i31.i, ptr noundef %1, ptr noundef %s)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -22339,7 +22339,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_unary_per_ol.exit:                            ; preds = %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_clzw, %if.then2.i ], [ @gen_clz, %do.end ]
-  tail call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
+  tail call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %entry, %gen_unary_per_ol.exit
@@ -22374,7 +22374,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_unary_per_ol.exit:                            ; preds = %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_ctzw, %if.then2.i ], [ @gen_ctz, %do.end ]
-  tail call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 2, ptr noundef nonnull %f_tl.addr.0.i)
+  tail call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 2, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %entry, %gen_unary_per_ol.exit
@@ -22860,7 +22860,7 @@ do.body.i:                                        ; preds = %entry
 
 gen_shift_imm_fn_per_ol.exit:                     ; preds = %entry, %entry, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_srliw, %if.then2.i ], [ @tcg_gen_shri_i64, %entry ], [ @tcg_gen_shri_i64, %entry ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, ptr noundef nonnull %f_tl.addr.0.i)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef %a, ptr noundef nonnull %f_tl.addr.0.i)
   ret i1 %call7.i
 }
 
@@ -22885,7 +22885,7 @@ do.body.i:                                        ; preds = %entry
 
 gen_shift_imm_fn_per_ol.exit:                     ; preds = %entry, %entry, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_sraiw, %if.then2.i ], [ @tcg_gen_sari_i64, %entry ], [ @tcg_gen_sari_i64, %entry ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, ptr noundef nonnull %f_tl.addr.0.i)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef %a, ptr noundef nonnull %f_tl.addr.0.i)
   ret i1 %call7.i
 }
 
@@ -22924,7 +22924,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_shift_imm_fn_per_ol.exit:                     ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_roriw, %if.then2.i ], [ @tcg_gen_rotri_i64, %do.end ], [ @tcg_gen_rotri_i64, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, ptr noundef nonnull %f_tl.addr.0.i)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef %a, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %gen_shift_imm_fn_per_ol.exit
@@ -23776,7 +23776,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %13 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %13, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %13, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %st_us_check.exit
@@ -23907,7 +23907,7 @@ if.then:                                          ; preds = %st_stride_check.exi
   %12 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %13 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %12, i32 noundef %13, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse8_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %12, i32 noundef %13, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse8_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %st_stride_check.exit, %if.then
@@ -24006,7 +24006,7 @@ if.then:                                          ; preds = %st_index_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i16.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %require_align.exit18.i.i, %entry, %land.lhs.true.i, %st_index_check.exit, %if.then
@@ -24357,7 +24357,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %st_us_check.exit
@@ -24435,7 +24435,7 @@ if.then:                                          ; preds = %st_stride_check.exi
   %13 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %14 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse16_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse16_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %st_stride_check.exit, %if.then
@@ -24535,7 +24535,7 @@ if.then:                                          ; preds = %st_index_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i16.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %require_align.exit18.i.i, %entry, %land.lhs.true.i, %st_index_check.exit, %if.then
@@ -24614,7 +24614,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %st_us_check.exit
@@ -24692,7 +24692,7 @@ if.then:                                          ; preds = %st_stride_check.exi
   %13 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %14 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse32_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse32_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %st_stride_check.exit, %if.then
@@ -24792,7 +24792,7 @@ if.then:                                          ; preds = %st_index_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i16.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %require_align.exit18.i.i, %entry, %land.lhs.true.i, %st_index_check.exit, %if.then
@@ -24871,7 +24871,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_us_trans(i32 noundef %2, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %st_us_check.exit
@@ -24949,7 +24949,7 @@ if.then:                                          ; preds = %st_stride_check.exi
   %13 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %14 = load i32, ptr %rs2.i, align 4
-  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse64_v, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_stride_trans(i32 noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %or.i17.i, ptr noundef nonnull @gen_helper_vsse64_v, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %st_stride_check.exit, %if.then
@@ -25049,7 +25049,7 @@ if.then:                                          ; preds = %st_index_check.exit
   %or.i17.i = or disjoint i32 %or.i.i, %and6.i16.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull readonly %s)
+  tail call fastcc void @ldst_index_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %or.i17.i, ptr noundef %10, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %require_align.exit18.i.i, %entry, %land.lhs.true.i, %st_index_check.exit, %if.then
@@ -26384,7 +26384,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_arith_per_ol.exit:                            ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_mulh_w, %if.then2.i ], [ @gen_mulh, %do.end ], [ @gen_mulh, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 1, ptr noundef nonnull %f_tl.addr.0.i, ptr noundef nonnull @gen_mulh_i128)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 1, ptr noundef nonnull %f_tl.addr.0.i, ptr noundef nonnull @gen_mulh_i128)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %gen_arith_per_ol.exit
@@ -26428,7 +26428,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_arith_per_ol.exit:                            ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_mulhsu_w, %if.then2.i ], [ @gen_mulhsu, %do.end ], [ @gen_mulhsu, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i, ptr noundef nonnull @gen_mulhsu_i128)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i, ptr noundef nonnull @gen_mulhsu_i128)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %gen_arith_per_ol.exit
@@ -26472,7 +26472,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_arith_per_ol.exit:                            ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_mulh_w, %if.then2.i ], [ @gen_mulhu, %do.end ], [ @gen_mulhu, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 2, ptr noundef nonnull %f_tl.addr.0.i, ptr noundef nonnull @gen_mulhu_i128)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 2, ptr noundef nonnull %f_tl.addr.0.i, ptr noundef nonnull @gen_mulhu_i128)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %gen_arith_per_ol.exit
@@ -27191,7 +27191,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_shift_per_ol.exit:                            ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_rolw, %if.then2.i ], [ @tcg_gen_rotl_i64, %do.end ], [ @tcg_gen_rotl_i64, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %gen_shift_per_ol.exit
@@ -27234,7 +27234,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_shift_per_ol.exit:                            ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_rorw, %if.then2.i ], [ @tcg_gen_rotr_i64, %do.end ], [ @tcg_gen_rotr_i64, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %gen_shift_per_ol.exit
@@ -52004,7 +52004,7 @@ opivv_vmadc_check.exit:                           ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_vmadc_check.exit
@@ -52216,7 +52216,7 @@ opivv_vmadc_check.exit:                           ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_vmadc_check.exit
@@ -52924,7 +52924,7 @@ opivv_cmp_check.exit:                             ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_cmp_check.exit
@@ -53013,7 +53013,7 @@ opivv_cmp_check.exit:                             ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_cmp_check.exit
@@ -53102,7 +53102,7 @@ opivv_cmp_check.exit:                             ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_cmp_check.exit
@@ -53191,7 +53191,7 @@ opivv_cmp_check.exit:                             ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_cmp_check.exit
@@ -53280,7 +53280,7 @@ opivv_cmp_check.exit:                             ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_cmp_check.exit
@@ -53369,7 +53369,7 @@ opivv_cmp_check.exit:                             ; preds = %land.lhs.true.i
   %3 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivv_cmp_check.exit
@@ -55144,7 +55144,7 @@ opfv_widen_check.exit.i:                          ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %opfv_widen_check.exit.i
@@ -55304,7 +55304,7 @@ opfv_widen_check.exit.i:                          ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %opfv_widen_check.exit.i
@@ -55503,7 +55503,7 @@ opfxv_widen_check.exit:                           ; preds = %land.lhs.true2.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i32, ptr %rs2.i, align 4
   %12 = load i32, ptr %a, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfxv_widen_check.exit
@@ -55656,7 +55656,7 @@ opfxv_widen_check.exit:                           ; preds = %land.lhs.true2.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i32, ptr %rs2.i, align 4
   %12 = load i32, ptr %a, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfxv_widen_check.exit
@@ -55770,7 +55770,7 @@ opfv_widen_check.exit.i:                          ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %opfv_widen_check.exit.i
@@ -55955,7 +55955,7 @@ opfv_widen_check.exit:                            ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %ctx, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %ctx, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call2.i, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %opfv_widen_check.exit
@@ -56078,7 +56078,7 @@ opfv_widen_check.exit.i:                          ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %opfv_widen_check.exit.i
@@ -56238,7 +56238,7 @@ opfv_widen_check.exit.i:                          ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %opfv_widen_check.exit.i
@@ -56437,7 +56437,7 @@ opxfv_narrow_check.exit:                          ; preds = %land.lhs.true2.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i32, ptr %rs2.i, align 4
   %12 = load i32, ptr %a, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opxfv_narrow_check.exit
@@ -56596,7 +56596,7 @@ opxfv_narrow_check.exit:                          ; preds = %land.lhs.true2.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i32, ptr %rs2.i, align 4
   %12 = load i32, ptr %a, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opxfv_narrow_check.exit
@@ -56716,7 +56716,7 @@ opfv_narrow_check.exit.i:                         ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %opfv_narrow_check.exit.i
@@ -56867,7 +56867,7 @@ opfv_narrow_check.exit.i:                         ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %opfv_narrow_check.exit.i
@@ -57018,7 +57018,7 @@ opfv_narrow_check.exit.i:                         ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %opfv_narrow_check.exit.i
@@ -57169,7 +57169,7 @@ opfv_narrow_check.exit.i:                         ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %rs2.i.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %opfv_narrow_check.exit.i
@@ -57359,7 +57359,7 @@ opxfv_narrow_check.exit:                          ; preds = %land.lhs.true2.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i32, ptr %rs2.i, align 4
   %12 = load i32, ptr %a, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opxfv_narrow_check.exit
@@ -57518,7 +57518,7 @@ opxfv_narrow_check.exit:                          ; preds = %land.lhs.true2.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i32, ptr %rs2.i, align 4
   %12 = load i32, ptr %a, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opxfv_narrow_check.exit
@@ -57672,7 +57672,7 @@ opfv_narrow_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %ctx, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %ctx, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call2.i, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %opfv_narrow_check.exit
@@ -57835,7 +57835,7 @@ opfvv_cmp_check.exit:                             ; preds = %land.lhs.true2.i
   %11 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %12 = load i32, ptr %rs2.i, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_cmp_check.exit
@@ -58000,7 +58000,7 @@ opfvv_cmp_check.exit:                             ; preds = %land.lhs.true2.i
   %11 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %12 = load i32, ptr %rs2.i, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_cmp_check.exit
@@ -58165,7 +58165,7 @@ opfvv_cmp_check.exit:                             ; preds = %land.lhs.true2.i
   %11 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %12 = load i32, ptr %rs2.i, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_cmp_check.exit
@@ -58330,7 +58330,7 @@ opfvv_cmp_check.exit:                             ; preds = %land.lhs.true2.i
   %11 = load i32, ptr %rs1.i, align 4
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %12 = load i32, ptr %rs2.i, align 4
-  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull readonly %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  %call4.i = tail call fastcc zeroext i1 @vext_check_mss(ptr noundef nonnull %s, i32 noundef %10, i32 noundef %11, i32 noundef %12)
   br i1 %call4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_cmp_check.exit
@@ -62504,7 +62504,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 1)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %if.then.i, %opivx_check.exit
@@ -62620,7 +62620,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 1)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %if.then.i, %opivx_check.exit
@@ -62733,7 +62733,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 1)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %if.then.i, %opivx_check.exit
@@ -62846,7 +62846,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 1)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %if.then.i, %opivx_check.exit
@@ -62959,7 +62959,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 1)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %if.then.i, %opivx_check.exit
@@ -63490,7 +63490,7 @@ extract64.exit.i.i:                               ; preds = %if.then.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i, %if.then
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %16 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %16, i32 noundef %3, i32 noundef %4, ptr noundef readonly %11, ptr noundef nonnull readonly %s, i32 noundef 2)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %16, i32 noundef %3, i32 noundef %4, ptr noundef %11, ptr noundef nonnull %s, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i, %require_align.exit.i.i.i, %entry, %land.lhs.true.i.i, %opivx_check.exit.i, %if.end.i, %extract64.exit.i.i, %zvkb_vx_check.exit
@@ -64094,7 +64094,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -64260,7 +64260,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i, %if.then
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %23 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %23, i32 noundef %3, i32 noundef %4, ptr noundef readonly %11, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %23, i32 noundef %3, i32 noundef %4, ptr noundef %11, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i, %require_align.exit.i.i.i, %entry, %land.lhs.true.i.i, %opivx_check.exit.i, %if.end.i, %get_gpr.exit.i, %zvkb_vx_check.exit
@@ -64413,7 +64413,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -64919,7 +64919,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -65072,7 +65072,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -65225,7 +65225,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -66001,7 +66001,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i, %if.then
   %rs116.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs116.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %11, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %11, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i, %require_align.exit.i.i.i, %entry, %land.lhs.true.i.i, %opivx_check.exit.i, %if.end.i, %get_gpr.exit.i, %zvkb_vx_check.exit
@@ -66160,7 +66160,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i, %if.then
   %rs116.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs116.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %11, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %11, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i, %require_align.exit.i.i.i, %entry, %land.lhs.true.i.i, %opivx_check.exit.i, %if.end.i, %get_gpr.exit.i, %zvkb_vx_check.exit
@@ -71836,7 +71836,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
   %5 = load i32, ptr %a, align 4
-  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
   br i1 %call.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i
@@ -71943,7 +71943,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
   %5 = load i32, ptr %a, align 4
-  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
   br i1 %call.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i
@@ -72050,7 +72050,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
   %5 = load i32, ptr %a, align 4
-  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
   br i1 %call.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i
@@ -72157,7 +72157,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
   %5 = load i32, ptr %a, align 4
-  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %4, i32 noundef %5)
   br i1 %call.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i
@@ -73404,7 +73404,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -73738,7 +73738,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -74282,7 +74282,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -74554,7 +74554,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -74705,7 +74705,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -74856,7 +74856,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -75007,7 +75007,7 @@ opfvv_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2.i, align 4
   %11 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvv_widen_check.exit
@@ -76927,7 +76927,7 @@ extract64.exit.i.i:                               ; preds = %if.then.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 2)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %extract64.exit.i.i, %opivx_check.exit
@@ -77324,7 +77324,7 @@ extract64.exit.i.i:                               ; preds = %if.then.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 2)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %extract64.exit.i.i, %opivx_check.exit
@@ -77446,7 +77446,7 @@ extract64.exit.i.i:                               ; preds = %if.then.i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs113.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs113.i, align 4
-  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s, i32 noundef 2)
+  tail call fastcc void @opivi_trans(i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %extract64.exit.i.i, %opivx_check.exit
@@ -77616,7 +77616,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -77655,7 +77655,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -77694,7 +77694,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -77733,7 +77733,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -77780,7 +77780,7 @@ vwsll_vx_check.exit:                              ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 12
   %5 = load i32, ptr %rs2.i.i, align 4
   %6 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   br i1 %call2.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %vwsll_vx_check.exit
@@ -78221,7 +78221,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs116.i = getelementptr inbounds i8, ptr %a, i64 8
   %19 = load i32, ptr %rs116.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %19, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %19, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -78447,7 +78447,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs116.i = getelementptr inbounds i8, ptr %a, i64 8
   %19 = load i32, ptr %rs116.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %19, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %19, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -78593,7 +78593,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %i
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs116.i = getelementptr inbounds i8, ptr %a, i64 8
   %19 = load i32, ptr %rs116.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %19, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %19, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -78763,7 +78763,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -78802,7 +78802,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -78841,7 +78841,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -78880,7 +78880,7 @@ opiwx_narrow_check.exit:                          ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_sd(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opiwx_narrow_check.exit
@@ -78927,7 +78927,7 @@ vwsll_vx_check.exit:                              ; preds = %land.lhs.true.i.i
   %rs2.i.i = getelementptr inbounds i8, ptr %a, i64 12
   %5 = load i32, ptr %rs2.i.i, align 4
   %6 = load i32, ptr %a, align 4
-  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  %call2.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   br i1 %call2.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %vwsll_vx_check.exit
@@ -81144,7 +81144,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -81276,7 +81276,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -81756,7 +81756,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -81985,7 +81985,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -82117,7 +82117,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -82249,7 +82249,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -82381,7 +82381,7 @@ opfvf_widen_check.exit:                           ; preds = %land.lhs.true4.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %9 = load i32, ptr %rs2.i, align 4
   %10 = load i32, ptr %a, align 4
-  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
+  %call7.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %10)
   br i1 %call7.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opfvf_widen_check.exit
@@ -82972,7 +82972,7 @@ get_gpr.exit.i:                                   ; preds = %sw.epilog11.i.i, %s
 if.end.i:                                         ; preds = %land.lhs.true2.i, %land.lhs.true.i4, %if.end
   %rs114.i = getelementptr inbounds i8, ptr %a, i64 8
   %21 = load i32, ptr %rs114.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef readonly %8, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %2, i32 noundef %21, i32 noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %require_align.exit.i.i, %entry, %land.lhs.true.i, %if.end.i, %get_gpr.exit.i, %opivx_check.exit
@@ -83444,7 +83444,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -83483,7 +83483,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -83522,7 +83522,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -83561,7 +83561,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -83656,7 +83656,7 @@ opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef readonly %1, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef %1, ptr noundef nonnull %s)
   br label %do_opiwx_widen.exit
 
 do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.true.i.i, %land.rhs.i.i, %land.lhs.true5.i.i.i.i, %require_align.exit.i.i.i.i, %extract32.exit.i.i.i.i, %opiwx_widen_check.exit.i, %if.then.i
@@ -83740,7 +83740,7 @@ opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef readonly %1, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef %1, ptr noundef nonnull %s)
   br label %do_opiwx_widen.exit
 
 do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.true.i.i, %land.rhs.i.i, %land.lhs.true5.i.i.i.i, %require_align.exit.i.i.i.i, %extract32.exit.i.i.i.i, %opiwx_widen_check.exit.i, %if.then.i
@@ -83824,7 +83824,7 @@ opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef readonly %1, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef %1, ptr noundef nonnull %s)
   br label %do_opiwx_widen.exit
 
 do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.true.i.i, %land.rhs.i.i, %land.lhs.true5.i.i.i.i, %require_align.exit.i.i.i.i, %extract32.exit.i.i.i.i, %opiwx_widen_check.exit.i, %if.then.i
@@ -83908,7 +83908,7 @@ opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i32, ptr %rs1.i, align 4
-  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef readonly %1, ptr noundef nonnull readonly %s)
+  tail call fastcc void @opivx_trans(i32 noundef %4, i32 noundef %14, i32 noundef %5, i32 noundef %6, ptr noundef %1, ptr noundef nonnull %s)
   br label %do_opiwx_widen.exit
 
 do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.true.i.i, %land.rhs.i.i, %land.lhs.true5.i.i.i.i, %require_align.exit.i.i.i.i, %extract32.exit.i.i.i.i, %opiwx_widen_check.exit.i, %if.then.i
@@ -83936,7 +83936,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -83975,7 +83975,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -84014,7 +84014,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -84053,7 +84053,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -84092,7 +84092,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -84131,7 +84131,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -84170,7 +84170,7 @@ opivx_widen_check.exit:                           ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %3 = load i32, ptr %rs2.i, align 4
   %4 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %opivx_widen_check.exit
@@ -89170,7 +89170,7 @@ dest_gpr.exit.i:                                  ; preds = %if.end.i.i, %if.the
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 4
   %5 = load i32, ptr %rs1.i, align 4
   %6 = load i32, ptr %a, align 4
-  %call1.i = tail call fastcc ptr @get_address(ptr noundef nonnull readonly %ctx, i32 noundef %5, i32 noundef %6)
+  %call1.i = tail call fastcc ptr @get_address(ptr noundef nonnull %ctx, i32 noundef %5, i32 noundef %6)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i2 = zext i32 %7 to i64
@@ -92213,7 +92213,7 @@ decode_save_opc.exit:                             ; preds = %entry
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 4
   %2 = load i32, ptr %rs1.i, align 4
   %3 = load i32, ptr %a, align 4
-  %call.i = tail call fastcc ptr @get_address(ptr noundef nonnull readonly %ctx, i32 noundef %2, i32 noundef %3)
+  %call.i = tail call fastcc ptr @get_address(ptr noundef nonnull %ctx, i32 noundef %2, i32 noundef %3)
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load i32, ptr %rs2.i, align 4
   %cmp.i.i = icmp eq i32 %4, 0
@@ -108401,7 +108401,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %rs2.i, align 4
   %7 = load i32, ptr %a, align 4
-  %call2.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull readonly %s, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
+  %call2.i = tail call fastcc zeroext i1 @vext_check_dss(ptr noundef nonnull %s, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs.i, %land.lhs.true.i, %land.rhs, %entry
@@ -109389,7 +109389,7 @@ land.rhs:                                         ; preds = %land.lhs.true4
   %rs2 = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %rs2, align 4
   %11 = load i32, ptr %a, align 4
-  %call.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %11)
+  %call.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %8, i32 noundef %9, i32 noundef %11)
   br i1 %call.i, label %land.rhs.i, label %land.end
 
 land.rhs.i:                                       ; preds = %land.rhs
@@ -111084,7 +111084,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %rs2.i, align 4
   %5 = load i32, ptr %a, align 4
-  %call.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %2, i32 noundef %3, i32 noundef %5)
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull %s, i32 noundef %2, i32 noundef %3, i32 noundef %5)
   br i1 %call.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i
@@ -116979,7 +116979,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_shift_imm_fn_per_ol.exit:                     ; preds = %do.end, %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_roriw, %if.then2.i ], [ @tcg_gen_rotri_i64, %do.end ], [ @tcg_gen_rotri_i64, %do.end ]
-  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, ptr noundef nonnull %f_tl.addr.0.i)
+  %call7.i = tail call fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef nonnull %ctx, ptr noundef %a, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %entry, %gen_shift_imm_fn_per_ol.exit
@@ -117313,7 +117313,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_unary_per_ol.exit:                            ; preds = %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_th_revw, %if.then2.i ], [ @tcg_gen_bswap64_i64, %do.end ]
-  tail call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
+  tail call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %entry, %gen_unary_per_ol.exit
@@ -117486,7 +117486,7 @@ do.body.i:                                        ; preds = %do.end
 
 gen_unary_per_ol.exit:                            ; preds = %do.end, %if.then2.i
   %f_tl.addr.0.i = phi ptr [ @gen_clzw, %if.then2.i ], [ @gen_clz, %do.end ]
-  tail call fastcc void @gen_unary(ptr noundef nonnull readonly %ctx, ptr noundef readonly %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
+  tail call fastcc void @gen_unary(ptr noundef nonnull %ctx, ptr noundef %a, i32 noundef 0, ptr noundef nonnull %f_tl.addr.0.i)
   br label %return
 
 return:                                           ; preds = %entry, %gen_unary_per_ol.exit
@@ -117650,7 +117650,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -117709,7 +117709,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -117768,7 +117768,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -117827,7 +117827,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -117886,7 +117886,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -117945,7 +117945,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -118004,7 +118004,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext false)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64
@@ -118063,7 +118063,7 @@ gen_store_idx.exit:                               ; preds = %if.then.i.i, %sw.ep
   %5 = load i32, ptr %rs2.i, align 4
   %imm2.i = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %imm2.i, align 4
-  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull readonly %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
+  %call1.i = tail call fastcc ptr @get_th_address_indexed(ptr noundef nonnull %ctx, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
   %mem_idx.i = getelementptr inbounds i8, ptr %ctx, i64 108
   %7 = load i32, ptr %mem_idx.i, align 4
   %conv.i = zext i32 %7 to i64

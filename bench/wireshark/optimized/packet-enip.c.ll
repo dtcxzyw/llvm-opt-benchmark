@@ -4259,7 +4259,7 @@ proto_item_set_generated.exit.i:                  ; preds = %296, %293, %288
   br label %301
 
 301:                                              ; preds = %.sink.split.i, %proto_item_set_generated.exit.i
-  call void @display_fwd_open_connection_path(ptr noundef nonnull readonly %.0180227, ptr noundef %291, ptr noundef %2, ptr noundef %3)
+  call void @display_fwd_open_connection_path(ptr noundef nonnull %.0180227, ptr noundef %291, ptr noundef %2, ptr noundef %3)
   %302 = load i32, ptr @hf_cip_cm_ot_api, align 4
   %303 = getelementptr inbounds i8, ptr %.0180227, i64 164
   %304 = load i32, ptr %303, align 4
@@ -4489,7 +4489,7 @@ display_connection_information.exit:              ; preds = %proto_item_set_gene
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 120
   %455 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %432, i32 noundef 4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %454, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %454, i8 0, i64 24, i1 false)
   store i32 2, ptr %454, align 8
   %456 = call noalias ptr @wmem_memdup(ptr noundef %450, ptr noundef %455, i64 noundef 4) #11
   %457 = getelementptr inbounds i8, ptr %453, i64 136
@@ -4508,7 +4508,7 @@ display_connection_information.exit:              ; preds = %proto_item_set_gene
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds i8, ptr %465, i64 176
   %467 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %432, i32 noundef 4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %466, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %466, i8 0, i64 24, i1 false)
   store i32 2, ptr %466, align 8
   %468 = call noalias ptr @wmem_memdup(ptr noundef %462, ptr noundef %467, i64 noundef 4) #11
   %469 = getelementptr inbounds i8, ptr %465, i64 192
@@ -5112,7 +5112,7 @@ define internal fastcc ptr @get_conversation_info_one_direction(ptr nocapture no
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 %31, ptr %16, align 8
   %36 = icmp eq i32 %33, 0
   br i1 %36, label %copy_address_wmem.exit, label %37

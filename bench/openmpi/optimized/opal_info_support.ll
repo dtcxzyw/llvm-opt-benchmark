@@ -995,7 +995,7 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %103, label %escape_quotes.exit, label %104
 
 104:                                              ; preds = %.critedge.i
-  %105 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #20
+  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #20
   %106 = sext i32 %.02132.i to i64
   %107 = add nsw i64 %106, 1
   %108 = add i64 %107, %105

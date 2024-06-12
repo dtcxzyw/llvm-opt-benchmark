@@ -2149,7 +2149,7 @@ cond.true.us.i:                                   ; preds = %while.body.us.i
 
 cond.end.us.i:                                    ; preds = %cond.true.us.i, %cond.false.us.i
   %cond.us.i = phi ptr [ %add.ptr.us.i, %cond.true.us.i ], [ %add.ptr12.us.i, %cond.false.us.i ]
-  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
+  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
   %cmp14.us.i = icmp slt i32 %call13.us.i, 0
   br i1 %cmp14.us.i, label %if.end22.us.i, label %if.else16.us.i
 
@@ -2192,7 +2192,7 @@ cond.false.i:                                     ; preds = %while.body.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr12.i, %cond.false.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i) #18
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i) #18
   %cmp14.i = icmp slt i32 %call.i, 0
   br i1 %cmp14.i, label %if.end22.i, label %if.else16.i
 
@@ -2279,7 +2279,7 @@ cond.true.us.i103:                                ; preds = %while.body.us.i78
 
 cond.end.us.i91:                                  ; preds = %cond.true.us.i103, %cond.false.us.i88
   %cond.us.i92 = phi ptr [ %add.ptr.us.i104, %cond.true.us.i103 ], [ %add.ptr12.us.i90, %cond.false.us.i88 ]
-  %call13.us.i93 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i92) #18
+  %call13.us.i93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i92) #18
   %cmp14.us.i94 = icmp slt i32 %call13.us.i93, 0
   br i1 %cmp14.us.i94, label %if.end22.us.i99, label %if.else16.us.i95
 
@@ -2323,7 +2323,7 @@ cond.false.i58:                                   ; preds = %while.body.i48
 
 cond.end.i61:                                     ; preds = %cond.false.i58, %cond.true.i76
   %cond.i62 = phi ptr [ %add.ptr.i77, %cond.true.i76 ], [ %add.ptr12.i60, %cond.false.i58 ]
-  %call.i63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i62) #18
+  %call.i63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i62) #18
   %cmp14.i64 = icmp slt i32 %call.i63, 0
   br i1 %cmp14.i64, label %if.end22.i69, label %if.else16.i65
 
@@ -2407,7 +2407,7 @@ while.body.us.i127:                               ; preds = %while.body.lr.ph.i1
   %.sink.i = load ptr, ptr %spec.select146, align 8
   %idx.ext.us.i134 = zext nneg i32 %and.us.i to i64
   %add.ptr.us.i135 = getelementptr inbounds i8, ptr %.sink.i, i64 %idx.ext.us.i134
-  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i135) #18
+  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i135) #18
   %cmp9.us.i = icmp slt i32 %call8.us.i, 0
   br i1 %cmp9.us.i, label %if.end17.us.i, label %if.else11.us.i
 
@@ -2439,7 +2439,7 @@ while.body.i114:                                  ; preds = %while.body.lr.ph.i1
   %.sink34.i = load ptr, ptr %spec.select148, align 8
   %idx.ext6.i = zext nneg i32 %and.i to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %.sink34.i, i64 %idx.ext6.i
-  %call.i121 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
+  %call.i121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
   %cmp9.i = icmp slt i32 %call.i121, 0
   br i1 %cmp9.i, label %if.end17.i, label %if.else11.i
 
@@ -2856,7 +2856,7 @@ cond.true.us.i:                                   ; preds = %while.body.us.i
 
 cond.end.us.i:                                    ; preds = %cond.true.us.i, %cond.false.us.i
   %cond.us.i = phi ptr [ %add.ptr.us.i, %cond.true.us.i ], [ %add.ptr12.us.i, %cond.false.us.i ]
-  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
+  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
   %cmp14.us.i = icmp slt i32 %call13.us.i, 0
   br i1 %cmp14.us.i, label %if.end22.us.i, label %if.else16.us.i
 
@@ -2900,7 +2900,7 @@ cond.false.i:                                     ; preds = %while.body.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr12.i, %cond.false.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.i) #18
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.i) #18
   %cmp14.i = icmp slt i32 %call.i, 0
   br i1 %cmp14.i, label %if.end22.i, label %if.else16.i
 
@@ -2950,7 +2950,7 @@ while.body.us.i28:                                ; preds = %while.body.lr.ph.i1
   %.sink.i = load ptr, ptr %spec.select46, align 8
   %idx.ext.us.i35 = zext nneg i32 %and.us.i to i64
   %add.ptr.us.i36 = getelementptr inbounds i8, ptr %.sink.i, i64 %idx.ext.us.i35
-  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i36) #18
+  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i36) #18
   %cmp9.us.i = icmp slt i32 %call8.us.i, 0
   br i1 %cmp9.us.i, label %if.end17.us.i, label %if.else11.us.i
 
@@ -2982,7 +2982,7 @@ while.body.i15:                                   ; preds = %while.body.lr.ph.i1
   %.sink34.i = load ptr, ptr %spec.select48, align 8
   %idx.ext6.i = zext nneg i32 %and.i to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %.sink34.i, i64 %idx.ext6.i
-  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
+  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
   %cmp9.i = icmp slt i32 %call.i22, 0
   br i1 %cmp9.i, label %if.end17.i, label %if.else11.i
 

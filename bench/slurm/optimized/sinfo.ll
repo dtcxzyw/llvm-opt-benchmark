@@ -1728,7 +1728,7 @@ _match_node_data.exit:                            ; preds = %156, %162, %171, %1
   br i1 %.not.i21, label %_create_sinfo.exit, label %371
 
 371:                                              ; preds = %._crit_edge
-  call fastcc void @_update_sinfo(ptr noundef nonnull %362, ptr noundef nonnull readonly %3)
+  call fastcc void @_update_sinfo(ptr noundef nonnull %362, ptr noundef nonnull %3)
   br label %_create_sinfo.exit
 
 _create_sinfo.exit:                               ; preds = %._crit_edge, %371

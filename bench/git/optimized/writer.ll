@@ -506,7 +506,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
   store i8 103, ptr %rec.i, align 8
   %u.i = getelementptr inbounds i8, ptr %rec.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %log, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
   %block_writer.i = getelementptr inbounds i8, ptr %w, i64 112
   %1 = load ptr, ptr %block_writer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -618,7 +618,7 @@ if.end24:                                         ; preds = %if.end20, %if.end2
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i16)
   store i8 103, ptr %rec.i16, align 8
   %u.i17 = getelementptr inbounds i8, ptr %rec.i16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i17, ptr noundef nonnull readonly align 8 dereferenceable(80) %log, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i17, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
   %block_writer.i18 = getelementptr inbounds i8, ptr %w, i64 112
   %15 = load ptr, ptr %block_writer.i18, align 8
   %tobool.not.i19 = icmp eq ptr %15, null

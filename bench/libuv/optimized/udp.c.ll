@@ -1607,7 +1607,7 @@ if.end.i25:                                       ; preds = %if.then.i21
 
 if.end4.i:                                        ; preds = %if.end.i25, %if.end10
   %sin6_addr.i26 = getelementptr inbounds i8, ptr %addr6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mreq.i19, ptr noundef nonnull readonly align 4 dereferenceable(16) %sin6_addr.i26, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mreq.i19, ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i26, i64 16, i1 false)
   switch i32 %membership, label %uv__udp_set_membership6.exit [
     i32 1, label %sw.epilog.i27
     i32 0, label %sw.bb5.i
@@ -1710,9 +1710,9 @@ if.end7.i:                                        ; preds = %if.end5.i, %if.end.
   %storemerge.i = phi i32 [ %1, %if.end5.i ], [ 0, %if.end.i ]
   store i32 %storemerge.i, ptr %mreq.i, align 8
   %gsr_group.i = getelementptr inbounds i8, ptr %mreq.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %gsr_group.i, ptr noundef nonnull readonly align 4 dereferenceable(28) %mcast_addr, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %gsr_group.i, ptr noundef nonnull align 4 dereferenceable(28) %mcast_addr, i64 28, i1 false)
   %gsr_source.i = getelementptr inbounds i8, ptr %mreq.i, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %gsr_source.i, ptr noundef nonnull readonly align 4 dereferenceable(28) %src_addr, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %gsr_source.i, ptr noundef nonnull align 4 dereferenceable(28) %src_addr, i64 28, i1 false)
   switch i32 %membership, label %uv__udp_set_source_membership6.exit [
     i32 1, label %if.end15.i
     i32 0, label %if.then12.i

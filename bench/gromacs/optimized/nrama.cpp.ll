@@ -222,7 +222,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %18, %21
   %39 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %41) #10
+  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %41) #10
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %_ZL9find_atomPKcPPPcii.exit.i, label %44
 

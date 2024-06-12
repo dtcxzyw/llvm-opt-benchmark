@@ -1733,11 +1733,11 @@ if.end44.i:                                       ; preds = %if.else33.i, %if.th
 
 if.then47.i:                                      ; preds = %if.end44.i
   %conv.i = zext nneg i32 %0 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %ipout, ptr nonnull align 4 %v6stat.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ipout, ptr nonnull align 4 %v6stat.i, i64 %conv.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %ipout, i64 %conv.i
   %sub.i = sub nsw i32 16, %1
   %conv51.i = sext i32 %sub.i to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %conv51.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv51.i, i1 false)
   %cmp54.not.i = icmp eq i32 %1, %0
   br i1 %cmp54.not.i, label %ipv6_from_asc.exit, label %if.then56.i
 
@@ -1749,11 +1749,11 @@ if.then56.i:                                      ; preds = %if.then47.i
   %add.ptr68.i = getelementptr inbounds i8, ptr %v6stat.i, i64 %conv.i
   %sub71.i = sub nsw i32 %1, %0
   %conv72.i = sext i32 %sub71.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr63.i, ptr nonnull align 1 %add.ptr68.i, i64 %conv72.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr63.i, ptr nonnull align 1 %add.ptr68.i, i64 %conv72.i, i1 false)
   br label %ipv6_from_asc.exit
 
 if.else74.i:                                      ; preds = %if.end44.i, %if.then2.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %ipout, ptr noundef nonnull align 4 dereferenceable(16) %v6stat.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ipout, ptr noundef nonnull align 4 dereferenceable(16) %v6stat.i, i64 16, i1 false)
   br label %ipv6_from_asc.exit
 
 ipv6_from_asc.exit:                               ; preds = %if.then47.i, %if.then56.i, %if.else74.i
@@ -1769,7 +1769,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a2.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
-  %call.i5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %ipasc, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
+  %call.i5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %ipasc, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
   %cmp.not.i = icmp eq i32 %call.i5, 4
   br i1 %cmp.not.i, label %if.end.i7, label %11
 
@@ -2072,7 +2072,7 @@ while.end.thread:                                 ; preds = %while.cond, %while.
 
 8:                                                ; preds = %while.end, %while.end.thread
   %9 = phi i64 [ %a_len, %while.end.thread ], [ %dec, %while.end ]
-  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr readonly %b, i64 %9)
+  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr %b, i64 %9)
   %tobool.not.i20 = icmp eq i32 %bcmp.i, 0
   %lnot.ext.i = zext i1 %tobool.not.i20 to i32
   br label %return
@@ -2828,7 +2828,7 @@ if.end21:                                         ; preds = %if.end19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a2.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
-  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %elem, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
+  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %elem, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
   %cmp.not.i = icmp eq i32 %call.i, 4
   br i1 %cmp.not.i, label %if.end.i, label %ipv4_from_asc.exit.thread
 

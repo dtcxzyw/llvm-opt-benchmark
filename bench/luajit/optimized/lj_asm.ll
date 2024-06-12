@@ -731,7 +731,7 @@ asm_tail_prep.exit:                               ; preds = %while.end.i, %if.el
   %nins2.i = getelementptr inbounds i8, ptr %42, i64 12
   %44 = load i32, ptr %nins2.i, align 4
   store <4 x i32> <i32 -16401, i32 0, i32 0, i32 0>, ptr %freeset.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %phireg.i.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %phireg.i.i, i8 0, i64 64, i1 false)
   br label %for.body.i.i143
 
 for.body.i.i143:                                  ; preds = %for.body.i.i143, %asm_tail_prep.exit

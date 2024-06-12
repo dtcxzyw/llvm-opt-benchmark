@@ -2239,7 +2239,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %2 = load ptr, ptr %arrayidx6, align 8
   %3 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %3, align 8
-  %call1.i = call fastcc i32 @enter_task(ptr noundef readonly %module.val, ptr noundef %1, ptr noundef %2)
+  %call1.i = call fastcc i32 @enter_task(ptr noundef %module.val, ptr noundef %1, ptr noundef %2)
   %cmp.i = icmp slt i32 %call1.i, 0
   %._Py_NoneStruct.i = select i1 %cmp.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
@@ -2328,7 +2328,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %2 = load ptr, ptr %arrayidx6, align 8
   %3 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %3, align 8
-  %call1.i = call fastcc noundef ptr @swap_current_task(ptr noundef readonly %module.val, ptr noundef %1, ptr noundef %2)
+  %call1.i = call fastcc noundef ptr @swap_current_task(ptr noundef %module.val, ptr noundef %1, ptr noundef %2)
   br label %exit
 
 exit:                                             ; preds = %cond.end, %if.end
@@ -3638,7 +3638,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i9.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %Py_XINCREF.exit.i.thread, %if.then1.i.i.i, %if.end.i.i9.i, %if.then.i8.i, %Py_XINCREF.exit.i
-  %call.i75 = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %state, ptr noundef nonnull %task)
+  %call.i75 = call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %task)
   %cmp2.i = icmp eq i32 %call.i75, -1
   %._Py_TrueStruct.i = select i1 %cmp2.i, ptr null, ptr @_Py_TrueStruct
   br label %if.end61
@@ -3679,7 +3679,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i83, %if
   %fut_result.i = getelementptr inbounds i8, ptr %task, i64 64
   store ptr %17, ptr %fut_result.i, align 8
   store i32 2, ptr %task_state, align 8
-  %call5.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %state, ptr noundef nonnull %task)
+  %call5.i = call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %task)
   %cmp6.i = icmp eq i32 %call5.i, -1
   %._Py_NoneStruct.i = select i1 %cmp6.i, ptr null, ptr @_Py_NoneStruct
   br label %if.end61
@@ -3765,7 +3765,7 @@ if.then1.i.i.i103:                                ; preds = %if.end.i.i9.i100
   br label %Py_XDECREF.exit.i96
 
 Py_XDECREF.exit.i96:                              ; preds = %if.then1.i.i.i103, %if.end.i.i9.i100, %if.then.i8.i94, %if.end.i90
-  %call.i97 = call fastcc i32 @future_schedule_callbacks(ptr noundef nonnull readonly %state, ptr noundef nonnull %task)
+  %call.i97 = call fastcc i32 @future_schedule_callbacks(ptr noundef nonnull %state, ptr noundef nonnull %task)
   %cmp2.i98 = icmp eq i32 %call.i97, -1
   %._Py_TrueStruct.i99 = select i1 %cmp2.i98, ptr null, ptr @_Py_TrueStruct
   br label %return
@@ -3884,7 +3884,7 @@ if.end9.i:                                        ; preds = %if.end6.i
 if.end16.i:                                       ; preds = %if.end9.i
   %task_context.i = getelementptr inbounds i8, ptr %task, i64 136
   %54 = load ptr, ptr %task_context.i, align 8
-  %call17.i = call fastcc ptr @future_add_done_callback(ptr noundef nonnull readonly %state, ptr noundef nonnull %17, ptr noundef nonnull %call13.i, ptr noundef %54)
+  %call17.i = call fastcc ptr @future_add_done_callback(ptr noundef nonnull %state, ptr noundef nonnull %17, ptr noundef nonnull %call13.i, ptr noundef %54)
   %55 = load i64, ptr %call13.i, align 8
   %56 = and i64 %55, 2147483648
   %cmp.i270.not.i = icmp eq i64 %56, 0
@@ -3975,7 +3975,7 @@ if.end43.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp44.i, label %if.then45.i, label %if.end50.i
 
 if.then45.i:                                      ; preds = %if.end43.i
-  %call46.i = call fastcc i32 @task_call_step_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef null)
+  %call46.i = call fastcc i32 @task_call_step_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef null)
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %task_step_handle_result_impl.exit, label %if.then.i.i110
 
@@ -4014,7 +4014,7 @@ Py_DECREF.exit241.i:                              ; preds = %if.then1.i239.i, %i
   br i1 %cmp61.i, label %fail.i, label %if.end63.i
 
 if.end63.i:                                       ; preds = %Py_DECREF.exit241.i
-  %call64.i = call fastcc ptr @get_future_loop(ptr noundef nonnull readonly %state, ptr noundef %17)
+  %call64.i = call fastcc ptr @get_future_loop(ptr noundef nonnull %state, ptr noundef %17)
   %cmp65.i = icmp eq ptr %call64.i, null
   br i1 %cmp65.i, label %fail.i, label %if.end67.i
 
@@ -4210,7 +4210,7 @@ if.end125.i:                                      ; preds = %if.end121.i
   br i1 %tobool126.not.i, label %if.end129.i, label %if.then127.i
 
 if.then127.i:                                     ; preds = %if.end125.i
-  %call128.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.32, ptr noundef nonnull %task, ptr noundef %17)
+  %call128.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.32, ptr noundef nonnull %task, ptr noundef %17)
   store ptr %call128.i, ptr %o.i, align 8
   %85 = load i64, ptr %17, align 8
   %86 = and i64 %85, 2147483648
@@ -4229,7 +4229,7 @@ if.then1.i167.i:                                  ; preds = %if.end.i164.i
   br label %task_step_handle_result_impl.exit
 
 if.end129.i:                                      ; preds = %if.end125.i
-  %call130.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.33, ptr noundef %17)
+  %call130.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.33, ptr noundef %17)
   store ptr %call130.i, ptr %o.i, align 8
   %87 = load i64, ptr %17, align 8
   %88 = and i64 %87, 2147483648
@@ -4249,7 +4249,7 @@ if.then1.i158.i:                                  ; preds = %if.end.i155.i
 
 self_await.i:                                     ; preds = %if.end87
   %89 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call131.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef readonly %state, ptr noundef nonnull %task, ptr noundef %89, ptr noundef nonnull @.str.34, ptr noundef nonnull %task)
+  %call131.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef %state, ptr noundef nonnull %task, ptr noundef %89, ptr noundef nonnull @.str.34, ptr noundef nonnull %task)
   %90 = load i64, ptr %17, align 8
   %91 = and i64 %90, 2147483648
   %cmp.i321.not.i = icmp eq i64 %91, 0
@@ -4267,7 +4267,7 @@ if.then1.i149.i:                                  ; preds = %if.end.i146.i
 
 yield_insteadof_yf.i:                             ; preds = %Py_DECREF.exit223.i, %if.end6.i
   %92 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call132.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %92, ptr noundef nonnull @.str.35, ptr noundef nonnull %task, ptr noundef %17)
+  %call132.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %92, ptr noundef nonnull @.str.35, ptr noundef nonnull %task, ptr noundef %17)
   store ptr %call132.i, ptr %o.i, align 8
   %93 = load i64, ptr %17, align 8
   %94 = and i64 %93, 2147483648
@@ -4287,7 +4287,7 @@ if.then1.i140.i:                                  ; preds = %if.end.i137.i
 
 different_loop.i:                                 ; preds = %if.then1.i230.i, %if.end.i227.i, %if.then70.i, %if.then3.i
   %95 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call133.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %95, ptr noundef nonnull @.str.36, ptr noundef nonnull %task, ptr noundef %17)
+  %call133.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %95, ptr noundef nonnull @.str.36, ptr noundef nonnull %task, ptr noundef %17)
   store ptr %call133.i, ptr %o.i, align 8
   %96 = load i64, ptr %17, align 8
   %97 = and i64 %96, 2147483648
@@ -7130,7 +7130,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %fut_result.i.i = getelementptr inbounds i8, ptr %self, i64 64
   store ptr %1, ptr %fut_result.i.i, align 8
   store i32 2, ptr %fut_state.i.i, align 8
-  %call5.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self)
+  %call5.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef %cls.val.val, ptr noundef nonnull %self)
   %cmp6.i.i = icmp eq i32 %call5.i.i, -1
   %._Py_NoneStruct.i.i = select i1 %cmp6.i.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
@@ -7174,7 +7174,7 @@ do.end.i:                                         ; preds = %if.end
   %4 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %cond12, align 8
-  %call2.i = call fastcc ptr @future_set_exception(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self, ptr noundef %5)
+  %call2.i = call fastcc ptr @future_set_exception(ptr noundef %cls.val.val, ptr noundef nonnull %self, ptr noundef %5)
   br label %exit
 
 exit:                                             ; preds = %do.end.i, %future_ensure_alive.exit.i, %cond.end
@@ -7242,7 +7242,7 @@ if.then.i:                                        ; preds = %skip_optional_kwonl
   br i1 %cmp2.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call4.i = call fastcc ptr @future_add_done_callback(ptr noundef readonly %cls.val.val30, ptr noundef %self, ptr noundef %11, ptr noundef nonnull %call1.i)
+  %call4.i = call fastcc ptr @future_add_done_callback(ptr noundef %cls.val.val30, ptr noundef %self, ptr noundef %11, ptr noundef nonnull %call1.i)
   %12 = load i64, ptr %call1.i, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i8.not.i = icmp eq i64 %13, 0
@@ -7259,7 +7259,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %exit
 
 if.end5.i:                                        ; preds = %skip_optional_kwonly
-  %call6.i = call fastcc ptr @future_add_done_callback(ptr noundef readonly %cls.val.val, ptr noundef %self, ptr noundef %4, ptr noundef nonnull %8)
+  %call6.i = call fastcc ptr @future_add_done_callback(ptr noundef %cls.val.val, ptr noundef %self, ptr noundef %4, ptr noundef nonnull %8)
   br label %exit
 
 exit:                                             ; preds = %if.end5.i, %if.then1.i.i, %if.end.i.i, %if.end.i, %if.then.i, %cond.end9
@@ -7737,7 +7737,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i9.i.i
   br label %Py_XDECREF.exit.i.i
 
 Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %if.end.i.i9.i.i, %if.then.i8.i.i, %Py_XINCREF.exit.i.i
-  %call.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self)
+  %call.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef %cls.val.val, ptr noundef nonnull %self)
   %cmp2.i.i = icmp eq i32 %call.i.i, -1
   %._Py_TrueStruct.i.i = select i1 %cmp2.i.i, ptr null, ptr @_Py_TrueStruct
   br label %exit

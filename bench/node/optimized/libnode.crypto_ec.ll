@@ -4564,22 +4564,22 @@ if.then91:                                        ; preds = %lor.lhs.false, %do.
 if.end93:                                         ; preds = %lor.lhs.false
   %buf_.i = getelementptr inbounds i8, ptr %name, i64 16
   %74 = load ptr, ptr %buf_.i, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(8) @.str) #23
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(8) @.str) #23
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end93
-  %call1.i62 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(6) @.str.1) #23
+  %call1.i62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(6) @.str.1) #23
   %cmp2.i = icmp eq i32 %call1.i62, 0
   br i1 %cmp2.i, label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.2) #23
+  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.2) #23
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %74, ptr noundef nonnull dereferenceable(5) @.str.3) #23
+  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(5) @.str.3) #23
   %cmp10.i = icmp eq i32 %call9.i, 0
   %..i = select i1 %cmp10.i, i32 1035, i32 0
   br label %_ZN4node6crypto19GetOKPCurveFromNameEPKc.exit

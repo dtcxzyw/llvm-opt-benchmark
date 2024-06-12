@@ -221,7 +221,7 @@ entry:
   %add.ptr5.i = getelementptr inbounds i8, ptr %work.i, i64 160
   store i64 1, ptr %add.ptr5.i, align 16
   %arrayidx3.i9.i = getelementptr inbounds i8, ptr %work.i, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx3.i9.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx3.i9.i, i8 0, i64 32, i1 false)
   br label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %while.end.i, %entry
@@ -257,7 +257,7 @@ while.end.i:                                      ; preds = %while.body.i
 mladder.exit:                                     ; preds = %while.end.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %work.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %t, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %z, ptr noundef nonnull align 16 dereferenceable(40) %add.ptr2.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %z, ptr noundef nonnull align 16 dereferenceable(40) %add.ptr2.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %work.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %z2.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %z9.i)
@@ -376,7 +376,7 @@ fe25519_invert.exit:                              ; preds = %for.body33.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t.i)
   call void @x25519_x86_64_mul(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z) #5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t.i2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %t.i2, ptr noundef nonnull readonly align 8 dereferenceable(40) %t, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %t.i2, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
   call void @x25519_x86_64_freeze(ptr noundef nonnull %t.i2) #5
   %48 = load i64, ptr %t.i2, align 8
   %conv.i3 = trunc i64 %48 to i8

@@ -998,7 +998,7 @@ if.end.i:                                         ; preds = %if.then.i75, %entry
   %add.ptr.i67 = getelementptr inbounds i8, ptr %call.i61, i64 24
   %add.ptr19.i69 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 %idx.ext.i68
   store i32 0, ptr %add.ptr19.i69, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i67, ptr readonly align 1 %str, i64 %lenx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i67, ptr align 1 %str, i64 %lenx, i1 false)
   %mask.i70 = getelementptr inbounds i8, ptr %54, i64 160
   %59 = load i32, ptr %mask.i70, align 8
   %and23.i = and i32 %59, %hash.0

@@ -302,10 +302,10 @@ sub_059:                                          ; preds = %42
   br i1 %.not.i.i.i, label %Abc_UtilStrsav.exit.i.i, label %76
 
 76:                                               ; preds = %58
-  %77 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %60) #19
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #19
   %78 = add i64 %77, 1
   %79 = tail call noalias ptr @malloc(i64 noundef %78) #21
-  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) %60) #18
+  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %60) #18
   br label %Abc_UtilStrsav.exit.i.i
 
 Abc_UtilStrsav.exit.i.i:                          ; preds = %76, %58
@@ -384,7 +384,7 @@ Cba_ManAlloc.exit.i:                              ; preds = %Vec_PtrGrow.exit.i.
   store i32 1, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %74, i64 112
   %114 = getelementptr inbounds i8, ptr %.037, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(720) %113, ptr noundef nonnull readonly align 8 dereferenceable(720) %114, i64 720, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %113, ptr noundef nonnull align 8 dereferenceable(720) %114, i64 720, i1 false)
   %.val2110.i = load i32, ptr %61, align 4
   %.not.not11.i = icmp sgt i32 %.val2110.i, 1
   br i1 %.not.not11.i, label %Cba_ManNtk.exit.lr.ph.i, label %Cba_ManDup.exit

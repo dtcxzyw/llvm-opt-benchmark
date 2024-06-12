@@ -1618,20 +1618,20 @@ define hidden void @avpl_transform(ptr nocapture noundef %0, ptr noundef readonl
   ]
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call ptr @new_avpl_pairs_match(ptr noundef %5, ptr noundef nonnull readonly %0, ptr noundef readonly %7, i32 noundef 1, i32 noundef 1)
+  %9 = tail call ptr @new_avpl_pairs_match(ptr noundef %5, ptr noundef nonnull %0, ptr noundef %7, i32 noundef 1, i32 noundef 1)
   br label %new_avpl_from_match.exit
 
 10:                                               ; preds = %.lr.ph
-  %11 = tail call ptr @new_avpl_loose_match(ptr noundef %5, ptr noundef nonnull readonly %0, ptr noundef readonly %7, i32 noundef 1)
+  %11 = tail call ptr @new_avpl_loose_match(ptr noundef %5, ptr noundef nonnull %0, ptr noundef %7, i32 noundef 1)
   br label %new_avpl_from_match.exit
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call ptr @new_avpl_pairs_match(ptr noundef %5, ptr noundef nonnull readonly %0, ptr noundef readonly %7, i32 noundef 0, i32 noundef 1)
+  %13 = tail call ptr @new_avpl_pairs_match(ptr noundef %5, ptr noundef nonnull %0, ptr noundef %7, i32 noundef 0, i32 noundef 1)
   br label %new_avpl_from_match.exit
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call ptr @new_avpl_from_avpl(ptr noundef %5, ptr noundef nonnull readonly %0, i32 noundef 1)
-  tail call void @merge_avpl(ptr noundef %15, ptr noundef readonly %7, i32 noundef 1)
+  %15 = tail call ptr @new_avpl_from_avpl(ptr noundef %5, ptr noundef nonnull %0, i32 noundef 1)
+  tail call void @merge_avpl(ptr noundef %15, ptr noundef %7, i32 noundef 1)
   br label %new_avpl_from_match.exit
 
 new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14

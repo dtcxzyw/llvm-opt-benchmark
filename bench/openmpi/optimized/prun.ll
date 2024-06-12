@@ -53,7 +53,7 @@ define dso_local i32 @prun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %11 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
@@ -189,7 +189,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %68 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %69, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, i8 0, i64 64, i1 false)
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 40), align 8
   %71 = load ptr, ptr %70, align 8
   %.not6.i73 = icmp eq ptr %71, null

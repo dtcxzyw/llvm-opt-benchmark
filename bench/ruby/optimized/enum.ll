@@ -757,11 +757,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %30 = add i64 %29, %.0127
   %31 = shl i64 %30, %25
   %32 = getelementptr i64, ptr %.0.i.i, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(8) %2, ptr noundef nonnull readonly align 1 dereferenceable(8) %32, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(8) %32, i64 %24, i1 false)
   %33 = shl i64 %.0125, %25
   %34 = getelementptr i64, ptr %.0.i.i, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %32, ptr noundef nonnull readonly align 1 dereferenceable(8) %34, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %34, ptr noundef nonnull readonly align 16 dereferenceable(8) %2, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %32, ptr noundef nonnull align 1 dereferenceable(8) %34, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %34, ptr noundef nonnull align 16 dereferenceable(8) %2, i64 %24, i1 false)
   %35 = add i64 %.0125, -1
   %.not134153160 = icmp sgt i64 %.0127, %35
   br i1 %.not134153160, label %.preheader, label %.lr.ph
@@ -798,11 +798,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(8) %3, ptr noundef nonnull readonly align 1 dereferenceable(8) %38, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(8) %38, i64 %24, i1 false)
   %49 = shl i64 %41, %25
   %50 = getelementptr i64, ptr %.0.i.i, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %38, ptr noundef nonnull readonly align 1 dereferenceable(8) %50, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %50, ptr noundef nonnull readonly align 16 dereferenceable(8) %3, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %38, ptr noundef nonnull align 1 dereferenceable(8) %50, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %50, ptr noundef nonnull align 16 dereferenceable(8) %3, i64 %24, i1 false)
   %51 = add i64 %.0120154, 1
   %52 = sub i64 %.0125, %51
   %.not134 = icmp sgt i64 %.0122.ph162, %52
@@ -813,11 +813,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   br i1 %54, label %55, label %.outer
 
 55:                                               ; preds = %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(8) %4, ptr noundef nonnull readonly align 1 dereferenceable(8) %38, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(8) %38, i64 %24, i1 false)
   %56 = shl i64 %.0123.ph161, %25
   %57 = getelementptr i64, ptr %.0.i.i, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %38, ptr noundef nonnull readonly align 1 dereferenceable(8) %57, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %57, ptr noundef nonnull readonly align 16 dereferenceable(8) %4, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %38, ptr noundef nonnull align 1 dereferenceable(8) %57, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull align 16 dereferenceable(8) %4, i64 %24, i1 false)
   %58 = add i64 %.0123.ph161, 1
   br label %.outer
 
@@ -833,11 +833,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %.1169 = phi i64 [ %66, %.lr.ph171 ], [ %.0125, %.preheader ]
   %61 = shl i64 %.0121170, %25
   %62 = getelementptr i64, ptr %.0.i.i, i64 %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(8) %5, ptr noundef nonnull readonly align 1 dereferenceable(8) %62, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(8) %62, i64 %24, i1 false)
   %63 = shl i64 %.1169, %25
   %64 = getelementptr i64, ptr %.0.i.i, i64 %63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %62, ptr noundef nonnull readonly align 1 dereferenceable(8) %64, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(8) %64, ptr noundef nonnull readonly align 16 dereferenceable(8) %5, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %62, ptr noundef nonnull align 1 dereferenceable(8) %64, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %64, ptr noundef nonnull align 16 dereferenceable(8) %5, i64 %24, i1 false)
   %65 = add nsw i64 %.0121170, 1
   %66 = add nsw i64 %.1169, -1
   %67 = icmp slt i64 %.lcssa, %66

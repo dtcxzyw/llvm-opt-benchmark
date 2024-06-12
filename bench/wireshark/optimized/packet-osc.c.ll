@@ -781,7 +781,7 @@ is_valid_path.exit.thread:                        ; preds = %41, %37, %50, %is_v
   %67 = load ptr, ptr @osc_udp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %66, ptr noundef %67) #5
   %68 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, i32 noundef %68)
+  call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %68)
   br label %69
 
 69:                                               ; preds = %61, %4, %65

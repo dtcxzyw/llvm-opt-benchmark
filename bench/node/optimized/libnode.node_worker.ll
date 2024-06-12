@@ -6974,7 +6974,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %call.i = tail call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %11, i64 noundef 32) #23
   %call5.i = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #23
   %resource_limits_.i = getelementptr inbounds i8, ptr %retval.i13.0.i, i64 296
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call5.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %resource_limits_.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call5.i, ptr noundef nonnull align 8 dereferenceable(32) %resource_limits_.i, i64 32, i1 false)
   %call9.i = tail call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %call.i, i64 noundef 0, i64 noundef 4) #23
   %cmp.i.i = icmp eq ptr %call9.i, null
   br i1 %cmp.i.i, label %if.then.i, label %return.sink.split
@@ -9953,7 +9953,7 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERA
   %call.i = tail call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %10, i64 noundef 32) #23
   %call5.i = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #23
   %resource_limits_.i = getelementptr inbounds i8, ptr %29, i64 296
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call5.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %resource_limits_.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call5.i, ptr noundef nonnull align 8 dereferenceable(32) %resource_limits_.i, i64 32, i1 false)
   %call9.i = tail call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %call.i, i64 noundef 0, i64 noundef 4) #23
   %call156 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %call2.i65, ptr %call.i.i66, ptr %call9.i) #23
   %tobool.i538 = trunc i16 %call156 to i1

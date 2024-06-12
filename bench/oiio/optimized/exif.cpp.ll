@@ -1890,7 +1890,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.l
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
   %mul14.i = mul nuw nsw i64 %indvars.iv.i, 12
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %mul14.i
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr15.i, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment, ptr noundef nonnull align 8 dereferenceable(48) %offsets_seen, ptr noundef nonnull readonly align 8 dereferenceable(8) %call11)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr15.i, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment, ptr noundef nonnull align 8 dereferenceable(48) %offsets_seen, ptr noundef nonnull align 8 dereferenceable(8) %call11)
           to label %.noexc unwind label %_ZNSt6vectorImSaImEED2Ev.exit15.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -2966,7 +2966,7 @@ for.body.i26:                                     ; preds = %.noexc, %for.body.l
   %indvars.iv.i27 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i28, %.noexc ]
   %mul14.i = mul nuw nsw i64 %indvars.iv.i27, 12
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %mul14.i
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr15.i, ptr nonnull %exif.sroa.0.0, i64 %exif.sroa.12.0, i1 noundef zeroext %cmp37, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull readonly align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr15.i, ptr nonnull %exif.sroa.0.0, i64 %exif.sroa.12.0, i1 noundef zeroext %cmp37, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %for.body.i26
@@ -3157,7 +3157,7 @@ for.body.i126:                                    ; preds = %.noexc133, %for.bod
   %indvars.iv.i127 = phi i64 [ 0, %for.body.lr.ph.i123 ], [ %indvars.iv.next.i130, %.noexc133 ]
   %mul14.i128 = mul nuw nsw i64 %indvars.iv.i127, 12
   %add.ptr15.i129 = getelementptr inbounds i8, ptr %add.ptr12.i124, i64 %mul14.i128
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr15.i129, ptr nonnull %exif.sroa.0.0, i64 %exif.sroa.12.0, i1 noundef zeroext %cmp37, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull readonly align 8 dereferenceable(8) %call113)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr15.i129, ptr nonnull %exif.sroa.0.0, i64 %exif.sroa.12.0, i1 noundef zeroext %cmp37, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull align 8 dereferenceable(8) %call113)
           to label %.noexc133 unwind label %lpad.loopexit
 
 .noexc133:                                        ; preds = %for.body.i126

@@ -228,7 +228,7 @@ if.else:                                          ; preds = %if.end
   tail call void @luaL_setmetatable(ptr noundef %L, ptr noundef nonnull @.str.16) #10
   store ptr null, ptr %call.i.i.i, align 8
   store ptr @io_fclose, ptr %closef.i.i.i, align 8
-  %call1.i = tail call noalias ptr @fopen64(ptr noundef %call6, ptr noundef nonnull readonly @.str.19)
+  %call1.i = tail call noalias ptr @fopen64(ptr noundef %call6, ptr noundef nonnull @.str.19)
   store ptr %call1.i, ptr %call.i.i.i, align 8
   %cmp.i16 = icmp eq ptr %call1.i, null
   br i1 %cmp.i16, label %if.then.i17, label %if.then8
@@ -499,7 +499,7 @@ if.then2:                                         ; preds = %if.then
   tail call void @luaL_setmetatable(ptr noundef %L, ptr noundef nonnull @.str.16) #10
   store ptr null, ptr %call.i.i.i, align 8
   store ptr @io_fclose, ptr %closef.i.i.i, align 8
-  %call1.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call1, ptr noundef readonly %mode)
+  %call1.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call1, ptr noundef %mode)
   store ptr %call1.i, ptr %call.i.i.i, align 8
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %if.then.i, label %if.end

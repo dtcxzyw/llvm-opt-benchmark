@@ -3760,7 +3760,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %PyLong_AsUnsignedLongLong.exit
 
 if.else.i:                                        ; preds = %if.end3.i
-  %call8.i = call i32 @_PyLong_AsByteArray(ptr noundef nonnull readonly %obj, ptr noundef nonnull %bytes.i, i64 noundef 8, i32 noundef 1, i32 noundef 0)
+  %call8.i = call i32 @_PyLong_AsByteArray(ptr noundef nonnull %obj, ptr noundef nonnull %bytes.i, i64 noundef 8, i32 noundef 1, i32 noundef 0)
   %7 = icmp slt i32 %call8.i, 0
   %.pre.i = load i64, ptr %bytes.i, align 8
   br i1 %7, label %PyLong_AsUnsignedLongLong.exit.thread, label %PyLong_AsUnsignedLongLong.exit
@@ -5793,7 +5793,7 @@ if.end49.i:                                       ; preds = %while.body42.i, %wh
   br i1 %cmp.i1978, label %if.then51.i, label %if.else52.i
 
 if.then51.i:                                      ; preds = %if.end49.i
-  call fastcc void @long_from_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull writeonly %z)
+  call fastcc void @long_from_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull %z)
   br label %if.end121
 
 if.else52.i:                                      ; preds = %if.end49.i
@@ -5825,11 +5825,11 @@ if.end66.i:                                       ; preds = %if.then55.i
   br i1 %or.cond.i, label %if.then72.i, label %if.end74.i
 
 if.then72.i:                                      ; preds = %if.end66.i
-  call fastcc void @pylong_int_from_string(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull writeonly %z)
+  call fastcc void @pylong_int_from_string(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull %z)
   br label %if.end121
 
 if.end74.i:                                       ; preds = %if.end66.i, %if.else52.i
-  call fastcc void @long_from_non_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull writeonly %z)
+  call fastcc void @long_from_non_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull %z)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end74.i, %if.then72.i, %if.then51.i
@@ -8533,7 +8533,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 if.end5.i.i:                                      ; preds = %if.then20
   %ob_digit.i.i = getelementptr inbounds i8, ptr %a, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i, ptr noundef nonnull readonly %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i, ptr noundef nonnull %ob_digit.i.i)
   br label %return
 
 if.end22:                                         ; preds = %if.then17
@@ -9182,7 +9182,7 @@ entry.if.end5_crit_edge.i:                        ; preds = %if.then22
   %.pre.i = and i64 %a.1.val415, 3
   %16 = icmp eq i64 %.pre.i, 2
   %17 = zext i1 %16 to i32
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %17, i64 noundef %shr.i188416, ptr noundef nonnull readonly %ob_digit)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %17, i64 noundef %shr.i188416, ptr noundef nonnull %ob_digit)
   store ptr %call9.i, ptr %r, align 8
   %18 = load i64, ptr %a.1411, align 8
   %19 = and i64 %18, 2147483648
@@ -9983,7 +9983,7 @@ if.then.i:                                        ; preds = %if.then
 entry.if.end5_crit_edge.i.i:                      ; preds = %if.then
   %shr.i.i.i = lshr i64 %v.val, 3
   %ob_digit.i.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
   %cmp.not.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp.not.i, label %return, label %if.then4.i
 
@@ -10035,7 +10035,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
 if.end5.i.i:                                      ; preds = %if.else.i, %if.then.i.i
   %shr.i.i.i4 = lshr i64 %v.val, 3
   %ob_digit.i.i5 = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i.i6 = tail call ptr @_PyLong_FromDigits(i32 noundef 0, i64 noundef %shr.i.i.i4, ptr noundef nonnull readonly %ob_digit.i.i5)
+  %call9.i.i6 = tail call ptr @_PyLong_FromDigits(i32 noundef 0, i64 noundef %shr.i.i.i4, ptr noundef nonnull %ob_digit.i.i5)
   br label %return
 
 return:                                           ; preds = %if.end5.i.i, %if.then3.i.i, %if.end.i.i.i, %if.then.i10, %if.then4.i, %entry.if.end5_crit_edge.i.i, %if.then.i
@@ -10166,7 +10166,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i, %ent
   %cmp.i13.i.i.i = icmp eq i64 %and.i12.pre-phi.i.i.i, 2
   %conv8.i.i.i = zext i1 %cmp.i13.i.i.i to i32
   %ob_digit.i.i.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i, ptr noundef nonnull readonly %ob_digit.i.i.i)
+  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i, ptr noundef nonnull %ob_digit.i.i.i)
   br label %long_rem.exit
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %lor.lhs.false.i
@@ -10205,7 +10205,7 @@ rem1.exit.i:                                      ; preds = %while.body.i.i.i, %
   br i1 %cmp21.i, label %return, label %if.end31.i
 
 if.else.i24:                                      ; preds = %if.end13.i
-  %call25.i = call fastcc ptr @x_divrem(ptr noundef nonnull %v, ptr noundef nonnull readonly %w, ptr noundef nonnull %mod)
+  %call25.i = call fastcc ptr @x_divrem(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull %mod)
   %cmp.not.i.i = icmp eq ptr %call25.i, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i32.i
 
@@ -10374,7 +10374,7 @@ lor.lhs.false.i34:                                ; preds = %if.then20
   br i1 %tobool4.not.i, label %long_add.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %lor.lhs.false.i34
-  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %w)
+  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %32, ptr noundef nonnull %w)
   br label %long_add.exit
 
 long_add.exit:                                    ; preds = %if.then20, %lor.lhs.false.i34, %do.end.i
@@ -10515,7 +10515,7 @@ long_lshift.exit.thread121:                       ; preds = %if.then6.i, %if.end
 long_lshift.exit:                                 ; preds = %if.end11.i
   %18 = load i64, ptr %wordshift.i, align 8
   %19 = load i32, ptr %remshift.i, align 4
-  %call15.i = tail call fastcc ptr @long_lshift1(ptr noundef nonnull readonly %10, i64 noundef %18, i32 noundef %19)
+  %call15.i = tail call fastcc ptr @long_lshift1(ptr noundef nonnull %10, i64 noundef %18, i32 noundef %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wordshift.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %remshift.i)
   %cmp17 = icmp eq ptr %call15.i, null
@@ -10547,7 +10547,7 @@ entry.if.end5_crit_edge.i.i:                      ; preds = %if.then22
   %23 = zext i1 %22 to i32
   %shr.i.i.i = lshr i64 %v.val.i, 3
   %ob_digit.i.i = getelementptr inbounds i8, ptr %retval.0.i119, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %23, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %23, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
   %cmp.not.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp.not.i, label %long_neg.exit, label %if.then4.i
 
@@ -10711,7 +10711,7 @@ lor.lhs.false.i63:                                ; preds = %if.then44
   br i1 %tobool4.not.i66, label %do.body48, label %do.end.i67
 
 do.end.i67:                                       ; preds = %lor.lhs.false.i63
-  %call5.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %35, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
+  %call5.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
   br label %do.body48
 
 if.else:                                          ; preds = %if.then42
@@ -10726,7 +10726,7 @@ lor.lhs.false.i72:                                ; preds = %if.else
   br i1 %tobool4.not.i75, label %do.body48, label %do.end.i76
 
 do.end.i76:                                       ; preds = %lor.lhs.false.i72
-  %call5.i77 = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %35, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
+  %call5.i77 = tail call ptr @_PyLong_Add(ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
   br label %do.body48
 
 do.body48:                                        ; preds = %do.end.i76, %lor.lhs.false.i72, %if.else, %do.end.i67, %lor.lhs.false.i63, %if.then44
@@ -10773,7 +10773,7 @@ lor.lhs.false.i82:                                ; preds = %if.then57
   br i1 %tobool4.not.i85, label %do.body62, label %do.end.i86
 
 do.end.i86:                                       ; preds = %lor.lhs.false.i82
-  %call5.i87 = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %46, ptr noundef nonnull readonly %b)
+  %call5.i87 = tail call ptr @_PyLong_Add(ptr noundef nonnull %46, ptr noundef nonnull %b)
   br label %do.body62
 
 if.else59:                                        ; preds = %if.end55
@@ -10788,7 +10788,7 @@ lor.lhs.false.i93:                                ; preds = %if.else59
   br i1 %tobool4.not.i96, label %do.body62, label %do.end.i97
 
 do.end.i97:                                       ; preds = %lor.lhs.false.i93
-  %call5.i98 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %46, ptr noundef nonnull readonly %b)
+  %call5.i98 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %46, ptr noundef nonnull %b)
   br label %do.body62
 
 do.body62:                                        ; preds = %do.end.i97, %lor.lhs.false.i93, %if.else59, %do.end.i86, %lor.lhs.false.i82, %if.then57
@@ -10955,7 +10955,7 @@ if.end5.i.i:                                      ; preds = %if.then.i.i, %entry
   %cmp.i13.i.i = icmp eq i64 %and.i12.pre-phi.i.i, 2
   %conv8.i.i = zext i1 %cmp.i13.i.i to i32
   %ob_digit.i.i = getelementptr inbounds i8, ptr %a, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i, ptr noundef nonnull readonly %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i, ptr noundef nonnull %ob_digit.i.i)
   br label %long_long.exit
 
 long_long.exit.thread:                            ; preds = %if.then.i, %if.end.i.i.i
@@ -11359,7 +11359,7 @@ entry.if.end5_crit_edge.i:                        ; preds = %entry
   %3 = zext i1 %2 to i32
   %shr.i.i = lshr i64 %v.val, 3
   %ob_digit.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %3, i64 noundef %shr.i.i, ptr noundef nonnull readonly %ob_digit.i)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %3, i64 noundef %shr.i.i, ptr noundef nonnull %ob_digit.i)
   %cmp.not = icmp eq ptr %call9.i, null
   br i1 %cmp.not, label %return, label %if.then4
 
@@ -12869,7 +12869,7 @@ if.end5.i:                                        ; preds = %if.then.i, %entry.i
   %cmp.i13.i = icmp eq i64 %and.i12.pre-phi.i, 2
   %conv8.i = zext i1 %cmp.i13.i to i32
   %ob_digit.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i, i64 noundef %shr.i.i, ptr noundef nonnull readonly %ob_digit.i)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i, i64 noundef %shr.i.i, ptr noundef nonnull %ob_digit.i)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then3.i, %if.end.i.i, %if.then
@@ -14057,7 +14057,7 @@ if.then3.i:                                       ; preds = %if.then.i
 if.end5.i:                                        ; preds = %if.then27, %if.then.i
   %shr.i.i = lshr i64 %.val200, 3
   %ob_digit.i = getelementptr inbounds i8, ptr %x, i64 24
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i, ptr noundef nonnull readonly %ob_digit.i)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i, ptr noundef nonnull %ob_digit.i)
   br label %_PyLong_Copy.exit
 
 _PyLong_Copy.exit:                                ; preds = %if.then3.i, %if.end5.i
@@ -15290,7 +15290,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool4.not.i, label %if.end6, label %long_add.exit
 
 long_add.exit:                                    ; preds = %lor.lhs.false.i
-  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %v, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
+  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %v, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
   %cmp = icmp eq ptr %call5.i, null
   br i1 %cmp, label %return, label %if.end6
 
@@ -16479,7 +16479,7 @@ lor.lhs.false.i81:                                ; preds = %if.then38
   br i1 %tobool4.not.i, label %long_add.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %lor.lhs.false.i81
-  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %40, ptr noundef nonnull readonly %w)
+  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %40, ptr noundef nonnull %w)
   br label %long_add.exit
 
 long_add.exit:                                    ; preds = %if.then38, %lor.lhs.false.i81, %do.end.i
@@ -16539,7 +16539,7 @@ lor.lhs.false.i86:                                ; preds = %if.end42
   br i1 %tobool4.not.i89, label %do.body48, label %long_sub.exit
 
 long_sub.exit:                                    ; preds = %lor.lhs.false.i86
-  %call5.i91 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %50, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
+  %call5.i91 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %50, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848))
   %cmp45 = icmp eq ptr %call5.i91, null
   br i1 %cmp45, label %if.then46, label %do.body48
 
@@ -16770,7 +16770,7 @@ lor.lhs.false.i63:                                ; preds = %if.end13
   br i1 %tobool4.not.i66, label %long_sub.exit, label %do.end.i67
 
 do.end.i67:                                       ; preds = %lor.lhs.false.i63
-  %call5.i68 = call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %b.081, ptr noundef nonnull readonly %retval.0.i)
+  %call5.i68 = call ptr @_PyLong_Subtract(ptr noundef nonnull %b.081, ptr noundef nonnull %retval.0.i)
   br label %long_sub.exit
 
 long_sub.exit:                                    ; preds = %if.end13, %lor.lhs.false.i63, %do.end.i67
@@ -17659,7 +17659,7 @@ if.end5.i.i:                                      ; preds = %if.then.i.i, %entry
   %cmp.i13.i.i = icmp eq i64 %and.i12.pre-phi.i.i, 2
   %conv8.i.i = zext i1 %cmp.i13.i.i to i32
   %ob_digit.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
   br label %long_long.exit
 
 long_long.exit:                                   ; preds = %if.then.i, %if.end.i.i.i, %if.then3.i.i, %if.end5.i.i
@@ -17906,7 +17906,7 @@ lor.lhs.false.i81.i:                              ; preds = %if.end29.i
   br i1 %tobool4.not.i84.i, label %long_add.exit.i, label %do.end.i85.i
 
 do.end.i85.i:                                     ; preds = %lor.lhs.false.i81.i
-  %call5.i86.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %retval.0.i77.i, ptr noundef nonnull readonly %call25.i)
+  %call5.i86.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %retval.0.i77.i, ptr noundef nonnull %call25.i)
   br label %long_add.exit.i
 
 long_add.exit.i:                                  ; preds = %do.end.i85.i, %lor.lhs.false.i81.i, %if.end29.i
@@ -18113,7 +18113,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end20.i
   br i1 %tobool4.not.i.i, label %long_add.exit.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call5.i.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %result.035.i, ptr noundef nonnull readonly %call16.i)
+  %call5.i.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %result.035.i, ptr noundef nonnull %call16.i)
   br label %long_add.exit.i
 
 long_add.exit.i:                                  ; preds = %do.end.i.i, %lor.lhs.false.i.i, %if.end20.i
@@ -18403,7 +18403,7 @@ if.end11.i:                                       ; preds = %if.end, %if.end8.i3
 
 if.end15.i:                                       ; preds = %if.end11.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call12.i, i64 32
-  %call17.i = call i32 @_PyLong_AsByteArray(ptr noundef readonly %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %length.1587085, i32 noundef %little_endian.0.i86, i32 noundef %is_signed.07184)
+  %call17.i = call i32 @_PyLong_AsByteArray(ptr noundef %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %length.1587085, i32 noundef %little_endian.0.i86, i32 noundef %is_signed.07184)
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then19.i, label %exit
 
@@ -18618,7 +18618,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i, %ent
   %cmp.i13.i.i.i = icmp eq i64 %and.i12.pre-phi.i.i.i, 2
   %conv8.i.i.i = zext i1 %cmp.i13.i.i.i to i32
   %ob_digit.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i.i)
+  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull %ob_digit.i.i.i)
   br label %long_long.exit.i
 
 long_long.exit.i:                                 ; preds = %if.end5.i.i.i, %if.then3.i.i.i
@@ -18716,7 +18716,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i, %ent
   %cmp.i13.i.i.i = icmp eq i64 %and.i12.pre-phi.i.i.i, 2
   %conv8.i.i.i = zext i1 %cmp.i13.i.i.i to i32
   %ob_digit.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i.i)
+  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull %ob_digit.i.i.i)
   br label %exit
 
 if.end.i:                                         ; preds = %skip_optional
@@ -18794,7 +18794,7 @@ if.end5.i.i57.i:                                  ; preds = %if.then.i.i50.i, %e
   %cmp.i13.i.i60.i = icmp eq i64 %and.i12.pre-phi.i.i58.i, 2
   %conv8.i.i61.i = zext i1 %cmp.i13.i.i60.i to i32
   %ob_digit.i.i62.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i63.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i61.i, i64 noundef %shr.i.i.i59.i, ptr noundef nonnull readonly %ob_digit.i.i62.i)
+  %call9.i.i63.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i61.i, i64 noundef %shr.i.i.i59.i, ptr noundef nonnull %ob_digit.i.i62.i)
   br label %exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -18811,7 +18811,7 @@ if.then.i75.i:                                    ; preds = %if.end8.i
 entry.if.end5_crit_edge.i.i77.i:                  ; preds = %if.end8.i
   %shr.i.i.i79.i = lshr i64 %call1.val.i, 3
   %ob_digit.i.i80.i = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %call9.i.i81.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i79.i, ptr noundef nonnull readonly %ob_digit.i.i80.i)
+  %call9.i.i81.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i79.i, ptr noundef nonnull %ob_digit.i.i80.i)
   %cmp.not.i.i = icmp eq ptr %call9.i.i81.i, null
   br i1 %cmp.not.i.i, label %long_neg.exit.i, label %if.then4.i.i
 
@@ -18926,7 +18926,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end32.i
   br i1 %tobool4.not.i.i, label %long_sub.exit.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call5.i.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %self, ptr noundef nonnull readonly %25)
+  %call5.i.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %self, ptr noundef nonnull %25)
   br label %long_sub.exit.i
 
 long_sub.exit.i:                                  ; preds = %do.end.i.i, %lor.lhs.false.i.i, %if.end32.i
@@ -18984,7 +18984,7 @@ if.end5.i.i:                                      ; preds = %if.then.i.i, %entry
   %cmp.i13.i.i = icmp eq i64 %and.i12.pre-phi.i.i, 2
   %conv8.i.i = zext i1 %cmp.i13.i.i to i32
   %ob_digit.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
   br label %int___getnewargs___impl.exit
 
 int___getnewargs___impl.exit:                     ; preds = %if.then3.i.i, %if.end5.i.i

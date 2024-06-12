@@ -1016,7 +1016,7 @@ EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i72
 
 if.end.i72:                                       ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef writeonly %out.addr.0117, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0117, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1269,7 +1269,7 @@ EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef writeonly %out, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 

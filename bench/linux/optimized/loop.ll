@@ -2885,7 +2885,7 @@ loop_info64_from_compat.exit.thread:              ; preds = %12
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(232) %17, i8 0, i64 192, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(232) %17, i8 0, i64 192, i1 false)
   %18 = load i32, ptr %5, align 4
   store i32 %18, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 4
@@ -2915,7 +2915,7 @@ loop_info64_from_compat.exit.thread:              ; preds = %12
   store i32 %36, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %7, i64 56
   %39 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(64) %38, ptr noundef align 4 dereferenceable(64) %39, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %38, ptr noundef align 4 dereferenceable(64) %39, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 140, ptr nonnull %5) #14
   %40 = call fastcc i32 @loop_set_status(ptr noundef %11, ptr noundef nonnull %7)
   br label %41

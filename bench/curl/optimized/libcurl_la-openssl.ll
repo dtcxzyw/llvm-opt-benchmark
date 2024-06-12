@@ -5043,7 +5043,7 @@ if.end.i131.i.i:                                  ; preds = %do.end32.i.i
   %..i.i.i = call i64 @llvm.umin.i64(i64 %119, i64 2047)
   %data.i.i.i = getelementptr inbounds i8, ptr %118, i64 8
   %120 = load ptr, ptr %data.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buffer.i.i, ptr align 1 %120, i64 %..i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i.i, ptr align 1 %120, i64 %..i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %..i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %call7.i132.i.i = call i32 @BIO_free(ptr noundef nonnull %call1.i.i.i70) #13
@@ -5141,7 +5141,7 @@ x509_name_oneline.exit147.i.i:                    ; preds = %if.end106.i.i
   %..i140.i.i = call i64 @llvm.umin.i64(i64 %133, i64 2047)
   %data.i141.i.i = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %data.i141.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buffer.i.i, ptr align 1 %134, i64 %..i140.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i.i, ptr align 1 %134, i64 %..i140.i.i, i1 false)
   %arrayidx.i142.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %..i140.i.i
   store i8 0, ptr %arrayidx.i142.i.i, align 1
   %call7.i143.i.i = call i32 @BIO_free(ptr noundef nonnull %call1.i135.i.i) #13

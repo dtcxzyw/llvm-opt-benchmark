@@ -2054,7 +2054,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %1) #20
+  %call.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %1) #20
   br label %bytes_compar.exit
 
 if.end.i:                                         ; preds = %entry
@@ -2062,13 +2062,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.end7.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %1) #20
+  %call3.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %1) #20
   %cmp4.i = icmp eq i32 %call3.i, 0
   %.call3.i = select i1 %cmp4.i, i32 -1, i32 %call3.i
   br label %bytes_compar.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %3) #20
+  %call8.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %3) #20
   %.call8.i = tail call i32 @llvm.umax.i32(i32 %call8.i, i32 1)
   br label %bytes_compar.exit
 
@@ -2104,18 +2104,18 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.end7.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %1) #20
+  %call3.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %1) #20
   %cmp4.i = icmp eq i32 %call3.i, 0
   %spec.select = select i1 %cmp4.i, i32 -1, i32 %call3.i
   br label %return
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %3) #20
+  %call8.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %3) #20
   %.call8.i = tail call i32 @llvm.umax.i32(i32 %call8.i, i32 1)
   br label %return
 
 bytes_compar.exit:                                ; preds = %entry
-  %call.i = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %1) #20
+  %call.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %1) #20
   %cmp = icmp eq i32 %call.i, 0
   br i1 %cmp, label %if.then, label %return
 
@@ -2132,7 +2132,7 @@ if.then:                                          ; preds = %bytes_compar.exit
   br i1 %cmp.i8, label %if.then.i19, label %if.end.i9
 
 if.then.i19:                                      ; preds = %if.then
-  %call.i20 = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef readonly %6, i64 noundef %5) #20
+  %call.i20 = tail call i32 @memcmp(ptr noundef %4, ptr noundef %6, i64 noundef %5) #20
   br label %return
 
 if.end.i9:                                        ; preds = %if.then
@@ -2140,13 +2140,13 @@ if.end.i9:                                        ; preds = %if.then
   br i1 %cmp1.i10, label %if.then2.i15, label %if.end7.i11
 
 if.then2.i15:                                     ; preds = %if.end.i9
-  %call3.i16 = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef readonly %6, i64 noundef %5) #20
+  %call3.i16 = tail call i32 @memcmp(ptr noundef %4, ptr noundef %6, i64 noundef %5) #20
   %cmp4.i17 = icmp eq i32 %call3.i16, 0
   %.call3.i18 = select i1 %cmp4.i17, i32 -1, i32 %call3.i16
   br label %return
 
 if.end7.i11:                                      ; preds = %if.end.i9
-  %call8.i12 = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef readonly %6, i64 noundef %7) #20
+  %call8.i12 = tail call i32 @memcmp(ptr noundef %4, ptr noundef %6, i64 noundef %7) #20
   %.call8.i13 = tail call i32 @llvm.umax.i32(i32 %call8.i12, i32 1)
   br label %return
 

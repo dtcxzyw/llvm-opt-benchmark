@@ -799,7 +799,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   unreachable
 
 112:                                              ; preds = %100
-  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull readonly dereferenceable(18) @.str.142) #18
+  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(18) @.str.142) #18
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %.tail262.i
 
@@ -1327,7 +1327,7 @@ sub_1308.i:                                       ; preds = %100
 349:                                              ; preds = %344
   %350 = load ptr, ptr @current_arg, align 8
   %351 = getelementptr inbounds i8, ptr %350, i64 2
-  %bcmp.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %351, ptr noundef nonnull readonly dereferenceable(7) @.str.184, i64 7)
+  %bcmp.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %351, ptr noundef nonnull dereferenceable(7) @.str.184, i64 7)
   %.not.i27 = icmp eq i32 %bcmp.i26, 0
   br i1 %.not.i27, label %352, label %match_argopt.exit31.thread
 
@@ -1354,7 +1354,7 @@ parse_multi_option.exit25:                        ; preds = %356
   br label %parse_option.exit
 
 match_argopt.exit31.thread:                       ; preds = %352, %349
-  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %351, ptr noundef nonnull readonly dereferenceable(7) @.str.185, i64 7)
+  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %351, ptr noundef nonnull dereferenceable(7) @.str.185, i64 7)
   %.not.i20 = icmp eq i32 %bcmp.i19, 0
   br i1 %.not.i20, label %360, label %match_argopt.exit24.thread
 
@@ -1381,7 +1381,7 @@ parse_multi_option.exit18:                        ; preds = %364
   br label %parse_option.exit
 
 match_argopt.exit24.thread:                       ; preds = %360, %match_argopt.exit31.thread
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %351, ptr noundef nonnull readonly dereferenceable(8) @.str.186, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %351, ptr noundef nonnull dereferenceable(8) @.str.186, i64 8)
   %.not.i17 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i17, label %368, label %match_argopt.exit.thread
 
@@ -1852,7 +1852,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   %indvars.iv.i.i = phi i64 [ 1, %587 ], [ %indvars.iv.next.i.i, %594 ]
   %590 = getelementptr inbounds [25 x ptr], ptr @arch_os_target, i64 0, i64 %indvars.iv.i.i
   %591 = load ptr, ptr %590, align 8
-  %592 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %591, ptr noundef nonnull readonly dereferenceable(1) %583) #18
+  %592 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %591, ptr noundef nonnull dereferenceable(1) %583) #18
   %593 = icmp eq i32 %592, 0
   br i1 %593, label %arch_os_target_from_string.exit.i, label %594
 
@@ -2829,7 +2829,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br i1 %1135, label %1136, label %1350
 
 1136:                                             ; preds = %1133
-  %1137 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(5) @.str.338) #18
+  %1137 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.338) #18
   %1138 = icmp eq i32 %1137, 0
   br i1 %1138, label %1139, label %1150
 
@@ -2858,7 +2858,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1150:                                             ; preds = %1136
-  %1151 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(9) @.str.340) #18
+  %1151 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(9) @.str.340) #18
   %1152 = icmp eq i32 %1151, 0
   br i1 %1152, label %1153, label %1164
 
@@ -2887,7 +2887,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1164:                                             ; preds = %1150
-  %1165 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(6) @.str.342) #18
+  %1165 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(6) @.str.342) #18
   %1166 = icmp eq i32 %1165, 0
   br i1 %1166, label %1167, label %1168
 
@@ -2896,7 +2896,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1168:                                             ; preds = %1164
-  %1169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(18) @.str.343) #18
+  %1169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(18) @.str.343) #18
   %1170 = icmp eq i32 %1169, 0
   br i1 %1170, label %1171, label %1172
 
@@ -2906,7 +2906,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1172:                                             ; preds = %1168
-  %1173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(13) @.str.344) #18
+  %1173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(13) @.str.344) #18
   %1174 = icmp eq i32 %1173, 0
   br i1 %1174, label %1175, label %1176
 
@@ -2916,7 +2916,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1176:                                             ; preds = %1172
-  %1177 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(8) @.str.345) #18
+  %1177 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(8) @.str.345) #18
   %1178 = icmp eq i32 %1177, 0
   br i1 %1178, label %1179, label %1180
 
@@ -2925,7 +2925,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1180:                                             ; preds = %1176
-  %1181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(13) @.str.346) #18
+  %1181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(13) @.str.346) #18
   %1182 = icmp eq i32 %1181, 0
   br i1 %1182, label %1183, label %1184
 
@@ -2934,7 +2934,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1184:                                             ; preds = %1180
-  %1185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(8) @.str.347) #18
+  %1185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(8) @.str.347) #18
   %1186 = icmp eq i32 %1185, 0
   br i1 %1186, label %1187, label %1188
 
@@ -2943,7 +2943,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1188:                                             ; preds = %1184
-  %1189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(11) @.str.348) #18
+  %1189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(11) @.str.348) #18
   %1190 = icmp eq i32 %1189, 0
   br i1 %1190, label %1191, label %1192
 
@@ -2952,7 +2952,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br label %parse_option.exit
 
 1192:                                             ; preds = %1188
-  %1193 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(13) @.str.349) #18
+  %1193 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(13) @.str.349) #18
   %1194 = icmp eq i32 %1193, 0
   br i1 %1194, label %1195, label %1249
 
@@ -3050,7 +3050,7 @@ expand_.exit:                                     ; preds = %1220, %1224
   br i1 %1248, label %parse_option.exit, label %.lr.ph.i, !llvm.loop !15
 
 1249:                                             ; preds = %1192
-  %1250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(12) @.str.351) #18
+  %1250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(12) @.str.351) #18
   %1251 = icmp eq i32 %1250, 0
   br i1 %1251, label %1252, label %1253
 
@@ -3059,7 +3059,7 @@ expand_.exit:                                     ; preds = %1220, %1224
   br label %parse_option.exit
 
 1253:                                             ; preds = %1249
-  %1254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(6) @.str.352) #18
+  %1254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(6) @.str.352) #18
   %1255 = icmp eq i32 %1254, 0
   br i1 %1255, label %1256, label %1266
 
@@ -3088,7 +3088,7 @@ parse_optional_target.exit.i:                     ; preds = %1264, %1259, %1256
   br label %parse_option.exit
 
 1266:                                             ; preds = %1253
-  %1267 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(10) @.str.282) #18
+  %1267 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(10) @.str.282) #18
   %1268 = icmp eq i32 %1267, 0
   br i1 %1268, label %1269, label %1270
 
@@ -3098,7 +3098,7 @@ parse_optional_target.exit.i:                     ; preds = %1264, %1259, %1256
   br label %parse_option.exit
 
 1270:                                             ; preds = %1266
-  %1271 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(5) @.str.283) #18
+  %1271 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.283) #18
   %1272 = icmp eq i32 %1271, 0
   br i1 %1272, label %1273, label %1274
 
@@ -3108,7 +3108,7 @@ parse_optional_target.exit.i:                     ; preds = %1264, %1259, %1256
   br label %parse_option.exit
 
 1274:                                             ; preds = %1270
-  %1275 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(4) @.str.353) #18
+  %1275 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(4) @.str.353) #18
   %1276 = icmp eq i32 %1275, 0
   br i1 %1276, label %1277, label %1287
 
@@ -3137,7 +3137,7 @@ parse_optional_target.exit44.i:                   ; preds = %1285, %1280, %1277
   br label %parse_option.exit
 
 1287:                                             ; preds = %1274
-  %1288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(12) @.str.354) #18
+  %1288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(12) @.str.354) #18
   %1289 = icmp eq i32 %1288, 0
   br i1 %1289, label %1290, label %1291
 
@@ -3146,7 +3146,7 @@ parse_optional_target.exit44.i:                   ; preds = %1285, %1280, %1277
   br label %parse_option.exit
 
 1291:                                             ; preds = %1287
-  %1292 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(10) @.str.355) #18
+  %1292 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(10) @.str.355) #18
   %1293 = icmp eq i32 %1292, 0
   br i1 %1293, label %1294, label %1304
 
@@ -3175,7 +3175,7 @@ parse_optional_target.exit46.i:                   ; preds = %1302, %1297, %1294
   br label %parse_option.exit
 
 1304:                                             ; preds = %1291
-  %1305 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(6) @.str.356) #18
+  %1305 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(6) @.str.356) #18
   %1306 = icmp eq i32 %1305, 0
   br i1 %1306, label %1307, label %1308
 
@@ -3184,7 +3184,7 @@ parse_optional_target.exit46.i:                   ; preds = %1302, %1297, %1294
   br label %parse_option.exit
 
 1308:                                             ; preds = %1304
-  %1309 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(5) @.str.357) #18
+  %1309 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.357) #18
   %1310 = icmp eq i32 %1309, 0
   br i1 %1310, label %1311, label %1321
 
@@ -3213,7 +3213,7 @@ parse_optional_target.exit48.i:                   ; preds = %1319, %1314, %1311
   br label %parse_option.exit
 
 1321:                                             ; preds = %1308
-  %1322 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(11) @.str.358) #18
+  %1322 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(11) @.str.358) #18
   %1323 = icmp eq i32 %1322, 0
   br i1 %1323, label %1324, label %1334
 
@@ -3242,7 +3242,7 @@ parse_optional_target.exit50.i:                   ; preds = %1332, %1327, %1324
   br label %parse_option.exit
 
 1334:                                             ; preds = %1321
-  %1335 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull readonly dereferenceable(6) @.str.359) #18
+  %1335 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(6) @.str.359) #18
   %1336 = icmp eq i32 %1335, 0
   br i1 %1336, label %1337, label %1347
 

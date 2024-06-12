@@ -1873,7 +1873,7 @@ define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef 
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds i8, ptr %1, i64 216
   %96 = load ptr, ptr %95, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
   store i32 %92, ptr %90, align 8
   %97 = icmp eq i32 %94, 0
   br i1 %97, label %copy_address_wmem.exit, label %98
@@ -1898,7 +1898,7 @@ copy_address_wmem.exit:                           ; preds = %87, %98
   %109 = load i32, ptr %108, align 4
   %110 = getelementptr inbounds i8, ptr %1, i64 240
   %111 = load ptr, ptr %110, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false)
   store i32 %107, ptr %105, align 8
   %112 = icmp eq i32 %109, 0
   br i1 %112, label %copy_address_wmem.exit114, label %113
@@ -3844,7 +3844,7 @@ addresses_equal.exit.i.i:                         ; preds = %988, %980, %974
   call void @gcry_md_write(ptr noundef %1017, ptr noundef %1018, i64 noundef %1019) #8
   %1020 = load ptr, ptr %11, align 8
   %1021 = call ptr @gcry_md_read(ptr noundef %1020, i32 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %1021, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %1021, i64 16, i1 false)
   br label %.sink.split44.i.i
 
 .sink.split44.i.i:                                ; preds = %1008, %964
@@ -3971,7 +3971,7 @@ addresses_equal.exit.i36.i:                       ; preds = %1053, %1045, %1039
   call void @gcry_md_write(ptr noundef %1082, ptr noundef %1083, i64 noundef %1084) #8
   %1085 = load ptr, ptr %9, align 8
   %1086 = call ptr @gcry_md_read(ptr noundef %1085, i32 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(20) %1086, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(20) %1086, i64 20, i1 false)
   br label %.sink.split44.i31.i
 
 .sink.split44.i31.i:                              ; preds = %1073, %1029

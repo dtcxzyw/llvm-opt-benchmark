@@ -144,7 +144,7 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr nocapture noundef 
   store i32 -1, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 88
   store i64 20, ptr %46, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 6
   br i1 %exitcond.not.i, label %init_packobject.exit, label %43
@@ -601,7 +601,7 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr nocapture noundef 
   store i32 -1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 88
   store i64 20, ptr %39, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 6
   br i1 %exitcond.not.i, label %init_packobject.exit, label %36

@@ -320,7 +320,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %_ZNK7QString3argEji
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV19DissectorTablesItem, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   %23 = load ptr, ptr %6, align 8

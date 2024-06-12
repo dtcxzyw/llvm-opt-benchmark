@@ -326,7 +326,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %4
   %11 = sub i64 0, %3
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
   store ptr %12, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   %13 = trunc i64 %3 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %mbedtls_asn1_write_raw_buffer.exit.thread, label %15
@@ -405,7 +405,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %21
   %27 = sub i64 0, %3
   %28 = getelementptr inbounds i8, ptr %22, i64 %27
   store ptr %28, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %2, i64 %3, i1 false)
   %29 = trunc i64 %3 to i32
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %mbedtls_asn1_write_null.exit.thread, label %31
@@ -657,7 +657,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %5
   %12 = sub i64 0, %4
   %13 = getelementptr inbounds i8, ptr %6, i64 %12
   store ptr %13, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr readonly align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %3, i64 %4, i1 false)
   %14 = trunc i64 %4 to i32
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %mbedtls_asn1_write_raw_buffer.exit.thread, label %16
@@ -704,7 +704,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   %11 = sub i64 0, %3
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
   store ptr %12, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   %13 = trunc i64 %3 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %mbedtls_asn1_write_tagged_string.exit, label %15
@@ -750,7 +750,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   %11 = sub i64 0, %3
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
   store ptr %12, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   %13 = trunc i64 %3 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %mbedtls_asn1_write_tagged_string.exit, label %15
@@ -796,7 +796,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   %11 = sub i64 0, %3
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
   store ptr %12, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   %13 = trunc i64 %3 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %mbedtls_asn1_write_tagged_string.exit, label %15
@@ -911,7 +911,7 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr nocapture noundef %0, 
   %50 = sub nsw i64 1, %30
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
   store ptr %51, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr readonly align 1 %2, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %2, i64 %42, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   br label %52
 
@@ -1033,7 +1033,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %4
   %11 = sub i64 0, %3
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
   store ptr %12, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr readonly align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   %13 = trunc i64 %3 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %mbedtls_asn1_write_raw_buffer.exit.thread, label %15
@@ -1080,7 +1080,7 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr nocapture noundef %0, ptr n
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %.09.i, i64 16
   %12 = load ptr, ptr %11, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %12, ptr readonly %1, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr %12, ptr %1, i64 %2)
   %13 = icmp eq i32 %bcmp.i, 0
   br i1 %13, label %asn1_find_named_data.exit, label %14
 

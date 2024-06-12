@@ -96,8 +96,8 @@ _ZN4absl24synchronization_internalL17NewThreadIdentityEv.exit: ; preds = %_ZN4ab
   %priority.i.i = getelementptr inbounds i8, ptr %identity.1.i, i64 24
   store i32 0, ptr %priority.i.i, align 8
   %state.i.i = getelementptr inbounds i8, ptr %identity.1.i, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(17) %identity.1.i, i8 0, i64 17, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %waitp.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %identity.1.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %waitp.i.i, i8 0, i64 24, i1 false)
   store atomic i32 0, ptr %state.i.i monotonic, align 4
   %maybe_unlocking.i.i = getelementptr inbounds i8, ptr %identity.1.i, i64 19
   store i8 0, ptr %maybe_unlocking.i.i, align 1

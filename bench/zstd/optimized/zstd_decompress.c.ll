@@ -89,8 +89,8 @@ if.end2:                                          ; preds = %entry
   %oversizedDuration.i = getelementptr inbounds i8, ptr %workspace, i64 95976
   store i64 0, ptr %oversizedDuration.i, align 8
   %isFrameDecompression.i = getelementptr inbounds i8, ptr %workspace, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i, align 8
   %1 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i = icmp eq i32 %1, 0
@@ -201,8 +201,8 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   %oversizedDuration.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 95976
   store i64 0, ptr %oversizedDuration.i.i, align 8
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -282,8 +282,8 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   %oversizedDuration.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 95976
   store i64 0, ptr %oversizedDuration.i.i, align 8
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem8.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
@@ -844,7 +844,7 @@ ZSTD_getDecompressedSize_legacy.exit:             ; preds = %if.then2.i, %if.the
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %entry
-  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
+  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   %cmp3.not = icmp eq i64 %call.i, 0
   br i1 %cmp3.not, label %if.end5, label %return
 
@@ -1102,7 +1102,7 @@ do.end8.i:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %entry, %if.end
-  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
+  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   %cmp.i41 = icmp ult i64 %call.i, -119
   br i1 %cmp.i41, label %if.end9, label %if.then8
 
@@ -1273,7 +1273,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call fastcc void @ZSTD_findFrameSizeInfo(ptr noalias nonnull align 8 %frameSizeInfo, ptr noundef %src.addr.025, i64 noundef %srcSize.addr.024)
   %0 = load i64, ptr %compressedSize1, align 8
   %1 = load i64, ptr %decompressedBound2, align 8
-  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %zfh, ptr noundef %src.addr.025, i64 noundef %srcSize.addr.024, i32 noundef 0)
+  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src.addr.025, i64 noundef %srcSize.addr.024, i32 noundef 0)
   %cmp.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i, label %do.end11, label %return
 
@@ -1777,7 +1777,7 @@ if.then12.i.i:                                    ; preds = %do.end10.i.i
   br i1 %cmp13.i.i, label %if.end128.i, label %ZSTD_decompressFrame.exit
 
 if.end26.i.i:                                     ; preds = %do.end10.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %op.0.i, ptr nonnull readonly align 1 %add.ptr76.i, i64 %call71.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %op.0.i, ptr nonnull align 1 %add.ptr76.i, i64 %call71.i, i1 false)
   br label %if.end128.i
 
 sw.bb108.i:                                       ; preds = %do.end91.i
@@ -1798,7 +1798,7 @@ if.then10.i.i:                                    ; preds = %do.end8.i100.i
   br i1 %cmp11.i102.i, label %if.end128.i, label %ZSTD_decompressFrame.exit
 
 sw.epilog.thread114.i:                            ; preds = %do.end8.i100.i
-  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %op.0.i, i8 %24, i64 %conv112.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %op.0.i, i8 %24, i64 %conv112.i, i1 false)
   br label %if.end128.i
 
 sw.epilog.i:                                      ; preds = %do.end91.i
@@ -2016,7 +2016,7 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   %oversizedDuration.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 95976
   store i64 0, ptr %oversizedDuration.i.i, align 8
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem8.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
@@ -2386,7 +2386,7 @@ if.then12.i:                                      ; preds = %do.end10.i
   br i1 %cmp13.i, label %do.body142.thread, label %sw.epilog284
 
 ZSTD_copyRawBlock.exit:                           ; preds = %do.end10.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 1 %dst, ptr readonly align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %dst, ptr align 1 %src, i64 %srcSize, i1 false)
   %cmp.i133 = icmp ult i64 %srcSize, -119
   br i1 %cmp.i133, label %do.body142.thread, label %sw.epilog284
 
@@ -2414,7 +2414,7 @@ if.then10.i:                                      ; preds = %do.end8.i136
   br label %do.body142
 
 if.end24.i:                                       ; preds = %do.end8.i136
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %dst, i8 %30, i64 %31, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %dst, i8 %30, i64 %31, i1 false)
   br label %do.body142
 
 do.body142:                                       ; preds = %if.end24.i, %if.then10.i, %sw.bb127, %do.end105
@@ -3048,7 +3048,7 @@ define i32 @ZSTD_getDictID_fromFrame(ptr noundef %src, i64 noundef %srcSize) loc
 entry:
   %zfp = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %zfp, i8 0, i64 48, i1 false)
-  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %zfp, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
+  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfp, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   %cmp.i = icmp ult i64 %call.i, -119
   %dictID = getelementptr inbounds i8, ptr %zfp, i64 28
   %0 = load i32, ptr %dictID, align 4
@@ -3086,8 +3086,8 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   %oversizedDuration.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 95976
   store i64 0, ptr %oversizedDuration.i.i, align 8
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem8.i, i8 0, i64 24, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
@@ -3168,8 +3168,8 @@ if.end2.i:                                        ; preds = %entry
   %oversizedDuration.i.i = getelementptr inbounds i8, ptr %workspace, i64 95976
   store i64 0, ptr %oversizedDuration.i.i, align 8
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %workspace, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   %1 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %1, 0
@@ -3280,8 +3280,8 @@ if.end7.i:                                        ; preds = %ZSTD_customMalloc.e
   %oversizedDuration.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 95976
   store i64 0, ptr %oversizedDuration.i.i, align 8
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ddictLocal.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %streamStage.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -4285,7 +4285,7 @@ entry:
 define i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #8 {
 entry:
   %zfh = alloca %struct.ZSTD_frameHeader, align 8
-  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull writeonly %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
+  %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   %cmp.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i, label %do.body, label %return
 
@@ -5049,7 +5049,7 @@ do.end582:                                        ; preds = %do.body566
 if.end590.thread446:                              ; preds = %do.end582
   %72 = load ptr, ptr %inBuff, align 8
   %add.ptr585 = getelementptr inbounds i8, ptr %72, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr585, ptr readonly align 1 %ip.0488.ph, i64 %cond.i351, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr585, ptr align 1 %ip.0488.ph, i64 %cond.i351, i1 false)
   %.pre502 = load i64, ptr %inPos, align 8
   br label %if.then593
 
@@ -5152,7 +5152,7 @@ sw.bb620:                                         ; preds = %while.body
 if.then.i398:                                     ; preds = %sw.bb620
   %83 = load ptr, ptr %outBuff627, align 8
   %add.ptr629 = getelementptr inbounds i8, ptr %83, i64 %82
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %op.0485, ptr readonly align 1 %add.ptr629, i64 %cond.i396, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0485, ptr align 1 %add.ptr629, i64 %cond.i396, i1 false)
   %.pre = load i64, ptr %outStart622, align 8
   br label %ZSTD_limitCopy.exit400
 

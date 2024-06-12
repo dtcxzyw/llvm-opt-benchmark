@@ -257,7 +257,7 @@ define hidden void @KeccakP1600_AddBytes(ptr nocapture noundef %0, ptr nocapture
 17:                                               ; preds = %8
   store i64 0, ptr %6, align 8
   %18 = zext nneg i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr readonly align 1 %12, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr align 1 %12, i64 %18, i1 false)
   %.0..0..0..0..0..0..pre.i = load i64, ptr %6, align 8
   br label %19
 
@@ -302,7 +302,7 @@ KeccakP1600_AddBytesInLane.exit:                  ; preds = %8, %19
 31:                                               ; preds = %.lr.ph
   store i64 0, ptr %5, align 8
   %32 = zext nneg i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull readonly align 1 dereferenceable(1) %.02740, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %.02740, i64 %32, i1 false)
   %.0..0..0..0..0..0..pre.i34 = load i64, ptr %5, align 8
   br label %KeccakP1600_AddBytesInLane.exit35
 
@@ -508,7 +508,7 @@ KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_Ove
   %32 = phi ptr [ %20, %KeccakP1600_OverwriteLanes.exit ], [ %1, %6 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi55
   %34 = zext nneg i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %33, ptr readonly align 1 %32, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %32, i64 %34, i1 false)
   br label %KeccakP1600_OverwriteBytesInLane.exit
 
 35:                                               ; preds = %4
@@ -563,7 +563,7 @@ KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_Ove
   %53 = zext nneg i32 %.02850 to i64
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
   %55 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %54, ptr noundef nonnull readonly align 1 dereferenceable(1) %.02751, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %.02751, i64 %55, i1 false)
   br label %KeccakP1600_OverwriteBytesInLane.exit45
 
 KeccakP1600_OverwriteBytesInLane.exit45:          ; preds = %41, %49
@@ -6391,7 +6391,7 @@ define hidden void @KeccakP1600_ExtractBytes(ptr nocapture noundef readonly %0, 
   %8 = lshr i32 %3, 3
   %9 = and i32 %3, -8
   %10 = zext i32 %9 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr readonly align 1 %0, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %0, i64 %10, i1 false)
   %11 = icmp ugt i32 %3, 15
   br i1 %11, label %12, label %KeccakP1600_ExtractLanes.exit
 
@@ -6477,7 +6477,7 @@ KeccakP1600_ExtractBytesInLane.exit:              ; preds = %KeccakP1600_Extract
   %.0.i = phi i64 [ %52, %48 ], [ %47, %KeccakP1600_ExtractLanes.exit ]
   store i64 %.0.i, ptr %.sroa.0, align 8
   %55 = zext nneg i32 %53 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %54, ptr nonnull align 8 %.sroa.0, i64 %55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 8 %.sroa.0, i64 %55, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   br label %.loopexit
 
@@ -6520,7 +6520,7 @@ KeccakP1600_ExtractBytesInLane.exit34:            ; preds = %.lr.ph, %63
   %65 = zext nneg i32 %.02838 to i64
   %66 = getelementptr inbounds i8, ptr %5, i64 %65
   %67 = zext nneg i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %.02739, ptr noundef nonnull align 1 dereferenceable(1) %66, i64 %67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02739, ptr noundef nonnull align 1 dereferenceable(1) %66, i64 %67, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %68 = sub i32 %.03036, %spec.select
   %69 = add i32 %.02937, 1

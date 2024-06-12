@@ -305,7 +305,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %89 = getelementptr i8, ptr %87, i64 4
   %.mask82.i.i = and i32 %82, 65535
   %90 = zext nneg i32 %.mask82.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr readonly align 1 %85, i64 %90, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 1 %85, i64 %90, i1 false)
   %91 = getelementptr i8, ptr %89, i64 %90
   %92 = ptrtoint ptr %91 to i64
   %93 = sub i64 %92, %48
@@ -349,7 +349,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %114 = getelementptr i8, ptr %112, i64 4
   %.mask.i.i = and i32 %106, 65535
   %115 = zext nneg i32 %.mask.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr readonly align 1 %109, i64 %115, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %109, i64 %115, i1 false)
   %116 = getelementptr i8, ptr %114, i64 %115
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %110 to i64
@@ -452,7 +452,7 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   %165 = getelementptr i8, ptr %163, i64 4
   %.mask82.i42.i = and i32 %158, 65535
   %166 = zext nneg i32 %.mask82.i42.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr readonly align 1 %161, i64 %166, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr align 1 %161, i64 %166, i1 false)
   %167 = getelementptr i8, ptr %165, i64 %166
   %168 = ptrtoint ptr %167 to i64
   %169 = sub i64 %168, %125
@@ -491,7 +491,7 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   %187 = getelementptr i8, ptr %185, i64 4
   %.mask.i20.i = and i32 %179, 65535
   %188 = zext nneg i32 %.mask.i20.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %187, ptr readonly align 1 %182, i64 %188, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %187, ptr align 1 %182, i64 %188, i1 false)
   %189 = getelementptr i8, ptr %187, i64 %188
   %190 = ptrtoint ptr %189 to i64
   %191 = ptrtoint ptr %183 to i64
@@ -752,7 +752,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   %47 = zext i16 %.0.copyload2.i to i64
   %48 = getelementptr i8, ptr %.0.i.i, i64 %47
   %49 = zext i16 %.0.copyload.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %48, ptr align 1 %46, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %46, i64 %49, i1 false)
   %50 = getelementptr i8, ptr %46, i64 %49
   %51 = icmp ult ptr %50, %43
   br i1 %51, label %.lr.ph.i, label %applyPageRedo.exit, !llvm.loop !14

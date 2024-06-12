@@ -27,7 +27,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div6 = lshr i64 %sub, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
   %bufsz.i = getelementptr inbounds i8, ptr %ctx, i64 384
   store i64 0, ptr %bufsz.i, align 8
   %xof_state.i = getelementptr inbounds i8, ptr %ctx, i64 424
@@ -56,7 +56,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div6.i = lshr i64 %sub.i, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
   %bufsz.i.i = getelementptr inbounds i8, ptr %ctx, i64 384
   store i64 0, ptr %bufsz.i.i, align 8
   %xof_state.i.i = getelementptr inbounds i8, ptr %ctx, i64 424

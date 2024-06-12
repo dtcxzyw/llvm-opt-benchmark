@@ -2185,7 +2185,7 @@ define internal noalias noundef ptr @tcp_segment_persistent_key(ptr nocapture no
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 216
   %12 = load ptr, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %8, ptr %6, align 8
   %13 = icmp eq i32 %10, 0
   br i1 %13, label %copy_address.exit, label %14
@@ -2209,7 +2209,7 @@ copy_address.exit:                                ; preds = %5, %14
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 240
   %26 = load ptr, ptr %25, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i32 %22, ptr %20, align 8
   %27 = icmp eq i32 %24, 0
   br i1 %27, label %copy_address.exit14, label %28
@@ -2271,7 +2271,7 @@ define internal void @tcp_segment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -2294,7 +2294,7 @@ free_address.exit:                                ; preds = %2, %4, %8, %11
   br label %free_address.exit7
 
 free_address.exit7:                               ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 64, ptr noundef nonnull %0) #20
   br label %22
 
@@ -3946,7 +3946,7 @@ find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %2
   %356 = getelementptr inbounds i8, ptr %351, i64 12
   store i32 %353, ptr %356, align 4
   %357 = getelementptr inbounds i8, ptr %351, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %358 = getelementptr inbounds i8, ptr %351, i64 36
   store i32 0, ptr %358, align 4
   call void @wmem_tree_insert32(ptr noundef %349, i32 noundef %.0451.us.us.i.us, ptr noundef nonnull %351) #20
@@ -4412,7 +4412,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %414, %408, %403, %3
   %587 = getelementptr inbounds i8, ptr %582, i64 12
   store i32 %584, ptr %587, align 4
   %588 = getelementptr inbounds i8, ptr %582, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %588, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %588, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %589 = getelementptr inbounds i8, ptr %582, i64 36
   store i32 0, ptr %589, align 4
   call void @wmem_tree_insert32(ptr noundef %580, i32 noundef %576, ptr noundef nonnull %582) #20
@@ -4865,7 +4865,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %806 = getelementptr inbounds i8, ptr %801, i64 12
   store i32 %803, ptr %806, align 4
   %807 = getelementptr inbounds i8, ptr %801, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %808 = getelementptr inbounds i8, ptr %801, i64 36
   store i32 0, ptr %808, align 4
   call void @wmem_tree_insert32(ptr noundef %799, i32 noundef %778, ptr noundef nonnull %801) #20
@@ -4891,7 +4891,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %821 = getelementptr inbounds i8, ptr %816, i64 12
   store i32 %818, ptr %821, align 4
   %822 = getelementptr inbounds i8, ptr %816, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %823 = getelementptr inbounds i8, ptr %816, i64 36
   store i32 0, ptr %823, align 4
   call void @wmem_tree_insert32(ptr noundef %814, i32 noundef %778, ptr noundef nonnull %816) #20
@@ -4915,7 +4915,7 @@ print_tcp_fragment_tree.exit585.i:                ; preds = %774, %763
   %835 = getelementptr inbounds i8, ptr %830, i64 12
   store i32 %832, ptr %835, align 4
   %836 = getelementptr inbounds i8, ptr %830, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull readonly align 8 dereferenceable(16) %72, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %836, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %837 = getelementptr inbounds i8, ptr %830, i64 36
   store i32 0, ptr %837, align 4
   call void @wmem_tree_insert32(ptr noundef %828, i32 noundef %778, ptr noundef nonnull %830) #20
@@ -12204,7 +12204,7 @@ define internal noundef i32 @follow_tcp_tap_listener(ptr nocapture noundef %0, p
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %1, i64 216
   %37 = load ptr, ptr %36, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i32 %33, ptr %31, align 8
   %38 = icmp eq i32 %35, 0
   br i1 %38, label %copy_address.exit, label %39
@@ -12232,7 +12232,7 @@ copy_address.exit:                                ; preds = %28, %39
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %1, i64 240
   %54 = load ptr, ptr %53, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %50, ptr %48, align 8
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %copy_address.exit104, label %56
@@ -15217,7 +15217,7 @@ proto_item_set_generated.exit467:                 ; preds = %524, %529, %532
   %591 = load i32, ptr %590, align 4
   %592 = getelementptr inbounds i8, ptr %3, i64 56
   %593 = load ptr, ptr %592, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %587, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %587, i8 0, i64 24, i1 false)
   store i32 %589, ptr %587, align 8
   %594 = icmp eq i32 %591, 0
   br i1 %594, label %copy_address_wmem.exit, label %595
@@ -15247,7 +15247,7 @@ copy_address_wmem.exit:                           ; preds = %580, %595
   %611 = load i32, ptr %610, align 4
   %612 = getelementptr inbounds i8, ptr %3, i64 80
   %613 = load ptr, ptr %612, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %607, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %607, i8 0, i64 24, i1 false)
   store i32 %609, ptr %607, align 8
   %614 = icmp eq i32 %611, 0
   br i1 %614, label %copy_address_wmem.exit468, label %615

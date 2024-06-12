@@ -633,7 +633,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit24:      ; preds = %_ZNSt6vectorIN3gmx1
   br label %173
 
 165:                                              ; preds = %163
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %41, i8 0, i64 32, i1 false)
   %166 = load float, ptr %31, align 4
   store float %166, ptr %41, align 16
   %167 = getelementptr inbounds i8, ptr %31, i64 4

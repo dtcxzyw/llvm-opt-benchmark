@@ -296,7 +296,7 @@ if.end.i:                                         ; preds = %lor.lhs.false6.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iv.i, i64 %24
   %idx.neg.i = sub i64 0, %olen.addr.0.i
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %17, ptr nonnull align 1 %add.ptr17.i, i64 %olen.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %add.ptr17.i, i64 %olen.addr.0.i, i1 false)
   %26 = load i64, ptr %ivlen.i, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %26
   br label %do.body.i.i
@@ -458,7 +458,7 @@ if.end31:                                         ; preds = %sw.bb28
   br i1 %or.cond.i, label %if.then35, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %buf1.i, ptr noundef nonnull readonly align 1 dereferenceable(13) %8, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %buf1.i, ptr noundef nonnull align 1 dereferenceable(13) %8, i64 13, i1 false)
   store i64 13, ptr %tls_aad_len.i, align 8
   %10 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %10 to i64
@@ -515,7 +515,7 @@ if.end42:                                         ; preds = %sw.bb37
 
 if.then.i:                                        ; preds = %if.end42
   %15 = load i64, ptr %ivlen.i39, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr readonly align 1 %13, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr align 1 %13, i64 %15, i1 false)
   br label %return.sink.split.sink.split.i
 
 if.end.i30:                                       ; preds = %if.end42
@@ -531,7 +531,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i30
   br i1 %cmp5.i, label %return.sink.split, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr readonly align 1 %13, i64 %14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv.i, ptr align 1 %13, i64 %14, i1 false)
   %bf.load15.i = load i8, ptr %iv_gen.i35, align 4
   %bf.clear16.i = and i8 %bf.load15.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear16.i, 0
@@ -581,7 +581,7 @@ if.end.i38:                                       ; preds = %lor.lhs.false58
   %add.ptr.i40 = getelementptr inbounds i8, ptr %iv.i, i64 %22
   %idx.neg.i = sub i64 0, %21
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i40, i64 %idx.neg.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11.i, ptr nonnull readonly align 1 %18, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11.i, ptr nonnull align 1 %18, i64 %21, i1 false)
   %23 = load ptr, ptr %hw.i, align 8
   %setiv.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %setiv.i, align 8
@@ -723,7 +723,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false6.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %iv.i.i, i64 %8
   %idx.neg.i.i = sub nsw i64 0, %olen.addr.0.i.i
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %out, ptr nonnull align 1 %add.ptr17.i.i, i64 %olen.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr17.i.i, i64 %olen.addr.0.i.i, i1 false)
   %9 = load i64, ptr %ivlen.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %iv.i.i, i64 %9
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i.i, i64 -8

@@ -381,7 +381,7 @@ define void @_ZN14ockam_executor8executor8Executor3new17h4edb83d538201cf0E(ptr n
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 1, ptr %6, align 8, !noalias !26
   %7 = getelementptr inbounds i8, ptr %2, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull readonly align 128 dereferenceable(256) %3, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false)
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
   %9 = tail call noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef 384, i64 noundef 128) #20, !noalias !29
   %10 = icmp eq ptr %9, null

@@ -139,7 +139,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %if.end.i
 
@@ -311,7 +311,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_encrypt_fields.exit, label %if.end.i
 
@@ -482,7 +482,7 @@ if.end67:                                         ; preds = %if.else, %if.then37
 if.end71:                                         ; preds = %if.end67
   %id = getelementptr inbounds i8, ptr %hdr, i64 9
   %6 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id, ptr align 1 %6, i64 %short_conn_id_len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %6, i64 %short_conn_id_len, i1 false)
   %7 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i147 = getelementptr inbounds i8, ptr %7, i64 %short_conn_id_len
   store ptr %add.ptr.i.i147, ptr %pkt, align 8
@@ -518,7 +518,7 @@ if.else83:                                        ; preds = %if.end71
   br i1 %cmp.i.i155, label %return, label %PACKET_copy_bytes.exit160
 
 PACKET_copy_bytes.exit160:                        ; preds = %if.else83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %pn74, ptr align 1 %pkt.val137, i64 %conv88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pn74, ptr align 1 %pkt.val137, i64 %conv88, i1 false)
   %9 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i157 = getelementptr inbounds i8, ptr %9, i64 %conv88
   store ptr %add.ptr.i.i157, ptr %pkt, align 8
@@ -605,7 +605,7 @@ lor.lhs.false120:                                 ; preds = %PACKET_get_1.exit18
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false120
   %id122 = getelementptr inbounds i8, ptr %hdr, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id122, ptr nonnull align 1 %add.ptr.i.i179, i64 %conv124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id122, ptr nonnull align 1 %add.ptr.i.i179, i64 %conv124, i1 false)
   %17 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i186 = getelementptr inbounds i8, ptr %17, i64 %conv124
   store ptr %add.ptr.i.i186, ptr %pkt, align 8
@@ -631,7 +631,7 @@ lor.lhs.false133:                                 ; preds = %PACKET_get_1.exit19
 
 if.end141:                                        ; preds = %lor.lhs.false133
   %id135 = getelementptr inbounds i8, ptr %hdr, i64 30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id135, ptr nonnull align 1 %add.ptr.i.i194, i64 %conv137, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id135, ptr nonnull align 1 %add.ptr.i.i194, i64 %conv137, i1 false)
   %20 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i201 = getelementptr inbounds i8, ptr %20, i64 %conv137
   store ptr %add.ptr.i.i201, ptr %pkt, align 8
@@ -842,7 +842,7 @@ if.else330:                                       ; preds = %if.end319
 
 if.end340:                                        ; preds = %if.else330
   %34 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %pn321, ptr align 1 %34, i64 %conv336, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pn321, ptr align 1 %34, i64 %conv336, i1 false)
   %35 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i235 = getelementptr inbounds i8, ptr %35, i64 %conv336
   store ptr %add.ptr.i.i235, ptr %pkt, align 8

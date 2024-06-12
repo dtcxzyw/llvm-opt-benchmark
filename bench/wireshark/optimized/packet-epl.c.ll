@@ -2381,7 +2381,7 @@ define internal noundef ptr @nodeid_profile_uat_copy_cb(ptr noundef returned %0,
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 %24, ptr %22, align 8
   %29 = icmp eq i32 %26, 0
   br i1 %29, label %copy_address.exit, label %30
@@ -2437,7 +2437,7 @@ define internal void @nodeid_profile_uat_free_cb(ptr nocapture noundef %0) #2 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %5, %8, %12, %15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br label %16
 
 16:                                               ; preds = %free_address.exit, %1
@@ -2534,7 +2534,7 @@ define internal void @nodeid_profile_parse_uat() #2 {
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %10, i64 24
   %50 = load ptr, ptr %49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   store i32 %46, ptr %44, align 8
   %51 = icmp eq i32 %48, 0
   br i1 %51, label %copy_address_wmem.exit, label %52
@@ -6720,7 +6720,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
 941:                                              ; preds = %936
   %942 = call ptr @wmem_file_scope() #18
   %943 = call noalias ptr @wmem_alloc(ptr noundef %942, i64 noundef 24) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %943, ptr noundef nonnull readonly align 8 dereferenceable(24) %937, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %943, ptr noundef nonnull align 8 dereferenceable(24) %937, i64 24, i1 false)
   %944 = call ptr @wmem_file_scope() #18
   %945 = load i32, ptr @proto_epl, align 4
   call void @p_add_proto_data(ptr noundef %944, ptr noundef %2, i32 noundef %945, i32 noundef %930, ptr noundef %943) #18
@@ -7311,7 +7311,7 @@ define internal void @nodeid_profile_list_uats_nodeid_set_cb(ptr noundef %0, ptr
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 1, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %17, i64 noundef 6) #18
   %19 = getelementptr inbounds i8, ptr %0, i64 32

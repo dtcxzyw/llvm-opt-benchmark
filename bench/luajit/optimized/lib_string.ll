@@ -538,7 +538,7 @@ if.then32.i.i:                                    ; preds = %if.else27.i.i
 if.else33.i.i:                                    ; preds = %if.else27.i.i
   %conv29.i.i = sext i8 %11 to i32
   %sub.i.i = add nsw i32 %conv29.i.i, -49
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
   call void @luaL_addvalue(ptr noundef nonnull %b) #7
   br label %for.inc.i.i
 
@@ -567,7 +567,7 @@ sw.bb2.i:                                         ; preds = %if.then22
 
 for.body.i24.i:                                   ; preds = %sw.bb2.i, %for.body.i24.i
   %i.010.i.i = phi i32 [ %inc.i25.i, %for.body.i24.i ], [ 0, %sw.bb2.i ]
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
   %inc.i25.i = add nuw nsw i32 %i.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i25.i, %spec.select.i.i
   br i1 %exitcond.not.i.i, label %push_captures.exit.i, label %for.body.i24.i, !llvm.loop !8
@@ -932,7 +932,7 @@ if.then64:                                        ; preds = %if.then62
 
 for.body.i:                                       ; preds = %if.then64, %for.body.i
   %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then64 ]
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i, ptr noundef null, ptr noundef null)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i, ptr noundef null, ptr noundef null)
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %13
   br i1 %exitcond.not.i, label %push_captures.exit, label %for.body.i, !llvm.loop !8
@@ -951,7 +951,7 @@ if.else82:                                        ; preds = %if.then62
 
 for.body.i50:                                     ; preds = %if.else82, %for.body.i50
   %i.010.i51 = phi i32 [ %inc.i52, %for.body.i50 ], [ 0, %if.else82 ]
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i51, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi58)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i51, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi58)
   %inc.i52 = add nuw nsw i32 %i.010.i51, 1
   %exitcond.not.i53 = icmp eq i32 %inc.i52, %spec.select.i
   br i1 %exitcond.not.i53, label %return, label %for.body.i50, !llvm.loop !8
@@ -2067,7 +2067,7 @@ if.then:                                          ; preds = %for.body
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i, ptr noundef %src.019, ptr noundef nonnull %call)
+  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i, ptr noundef %src.019, ptr noundef nonnull %call)
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %spec.select.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !8

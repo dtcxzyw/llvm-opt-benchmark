@@ -2008,7 +2008,7 @@ if.else.i.us:                                     ; preds = %land.rhs415.us
 if.then.i274.us:                                  ; preds = %land.rhs415.us
   %shr.i275.us = lshr i32 %242, 24
   %conv.i276.us = trunc nuw nsw i32 %shr.i275.us to i8
-  %call.i.us = call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull readonly %stateTable.0, i8 noundef zeroext %conv.i276.us)
+  %call.i.us = call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull %stateTable.0, i8 noundef zeroext %conv.i276.us)
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit.us
 
 _ZL14isSingleOrLeadPA256_Kihah.exit.us:           ; preds = %if.then.i274.us, %if.else.i.us
@@ -2034,7 +2034,7 @@ land.rhs415:                                      ; preds = %if.then405, %for.in
 if.then.i274:                                     ; preds = %land.rhs415
   %shr.i275 = lshr i32 %245, 24
   %conv.i276 = trunc nuw nsw i32 %shr.i275 to i8
-  %call.i = call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull readonly %stateTable.0, i8 noundef zeroext %conv.i276)
+  %call.i = call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull %stateTable.0, i8 noundef zeroext %conv.i276)
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit
 
 if.else.i:                                        ; preds = %land.rhs415
@@ -5363,7 +5363,7 @@ for.body.i.i:                                     ; preds = %for.end59.i, %for.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %84 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %85 = call fastcc noundef signext i8 @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull readonly %mbcs, ptr noundef nonnull %stateProps.i.i, i32 noundef %84, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
+  %85 = call fastcc noundef signext i8 @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull %mbcs, ptr noundef nonnull %stateProps.i.i, i32 noundef %84, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %mbcs)
   %.pre.i.i = load i8, ptr %mbcs, align 8
   br label %for.inc.i.i
 
@@ -6221,7 +6221,7 @@ if.else.i.us:                                     ; preds = %land.rhs.us
 if.then.i.us:                                     ; preds = %land.rhs.us
   %shr.i126.us = lshr i32 %41, 24
   %conv.i127.us = trunc nuw nsw i32 %shr.i126.us to i8
-  %call.i.us = tail call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull readonly %stateTable.0, i8 noundef zeroext %conv.i127.us)
+  %call.i.us = tail call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull %stateTable.0, i8 noundef zeroext %conv.i127.us)
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit.us
 
 _ZL14isSingleOrLeadPA256_Kihah.exit.us:           ; preds = %if.then.i.us, %if.else.i.us
@@ -6251,7 +6251,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 if.then.i:                                        ; preds = %land.rhs
   %shr.i126 = lshr i32 %44, 24
   %conv.i127 = trunc nuw nsw i32 %shr.i126 to i8
-  %call.i = tail call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull readonly %stateTable.0, i8 noundef zeroext %conv.i127)
+  %call.i = tail call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull %stateTable.0, i8 noundef zeroext %conv.i127)
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit
 
 if.else.i:                                        ; preds = %land.rhs

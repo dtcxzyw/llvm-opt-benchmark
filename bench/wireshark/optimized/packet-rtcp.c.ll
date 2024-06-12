@@ -1422,7 +1422,7 @@ define void @srtcp_add_address(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not, label %14, label %33
 
 14:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not26 = icmp eq i32 %3, 0
   %15 = select i1 %.not26, i32 196608, i32 65536
   %16 = call ptr @find_conversation(i32 noundef %5, ptr noundef %1, ptr noundef nonnull %8, i32 noundef 3, i32 noundef %2, i32 noundef %3, i32 noundef %15) #7

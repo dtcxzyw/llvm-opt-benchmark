@@ -55,9 +55,9 @@ if.then8:                                         ; preds = %if.end6.thread, %if
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp_block.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %zero_block.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %zero2_block.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
   %4 = getelementptr inbounds i8, ptr %input_block.i, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
   %conv.i = and i64 %position.coerce0, 4294967295
   store i64 %conv.i, ptr %input_block.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %input_block.i, i64 8
@@ -97,8 +97,8 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 if.then21.i:                                      ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %zero_block.i, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %zero2_block.i, i8 0, i64 1024, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
   %inc.i = add i64 %inc15.i, 1
   store i64 %inc.i, ptr %arrayidx24.i, align 8
   call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero_block.i, ptr noundef nonnull %input_block.i, ptr noundef nonnull %tmp_block.i)

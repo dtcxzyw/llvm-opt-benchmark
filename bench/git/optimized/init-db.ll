@@ -443,7 +443,7 @@ if.then207:                                       ; preds = %land.lhs.true204
 lor.lhs.false.i.i:                                ; preds = %if.then207
   %sub.i.i = add i64 %19, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 %sub.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
 
@@ -516,18 +516,18 @@ entry.tail.i:                                     ; preds = %sub_1.i, %if.then22
 
 if.end.i:                                         ; preds = %entry.tail.i
   %call1.i = call ptr @xgetcwd() #13
-  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(1) %call1.i) #16
+  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(1) %call1.i) #16
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   call void @free(ptr noundef %call1.i) #13
   br i1 %tobool3.not.i, label %guess_repository_type.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call7.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(5) @.str.32) #16
+  %call7.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(5) @.str.32) #16
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %guess_repository_type.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %call11.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %git_dir.1, i32 noundef 47) #16
+  %call11.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %git_dir.1, i32 noundef 47) #16
   %tobool12.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool12.not.i, label %if.end16.i, label %land.lhs.true.i
 

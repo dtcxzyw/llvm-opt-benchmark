@@ -551,7 +551,7 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   br i1 %exitcond229.not, label %._crit_edge, label %.lr.ph178, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %11, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %11, i8 0, i64 36, i1 false)
   %35 = icmp sgt i32 %1, 0
   %36 = icmp sgt i32 %0, 0
   %or.cond302 = and i1 %35, %36
@@ -812,11 +812,11 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %.sink311.sroa.phi = phi ptr [ %.sink311.sroa.gep, %150 ], [ %.sink311.sroa.gep314, %108 ]
   %.sink309 = phi float [ %161, %150 ], [ %149, %108 ]
   store float %.sink309, ptr %.sink311.sroa.phi, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   br label %.preheader169.us.preheader
 
 162:                                              ; preds = %._crit_edge202
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   %163 = icmp sgt i32 %0, 0
   br i1 %163, label %.preheader169.us.preheader, label %.lr.ph210.preheader
 
@@ -1089,7 +1089,7 @@ define void @_Z6do_fitiPfPA3_KfPA3_f(i32 noundef %0, ptr nocapture noundef reado
   %6 = alloca [3 x float], align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  call void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef 3, i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef nonnull %5)
+  call void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef 3, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.preheader29.preheader.i, label %_Z11do_fit_ndimiiPfPA3_KfPA3_f.exit
 

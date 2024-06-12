@@ -17130,7 +17130,7 @@ if.then.i.i.i64:                                  ; preds = %invoke.cont18
   br label %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i
 
 _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i:          ; preds = %if.then.i.i.i64, %invoke.cont18
-  %call.i69 = invoke noundef zeroext i1 @_ZN2dd11pdd_manager7try_divERKNS_3pddERK8rationalRS1_(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(32) %pow2j, ptr noundef nonnull align 8 dereferenceable(16) %aa)
+  %call.i69 = invoke noundef zeroext i1 @_ZN2dd11pdd_manager7try_divERKNS_3pddERK8rationalRS1_(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(32) %pow2j, ptr noundef nonnull align 8 dereferenceable(16) %aa)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i
@@ -17177,7 +17177,7 @@ if.then.i.i.i74:                                  ; preds = %invoke.cont20
   br label %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i79
 
 _ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i79:        ; preds = %if.then.i.i.i74, %invoke.cont20
-  %call.i80 = invoke noundef zeroext i1 @_ZN2dd11pdd_manager7try_divERKNS_3pddERK8rationalRS1_(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(32) %pow2j, ptr noundef nonnull align 8 dereferenceable(16) %cc)
+  %call.i80 = invoke noundef zeroext i1 @_ZN2dd11pdd_manager7try_divERKNS_3pddERK8rationalRS1_(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(32) %pow2j, ptr noundef nonnull align 8 dereferenceable(16) %cc)
           to label %invoke.cont.i93 unwind label %lpad.i81
 
 invoke.cont.i93:                                  ; preds = %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i79

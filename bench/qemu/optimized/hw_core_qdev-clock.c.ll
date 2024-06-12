@@ -279,7 +279,7 @@ if.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %ncl.06.i = phi ptr [ %ncl.0.i, %for.inc.i ], [ %ncl.04.i, %if.end ]
   %0 = load ptr, ptr %ncl.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end4, label %for.inc.i
 
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %ncl.06.i = phi ptr [ %ncl.0.i, %for.inc.i ], [ %ncl.04.i, %if.end ]
   %0 = load ptr, ptr %ncl.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end4, label %for.inc.i
 
@@ -389,7 +389,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %ncl.06.i.in = phi ptr [ %node.i, %for.body.i ], [ %clocks.i, %if.end ]
   %ncl.06.i = load ptr, ptr %ncl.06.i.in, align 8, !nonnull !9, !noundef !9
   %0 = load ptr, ptr %ncl.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
   %cmp.i = icmp eq i32 %call.i, 0
   %node.i = getelementptr inbounds i8, ptr %ncl.06.i, i64 24
   br i1 %cmp.i, label %qdev_get_clocklist.exit, label %for.body.i

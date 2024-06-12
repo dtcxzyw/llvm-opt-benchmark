@@ -24,7 +24,7 @@ entry:
   br i1 %cmp.i, label %uriNormalizeSyntaxMaskRequiredExA.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %writeableClone.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %uri, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %writeableClone.i, ptr noundef nonnull align 8 dereferenceable(160) %uri, i64 160, i1 false)
   %call.i = call fastcc i32 @uriNormalizeSyntaxEngineA(ptr noundef nonnull %writeableClone.i, i32 noundef 0, ptr noundef nonnull %outMask, ptr noundef null)
   %.pre = load i32, ptr %outMask, align 4
   br label %uriNormalizeSyntaxMaskRequiredExA.exit
@@ -1467,7 +1467,7 @@ entry:
   br i1 %cmp.i, label %uriNormalizeSyntaxMaskRequiredExW.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %writeableClone.i, ptr noundef nonnull readonly align 8 dereferenceable(160) %uri, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %writeableClone.i, ptr noundef nonnull align 8 dereferenceable(160) %uri, i64 160, i1 false)
   %call.i = call fastcc i32 @uriNormalizeSyntaxEngineW(ptr noundef nonnull %writeableClone.i, i32 noundef 0, ptr noundef nonnull %outMask, ptr noundef null)
   %.pre = load i32, ptr %outMask, align 4
   br label %uriNormalizeSyntaxMaskRequiredExW.exit

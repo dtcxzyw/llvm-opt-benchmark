@@ -240,7 +240,7 @@ define ptr @Lpk_CutTruth_rec(ptr noundef %0, ptr nocapture noundef %1, i32 nound
 select.unfold.preheader.i:                        ; preds = %16
   %21 = zext nneg i32 %spec.select.i to i64
   %22 = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %13, i8 -1, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %13, i8 -1, i64 %22, i1 false)
   br label %Kit_TruthFill.exit
 
 23:                                               ; preds = %7

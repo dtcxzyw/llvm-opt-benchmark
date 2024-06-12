@@ -446,7 +446,7 @@ land.rhs.i.i:                                     ; preds = %if.end.i.i, %land.r
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i.i
   %45 = load ptr, ptr %arrayidx.i.i, align 8
   %name.i.i = getelementptr inbounds i8, ptr %45, i64 108
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %41) #15
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %41) #15
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %while.body.i.i, label %for.inc.i
 
@@ -520,7 +520,7 @@ if.then141:                                       ; preds = %if.end139
   br i1 %tobool143.not, label %if.end145, label %if.then144
 
 if.then144:                                       ; preds = %if.then141
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
   %57 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %57, i64 256
   %58 = load ptr, ptr %hash_algo.i, align 8
@@ -570,11 +570,11 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %call.i.i49, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %call.i.i49, i64 32)
   br label %is_null_oid.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %call.i.i49, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %call.i.i49, i64 20)
   br label %is_null_oid.exit.i
 
 is_null_oid.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -616,7 +616,7 @@ land.rhs.i.i65:                                   ; preds = %if.end.i.i73, %land
   %arrayidx.i.i67 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv.i.i66
   %70 = load ptr, ptr %arrayidx.i.i67, align 8
   %name.i.i68 = getelementptr inbounds i8, ptr %70, i64 108
-  %call.i26.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i68, ptr noundef nonnull readonly dereferenceable(1) %66) #15
+  %call.i26.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i68, ptr noundef nonnull dereferenceable(1) %66) #15
   %tobool.not.i.i69 = icmp eq i32 %call.i26.i, 0
   br i1 %tobool.not.i.i69, label %while.body.i.i70, label %for.inc.i57
 
@@ -786,11 +786,11 @@ if.end.i38.i:                                     ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i40.i, label %if.end.i.i39.i
 
 if.then.i.i40.i:                                  ; preds = %if.end.i38.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid69.i, ptr noundef nonnull readonly dereferenceable(32) %oid.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid69.i, ptr noundef nonnull dereferenceable(32) %oid.i, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i39.i:                                   ; preds = %if.end.i38.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid69.i, ptr noundef nonnull readonly dereferenceable(20) %oid.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid69.i, ptr noundef nonnull dereferenceable(20) %oid.i, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i39.i, %if.then.i.i40.i

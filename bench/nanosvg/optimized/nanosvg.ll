@@ -1507,7 +1507,7 @@ nsvg__getNextPathItemWhenArcFlag.exit.thread.i:   ; preds = %.critedge2.i.i, %.c
   br i1 %114, label %nsvg__getNextPathItem.exit.thread.sink.split.i, label %nsvg__getNextPathItem.exit.i
 
 nsvg__getNextPathItem.exit.i:                     ; preds = %112, %.critedge.i122.i, %.critedge.i122.i, %.critedge.i122.i
-  %115 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i.i, ptr noundef nonnull writeonly %6)
+  %115 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i.i, ptr noundef nonnull %6)
   %.pr203.pre.i = load i8, ptr %6, align 16
   %.not107.i = icmp eq i8 %.pr203.pre.i, 0
   br i1 %.not107.i, label %nsvg__getNextPathItem.exit.thread208.i, label %nsvg__getNextPathItem.exit.thread.i
@@ -5114,7 +5114,7 @@ nsvg__addPathPoint.exit.i129:                     ; preds = %254, %250
   %335 = phi ptr [ %300, %.thread287.i ], [ %332, %327 ]
   %336 = sext i32 %334 to i64
   %337 = getelementptr inbounds %struct.NSVGpoint, ptr %335, i64 %336
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %337, ptr noundef nonnull readonly align 8 dereferenceable(32) %10, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %337, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   %338 = load i32, ptr %38, align 8
   %339 = add nsw i32 %338, 1
   store i32 %339, ptr %38, align 8
@@ -8699,7 +8699,7 @@ nsvg__getNextPathItem.exit.thread50:              ; preds = %.critedge2.i
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %35, %.critedge.i, %.critedge.i, %.critedge.i
-  %39 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i, ptr noundef nonnull writeonly %6)
+  %39 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i, ptr noundef nonnull %6)
   %.pr.pre = load i8, ptr %6, align 16
   br label %nsvg__getNextPathItem.exit
 
@@ -10868,7 +10868,7 @@ define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #14 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0, ptr noundef nonnull @.str.64, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #31
+  %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.64, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #31
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %15, label %23
 
@@ -10883,7 +10883,7 @@ define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #14 {
   br label %nsvg__parseColorHex.exit
 
 23:                                               ; preds = %12
-  %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0, ptr noundef nonnull @.str.65, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #31
+  %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.65, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #31
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %26, label %nsvg__parseColorHex.exit
 
@@ -10944,7 +10944,7 @@ nsvg__parseColorHex.exit:                         ; preds = %15, %23, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader ]
   %53 = getelementptr inbounds [10 x %struct.NSVGNamedColor], ptr @nsvg__colors, i64 0, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 16
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull readonly dereferenceable(1) %.0) #32
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %.0) #32
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %51
 
@@ -13098,7 +13098,7 @@ define internal fastcc noalias noundef ptr @nsvg__createGradient(ptr noundef rea
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %13
   %.013.i = phi ptr [ %.0.i, %13 ], [ %.011.i, %.preheader.i ]
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i, ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i, ptr noundef nonnull dereferenceable(1) %1) #32
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %nsvg__findGradientData.exit, label %13
 
@@ -13124,7 +13124,7 @@ nsvg__findGradientData.exit:                      ; preds = %.lr.ph.i, %26
 
 .lr.ph.i136:                                      ; preds = %17, %23
   %.013.i137 = phi ptr [ %.0.i138, %23 ], [ %.011.i, %17 ]
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i137, ptr noundef nonnull readonly dereferenceable(1) %18) #32
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i137, ptr noundef nonnull dereferenceable(1) %18) #32
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %nsvg__findGradientData.exit141, label %23
 

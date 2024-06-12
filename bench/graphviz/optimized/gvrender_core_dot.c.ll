@@ -2698,7 +2698,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef 
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #16
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -2758,7 +2758,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #16
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #16
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 
@@ -3006,7 +3006,7 @@ agxbput.exit:                                     ; preds = %1
   %13 = getelementptr inbounds i8, ptr %2, i64 31
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.39, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2, ptr noundef nonnull align 1 dereferenceable(13) @.str.39, i64 13, i1 false)
   store i8 13, ptr %13, align 1
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.40, double noundef %6)
   %.val.i.i = load i8, ptr %13, align 1
@@ -3241,17 +3241,17 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %107 = phi ptr [ %98, %.lr.ph101 ], [ %117, %.backedge ]
   %.pn = phi ptr [ %97, %.lr.ph101 ], [ %108, %.backedge ]
   %108 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %109 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(7) @.str.42) #17
+  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(7) @.str.42) #17
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %.backedge, label %111
 
 111:                                              ; preds = %106
-  %112 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(5) @.str.43) #17
+  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(5) @.str.43) #17
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %.backedge, label %114
 
 114:                                              ; preds = %111
-  %115 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(13) @.str.44) #17
+  %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(13) @.str.44) #17
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %.backedge, label %118
 
@@ -3261,7 +3261,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br i1 %.not29, label %._crit_edge, label %106
 
 118:                                              ; preds = %114
-  %119 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %107) #17
+  %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #17
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %agxbput.exit54.preheader, label %agxblen.exit.i.i48
 
@@ -3290,7 +3290,7 @@ agxblen.exit.i.i48:                               ; preds = %118
 128:                                              ; preds = %127
   %129 = zext i8 %.val.i25.i.i51 to i64
   %130 = getelementptr inbounds [31 x i8], ptr %2, i64 0, i64 %129
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull readonly align 1 %107, i64 %119, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull align 1 %107, i64 %119, i1 false)
   %131 = trunc i64 %119 to i8
   %132 = load i8, ptr %99, align 1
   %133 = add i8 %132, %131
@@ -3301,7 +3301,7 @@ agxblen.exit.i.i48:                               ; preds = %118
   %135 = load i64, ptr %101, align 8
   %136 = load ptr, ptr %2, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %135
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr nonnull readonly align 1 %107, i64 %119, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr nonnull align 1 %107, i64 %119, i1 false)
   %138 = load i64, ptr %101, align 8
   %139 = add i64 %138, %119
   store i64 %139, ptr %101, align 8

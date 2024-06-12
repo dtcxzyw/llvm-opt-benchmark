@@ -102,7 +102,7 @@ for.cond.i:                                       ; preds = %for.body.i23
 for.body.i23:                                     ; preds = %rand_string.exit, %for.cond.i
   %cur.06.i24 = phi ptr [ %cur.0.i27, %for.cond.i ], [ %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.cur.03.i, %rand_string.exit ]
   %4 = load ptr, ptr %cur.06.i24, align 8
-  %call.i25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %call2.i) #12
+  %call.i25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %call2.i) #12
   %cmp2.i = icmp eq i32 %call.i25, 0
   br i1 %cmp2.i, label %dummy_lh_retrieve.exit, label %for.cond.i
 
@@ -255,13 +255,13 @@ rand_string.exit75:                               ; preds = %for.body.i64, %sw.b
 
 for.body.i76.preheader:                           ; preds = %rand_string.exit75
   %16 = load ptr, ptr %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.cur.03.i, align 8
-  %call.i78131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %call2.i60) #12
+  %call.i78131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %call2.i60) #12
   %cmp3.i132 = icmp eq i32 %call.i78131, 0
   br i1 %cmp3.i132, label %dummy_lh_delete.exit, label %if.end.i
 
 for.body.i76:                                     ; preds = %if.end.i
   %17 = load ptr, ptr %cur.0.i79, align 8
-  %call.i78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %call2.i60) #12
+  %call.i78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %call2.i60) #12
   %cmp3.i = icmp eq i32 %call.i78, 0
   br i1 %cmp3.i, label %dummy_lh_delete.exit.loopexit, label %if.end.i, !llvm.loop !12
 

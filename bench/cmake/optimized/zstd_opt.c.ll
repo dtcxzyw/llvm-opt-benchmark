@@ -632,7 +632,7 @@ ZSTD_litLengthPrice.exit538:                      ; preds = %283, %310, %ZSTD_LL
   %360 = getelementptr inbounds i8, ptr %347, i64 12
   %361 = load i32, ptr %360, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %357, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %357, i64 12, i1 false)
   %362 = icmp ugt i32 %359, 3
   br i1 %362, label %363, label %367
 
@@ -997,7 +997,7 @@ ZSTD_MLcode.exit544:                              ; preds = %487, %490
   %534 = zext i32 %.1465609 to i64
   %535 = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %38, i64 %534, i32 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %535, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %535, i64 12, i1 false)
   %536 = icmp ugt i32 %.sroa.3571.0606, 3
   br i1 %536, label %537, label %541
 
@@ -2064,7 +2064,7 @@ ZSTD_litLengthPrice.exit540:                      ; preds = %308, %344, %ZSTD_LL
   %401 = getelementptr inbounds i8, ptr %388, i64 12
   %402 = load i32, ptr %401, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull readonly align 4 dereferenceable(12) %398, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %398, i64 12, i1 false)
   %403 = icmp ugt i32 %400, 3
   br i1 %403, label %404, label %408
 
@@ -2545,7 +2545,7 @@ ZSTD_MLcode.exit547:                              ; preds = %573, %576
   %626 = zext i32 %.1465622 to i64
   %627 = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %37, i64 %626, i32 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %627, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %627, i64 12, i1 false)
   %628 = icmp ugt i32 %.sroa.3581.0619, 3
   br i1 %628, label %629, label %633
 
@@ -3037,7 +3037,7 @@ define dso_local i64 @ZSTD_compressBlock_btultra2(ptr noundef %0, ptr noundef %1
 
 30:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %31 = call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %3, i64 noundef %4, i32 noundef 0)
   call void @ZSTD_resetSeqStore(ptr noundef nonnull %1) #11
   %32 = load ptr, ptr %7, align 8

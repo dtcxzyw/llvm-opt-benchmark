@@ -1265,7 +1265,7 @@ get_gating_quals.exit:                            ; preds = %670
 
 create_gating_plan.exit:                          ; preds = %678, %681, %685
   %.0.i92 = phi ptr [ %.0.i, %681 ], [ %.0.i, %678 ], [ %spec.select.i93, %685 ]
-  %689 = call fastcc ptr @build_path_tlist(ptr noundef nonnull %0, ptr noundef nonnull readonly %1)
+  %689 = call fastcc ptr @build_path_tlist(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %690 = call noundef ptr @palloc0(i64 noundef 112) #12
   store i32 315, ptr %690, align 4
   %691 = getelementptr inbounds i8, ptr %690, i64 48
@@ -6020,7 +6020,7 @@ create_customscan_plan.exit:                      ; preds = %1075, %._crit_edge,
 
 create_gating_plan.exit:                          ; preds = %1086, %1089, %1093
   %.0.i192 = phi ptr [ %.0111, %1089 ], [ %.0111, %1086 ], [ %spec.select.i, %1093 ]
-  %1097 = call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonly %1)
+  %1097 = call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef %1)
   %1098 = call noundef ptr @palloc0(i64 noundef 112) #12
   store i32 315, ptr %1098, align 4
   %1099 = getelementptr inbounds i8, ptr %1098, i64 48
@@ -8051,7 +8051,7 @@ define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr no
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @lappend(ptr noundef %.1917.i, ptr noundef %40) #12
   %42 = load ptr, ptr %33, align 8
-  %43 = tail call fastcc ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef readonly %15, i32 noundef %28, ptr noundef %40, ptr noundef %42)
+  %43 = tail call fastcc ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef %15, i32 noundef %28, ptr noundef %40, ptr noundef %42)
   %44 = tail call ptr @lappend(ptr noundef %.130818.i, ptr noundef %43) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr %31, align 4

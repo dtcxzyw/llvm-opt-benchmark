@@ -929,7 +929,7 @@ ptvcursor_add_invalid_check.exit150.i:            ; preds = %222, %215
   br label %dissect_80211_common.exit
 
 236:                                              ; preds = %224
-  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %233, i32 noundef 12, i32 noundef 0, ptr noundef nonnull writeonly %7, ptr noundef nonnull writeonly %8, ptr noundef nonnull %9)
+  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %233, i32 noundef 12, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %237 = add i32 %233, 9
   %238 = load ptr, ptr %44, align 8
   %239 = tail call ptr @ptvcursor_new(ptr noundef %238, ptr noundef %226, ptr noundef %0, i32 noundef %237) #3

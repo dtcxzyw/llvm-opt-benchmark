@@ -5438,7 +5438,7 @@ define linkonce_odr void @_ZN25WlanNetworkTreeWidgetItem11updateBssidEPK9_wlan_h
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %6, ptr %5, align 8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %_ZL12copy_addressP8_addressPKS_.exit, label %12
@@ -5862,7 +5862,7 @@ define linkonce_odr void @_ZN25WlanStationTreeWidgetItemC2EPK8_address(ptr nound
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %7, ptr %6, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %_ZL12copy_addressP8_addressPKS_.exit, label %13
@@ -7450,7 +7450,7 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %161, %_ZN17QArrayDa
   %174 = getelementptr inbounds i8, ptr %1, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = sext i32 %.val to i64
-  %bcmp.i = call i32 @bcmp(ptr readonly %.val12, ptr %175, i64 %176)
+  %bcmp.i = call i32 @bcmp(ptr %.val12, ptr %175, i64 %176)
   %177 = icmp eq i32 %bcmp.i, 0
   br i1 %177, label %_ZL20addresses_data_equalPK8_addressS1_.exit, label %_ZN7QStringD2Ev.exit76
 

@@ -4938,7 +4938,7 @@ servercert.exit.thread12.i:                       ; preds = %473
   %..i.i.i = call i64 @llvm.umin.i64(i64 %491, i64 2047)
   %492 = getelementptr inbounds i8, ptr %490, i64 8
   %493 = load ptr, ptr %492, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %21, ptr align 1 %493, i64 %..i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %493, i64 %..i.i.i, i1 false)
   %494 = getelementptr inbounds i8, ptr %21, i64 %..i.i.i
   store i8 0, ptr %494, align 1
   %495 = call i32 @BIO_free(ptr noundef nonnull %486) #13
@@ -5036,7 +5036,7 @@ x509_name_oneline.exit211.i.i:                    ; preds = %535
   %..i208.i.i = call i64 @llvm.umin.i64(i64 %543, i64 2047)
   %544 = getelementptr inbounds i8, ptr %542, i64 8
   %545 = load ptr, ptr %544, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %21, ptr align 1 %545, i64 %..i208.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %545, i64 %..i208.i.i, i1 false)
   %546 = getelementptr inbounds i8, ptr %21, i64 %..i208.i.i
   store i8 0, ptr %546, align 1
   %547 = call i32 @BIO_free(ptr noundef nonnull %539) #13

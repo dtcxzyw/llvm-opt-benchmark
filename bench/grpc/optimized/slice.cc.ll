@@ -61,7 +61,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @grpc_empty_slice(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result) local_unnamed_addr #3 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !4
   ret void
 }
 
@@ -260,7 +260,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !23
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -313,7 +313,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !38
   br label %grpc_slice_from_copied_buffer.exit
 
 if.end.i:                                         ; preds = %entry
@@ -350,7 +350,7 @@ grpc_slice_malloc.exit.i:                         ; preds = %if.else.i.i, %if.th
   %tobool.not.i = icmp eq ptr %call.i.sink.i.i, null
   %bytes2.i = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i, ptr readonly align 1 %source, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i, ptr align 1 %source, i64 %call, i1 false)
   br label %grpc_slice_from_copied_buffer.exit
 
 grpc_slice_from_copied_buffer.exit:               ; preds = %if.then.i, %grpc_slice_malloc.exit.i
@@ -431,7 +431,7 @@ invoke.cont:                                      ; preds = %entry
   %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !51
   %bytes4.i = getelementptr inbounds i8, ptr %agg.result, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes4.i, ptr align 1 %0, i64 %call1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes4.i, ptr align 1 %0, i64 %call1, i1 false)
   store ptr null, ptr %agg.result, align 8, !alias.scope !51
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit, label %if.end.i.i
@@ -602,7 +602,7 @@ do.end24.i:                                       ; preds = %do.body16.i
   %bytes31.i = getelementptr inbounds i8, ptr %agg.result, i64 9
   %bytes33.i = getelementptr inbounds i8, ptr %source, i64 9
   %add.ptr35.i = getelementptr inbounds i8, ptr %bytes33.i, i64 %begin
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes31.i, ptr nonnull readonly align 1 %add.ptr35.i, i64 %sub26.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes31.i, ptr nonnull align 1 %add.ptr35.i, i64 %sub26.i, i1 false)
   br label %_ZL10sub_no_refRK10grpc_slicemm.exit
 
 _ZL10sub_no_refRK10grpc_slicemm.exit:             ; preds = %do.end8.i, %do.end24.i
@@ -677,7 +677,7 @@ grpc_slice_sub_no_ref.exit.thread:                ; preds = %do.body16.i.i
   %bytes33.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 9
   %add.ptr35.i.i = getelementptr inbounds i8, ptr %bytes33.i.i, i64 %begin
   %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.sroa.3, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx, ptr nonnull readonly align 1 %add.ptr35.i.i, i64 %sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx, ptr nonnull align 1 %add.ptr35.i.i, i64 %sub, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8)
   store ptr null, ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx10 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -859,7 +859,7 @@ do.end.i:                                         ; preds = %do.body.i
   %bytes13.i = getelementptr inbounds i8, ptr %source, i64 9
   %add.ptr.i = getelementptr inbounds i8, ptr %bytes13.i, i64 %split
   %conv17.i = zext i8 %conv8.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes.i, ptr nonnull align 1 %add.ptr.i, i64 %conv17.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes.i, ptr nonnull align 1 %add.ptr.i, i64 %conv17.i, i1 false)
   store i8 %2, ptr %data.i, align 8, !noalias !64
   br label %grpc_slice_split_tail_maybe_ref.exit
 
@@ -901,7 +901,7 @@ if.then53.i:                                      ; preds = %do.end50.i
   %bytes62.i = getelementptr inbounds i8, ptr %source, i64 16
   %6 = load ptr, ptr %bytes62.i, align 8, !noalias !64
   %add.ptr63.i = getelementptr inbounds i8, ptr %6, i64 %split
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %bytes59.i, ptr align 1 %add.ptr63.i, i64 %sub41.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes59.i, ptr align 1 %add.ptr63.i, i64 %sub41.i, i1 false)
   br label %if.end88.i
 
 if.else64.i:                                      ; preds = %do.end50.i

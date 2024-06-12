@@ -279,10 +279,10 @@ define ptr @Gia_ManTtopt(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   br i1 %.not.i, label %_ZL14Abc_UtilStrsavPc.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #23
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #23
   %14 = add i64 %13, 1
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #24
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %11) #25
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %11) #25
   br label %_ZL14Abc_UtilStrsavPc.exit
 
 _ZL14Abc_UtilStrsavPc.exit:                       ; preds = %4, %12
@@ -294,10 +294,10 @@ _ZL14Abc_UtilStrsavPc.exit:                       ; preds = %4, %12
   br i1 %.not.i88, label %_ZL14Abc_UtilStrsavPc.exit89, label %20
 
 20:                                               ; preds = %_ZL14Abc_UtilStrsavPc.exit
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #23
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #23
   %22 = add i64 %21, 1
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #24
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #25
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %19) #25
   br label %_ZL14Abc_UtilStrsavPc.exit89
 
 _ZL14Abc_UtilStrsavPc.exit89:                     ; preds = %_ZL14Abc_UtilStrsavPc.exit, %20
@@ -2321,10 +2321,10 @@ _ZL14Vec_WrdReadBinPci.exit:                      ; preds = %11, %18, %24, %_ZL1
   br i1 %.not.i85, label %_ZL14Abc_UtilStrsavPc.exit, label %48
 
 48:                                               ; preds = %_ZL14Vec_WrdReadBinPci.exit
-  %49 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %47) #23
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #23
   %50 = add i64 %49, 1
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #24
-  %52 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %47) #25
+  %52 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %47) #25
   br label %_ZL14Abc_UtilStrsavPc.exit
 
 _ZL14Abc_UtilStrsavPc.exit:                       ; preds = %_ZL14Vec_WrdReadBinPci.exit, %48
@@ -2336,10 +2336,10 @@ _ZL14Abc_UtilStrsavPc.exit:                       ; preds = %_ZL14Vec_WrdReadBin
   br i1 %.not.i86, label %_ZL14Abc_UtilStrsavPc.exit87, label %56
 
 56:                                               ; preds = %_ZL14Abc_UtilStrsavPc.exit
-  %57 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %55) #23
+  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #23
   %58 = add i64 %57, 1
   %59 = tail call noalias ptr @malloc(i64 noundef %58) #24
-  %60 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %55) #25
+  %60 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %55) #25
   br label %_ZL14Abc_UtilStrsavPc.exit87
 
 _ZL14Abc_UtilStrsavPc.exit87:                     ; preds = %_ZL14Abc_UtilStrsavPc.exit, %56

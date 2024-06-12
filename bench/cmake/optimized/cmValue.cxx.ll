@@ -254,7 +254,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %2
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %1, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %54 = icmp eq i32 %bcmp.i.i, 0
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -265,7 +265,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %2
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %55
   %56 = getelementptr i8, ptr %1, i64 %0
   %57 = getelementptr i8, ptr %56, i64 -9
-  %bcmp.i13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %57, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
+  %bcmp.i13.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %57, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
   %58 = icmp eq i32 %bcmp.i13.i, 0
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
 

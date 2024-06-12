@@ -566,7 +566,7 @@ define i32 @mca_base_framework_components_open(ptr noundef %0, i32 noundef %1) l
   %.019.i.i = phi ptr [ %.0.i.i, %54 ], [ %.017.i.i, %40 ]
   %43 = getelementptr inbounds i8, ptr %.019.i.i, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %44) #11
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %44) #11
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %54
 
@@ -577,7 +577,7 @@ define i32 @mca_base_framework_components_open(ptr noundef %0, i32 noundef %1) l
   br i1 %50, label %mca_base_show_load_errors.exit.i, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %49) #11
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %49) #11
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %mca_base_show_load_errors.exit.i, label %54
 

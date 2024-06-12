@@ -3572,7 +3572,7 @@ dissect_smb2_FSCTL_SRV_COPYCHUNK.exit:            ; preds = %.lr.ph.i112, %182, 
   br i1 %.not.i116, label %204, label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 204:                                              ; preds = %203
-  %205 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %2, i32 noundef 0)
+  %205 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0)
   br label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 206:                                              ; preds = %7
@@ -3594,7 +3594,7 @@ dissect_smb2_FSCTL_SRV_COPYCHUNK.exit:            ; preds = %.lr.ph.i112, %182, 
   br i1 %.not.i119, label %dissect_smb2_FSCTL_OFFLOAD_READ.exit, label %214
 
 214:                                              ; preds = %213
-  %215 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %2, i32 noundef 0)
+  %215 = tail call i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0)
   br label %dissect_smb2_FSCTL_OFFLOAD_READ.exit
 
 216:                                              ; preds = %7
@@ -6913,7 +6913,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   br i1 %33, label %34, label %29
 
 34:                                               ; preds = %30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %23, i8 0, i64 96, i1 false)
   %36 = load i32, ptr %35, align 8
@@ -6924,7 +6924,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   %38 = getelementptr inbounds i8, ptr %31, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %36 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %22, ptr align 1 %39, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %39, i64 %40, i1 false)
   br label %41
 
 41:                                               ; preds = %37, %34
@@ -6938,13 +6938,13 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
 .thread:                                          ; preds = %41
   %44 = getelementptr inbounds i8, ptr %31, i64 32
   %45 = load ptr, ptr %44, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %45, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %45, i64 16, i1 false)
   br label %49
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %31, i64 32
   %48 = load ptr, ptr %47, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(32) %48, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(32) %48, i64 32, i1 false)
   br label %49
 
 49:                                               ; preds = %41, %.thread, %46
@@ -6958,13 +6958,13 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
 .thread3:                                         ; preds = %49
   %52 = getelementptr inbounds i8, ptr %31, i64 48
   %53 = load ptr, ptr %52, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
   br label %seskey_find_sid_key.exit
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %31, i64 48
   %56 = load ptr, ptr %55, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %26, ptr noundef nonnull align 1 dereferenceable(32) %56, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, ptr noundef nonnull align 1 dereferenceable(32) %56, i64 32, i1 false)
   br label %seskey_find_sid_key.exit
 
 seskey_find_sid_key.exit:                         ; preds = %29, %49, %.thread3, %9, %54
@@ -11607,7 +11607,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
   %.06.i = phi i64 [ 0, %48 ], [ %50, %49 ]
   %52 = getelementptr [17 x %struct.create_context_data_tag_dissectors], ptr @create_context_dissectors_array, i64 0, i64 %.06.i
   %53 = load ptr, ptr %52, align 16
-  %54 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %53) #15
+  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %53) #15
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %get_create_context_data_tag_dissectors.exit, label %49
 
@@ -14400,7 +14400,7 @@ dissect_smb2_fs_info_07.exit:                     ; preds = %112, %113
 
 dissect_smb2_FS_OBJECTID_INFO.exit:               ; preds = %121, %122
   %.0.i218 = phi ptr [ %126, %122 ], [ null, %121 ]
-  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr readnone poison, ptr noundef %.0.i218, i32 noundef %3)
+  %127 = tail call noundef i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef %0, ptr poison, ptr noundef %.0.i218, i32 noundef %3)
   br label %190
 
 128:                                              ; preds = %66

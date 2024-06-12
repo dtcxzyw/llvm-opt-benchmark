@@ -937,7 +937,7 @@ entry:
   store ptr %out, ptr %out_.i.i, align 8
   %custom_metadata_.i.i = getelementptr inbounds i8, ptr %assembler, i64 16
   %options_.i.i = getelementptr inbounds i8, ptr %assembler, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %custom_metadata_.i.i, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %custom_metadata_.i.i, i8 0, i64 88, i1 false)
   store ptr %options, ptr %options_.i.i, align 8
   %max_recursion_depth_.i.i = getelementptr inbounds i8, ptr %assembler, i64 112
   %max_recursion_depth.i.i = getelementptr inbounds i8, ptr %options, i64 4
@@ -2108,7 +2108,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerC2ElRKSt10shared_ptrIKNS_16KeyValueMetadataEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %field_nodes_.i = getelementptr inbounds i8, ptr %assembler, i64 32
   %options_.i = getelementptr inbounds i8, ptr %assembler, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %field_nodes_.i, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %field_nodes_.i, i8 0, i64 72, i1 false)
   store ptr %options, ptr %options_.i, align 8
   %max_recursion_depth_.i = getelementptr inbounds i8, ptr %assembler, i64 112
   %max_recursion_depth.i = getelementptr inbounds i8, ptr %options, i64 4
@@ -11659,7 +11659,7 @@ do.body59:                                        ; preds = %if.end8.sink.split.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %metadata_length.i179)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %body_length.i180)
   store i32 0, ptr %metadata_length.i179, align 4, !noalias !340
-  invoke void @_ZN5arrow3ipc16WriteRecordBatchERKNS_11RecordBatchElPNS_2io12OutputStreamEPiPlRKNS0_15IpcWriteOptionsE(ptr nonnull writeonly sret(%"class.arrow::Status") align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef 0, ptr noundef %80, ptr noundef nonnull %metadata_length.i179, ptr noundef nonnull %body_length.i180, ptr noundef nonnull align 8 dereferenceable(60) %options)
+  invoke void @_ZN5arrow3ipc16WriteRecordBatchERKNS_11RecordBatchElPNS_2io12OutputStreamEPiPlRKNS0_15IpcWriteOptionsE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef 0, ptr noundef %80, ptr noundef nonnull %metadata_length.i179, ptr noundef nonnull %body_length.i180, ptr noundef nonnull align 8 dereferenceable(60) %options)
           to label %_ZN5arrow6StatusD2Ev.exit216 unwind label %lpad48
 
 _ZN5arrow6StatusD2Ev.exit216:                     ; preds = %do.body59
@@ -12794,7 +12794,7 @@ do.body28:                                        ; preds = %_ZNSt10unique_ptrIN
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %metadata_length.i47)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %body_length.i48)
   store i32 0, ptr %metadata_length.i47, align 4, !noalias !370
-  invoke void @_ZN5arrow3ipc16WriteRecordBatchERKNS_11RecordBatchElPNS_2io12OutputStreamEPiPlRKNS0_15IpcWriteOptionsE(ptr nonnull writeonly sret(%"class.arrow::Status") align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef 0, ptr noundef nonnull %stream, ptr noundef nonnull %metadata_length.i47, ptr noundef nonnull %body_length.i48, ptr noundef nonnull align 8 dereferenceable(60) %options)
+  invoke void @_ZN5arrow3ipc16WriteRecordBatchERKNS_11RecordBatchElPNS_2io12OutputStreamEPiPlRKNS0_15IpcWriteOptionsE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef 0, ptr noundef nonnull %stream, ptr noundef nonnull %metadata_length.i47, ptr noundef nonnull %body_length.i48, ptr noundef nonnull align 8 dereferenceable(60) %options)
           to label %_ZN5arrow6StatusD2Ev.exit84 unwind label %lpad31
 
 _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %do.body28
@@ -38152,7 +38152,7 @@ _ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i: ; preds = %if.else.i
   %__args3.val.i.i.i.i = load i32, ptr %_M_bound_args.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %conv.i.i.i.i.i = sext i32 %__args3.val.i.i.i.i to i64
-  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias nonnull align 8 %agg.tmp.i.i.i.i.i, ptr readonly %__args1.val.i.i.i.i, i64 noundef %conv.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias nonnull align 8 %agg.tmp.i.i.i.i.i, ptr %__args1.val.i.i.i.i, i64 noundef %conv.i.i.i.i.i)
           to label %.noexc.i.i.i.i unwind label %lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i
@@ -41826,7 +41826,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 _ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerC2ElRKSt10shared_ptrIKNS_16KeyValueMetadataEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i122, %do.end33
   %field_nodes_.i.i = getelementptr inbounds i8, ptr %assembler.i, i64 32
   %options_.i.i = getelementptr inbounds i8, ptr %assembler.i, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %field_nodes_.i.i, i8 0, i64 72, i1 false), !noalias !1227
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %field_nodes_.i.i, i8 0, i64 72, i1 false), !noalias !1227
   store ptr %options_, ptr %options_.i.i, align 8, !noalias !1227
   %max_recursion_depth_.i.i = getelementptr inbounds i8, ptr %assembler.i, i64 112
   %max_recursion_depth.i.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -42527,7 +42527,7 @@ lpad67:                                           ; preds = %invoke.cont65
   br label %ehcleanup
 
 do.body80:                                        ; preds = %if.end57.thread, %if.end57
-  invoke void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp82, i64 noundef %12, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(60) %options_66, ptr noundef nonnull %payload)
+  invoke void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp82, i64 noundef %12, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(60) %options_66, ptr noundef nonnull %payload)
           to label %_ZN5arrow6StatusD2Ev.exit128 unwind label %lpad64
 
 _ZN5arrow6StatusD2Ev.exit128:                     ; preds = %do.body80

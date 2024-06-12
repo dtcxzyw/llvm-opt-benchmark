@@ -348,7 +348,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
 define ptr @xhash_get_str(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
-  %5 = tail call fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %4)
+  %5 = tail call fastcc ptr @xhash_find(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %xhash_get.exit, label %6
 

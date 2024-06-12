@@ -19990,7 +19990,7 @@ ngap_get_private_data.exit39:                     ; preds = %ngap_get_private_da
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %1, i64 216
   %48 = load ptr, ptr %47, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store i32 %44, ptr %42, align 8
   %49 = icmp eq i32 %46, 0
   br i1 %49, label %copy_address_wmem.exit, label %50
@@ -20024,7 +20024,7 @@ copy_address_wmem.exit:                           ; preds = %38, %50
   %68 = load i32, ptr %67, align 4
   %69 = getelementptr inbounds i8, ptr %1, i64 240
   %70 = load ptr, ptr %69, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %66, ptr %64, align 8
   %71 = icmp eq i32 %68, 0
   br i1 %71, label %copy_address_wmem.exit40, label %72

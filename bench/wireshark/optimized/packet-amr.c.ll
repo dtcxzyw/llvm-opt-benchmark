@@ -660,7 +660,7 @@ define internal i32 @dissect_amr_name(ptr noundef %0, ptr nocapture noundef read
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
   %12 = phi ptr [ %16, %14 ], [ @.str.148, %.lr.ph.i.preheader ]
   %.010.i = phi ptr [ %15, %14 ], [ @amr_capability_tab, %.lr.ph.i.preheader ]
-  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %12) #6
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %12) #6
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %find_cap.exit, label %14
 

@@ -3385,7 +3385,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i:     ; preds = %if.then.i
   br label %_ZN5arrow12_GLOBAL__N_118MakeLogicalRunEndsINS_9Int16TypeEEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKNS_18RunEndEncodedArrayEPNS_10MemoryPoolE.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %call6.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !17
+  %call6.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !17
   %8 = load ptr, ptr %data_.i.i416, align 8, !noalias !17
   %child_data.i = getelementptr inbounds i8, ptr %8, i64 64
   %9 = load ptr, ptr %child_data.i, align 8, !noalias !17
@@ -3825,8 +3825,8 @@ ehcleanup66.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %common.resume
 
 if.end67.i:                                       ; preds = %sw.bb
-  %call68.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalOffsetEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !17
-  %call70.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !17
+  %call68.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalOffsetEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !17
+  %call70.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !17
   %80 = load ptr, ptr %data_.i.i416, align 8, !noalias !17
   %child_data74.i = getelementptr inbounds i8, ptr %80, i64 64
   %81 = load ptr, ptr %child_data74.i, align 8, !noalias !17
@@ -4424,7 +4424,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i402:  ; preds = %if.then.i230
   br label %_ZN5arrow12_GLOBAL__N_118MakeLogicalRunEndsINS_9Int32TypeEEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKNS_18RunEndEncodedArrayEPNS_10MemoryPoolE.exit
 
 if.end.i234:                                      ; preds = %if.then.i230
-  %call6.i235 = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !70
+  %call6.i235 = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !70
   %167 = load ptr, ptr %data_.i.i416, align 8, !noalias !70
   %child_data.i236 = getelementptr inbounds i8, ptr %167, i64 64
   %168 = load ptr, ptr %child_data.i236, align 8, !noalias !70
@@ -4864,8 +4864,8 @@ ehcleanup63.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %common.resume
 
 if.end64.i:                                       ; preds = %sw.bb13
-  %call65.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalOffsetEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !70
-  %call67.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !70
+  %call65.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalOffsetEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !70
+  %call67.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !70
   %239 = load ptr, ptr %data_.i.i416, align 8, !noalias !70
   %child_data71.i = getelementptr inbounds i8, ptr %239, i64 64
   %240 = load ptr, ptr %child_data71.i, align 8, !noalias !70
@@ -5459,7 +5459,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i806:  ; preds = %if.then.i634
   br label %_ZN5arrow12_GLOBAL__N_118MakeLogicalRunEndsINS_9Int64TypeEEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKNS_18RunEndEncodedArrayEPNS_10MemoryPoolE.exit
 
 if.end.i638:                                      ; preds = %if.then.i634
-  %call6.i639 = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !122
+  %call6.i639 = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !122
   %326 = load ptr, ptr %data_.i.i416, align 8, !noalias !122
   %child_data.i640 = getelementptr inbounds i8, ptr %326, i64 64
   %327 = load ptr, ptr %child_data.i640, align 8, !noalias !122
@@ -5897,8 +5897,8 @@ ehcleanup61.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %common.resume
 
 if.end62.i:                                       ; preds = %while.end26
-  %call63.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalOffsetEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !122
-  %call65.i419 = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this), !noalias !122
+  %call63.i = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalOffsetEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !122
+  %call65.i419 = tail call noundef i64 @_ZNK5arrow18RunEndEncodedArray18FindPhysicalLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !noalias !122
   %398 = load ptr, ptr %data_.i.i416, align 8, !noalias !122
   %child_data69.i = getelementptr inbounds i8, ptr %398, i64 64
   %399 = load ptr, ptr %child_data69.i, align 8, !noalias !122

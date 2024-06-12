@@ -4015,7 +4015,7 @@ if.end7:                                          ; preds = %if.end4
 if.end.i:                                         ; preds = %if.end7, %for.inc.i
   %2 = phi ptr [ %3, %for.inc.i ], [ %1, %if.end7 ]
   %p.033.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %if.end7 ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %2) #21
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %2) #21
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.end11, label %for.inc.i
 
@@ -4038,7 +4038,7 @@ for.cond8.preheader.i:                            ; preds = %for.end.i
 if.end12.i:                                       ; preds = %for.cond8.preheader.i, %for.inc18.i
   %6 = phi ptr [ %7, %for.inc18.i ], [ %5, %for.cond8.preheader.i ]
   %p.135.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %4, %for.cond8.preheader.i ]
-  %call14.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %6) #21
+  %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %6) #21
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %if.end11, label %for.inc18.i
 
@@ -4077,7 +4077,7 @@ if.then23.i:                                      ; preds = %use_frozen.exit.i, 
 if.end28.i:                                       ; preds = %if.then23.i, %for.inc34.i
   %15 = phi ptr [ %16, %for.inc34.i ], [ %14, %if.then23.i ]
   %p.237.i = phi ptr [ %incdec.ptr35.i, %for.inc34.i ], [ %13, %if.then23.i ]
-  %call30.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %15) #21
+  %call30.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %15) #21
   %cmp31.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.i, label %if.end11, label %for.inc34.i
 
@@ -4096,7 +4096,7 @@ for.end36.i:                                      ; preds = %for.inc34.i, %if.th
 if.end41.i:                                       ; preds = %for.end36.i, %for.inc47.i
   %19 = phi ptr [ %20, %for.inc47.i ], [ %18, %for.end36.i ]
   %p.339.i = phi ptr [ %incdec.ptr48.i, %for.inc47.i ], [ %17, %for.end36.i ]
-  %call43.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %19) #21
+  %call43.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %19) #21
   %cmp44.i = icmp eq i32 %call43.i, 0
   br i1 %cmp44.i, label %if.end11, label %for.inc47.i
 
@@ -4149,7 +4149,7 @@ if.end25:                                         ; preds = %if.then20, %if.then
 if.end.i27:                                       ; preds = %if.end25, %for.inc.i29
   %27 = phi ptr [ %29, %for.inc.i29 ], [ %26, %if.end25 ]
   %entry1.09.i = phi ptr [ %incdec.ptr.i30, %for.inc.i29 ], [ %25, %if.end25 ]
-  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %27) #21
+  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %27) #21
   %cmp4.i = icmp eq i32 %call.i28, 0
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i29
 
@@ -4736,7 +4736,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i30, label %if.then.i69, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.else
-  %call1.i = tail call ptr @PyImport_ImportModuleLevelObject(ptr noundef nonnull %call.i, ptr noundef null, ptr readnone poison, ptr noundef null, i32 noundef 0)
+  %call1.i = tail call ptr @PyImport_ImportModuleLevelObject(ptr noundef nonnull %call.i, ptr noundef null, ptr poison, ptr noundef null, i32 noundef 0)
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i3.not.i = icmp eq i64 %4, 0

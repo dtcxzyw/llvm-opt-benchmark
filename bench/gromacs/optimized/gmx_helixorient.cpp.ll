@@ -1266,7 +1266,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit329:       ; preds = %413, %410, %350, %3
   %.0233 = phi ptr [ %331, %347 ], [ %331, %350 ], [ %394, %410 ], [ %394, %413 ]
   store ptr null, ptr %.sink641, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %17, i8 0, i64 32, i1 false)
   store float 1.000000e+00, ptr %17, align 16
   %426 = getelementptr inbounds i8, ptr %17, i64 16
   store float 1.000000e+00, ptr %426, align 16

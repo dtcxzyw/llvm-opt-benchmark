@@ -31,7 +31,7 @@ define i32 @"_ZN43_$LT$T$u20$as$u20$syn..spanned..Spanned$GT$4span17h725565d9d86
   resume { ptr, i32 } %6
 
 "_ZN45_$LT$T$u20$as$u20$quote..spanned..Spanned$GT$6__span17hb35e8536cac1a648E.exit": ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %10 = call i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -65,7 +65,7 @@ define i32 @"_ZN45_$LT$T$u20$as$u20$quote..spanned..Spanned$GT$6__span17hb35e853
   resume { ptr, i32 } %6
 
 _ZN5quote9to_tokens8ToTokens17into_token_stream17h675dee9304c317a9E.exit: ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %10 = call i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr nonnull align 8 %3)
   ret i32 %10
@@ -132,7 +132,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h675dee9304c317a9E
   resume { ptr, i32 } %6
 
 _ZN5quote9to_tokens8ToTokens15to_token_stream17h12f394d8467766beE.exit: ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }

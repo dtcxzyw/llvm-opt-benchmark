@@ -149,7 +149,7 @@ if.end6.i:                                        ; preds = %call.i.i7.noexc
           to label %.noexc9 unwind label %if.then.i.i13
 
 .noexc9:                                          ; preds = %if.end6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32, i1 false)
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i, %call.i.i7.noexc, %.noexc9

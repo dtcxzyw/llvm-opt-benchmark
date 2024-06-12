@@ -251,7 +251,7 @@ define dso_local i32 @psched_server_init(ptr nocapture noundef readnone %0) loca
 13:                                               ; preds = %12, %9
   store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 48), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 56), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @psched_globals, i64 64), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @psched_globals, i64 64), i8 0, i64 64, i1 false)
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
@@ -280,7 +280,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
 23:                                               ; preds = %22, %pmix_obj_run_constructors.exit
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 208), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 216), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @psched_globals, i64 224), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @psched_globals, i64 224), i8 0, i64 64, i1 false)
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i94 = icmp eq ptr %25, null
@@ -542,7 +542,7 @@ pmix_obj_run_constructors.exit98:                 ; preds = %.lr.ph.i95, %23
   %135 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %136, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %136, i8 0, i64 64, i1 false)
   %137 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %138 = load ptr, ptr %137, align 8
   %.not6.i99 = icmp eq ptr %138, null

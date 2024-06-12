@@ -147,7 +147,7 @@ define ptr @Io_ReadBlifAsAig(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %57 = getelementptr inbounds i8, ptr %calloc.i, i64 104
   store ptr %53, ptr %57, align 8
   store ptr %0, ptr %calloc.i, align 8
-  %58 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
+  %58 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %59 = icmp eq ptr %58, null
   br i1 %59, label %67, label %60
 
@@ -1104,7 +1104,7 @@ Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i.preheader.i.i.i:                         ; preds = %Io_BlifHashString.exit.i.i.i.i
   %463 = getelementptr inbounds i8, ptr %462, i64 8
   %464 = load ptr, ptr %463, align 8
-  %465 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %464, ptr noundef nonnull readonly dereferenceable(1) %444) #14
+  %465 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %464, ptr noundef nonnull dereferenceable(1) %444) #14
   %.not12.i15.i.i.i = icmp eq i32 %465, 0
   br i1 %.not12.i15.i.i.i, label %Io_BlifHashFindOrAdd.exit.i.i, label %.lr.ph.i21.i.i
 
@@ -1118,7 +1118,7 @@ Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i21.i.i
   %469 = getelementptr inbounds i8, ptr %468, i64 8
   %470 = load ptr, ptr %469, align 8
-  %471 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %470, ptr noundef nonnull readonly dereferenceable(1) %444) #14
+  %471 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %470, ptr noundef nonnull dereferenceable(1) %444) #14
   %.not12.i.i.i.i = icmp eq i32 %471, 0
   br i1 %.not12.i.i.i.i, label %Io_BlifHashFindOrAdd.exit.i.i, label %.lr.ph.i21.i.i, !llvm.loop !15
 
@@ -1366,7 +1366,7 @@ Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i,
 .lr.ph.i.preheader.i.i88.i:                       ; preds = %Io_BlifHashString.exit.i.i.i85.i
   %578 = getelementptr inbounds i8, ptr %577, i64 8
   %579 = load ptr, ptr %578, align 8
-  %580 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %579, ptr noundef nonnull readonly dereferenceable(1) %559) #14
+  %580 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %579, ptr noundef nonnull dereferenceable(1) %559) #14
   %.not12.i15.i.i89.i = icmp eq i32 %580, 0
   br i1 %.not12.i15.i.i89.i, label %Io_BlifHashFindOrAdd.exit.i93.i, label %.lr.ph.i18.i.i
 
@@ -1380,7 +1380,7 @@ Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i,
 .lr.ph.i.i.i91.i:                                 ; preds = %.lr.ph.i18.i.i
   %584 = getelementptr inbounds i8, ptr %583, i64 8
   %585 = load ptr, ptr %584, align 8
-  %586 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %585, ptr noundef nonnull readonly dereferenceable(1) %559) #14
+  %586 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %585, ptr noundef nonnull dereferenceable(1) %559) #14
   %.not12.i.i.i92.i = icmp eq i32 %586, 0
   br i1 %.not12.i.i.i92.i, label %Io_BlifHashFindOrAdd.exit.i93.i, label %.lr.ph.i18.i.i, !llvm.loop !15
 
@@ -1719,7 +1719,7 @@ Io_BlifHashString.exit.i.i.i126.i:                ; preds = %.lr.ph.i.i.i.i122.i
 .lr.ph.i.preheader.i.i129.i:                      ; preds = %Io_BlifHashString.exit.i.i.i126.i
   %727 = getelementptr inbounds i8, ptr %726, i64 8
   %728 = load ptr, ptr %727, align 8
-  %729 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %728, ptr noundef nonnull readonly dereferenceable(1) %708) #14
+  %729 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %728, ptr noundef nonnull dereferenceable(1) %708) #14
   %.not12.i15.i.i130.i = icmp eq i32 %729, 0
   br i1 %.not12.i15.i.i130.i, label %Io_BlifHashFindOrAdd.exit.i134.i, label %.lr.ph.i67.i.i
 
@@ -1733,7 +1733,7 @@ Io_BlifHashString.exit.i.i.i126.i:                ; preds = %.lr.ph.i.i.i.i122.i
 .lr.ph.i.i.i132.i:                                ; preds = %.lr.ph.i67.i.i
   %733 = getelementptr inbounds i8, ptr %732, i64 8
   %734 = load ptr, ptr %733, align 8
-  %735 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %734, ptr noundef nonnull readonly dereferenceable(1) %708) #14
+  %735 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %734, ptr noundef nonnull dereferenceable(1) %708) #14
   %.not12.i.i.i133.i = icmp eq i32 %735, 0
   br i1 %.not12.i.i.i133.i, label %Io_BlifHashFindOrAdd.exit.i134.i, label %.lr.ph.i67.i.i, !llvm.loop !15
 
@@ -1873,7 +1873,7 @@ Io_BlifHashString.exit.i.i76.i.i:                 ; preds = %.lr.ph.i.i.i72.i.i,
 .lr.ph.i.preheader.i79.i.i:                       ; preds = %Io_BlifHashString.exit.i.i76.i.i
   %803 = getelementptr inbounds i8, ptr %802, i64 8
   %804 = load ptr, ptr %803, align 8
-  %805 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %804, ptr noundef nonnull readonly dereferenceable(1) %784) #14
+  %805 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %804, ptr noundef nonnull dereferenceable(1) %784) #14
   %.not12.i15.i80.i.i = icmp eq i32 %805, 0
   br i1 %.not12.i15.i80.i.i, label %Io_BlifHashFindOrAdd.exit89.i.i, label %.lr.ph.i81.i.i
 
@@ -1887,7 +1887,7 @@ Io_BlifHashString.exit.i.i76.i.i:                 ; preds = %.lr.ph.i.i.i72.i.i,
 .lr.ph.i.i83.i.i:                                 ; preds = %.lr.ph.i81.i.i
   %809 = getelementptr inbounds i8, ptr %808, i64 8
   %810 = load ptr, ptr %809, align 8
-  %811 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull readonly dereferenceable(1) %784) #14
+  %811 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull dereferenceable(1) %784) #14
   %.not12.i.i84.i.i = icmp eq i32 %811, 0
   br i1 %.not12.i.i84.i.i, label %Io_BlifHashFindOrAdd.exit89.i.i, label %.lr.ph.i81.i.i, !llvm.loop !15
 
@@ -2164,7 +2164,7 @@ Io_BlifHashString.exit.i.i.i169.i:                ; preds = %.lr.ph.i.i.i.i165.i
 .lr.ph.i.preheader.i.i172.i:                      ; preds = %Io_BlifHashString.exit.i.i.i169.i
   %935 = getelementptr inbounds i8, ptr %934, i64 8
   %936 = load ptr, ptr %935, align 8
-  %937 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %936, ptr noundef nonnull readonly dereferenceable(1) %916) #14
+  %937 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %936, ptr noundef nonnull dereferenceable(1) %916) #14
   %.not12.i15.i.i173.i = icmp eq i32 %937, 0
   br i1 %.not12.i15.i.i173.i, label %Io_BlifHashFindOrAdd.exit.i177.i, label %.lr.ph.i30.i.i
 
@@ -2178,7 +2178,7 @@ Io_BlifHashString.exit.i.i.i169.i:                ; preds = %.lr.ph.i.i.i.i165.i
 .lr.ph.i.i.i175.i:                                ; preds = %.lr.ph.i30.i.i
   %941 = getelementptr inbounds i8, ptr %940, i64 8
   %942 = load ptr, ptr %941, align 8
-  %943 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %942, ptr noundef nonnull readonly dereferenceable(1) %916) #14
+  %943 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %942, ptr noundef nonnull dereferenceable(1) %916) #14
   %.not12.i.i.i176.i = icmp eq i32 %943, 0
   br i1 %.not12.i.i.i176.i, label %Io_BlifHashFindOrAdd.exit.i177.i, label %.lr.ph.i30.i.i, !llvm.loop !15
 
@@ -3054,7 +3054,7 @@ Io_BlifHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
 .lr.ph.i.preheader:                               ; preds = %Io_BlifHashString.exit.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %1) #14
   %.not12.i104 = icmp eq i32 %25, 0
   br i1 %.not12.i104, label %Io_BlifHashLookup.exit, label %.lr.ph
 
@@ -3068,7 +3068,7 @@ Io_BlifHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
 .lr.ph.i:                                         ; preds = %.lr.ph
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %1) #14
   %.not12.i = icmp eq i32 %31, 0
   br i1 %.not12.i, label %Io_BlifHashLookup.exit, label %.lr.ph, !llvm.loop !15
 

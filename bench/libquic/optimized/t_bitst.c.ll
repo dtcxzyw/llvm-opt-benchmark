@@ -71,12 +71,12 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %bnam.09.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %tbl, %entry ]
   %sname.i = getelementptr inbounds i8, ptr %bnam.09.i, i64 16
   %2 = load ptr, ptr %sname.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #5
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #5
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %ASN1_BIT_STRING_num_asc.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %name) #5
+  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #5
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %ASN1_BIT_STRING_num_asc.exit, label %for.inc.i
 

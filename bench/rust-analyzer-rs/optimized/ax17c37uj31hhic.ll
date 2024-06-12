@@ -11452,7 +11452,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h29d5129778
   %25 = add i16 %.lcssa.i.i, -1
   %26 = and i16 %25, %.lcssa.i.i
   %27 = getelementptr inbounds i8, ptr %23, i64 -16
-  tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h6fd8885a52272127E.llvm.17704032041304388331"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27), !noalias !2879
+  tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h6fd8885a52272127E.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !2879
   %28 = icmp eq i64 %24, 0
   br i1 %28, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3c40b05478c8cc75E.llvm.17704032041304388331.exit.thread", label %12
 }
@@ -12949,7 +12949,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hb2f550db54
   %25 = add i16 %.lcssa.i.i, -1
   %26 = and i16 %25, %.lcssa.i.i
   %27 = getelementptr inbounds i8, ptr %23, i64 -16
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h2ebcbe337b9e2e29E.llvm.17704032041304388331"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27), !noalias !3315
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h2ebcbe337b9e2e29E.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !3315
   %28 = icmp eq i64 %24, 0
   br i1 %28, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b9ffe6ff25ef8e8E.llvm.17704032041304388331.exit.thread", label %12
 }
@@ -17507,7 +17507,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h4345c3d
   %32 = add i16 %.lcssa.i.i.i, -1
   %33 = and i16 %32, %.lcssa.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 -16
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h2ebcbe337b9e2e29E.llvm.17704032041304388331"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34), !noalias !4384
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h2ebcbe337b9e2e29E.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !4384
   %35 = icmp eq i64 %31, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hb2f550db54a12913E.llvm.17704032041304388331.exit, label %19
 
@@ -23033,7 +23033,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hf502bab
   %32 = add i16 %.lcssa.i.i.i, -1
   %33 = and i16 %32, %.lcssa.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 -16
-  tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h6fd8885a52272127E.llvm.17704032041304388331"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34), !noalias !5292
+  tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h6fd8885a52272127E.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !5292
   %35 = icmp eq i64 %31, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h29d512977877e40dE.llvm.17704032041304388331.exit, label %19
 
@@ -24933,7 +24933,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h6ff8fb927fbc5878E
 define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h7189133a070601b9E.llvm.17704032041304388331"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 -16
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h2ebcbe337b9e2e29E.llvm.17704032041304388331"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hir_expand..name..Name$u5d$$GT$$GT$17h2ebcbe337b9e2e29E.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
@@ -25588,7 +25588,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hcff074870ee9efaaE
 define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hd052e4a7acd43f2cE.llvm.17704032041304388331"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 -16
-  tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h6fd8885a52272127E.llvm.17704032041304388331"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h6fd8885a52272127E.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
@@ -30751,7 +30751,7 @@ default.unreachable:                              ; preds = %28
   %71 = getelementptr inbounds i8, ptr %32, i64 48
   %72 = getelementptr inbounds i8, ptr %32, i64 44
   %73 = load i32, ptr %72, align 4, !range !6269, !alias.scope !6763, !noalias !6765, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %71, i64 24, i1 false), !alias.scope !6777, !noalias !6757
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false), !alias.scope !6777, !noalias !6757
   store i32 %35, ptr %10, align 8, !alias.scope !6760, !noalias !6778
   store i8 %36, ptr %5, align 8, !alias.scope !6760, !noalias !6778
   store i8 %.sroa.4.0.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 1, !alias.scope !6760, !noalias !6778

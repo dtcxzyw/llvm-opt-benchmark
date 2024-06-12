@@ -458,11 +458,11 @@ entry:
   br i1 %.b.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_full_hash, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_full_hash, i64 32, i1 false)
   br label %if.end
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_start_hash, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) @hs_start_hash, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then1.i

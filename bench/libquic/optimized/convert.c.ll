@@ -240,7 +240,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %0, i8 0, i64 %len, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %len, i1 false)
   br label %land.end
 
 if.end.i:                                         ; preds = %land.rhs

@@ -220,7 +220,7 @@ if.then.i36:                                      ; preds = %if.end10
 
 if.end.i29:                                       ; preds = %if.end10
   %call2.i30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call.i27, ptr noundef nonnull @.str.10, ptr noundef nonnull @header)
-  %call1.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #17
+  %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %add2.i.i = add i64 %call1.i.i, 8
   %call3.i.i = call noalias ptr @malloc(i64 noundef %add2.i.i) #16
   store i64 26844908706418783, ptr %call3.i.i, align 1

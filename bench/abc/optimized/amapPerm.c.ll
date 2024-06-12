@@ -712,7 +712,7 @@ Vec_IntFree.exit199:                              ; preds = %.critedge4, %205
   %211 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #9
   %212 = getelementptr inbounds i8, ptr %209, i64 8
   store ptr %211, ptr %212, align 8
-  tail call void @Amap_LibCollectFanins_rec(ptr noundef readonly %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %209)
+  tail call void @Amap_LibCollectFanins_rec(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %209)
   %.val158 = load i32, ptr %210, align 4
   %213 = load i32, ptr %15, align 4
   %214 = lshr i32 %213, 26

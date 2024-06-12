@@ -6504,7 +6504,7 @@ if.end.i:                                         ; preds = %lor.lhs.false4.i
   store i32 0, ptr %ignore_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_120FixedSortKeyByteSinkE, i64 16), ptr %sink.i, align 8
   store i32 0, ptr %errorCode.i, align 4
-  invoke void @_ZNK6icu_7517RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByteSinkER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(272) %this, ptr noundef %retval.0.i, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(28) %sink.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
+  invoke void @_ZNK6icu_7517RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %retval.0.i, i32 noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(28) %sink.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i

@@ -1473,7 +1473,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false)
   store i32 %76, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !10
   store i64 -9223372036854775808, ptr %18, align 8, !alias.scope !10
   br label %83
@@ -1509,7 +1509,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.01.i, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.01.i, i64 80, i1 false)
   store i32 %82, ptr %.sroa.32.0..sroa_idx.i, align 8, !alias.scope !10
   br label %83
 

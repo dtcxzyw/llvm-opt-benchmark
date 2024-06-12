@@ -421,7 +421,7 @@ lzma2_header_lzma.exit:                           ; preds = %95, %117
   %137 = getelementptr inbounds i8, ptr %.val, i64 %136
   %138 = sub i64 0, %134
   %139 = getelementptr inbounds i8, ptr %137, i64 %138
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %135, ptr readonly align 1 %139, i64 %..i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr align 1 %139, i64 %..i, i1 false)
   %140 = add i64 %..i, %132
   store i64 %140, ptr %3, align 8
   %141 = sub i64 %134, %..i

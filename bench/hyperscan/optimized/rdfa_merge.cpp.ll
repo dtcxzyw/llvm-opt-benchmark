@@ -1191,13 +1191,13 @@ _ZNSt5queueISt4pairISt6vectorItSaItEEtESt5dequeIS4_SaIS4_EEE3popEv.exit: ; preds
   %conv52 = zext i16 %80 to i64
   %88 = load ptr, ptr %dstates, align 8
   %reports = getelementptr inbounds %"struct.ue2::dstate", ptr %88, i64 %conv52, i32 4
-  invoke fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull readonly align 8 dereferenceable(1148) %n, ptr noundef nonnull readonly align 8 dereferenceable(24) %m, i64 32, ptr noundef nonnull align 8 dereferenceable(32) %reports)
+  invoke fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull align 8 dereferenceable(1148) %n, ptr noundef nonnull align 8 dereferenceable(24) %m, i64 32, ptr noundef nonnull align 8 dereferenceable(32) %reports)
           to label %invoke.cont54 unwind label %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %_ZNSt5queueISt4pairISt6vectorItSaItEEtESt5dequeIS4_SaIS4_EEE3popEv.exit
   %89 = load ptr, ptr %dstates, align 8
   %reports_eod = getelementptr inbounds %"struct.ue2::dstate", ptr %89, i64 %conv52, i32 5
-  invoke fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull readonly align 8 dereferenceable(1148) %n, ptr noundef nonnull readonly align 8 dereferenceable(24) %m, i64 64, ptr noundef nonnull align 8 dereferenceable(32) %reports_eod)
+  invoke fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull align 8 dereferenceable(1148) %n, ptr noundef nonnull align 8 dereferenceable(24) %m, i64 64, ptr noundef nonnull align 8 dereferenceable(32) %reports_eod)
           to label %invoke.cont57 unwind label %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont57:                                    ; preds = %invoke.cont54

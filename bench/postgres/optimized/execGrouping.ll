@@ -1410,7 +1410,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   br i1 %.not.i, label %77, label %63
 
 63:                                               ; preds = %TupleHashTableHash_internal.exit
-  %64 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %54, ptr noundef null, i32 noundef %62, ptr noundef nonnull writeonly %5)
+  %64 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %54, ptr noundef null, i32 noundef %62, ptr noundef nonnull %5)
   %65 = load i8, ptr %5, align 1
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %68
@@ -1435,7 +1435,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %TupleHashTableHash_
   br label %LookupTupleHashEntry_internal.exit
 
 77:                                               ; preds = %TupleHashTableHash_internal.exit
-  %78 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %54, i32 noundef %62)
+  %78 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %54, i32 noundef %62)
   br label %LookupTupleHashEntry_internal.exit
 
 LookupTupleHashEntry_internal.exit:               ; preds = %67, %68, %77
@@ -1565,7 +1565,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr nou
   br i1 %.not.i, label %28, label %14
 
 14:                                               ; preds = %4
-  %15 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %13, ptr noundef null, i32 noundef %3, ptr noundef nonnull writeonly %5)
+  %15 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %13, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
   %16 = load i8, ptr %5, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %19
@@ -1590,7 +1590,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr nou
   br label %LookupTupleHashEntry_internal.exit
 
 28:                                               ; preds = %4
-  %29 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %13, i32 noundef %3)
+  %29 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %13, i32 noundef %3)
   br label %LookupTupleHashEntry_internal.exit
 
 LookupTupleHashEntry_internal.exit:               ; preds = %18, %19, %28
@@ -1689,7 +1689,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %51, %4
   %57 = mul i32 %56, -1028477387
   %58 = lshr i32 %57, 16
   %59 = xor i32 %58, %57
-  %60 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly %11, i32 noundef %59)
+  %60 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %11, i32 noundef %59)
   store ptr %7, ptr @CurrentMemoryContext, align 8
   ret ptr %60
 }

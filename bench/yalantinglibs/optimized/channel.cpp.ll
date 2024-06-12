@@ -110448,9 +110448,9 @@ if.else:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %ref.tmp20) #32
   store i8 91, ptr %ref.tmp20, align 1, !alias.scope !1606
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN7cinatra16coro_http_clientENS_15io_context_poolEE12send_requestIZ18test_async_channelRNS_7channelIS2_S3_EEE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEtlSt17basic_string_viewIcSt11char_traitsIcEEEEEE4typeESt4errcEEEESG_SN_RNS2_6configEENKUlvE_clEv.prefix", i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN7cinatra16coro_http_clientENS_15io_context_poolEE12send_requestIZ18test_async_channelRNS_7channelIS2_S3_EEE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEtlSt17basic_string_viewIcSt11char_traitsIcEEEEEE4typeESt4errcEEEESG_SN_RNS2_6configEENKUlvE_clEv.prefix", i64 19, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp14, i64 %call16, i32 noundef 1, i64 22, ptr nonnull %ref.tmp20)
           to label %invoke.cont27 unwind label %lpad22
 
@@ -110822,9 +110822,9 @@ if.else78:                                        ; preds = %invoke.cont73
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %ref.tmp85) #32
   store i8 91, ptr %ref.tmp85, align 1, !alias.scope !1622
   %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i67 = getelementptr inbounds i8, ptr %ref.tmp85, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i67, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN7cinatra16coro_http_clientENS_15io_context_poolEE12send_requestIZ18test_async_channelRNS_7channelIS2_S3_EEE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEtlSt17basic_string_viewIcSt11char_traitsIcEEEEEE4typeESt4errcEEEESG_SN_RNS2_6configEENKUlvE0_clEv.prefix", i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i67, ptr noundef nonnull align 1 dereferenceable(19) @"__const._ZZN7coro_io11client_poolIN7cinatra16coro_http_clientENS_15io_context_poolEE12send_requestIZ18test_async_channelRNS_7channelIS2_S3_EEE3$_0EEN12async_simple4coro4LazyIN2tl8expectedINS4_11lazy_hackerIDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRS2_EDTcl9__declvalISG_ELi0EEEvEEtlSt17basic_string_viewIcSt11char_traitsIcEEEEEE4typeESt4errcEEEESG_SN_RNS2_6configEENKUlvE0_clEv.prefix", i64 19, i1 false)
   %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i68 = getelementptr inbounds i8, ptr %ref.tmp85, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i68, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i68, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
   invoke void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp79, i64 %call81, i32 noundef 4, i64 22, ptr nonnull %ref.tmp85)
           to label %invoke.cont92 unwind label %lpad87
 

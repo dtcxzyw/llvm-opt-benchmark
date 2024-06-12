@@ -890,7 +890,7 @@ Abc_Clock.exit.i:                                 ; preds = %284, %278
   %393 = getelementptr inbounds i8, ptr %387, i64 76
   %394 = sext i32 %386 to i64
   %395 = shl nsw i64 %394, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %393, ptr nonnull readonly align 16 %29, i64 %395, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %393, ptr nonnull align 16 %29, i64 %395, i1 false)
   %396 = getelementptr inbounds i8, ptr %387, i64 72
   store float %369, ptr %396, align 8
   store i32 4, ptr %388, align 8
@@ -1029,7 +1029,7 @@ Super_AddGateToTable.exit.i94:                    ; preds = %405, %383
   %462 = getelementptr inbounds i8, ptr %456, i64 76
   %463 = sext i32 %455 to i64
   %464 = shl nsw i64 %463, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %462, ptr nonnull readonly align 16 %29, i64 %464, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %462, ptr nonnull align 16 %29, i64 %464, i1 false)
   %465 = getelementptr inbounds i8, ptr %456, i64 72
   store float %438, ptr %465, align 8
   store i32 8, ptr %457, align 8
@@ -1214,7 +1214,7 @@ Super_AddGateToTable.exit851.i:                   ; preds = %474, %452
   %547 = getelementptr inbounds i8, ptr %541, i64 76
   %548 = sext i32 %540 to i64
   %549 = shl nsw i64 %548, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %547, ptr nonnull readonly align 16 %29, i64 %549, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %547, ptr nonnull align 16 %29, i64 %549, i1 false)
   %550 = getelementptr inbounds i8, ptr %541, i64 72
   store float %521, ptr %550, align 8
   store i32 12, ptr %542, align 8
@@ -1453,7 +1453,7 @@ Super_AddGateToTable.exit853.us.i:                ; preds = %559, %537
   %648 = getelementptr inbounds i8, ptr %642, i64 76
   %649 = sext i32 %641 to i64
   %650 = shl nsw i64 %649, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %648, ptr nonnull readonly align 16 %29, i64 %650, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %648, ptr nonnull align 16 %29, i64 %650, i1 false)
   %651 = getelementptr inbounds i8, ptr %642, i64 72
   store float %622, ptr %651, align 8
   store i32 16, ptr %643, align 8
@@ -1741,7 +1741,7 @@ Super_AddGateToTable.exit855.us.us.i:             ; preds = %660, %638
   %765 = getelementptr inbounds i8, ptr %759, i64 76
   %766 = sext i32 %758 to i64
   %767 = shl nsw i64 %766, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %765, ptr nonnull readonly align 16 %29, i64 %767, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %765, ptr nonnull align 16 %29, i64 %767, i1 false)
   %768 = getelementptr inbounds i8, ptr %759, i64 72
   store float %739, ptr %768, align 8
   store i32 20, ptr %760, align 8
@@ -2085,7 +2085,7 @@ Super_AddGateToTable.exit857.us.us.us.i:          ; preds = %777, %755
   %900 = getelementptr inbounds i8, ptr %894, i64 76
   %901 = sext i32 %893 to i64
   %902 = shl nsw i64 %901, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %900, ptr nonnull readonly align 16 %29, i64 %902, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %900, ptr nonnull align 16 %29, i64 %902, i1 false)
   %903 = getelementptr inbounds i8, ptr %894, i64 72
   store float %874, ptr %903, align 8
   store i32 24, ptr %895, align 8
@@ -3102,7 +3102,7 @@ define void @Super_WriteLibraryGate(ptr noundef %0, ptr nocapture noundef readon
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, double noundef %30) #19
   %32 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 3, i64 1, ptr %0)
   store i8 0, ptr @Super_WriteLibraryGateName.Buffer, align 16
-  tail call void @Super_WriteLibraryGateName_rec(ptr noundef nonnull readonly %2, ptr noundef nonnull @Super_WriteLibraryGateName.Buffer)
+  tail call void @Super_WriteLibraryGateName_rec(ptr noundef nonnull %2, ptr noundef nonnull @Super_WriteLibraryGateName.Buffer)
   %fputs = tail call i32 @fputs(ptr nonnull @Super_WriteLibraryGateName.Buffer, ptr %0)
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   ret void

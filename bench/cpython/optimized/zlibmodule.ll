@@ -653,7 +653,7 @@ do.body7.i:                                       ; preds = %do.cond.i, %do.body
   br i1 %cmp9.i, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %do.body7.i
-  %call.i16.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
+  %call.i16.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i16.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 8
   %cmp14.i = icmp slt i64 %call.i16.i, 0
@@ -1407,7 +1407,7 @@ OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
   br label %if.end23.i
 
 OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
-  %call.i23.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
+  %call.i23.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
   %conv10.i.i = trunc i64 %call.i23.i to i32
   store i32 %conv10.i.i, ptr %avail_out.i, align 8
   %cmp19.i = icmp slt i64 %call.i23.i, 0
@@ -2746,7 +2746,7 @@ do.body10.i:                                      ; preds = %do.cond38.i, %Outpu
   br label %if.end25.i
 
 if.then16.critedge.i:                             ; preds = %do.cond.i
-  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
+  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 4
   %cmp22.i = icmp slt i64 %call.i.i, 0
@@ -2941,7 +2941,7 @@ do.body14.i:                                      ; preds = %do.cond.i, %OutputB
   br i1 %cmp17.i, label %if.then18.i, label %if.end27.i
 
 if.then18.i:                                      ; preds = %do.body14.i
-  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef %conv.i32.i)
+  %call.i.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef %conv.i32.i)
   %conv1.i.i = trunc i64 %call.i.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 4
   %cmp24.i = icmp slt i64 %call.i.i, 0
@@ -3596,7 +3596,7 @@ if.then26.i:                                      ; preds = %do.body22.i
   br i1 %cmp30.i, label %save.i, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then26.i
-  %call.i36.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
+  %call.i36.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i36.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 4
   %cmp38.i = icmp slt i64 %call.i36.i, 0
@@ -3638,7 +3638,7 @@ do.cond59.i:                                      ; preds = %do.cond.i
 
 save.i:                                           ; preds = %do.cond59.i, %land.lhs.true.i, %if.end41.i, %if.then26.i
   %err.2.i = phi i32 [ %err.1.i, %if.then26.i ], [ 2, %land.lhs.true.i ], [ %call45.i, %if.end41.i ], [ %call45.i, %do.cond59.i ]
-  %call63.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef nonnull readonly %data, i32 noundef %err.2.i)
+  %call63.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef nonnull %data, i32 noundef %err.2.i)
   %cmp64.i = icmp slt i32 %call63.i, 0
   br i1 %cmp64.i, label %abort.i, label %if.end66.i
 
@@ -3931,7 +3931,7 @@ OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
   br label %if.end38.i
 
 OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
-  %call.i31.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull writeonly %next_out.i, i64 noundef 0)
+  %call.i31.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
   %conv10.i.i = trunc i64 %call.i31.i to i32
   store i32 %conv10.i.i, ptr %avail_out.i, align 4
   %cmp35.i = icmp slt i64 %call.i31.i, 0

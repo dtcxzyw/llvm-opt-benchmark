@@ -2318,7 +2318,7 @@ get_previous_words.exit:                          ; preds = %.thread.i, %220
 
 279:                                              ; preds = %277
   %280 = load ptr, ptr %165, align 8
-  %281 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %280) #14
+  %281 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %280) #14
   %.not.i1946 = icmp eq i64 %281, 0
   br i1 %.not.i1946, label %ends_with.exit.thread, label %ends_with.exit
 
@@ -2355,7 +2355,7 @@ ends_with.exit.thread:                            ; preds = %279, %ends_with.exi
 
 293:                                              ; preds = %291
   %294 = load ptr, ptr %165, align 8
-  %295 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %294) #14
+  %295 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %294) #14
   %.not.i1947 = icmp eq i64 %295, 0
   br i1 %.not.i1947, label %ends_with.exit1948.thread, label %ends_with.exit1948
 
@@ -2392,7 +2392,7 @@ ends_with.exit1948.thread:                        ; preds = %293, %ends_with.exi
 
 307:                                              ; preds = %305
   %308 = load ptr, ptr %165, align 8
-  %309 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %308) #14
+  %309 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %308) #14
   %.not.i1949 = icmp eq i64 %309, 0
   br i1 %.not.i1949, label %ends_with.exit1950.thread, label %ends_with.exit1950
 
@@ -2429,7 +2429,7 @@ ends_with.exit1950.thread:                        ; preds = %307, %ends_with.exi
 
 321:                                              ; preds = %319
   %322 = load ptr, ptr %165, align 8
-  %323 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %322) #14
+  %323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %322) #14
   %.not.i1951 = icmp eq i64 %323, 0
   br i1 %.not.i1951, label %ends_with.exit1952.thread, label %ends_with.exit1952
 
@@ -2536,7 +2536,7 @@ ends_with.exit1952.thread:                        ; preds = %321, %ends_with.exi
 
 363:                                              ; preds = %361
   %364 = load ptr, ptr %165, align 8
-  %365 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %364) #14
+  %365 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %364) #14
   %.not.i1953 = icmp eq i64 %365, 0
   br i1 %.not.i1953, label %ends_with.exit1954.thread, label %ends_with.exit1954
 
@@ -4919,7 +4919,7 @@ ends_with.exit1954.thread:                        ; preds = %363, %ends_with.exi
 
 1289:                                             ; preds = %1287
   %1290 = load ptr, ptr %165, align 8
-  %1291 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1290) #14
+  %1291 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1290) #14
   %.not.i1955 = icmp eq i64 %1291, 0
   br i1 %.not.i1955, label %ends_with.exit1958.thread, label %ends_with.exit1956
 
@@ -5151,7 +5151,7 @@ ends_with.exit1958.thread:                        ; preds = %ends_with.exit1956,
 
 1378:                                             ; preds = %1376
   %1379 = load ptr, ptr %165, align 8
-  %1380 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1379) #14
+  %1380 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1379) #14
   %.not.i1959 = icmp eq i64 %1380, 0
   br i1 %.not.i1959, label %.thread3011, label %ends_with.exit1960
 
@@ -6244,7 +6244,7 @@ ends_with.exit1960:                               ; preds = %1378
 
 1800:                                             ; preds = %1798
   %1801 = load ptr, ptr %165, align 8
-  %1802 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1801) #14
+  %1802 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1801) #14
   %.not.i1963 = icmp eq i64 %1802, 0
   br i1 %.not.i1963, label %ends_with.exit1964.thread, label %ends_with.exit1964
 
@@ -6339,7 +6339,7 @@ ends_with.exit1964.thread:                        ; preds = %1800, %ends_with.ex
 
 1838:                                             ; preds = %1836
   %1839 = load ptr, ptr %165, align 8
-  %1840 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1839) #14
+  %1840 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1839) #14
   %.not.i1965 = icmp eq i64 %1840, 0
   br i1 %.not.i1965, label %ends_with.exit1966.thread, label %ends_with.exit1966
 
@@ -7920,7 +7920,7 @@ ends_with.exit1966.thread:                        ; preds = %1838, %ends_with.ex
 
 2510:                                             ; preds = %2508
   %2511 = load ptr, ptr %165, align 8
-  %2512 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2511) #14
+  %2512 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2511) #14
   %.not.i1967 = icmp eq i64 %2512, 0
   br i1 %.not.i1967, label %ends_with.exit1968.thread, label %ends_with.exit1968
 
@@ -8007,7 +8007,7 @@ ends_with.exit1968.thread:                        ; preds = %2510, %ends_with.ex
 
 2546:                                             ; preds = %2544
   %2547 = load ptr, ptr %165, align 8
-  %2548 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2547) #14
+  %2548 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2547) #14
   %.not.i1969 = icmp eq i64 %2548, 0
   br i1 %.not.i1969, label %ends_with.exit1970.thread, label %ends_with.exit1970
 
@@ -8395,7 +8395,7 @@ ends_with.exit1970.thread:                        ; preds = %2546, %ends_with.ex
 
 2694:                                             ; preds = %2692
   %2695 = load ptr, ptr %165, align 8
-  %2696 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2695) #14
+  %2696 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2695) #14
   %.not.i1971 = icmp eq i64 %2696, 0
   br i1 %.not.i1971, label %ends_with.exit1974.thread, label %ends_with.exit1972
 
@@ -9321,7 +9321,7 @@ ends_with.exit1974.thread:                        ; preds = %ends_with.exit1972,
 
 3069:                                             ; preds = %3067
   %3070 = load ptr, ptr %165, align 8
-  %3071 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3070) #14
+  %3071 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3070) #14
   %.not.i1975 = icmp eq i64 %3071, 0
   br i1 %.not.i1975, label %ends_with.exit1976.thread, label %ends_with.exit1976
 
@@ -10115,7 +10115,7 @@ ends_with.exit1976.thread:                        ; preds = %3069, %ends_with.ex
 
 3391:                                             ; preds = %3389
   %3392 = load ptr, ptr %165, align 8
-  %3393 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3392) #14
+  %3393 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3392) #14
   %.not.i1977 = icmp eq i64 %3393, 0
   br i1 %.not.i1977, label %ends_with.exit1980.thread, label %ends_with.exit1978
 
@@ -10857,7 +10857,7 @@ ends_with.exit1980.thread:                        ; preds = %ends_with.exit1978,
 
 3692:                                             ; preds = %3690
   %3693 = load ptr, ptr %165, align 8
-  %3694 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3693) #14
+  %3694 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3693) #14
   %.not.i1981 = icmp eq i64 %3694, 0
   br i1 %.not.i1981, label %ends_with.exit1984.thread, label %ends_with.exit1982
 

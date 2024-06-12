@@ -1981,12 +1981,12 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
   br i1 %.not.i107, label %.loopexit.i108, label %1088
 
 1088:                                             ; preds = %scan_and_normalize.exit.i
-  %1089 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1087, ptr noundef nonnull readonly dereferenceable(4) @.str.16) #21
+  %1089 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1087, ptr noundef nonnull dereferenceable(4) @.str.16) #21
   %1090 = icmp eq i32 %1089, 0
   br i1 %1090, label %1094, label %1091
 
 1091:                                             ; preds = %1088
-  %1092 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1087, ptr noundef nonnull readonly dereferenceable(4) @.str.17) #21
+  %1092 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1087, ptr noundef nonnull dereferenceable(4) @.str.17) #21
   %1093 = icmp eq i32 %1092, 0
   br i1 %1093, label %1094, label %.loopexit.i108
 

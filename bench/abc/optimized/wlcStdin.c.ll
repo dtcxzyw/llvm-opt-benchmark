@@ -470,7 +470,7 @@ Wlc_StdinCollectStop.exit:                        ; preds = %42
   %44 = sext i32 %.val to i64
   %45 = getelementptr inbounds i8, ptr %.val9, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 %11
-  %47 = tail call i32 @strncmp(ptr noundef readonly %46, ptr noundef readonly %0, i64 noundef %10) #17
+  %47 = tail call i32 @strncmp(ptr noundef %46, ptr noundef %0, i64 noundef %10) #17
   %.not.i.not = icmp eq i32 %47, 0
   br i1 %.not.i.not, label %Wlc_StdinCollectStop.exit._crit_edge, label %Wlc_StdinCollectStop.exit.thread
 

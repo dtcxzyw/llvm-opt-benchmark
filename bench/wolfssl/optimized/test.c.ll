@@ -13975,7 +13975,7 @@ do.body52.i:                                      ; preds = %do.end45.i
   br label %ecc_test_key_gen.exit
 
 if.end63.i:                                       ; preds = %do.end45.i
-  %call.i.i36 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.278, ptr noundef nonnull @.str.277)
+  %call.i.i36 = call noalias ptr @fopen(ptr noundef nonnull @.str.278, ptr noundef nonnull @.str.277)
   %tobool.not.i.i = icmp eq ptr %call.i.i36, null
   br i1 %tobool.not.i.i, label %ecc_test_key_gen.exit, label %if.end.i.i37
 

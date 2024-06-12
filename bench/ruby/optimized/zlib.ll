@@ -5064,7 +5064,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %29
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %29 ], [ %28, %23 ]
   %30 = getelementptr inbounds i8, ptr %25, i64 16
   %31 = load i64, ptr %30, align 8
-  call fastcc void @zstream_buffer_ungets(ptr noundef nonnull %9, ptr noundef readonly %.sroa.2.0.i, i64 noundef %31)
+  call fastcc void @zstream_buffer_ungets(ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %31)
   %32 = getelementptr inbounds i8, ptr %9, i64 208
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, %31

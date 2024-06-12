@@ -4390,7 +4390,7 @@ dissect_thrift_compact_binary.exit.thread:        ; preds = %129, %140, %116, %t
   br label %dissect_thrift_compact_struct.exit.thread
 
 dissect_thrift_compact_binary.exit:               ; preds = %134
-  %142 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef writeonly %4, i32 noundef %135)
+  %142 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %dissect_thrift_compact_struct.exit.thread, label %302
@@ -4949,7 +4949,7 @@ dissect_thrift_binary_binary.exit.thread:         ; preds = %119, %136
   br label %dissect_thrift_binary_struct.exit.thread
 
 dissect_thrift_binary_binary.exit:                ; preds = %133
-  %138 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef writeonly %4, i32 noundef %134)
+  %138 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %134)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %139 = icmp eq i32 %138, -1
   br i1 %139, label %dissect_thrift_binary_struct.exit.thread, label %205
@@ -6363,7 +6363,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   %264 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1, ptr noundef nonnull @ei_thrift_protocol_exception) #7
   %265 = load i32, ptr @hf_thrift_exception, align 4
   %266 = load i32, ptr @ett_thrift_exception, align 4
-  %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull readonly @thrift_exception, ptr noundef null)
+  %267 = call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %22, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef %265, i32 noundef %266, ptr noundef nonnull @thrift_exception, ptr noundef null)
   br label %268
 
 268:                                              ; preds = %257, %261, %263

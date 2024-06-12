@@ -167,7 +167,7 @@ if.end41.i:                                       ; preds = %if.end38.i, %if.end
 
 if.then43.i:                                      ; preds = %if.end41.i
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre34.i, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %mem, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr align 1 %mem, i64 %len, i1 false)
   %.pre.i = load ptr, ptr %s, align 8
   br label %if.end45.i
 
@@ -258,7 +258,7 @@ if.end41.i:                                       ; preds = %if.end38.i, %if.end
 
 if.then43.i:                                      ; preds = %if.end41.i
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre34.i, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %str, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr align 1 %str, i64 %call, i1 false)
   %.pre.i = load ptr, ptr %s, align 8
   br label %if.end45.i
 

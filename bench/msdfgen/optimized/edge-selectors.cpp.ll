@@ -877,7 +877,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %p = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   %agg.tmp.sroa.0.0.copyload.i = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
@@ -1744,7 +1744,7 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %entry
   br i1 %2, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull readonly align 8 dereferenceable(16) %r2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %r2, i64 16, i1 false)
   %nearEdge.i = getelementptr inbounds i8, ptr %other, i64 48
   %3 = load ptr, ptr %nearEdge.i, align 8
   %nearEdge6.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1800,7 +1800,7 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit.i6:    ; preds = %_ZN7msdfgen26Pseudo
   br i1 %11, label %if.then.i23, label %if.end.i13
 
 if.then.i23:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i6, %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, ptr noundef nonnull readonly align 8 dereferenceable(16) %g3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(16) %g3, i64 16, i1 false)
   %nearEdge.i24 = getelementptr inbounds i8, ptr %other, i64 96
   %12 = load ptr, ptr %nearEdge.i24, align 8
   %nearEdge6.i25 = getelementptr inbounds i8, ptr %this, i64 96
@@ -1856,7 +1856,7 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit.i32:   ; preds = %_ZN7msdfgen26Pseudo
   br i1 %20, label %if.then.i49, label %if.end.i39
 
 if.then.i49:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i32, %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull readonly align 8 dereferenceable(16) %b4, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %b4, i64 16, i1 false)
   %nearEdge.i50 = getelementptr inbounds i8, ptr %other, i64 144
   %21 = load ptr, ptr %nearEdge.i50, align 8
   %nearEdge6.i51 = getelementptr inbounds i8, ptr %this, i64 144
@@ -1914,7 +1914,7 @@ entry:
   br i1 %tobool.not.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %r, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, ptr noundef nonnull align 8 dereferenceable(16) %r, i64 16, i1 false)
   %agg.tmp.sroa.0.0.copyload.i = load double, ptr %this, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
@@ -1950,7 +1950,7 @@ _ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit: ;
   br i1 %tobool.not.i7, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit18, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i1, ptr noundef nonnull readonly align 8 dereferenceable(16) %g, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i1, ptr noundef nonnull align 8 dereferenceable(16) %g, i64 16, i1 false)
   %agg.tmp.sroa.0.0.copyload.i9 = load double, ptr %this, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload.i11 = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i10, align 8
@@ -1987,7 +1987,7 @@ _ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit18:
   br i1 %tobool.not.i25, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit36, label %if.then.i26
 
 if.then.i26:                                      ; preds = %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i19, ptr noundef nonnull readonly align 8 dereferenceable(16) %b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i19, ptr noundef nonnull align 8 dereferenceable(16) %b, i64 16, i1 false)
   %agg.tmp.sroa.0.0.copyload.i27 = load double, ptr %this, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload.i29 = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i28, align 8

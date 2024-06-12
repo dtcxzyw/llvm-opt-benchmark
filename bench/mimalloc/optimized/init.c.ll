@@ -225,7 +225,7 @@ if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.
 if.then24.i.i:                                    ; preds = %if.end21.i.i, %if.end21.thread26.i.i
   %td.429.i.i = phi ptr [ %10, %if.end21.thread26.i.i ], [ %td.3.ph.i.i, %if.end21.i.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %td.429.i.i, i64 8) ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(4688) %td.429.i.i, i8 0, i64 4688, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4688) %td.429.i.i, i8 0, i64 4688, i1 false)
   br label %if.end6.i
 
 mi_thread_data_zalloc.exit.i:                     ; preds = %if.then11.i.i
@@ -239,10 +239,10 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   %tld7.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %tld7.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1600) %tld7.i, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 1600, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %tld7.i, ptr noundef nonnull align 64 dereferenceable(1600) @tld_empty, i64 1600, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %td.423.i.ph.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(3064) %td.423.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.423.i.ph.i, ptr noundef nonnull align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
   %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %14 = ptrtoint ptr %13 to i64
   %thread_id.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 2848

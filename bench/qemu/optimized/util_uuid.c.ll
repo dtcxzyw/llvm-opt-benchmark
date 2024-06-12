@@ -48,7 +48,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @qemu_uuid_is_null(ptr nocapture noundef readonly %uu) local_unnamed_addr #3 {
 entry:
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %uu, ptr noundef nonnull readonly dereferenceable(16) @qemu_uuid_is_null.null_uuid, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %uu, ptr noundef nonnull dereferenceable(16) @qemu_uuid_is_null.null_uuid, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   %conv.i = zext i1 %cmp.i to i32
   ret i32 %conv.i
@@ -179,7 +179,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @qemu_uuid_parse(ptr nocapture noundef readonly %str, ptr noundef %uuid) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %str) #13
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #13
   %cmp24.not.i = icmp eq i64 %call.i, 0
   br i1 %cmp24.not.i, label %return, label %for.body.i
 

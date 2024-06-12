@@ -28,7 +28,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.i, label %_ZL4trimPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %buf) #6
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #6
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %if.end.i
@@ -75,7 +75,7 @@ if.then17.i:                                      ; preds = %while.end15.i, %whi
   %call19.i = tail call ptr @gpr_zalloc(i64 noundef %add.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %start.0.lcssa24.i
   %add21.i = add i64 %sub18.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call19.i, ptr nonnull readonly align 1 %add.ptr.i, i64 %add21.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call19.i, ptr nonnull align 1 %add.ptr.i, i64 %add21.i, i1 false)
   br label %_ZL4trimPKc.exit
 
 _ZL4trimPKc.exit:                                 ; preds = %if.end, %while.end15.i, %if.then17.i

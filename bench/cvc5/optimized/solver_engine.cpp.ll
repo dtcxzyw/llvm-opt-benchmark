@@ -8199,7 +8199,7 @@ if.then.i:                                        ; preds = %call.i.noexc9
 
 for.body.i:                                       ; preds = %if.then.i, %.noexc11
   %__begin3.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %.noexc11 ], [ %1, %if.then.i ]
-  invoke void @_ZNK4cvc58internal12SolverEngine20ensureWellFormedTermERKNS0_12NodeTemplateILb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.05.i, ptr nonnull readnone align 8 poison)
+  invoke void @_ZNK4cvc58internal12SolverEngine20ensureWellFormedTermERKNS0_12NodeTemplateILb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.05.i, ptr nonnull align 8 poison)
           to label %.noexc11 unwind label %lpad3.loopexit
 
 .noexc11:                                         ; preds = %for.body.i

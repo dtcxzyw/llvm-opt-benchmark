@@ -506,7 +506,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef rea
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %226
-  %229 = tail call fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef readonly %1, ptr noundef writeonly %2, i64 noundef 16)
+  %229 = tail call fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef %1, ptr noundef %2, i64 noundef 16)
   br label %inet_net_pton_ipv4.exit
 
 230:                                              ; preds = %226

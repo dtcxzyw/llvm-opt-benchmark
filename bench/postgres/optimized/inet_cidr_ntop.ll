@@ -166,7 +166,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   %70 = add nuw nsw i32 %2, 7
   %71 = lshr i32 %70, 3
   %72 = zext nneg i32 %71 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %1, i64 %72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %72, i1 false)
   %73 = getelementptr i8, ptr %6, i64 %72
   %74 = sub nuw nsw i32 16, %71
   %75 = zext nneg i32 %74 to i64

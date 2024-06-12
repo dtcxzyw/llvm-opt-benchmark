@@ -4509,7 +4509,7 @@ php_var_serialize_string.exit:                    ; preds = %325, %331
   %338 = getelementptr inbounds i8, ptr %337, i64 %321
   store i16 8762, ptr %338, align 1
   %339 = getelementptr inbounds i8, ptr %338, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %339, ptr noundef nonnull readonly align 1 %297, i64 noundef %299, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %339, ptr noundef nonnull align 1 %297, i64 noundef %299, i1 false) #12
   %340 = getelementptr inbounds i8, ptr %339, i64 %299
   store i16 15138, ptr %340, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -5139,7 +5139,7 @@ php_var_serialize_string.exit1472:                ; preds = %646, %651
   %658 = getelementptr inbounds i8, ptr %657, i64 %642
   store i16 8762, ptr %658, align 1
   %659 = getelementptr inbounds i8, ptr %658, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %659, ptr noundef nonnull readonly align 1 %620, i64 noundef %622, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %659, ptr noundef nonnull align 1 %620, i64 noundef %622, i1 false) #12
   %660 = getelementptr inbounds i8, ptr %659, i64 %622
   store i16 15138, ptr %660, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -8514,7 +8514,7 @@ php_var_serialize_string.exit:                    ; preds = %155, %160
   %167 = getelementptr inbounds i8, ptr %166, i64 %151
   store i16 8762, ptr %167, align 1
   %168 = getelementptr inbounds i8, ptr %167, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %168, ptr noundef nonnull readonly align 1 %131, i64 noundef %130, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %168, ptr noundef nonnull align 1 %131, i64 noundef %130, i1 false) #12
   %169 = getelementptr inbounds i8, ptr %168, i64 %130
   store i16 15138, ptr %169, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)

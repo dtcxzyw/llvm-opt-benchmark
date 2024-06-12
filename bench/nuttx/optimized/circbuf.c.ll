@@ -82,10 +82,10 @@ define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 nound
   %.028.i.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i.i, i64 %24)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %8, ptr align 1 %26, i64 %.028.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %26, i64 %.028.i.i.i, i1 false)
   %27 = getelementptr inbounds i8, ptr %8, i64 %.028.i.i.i
   %28 = sub i64 %.029.i.i.i, %.028.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %27, ptr align 1 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %25, i64 %28, i1 false)
   br label %circbuf_read.exit
 
 circbuf_read.exit:                                ; preds = %19, %21
@@ -154,11 +154,11 @@ define i64 @circbuf_read(ptr nocapture noundef %0, ptr nocapture noundef writeon
   %.028.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr align 1 %15, i64 %.028.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.028.i.i, i1 false)
   %16 = getelementptr inbounds i8, ptr %1, i64 %.028.i.i
   %17 = load ptr, ptr %0, align 8
   %18 = sub i64 %.029.i.i, %.028.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %16, ptr align 1 %17, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   br label %circbuf_peek.exit
 
 circbuf_peek.exit:                                ; preds = %3, %6
@@ -308,11 +308,11 @@ define i64 @circbuf_peek(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %.028.i = tail call i64 @llvm.umin.i64(i64 %.029.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr align 1 %15, i64 %.028.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.028.i, i1 false)
   %16 = getelementptr inbounds i8, ptr %1, i64 %.028.i
   %17 = load ptr, ptr %0, align 8
   %18 = sub i64 %.029.i, %.028.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %16, ptr align 1 %17, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   br label %circbuf_peekat.exit
 
 circbuf_peekat.exit:                              ; preds = %3, %6

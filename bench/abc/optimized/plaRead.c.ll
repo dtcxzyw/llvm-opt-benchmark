@@ -1088,10 +1088,10 @@ Pla_ReadPlaRemoveComments.exit:                   ; preds = %Pla_ReadPlaRemoveCo
   br i1 %.not.i.i, label %Abc_UtilStrsav.exit.i, label %36
 
 36:                                               ; preds = %31
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %38 = add i64 %37, 1
   %39 = tail call noalias ptr @malloc(i64 noundef %38) #15
-  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %0) #17
+  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %0) #17
   br label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %36, %31

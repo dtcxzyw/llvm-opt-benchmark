@@ -1620,7 +1620,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i301, %846
   %953 = load ptr, ptr %940, align 8
   %954 = load ptr, ptr %953, align 8
   %955 = getelementptr i8, ptr %954, i64 %947
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %944, ptr noundef nonnull align 1 dereferenceable(1) %955, i64 %945, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %944, ptr noundef nonnull align 1 dereferenceable(1) %955, i64 %945, i1 false)
   %956 = load i64, ptr %946, align 8
   %957 = add i64 %956, %945
   br label %.sink.split.i.i
@@ -1630,7 +1630,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i301, %846
   %960 = load ptr, ptr %940, align 8
   %961 = load ptr, ptr %960, align 8
   %962 = getelementptr i8, ptr %961, i64 %947
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %944, ptr align 1 %962, i64 %959, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %944, ptr align 1 %962, i64 %959, i1 false)
   %963 = load i64, ptr %948, align 8
   %964 = trunc i64 %959 to i32
   br label %.sink.split.i.i

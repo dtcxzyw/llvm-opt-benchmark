@@ -262,7 +262,7 @@ return:
   store i64 %initial_window_size, ptr %rxfc, align 8
   %rwm.i = getelementptr inbounds i8, ptr %rxfc, i64 16
   %cur_window_size.i = getelementptr inbounds i8, ptr %rxfc, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %rwm.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rwm.i, i8 0, i64 24, i1 false)
   store i64 %initial_window_size, ptr %cur_window_size.i, align 8
   %max_window_size2.i = getelementptr inbounds i8, ptr %rxfc, i64 48
   store i64 %initial_window_size, ptr %max_window_size2.i, align 8

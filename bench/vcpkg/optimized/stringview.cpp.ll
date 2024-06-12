@@ -101,7 +101,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkgneENS_10StringViewES0_(ptr nocaptu
   br i1 %8, label %9, label %_ZN5vcpkgeqENS_10StringViewES0_.exit
 
 9:                                                ; preds = %7
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %2, i64 %1)
+  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %2, i64 %1)
   %10 = icmp ne i32 %bcmp.i, 0
   br label %_ZN5vcpkgeqENS_10StringViewES0_.exit
 

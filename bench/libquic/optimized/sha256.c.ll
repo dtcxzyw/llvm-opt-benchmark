@@ -42,7 +42,7 @@ define hidden noundef nonnull ptr @SHA224(ptr noundef %data, i64 noundef %len, p
 entry:
   %ctx = alloca %struct.sha256_state_st, align 16
   %0 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %ctx, align 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i, align 16
@@ -84,7 +84,7 @@ if.then48.i.i:                                    ; preds = %if.end37.i.i, %if.e
 SHA224_Update.exit:                               ; preds = %entry, %if.end45.i.i, %if.then48.i.i
   %cmp = icmp eq ptr %out, null
   %spec.store.select = select i1 %cmp, ptr @SHA224.buf, ptr %out
-  %call.i = call range(i32 0, 2) i32 @SHA256_Final(ptr noundef nonnull writeonly %spec.store.select, ptr noundef nonnull %ctx)
+  %call.i = call range(i32 0, 2) i32 @SHA256_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 112) #5
   ret ptr %spec.store.select
 }
@@ -187,7 +187,7 @@ define hidden noundef nonnull ptr @SHA256(ptr noundef %data, i64 noundef %len, p
 entry:
   %ctx = alloca %struct.sha256_state_st, align 16
   %0 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %ctx, align 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 16

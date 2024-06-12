@@ -80,7 +80,7 @@ define range(i32 -1, 1) i32 @find_my_exec(ptr noundef %0, ptr noundef %1) local_
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %8 = call i32 @stat(ptr noundef readonly %1, ptr noundef nonnull %4) #13
+  %8 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %4) #13
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %validate_exec.exit.thread, label %10
 
@@ -99,8 +99,8 @@ define range(i32 -1, 1) i32 @find_my_exec(ptr noundef %0, ptr noundef %1) local_
   br label %validate_exec.exit.thread
 
 19:                                               ; preds = %10
-  %20 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 4) #13
-  %21 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 1) #13
+  %20 = tail call i32 @access(ptr noundef %1, i32 noundef 4) #13
+  %21 = tail call i32 @access(ptr noundef %1, i32 noundef 1) #13
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %validate_exec.exit, label %validate_exec.exit.thread
 
@@ -164,7 +164,7 @@ validate_exec.exit:                               ; preds = %19
   tail call void @join_path_components(ptr noundef %1, ptr noundef %1, ptr noundef %0) #13
   tail call void @canonicalize_path(ptr noundef %1) #13
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %48 = call i32 @stat(ptr noundef readonly %1, ptr noundef nonnull %3) #13
+  %48 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %3) #13
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %validate_exec.exit40.thread, label %50
 
@@ -182,8 +182,8 @@ validate_exec.exit:                               ; preds = %19
   br label %validate_exec.exit40.thread
 
 58:                                               ; preds = %50
-  %59 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 4) #13
-  %60 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 1) #13
+  %59 = tail call i32 @access(ptr noundef %1, i32 noundef 4) #13
+  %60 = tail call i32 @access(ptr noundef %1, i32 noundef 1) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %validate_exec.exit40, label %validate_exec.exit40.thread
 
@@ -231,7 +231,7 @@ declare ptr @first_dir_separator(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @normalize_exec_path(ptr noundef %0) unnamed_addr #3 {
-  %2 = tail call ptr @realpath(ptr noundef readonly %0, ptr noundef null) #13
+  %2 = tail call ptr @realpath(ptr noundef %0, ptr noundef null) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pg_realpath.exit
 
@@ -247,7 +247,7 @@ define internal fastcc range(i32 -1, 1) i32 @normalize_exec_path(ptr noundef %0)
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @realpath(ptr noundef readonly %0, ptr noundef nonnull %9) #13
+  %12 = tail call ptr @realpath(ptr noundef %0, ptr noundef nonnull %9) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %pg_realpath.exit
 
@@ -307,7 +307,7 @@ define range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr noundef %1, ptr
   %13 = sub i64 1024, %11
   %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull @.str.5) #13
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  %15 = call i32 @stat(ptr noundef readonly %3, ptr noundef nonnull %5) #13
+  %15 = call i32 @stat(ptr noundef %3, ptr noundef nonnull %5) #13
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %validate_exec.exit.thread, label %17
 
@@ -326,8 +326,8 @@ define range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr noundef %1, ptr
   br label %validate_exec.exit.thread
 
 26:                                               ; preds = %17
-  %27 = tail call i32 @access(ptr noundef readonly %3, i32 noundef 4) #13
-  %28 = tail call i32 @access(ptr noundef readonly %3, i32 noundef 1) #13
+  %27 = tail call i32 @access(ptr noundef %3, i32 noundef 4) #13
+  %28 = tail call i32 @access(ptr noundef %3, i32 noundef 1) #13
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %validate_exec.exit, label %validate_exec.exit.thread
 

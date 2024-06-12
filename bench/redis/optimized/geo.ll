@@ -863,7 +863,7 @@ if.end129:                                        ; preds = %if.end120
   %call1.i.i = tail call i64 @geohashAlign52Bits(i64 %inc.i.i, i8 %8) #14
   %conv.i = uitofp i64 %call.i.i to double
   %conv1.i = uitofp i64 %call1.i.i to double
-  %call.i = tail call i32 @geoGetPointsInRange(ptr noundef readonly %zobj, double noundef %conv.i, double noundef %conv1.i, ptr noundef readonly %shape, ptr noundef nonnull %ga, i64 noundef %limit)
+  %call.i = tail call i32 @geoGetPointsInRange(ptr noundef %zobj, double noundef %conv.i, double noundef %conv1.i, ptr noundef %shape, ptr noundef nonnull %ga, i64 noundef %limit)
   %add = add i32 %call.i, %count.056
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.inc

@@ -2682,12 +2682,12 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 _ZN6bParse4bDNA14getElementSizeEss.exit.i:        ; preds = %cond.false.i.i, %cond.true.i.i
   %conv5.sink.i.i = phi i32 [ %conv5.i.i, %cond.false.i.i ], [ %30, %cond.true.i.i ]
-  %call12.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call17, ptr noundef nonnull dereferenceable(1) %call7.i) #28
+  %call12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call17, ptr noundef nonnull dereferenceable(1) %call7.i) #28
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %_ZN6bParse4bDNA14getElementSizeEss.exit.i
-  %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) %call13) #28
+  %call14.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) %call13) #28
   %cmp15.i = icmp ne i32 %call14.i, 0
   %tobool.not = icmp eq ptr %data.addr.017.i, null
   %or.cond95 = select i1 %cmp15.i, i1 true, i1 %tobool.not
@@ -3942,7 +3942,7 @@ if.end.i77:                                       ; preds = %if.end.i77.lr.ph, %
 
 if.then4.i:                                       ; preds = %if.end.i77
   %conv.i = sext i32 %call.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %dp.sroa.0, ptr nonnull readonly align 1 %oldPtr.0141, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %dp.sroa.0, ptr nonnull align 1 %oldPtr.0141, i64 %conv.i, i1 false)
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
 if.else.i:                                        ; preds = %if.end.i77
@@ -4655,7 +4655,7 @@ if.else84:                                        ; preds = %for.body
   br i1 %cmp90.not, label %if.else140, label %if.then91
 
 if.then91:                                        ; preds = %if.else84
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #28
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
   %conv.i = trunc i64 %call.i to i32
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %conv.i, i32 1024)
   %cmp16.i = icmp sgt i32 %conv.i, 0
@@ -4785,7 +4785,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   br i1 %cmp153, label %if.then158, label %if.then197
 
 if.then158:                                       ; preds = %lor.lhs.false, %if.else147, %lor.rhs
-  %call.i205 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #28
+  %call.i205 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
   %conv.i206 = trunc i64 %call.i205 to i32
   %.sroa.speculated.i207 = call i32 @llvm.smin.i32(i32 %conv.i206, i32 1024)
   %cmp16.i208 = icmp sgt i32 %conv.i206, 0
@@ -4872,7 +4872,7 @@ for.body201:                                      ; preds = %if.then197, %for.bo
   br i1 %exitcond293.not, label %for.end205, label %for.body201, !llvm.loop !49
 
 for.end205:                                       ; preds = %for.body201, %if.then197
-  %call.i224 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call10) #28
+  %call.i224 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #28
   %conv.i225 = trunc i64 %call.i224 to i32
   %.sroa.speculated.i226 = call i32 @llvm.smin.i32(i32 %conv.i225, i32 1024)
   %cmp16.i227 = icmp sgt i32 %conv.i225, 0

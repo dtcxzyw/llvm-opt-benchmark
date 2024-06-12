@@ -1394,7 +1394,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
   %3 = alloca %struct.mbedtls_aria_context, align 4
   %4 = alloca [48 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
   %.not87 = icmp eq i32 %0, 0
   br label %.backedge196
 
@@ -1508,7 +1508,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
   br i1 %exitcond.not.i, label %35, label %28, !llvm.loop !13
 
 35:                                               ; preds = %28
-  %36 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %.13752.i, ptr noundef nonnull %.13752.i)
+  %36 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %.13752.i, ptr noundef nonnull %.13752.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %.13752.i, i64 16, i1 false)
   %37 = getelementptr inbounds i8, ptr %.13951.i, i64 16
   %38 = getelementptr inbounds i8, ptr %.13752.i, i64 16
@@ -1547,7 +1547,7 @@ mbedtls_aria_crypt_cbc.exit:                      ; preds = %35
   %.03657.i = phi ptr [ %56, %54 ], [ %4, %.critedge97 ]
   %.03856.i = phi ptr [ %55, %54 ], [ %40, %.critedge97 ]
   %.04155.i = phi i64 [ %57, %54 ], [ 48, %.critedge97 ]
-  %47 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %.03856.i, ptr noundef nonnull %.03657.i)
+  %47 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %.03856.i, ptr noundef nonnull %.03657.i)
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i
@@ -1634,7 +1634,7 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %54
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph.i103
-  %70 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %70 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %5)
   br label %71
 
 71:                                               ; preds = %69, %.lr.ph.i103
@@ -1688,7 +1688,7 @@ mbedtls_aria_crypt_cfb128.exit:                   ; preds = %71
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %.lr.ph50.i
-  %91 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %5)
+  %91 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %5)
   br label %92
 
 92:                                               ; preds = %90, %.lr.ph50.i
@@ -1770,7 +1770,7 @@ mbedtls_aria_crypt_cfb128.exit106:                ; preds = %92
   br i1 %112, label %113, label %.loopexit.i109
 
 113:                                              ; preds = %110
-  %114 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %114 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
   br label %115
 
 115:                                              ; preds = %115, %113
@@ -1836,7 +1836,7 @@ mbedtls_aria_crypt_ctr.exit:                      ; preds = %.loopexit.i109
   br i1 %138, label %139, label %.loopexit.i118
 
 139:                                              ; preds = %136
-  %140 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %140 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
   br label %141
 
 141:                                              ; preds = %141, %139

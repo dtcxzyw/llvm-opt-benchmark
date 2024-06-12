@@ -6213,7 +6213,7 @@ define internal range(i32 0, 65539) i32 @compute_nrb_option_size(ptr nocapture r
 
 5:                                                ; preds = %4
   %.val = load ptr, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
   %.not.i = icmp eq i32 %8, 0
@@ -6253,7 +6253,7 @@ define internal noundef i32 @compute_block_option_size(ptr noundef %0, i32 nound
 
 6:                                                ; preds = %5
   %.val = load ptr, ptr %3, align 8
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 3
   %.not.i = icmp eq i32 %9, 0
@@ -7009,7 +7009,7 @@ define internal range(i32 0, 65539) i32 @compute_shb_option_size(ptr nocapture r
 
 5:                                                ; preds = %4
   %.val = load ptr, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
   %.not.i = icmp eq i32 %8, 0
@@ -7100,7 +7100,7 @@ define internal range(i32 0, 65539) i32 @compute_idb_option_size(ptr nocapture r
 
 5:                                                ; preds = %4, %4, %4, %4
   %.val = load ptr, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #19
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
   %.not.i = icmp eq i32 %8, 0

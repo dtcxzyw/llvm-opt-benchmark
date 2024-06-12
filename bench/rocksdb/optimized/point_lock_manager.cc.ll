@@ -3062,7 +3062,7 @@ if.then117:                                       ; preds = %invoke.cont115
   br i1 %tobool.not.i.i.i271, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i273, label %if.then.i.i.i254.invoke
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i273:     ; preds = %if.then117
-  invoke void @_ZN7rocksdb16PointLockManager20DecrementWaitersImplEPKNS_22PessimisticTransactionERKNS_10autovectorImLm8EEE(ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef nonnull %txn, ptr noundef nonnull readonly align 8 dereferenceable(104) %wait_ids)
+  invoke void @_ZN7rocksdb16PointLockManager20DecrementWaitersImplEPKNS_22PessimisticTransactionERKNS_10autovectorImLm8EEE(ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef nonnull %txn, ptr noundef nonnull align 8 dereferenceable(104) %wait_ids)
           to label %_ZN7rocksdb16PointLockManager16DecrementWaitersEPKNS_22PessimisticTransactionERKNS_10autovectorImLm8EEE.exit unwind label %lpad.i274
 
 lpad.i274:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i273

@@ -706,7 +706,7 @@ if.end14:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %_ZN6icu_759BytesTrie9skipValueEPKhi.exit.i, %if.end14
   %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr, %if.end14 ], [ %incdec.ptr.i, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit.i ]
   %conv.lcssa.i = phi i32 [ %conv, %if.end14 ], [ %conv.i, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit.i ]
-  %call.i = tail call noundef i32 @_ZN6icu_759BytesTrie10branchNextEPKhii(ptr noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull %incdec.ptr.lcssa.i, i32 noundef %conv.lcssa.i, i32 noundef %spec.select)
+  %call.i = tail call noundef i32 @_ZN6icu_759BytesTrie10branchNextEPKhii(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %incdec.ptr.lcssa.i, i32 noundef %conv.lcssa.i, i32 noundef %spec.select)
   br label %return
 
 if.else.i:                                        ; preds = %if.end14, %_ZN6icu_759BytesTrie9skipValueEPKhi.exit.i

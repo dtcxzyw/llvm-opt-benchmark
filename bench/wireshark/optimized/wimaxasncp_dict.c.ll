@@ -753,7 +753,7 @@ append_to_buffer.exit341:                         ; preds = %292, %299
   %307 = getelementptr i8, ptr %305, i64 %306
   %308 = getelementptr inbounds i8, ptr %281, i64 32
   store ptr %307, ptr %308, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %307, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %307, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %309 = load i32, ptr %294, align 4
   %310 = add i32 %309, 2
   store i32 %310, ptr %294, align 4
@@ -806,7 +806,7 @@ append_to_buffer.exit344:                         ; preds = %323, %330
   %338 = getelementptr i8, ptr %336, i64 %337
   %339 = getelementptr inbounds i8, ptr %312, i64 32
   store ptr %338, ptr %339, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %338, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %338, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   %340 = load i32, ptr %325, align 4
   %341 = add i32 %340, 2
   store i32 %341, ptr %325, align 4
@@ -916,7 +916,7 @@ append_to_buffer.exit350:                         ; preds = %387, %394
   store ptr %402, ptr %403, align 8
   %404 = add i32 %375, 1
   %405 = sext i32 %404 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %402, ptr readonly align 1 %374, i64 %405, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %402, ptr align 1 %374, i64 %405, i1 false)
   %406 = load i32, ptr %389, align 4
   %407 = add i32 %406, %375
   store i32 %407, ptr %389, align 4
@@ -1026,7 +1026,7 @@ append_to_buffer.exit356:                         ; preds = %453, %460
   store ptr %468, ptr %469, align 8
   %470 = add i32 %441, 1
   %471 = sext i32 %470 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %468, ptr readonly align 1 %440, i64 %471, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %468, ptr align 1 %440, i64 %471, i1 false)
   %472 = load i32, ptr %455, align 4
   %473 = add i32 %472, %441
   store i32 %473, ptr %455, align 4
@@ -1268,7 +1268,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
 
 594:                                              ; preds = %139
   %595 = load ptr, ptr %76, align 8
-  %596 = tail call i64 @strtoul(ptr nocapture noundef readonly %595, ptr noundef null, i32 noundef 10) #32
+  %596 = tail call i64 @strtoul(ptr nocapture noundef %595, ptr noundef null, i32 noundef 10) #32
   %597 = trunc i64 %596 to i32
   %598 = lshr exact i32 -2147483648, %597
   %599 = load ptr, ptr %0, align 8
@@ -1288,7 +1288,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
 
 606:                                              ; preds = %139
   %607 = load ptr, ptr %76, align 8
-  %608 = tail call i64 @strtoul(ptr nocapture noundef readonly %607, ptr noundef null, i32 noundef 10) #32
+  %608 = tail call i64 @strtoul(ptr nocapture noundef %607, ptr noundef null, i32 noundef 10) #32
   %609 = trunc i64 %608 to i32
   %610 = sub i32 15, %609
   %611 = shl nuw i32 1, %610
@@ -1309,7 +1309,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
 
 619:                                              ; preds = %139
   %620 = load ptr, ptr %76, align 8
-  %621 = tail call i64 @strtoul(ptr nocapture noundef readonly %620, ptr noundef null, i32 noundef 10) #32
+  %621 = tail call i64 @strtoul(ptr nocapture noundef %620, ptr noundef null, i32 noundef 10) #32
   %622 = trunc i64 %621 to i32
   %623 = sub i32 7, %622
   %624 = shl nuw i32 1, %623
@@ -1342,7 +1342,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
   %637 = getelementptr [27 x %struct._value_string], ptr @wimaxasncp_decode_type_vals, i64 0, i64 %.06.i
   %638 = getelementptr inbounds i8, ptr %637, i64 8
   %639 = load ptr, ptr %638, align 8
-  %640 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %633, ptr noundef nonnull dereferenceable(1) %639) #33
+  %640 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %633, ptr noundef nonnull dereferenceable(1) %639) #33
   %641 = icmp eq i32 %640, 0
   br i1 %641, label %642, label %634
 

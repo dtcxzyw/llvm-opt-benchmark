@@ -1550,10 +1550,10 @@ define range(i32 0, 2) i32 @Abc_CommandNChooseK(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %24
 
 24:                                               ; preds = %19
-  %25 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #17
+  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #17
   %26 = add i64 %25, 1
   %27 = call noalias ptr @malloc(i64 noundef %26) #18
-  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %23) #16
+  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %23) #16
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %19, %24

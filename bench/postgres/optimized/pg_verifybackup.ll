@@ -767,7 +767,7 @@ should_ignore_relpath.exit.i61.backedge:          ; preds = %._crit_edge.i.i76, 
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   %285 = load ptr, ptr %281, align 8
-  %286 = call i32 (ptr, i32, ...) @open(ptr noundef readonly %284, i32 noundef 0, i32 noundef 0) #16
+  %286 = call i32 (ptr, i32, ...) @open(ptr noundef %284, i32 noundef 0, i32 noundef 0) #16
   %287 = icmp slt i32 %286, 0
   br i1 %287, label %288, label %289
 
@@ -1182,7 +1182,7 @@ sub_2:                                            ; preds = %sub_1
   %.01214.i.i = phi i32 [ %79, %77 ], [ %65, %59 ]
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull readonly dereferenceable(1) %.0) #17
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %.0) #17
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %manifest_files_lookup.exit, label %77
 

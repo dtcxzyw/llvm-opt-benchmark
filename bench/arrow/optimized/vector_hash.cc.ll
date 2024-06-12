@@ -18499,12 +18499,12 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZNSt10unique_ptrIN5arrow7compute11KernelStateESt14default_deleteIS2_EED2Ev.exit32: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %call.i.noexc
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !76
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_120DictionaryHashKernelE, i64 16), ptr %call.i16, align 8, !noalias !76
   %indices_kernel_.i.i = getelementptr inbounds i8, ptr %call.i16, i64 56
   store i64 %8, ptr %indices_kernel_.i.i, align 8, !noalias !76
   %dictionary_.i.i = getelementptr inbounds i8, ptr %call.i16, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %dictionary_.i.i, i8 0, i64 16, i1 false), !noalias !76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary_.i.i, i8 0, i64 16, i1 false), !noalias !76
   %dictionary_value_type_.i.i = getelementptr inbounds i8, ptr %call.i16, i64 80
   store <2 x ptr> %10, ptr %dictionary_value_type_.i.i, align 8, !noalias !76
   store ptr null, ptr %agg.result, align 8
@@ -20359,12 +20359,12 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZNSt10unique_ptrIN5arrow7compute11KernelStateESt14default_deleteIS2_EED2Ev.exit32: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %call.i.noexc
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !119
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_120DictionaryHashKernelE, i64 16), ptr %call.i16, align 8, !noalias !119
   %indices_kernel_.i.i = getelementptr inbounds i8, ptr %call.i16, i64 56
   store i64 %8, ptr %indices_kernel_.i.i, align 8, !noalias !119
   %dictionary_.i.i = getelementptr inbounds i8, ptr %call.i16, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %dictionary_.i.i, i8 0, i64 16, i1 false), !noalias !119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary_.i.i, i8 0, i64 16, i1 false), !noalias !119
   %dictionary_value_type_.i.i = getelementptr inbounds i8, ptr %call.i16, i64 80
   store <2 x ptr> %10, ptr %dictionary_value_type_.i.i, align 8, !noalias !119
   store ptr null, ptr %agg.result, align 8
@@ -29448,7 +29448,7 @@ invoke.cont:                                      ; preds = %cond.false.i, %_ZNK
 
 call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !205
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !205
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_114NullHashKernelINS2_12UniqueActionELb0EEE, i64 16), ptr %call.i5, align 8, !noalias !205
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !205
@@ -29802,7 +29802,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !221
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !221
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !221
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_12UniqueActionEbLb0EEE, i64 16), ptr %call.i5, align 8, !noalias !221
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !221
@@ -30157,7 +30157,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !237
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !237
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !237
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_12UniqueActionEhLb0EEE, i64 16), ptr %call.i5, align 8, !noalias !237
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !237
@@ -30512,7 +30512,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !253
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !253
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !253
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_12UniqueActionEtLb0EEE, i64 16), ptr %call.i5, align 8, !noalias !253
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !253
@@ -30867,7 +30867,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !269
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !269
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !269
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_12UniqueActionEjLb0EEE, i64 16), ptr %call.i5, align 8, !noalias !269
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !269
@@ -31222,7 +31222,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !285
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !285
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !285
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_12UniqueActionEmLb0EEE, i64 16), ptr %call.i5, align 8, !noalias !285
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !285
@@ -31577,7 +31577,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !301
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !301
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !301
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i5, align 8, !noalias !301
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !301
@@ -31932,7 +31932,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !317
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !317
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !317
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i5, align 8, !noalias !317
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !317
@@ -32287,7 +32287,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !333
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !333
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !333
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i5, align 8, !noalias !333
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !333
@@ -32642,7 +32642,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !349
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !349
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !349
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i5, align 8, !noalias !349
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !349
@@ -32997,7 +32997,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !365
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !365
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !365
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_12UniqueActionENS4_13MonthDayNanosELb0EEE, i64 16), ptr %call.i5, align 8, !noalias !365
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !365
@@ -47702,7 +47702,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1102)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1105
   store ptr %11, ptr %agg.result, align 8, !alias.scope !1105
@@ -47741,7 +47741,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
   call void @llvm.experimental.noalias.scope.decl(metadata !1107)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !1110
   store ptr %14, ptr %agg.result, align 8, !alias.scope !1110
@@ -47769,7 +47769,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1112)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !1115
   store ptr %19, ptr %agg.result, align 8, !alias.scope !1115
@@ -47778,7 +47778,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1101
   call void @llvm.experimental.noalias.scope.decl(metadata !1116)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !1119
   store ptr %20, ptr %agg.result, align 8, !alias.scope !1119
@@ -52352,7 +52352,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZL24XXH3_accumulat
   %mul.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %mul.i.i.i.i.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !1377
+  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !1377
   %mul2.i.i.i.i.i = shl i64 %n.06.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1378)
@@ -52436,7 +52436,7 @@ for.body.i37.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %_
   %mul.i39.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 6
   %add.ptr.i40.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i.i, i64 %mul.i39.i.i.i.i
   %add.ptr1.i41.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i40.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !1411
+  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i41.i.i.i.i, i32 0, i32 3, i32 1), !noalias !1411
   %mul2.i42.i.i.i.i = shl i64 %n.06.i38.i.i.i.i, 3
   %add.ptr3.i43.i.i.i.i = getelementptr inbounds i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %mul2.i42.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1412)
@@ -53477,7 +53477,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1545)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1548
   store ptr %11, ptr %agg.result, align 8, !alias.scope !1548
@@ -53516,7 +53516,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
   call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !1553
   store ptr %14, ptr %agg.result, align 8, !alias.scope !1553
@@ -53544,7 +53544,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1555)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !1558
   store ptr %19, ptr %agg.result, align 8, !alias.scope !1558
@@ -53553,7 +53553,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !1544
   call void @llvm.experimental.noalias.scope.decl(metadata !1559)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !1562
   store ptr %20, ptr %agg.result, align 8, !alias.scope !1562
@@ -58394,7 +58394,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !1876
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !1876
   call void @llvm.experimental.noalias.scope.decl(metadata !1877)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1880
   store ptr %10, ptr %agg.result, align 8, !alias.scope !1880
@@ -58462,7 +58462,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !1876
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !1876
   call void @llvm.experimental.noalias.scope.decl(metadata !1890)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !1893
   store ptr %18, ptr %agg.result, align 8, !alias.scope !1893
@@ -60357,7 +60357,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2011)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2014
   store ptr %10, ptr %agg.result, align 8, !alias.scope !2014
@@ -60396,7 +60396,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
   call void @llvm.experimental.noalias.scope.decl(metadata !2016)
   %13 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !2019
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2019
@@ -60424,7 +60424,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2021)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2024
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2024
@@ -60433,7 +60433,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %return
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_12UniqueActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !2010
   call void @llvm.experimental.noalias.scope.decl(metadata !2025)
   %19 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !2028
   store ptr %19, ptr %agg.result, align 8, !alias.scope !2028
@@ -66845,7 +66845,7 @@ invoke.cont:                                      ; preds = %cond.false.i, %_ZNK
 
 call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !2260
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !2260
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_114NullHashKernelINS2_17ValueCountsActionELb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2260
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2260
@@ -66878,7 +66878,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.
   %seen_null_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
   store i8 0, ptr %seen_null_.i.i, align 8, !noalias !2260
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 88
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2260
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -67173,7 +67173,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2276
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2276
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2276
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_17ValueCountsActionEbLb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2276
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2276
@@ -67204,7 +67204,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2276
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -67501,7 +67501,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2292
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2292
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2292
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_17ValueCountsActionEhLb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2292
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2292
@@ -67532,7 +67532,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2292
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -67829,7 +67829,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2308
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2308
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2308
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_17ValueCountsActionEtLb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2308
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2308
@@ -67860,7 +67860,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2308
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -68157,7 +68157,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2324
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2324
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2324
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_17ValueCountsActionEjLb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2324
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2324
@@ -68188,7 +68188,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2324
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -68485,7 +68485,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2340
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2340
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2340
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_17ValueCountsActionEmLb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2340
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2340
@@ -68516,7 +68516,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2340
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -68813,7 +68813,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2356
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2356
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2356
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2356
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2356
@@ -68844,7 +68844,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2356
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -69141,7 +69141,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2372
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2372
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2372
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2372
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2372
@@ -69172,7 +69172,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2372
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -69469,7 +69469,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2388
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2388
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2388
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2388
@@ -69500,7 +69500,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2388
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -69797,7 +69797,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2404
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2404
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2404
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2404
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2404
@@ -69828,7 +69828,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2404
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -70125,7 +70125,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !2420
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2420
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !2420
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_17ValueCountsActionENS4_13MonthDayNanosELb1EEE, i64 16), ptr %call.i4, align 8, !noalias !2420
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !2420
@@ -70156,7 +70156,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ValueCountsActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(240) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !2420
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -73592,7 +73592,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !2610
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !2610
   call void @llvm.experimental.noalias.scope.decl(metadata !2611)
   %6 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !2614
   store ptr %6, ptr %agg.result, align 8, !alias.scope !2614
@@ -73659,7 +73659,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !2610
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionEbLb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb1EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !2610
   call void @llvm.experimental.noalias.scope.decl(metadata !2621)
   %14 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !2624
   store ptr %14, ptr %agg.result, align 8, !alias.scope !2624
@@ -78405,7 +78405,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3027)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3030
   store ptr %11, ptr %agg.result, align 8, !alias.scope !3030
@@ -78444,7 +78444,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
   call void @llvm.experimental.noalias.scope.decl(metadata !3032)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3035
   store ptr %14, ptr %agg.result, align 8, !alias.scope !3035
@@ -78472,7 +78472,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3037)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3040
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3040
@@ -78481,7 +78481,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb1EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3026
   call void @llvm.experimental.noalias.scope.decl(metadata !3041)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3044
   store ptr %20, ptr %agg.result, align 8, !alias.scope !3044
@@ -79604,7 +79604,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3127)
   %11 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3130
   store ptr %11, ptr %agg.result, align 8, !alias.scope !3130
@@ -79643,7 +79643,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
   call void @llvm.experimental.noalias.scope.decl(metadata !3132)
   %14 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3135
   store ptr %14, ptr %agg.result, align 8, !alias.scope !3135
@@ -79671,7 +79671,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3137)
   %19 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3140
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3140
@@ -79680,7 +79680,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb1EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !3126
   call void @llvm.experimental.noalias.scope.decl(metadata !3141)
   %20 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3144
   store ptr %20, ptr %agg.result, align 8, !alias.scope !3144
@@ -80770,7 +80770,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3226
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3226
   call void @llvm.experimental.noalias.scope.decl(metadata !3227)
   %9 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3230
   store ptr %9, ptr %agg.result, align 8, !alias.scope !3230
@@ -80837,7 +80837,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !3226
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !3226
   call void @llvm.experimental.noalias.scope.decl(metadata !3237)
   %17 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3240
   store ptr %17, ptr %agg.result, align 8, !alias.scope !3240
@@ -81956,7 +81956,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3324)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3327
   store ptr %10, ptr %agg.result, align 8, !alias.scope !3327
@@ -81995,7 +81995,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
   call void @llvm.experimental.noalias.scope.decl(metadata !3329)
   %13 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !3332
   store ptr %13, ptr %agg.result, align 8, !alias.scope !3332
@@ -82023,7 +82023,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3334)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3337
   store ptr %18, ptr %agg.result, align 8, !alias.scope !3337
@@ -82032,7 +82032,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %return
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_17ValueCountsActionESt17basic_string_viewIcSt11char_traitsIcEELb1EE8DoAppendILb1EEENSt9enable_ifIXT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb1EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !3323
   call void @llvm.experimental.noalias.scope.decl(metadata !3338)
   %19 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !3341
   store ptr %19, ptr %agg.result, align 8, !alias.scope !3341
@@ -83668,7 +83668,7 @@ invoke.cont:                                      ; preds = %cond.false.i, %_ZNK
 
 call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !3485
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %options_.i.i.i, i8 0, i64 48, i1 false), !noalias !3485
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_114NullHashKernelINS2_16DictEncodeActionELb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3485
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3485
@@ -83701,7 +83701,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.
   %seen_null_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
   store i8 0, ptr %seen_null_.i.i, align 8, !noalias !3485
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 88
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3485
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -83996,7 +83996,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3501
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3501
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3501
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_11BooleanTypeENS2_16DictEncodeActionEbLb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3501
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3501
@@ -84027,7 +84027,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3501
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -84324,7 +84324,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3517
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3517
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3517
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_9UInt8TypeENS2_16DictEncodeActionEhLb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3517
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3517
@@ -84355,7 +84355,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3517
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -84652,7 +84652,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3533
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3533
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3533
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt16TypeENS2_16DictEncodeActionEtLb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3533
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3533
@@ -84683,7 +84683,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3533
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -84980,7 +84980,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3549
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3549
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3549
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt32TypeENS2_16DictEncodeActionEjLb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3549
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3549
@@ -85011,7 +85011,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3549
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -85308,7 +85308,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3565
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3565
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3565
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10UInt64TypeENS2_16DictEncodeActionEmLb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3565
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3565
@@ -85339,7 +85339,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3565
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -85636,7 +85636,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3581
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3581
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3581
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3581
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3581
@@ -85667,7 +85667,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3581
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -85964,7 +85964,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3597
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3597
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3597
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3597
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3597
@@ -85995,7 +85995,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3597
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -86292,7 +86292,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3613
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3613
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3613
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3613
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3613
@@ -86323,7 +86323,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3613
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -86620,7 +86620,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3629
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3629
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3629
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3629
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3629
@@ -86651,7 +86651,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3629
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -86948,7 +86948,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
   %options_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %options.val, ptr %options_.i.i.i, align 8, !noalias !3645
   %lock_.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3645
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i, i8 0, i64 40, i1 false), !noalias !3645
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_24MonthDayNanoIntervalTypeENS2_16DictEncodeActionENS4_13MonthDayNanosELb0EEE, i64 16), ptr %call.i4, align 8, !noalias !3645
   %pool_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 56
   store ptr %11, ptr %pool_.i.i, align 8, !noalias !3645
@@ -86979,7 +86979,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc
   %action_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 80
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) %action_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %options.val, ptr noundef %11)
           to label %invoke.cont3 unwind label %lpad.i.i, !noalias !3645
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i.i
@@ -90379,7 +90379,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3838
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !3838
   call void @llvm.experimental.noalias.scope.decl(metadata !3839)
   %10 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !3842
   store ptr %10, ptr %agg.result, align 8, !alias.scope !3842
@@ -90446,7 +90446,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !3838
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionEbLb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlbE_ZNSB_ILb0EEESF_SI_EUlvE_EESD_SI_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !3838
   call void @llvm.experimental.noalias.scope.decl(metadata !3849)
   %18 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !3852
   store ptr %18, ptr %agg.result, align 8, !alias.scope !3852
@@ -95195,7 +95195,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4253)
   %15 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4256
   store ptr %15, ptr %agg.result, align 8, !alias.scope !4256
@@ -95234,7 +95234,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
   call void @llvm.experimental.noalias.scope.decl(metadata !4258)
   %18 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4261
   store ptr %18, ptr %agg.result, align 8, !alias.scope !4261
@@ -95262,7 +95262,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4263)
   %23 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4266
   store ptr %23, ptr %agg.result, align 8, !alias.scope !4266
@@ -95271,7 +95271,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4252
   call void @llvm.experimental.noalias.scope.decl(metadata !4267)
   %24 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4270
   store ptr %24, ptr %agg.result, align 8, !alias.scope !4270
@@ -96400,7 +96400,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4364)
   %15 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4367
   store ptr %15, ptr %agg.result, align 8, !alias.scope !4367
@@ -96439,7 +96439,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
   call void @llvm.experimental.noalias.scope.decl(metadata !4369)
   %18 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4372
   store ptr %18, ptr %agg.result, align 8, !alias.scope !4372
@@ -96467,7 +96467,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4374)
   %23 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4377
   store ptr %23, ptr %agg.result, align 8, !alias.scope !4377
@@ -96476,7 +96476,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS3_NS8_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSE_E_ZNSG_ILb0EEESK_SN_EUlvE_EESI_SN_OT_OT0_EUllE_ZNS5_ISO_SP_EESI_SN_SR_ST_EUlvE_EESI_PKhllSR_ST_.exit.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i.i), !noalias !4363
   call void @llvm.experimental.noalias.scope.decl(metadata !4378)
   %24 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4381
   store ptr %24, ptr %agg.result, align 8, !alias.scope !4381
@@ -97572,7 +97572,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0300.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1299.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0303.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !4474
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.1299.i.i.i.i), !noalias !4474
   call void @llvm.experimental.noalias.scope.decl(metadata !4475)
   %13 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4478
   store ptr %13, ptr %agg.result, align 8, !alias.scope !4478
@@ -97639,7 +97639,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit242.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit169.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !4474
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i, i64 noundef %position.3292.i.i.i.i), !noalias !4474
   call void @llvm.experimental.noalias.scope.decl(metadata !4485)
   %21 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4488
   store ptr %21, ptr %agg.result, align 8, !alias.scope !4488
@@ -98764,7 +98764,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0299.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1298.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0302.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4583)
   %14 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4586
   store ptr %14, ptr %agg.result, align 8, !alias.scope !4586
@@ -98803,7 +98803,7 @@ _ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i:    ; preds = %for.cond16.preheade
 
 _ZN5arrow6StatusD2Ev.exit95.i.i.i.i:              ; preds = %for.inc42.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i
   %i15.0295.i.i.i.i = phi i64 [ %inc43.i.i.i.i, %for.inc42.i.i.i.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit95.preheader.i.i.i.i ]
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp23.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
   call void @llvm.experimental.noalias.scope.decl(metadata !4588)
   %17 = load ptr, ptr %ref.tmp23.i.i.i.i, align 8, !noalias !4591
   store ptr %17, ptr %agg.result, align 8, !alias.scope !4591
@@ -98831,7 +98831,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit241.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit168.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !4593)
   %22 = load ptr, ptr %ref.tmp57.i.i.i.i, align 8, !noalias !4596
   store ptr %22, ptr %agg.result, align 8, !alias.scope !4596
@@ -98840,7 +98840,7 @@ _ZN5arrow6StatusD2Ev.exit168.i.i.i.i:             ; preds = %for.body52.i.i.i.i
   br i1 %cmp.i169.i.i.i.i, label %for.inc99.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanE.exit
 
 _ZN5arrow6StatusD2Ev.exit241.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
+  call fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_19FixedSizeBinaryTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_117RegularHashKernelIS2_NS7_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEEUlSD_E_ZNSF_ILb0EEESJ_SM_EUlvE_EESH_SM_OT_OT0_ENKUlvE_clEv(ptr noalias nonnull align 8 %ref.tmp79.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i.i.i), !noalias !4582
   call void @llvm.experimental.noalias.scope.decl(metadata !4597)
   %23 = load ptr, ptr %ref.tmp79.i.i.i.i, align 8, !noalias !4600
   store ptr %23, ptr %agg.result, align 8, !alias.scope !4600

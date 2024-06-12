@@ -5322,10 +5322,10 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i2
   br i1 %.not.i244, label %Abc_UtilStrsav.exit, label %565
 
 565:                                              ; preds = %.critedge8
-  %566 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %564) #25
+  %566 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %564) #25
   %567 = add i64 %566, 1
   %568 = tail call noalias ptr @malloc(i64 noundef %567) #22
-  %569 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull readonly dereferenceable(1) %564) #21
+  %569 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(1) %564) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge8, %565
@@ -5337,10 +5337,10 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge8, %565
   br i1 %.not.i245, label %Abc_UtilStrsav.exit246, label %573
 
 573:                                              ; preds = %Abc_UtilStrsav.exit
-  %574 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %572) #25
+  %574 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %572) #25
   %575 = add i64 %574, 1
   %576 = tail call noalias ptr @malloc(i64 noundef %575) #22
-  %577 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull readonly dereferenceable(1) %572) #21
+  %577 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(1) %572) #21
   br label %Abc_UtilStrsav.exit246
 
 Abc_UtilStrsav.exit246:                           ; preds = %Abc_UtilStrsav.exit, %573
@@ -5383,7 +5383,7 @@ define ptr @Cec3_ManSimulateTest(ptr noundef %0, ptr nocapture noundef readonly 
   store i32 10, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 12
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %8, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 12, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 4

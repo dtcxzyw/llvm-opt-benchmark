@@ -4686,7 +4686,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture r
   br i1 %.not228.i, label %44, label %.thread.i
 
 44:                                               ; preds = %41
-  %45 = call fastcc i32 @H5D__virtual_open_source_dset(ptr noundef readonly %.0.val, ptr noundef nonnull %33, ptr noundef nonnull %33)
+  %45 = call fastcc i32 @H5D__virtual_open_source_dset(ptr noundef %.0.val, ptr noundef nonnull %33, ptr noundef nonnull %33)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %51
 

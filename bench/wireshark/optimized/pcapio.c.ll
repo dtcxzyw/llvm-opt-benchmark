@@ -241,7 +241,7 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr nocaptur
   br i1 %.not.i, label %pcapng_count_string_option.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #8
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #8
   %20 = add i64 %19, -1
   %or.cond.i = icmp ult i64 %20, 65534
   br i1 %or.cond.i, label %21, label %pcapng_count_string_option.exit
@@ -266,7 +266,7 @@ pcapng_count_string_option.exit:                  ; preds = %15, %18, %21
   br i1 %.not.i57, label %pcapng_count_string_option.exit60, label %27
 
 27:                                               ; preds = %.loopexit79
-  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #8
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %29 = add i64 %28, -1
   %or.cond.i58 = icmp ult i64 %29, 65534
   br i1 %or.cond.i58, label %30, label %pcapng_count_string_option.exit60
@@ -285,7 +285,7 @@ pcapng_count_string_option.exit60:                ; preds = %.loopexit79, %27, %
   br i1 %.not.i61, label %pcapng_count_string_option.exit64, label %36
 
 36:                                               ; preds = %pcapng_count_string_option.exit60
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #8
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %38 = add i64 %37, -1
   %or.cond.i62 = icmp ult i64 %38, 65534
   br i1 %or.cond.i62, label %39, label %pcapng_count_string_option.exit64
@@ -304,7 +304,7 @@ pcapng_count_string_option.exit64:                ; preds = %pcapng_count_string
   br i1 %.not.i65, label %pcapng_count_string_option.exit68, label %45
 
 45:                                               ; preds = %pcapng_count_string_option.exit64
-  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #8
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %47 = add i64 %46, -1
   %or.cond.i66 = icmp ult i64 %47, 65534
   br i1 %or.cond.i66, label %48, label %pcapng_count_string_option.exit68
@@ -573,7 +573,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr n
   br i1 %.not.i, label %pcapng_count_string_option.exit, label %20
 
 20:                                               ; preds = %13
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #8
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %22 = add i64 %21, -1
   %or.cond.i = icmp ult i64 %22, 65534
   br i1 %or.cond.i, label %23, label %pcapng_count_string_option.exit
@@ -591,7 +591,7 @@ pcapng_count_string_option.exit:                  ; preds = %13, %20, %23
   br i1 %.not.i106, label %pcapng_count_string_option.exit109, label %28
 
 28:                                               ; preds = %pcapng_count_string_option.exit
-  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #8
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %30 = add i64 %29, -1
   %or.cond.i107 = icmp ult i64 %30, 65534
   br i1 %or.cond.i107, label %31, label %pcapng_count_string_option.exit109
@@ -610,7 +610,7 @@ pcapng_count_string_option.exit109:               ; preds = %pcapng_count_string
   br i1 %.not.i110, label %pcapng_count_string_option.exit113, label %37
 
 37:                                               ; preds = %pcapng_count_string_option.exit109
-  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %39 = add i64 %38, -1
   %or.cond.i111 = icmp ult i64 %39, 65534
   br i1 %or.cond.i111, label %40, label %pcapng_count_string_option.exit113
@@ -654,7 +654,7 @@ pcapng_count_string_option.exit113:               ; preds = %pcapng_count_string
   br i1 %.not.i114, label %pcapng_count_string_option.exit117, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #8
+  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %60 = add i64 %59, -1
   %or.cond.i115 = icmp ult i64 %60, 65534
   br i1 %or.cond.i115, label %61, label %pcapng_count_string_option.exit117
@@ -673,7 +673,7 @@ pcapng_count_string_option.exit117:               ; preds = %57, %58, %61
   br i1 %.not.i118, label %pcapng_count_string_option.exit121, label %67
 
 67:                                               ; preds = %pcapng_count_string_option.exit117
-  %68 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #8
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %69 = add i64 %68, -1
   %or.cond.i119 = icmp ult i64 %69, 65534
   br i1 %or.cond.i119, label %70, label %pcapng_count_string_option.exit121
@@ -894,7 +894,7 @@ define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr nocaptu
   br i1 %.not.i, label %pcapng_count_string_option.exit, label %22
 
 22:                                               ; preds = %12
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #8
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %24 = add i64 %23, -1
   %or.cond.i = icmp ult i64 %24, 65534
   br i1 %or.cond.i, label %25, label %pcapng_count_string_option.exit
@@ -1146,7 +1146,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr no
   br i1 %.not.i, label %pcapng_count_string_option.exit, label %27
 
 27:                                               ; preds = %9
-  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #8
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %29 = add i64 %28, -1
   %or.cond.i = icmp ult i64 %29, 65534
   br i1 %or.cond.i, label %30, label %pcapng_count_string_option.exit

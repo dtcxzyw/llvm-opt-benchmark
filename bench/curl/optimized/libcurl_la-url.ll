@@ -3384,7 +3384,7 @@ if.end470.i:                                      ; preds = %if.end465.i
   %222 = load ptr, ptr %seek_client.i, align 8
   %seek_client474.i = getelementptr inbounds i8, ptr %conn.0, i64 792
   store ptr %222, ptr %seek_client474.i, align 8
-  %call475.i = call fastcc i32 @resolve_server(ptr noundef nonnull %data, ptr noundef %conn.0, ptr noundef nonnull writeonly %asyncp)
+  %call475.i = call fastcc i32 @resolve_server(ptr noundef nonnull %data, ptr noundef %conn.0, ptr noundef nonnull %asyncp)
   %tobool476.not.i = icmp eq i32 %call475.i, 0
   br i1 %tobool476.not.i, label %if.end478.i, label %create_conn.exit.thread
 

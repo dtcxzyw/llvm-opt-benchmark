@@ -2423,7 +2423,7 @@ _ZN6icu_75L10isTimeUnitERKNS_11MeasureUnitEPKc.exit.i: ; preds = %call.i.i.noexc
           to label %call2.i.i.noexc unwind label %lpad12.loopexit
 
 call2.i.i.noexc:                                  ; preds = %_ZN6icu_75L10isTimeUnitERKNS_11MeasureUnitEPKc.exit.i
-  %call3.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i.i38, ptr noundef nonnull readonly dereferenceable(5) @.str.7) #19
+  %call3.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i.i38, ptr noundef nonnull dereferenceable(5) @.str.7) #19
   %cmp4.i.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.not.i, label %if.then8.i, label %if.else.i
 
@@ -2456,7 +2456,7 @@ _ZN6icu_75L10isTimeUnitERKNS_11MeasureUnitEPKc.exit38.i: ; preds = %call.i30.i.n
           to label %call2.i35.i.noexc unwind label %lpad12.loopexit
 
 call2.i35.i.noexc:                                ; preds = %_ZN6icu_75L10isTimeUnitERKNS_11MeasureUnitEPKc.exit38.i
-  %call3.i36.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i35.i41, ptr noundef nonnull readonly dereferenceable(7) @.str.8) #19
+  %call3.i36.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i35.i41, ptr noundef nonnull dereferenceable(7) @.str.8) #19
   %cmp4.i37.not.i = icmp eq i32 %call3.i36.i, 0
   br i1 %cmp4.i37.not.i, label %if.then27.i, label %if.else42.i
 
@@ -2493,7 +2493,7 @@ _ZN6icu_75L10isTimeUnitERKNS_11MeasureUnitEPKc.exit50.i: ; preds = %call.i42.i.n
           to label %call2.i47.i.noexc unwind label %lpad12.loopexit
 
 call2.i47.i.noexc:                                ; preds = %_ZN6icu_75L10isTimeUnitERKNS_11MeasureUnitEPKc.exit50.i
-  %call3.i48.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i47.i44, ptr noundef nonnull readonly dereferenceable(7) @.str.9) #19
+  %call3.i48.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i47.i44, ptr noundef nonnull dereferenceable(7) @.str.9) #19
   %cmp4.i49.i = icmp ne i32 %call3.i48.i, 0
   %cmp49.i = icmp sgt i32 %result.011.i, 3
   %or.cond.i = select i1 %cmp4.i49.i, i1 true, i1 %cmp49.i

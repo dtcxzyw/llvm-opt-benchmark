@@ -692,7 +692,7 @@ md5_pad.exit:                                     ; preds = %11, %13
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 4
   tail call fastcc void @md5_calc(ptr noundef nonnull %7, ptr noundef nonnull %0)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   ret void
 }
 

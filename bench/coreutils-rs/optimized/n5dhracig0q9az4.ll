@@ -192,7 +192,7 @@ _ZN3std2io7IoSlice14advance_slices17h594e87d33cca00edE.exit: ; preds = %.thread.
   %69 = getelementptr i8, ptr %.sroa.0.08.i.i, i64 8
   %.val4.i.i = load i64, ptr %69, align 8, !alias.scope !17, !noalias !26, !noundef !7
   %70 = getelementptr inbounds i8, ptr %65, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %.val3.i.i, i64 %.val4.i.i, i1 false), !noalias !27
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr align 1 %.val3.i.i, i64 %.val4.i.i, i1 false), !noalias !27
   %71 = add i64 %.val4.i.i, %67
   %72 = icmp eq ptr %68, %55
   br i1 %72, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$14write_vectored17h56562ea8804b83ccE.exit.thread56", label %66
@@ -820,7 +820,7 @@ define hidden void @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$
   %31 = getelementptr i8, ptr %.sroa.0.08.i, i64 8
   %.val4.i = load i64, ptr %31, align 8, !noalias !72, !noundef !7
   %32 = getelementptr inbounds i8, ptr %27, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr readonly align 1 %.val3.i, i64 %.val4.i, i1 false), !noalias !72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %.val3.i, i64 %.val4.i, i1 false), !noalias !72
   %33 = add i64 %.val4.i, %29
   %34 = icmp eq ptr %30, %7
   br i1 %34, label %._crit_edge.i, label %28

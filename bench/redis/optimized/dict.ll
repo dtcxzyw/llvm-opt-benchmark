@@ -96,7 +96,7 @@ if.end:                                           ; preds = %cond.end.thread, %i
   store i8 -1, ptr %ht_size_exp.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call211, i64 16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %call211, i64 51
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i8 0, i64 16, i1 false)
   store i8 -1, ptr %arrayidx2.i.i, align 1
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %call211, i64 32
   store i64 0, ptr %arrayidx4.i.i, align 8
@@ -158,7 +158,7 @@ dictCreate.exit:                                  ; preds = %cond.end.thread.i, 
   store i8 -1, ptr %ht_size_exp.i.i.i, align 1
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call211.i, i64 16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %call211.i, i64 51
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %arrayidx.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i, i8 0, i64 16, i1 false)
   store i8 -1, ptr %arrayidx2.i.i.i, align 1
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call211.i, i64 32
   store i64 0, ptr %arrayidx4.i.i.i, align 8
@@ -2641,7 +2641,7 @@ entry:
   store i64 -1, ptr %index.i, align 8
   %safe.i = getelementptr inbounds i8, ptr %iter, i64 20
   %0 = getelementptr inbounds i8, ptr %iter, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
   store i32 1, ptr %safe.i, align 4
   ret void
 }
@@ -2755,7 +2755,7 @@ entry:
   %index.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 -1, ptr %index.i, align 8
   %safe.i = getelementptr inbounds i8, ptr %call, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %safe.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %safe.i, i8 0, i64 20, i1 false)
   ret ptr %call
 }
 
@@ -2770,7 +2770,7 @@ entry:
   store i64 -1, ptr %index.i.i, align 8
   %safe.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %0 = getelementptr inbounds i8, ptr %call.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
   store i32 1, ptr %safe.i.i, align 4
   ret ptr %call.i
 }

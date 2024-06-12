@@ -228,7 +228,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %69
   store ptr %83, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 0, ptr %87, align 8
-  %88 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull %6)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %6)
           to label %89 unwind label %94
 
 89:                                               ; preds = %82

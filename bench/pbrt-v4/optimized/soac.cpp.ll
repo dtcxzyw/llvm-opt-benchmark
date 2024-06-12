@@ -600,7 +600,7 @@ if.then36:                                        ; preds = %invoke.cont30
   %38 = load i32, ptr @line, align 4
   %call.i182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.81, ptr noundef %37, i32 noundef %38) #21
   %39 = load ptr, ptr @stderr, align 8
-  %call1.i183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull readonly @.str.3, ptr noundef %call37) #21
+  %call1.i183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.3, ptr noundef %call37) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -690,7 +690,7 @@ if.then58:                                        ; preds = %invoke.cont55
   %47 = load i32, ptr @line, align 4
   %call.i199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.81, ptr noundef %46, i32 noundef %47) #21
   %48 = load ptr, ptr @stderr, align 8
-  %call1.i200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull readonly @.str.6, ptr noundef %call60) #21
+  %call1.i200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.6, ptr noundef %call60) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -730,7 +730,7 @@ if.then70:                                        ; preds = %invoke.cont65
   %51 = load i32, ptr @line, align 4
   %call.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.81, ptr noundef %50, i32 noundef %51) #21
   %52 = load ptr, ptr @stderr, align 8
-  %call1.i203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull readonly @.str.7, ptr noundef %call72) #21
+  %call1.i203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.7, ptr noundef %call72) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -801,7 +801,7 @@ if.then93:                                        ; preds = %invoke.cont88
   %61 = load i32, ptr @line, align 4
   %call.i227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.81, ptr noundef %60, i32 noundef %61) #21
   %62 = load ptr, ptr @stderr, align 8
-  %call1.i228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull readonly @.str.6, ptr noundef %call95) #21
+  %call1.i228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.6, ptr noundef %call95) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -1069,7 +1069,7 @@ if.then177:                                       ; preds = %invoke.cont169
   %85 = load i32, ptr @line, align 4
   %call.i319 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.81, ptr noundef %84, i32 noundef %85) #21
   %86 = load ptr, ptr @stderr, align 8
-  %call1.i320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull readonly @.str.15, ptr noundef %call179) #21
+  %call1.i320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.15, ptr noundef %call179) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -1281,7 +1281,7 @@ if.then.i372:                                     ; preds = %.noexc378
   %110 = load i32, ptr @line, align 4
   %call.i.i373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.81, ptr noundef %109, i32 noundef %110) #21
   %111 = load ptr, ptr @stderr, align 8
-  %call1.i.i374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull readonly @.str.78, ptr noundef nonnull @.str.18) #21
+  %call1.i.i374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.18) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -1296,7 +1296,7 @@ if.then4.i:                                       ; preds = %invoke.cont2.i
   %114 = load i32, ptr @line, align 4
   %call.i3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.81, ptr noundef %113, i32 noundef %114) #21
   %115 = load ptr, ptr @stderr, align 8
-  %call1.i4.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull readonly @.str.79, ptr noundef nonnull @.str.18) #21
+  %call1.i4.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.18) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -1533,7 +1533,7 @@ if.else252:                                       ; preds = %if.else
   %142 = load i32, ptr @line, align 4
   %call.i426 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.81, ptr noundef %141, i32 noundef %142) #21
   %143 = load ptr, ptr @stderr, align 8
-  %call1.i427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull readonly @.str.21, ptr noundef %call253) #21
+  %call1.i427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.21, ptr noundef %call253) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -2743,7 +2743,7 @@ if.then:                                          ; preds = %_ZNKSt8functionIF14
   %5 = load i32, ptr @line, align 4
   %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.81, ptr noundef %4, i32 noundef %5) #21
   %6 = load ptr, ptr @stderr, align 8
-  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull readonly @.str.78, ptr noundef %str) #21
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.78, ptr noundef %str) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -2758,7 +2758,7 @@ if.then4:                                         ; preds = %invoke.cont2
   %9 = load i32, ptr @line, align 4
   %call.i3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.81, ptr noundef %8, i32 noundef %9) #21
   %10 = load ptr, ptr @stderr, align 8
-  %call1.i4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull readonly @.str.79, ptr noundef %str) #21
+  %call1.i4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.79, ptr noundef %str) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -4139,7 +4139,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__source.val5, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 

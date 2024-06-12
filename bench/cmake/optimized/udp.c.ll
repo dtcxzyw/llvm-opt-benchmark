@@ -1771,7 +1771,7 @@ uv__udp_maybe_deferred_bind.exit21:               ; preds = %39
 
 51:                                               ; preds = %48, %44
   %52 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %52, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %52, i64 16, i1 false)
   switch i32 %3, label %uv__udp_set_membership6.exit [
     i32 1, label %54
     i32 0, label %53
@@ -1873,9 +1873,9 @@ uv__udp_maybe_deferred_bind.exit.i:               ; preds = %18
   %storemerge.i = phi i32 [ %28, %26 ], [ 0, %23 ]
   store i32 %storemerge.i, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef nonnull readonly align 4 dereferenceable(28) %11, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false)
   %31 = getelementptr inbounds i8, ptr %9, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef nonnull readonly align 4 dereferenceable(28) %12, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef nonnull align 4 dereferenceable(28) %12, i64 28, i1 false)
   switch i32 %4, label %uv__udp_set_source_membership6.exit [
     i32 1, label %33
     i32 0, label %32

@@ -4111,7 +4111,7 @@ define range(i32 -1, -2147483648) i32 @H5P_isa_class(i64 noundef %0, i64 noundef
 
 tailrecurse.i:                                    ; preds = %20, %16
   %.tr.i = phi ptr [ %17, %16 ], [ %21, %20 ]
-  %18 = tail call i32 @H5P__cmp_class(ptr noundef %.tr.i, ptr noundef nonnull readonly %10)
+  %18 = tail call i32 @H5P__cmp_class(ptr noundef %.tr.i, ptr noundef nonnull %10)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %H5P_class_isa.exit, label %20
 

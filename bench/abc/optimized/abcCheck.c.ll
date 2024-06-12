@@ -356,17 +356,17 @@ Vec_IntFree.exit.i:                               ; preds = %119
 
 Vec_IntFree.exit61.i:                             ; preds = %.critedge4.thread.i, %.critedge4.i
   tail call void @free(ptr noundef nonnull %111) #11
-  %132 = tail call i32 @Abc_NtkCheckUniqueCiNames(ptr noundef nonnull readonly %0)
+  %132 = tail call i32 @Abc_NtkCheckUniqueCiNames(ptr noundef nonnull %0)
   %.not43.i = icmp eq i32 %132, 0
   br i1 %.not43.i, label %Abc_NtkCheckNames.exit.thread, label %133
 
 133:                                              ; preds = %Vec_IntFree.exit61.i
-  %134 = tail call i32 @Abc_NtkCheckUniqueCoNames(ptr noundef nonnull readonly %0)
+  %134 = tail call i32 @Abc_NtkCheckUniqueCoNames(ptr noundef nonnull %0)
   %.not44.i = icmp eq i32 %134, 0
   br i1 %.not44.i, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckNames.exit
 
 Abc_NtkCheckNames.exit:                           ; preds = %133
-  %135 = tail call i32 @Abc_NtkCheckUniqueCioNames(ptr noundef nonnull readonly %0)
+  %135 = tail call i32 @Abc_NtkCheckUniqueCioNames(ptr noundef nonnull %0)
   %.not89 = icmp eq i32 %135, 0
   br i1 %.not89, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckNames.exit.thread191
 

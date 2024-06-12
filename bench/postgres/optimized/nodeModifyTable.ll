@@ -3243,7 +3243,7 @@ ItemPointerIndicatesMovedPartitions.exit.i:       ; preds = %256
   unreachable
 
 ItemPointerIndicatesMovedPartitions.exit.thread.i: ; preds = %ItemPointerIndicatesMovedPartitions.exit.i, %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %2, ptr noundef nonnull readonly align 2 dereferenceable(6) %41, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %2, ptr noundef nonnull align 2 dereferenceable(6) %41, i64 6, i1 false)
   br label %51
 
 267:                                              ; preds = %223

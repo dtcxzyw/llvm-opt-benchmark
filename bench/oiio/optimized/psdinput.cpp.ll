@@ -3226,7 +3226,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %22 = load ptr, ptr %channel_info3.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::PSDInput::ChannelInfo", ptr %22, i64 %indvars.iv.i
-  %call5.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08PSDInput18load_layer_channelERNS0_5LayerERNS0_11ChannelInfoE(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull readonly align 8 dereferenceable(192) %add.ptr.i45, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i)
+  %call5.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08PSDInput18load_layer_channelERNS0_5LayerERNS0_11ChannelInfoE(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull align 8 dereferenceable(192) %add.ptr.i45, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i)
   br i1 %call5.i, label %for.cond.i, label %return
 
 for.inc109.loopexit:                              ; preds = %for.cond.i
@@ -3430,7 +3430,7 @@ if.end22:                                         ; preds = %if.end18
 
 for.body.i.preheader:                             ; preds = %if.end22
   %3 = load ptr, ptr @_ZN18OpenImageIO_v2_6_08PSDInput19additional_info_psbE, align 16
-  %bcmp.i19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %3, ptr noundef nonnull readonly dereferenceable(4) %key, i64 4)
+  %bcmp.i19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %3, ptr noundef nonnull dereferenceable(4) %key, i64 4)
   %cmp2.i20 = icmp eq i32 %bcmp.i19, 0
   br i1 %cmp2.i20, label %if.then28, label %for.cond.i
 
@@ -3443,7 +3443,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds [14 x ptr], ptr @_ZN18OpenImageIO_v2_6_08PSDInput19additional_info_psbE, i64 0, i64 %indvars.iv.next.i
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull readonly dereferenceable(4) %key, i64 4)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %key, i64 4)
   %cmp2.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp2.i, label %_ZN18OpenImageIO_v2_6_08PSDInput22is_additional_info_psbEPKc.exit, label %for.cond.i, !llvm.loop !24
 
@@ -9053,7 +9053,7 @@ if.end266:                                        ; preds = %land.lhs.true, %_ZN
 
 for.body.i.preheader:                             ; preds = %if.end266
   %49 = load ptr, ptr @_ZN18OpenImageIO_v2_6_08PSDInput19additional_info_psbE, align 16
-  %bcmp.i235 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %49, ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i202, i64 4)
+  %bcmp.i235 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %49, ptr noundef nonnull dereferenceable(4) %add.ptr.i.i202, i64 4)
   %cmp2.i236 = icmp eq i32 %bcmp.i235, 0
   br i1 %cmp2.i236, label %if.then276, label %for.cond.i
 
@@ -9066,7 +9066,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds [14 x ptr], ptr @_ZN18OpenImageIO_v2_6_08PSDInput19additional_info_psbE, i64 0, i64 %indvars.iv.next.i
   %50 = load ptr, ptr %arrayidx.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %50, ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i202, i64 4)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %50, ptr noundef nonnull dereferenceable(4) %add.ptr.i.i202, i64 4)
   %cmp2.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp2.i, label %_ZN18OpenImageIO_v2_6_08PSDInput22is_additional_info_psbEPKc.exit, label %for.cond.i, !llvm.loop !24
 

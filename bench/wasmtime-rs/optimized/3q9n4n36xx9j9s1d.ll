@@ -72,7 +72,7 @@ common.resume:                                    ; preds = %40, %19, %46
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit: ; preds = %16, %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %.pre = load i64, ptr %12, align 8, !range !4
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   %.not = icmp eq i64 %.pre, 5
@@ -116,7 +116,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit: ; pr
           to label %42 unwind label %40
 
 39:                                               ; preds = %42, %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2
 
 40:                                               ; preds = %38

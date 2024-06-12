@@ -334,10 +334,10 @@ define ptr @Bmc_CexPerformUnrolling(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #21
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #22
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #20
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %10
@@ -349,10 +349,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %10
   br i1 %.not.i108, label %Abc_UtilStrsav.exit109, label %18
 
 18:                                               ; preds = %Abc_UtilStrsav.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #21
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #21
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #22
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #20
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #20
   br label %Abc_UtilStrsav.exit109
 
 Abc_UtilStrsav.exit109:                           ; preds = %Abc_UtilStrsav.exit, %18
@@ -905,7 +905,7 @@ define ptr @Bmc_CexBuildNetwork(ptr nocapture noundef readonly %0, ptr nocapture
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @Gia_ManStart(i32 noundef 1000) #20
   %6 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.11, i64 6, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) @.str.11, i64 6, i1 false) #20
   store ptr %6, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 32
   %.val148 = load ptr, ptr %7, align 8

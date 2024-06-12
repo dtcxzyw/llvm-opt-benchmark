@@ -3038,7 +3038,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
 arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
   %m_literals.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i4.i, ptr %m_literals.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i4.i, ptr readonly align 4 %lits, i64 %0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i4.i, ptr align 4 %lits, i64 %0, i1 false)
   br label %_ZN3smt20simple_justificationC2ERNS_7contextEjPKN3sat7literalE.exit
 
 _ZN3smt20simple_justificationC2ERNS_7contextEjPKN3sat7literalE.exit: ; preds = %entry, %arrayctor.cont.i

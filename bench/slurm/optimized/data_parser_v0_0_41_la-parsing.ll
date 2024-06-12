@@ -624,7 +624,7 @@ _parse_list.exit:                                 ; preds = %220, %222
 
 299:                                              ; preds = %296
   %.val.i = load i64, ptr %264, align 8
-  call fastcc void @_set_flag_bit(i64 %.val.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
+  call fastcc void @_set_flag_bit(i64 %.val.i, ptr noundef %spec.select.i153, ptr noundef nonnull %272, i1 noundef zeroext %.0.i166)
   br label %311
 
 300:                                              ; preds = %296
@@ -639,7 +639,7 @@ _parse_list.exit:                                 ; preds = %220, %222
 
 306:                                              ; preds = %301, %300
   %.val55.i = load i64, ptr %264, align 8
-  call fastcc void @_set_flag_bit_equal(i64 %.val55.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
+  call fastcc void @_set_flag_bit_equal(i64 %.val55.i, ptr noundef %spec.select.i153, ptr noundef nonnull %272, i1 noundef zeroext %.0.i166)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %272, i64 24
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %307

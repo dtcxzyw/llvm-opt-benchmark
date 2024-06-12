@@ -76216,11 +76216,11 @@ if.then:                                          ; preds = %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp7.i)
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef 0.000000e+00)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef 0.000000e+00)
           to label %.noexc unwind label %lpad.loopexit.split-lp139
 
 .noexc:                                           ; preds = %if.then
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef -0.000000e+00)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef -0.000000e+00)
           to label %.noexc34 unwind label %lpad.loopexit.split-lp139
 
 .noexc34:                                         ; preds = %.noexc
@@ -76573,13 +76573,13 @@ for.end59.i:                                      ; preds = %for.inc58.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
   %29 = load float, ptr %_M_storage.i.i.i, align 4
   %conv63.i = fpext float %29 to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv63.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv63.i)
           to label %invoke.cont64.i unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont64.i:                                  ; preds = %for.end59.i
   %fneg65.i = fneg float %29
   %conv66.i = fpext float %fneg65.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv66.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv66.i)
           to label %invoke.cont67.i unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont67.i:                                  ; preds = %invoke.cont64.i
@@ -76607,13 +76607,13 @@ for.body83.i:                                     ; preds = %for.inc140.i, %for.
 if.end88.i:                                       ; preds = %for.body83.i
   %call.i.i = call noundef float @nextafterf(float noundef %last.0228.i, float noundef 0x47EFFFFFE0000000) #27
   %conv93.i = fpext float %call.i.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv93.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv93.i)
           to label %invoke.cont94.i unwind label %lpad24.loopexit.split-lp.loopexit.i
 
 invoke.cont94.i:                                  ; preds = %if.end88.i
   %fneg95.i = fneg float %call.i.i
   %conv96.i = fpext float %fneg95.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv96.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv96.i)
           to label %invoke.cont97.i unwind label %lpad24.loopexit.split-lp.loopexit.i
 
 invoke.cont97.i:                                  ; preds = %invoke.cont94.i
@@ -76637,13 +76637,13 @@ for.body109.i:                                    ; preds = %if.end100.i, %for.i
 
 if.then112.i:                                     ; preds = %for.body109.i
   %conv113.i = fpext float %conv110.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv113.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv113.i)
           to label %invoke.cont114.i unwind label %lpad24.loopexit.i
 
 invoke.cont114.i:                                 ; preds = %if.then112.i
   %fneg115.i = fneg float %conv110.i
   %conv116.i = fpext float %fneg115.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv116.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv116.i)
           to label %for.inc119.i unwind label %lpad24.loopexit.i
 
 for.inc119.i:                                     ; preds = %invoke.cont114.i, %for.body109.i
@@ -76660,13 +76660,13 @@ for.end121.i:                                     ; preds = %for.inc119.i, %if.e
 
 if.then125.i:                                     ; preds = %for.end121.i
   %conv126.i = fpext float %call.i192.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv126.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv126.i)
           to label %invoke.cont127.i unwind label %lpad24.loopexit.split-lp.loopexit.i
 
 invoke.cont127.i:                                 ; preds = %if.then125.i
   %fneg128.i = fneg float %call.i192.i
   %conv129.i = fpext float %fneg128.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv129.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv129.i)
           to label %if.end131.i unwind label %lpad24.loopexit.split-lp.loopexit.i
 
 if.end131.i:                                      ; preds = %invoke.cont127.i, %for.end121.i
@@ -76675,13 +76675,13 @@ if.end131.i:                                      ; preds = %invoke.cont127.i, %
   br i1 %cmp132.i, label %if.then133.i, label %for.inc140.i
 
 if.then133.i:                                     ; preds = %if.end131.i
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv101.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv101.i)
           to label %invoke.cont135.i unwind label %lpad24.loopexit.split-lp.loopexit.i
 
 invoke.cont135.i:                                 ; preds = %if.then133.i
   %fneg136.i = fneg float %33
   %conv137.i = fpext float %fneg136.i to double
-  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 dereferenceable(16) %checker, double noundef %conv137.i)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull align 8 dereferenceable(16) %checker, double noundef %conv137.i)
           to label %for.inc140.i unwind label %lpad24.loopexit.split-lp.loopexit.i
 
 for.inc140.i:                                     ; preds = %invoke.cont135.i, %if.end131.i, %invoke.cont97.i, %for.body83.i

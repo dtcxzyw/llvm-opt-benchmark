@@ -29732,7 +29732,7 @@ _ZN2lp10lar_solver28update_column_type_and_boundEjRK8rationalj.exit.i.i: ; preds
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %_ZN2lp10lar_solver23activate_check_on_equalEjRj.exit
 
 if.then.i.i:                                      ; preds = %_ZN2lp10lar_solver28update_column_type_and_boundEjRK8rationalj.exit.i.i
-  tail call void @_ZN2lp10lar_solver27register_in_fixed_var_tableEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %2, ptr noundef nonnull writeonly align 4 dereferenceable(4) %equal_var)
+  tail call void @_ZN2lp10lar_solver27register_in_fixed_var_tableEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %equal_var)
   br label %_ZN2lp10lar_solver23activate_check_on_equalEjRj.exit
 
 _ZN2lp10lar_solver23activate_check_on_equalEjRj.exit: ; preds = %_ZN2lp10lar_solver28update_column_type_and_boundEjRK8rationalj.exit.i.i, %if.then.i.i
@@ -29858,7 +29858,7 @@ _ZN2lp10lar_solver28update_column_type_and_boundEjRK8rationalj.exit.i: ; preds =
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZN2lp10lar_solver43update_column_type_and_bound_check_on_equalEjRK8rationaljRj.exit
 
 if.then.i:                                        ; preds = %_ZN2lp10lar_solver28update_column_type_and_boundEjRK8rationalj.exit.i
-  tail call void @_ZN2lp10lar_solver27register_in_fixed_var_tableEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %2, ptr noundef nonnull writeonly align 4 dereferenceable(4) %equal_column)
+  tail call void @_ZN2lp10lar_solver27register_in_fixed_var_tableEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %equal_column)
   br label %_ZN2lp10lar_solver43update_column_type_and_bound_check_on_equalEjRK8rationaljRj.exit
 
 _ZN2lp10lar_solver43update_column_type_and_bound_check_on_equalEjRK8rationaljRj.exit: ; preds = %_ZN2lp10lar_solver28update_column_type_and_boundEjRK8rationalj.exit.i, %if.then.i

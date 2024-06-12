@@ -405,7 +405,7 @@ if.then41.i44:                                    ; preds = %SHA1_Update.exit, %
 SHA1_Update.exit158:                              ; preds = %if.else.i25, %if.end38.i40, %if.then41.i44
   %call16 = call i32 @SHA1_Final(ptr noundef nonnull %sha1tmp, ptr noundef nonnull %sha1)
   %10 = getelementptr inbounds i8, ptr %sha1, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(96) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 64, i1 false)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %sha1, align 4
   %h4.i = getelementptr inbounds i8, ptr %sha1, i64 16
   store i32 -1009589776, ptr %h4.i, align 4

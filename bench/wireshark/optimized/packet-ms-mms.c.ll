@@ -762,7 +762,7 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
   br i1 %.not.i, label %43, label %msmms_data_add_address.exit
 
 43:                                               ; preds = %.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %44 = getelementptr inbounds i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = call ptr @find_conversation(i32 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 196608) #6

@@ -105,7 +105,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
 37:                                               ; preds = %get_argument.exit
   %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %0, align 8
-  %40 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %38) #11
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #11
   %41 = add i64 %40, 1
   %42 = call ptr @realloc(ptr noundef %39, i64 noundef %41) #12
   %43 = icmp eq ptr %42, null
@@ -113,7 +113,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
 
 44:                                               ; preds = %37
   store ptr %42, ptr %0, align 8
-  %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %38) #10
+  %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %38) #10
   %46 = load ptr, ptr %3, align 8
   %47 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 47) #11
   %48 = getelementptr inbounds i8, ptr %0, i64 8
@@ -132,7 +132,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %59 = getelementptr inbounds i8, ptr %47, i64 1
   %.019 = select i1 %58, ptr %46, ptr %59
   store ptr %55, ptr %48, align 8
-  %60 = call noalias ptr @strdup(ptr noundef readonly %.019) #10
+  %60 = call noalias ptr @strdup(ptr noundef %.019) #10
   %61 = load i32, ptr %50, align 8
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %55, i64 %62
@@ -274,7 +274,7 @@ get_argument.exit55:                              ; preds = %.critedge.i34, %.cr
 
 122:                                              ; preds = %114
   store ptr %120, ptr %48, align 8
-  %123 = call noalias ptr @strdup(ptr noundef readonly %111) #10
+  %123 = call noalias ptr @strdup(ptr noundef %111) #10
   %124 = load i32, ptr %50, align 8
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds ptr, ptr %120, i64 %125

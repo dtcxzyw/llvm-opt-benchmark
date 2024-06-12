@@ -722,7 +722,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %if.end5
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %8
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr readonly align 1 %call6, i64 %conv9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr align 1 %call6, i64 %conv9, i1 false)
   %12 = load i64, ptr %offset_.i.i.i, align 8
   %13 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i10.i = add i64 %13, %conv9
@@ -799,7 +799,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %_ZNK3net16SpdyFrame
   %12 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %9
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr readonly align 1 %call3, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr3.i.i, ptr align 1 %call3, i64 %conv.i, i1 false)
   %13 = load i64, ptr %offset_.i.i.i, align 8
   %14 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i10.i = add i64 %14, %conv.i

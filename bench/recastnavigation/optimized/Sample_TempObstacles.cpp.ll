@@ -1134,7 +1134,7 @@ define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %10, ptr %14, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -1200,7 +1200,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %10, ptr %14, align 8
   %59 = load float, ptr %15, align 4
   %60 = load float, ptr %16, align 4
@@ -4261,7 +4261,7 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool11handleClickEPKf
   br i1 %.not.i, label %_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef nonnull %11, ptr noundef readonly %1, ptr noundef readonly %2)
+  %13 = tail call noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2)
   %14 = load ptr, ptr %10, align 8
   %15 = tail call noundef i32 @_ZN11dtTileCache14removeObstacleEj(ptr noundef nonnull align 8 dereferenceable(912) %14, i32 noundef %13)
   br label %_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit

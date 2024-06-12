@@ -2197,7 +2197,7 @@ Gia_ManTerStateHash.exit.i:                       ; preds = %.lr.ph.i.i50, %Gia_
 
 .lr.ph.i47:                                       ; preds = %Gia_ManTerStateHash.exit.i, %251
   %.01216.i = phi ptr [ %.012.i, %251 ], [ %.01214.i, %Gia_ManTerStateHash.exit.i ]
-  %bcmp.i = call i32 @bcmp(ptr nonnull %.01216.i, ptr readonly %240, i64 %83)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %.01216.i, ptr %240, i64 %83)
   %.not13.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not13.i, label %Gia_ManTerStateLookup.exit, label %251
 

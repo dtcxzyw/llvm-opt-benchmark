@@ -326,7 +326,7 @@ define void @_ZN5mmu_tC2EP7simif_t12endianness_tP11processor_t(ptr noundef nonnu
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 37008
   %19 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6144) %18, i8 -1, i64 6144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) %18, i8 -1, i64 6144, i1 false)
   br label %20
 
 20:                                               ; preds = %20, %4
@@ -3340,7 +3340,7 @@ define linkonce_odr void @_ZN21trap_store_page_faultD2Ev(ptr noundef nonnull ali
 define void @_ZN5mmu_t18register_memtracerEP11memtracer_t(ptr nocapture noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 37008
   %4 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(6144) %3, i8 -1, i64 6144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) %3, i8 -1, i64 6144, i1 false)
   br label %5
 
 5:                                                ; preds = %5, %2

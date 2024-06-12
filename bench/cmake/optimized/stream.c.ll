@@ -1729,7 +1729,7 @@ define dso_local i32 @uv_try_write(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %.not.i.i, label %uv_try_write2.exit, label %uv__check_before_write.exit.i
 
 uv__check_before_write.exit.i:                    ; preds = %13
-  %17 = tail call fastcc i32 @uv__try_write(ptr noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef null)
+  %17 = tail call fastcc i32 @uv__try_write(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef null)
   br label %uv_try_write2.exit
 
 uv_try_write2.exit:                               ; preds = %3, %6, %9, %13, %uv__check_before_write.exit.i

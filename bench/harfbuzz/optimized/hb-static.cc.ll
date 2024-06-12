@@ -1732,7 +1732,7 @@ if.end.i.i.i113:                                  ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %28 to i64
   %add.ptr.i.i = getelementptr inbounds %struct.contour_point_t, ptr %29, i64 %idx.ext.i.i
   %conv.i.i10.i = zext i32 %mul.i.i to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i10.i, i1 false)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end.i.i.i113, %if.then6.i, %if.end.i112
@@ -2128,7 +2128,7 @@ if.end.i.i.i252:                                  ; preds = %if.then6.i248
   %idx.ext.i.i254 = zext i32 %89 to i64
   %add.ptr.i.i255 = getelementptr inbounds %struct.contour_point_t, ptr %90, i64 %idx.ext.i.i254
   %conv.i.i10.i256 = zext i32 %mul.i.i250 to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i255, i8 0, i64 %conv.i.i10.i256, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i255, i8 0, i64 %conv.i.i10.i256, i1 false)
   %.pre708 = load i32, ptr %points_with_deltas, align 8
   br label %if.end115
 
@@ -2603,7 +2603,7 @@ if.end.i.i.i420:                                  ; preds = %if.then6.i416
   %idx.ext.i.i422 = zext i32 %146 to i64
   %add.ptr.i.i423 = getelementptr inbounds %struct.contour_point_t, ptr %147, i64 %idx.ext.i.i422
   %conv.i.i10.i424 = zext i32 %mul.i.i418 to i64
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i423, i8 0, i64 %conv.i.i10.i424, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i423, i8 0, i64 %conv.i.i10.i424, i1 false)
   br label %if.end15.i414
 
 if.end15.i414:                                    ; preds = %if.end.i.i.i420, %if.then6.i416, %if.end.i411
@@ -3212,7 +3212,7 @@ if.end16:                                         ; preds = %_ZN11hb_vector_tI15
 if.end.i42:                                       ; preds = %if.end16
   %mul = mul nuw nsw i32 %add, 12
   %conv.i43 = zext nneg i32 %mul to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %add.ptr.i41, i8 0, i64 %conv.i43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i41, i8 0, i64 %conv.i43, i1 false)
   %cmp82 = icmp sgt i16 %add.i.i, 0
   br i1 %cmp82, label %for.body, label %for.end
 
@@ -3883,7 +3883,7 @@ if.end48:                                         ; preds = %_ZN11hb_vector_tI15
 
 if.end.i199:                                      ; preds = %if.end48
   %add.ptr = getelementptr inbounds %struct.contour_point_t, ptr %deltas_vec.sroa.12.2.ph, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr, i8 0, i64 %conv.i200, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %conv.i200, i1 false)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end.i199, %if.end48, %if.end43
@@ -4281,7 +4281,7 @@ if.end.i351:                                      ; preds = %_ZN11hb_vector_tI15
 if.end.i4.i:                                      ; preds = %if.end.i351
   %idx.ext.i354 = zext nneg i32 %orig_points_vec.sroa.8.0 to i64
   %add.ptr.i355 = getelementptr inbounds %struct.contour_point_t, ptr %orig_points_vec.sroa.13.1, i64 %idx.ext.i354
-  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i355, ptr readonly align 1 %points.coerce0, i64 %mul.i353, i1 false), !alias.scope !30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i355, ptr align 1 %points.coerce0, i64 %mul.i353, i1 false), !alias.scope !30
   br label %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit
 
 _ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit: ; preds = %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i.i, %if.end.i351, %if.end.i4.i
@@ -4324,7 +4324,7 @@ if.end122:                                        ; preds = %for.body, %if.end10
 
 if.end.i367:                                      ; preds = %if.end122
   %add.ptr131 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr131, i8 0, i64 %conv.i200, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr131, i8 0, i64 %conv.i200, i1 false)
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end.i367, %if.end122
@@ -5613,7 +5613,7 @@ if.end.i4:                                        ; preds = %if.end
   %8 = load ptr, ptr %arrayZ3, align 8
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %struct.contour_point_t, ptr %8, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr readonly align 1 %7, i64 %mul, i1 false), !alias.scope !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %7, i64 %mul, i1 false), !alias.scope !48
   br label %return
 
 return:                                           ; preds = %entry, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %if.end.i4, %if.end
@@ -6486,7 +6486,7 @@ if.end12:                                         ; preds = %if.end4
   br i1 %tobool.not.i17, label %_ZL9hb_memsetPvij.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %call8, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8, i8 0, i64 %5, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
 _ZL9hb_memsetPvij.exit:                           ; preds = %if.end12, %if.end.i

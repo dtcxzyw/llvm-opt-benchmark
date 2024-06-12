@@ -5983,10 +5983,10 @@ define ptr @Abc_NtkFunctionalIsoGia(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #22
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #22
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #20
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #21
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %10, %14
@@ -5998,10 +5998,10 @@ Abc_UtilStrsav.exit:                              ; preds = %10, %14
   br i1 %.not.i82, label %Abc_UtilStrsav.exit83, label %22
 
 22:                                               ; preds = %Abc_UtilStrsav.exit
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #22
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
   %24 = add i64 %23, 1
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #20
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %21) #21
+  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %21) #21
   br label %Abc_UtilStrsav.exit83
 
 Abc_UtilStrsav.exit83:                            ; preds = %Abc_UtilStrsav.exit, %22
@@ -7128,7 +7128,7 @@ Abc_ObjSuppSize.exit:                             ; preds = %22, %Vec_IntFill.ex
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 8
-  %43 = call i32 @Abc_ObjSuppSize_rec(ptr noundef nonnull readonly %17)
+  %43 = call i32 @Abc_ObjSuppSize_rec(ptr noundef nonnull %17)
   %44 = icmp slt i32 %43, 17
   %45 = zext i1 %44 to i32
   %46 = add nsw i32 %.01222, %45

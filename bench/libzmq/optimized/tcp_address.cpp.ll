@@ -289,8 +289,8 @@ if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store i56 25666102771082100, ptr %buf.i, align 16, !noalias !4
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 7
-  %call.i6 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hbuf) #15, !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %hbuf, i64 %call.i6, i1 false), !noalias !4
+  %call.i6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hbuf) #15, !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %hbuf, i64 %call.i6, i1 false), !noalias !4
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call.i6
   store i16 14941, ptr %add.ptr2.i, align 1, !noalias !4
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 2
@@ -339,10 +339,10 @@ _ZL19make_address_stringILm8ELm3EENSt7__cxx1112basic_stringIcSt11char_traitsIcES
 if.else:                                          ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 1039, ptr nonnull %buf.i7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %buf.i7, ptr noundef nonnull readonly align 1 dereferenceable(6) @__const._ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ipv4_prefix, i64 6, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %buf.i7, ptr noundef nonnull align 1 dereferenceable(6) @__const._ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ipv4_prefix, i64 6, i1 false), !noalias !7
   %add.ptr.i9 = getelementptr inbounds i8, ptr %buf.i7, i64 6
-  %call.i10 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hbuf) #15, !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr.i9, ptr nonnull readonly align 16 %hbuf, i64 %call.i10, i1 false), !noalias !7
+  %call.i10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hbuf) #15, !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr.i9, ptr nonnull align 16 %hbuf, i64 %call.i10, i1 false), !noalias !7
   %add.ptr2.i11 = getelementptr inbounds i8, ptr %add.ptr.i9, i64 %call.i10
   store i8 58, ptr %add.ptr2.i11, align 1, !noalias !7
   %add.ptr4.i12 = getelementptr inbounds i8, ptr %add.ptr2.i11, i64 1

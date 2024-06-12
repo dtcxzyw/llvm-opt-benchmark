@@ -1847,7 +1847,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %119, %116, 
   br i1 %30, label %182, label %184
 
 182:                                              ; preds = %180
-  %183 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef readonly %3, i16 noundef zeroext %181)
+  %183 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef %3, i16 noundef zeroext %181)
   br label %184
 
 184:                                              ; preds = %182, %180
@@ -2189,7 +2189,7 @@ define internal i32 @dissect_cip_class_s_supervisor(ptr noundef %0, ptr noundef 
   %153 = load i32, ptr @hf_cip_ssupervisor_reset_tunid_nodeid, align 4
   %154 = load i32, ptr @ett_ssupervisor_reset_tunid, align 4
   %155 = load i32, ptr @ett_ssupervisor_reset_tunid_snn, align 4
-  call void @dissect_unid(ptr noundef %0, ptr nonnull readnone poison, i32 noundef %148, ptr noundef %149, ptr noundef nonnull @.str.439, i32 noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155)
+  call void @dissect_unid(ptr noundef %0, ptr nonnull poison, i32 noundef %148, ptr noundef %149, ptr noundef nonnull @.str.439, i32 noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155)
   %156 = load i32, ptr %5, align 4
   %157 = icmp eq i32 %156, 2
   br i1 %157, label %158, label %dissect_safety_supervisor_safety_reset.exit.i

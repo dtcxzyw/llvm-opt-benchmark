@@ -488,10 +488,10 @@ define internal void @color_filters_clone_cb(ptr nocapture noundef readonly %0, 
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull readonly align 8 dereferenceable(6) %11, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull align 8 dereferenceable(6) %11, i64 6, i1 false)
   %12 = getelementptr inbounds i8, ptr %3, i64 22
   %13 = getelementptr inbounds i8, ptr %0, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull readonly align 2 dereferenceable(6) %13, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %13, i64 6, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %3, i64 28
@@ -1247,10 +1247,10 @@ define internal void @color_filter_list_clone_cb(ptr nocapture noundef readonly 
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull readonly align 8 dereferenceable(6) %11, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull align 8 dereferenceable(6) %11, i64 6, i1 false)
   %12 = getelementptr inbounds i8, ptr %3, i64 22
   %13 = getelementptr inbounds i8, ptr %0, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull readonly align 2 dereferenceable(6) %13, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 2 dereferenceable(6) %13, i64 6, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %3, i64 28

@@ -175,7 +175,7 @@ entry:
   %d_eemc.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %this, ptr %d_eemc.i, align 8
   %d_newClassNotify.i = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(88) %d_newClassNotify.i, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %d_newClassNotify.i, i8 0, i64 88, i1 false)
   %d_centralEqualityEngine = getelementptr inbounds i8, ptr %this, i64 208
   %call = invoke noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont3 unwind label %lpad2

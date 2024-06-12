@@ -1009,7 +1009,7 @@ read_controlfile.exit:                            ; preds = %320, %329
 346:                                              ; preds = %read_controlfile.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %347 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.041, ptr noundef nonnull @.str.56, ptr noundef nonnull @minXlogTli, ptr noundef nonnull %11, ptr noundef nonnull %12) #15
+  %347 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.041, ptr noundef nonnull @.str.56, ptr noundef nonnull @minXlogTli, ptr noundef nonnull %11, ptr noundef nonnull %12) #15
   %348 = load i32, ptr %11, align 4
   %349 = zext i32 %348 to i64
   %350 = sext i32 %storemerge to i64
@@ -1049,25 +1049,25 @@ read_controlfile.exit:                            ; preds = %320, %329
 .lr.ph.i:                                         ; preds = %.preheader.i, %IsPartialXLogFileName.exit.thread.i
   %365 = phi ptr [ %390, %IsPartialXLogFileName.exit.thread.i ], [ %363, %.preheader.i ]
   %366 = getelementptr inbounds i8, ptr %365, i64 19
-  %367 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %366) #16
+  %367 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %366) #16
   switch i64 %367, label %IsPartialXLogFileName.exit.thread.i [
     i64 24, label %IsXLogFileName.exit.i
     i64 32, label %370
   ]
 
 IsXLogFileName.exit.i:                            ; preds = %.lr.ph.i
-  %368 = call i64 @strspn(ptr noundef nonnull readonly %366, ptr noundef nonnull @.str.123) #16
+  %368 = call i64 @strspn(ptr noundef nonnull %366, ptr noundef nonnull @.str.123) #16
   %369 = icmp eq i64 %368, 24
   br i1 %369, label %376, label %IsPartialXLogFileName.exit.thread.i
 
 370:                                              ; preds = %.lr.ph.i
-  %371 = call i64 @strspn(ptr noundef nonnull readonly %366, ptr noundef nonnull @.str.123) #16
+  %371 = call i64 @strspn(ptr noundef nonnull %366, ptr noundef nonnull @.str.123) #16
   %372 = icmp eq i64 %371, 24
   br i1 %372, label %IsPartialXLogFileName.exit.i, label %IsPartialXLogFileName.exit.thread.i
 
 IsPartialXLogFileName.exit.i:                     ; preds = %370
   %373 = getelementptr i8, ptr %365, i64 43
-  %374 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %373, ptr noundef nonnull dereferenceable(9) @.str.124) #16
+  %374 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %373, ptr noundef nonnull dereferenceable(9) @.str.124) #16
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %376, label %IsPartialXLogFileName.exit.thread.i
 
@@ -1075,7 +1075,7 @@ IsPartialXLogFileName.exit.i:                     ; preds = %370
   %377 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %378 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %366, ptr noundef nonnull @.str.56, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
+  %378 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %366, ptr noundef nonnull @.str.56, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
   %379 = load i32, ptr %8, align 4
   %380 = zext i32 %379 to i64
   %381 = sext i32 %377 to i64
@@ -1407,25 +1407,25 @@ FindEndOfXLOG.exit:                               ; preds = %393
 .lr.ph.i114:                                      ; preds = %.preheader.i112, %IsPartialXLogFileName.exit.thread.i115
   %545 = phi ptr [ %561, %IsPartialXLogFileName.exit.thread.i115 ], [ %543, %.preheader.i112 ]
   %546 = getelementptr inbounds i8, ptr %545, i64 19
-  %547 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %546) #16
+  %547 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %546) #16
   switch i64 %547, label %IsPartialXLogFileName.exit.thread.i115 [
     i64 24, label %IsXLogFileName.exit.i120
     i64 32, label %550
   ]
 
 IsXLogFileName.exit.i120:                         ; preds = %.lr.ph.i114
-  %548 = call i64 @strspn(ptr noundef nonnull readonly %546, ptr noundef nonnull @.str.123) #16
+  %548 = call i64 @strspn(ptr noundef nonnull %546, ptr noundef nonnull @.str.123) #16
   %549 = icmp eq i64 %548, 24
   br i1 %549, label %556, label %IsPartialXLogFileName.exit.thread.i115
 
 550:                                              ; preds = %.lr.ph.i114
-  %551 = call i64 @strspn(ptr noundef nonnull readonly %546, ptr noundef nonnull @.str.123) #16
+  %551 = call i64 @strspn(ptr noundef nonnull %546, ptr noundef nonnull @.str.123) #16
   %552 = icmp eq i64 %551, 24
   br i1 %552, label %IsPartialXLogFileName.exit.i119, label %IsPartialXLogFileName.exit.thread.i115
 
 IsPartialXLogFileName.exit.i119:                  ; preds = %550
   %553 = getelementptr i8, ptr %545, i64 43
-  %554 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %553, ptr noundef nonnull dereferenceable(9) @.str.124) #16
+  %554 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %553, ptr noundef nonnull dereferenceable(9) @.str.124) #16
   %555 = icmp eq i32 %554, 0
   br i1 %555, label %556, label %IsPartialXLogFileName.exit.thread.i115
 

@@ -1789,7 +1789,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef %1, ptr
 
 37:                                               ; preds = %._crit_edge.i
   %38 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr readonly align 1 %4, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %4, i64 %3, i1 false)
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i
@@ -2839,7 +2839,7 @@ define hidden i32 @mbedtls_rsa_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %7 = alloca [20 x i8], align 16
   %8 = alloca %struct.mbedtls_mpi, align 8
   call void @mbedtls_mpi_init(ptr noundef nonnull %8) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(336) %3, i8 0, i64 336, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %3, i8 0, i64 336, i1 false)
   %9 = call i32 @mbedtls_mpi_read_string(ptr noundef nonnull %8, i32 noundef 16, ptr noundef nonnull @.str.1) #14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %.critedge57

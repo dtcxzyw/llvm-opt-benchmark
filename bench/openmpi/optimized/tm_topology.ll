@@ -78,7 +78,7 @@ define hidden noalias noundef ptr @tm_get_local_topology_with_hwloc() local_unna
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.preheader.i
   %.01823.i = phi i32 [ %25, %._crit_edge.i ], [ 0, %.lr.ph25.preheader.i ]
   %11 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %7, i32 noundef %.01823.i) #22
-  %12 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %7, i32 noundef %.01823.i, i32 noundef 0) #22
+  %12 = call ptr @hwloc_get_obj_by_depth(ptr noundef %7, i32 noundef %.01823.i, i32 noundef 0) #22
   %13 = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %11, 1
@@ -170,7 +170,7 @@ symetric.exit:                                    ; preds = %hwloc_get_next_obj_
   store i64 %52, ptr %53, align 8
   %54 = shl nsw i64 %52, 3
   %55 = call noalias ptr @malloc(i64 noundef %54) #25
-  %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %49, i32 noundef %50, i32 noundef 0) #22
+  %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef %49, i32 noundef %50, i32 noundef 0) #22
   store ptr %56, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %55, i64 8
   %58 = add nsw i32 %51, -1
@@ -689,7 +689,7 @@ tgt_to_tm.exit:                                   ; preds = %build_synthetic_pro
 .lr.ph25.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph25.preheader.i.i
   %.01823.i.i = phi i32 [ %150, %._crit_edge.i.i ], [ 0, %.lr.ph25.preheader.i.i ]
   %136 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %132, i32 noundef %.01823.i.i) #22
-  %137 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %132, i32 noundef %.01823.i.i, i32 noundef 0) #22
+  %137 = call ptr @hwloc_get_obj_by_depth(ptr noundef %132, i32 noundef %.01823.i.i, i32 noundef 0) #22
   %138 = getelementptr inbounds i8, ptr %137, i64 104
   %139 = load i32, ptr %138, align 8
   %140 = icmp sgt i32 %136, 1
@@ -791,7 +791,7 @@ symetric.exit.i:                                  ; preds = %hwloc_get_next_obj_
   store i64 %181, ptr %182, align 8
   %183 = shl nuw nsw i64 %181, 3
   %184 = call noalias ptr @malloc(i64 noundef %183) #25
-  %185 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %178, i32 noundef %179, i32 noundef 0) #22
+  %185 = call ptr @hwloc_get_obj_by_depth(ptr noundef %178, i32 noundef %179, i32 noundef 0) #22
   store ptr %185, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %184, i64 8
   %187 = add i32 %180, -1
@@ -833,7 +833,7 @@ symetric.exit.i:                                  ; preds = %hwloc_get_next_obj_
   store i64 %204, ptr %205, align 8
   %206 = shl nuw nsw i64 %204, 3
   %207 = call noalias ptr @malloc(i64 noundef %206) #25
-  %208 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %201, i32 noundef %202, i32 noundef 0) #22
+  %208 = call ptr @hwloc_get_obj_by_depth(ptr noundef %201, i32 noundef %202, i32 noundef 0) #22
   store ptr %208, ptr %207, align 8
   %209 = getelementptr inbounds i8, ptr %207, i64 8
   %210 = add i32 %203, -1

@@ -2003,7 +2003,7 @@ _ZN16cmArgumentParserIZN12_GLOBAL__N_117HandleTargetsModeERKSt6vectorINSt7__cxx1
   %247 = getelementptr inbounds i8, ptr %0, i64 8
   %.val527 = load ptr, ptr %247, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(288) %14, i8 0, i64 288, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %14, i8 0, i64 288, i1 false), !alias.scope !20
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9), !noalias !20
   store ptr @_ZZN12_GLOBAL__N_117HandleTargetsModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE9argHelper, ptr %9, align 8, !noalias !20
   %248 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2323,7 +2323,7 @@ _ZN14ArgumentParser11ParseResultD2Ev.exit:        ; preds = %359
   %370 = getelementptr inbounds i8, ptr %17, i64 8
   %.val529 = load ptr, ptr %370, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(168) %23, i8 0, i64 168, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %23, i8 0, i64 168, i1 false), !alias.scope !23
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4), !noalias !23
   store ptr @_ZN12_GLOBAL__N_128RuntimeDependenciesArgHelperE, ptr %4, align 8, !noalias !23
   %371 = getelementptr inbounds i8, ptr %4, i64 8
@@ -8312,7 +8312,7 @@ _ZN16cmArgumentParserIZN12_GLOBAL__N_134HandleImportedRuntimeArtifactsModeERKSt6
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %.val137 = load ptr, ptr %70, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false), !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false), !alias.scope !43
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6), !noalias !43
   store ptr @_ZZN12_GLOBAL__N_134HandleImportedRuntimeArtifactsModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE9argHelper, ptr %6, align 8, !noalias !43
   %71 = getelementptr inbounds i8, ptr %6, i64 8
@@ -13761,7 +13761,7 @@ _ZN16cmArgumentParserIZN12_GLOBAL__N_130HandleRuntimeDependencySetModeERKSt6vect
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   %.val43 = load ptr, ptr %86, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !297
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !297
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5), !noalias !297
   store ptr @_ZZN12_GLOBAL__N_130HandleRuntimeDependencySetModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE9argHelper, ptr %5, align 8, !noalias !297
   %87 = getelementptr inbounds i8, ptr %5, i64 8
@@ -13956,7 +13956,7 @@ _ZN14ArgumentParser11ParseResultD2Ev.exit:        ; preds = %137
   %151 = getelementptr inbounds i8, ptr %17, i64 8
   %.val45 = load ptr, ptr %151, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !300)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(168) %28, i8 0, i64 168, i1 false), !alias.scope !300
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %28, i8 0, i64 168, i1 false), !alias.scope !300
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !300
   store ptr @_ZN12_GLOBAL__N_128RuntimeDependenciesArgHelperE, ptr %3, align 8, !noalias !300
   %152 = getelementptr inbounds i8, ptr %3, i64 8

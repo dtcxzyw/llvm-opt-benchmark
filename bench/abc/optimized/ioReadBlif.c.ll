@@ -1182,7 +1182,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val177 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds ptr, ptr %.val177, i64 %indvars.iv345
   %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #17
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
   %46 = trunc i64 %45 to i32
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader.i, label %.loopexit219
@@ -1497,7 +1497,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val174 = load ptr, ptr %7, align 8
   %205 = getelementptr inbounds ptr, ptr %.val174, i64 %indvars.iv357
   %206 = load ptr, ptr %205, align 8
-  %207 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %206) #17
+  %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %206) #17
   %208 = trunc i64 %207 to i32
   %209 = icmp sgt i32 %208, 0
   br i1 %209, label %.lr.ph.preheader.i204, label %.loopexit
@@ -2721,7 +2721,7 @@ Vec_StrPush.exit108.i:                            ; preds = %240, %Vec_StrGrow.e
 
 267:                                              ; preds = %254
   %268 = load ptr, ptr %87, align 8
-  %269 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %251) #17
+  %269 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #17
   %270 = trunc i64 %269 to i32
   %271 = icmp sgt i32 %270, 0
   br i1 %271, label %.lr.ph.i.i, label %Vec_StrPrintStr.exit.i
@@ -3489,7 +3489,7 @@ Vec_StrPush.exit158.i:                            ; preds = %519, %Vec_StrGrow.e
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %636 ]
   %641 = getelementptr inbounds ptr, ptr %640, i64 %indvars.iv.i
   %642 = load ptr, ptr %641, align 8
-  %643 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %642) #17
+  %643 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %642) #17
   %644 = trunc i64 %643 to i32
   %645 = icmp sgt i32 %644, 0
   br i1 %645, label %.lr.ph.preheader.i.i, label %Io_ReadBlifCleanName.exit.i

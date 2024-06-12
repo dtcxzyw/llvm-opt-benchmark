@@ -326,7 +326,7 @@ vmstate_size.exit.thread:                         ; preds = %if.then22
 vmstate_size.exit.i:                              ; preds = %vmstate_size.exit.thread, %vmstate_size.exit
   %size.0.i159162 = phi i32 [ %conv.i, %vmstate_size.exit ], [ %spec.select.i, %vmstate_size.exit.thread ]
   %conv.i141 = sext i32 %size.0.i159162 to i64
-  %call4.i = tail call fastcc i32 @vmstate_n_elems(ptr noundef readonly %opaque, ptr noundef nonnull readonly %field.0178)
+  %call4.i = tail call fastcc i32 @vmstate_n_elems(ptr noundef %opaque, ptr noundef nonnull %field.0178)
   %conv5.i = sext i32 %call4.i to i64
   %mul.i = mul nsw i64 %conv5.i, %conv.i141
   %tobool6.not.i = icmp eq i64 %mul.i, 0
@@ -1000,7 +1000,7 @@ land.rhs.i:                                       ; preds = %if.end29, %while.co
 
 while.body.i:                                     ; preds = %land.rhs.i
   %32 = load ptr, ptr %31, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %idstr, ptr noundef nonnull dereferenceable(1) %32) #13
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr, ptr noundef nonnull dereferenceable(1) %32) #13
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end37, label %while.cond.i
 
@@ -1382,7 +1382,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = mul i32 %size.0.i, %34
   %idx.ext = sext i32 %mul to i64
   %add.ptr29 = getelementptr i8, ptr %first_elem.0, i64 %idx.ext
-  %call.i = tail call fastcc zeroext i1 @vmsd_can_compress(ptr noundef nonnull readonly %field.0155)
+  %call.i = tail call fastcc zeroext i1 @vmsd_can_compress(ptr noundef nonnull %field.0155)
   %tobool.not.i130 = icmp eq ptr %vmdesc_loop.0153, null
   br i1 %tobool.not.i130, label %vmsd_desc_field_start.exit, label %if.end.i
 

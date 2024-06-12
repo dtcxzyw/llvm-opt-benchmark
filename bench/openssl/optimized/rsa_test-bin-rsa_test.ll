@@ -504,7 +504,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   br i1 %cmp.not.i.i, label %rsa_setkey.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(64) @key1.ctext_ex, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(64) @key1.ctext_ex, i64 64, i1 false)
   br label %rsa_setkey.exit
 
 sw.bb2.i:                                         ; preds = %if.then.i
@@ -523,7 +523,7 @@ sw.bb2.i:                                         ; preds = %if.then.i
   br i1 %cmp.not.i18.i, label %rsa_setkey.exit, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %sw.bb2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(50) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(50) @key2.ctext_ex, i64 50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(50) @key2.ctext_ex, i64 50, i1 false)
   br label %rsa_setkey.exit
 
 sw.bb4.i:                                         ; preds = %if.then.i
@@ -542,7 +542,7 @@ sw.bb4.i:                                         ; preds = %if.then.i
   br i1 %cmp.not.i31.i, label %rsa_setkey.exit, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %sw.bb4.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(128) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(128) @key3.ctext_ex, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %ctext_ex, ptr noundef nonnull align 16 dereferenceable(128) @key3.ctext_ex, i64 128, i1 false)
   br label %rsa_setkey.exit
 
 rsa_setkey.exit:                                  ; preds = %entry, %if.then.i, %sw.bb.i, %if.then.i.i, %sw.bb2.i, %if.then.i19.i, %sw.bb4.i, %if.then.i32.i

@@ -175,11 +175,11 @@ default.unreachable:                              ; preds = %_ZN5uu_df6blocks10S
   unreachable
 
 20:                                               ; preds = %22, %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(160) %18, ptr noundef nonnull align 16 dereferenceable(160) @anon.1ddc00ef857710078536ad3a58a29b4d.8, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %18, ptr noundef nonnull align 16 dereferenceable(160) @anon.1ddc00ef857710078536ad3a58a29b4d.8, i64 160, i1 false)
   br label %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
 
 21:                                               ; preds = %22, %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(160) %18, ptr noundef nonnull align 16 dereferenceable(160) @anon.1ddc00ef857710078536ad3a58a29b4d.7, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %18, ptr noundef nonnull align 16 dereferenceable(160) @anon.1ddc00ef857710078536ad3a58a29b4d.7, i64 160, i1 false)
   br label %_ZN5uu_df6blocks10SuffixType5bases17hd8b5c3f44ad8b556E.exit
 
 22:                                               ; preds = %3

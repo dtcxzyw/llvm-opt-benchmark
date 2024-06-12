@@ -74,7 +74,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %value = getelementptr inbounds i8, ptr %p.021, i64 8
   %0 = load ptr, ptr %value, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %1 = load i32, ptr %call.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %if.then.i, label %copy_key_value.exit
@@ -97,7 +97,7 @@ copy_key_value.exit:                              ; preds = %for.body, %if.then.
   %call2 = tail call ptr @g_realloc(ptr noundef %up.022, i64 noundef %mul) #6
   %3 = load ptr, ptr %value, align 8
   %call.i13 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i13, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i13, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %4 = load i32, ptr %call.i13, align 8
   %cmp.i14 = icmp eq i32 %4, 0
   br i1 %cmp.i14, label %if.then.i15, label %copy_key_value.exit19

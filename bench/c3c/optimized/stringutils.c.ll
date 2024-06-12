@@ -519,7 +519,7 @@ define dso_local noundef ptr @str_printf(ptr nocapture noundef readonly %0, ...)
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.va_copy.p0(ptr nonnull %2, ptr nonnull %3)
-  %4 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %0, ptr noundef nonnull %2) #21
+  %4 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %0, ptr noundef nonnull %2) #21
   call void @llvm.va_end.p0(ptr nonnull %2)
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %str_vprintf.exit, label %6
@@ -529,7 +529,7 @@ define dso_local noundef ptr @str_printf(ptr nocapture noundef readonly %0, ...)
   %8 = zext i32 %7 to i64
   %9 = call ptr @calloc_string(i64 noundef %8) #21
   %10 = sext i32 %7 to i64
-  %11 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %10, ptr noundef readonly %0, ptr noundef nonnull %3) #21
+  %11 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %10, ptr noundef %0, ptr noundef nonnull %3) #21
   br label %str_vprintf.exit
 
 str_vprintf.exit:                                 ; preds = %1, %6
@@ -868,7 +868,7 @@ define dso_local void @scratch_buffer_append(ptr nocapture noundef readonly %0) 
 
 scratch_buffer_append_len.exit:                   ; preds = %1
   %8 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %0, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %0, i64 %2, i1 false)
   %9 = trunc i64 %2 to i32
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %11 = add i32 %10, %9
@@ -981,7 +981,7 @@ define dso_local ptr @scratch_buffer_copy() local_unnamed_addr #7 {
   %2 = zext i32 %1 to i64
   %3 = add nuw nsw i64 %2, 1
   %4 = tail call ptr @calloc_string(i64 noundef %3) #21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull readonly align 4 @scratch_buffer, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 4 @scratch_buffer, i64 %2, i1 false)
   ret ptr %4
 }
 

@@ -204,7 +204,7 @@ define void @_ZN16cranelift_native7builder17h135abacd076bc7b8E(ptr noalias nocap
   br label %_ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE.exit
 
 19:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !25
   br label %_ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE.exit
 

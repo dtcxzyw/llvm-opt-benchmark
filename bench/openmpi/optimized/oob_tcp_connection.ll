@@ -2844,7 +2844,7 @@ define internal fastcc noundef zeroext i1 @retry(ptr noundef %0, i32 noundef %1)
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 256
   store i32 %55, ptr %.sroa.2.0..sroa_idx.i, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 260
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(256) %14, i64 256, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(256) %14, i64 256, i1 false)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 516
   store i32 %54, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 520

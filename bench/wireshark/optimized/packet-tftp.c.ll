@@ -268,7 +268,7 @@ define internal i32 @dissect_tftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond.i, label %.thread, label %is_valid_request.exit
 
 is_valid_request.exit:                            ; preds = %17
-  %20 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef nonnull readonly %1)
+  %20 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef nonnull %1)
   %.not35 = icmp eq i32 %20, 0
   br i1 %.not35, label %.thread, label %21
 
